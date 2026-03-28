@@ -307,7 +307,10 @@ function createProductCard(p) {
             <div class="product-name" title="${p.name}">${p.name}</div>
             <div class="product-meta">
                 <div style="color:${storeColor}; font-weight:800; font-size:0.9rem;">${p.normalized_price.toFixed(2)} <span style="font-size:0.6rem; opacity:0.6;">/ ${p.unit_type}</span></div>
-                <div style="opacity:0.5;">Pack: ${p.unit}</div>
+                <div style="display:flex; justify-content:space-between; align-items:center; opacity:0.5;">
+                    <span>Pack: ${p.unit}</span>
+                    <span style="font-style:italic; font-size:0.55rem; background:#111; padding:1px 4px; border-radius:3px; max-width:80px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${p.category}</span>
+                </div>
             </div>
         </div>
     `;
