@@ -5,6 +5,7 @@ let allProducts = [];
 let metadata = {};
 let favorites = JSON.parse(localStorage.getItem('god_favorites') || '[]');
 let selectedForComparison = JSON.parse(localStorage.getItem('god_comparison') || '[]');
+let customGroups = JSON.parse(localStorage.getItem('god_custom_groups') || '{}');
 
 let currentStore = 'all';
 let searchQuery = '';
@@ -14,6 +15,7 @@ let activeIntelFilter = 'all';
 let compareModeActive = false;
 let showFavoritesOnly = false;
 let activeShopFilters = new Set(['shwapno', 'chaldal', 'meenabazar', 'dailyshopping']);
+let activeCategories = new Set();
 
 let intelDateRange = { start: null, end: null };
 let greatDealThreshold = 0.85;
@@ -99,18 +101,12 @@ function updateStoreStats() {
     sidebarStats.innerHTML = html;
 }
 
-// Helpers for grouping
-function getBaseName(name) {
-    // simplified: just take first 2-3 words, clean up units like '1kg'
-    return name.split(' ').slice(0, 2).join(' ').replace(/\d+(kg|gm|ml|l|pcs)/i, '').trim();
-}
-
 function renderSidebar() {
     const list = document.getElementById('category-list');
     if (!list) return;
     list.innerHTML = '';
     
-    // 1. Shop Toggles
+    // 1. Shop Toggles with Counts
     const shopHeading = document.createElement('div');
     shopHeading.className = 'category-group-header';
     shopHeading.innerHTML = `<span><i class="fas fa-store"></i> Shops</span>`;
@@ -119,12 +115,16 @@ function renderSidebar() {
     const shopList = document.createElement('ul');
     shopList.className = 'category-sub-list active';
     Object.keys(STORE_CONFIG).forEach(id => {
+        const count = allProducts.filter(p => p.store === id).length;
         const li = document.createElement('li');
         li.className = 'category-item';
         li.innerHTML = `
-            <label style="cursor:pointer; display:flex; width:100%; justify-content:space-between;">
-                <span>${STORE_CONFIG[id].name}</span>
-                <input type="checkbox" value="${id}" ${activeShopFilters.has(id) ? 'checked' : ''}>
+            <label style="cursor:pointer; display:flex; width:100%; justify-content:space-between; align-items:center;">
+                <span style="color:${STORE_CONFIG[id].color}">${STORE_CONFIG[id].name}</span>
+                <div style="display:flex; align-items:center; gap:8px;">
+                    <span style="opacity:0.4; font-size:0.7rem;">${count}</span>
+                    <input type="checkbox" value="${id}" ${activeShopFilters.has(id) ? 'checked' : ''}>
+                </div>
             </label>
         `;
         li.querySelector('input').onclick = (e) => {
@@ -136,36 +136,120 @@ function renderSidebar() {
     });
     list.appendChild(shopList);
 
-    // 2. Popular Groups (Smart Clustering)
-    const groupsHeading = document.createElement('div');
-    groupsHeading.className = 'category-group-header';
-    groupsHeading.innerHTML = `<span><i class="fas fa-layer-group"></i> Smart Groups</span>`;
-    list.appendChild(groupsHeading);
+    // 2. Categories with Toggles & Counts
+    const catHeading = document.createElement('div');
+    catHeading.className = 'category-group-header';
+    catHeading.innerHTML = `<span><i class="fas fa-tags"></i> Categories</span>`;
+    list.appendChild(catHeading);
 
-    const groupList = document.createElement('ul');
-    groupList.className = 'category-sub-list active';
-    const groupNames = ['Rice', 'Oil', 'Beef', 'Chicken', 'Egg', 'Milk', 'Apple', 'Onion', 'Dal', 'Soap'];
-    groupNames.forEach(name => {
+    const categories = [...new Set(allProducts.map(p => p.category))].sort();
+    const catList = document.createElement('ul');
+    catList.className = 'category-sub-list active';
+    categories.forEach(cat => {
+        const count = allProducts.filter(p => p.category === cat).length;
         const li = document.createElement('li');
         li.className = 'category-item';
-        li.innerHTML = `<span>${name}</span>`;
-        li.onclick = () => {
-            searchQuery = name.toLowerCase();
-            document.getElementById('product-search').value = name;
+        li.innerHTML = `
+            <label style="cursor:pointer; display:flex; width:100%; justify-content:space-between; align-items:center;">
+                <span style="max-width:150px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${cat}</span>
+                <div style="display:flex; align-items:center; gap:8px;">
+                    <span style="opacity:0.4; font-size:0.7rem;">${count}</span>
+                    <input type="checkbox" value="${cat}" ${activeCategories.has(cat) ? 'checked' : ''}>
+                </div>
+            </label>
+        `;
+        li.querySelector('input').onclick = (e) => {
+            if (e.target.checked) activeCategories.add(cat);
+            else activeCategories.delete(cat);
             renderProducts();
         };
-        groupList.appendChild(li);
+        catList.appendChild(li);
     });
-    list.appendChild(groupList);
+    list.appendChild(catList);
+
+    // 3. User Custom Groups (CRUD)
+    const customHeading = document.createElement('div');
+    customHeading.className = 'category-group-header';
+    customHeading.innerHTML = `<span><i class="fas fa-folder-plus"></i> My Groups</span> <button id="add-group-btn" class="btn-icon" style="padding:2px;"><i class="fas fa-plus"></i></button>`;
+    list.appendChild(customHeading);
+
+    const customList = document.createElement('ul');
+    customList.className = 'category-sub-list active';
+    
+    Object.keys(customGroups).forEach(groupName => {
+        const li = document.createElement('li');
+        li.className = 'category-item';
+        li.innerHTML = `
+            <span class="group-name-trigger" style="flex:1;">${groupName}</span>
+            <div style="display:flex; gap:5px;">
+                <span style="opacity:0.4; font-size:0.7rem;">${customGroups[groupName].length}</span>
+                <i class="fas fa-trash delete-group-btn" style="color:var(--danger); font-size:0.7rem; cursor:pointer;"></i>
+            </div>
+        `;
+        li.querySelector('.group-name-trigger').onclick = () => {
+            // Show only items in this group
+            renderGroupItems(groupName);
+        };
+        li.querySelector('.delete-group-btn').onclick = (e) => {
+            e.stopPropagation();
+            if (confirm(`Delete group "${groupName}"?`)) {
+                delete customGroups[groupName];
+                saveCustomGroups();
+                renderSidebar();
+            }
+        };
+        customList.appendChild(li);
+    });
+    list.appendChild(customList);
+
+    document.getElementById('add-group-btn').onclick = () => {
+        const name = prompt("Enter new group name:");
+        if (name && !customGroups[name]) {
+            // Create group from currently selected (comparison) items
+            if (selectedForComparison.length === 0) {
+                alert("Add some items to Comparison Matrix first to create a group!");
+                return;
+            }
+            customGroups[name] = [...selectedForComparison];
+            saveCustomGroups();
+            renderSidebar();
+        }
+    };
+}
+
+function saveCustomGroups() {
+    localStorage.setItem('god_custom_groups', JSON.stringify(customGroups));
+}
+
+function renderGroupItems(groupName) {
+    const itemIds = customGroups[groupName] || [];
+    searchQuery = '';
+    document.getElementById('product-search').value = '';
+    activeIntelFilter = 'all';
+    showFavoritesOnly = false;
+    
+    const grid = document.getElementById('sh-grid');
+    grid.innerHTML = '';
+    
+    const filtered = allProducts.filter(p => itemIds.includes(p.id));
+    const fragment = document.createDocumentFragment();
+    filtered.forEach(p => {
+        fragment.appendChild(createProductCard(p));
+    });
+    grid.appendChild(fragment);
+    
+    document.getElementById('current-view-title').innerText = `Group: ${groupName}`;
 }
 
 function renderProducts() {
     const grid = document.getElementById('sh-grid');
     if (!grid) return;
     grid.innerHTML = '';
+    document.getElementById('current-view-title').innerText = `GroceryGOD Unified`;
 
     let filtered = allProducts.filter(p => {
         if (!activeShopFilters.has(p.store)) return false;
+        if (activeCategories.size > 0 && !activeCategories.has(p.category)) return false;
         if (showFavoritesOnly && !p.isFavorite) return false;
         if (searchQuery && !p.name.toLowerCase().includes(searchQuery) && !p.category.toLowerCase().includes(searchQuery)) return false;
         if (!activeUnitFilters.has(p.unit_type)) return false;
