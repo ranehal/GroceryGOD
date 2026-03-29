@@ -18,6 +18,7 @@
     </div>
 
     <div class="app-container">
+        <div id="sidebar-overlay" class="sidebar-overlay"></div>
         <!-- Sidebar -->
         <aside class="sidebar">
             <div class="sidebar-header">
@@ -148,6 +149,12 @@
                 </div>
             </div>
             <div class="modal-body-content">
+                <div class="cart-analysis-header" style="margin-bottom:20px; display:flex; justify-content:space-between; align-items:center;">
+                    <div id="shopping-lists-container" style="display:flex; gap:10px;">
+                        <!-- Saved lists buttons here -->
+                    </div>
+                    <button id="save-current-list-btn" class="btn-icon" title="Save current favorites as List"><i class="fas fa-save"></i> Save List</button>
+                </div>
                 <div id="cart-content" class="cart-content-area">
                     <!-- Tab contents -->
                 </div>
@@ -183,10 +190,6 @@
                     <div class="stat-label">Market Range</div>
                     <div class="stat-value" id="chart-min-max"></div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-label">Market Store</div>
-                    <div class="stat-value" id="chart-store-name"></div>
-                </div>
             </div>
             <div class="chart-container full-height-container">
                 <canvas id="price-history-chart"></canvas>
@@ -194,7 +197,10 @@
         </div>
     </div>
 
-    <script src="data.js"></script>
+    <script src="shwapno_data.js"></script>
+    <script src="chaldal_data.js"></script>
+    <script src="meenabazar_data.js"></script>
+    <script src="dailyshopping_data.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
