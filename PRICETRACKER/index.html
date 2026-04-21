@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PriceTracker Pro // Market Intelligence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="theme-dark">
+    <div class="app-container">
+        <!-- Sidebar: Discovery Deck -->
+        <nav id="sidebar" class="sidebar">
+            <div class="sidebar-header">
+                <div class="brand">
+                    <i class="fa-solid fa-microchip"></i>
+                    <span>PRICETRACKER</span>
+                </div>
+                <button id="toggleSidebarBtn" class="icon-btn hide-desktop"><i class="fa-solid fa-chevron-left"></i></button>
+            </div>
+
+            <div class="sidebar-search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="catSearch" placeholder="Search categories...">
+            </div>
+
+            <div class="category-container">
+                <div id="pinnedCategoriesSection" class="category-section hidden">
+                    <div class="section-label"><i class="fa-solid fa-thumbtack"></i> BOOKMARKED</div>
+                    <ul class="category-list" id="pinnedCategoryList"></ul>
+                </div>
+                
+                <div class="category-section">
+                    <div class="section-label"><i class="fa-solid fa-list"></i> ALL_SENSORS</div>
+                    <label class="select-all">
+                        <input type="checkbox" id="selectAllCats">
+                        <span>SELECT_ALL</span>
+                    </label>
+                    <ul class="category-list" id="categoryList"></ul>
+                </div>
+            </div>
+
+            <div class="sidebar-footer">
+                <button class="btn btn-primary btn-block" id="scrapeNowBtn">
+                    <i class="fa-solid fa-bolt"></i> SYNC_MARKET_DATA
+                </button>
+            </div>
+        </nav>
+
+        <!-- Main Dashboard -->
+        <main class="main-content">
+            <header class="top-nav">
+                <div class="nav-left">
+                    <button id="mobileMenuBtn" class="icon-btn hide-desktop"><i class="fa-solid fa-bars"></i></button>
+                    <div class="view-title">
+                        <h1>Tactical_Dashboard</h1>
+                        <span class="status-badge"><span class="pulse"></span> LIVE_FEED</span>
+                    </div>
+                </div>
+                
+                <div class="nav-right">
+                    <div class="search-bar">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" id="searchInput" placeholder="Search item database...">
+                    </div>
+                    
+                    <div class="controls">
+                        <button id="recentUpdatesBtn" class="icon-btn" title="Date Range Analysis">
+                            <i class="fa-solid fa-calendar-days"></i>
+                        </button>
+
+                        <select id="sortSelect" class="glass-select">
+                            <option value="name">A-Z_NAME</option>
+                            <option value="priceAsc">VALUE_ASC</option>
+                            <option value="priceDesc">VALUE_DESC</option>
+                            <option value="fav">PRIORITY</option>
+                        </select>
+                        
+                        <select id="filterType" class="glass-select">
+                            <option value="all">ALL_UNITS</option>
+                            <option value="kg">WEIGHT (KG/G)</option>
+                            <option value="liter">VOLUME (L/ML)</option>
+                            <option value="piece">UNIT (PCS)</option>
+                        </select>
+
+                        <button id="showChangesBtn" class="icon-btn" title="Price Delta View">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </button>
+                        
+                        <button id="toggleCompareBtn" class="icon-btn" title="Compare Items">
+                            <i class="fa-solid fa-shuffle"></i>
+                        </button>
+
+                        <button id="themeToggle" class="icon-btn"><i class="fa-solid fa-circle-half-stroke"></i></button>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-area">
+                <div id="stats-bar" class="stats-grid">
+                    <div class="stat-card">
+                        <span class="label">DATABASE_ITEMS</span>
+                        <span class="value" id="totalItems">0</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="label">MARKET_DROPS</span>
+                        <span class="value highlight" id="priceDrops">0</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="label">LAST_SYNC</span>
+                        <span class="value" id="lastUpdate">--</span>
+                    </div>
+                </div>
+
+                <!-- Custom Range Analysis Bar -->
+                <div class="filter-options hidden" id="rangeAnalysisBar">
+                    <div class="glass-group">
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                        <span>DELTA ANALYSIS:</span>
+                        <span id="rangeDisplay" class="range-text">SELECT_RANGE</span>
+                        <button class="btn btn-secondary btn-sm" id="resetRangeBtn">RESET</button>
+                    </div>
+                </div>
+
+                <div class="filter-options hidden" id="changesOptions">
+                    <div class="glass-group">
+                        <select id="changesMovement">
+                            <option value="any">ANY_MOVEMENT</option>
+                            <option value="up">INFLATION_DETECTED</option>
+                            <option value="down">VALUE_DROP</option>
+                        </select>
+                        <select id="changesSort">
+                            <option value="diffDesc">MAGNITUDE_DESC</option>
+                            <option value="diffAsc">MAGNITUDE_ASC</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="product-grid" class="product-grid"></div>
+            </div>
+        </main>
+    </div>
+
+    <!-- 90% Screensize Modals -->
+    <div id="historyModal" class="modal hidden">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content glass expanded">
+            <div class="modal-header">
+                <div class="header-main">
+                    <h2 id="modalTitle">DATA_VISUALIZATION</h2>
+                    <div id="modalDetails" class="details-row"></div>
+                </div>
+                <button class="close-modal icon-btn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="chart-container">
+                    <canvas id="priceChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="recentUpdatesModal" class="modal hidden">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content glass compact">
+            <div class="modal-header">
+                <h2>RANGE_FILTER</h2>
+                <button class="close-modal icon-btn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>START_DATE</label>
+                        <input type="date" id="updateFromDate" class="glass-input">
+                    </div>
+                    <div class="form-group">
+                        <label>END_DATE</label>
+                        <input type="date" id="updateToDate" class="glass-input">
+                    </div>
+                </div>
+                <button id="applyUpdatesFilterBtn" class="btn btn-primary btn-block">INITIATE_ANALYSIS</button>
+            </div>
+        </div>
+    </div>
+
+    <aside id="compareBar" class="compare-bar glass">
+        <div class="compare-info">
+            <i class="fa-solid fa-scale-balanced"></i>
+            <span id="compareCount">0 UNITS STAGED</span>
+        </div>
+        <div class="actions">
+            <button class="btn btn-primary btn-sm" id="doCompareBtn">LAUNCH_COMPARISON</button>
+            <button class="btn btn-secondary btn-sm" onclick="clearCompare()">ABORT</button>
+        </div>
+    </aside>
+
+    <div id="sidebar-overlay" class="overlay"></div>
+
+    <script src="categories.js"></script>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

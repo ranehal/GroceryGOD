@@ -1,0 +1,5 @@
+flask
+playwright
+beautifulsoup4
+lxml
+requests

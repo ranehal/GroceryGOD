@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Price Tracker Pro</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="pitch-black">
+    <div id="loading-spinner" class="spinner-container">
+        <div class="spinner"></div>
+        <span style="color:var(--accent-color)">Loading Data...</span>
+    </div>
+
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <h3 style="margin:0">Categories</h3>
+                    <button id="run-scraper-btn" class="btn-icon"><i class="fas fa-sync"></i></button>
+                </div>
+            </div>
+            
+            <div class="sidebar-controls">
+                <button id="select-all-cat" class="btn-icon" title="Toggle All"><i class="fas fa-check-double"></i></button>
+                <button id="add-custom-cat-btn" class="btn-icon" title="Create Custom Category"><i class="fas fa-folder-plus"></i></button>
+                <button id="bookmark-cat-btn" class="btn-icon" title="Show Favorites Only"><i class="fas fa-star"></i></button>
+            </div>
+
+            <div class="category-search-container">
+                <input type="text" id="category-filter" placeholder="Search categories...">
+            </div>
+
+            <ul id="category-list" class="category-list">
+                <!-- Categories populated by JS -->
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="dashboard-header">
+                <div class="header-left" style="display:flex; align-items:center; gap:10px;">
+                    <button id="sidebar-toggle" class="sidebar-toggle-btn"><i class="fas fa-bars"></i></button>
+                    <h2 id="current-view-title" style="margin:0; font-size:1.2rem; color:var(--text-primary);">All Products</h2>
+                    <div class="search-wrapper">
+                        <input type="text" id="product-search" class="search-input" style="width:250px" placeholder="Search products...">
+                        <i id="clear-search" class="fas fa-times-circle clear-search"></i>
+                    </div>
+                </div>
+                
+                <div class="header-right" style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+                    <select id="sort-options" class="search-input">
+                        <option value="name_asc">Name A-Z</option>
+                        <option value="name_desc">Name Z-A</option>
+                        <option value="price_asc">Price Low-High</option>
+                        <option value="price_desc">Price High-Low</option>
+                        <option value="savings_desc">Best Savings</option>
+                        <option value="change_desc">Biggest Drop</option>
+                        <option value="change_asc">Biggest Rise</option>
+                    </select>
+
+                    <select id="unit-filter" class="search-input">
+                        <option value="all">All Units</option>
+                        <option value="kg">Kg/Gm</option>
+                        <option value="liter">Liter/ML</option>
+                        <option value="piece">Piece</option>
+                    </select>
+
+                    <select id="group-products-by" class="search-input">
+                        <option value="none">No Grouping</option>
+                        <option value="category">By Category</option>
+                        <option value="unit_type">By Unit Type</option>
+                    </select>
+
+                    <button id="price-changes-btn" class="btn-icon" title="Price Changes"><i class="fas fa-chart-line"></i> Changes</button>
+                    <button id="compare-btn" class="btn-icon" title="Compare Items"><i class="fas fa-balance-scale"></i> Compare</button>
+                </div>
+            </header>
+
+            <!-- Stats Bar -->
+            <div class="stats-bar">
+                <div class="stat-item clickable" id="stat-total-btn">
+                    <span class="stat-label">Total Items</span>
+                    <span class="stat-value" id="total-items">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Last Updated</span>
+                    <span class="stat-value" id="last-updated">-</span>
+                </div>
+                <div class="stat-item clickable" id="stat-good-buys-btn">
+                    <span class="stat-label">Good Buys</span>
+                    <span class="stat-value highlight" id="good-buys-count">0</span>
+                </div>
+            </div>
+
+            <!-- Main Content Area with View Modes -->
+            <div id="main-content-area">
+                <div id="sh-grid" class="p-view-sh">
+                    <!-- Products populated by JS -->
+                </div>
+                
+                <div id="price-changes-view" class="price-changes-panel" style="display:none;">
+                    <div class="panel-header">
+                        <h2>Price Changes Analysis</h2>
+                        <div class="view-controls" style="display:flex; gap:10px; flex-wrap:wrap;">
+                            <select id="changes-cat-filter" class="search-input">
+                                <option value="all">All Categories</option>
+                                <!-- Populated by JS -->
+                            </select>
+                            <select id="changes-sort-options" class="search-input">
+                                <option value="drop_desc">Biggest Drop (%)</option>
+                                <option value="drop_asc">Biggest Rise (%)</option>
+                                <option value="abs_desc">Biggest Price Change (৳)</option>
+                                <option value="name_asc">Name A-Z</option>
+                            </select>
+                            <select id="changes-type-filter" class="search-input">
+                                <option value="normalized">Unit Price Changes</option>
+                                <option value="actual">Actual Price Changes</option>
+                            </select>
+                            <button id="close-changes-view" class="btn-icon" title="Back to Products"><i class="fas fa-times"></i></button>
+                        </div>
+                    </div>
+                    <div id="price-changes-content-main" class="p-changes-grid">
+                        <!-- Content populated by JS -->
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Price Changes Modal -->
+    <div id="price-changes-modal" class="modal">
+        <div class="modal-content large-modal">
+            <div class="modal-header">
+                <h2>Price Changes Analysis</h2>
+                <span class="close-modal" data-modal="price-changes-modal">&times;</span>
+            </div>
+            <div class="modal-filters">
+                <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
+                    <label style="display:flex; align-items:center; gap:5px;">
+                        <input type="radio" name="date-range" value="yesterday" checked> Yesterday
+                    </label>
+                    <label style="display:flex; align-items:center; gap:5px;">
+                        <input type="radio" name="date-range" value="week"> Last Week
+                    </label>
+                    <label style="display:flex; align-items:center; gap:5px;">
+                        <input type="radio" name="date-range" value="month"> Last Month
+                    </label>
+                    <label style="display:flex; align-items:center; gap:5px;">
+                        <input type="radio" name="date-range" value="custom"> Custom Range
+                    </label>
+                    <div id="custom-date-range" style="display:none; gap:5px;">
+                        <input type="date" id="start-date" class="search-input">
+                        <input type="date" id="end-date" class="search-input">
+                        <button id="apply-custom-range" class="btn-icon">Apply</button>
+                    </div>
+                </div>
+                <div style="display:flex; gap:10px; margin-top:10px;">
+                    <select id="changes-sort" class="search-input">
+                        <option value="diff_desc">Biggest Drop</option>
+                        <option value="diff_asc">Biggest Rise</option>
+                        <option value="percent_desc">% Drop</option>
+                        <option value="percent_asc">% Rise</option>
+                    </select>
+                    <select id="changes-unit-filter" class="search-input">
+                        <option value="all">All Units</option>
+                        <option value="kg">Kg/Gm</option>
+                        <option value="liter">Liter/ML</option>
+                        <option value="piece">Piece</option>
+                    </select>
+                </div>
+            </div>
+            <div id="price-changes-content" class="scrollable-content">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Compare Modal -->
+    <div id="compare-modal" class="modal">
+        <div class="modal-content large-modal">
+            <div class="modal-header">
+                <h2>Compare Products</h2>
+                <span class="close-modal" data-modal="compare-modal">&times;</span>
+            </div>
+            <div class="compare-controls">
+                <button id="compare-clear-all" class="btn-icon"><i class="fas fa-trash"></i> Clear All</button>
+                <span id="selected-count" style="color:var(--accent-color)">0 items selected</span>
+            </div>
+            <div id="compare-chart-container">
+                <canvas id="compare-chart"></canvas>
+            </div>
+            <div id="compare-details" class="compare-details-grid">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Category Modal -->
+    <div id="custom-category-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Create Custom Category</h2>
+                <span class="close-modal" data-modal="custom-category-modal">&times;</span>
+            </div>
+            <div style="padding:20px;">
+                <div style="margin-bottom:15px;">
+                    <label>Category Name</label>
+                    <input type="text" id="custom-cat-name" class="search-input" style="width:100%; margin-top:5px;" placeholder="e.g., My Weekly Essentials">
+                </div>
+                <div style="margin-bottom:15px;">
+                    <label>Icon (Font Awesome class)</label>
+                    <input type="text" id="custom-cat-icon" class="search-input" style="width:100%; margin-top:5px;" placeholder="e.g., heart, star, shopping-cart">
+                </div>
+                <div style="margin-bottom:15px;">
+                    <label>Select Products</label>
+                    <input type="text" id="custom-cat-search" class="search-input" style="width:100%; margin-top:5px;" placeholder="Search products...">
+                    <div id="custom-cat-products" class="custom-cat-product-list">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+                <div style="display:flex; gap:10px;">
+                    <button id="save-custom-category" class="btn-icon" style="flex:1;"><i class="fas fa-save"></i> Save Category</button>
+                    <button class="btn-icon close-modal" data-modal="custom-category-modal" style="flex:1;">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Detailed Chart Modal (Sci-Fi Style) -->
+    <div id="chart-modal" class="modal">
+        <div class="modal-content full-screen-modal sci-fi-modal">
+            <div class="modal-header">
+                <h2 id="chart-product-name"></h2>
+                <div style="display:flex; gap:15px; align-items:center;">
+                    <span id="chart-product-unit" style="color:#888; font-size:0.9rem;"></span>
+                    <span class="close-modal" data-modal="chart-modal">&times;</span>
+                </div>
+            </div>
+            <div class="chart-analytics full-width-analytics">
+                <div class="stat-card">
+                    <div class="stat-label">Actual Price</div>
+                    <div class="stat-value" id="chart-actual"></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Unit Price</div>
+                    <div class="stat-value" id="chart-unit"></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Average (Unit)</div>
+                    <div class="stat-value" id="chart-avg"></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Min/Max (Unit)</div>
+                    <div class="stat-value" id="chart-min-max"></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Today Change</div>
+                    <div class="stat-value" id="chart-change"></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Volatility</div>
+                    <div class="stat-value" id="chart-volatility"></div>
+                </div>
+            </div>
+            <div class="chart-container full-height-container">
+                <canvas id="price-history-chart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
