@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+sqlalchemy
+playwright
+pydantic
+pandas
+httpx
+python-multipart
+aiosqlite

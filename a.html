@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Neighborhood Table</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        :root {
+            --warm-orange: #FF9800;
+            --soft-pink: #FF8A80;
+            --fresh-green: #66BB6A;
+            --sunny-yellow: #FFD54F;
+            --cream-bg: #FFF8E1;
+            --soft-brown: #8D6E63;
+            --light-pink: #FFE0E0;
+            --light-orange: #FFE0B2;
+            --light-green: #E8F5E9;
+            --light-yellow: #FFF9C4;
+            --white: #ffffff;
+            --text-dark: #5D4037;
+            --text-medium: #795548;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            width: 1280px;
+            height: 720px;
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, #FFF8E1 0%, #FFE0E0 50%, #FFE0B2 100%);
+            color: var(--text-dark);
+            overflow: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        @-webkit-keyframes slideDown {
+            from { opacity: 0; -webkit-transform: translateY(-30px); transform: translateY(-30px); }
+            to { opacity: 1; -webkit-transform: translateY(0); transform: translateY(0); }
+        }
+        @keyframes slideDown {
+            from { opacity: 0; -webkit-transform: translateY(-30px); transform: translateY(-30px); }
+            to { opacity: 1; -webkit-transform: translateY(0); transform: translateY(0); }
+        }
+        
+        @-webkit-keyframes slideInLeft {
+            from { opacity: 0; -webkit-transform: translateX(-30px); transform: translateX(-30px); }
+            to { opacity: 1; -webkit-transform: translateX(0); transform: translateX(0); }
+        }
+        @keyframes slideInLeft {
+            from { opacity: 0; -webkit-transform: translateX(-30px); transform: translateX(-30px); }
+            to { opacity: 1; -webkit-transform: translateX(0); transform: translateX(0); }
+        }
+        
+        @-webkit-keyframes bounceIn {
+            0% { opacity: 0; -webkit-transform: scale(0.5); transform: scale(0.5); }
+            70% { -webkit-transform: scale(1.1); transform: scale(1.1); }
+            100% { opacity: 1; -webkit-transform: scale(1); transform: scale(1); }
+        }
+        @keyframes bounceIn {
+            0% { opacity: 0; -webkit-transform: scale(0.5); transform: scale(0.5); }
+            70% { -webkit-transform: scale(1.1); transform: scale(1.1); }
+            100% { opacity: 1; -webkit-transform: scale(1); transform: scale(1); }
+        }
+        
+        @-webkit-keyframes float {
+            0%, 100% { -webkit-transform: translateY(0px); transform: translateY(0px); }
+            50% { -webkit-transform: translateY(-15px); transform: translateY(-15px); }
+        }
+        @keyframes float {
+            0%, 100% { -webkit-transform: translateY(0px); transform: translateY(0px); }
+            50% { -webkit-transform: translateY(-15px); transform: translateY(-15px); }
+        }
+        
+        .header {
+            padding: 40px 70px 20px;
+            background: rgba(255, 255, 255, 0.85);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            -webkit-animation: slideDown 0.8s ease-out;
+            animation: slideDown 0.8s ease-out;
+        }
+        .header-content h1 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 32px;
+            background: linear-gradient(135deg, var(--fresh-green), var(--warm-orange));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+        .header-content p {
+            color: var(--text-medium);
+            font-size: 16px;
+            font-weight: 500;
+        }
+        .community-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--fresh-green), #43A047);
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 15px;
+            box-shadow: 0 4px 16px rgba(102, 187, 106, 0.4);
+        }
+        
+        .main-container {
+            flex: 1;
+            padding: 25px 70px 35px;
+            display: flex;
+            gap: 25px;
+        }
+        
+        .left-panel {
+            width: 42%;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+            display: flex;
+            gap: 16px;
+            transition: all 0.4s ease;
+            border-left: 5px solid;
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+        }
+        .feature-card:nth-child(1) { 
+            border-color: var(--warm-orange);
+            -webkit-animation: slideInLeft 0.6s ease-out 0.2s both;
+            animation: slideInLeft 0.6s ease-out 0.2s both;
+        }
+        .feature-card:nth-child(2) { 
+            border-color: var(--soft-pink);
+            -webkit-animation: slideInLeft 0.6s ease-out 0.4s both;
+            animation: slideInLeft 0.6s ease-out 0.4s both;
+        }
+        .feature-card:nth-child(3) { 
+            border-color: var(--fresh-green);
+            -webkit-animation: slideInLeft 0.6s ease-out 0.6s both;
+            animation: slideInLeft 0.6s ease-out 0.6s both;
+        }
+        
+        .feature-card:hover {
+            transform: translateX(8px) scale(1.01);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+        }
+        
+        .feature-emoji-box {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            -webkit-flex-shrink: 0;
+            flex-shrink: 0;
+        }
+        .feature-card:nth-child(1) .feature-emoji-box { background: var(--light-orange); }
+        .feature-card:nth-child(2) .feature-emoji-box { background: var(--light-pink); }
+        .feature-card:nth-child(3) .feature-emoji-box { background: var(--light-green); }
+        
+        .feature-content {
+            flex: 1;
+        }
+        .feature-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 6px;
+        }
+        .feature-desc {
+            font-size: 14px;
+            color: var(--text-medium);
+            line-height: 1.5;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+        
+        .stats-row {
+            display: flex;
+            gap: 8px;
+        }
+        .stat-item {
+            background: var(--cream-bg);
+            padding: 5px 12px;
+            border-radius: 16px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-medium);
+            border: 2px solid #FFE0B2;
+        }
+        
+        .right-panel {
+            width: 58%;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+            -webkit-animation: bounceIn 0.8s ease-out 0.5s both;
+            animation: bounceIn 0.8s ease-out 0.5s both;
+        }
+        
+        .map-container {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #E8F5E9 0%, #E3F2FD 100%);
+            border-radius: 16px;
+            position: relative;
+        }
+        
+        .map-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(102, 187, 106, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(102, 187, 106, 0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        
+        .food-pin {
+            position: absolute;
+            background: var(--white);
+            border-radius: 16px;
+            padding: 14px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+            width: 160px;
+            transition: all 0.3s ease;
+        }
+        .food-pin:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+        }
+        .food-pin::before {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 50%;
+            -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 6px solid var(--white);
+        }
+        
+        .pin-1 { top: 12%; left: 8%; -webkit-animation: float 5s ease-in-out infinite 0s; animation: float 5s ease-in-out infinite 0s; }
+        .pin-2 { top: 18%; right: 12%; -webkit-animation: float 5s ease-in-out infinite 1.5s; animation: float 5s ease-in-out infinite 1.5s; }
+        .pin-3 { bottom: 22%; left: 18%; -webkit-animation: float 5s ease-in-out infinite 3s; animation: float 5s ease-in-out infinite 3s; }
+        .pin-4 { bottom: 12%; right: 8%; -webkit-animation: float 5s ease-in-out infinite 4.5s; animation: float 5s ease-in-out infinite 4.5s; }
+        
+        .pin-header {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 6px;
+        }
+        .pin-emoji {
+            font-size: 24px;
+        }
+        .pin-dish {
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+        .pin-match {
+            background: var(--light-green);
+            color: var(--fresh-green);
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+        .pin-details {
+            font-size: 12px;
+            color: var(--text-medium);
+            line-height: 1.4;
+            font-weight: 500;
+        }
+        
+        .map-overlay-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: var(--white);
+            padding: 10px 16px;
+            border-radius: 14px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-medium);
+            z-index: 2;
+        }
+        .map-overlay-badge i {
+            color: var(--fresh-green);
+            font-size: 18px;
+        }
+        
+        .connection-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <h1>Share Food, Share Love 🍲💕</h1>
+            <p>Why Cook When You Can Share?</p>
+        </div>
+        <div class="community-badge">
+            <i class="material-icons" style="font-size: 20px;">favorite</i>
+            P2P Community
+        </div>
+    </div>
+
+    <div class="main-container">
+        <div class="left-panel">
+            <div class="feature-card">
+                <div class="feature-emoji-box">
+                    🛒
+                </div>
+                <div class="feature-content">
+                    <div class="feature-title">Buy/Sell Surplus</div>
+                    <div class="feature-desc">Browse neighbors' extra home-cooked portions when you're tired to cook. Save time, eat fresh! 🍽️</div>
+                    <div class="stats-row">
+                        <span class="stat-item">💯 Freshness</span>
+                        <span class="stat-item">⚡ Same-Day</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-emoji-box">
+                    🛡️
+                </div>
+                <div class="feature-content">
+                    <div class="feature-title">Safety First</div>
+                    <div class="feature-desc">Reputation-based reviews and "God-Tier" verification badges ensure trusted food sources. 🌟</div>
+                    <div class="stats-row">
+                        <span class="stat-item">⭐ 4.9 Rating</span>
+                        <span class="stat-item">✅ Verified</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-emoji-box">
+                    ♻️
+                </div>
+                <div class="feature-content">
+                    <div class="feature-title">Sustainability</div>
+                    <div class="feature-desc">Turn near-expiry items into community sales rather than waste-bin additions. 🌍</div>
+                    <div class="stats-row">
+                        <span class="stat-item">🌱 Zero-Waste</span>
+                        <span class="stat-item">💚 Eco-Friendly</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="right-panel">
+            <div class="map-container">
+                <div class="map-grid"></div>
+                <div class="connection-lines">
+                    <svg width="100%" height="100%" style="position: absolute; top: 0; left: 0;">
+                        <line x1="180" y1="130" x2="440" y2="140" stroke="rgba(102,187,106,0.2)" stroke-width="3" stroke-dasharray="5,5"/>
+                        <line x1="180" y1="130" x2="250" y2="400" stroke="rgba(255,152,0,0.2)" stroke-width="3" stroke-dasharray="5,5"/>
+                        <line x1="440" y1="140" x2="490" y2="470" stroke="rgba(255,138,128,0.2)" stroke-width="3" stroke-dasharray="5,5"/>
+                    </svg>
+                </div>
+                
+                <div class="map-overlay-badge">
+                    <i class="material-icons">location_on</i>
+                    <span>Dhanmondi Area • 12 Yummy Listings 🍕</span>
+                </div>
+
+                <div class="food-pin pin-1">
+                    <div class="pin-header">
+                        <span class="pin-emoji">🐟</span>
+                        <span class="pin-dish">Fish Curry</span>
+                        <span class="pin-match">95% Match</span>
+                    </div>
+                    <div class="pin-details">
+                        Extra portion • 2 servings<br/>
+                        <strong>৳150</strong> • 5 min ago
+                    </div>
+                </div>
+
+                <div class="food-pin pin-2">
+                    <div class="pin-header">
+                        <span class="pin-emoji">🍚</span>
+                        <span class="pin-dish">Biriyani</span>
+                        <span class="pin-match">92% Match</span>
+                    </div>
+                    <div class="pin-details">
+                        Home-made special • 4 servings<br/>
+                        <strong>৳200</strong> • 12 min ago
+                    </div>
+                </div>
+
+                <div class="food-pin pin-3">
+                    <div class="pin-header">
+                        <span class="pin-emoji">🥗</span>
+                        <span class="pin-dish">Vegetable Mix</span>
+                        <span class="pin-match">98% Match</span>
+                    </div>
+                    <div class="pin-details">
+                        Fresh organic • 3 servings<br/>
+                        <strong>৳120</strong> • 25 min ago
+                    </div>
+                </div>
+
+                <div class="food-pin pin-4">
+                    <div class="pin-header">
+                        <span class="pin-emoji">🍲</span>
+                        <span class="pin-dish">Chicken Soup</span>
+                        <span class="pin-match">90% Match</span>
+                    </div>
+                    <div class="pin-details">
+                        Nutrient-rich • 6 servings<br/>
+                        <strong>৳180</strong> • 35 min ago
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

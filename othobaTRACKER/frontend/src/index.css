@@ -1,0 +1,59 @@
+:root {
+  --neon-cyan: #00f2ff;
+  --neon-green: #39ff14;
+  --neon-red: #ff3131;
+  --bg-dark: #05070a;
+  --panel-bg: rgba(16, 20, 30, 0.8);
+  --border-glow: 0 0 10px rgba(0, 242, 255, 0.3);
+}
+
+body {
+  background: radial-gradient(circle at center, #0a1018 0%, #05070a 100%);
+  color: #e0e6ed;
+  min-height: 100vh;
+}
+
+.sci-fi-border {
+  border: 1px solid var(--neon-cyan);
+  box-shadow: var(--border-glow);
+  position: relative;
+}
+
+.sci-fi-border::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid var(--neon-cyan);
+  border-left: 2px solid var(--neon-cyan);
+}
+
+.sci-fi-border::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: 10px;
+  height: 10px;
+  border-bottom: 2px solid var(--neon-cyan);
+  border-right: 2px solid var(--neon-cyan);
+}
+
+.glitch-text:hover {
+  text-shadow: 2px 0 var(--neon-red), -2px 0 var(--neon-cyan);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a1018;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--neon-cyan);
+  border-radius: 4px;
+}

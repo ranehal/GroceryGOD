@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+playwright
+sqlalchemy
+sqlite-utils
+apscheduler
+pydantic
+beautifulsoup4
+lxml
