@@ -313,6 +313,15 @@ function setupEventListeners() {
         updateSuggestions(searchQuery); renderProducts();
     };
 
+    // Auto-hide suggestions when clicking outside
+    document.addEventListener('click', (e) => {
+        const wrapper = document.querySelector('.search-wrapper');
+        const box = document.getElementById('search-suggestions');
+        if (wrapper && !wrapper.contains(e.target)) {
+            box.style.display = 'none';
+        }
+    });
+
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             document.querySelectorAll('.modal').forEach(m => m.style.display = 'none');
