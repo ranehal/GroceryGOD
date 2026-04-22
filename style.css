@@ -515,6 +515,13 @@ body.pitch-black {
 }
 
 /* Chart Modal Background Image */
+/* Chart Modal Background Image Fix */
+.modal-content.sci-fi-modal {
+    background: #000; /* Solid black base */
+    position: relative;
+    overflow: hidden;
+}
+
 .modal-content.sci-fi-modal::before {
     content: "";
     position: absolute;
@@ -523,17 +530,22 @@ body.pitch-black {
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    opacity: 0.4; /* Increased opacity */
-    z-index: -1;
+    opacity: 0.35; /* Clear visibility */
+    z-index: 1;    /* Above background, below content */
     pointer-events: none;
-    filter: brightness(0.6) contrast(1.2); /* Enhance image clarity */
+    filter: brightness(0.8) contrast(1.1);
 }
 
-/* Add a dark gradient to ensure chart lines are visible over the brighter image */
-.modal-content.sci-fi-modal {
-    background: radial-gradient(circle, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.95) 100%);
+/* Ensure all interactive/content elements are above the image */
+.modal-header, 
+.chart-analytics, 
+.chart-container {
     position: relative;
-    overflow: hidden;
+    z-index: 10;
+}
+
+#price-history-chart {
+    background: transparent;
 }
 
 #price-history-chart {
