@@ -17,7 +17,7 @@ let sortOption = 'name_asc';
 let activeIntelFilter = 'all';
 let compareModeActive = false;
 let showFavoritesOnly = false;
-let activeShopFilters = new Set(['shwapno', 'chaldal', 'meenabazar', 'othoba']);
+let activeShopFilters = new Set(['shwapno']);
 let activeCategories = new Set();
 
 let greatDealThreshold = 0.85;
