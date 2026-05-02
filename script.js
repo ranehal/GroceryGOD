@@ -40,16 +40,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     showLoading(true, 'Initializing GODdata Matrix...');
     
     const storeKeys = Object.keys(STORE_CONFIG);
-    storeKeys.forEach(key => {
-        const globalData = window[key + 'Data'];
-        if (globalData && globalData.products) {
-            allProducts.push(...Object.values(globalData.products));
-            if (globalData.metadata) {
-                metadata.stores = metadata.stores || {};
-                metadata.stores[key] = globalData.metadata;
-            }
-        }
-    });
+    
+    // Sequential async loading to prevent browser thread locking
+    for (const key of storeKeys) {
+        await loadStoreData(key);
+    }
 
     processData();
     renderSidebar();
@@ -59,6 +54,60 @@ document.addEventListener('DOMContentLoaded', async () => {
     updateStatsBar();
     showLoading(false);
 });
+
+/**
+ * Asynchronously loads chunked data parts for a given store.
+ * 1. Reads manifest (already loaded via script tag).
+ * 2. Loops through total_chunks.
+ * 3. Dynamically injects script tags for each part.
+ * 4. Stitches the product parts into the master allProducts array.
+ * 5. Cleans up memory by deleting global part variables and removing script tags.
+ */
+async function loadStoreData(storeKey) {
+    const manifest = window[storeKey + 'Manifest'];
+    if (!manifest || !manifest.metadata) {
+        console.warn(`[GOD_UPLINK] No manifest found for ${storeKey}. Skipping store.`);
+        return;
+    }
+
+    const { total_chunks } = manifest.metadata;
+    const masterProducts = {};
+
+    for (let i = 1; i <= total_chunks; i++) {
+        showLoading(true, `Uplinking ${storeKey.toUpperCase()} Part ${i}/${total_chunks}...`);
+        
+        await new Promise((resolve) => {
+            const script = document.createElement('script');
+            script.src = `${storeKey}_data_part${i}.js`;
+            script.async = true;
+            script.onload = () => {
+                const partVarName = `${storeKey}_part${i}`;
+                const partData = window[partVarName];
+                if (partData) {
+                    Object.assign(masterProducts, partData);
+                    // CRITICAL: Immediately delete from window to free up memory
+                    delete window[partVarName];
+                }
+                script.remove(); // Clean up DOM
+                resolve();
+            };
+            script.onerror = () => {
+                console.error(`[GOD_UPLINK] Failed to load ${storeKey} part ${i}`);
+                resolve(); // Continue with next chunk
+            };
+            document.head.appendChild(script);
+        });
+    }
+
+    // Integrate into the main application state
+    const productsArray = Object.values(masterProducts);
+    allProducts.push(...productsArray);
+    
+    metadata.stores = metadata.stores || {};
+    metadata.stores[storeKey] = manifest.metadata;
+    
+    console.log(`[GOD_UPLINK] ${storeKey.toUpperCase()} Synchronized: ${productsArray.length} units.`);
+}
 
 function showLoading(show, message = 'Loading...') {
     const loader = document.getElementById('loading-spinner');

@@ -159,12 +159,61 @@ def load_othoba():
     return products, f"{min(all_dates)} to {max(all_dates)}" if all_dates else "N/A"
 
 def save_store_data(name, data_tuple):
+    """
+    Saves store data in chunks to bypass GitHub Pages 100MB limit.
+    Outputs:
+    - <store>_manifest.js: Metadata and chunk count.
+    - <store>_data_partX.js: Chunked product data.
+    
+    PRESERVES: All existing logic regarding histories and data shapes.
+    """
     products, date_range = data_tuple
-    if not products: return
-    data = {"metadata": {"last_update": datetime.now().strftime("%Y-%m-%d %H:%M:%S"), "total": len(products), "date_range": date_range}, "products": products}
-    with open(f"{name}_data.js", 'w', encoding='utf-8') as f:
-        f.write(f"window.{name}Data = {json.dumps(data, separators=(',', ':'))};")
-    print(f"Saved {name:15} | Items: {len(products):5} | Range: {date_range}")
+    if not products: 
+        print(f"Skipping {name}: No data found.")
+        return
+    
+    # Configuration: 20,000 items per chunk to keep files well under 100MB
+    CHUNK_SIZE = 20000
+    
+    total_items = len(products)
+    last_update = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    
+    # Sort items by key to ensure deterministic chunking across runs
+    product_items = sorted(products.items())
+    total_chunks = (total_items + CHUNK_SIZE - 1) // CHUNK_SIZE if total_items > 0 else 1
+    
+    # 1. Save Manifest File
+    manifest = {
+        "metadata": {
+            "last_update": last_update,
+            "total": total_items,
+            "date_range": date_range,
+            "total_chunks": total_chunks,
+            "chunk_size": CHUNK_SIZE
+        }
+    }
+    manifest_filename = f"{name}_manifest.js"
+    with open(manifest_filename, 'w', encoding='utf-8') as f:
+        # Assign to window.<store>Manifest
+        f.write(f"window.{name}Manifest = {json.dumps(manifest, separators=(',', ':'))};")
+    
+    # 2. Save Data Chunks
+    for i in range(total_chunks):
+        start = i * CHUNK_SIZE
+        end = (i + 1) * CHUNK_SIZE
+        chunk_data = dict(product_items[start:end])
+        
+        chunk_filename = f"{name}_data_part{i+1}.js"
+        with open(chunk_filename, 'w', encoding='utf-8') as f:
+            # Assign to window.<store>_partX
+            f.write(f"window.{name}_part{i+1} = {json.dumps(chunk_data, separators=(',', ':'))};")
+            
+    # Cleanup old massive file if it exists
+    old_file = f"{name}_data.js"
+    if os.path.exists(old_file):
+        os.remove(old_file)
+            
+    print(f"Saved {name:15} | Items: {total_items:5} | Chunks: {total_chunks:2} | Range: {date_range}")
 
 def main():
     print("\n" + "="*70 + "\nGODDATA AGGREGATOR // High-Performance Matrix Engine\n" + "="*70)

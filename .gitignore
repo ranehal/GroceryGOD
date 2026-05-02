@@ -1,4 +1,4 @@
-*.md
+*.ipynb
 *.ps1
 *.bat
 node_modules/
