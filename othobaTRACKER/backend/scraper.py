@@ -97,7 +97,7 @@ async def sector_worker(context, url, idx, total):
                     p = Product(id=d['id'], name=d['name'], vendor_name=d['vendor'], category_name=d['category'], image_url=d['img'], extracted_unit_type=d['ut'], extracted_unit_value=d['uv'])
                     db.add(p)
                 if d['price'] > 0:
-                    db.add(PriceHistory(product_id=d['id'], price_amount=d['price'], timestamp=datetime.datetime.now(datetime.timezone.utc)))
+                    db.add(PriceHistory(product_id=d['id'], price_amount=d['price'], timestamp=datetime.datetime.utcnow()))
             db.commit()
             total_indexed += len(items)
             # Some pages have fewer than 80 but more than 0 items

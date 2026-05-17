@@ -140,41 +140,45 @@ async def scrape_products_in_category(page, category_url):
 
 async def save_to_db(category_name, category_url, products):
     async with async_session() as session:
-        # Get or create category
-        result = await session.execute(select(Category).filter_by(name=category_name))
-        db_cat = result.scalars().first()
-        if not db_cat:
-            db_cat = Category(name=category_name, url=category_url)
-            session.add(db_cat)
-            await session.commit()
-            await session.refresh(db_cat)
+        try:
+            # Get or create category
+            result = await session.execute(select(Category).filter_by(name=category_name))
+            db_cat = result.scalars().first()
+            if not db_cat:
+                db_cat = Category(name=category_name, url=category_url)
+                session.add(db_cat)
+                await session.flush()
 
-        for p in products:
-            # Get or create product
-            result = await session.execute(select(Product).filter_by(external_id=p['external_id']))
-            db_p = result.scalars().first()
-            if not db_p:
-                db_p = Product(
-                    external_id=p['external_id'],
-                    name=p['name'],
-                    unit=p['unit'],
-                    unit_type=p['unit_type'],
-                    image_url=p['image_url'],
-                    category_id=db_cat.id
+            for p in products:
+                # Get or create product
+                result = await session.execute(select(Product).filter_by(external_id=p['external_id']))
+                db_p = result.scalars().first()
+                if not db_p:
+                    db_p = Product(
+                        external_id=p['external_id'],
+                        name=p['name'],
+                        unit=p['unit'],
+                        unit_type=p['unit_type'],
+                        image_url=p['image_url'],
+                        category_id=db_cat.id
+                    )
+                    session.add(db_p)
+                    await session.flush()
+
+                # Add price history (using naive UTC)
+                history = PriceHistory(
+                    product_id=db_p.id,
+                    actual_price=p['actual_price'],
+                    unit_price=p['unit_price'],
+                    scraped_at=p['scraped_at'].replace(tzinfo=None)
                 )
-                session.add(db_p)
-                await session.commit()
-                await session.refresh(db_p)
-
-            # Add price history
-            history = PriceHistory(
-                product_id=db_p.id,
-                actual_price=p['actual_price'],
-                unit_price=p['unit_price'],
-                scraped_at=p['scraped_at']
-            )
-            session.add(history)
-        await session.commit()
+                session.add(history)
+            
+            await session.commit()
+        except Exception as e:
+            await session.rollback()
+            print(f" [!] Database Error in {category_name}: {e}")
+            raise e
 
 async def main():
     await init_db()

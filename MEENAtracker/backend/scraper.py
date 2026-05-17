@@ -146,41 +146,45 @@ async def scrape_products_in_category(page, category_url):
 async def save_to_db(category_data, products_data):
     """Save scraped data to the database."""
     async with async_session() as session:
-        result = await session.execute(select(Category).filter_by(name=category_data['name']))
-        db_category = result.scalars().first()
-        
-        if not db_category:
-            db_category = Category(name=category_data['name'], url=category_data['url'])
-            session.add(db_category)
-            await session.commit()
-            await session.refresh(db_category)
+        try:
+            result = await session.execute(select(Category).filter_by(name=category_data['name']))
+            db_category = result.scalars().first()
             
-        for p_data in products_data:
-            result = await session.execute(select(Product).filter_by(external_id=p_data['external_id']))
-            db_product = result.scalars().first()
-            
-            if not db_product:
-                db_product = Product(
-                    external_id=p_data['external_id'],
-                    name=p_data['name'],
-                    unit=p_data['unit'],
-                    unit_type=p_data['unit_type'],
-                    image_url=p_data['image_url'],
-                    category_id=db_category.id
-                )
-                session.add(db_product)
-                await session.commit()
-                await session.refresh(db_product)
+            if not db_category:
+                db_category = Category(name=category_data['name'], url=category_data['url'])
+                session.add(db_category)
+                await session.flush()
                 
-            history = PriceHistory(
-                product_id=db_product.id,
-                actual_price=p_data['actual_price'],
-                unit_price=p_data['unit_price'],
-                scraped_at=p_data['scraped_at']
-            )
-            session.add(history)
-            
-        await session.commit()
+            for p_data in products_data:
+                result = await session.execute(select(Product).filter_by(external_id=p_data['external_id']))
+                db_product = result.scalars().first()
+                
+                if not db_product:
+                    db_product = Product(
+                        external_id=p_data['external_id'],
+                        name=p_data['name'],
+                        unit=p_data['unit'],
+                        unit_type=p_data['unit_type'],
+                        image_url=p_data['image_url'],
+                        category_id=db_category.id
+                    )
+                    session.add(db_product)
+                    await session.flush()
+                    
+                # Using naive UTC to avoid serialization issues
+                history = PriceHistory(
+                    product_id=db_product.id,
+                    actual_price=p_data['actual_price'],
+                    unit_price=p_data['unit_price'],
+                    scraped_at=p_data['scraped_at'].replace(tzinfo=None)
+                )
+                session.add(history)
+                
+            await session.commit()
+        except Exception as e:
+            await session.rollback()
+            print(f" [!] Meena Bazar Database Error: {e}")
+            raise e
 
 async def main():
     await init_db()
