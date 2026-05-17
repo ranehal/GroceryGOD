@@ -1,0 +1,128 @@
+{
+  "base_urls": {
+    "fixed_header_image": "https://myadmin.unimart.online/storage/app/public/fixed_header_image",
+    "special_criteria_image": "https://myadmin.unimart.online/storage/app/public/special_criteria",
+    "download_user_app_image": "https://myadmin.unimart.online/storage/app/public/download_user_app_image"
+  },
+  "s3_base_urls": {
+    "fixed_header_image": "//fixed_header_image",
+    "special_criteria_image": "//special_criteria",
+    "download_user_app_image": "//download_user_app_image"
+  },
+  "fixed_header_title": "6amMart",
+  "fixed_header_sub_title": "More than just reliable eCommerce platform",
+  "fixed_header_image": "2024-11-19-673c7cfa7b232.png",
+  "fixed_header_image_full_url": "https://myadmin.unimart.online/storage/app/public/fixed_header_image/2024-11-19-673c7cfa7b232.png",
+  "fixed_module_title": "Your eCommerce venture starts here !",
+  "fixed_module_sub_title": "Enjoy all services in one platform",
+  "fixed_location_title": "Choose your location",
+  "join_seller_title": "Become a Seller",
+  "join_seller_sub_title": "Registered as a seller and open shop for start your business",
+  "join_seller_button_name": "Register",
+  "join_seller_status": 0,
+  "join_delivery_man_title": "Join as  Deliveryman",
+  "join_delivery_man_sub_title": "Registered as a deliveryman and earn money",
+  "join_delivery_man_button_name": "Register",
+  "join_delivery_man_status": 0,
+  "download_user_app_title": "Download app and enjoy more!",
+  "download_user_app_sub_title": "Download app from",
+  "download_user_app_image": "2024-11-19-673c3fa0f0e3d.png",
+  "download_user_app_image_full_url": "https://myadmin.unimart.online/storage/app/public/download_user_app_image/2024-11-19-673c3fa0f0e3d.png",
+  "special_criterias": [
+    {
+      "id": 1,
+      "title": "Easy Checkout & Payment system",
+      "image": "2024-04-20-662392f3a50ea.png",
+      "status": 1,
+      "created_at": "2023-08-16T06:09:00.000000Z",
+      "updated_at": "2024-04-20T11:44:06.000000Z",
+      "image_full_url": "https://myadmin.unimart.online/storage/app/public/special_criteria/2024-04-20-662392f3a50ea.png",
+      "storage": [],
+      "translations": [
+        {
+          "id": 26,
+          "translationable_type": "App\\Models\\FlutterSpecialCriteria",
+          "translationable_id": 1,
+          "locale": "en",
+          "key": "title",
+          "value": "Easy Checkout & Payment system",
+          "created_at": null,
+          "updated_at": null
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Excellent Shopping Experience",
+      "image": "2024-04-20-66239c9904a21.png",
+      "status": 1,
+      "created_at": "2024-04-20T11:44:41.000000Z",
+      "updated_at": "2024-04-20T11:44:41.000000Z",
+      "image_full_url": "https://myadmin.unimart.online/storage/app/public/special_criteria/2024-04-20-66239c9904a21.png",
+      "storage": [],
+      "translations": [
+        {
+          "id": 41,
+          "translationable_type": "App\\Models\\FlutterSpecialCriteria",
+          "translationable_id": 2,
+          "locale": "en",
+          "key": "title",
+          "value": "Excellent Shopping Experience",
+          "created_at": null,
+          "updated_at": null
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Thousands of stores",
+      "image": "2024-04-20-66239cb4406a9.png",
+      "status": 1,
+      "created_at": "2024-04-20T11:45:08.000000Z",
+      "updated_at": "2024-04-20T11:45:08.000000Z",
+      "image_full_url": "https://myadmin.unimart.online/storage/app/public/special_criteria/2024-04-20-66239cb4406a9.png",
+      "storage": [],
+      "translations": [
+        {
+          "id": 42,
+          "translationable_type": "App\\Models\\FlutterSpecialCriteria",
+          "translationable_id": 3,
+          "locale": "en",
+          "key": "title",
+          "value": "Thousands of stores",
+          "created_at": null,
+          "updated_at": null
+        }
+      ]
+    }
+  ],
+  "download_user_app_links": {
+    "playstore_url_status": "1",
+    "playstore_url": "https://play.google.com/store/",
+    "apple_store_url_status": "1",
+    "apple_store_url": "https://www.apple.com/app-store/"
+  },
+  "available_zone_status": 0,
+  "available_zone_title": null,
+  "available_zone_short_description": null,
+  "available_zone_image": null,
+  "available_zone_image_full_url": null,
+  "available_zone_list": [
+    {
+      "id": 1,
+      "name": "Dhaka Zone",
+      "display_name": "Dhaka Zone",
+      "modules": [
+        "Unimart Grocery"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Sylhet Zone",
+      "display_name": "Sylhet Zone",
+      "modules": [
+        "Unimart Grocery"
+      ]
+    }
+  ]
+}

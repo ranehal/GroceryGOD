@@ -1,0 +1,18 @@
+{
+  "groups": [
+    {
+      "id": "shotej_main",
+      "name": "ShotejBazar Main",
+      "icon": "candy-cane",
+      "expanded": true,
+      "categories": [
+        { "name": "Chocolate", "url": "https://shotejbazar.com/product-category/chocolate/", "enabled": true },
+        { "name": "Food", "url": "https://shotejbazar.com/product-category/food/", "enabled": true },
+        { "name": "Snacks", "url": "https://shotejbazar.com/product-category/snacks/", "enabled": true },
+        { "name": "Cookies", "url": "https://shotejbazar.com/product-category/cookies/", "enabled": true },
+        { "name": "Coffee", "url": "https://shotejbazar.com/product-category/coffee/", "enabled": true }
+      ]
+    }
+  ],
+  "custom": []
+}

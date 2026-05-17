@@ -1,6 +1,75 @@
 {
   "groups": [
     {
+      "id": "pinned_deals",
+      "name": "PINNED DEALS",
+      "icon": "thumbtack",
+      "expanded": true,
+      "categories": [
+        {
+          "name": "Deals",
+          "url": "https://www.shwapno.com/deals",
+          "enabled": true,
+          "xpath": "/html/body/main/div"
+        },
+        {
+          "name": "Buy Save More 2",
+          "url": "https://www.shwapno.com/buy-save-more-2",
+          "enabled": true
+        },
+        {
+          "name": "Shwapno Summer Fest",
+          "url": "https://www.shwapno.com/Shwapno-Summer-Fest",
+          "enabled": true
+        },
+        {
+          "name": "Deals On Unilever",
+          "url": "https://www.shwapno.com/deals-on-unilever",
+          "enabled": true
+        },
+        {
+          "name": "Brands",
+          "url": "https://www.shwapno.com/brands",
+          "enabled": true
+        },
+        {
+          "name": "Womens Care Collection",
+          "url": "https://www.shwapno.com/womens-care-collection",
+          "enabled": true
+        },
+        {
+          "name": "Shop Now Think Later",
+          "url": "https://www.shwapno.com/shop-now-think-later",
+          "enabled": true
+        },
+        {
+          "name": "Weekend Fresh Deal",
+          "url": "https://www.shwapno.com/weekend-fresh-deal",
+          "enabled": true
+        },
+        {
+          "name": "Hot Deals",
+          "url": "https://www.shwapno.com/Hot-Deals",
+          "enabled": true
+        },
+        {
+          "name": "Great Savings 3",
+          "url": "https://www.shwapno.com/great-savings-3",
+          "enabled": true
+        },
+        {
+          "name": "Deals On Toys Household Items",
+          "url": "https://www.shwapno.com/deals-on-toys-household-items",
+          "enabled": true
+        },
+        {
+          "name": "A Place For Your Grocery Needs 5",
+          "url": "https://www.shwapno.com/A-Place-For-Your-Grocery-Needs-5",
+          "enabled": true
+        }
+      ]
+    },
+    {
       "id": "fresh_produce",
       "name": "Fresh Produce",
       "icon": "carrot",
@@ -1058,16 +1127,6 @@
         {
           "name": "Brands",
           "url": "https://www.shwapno.com/brands",
-          "enabled": true
-        },
-        {
-          "name": "Deals",
-          "url": "https://www.shwapno.com/deals",
-          "enabled": true
-        },
-        {
-          "name": "Buy Save More",
-          "url": "https://www.shwapno.com/buy-save-more-2",
           "enabled": true
         },
         {

@@ -123,61 +123,51 @@ async def scrape_category(sem, browser, category, current_data):
                 logger.warning(f"  [!] 403 Forbidden for {category['name']}")
                 return False
             
-            # Additional scroll to ensure lazy loading items appear
-            for _ in range(3):
-                await page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
-                await asyncio.sleep(1.5)
-            
-            items = await page.query_selector_all('.product-box')
-            logger.info(f"  [+] Found {len(items)} items in {category['name']}")
-            
-            if len(items) == 0:
-                # Check for empty state vs blocked state
-                content = await page.content()
-                if "403 Forbidden" in content or "Cloudflare" in content:
-                    logger.error(f"  [!] Blocked by Cloudflare for {category['name']}")
-                    return False
-
             today_str = datetime.date.today().isoformat()
+            # Use category-specific container if provided (e.g. for Deals)
+            container_selector = f"xpath={category['xpath']}" if category.get('xpath') else "body"
             
-            for item in items:
-                try:
-                    title_el = await item.query_selector('.product-box-title a')
-                    if not title_el: continue
-                    name = await title_el.inner_text()
-                    url_suffix = await title_el.get_attribute('href')
-                    product_url = f"https://www.shwapno.com{url_suffix}"
+            # Check for tabs (common on complex deal pages like buy-save-more-2)
+            tabs = await page.query_selector_all('.category-tab-list .category-tab, .category-tab-list div, .nav-tabs li a')
+            # Filter for elements that actually have text and look like tabs
+            valid_tabs = []
+            for t in tabs:
+                t_text = await t.inner_text()
+                if t_text.strip() and len(t_text.strip()) < 30:
+                    valid_tabs.append(t)
+            
+            if valid_tabs and len(valid_tabs) > 1:
+                logger.info(f"  [+] Detected {len(valid_tabs)} tabs in {category['name']}. Deep scraping...")
+                for i in range(len(valid_tabs)):
+                    # Re-query to avoid stale elements
+                    current_tabs = await page.query_selector_all('.category-tab-list .category-tab, .category-tab-list div, .nav-tabs li a')
+                    # Find the same one by index from the re-queried list
+                    actual_tabs = []
+                    for t in current_tabs:
+                        t_text = await t.inner_text()
+                        if t_text.strip() and len(t_text.strip()) < 30:
+                            actual_tabs.append(t)
                     
-                    img_el = await item.query_selector('img')
-                    img_src = await img_el.get_attribute('src') if img_el else ""
+                    if i >= len(actual_tabs): break
+                    tab = actual_tabs[i]
+                    tab_name = await tab.inner_text()
+                    logger.info(f"    -> Clicking Tab: {tab_name.strip()}")
+                    await tab.click()
+                    await asyncio.sleep(2) # Wait for content to swap
                     
-                    price_el = await item.query_selector('.product-price .active-price')
-                    if not price_el: continue
-                    price_text = await price_el.inner_text()
-                    current_price = float(re.sub(r'[^\d.]', '', price_text))
+                    # Scroll within the active tab content
+                    for _ in range(2):
+                        await page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
+                        await asyncio.sleep(1)
                     
-                    qty_disp, norm_price, unit_type = normalize_unit(name, price_text)
-                    prod_id = re.sub(r'\W+', '', name).lower()
-                    
-                    if prod_id not in current_data:
-                        current_data[prod_id] = {
-                            "id": prod_id, "name": name, "url": product_url, 
-                            "image": img_src, "category": category['name'], "history": []
-                        }
-                    
-                    current_data[prod_id].update({
-                        "current_price": current_price, "normalized_price": norm_price,
-                        "unit": qty_disp, "unit_type": unit_type, "image": img_src
-                    })
-                    
-                    history = current_data[prod_id]["history"]
-                    if not history or history[-1]['date'] != today_str:
-                         history.append({"date": today_str, "price": current_price, "normalized_price": norm_price})
-                    elif history[-1]['date'] == today_str:
-                        history[-1]['price'] = current_price
-                        history[-1]['normalized_price'] = norm_price
-
-                except: pass
+                    await self_scrape_items(page, container_selector, category, current_data, today_str)
+            else:
+                # Additional scroll to ensure lazy loading items appear
+                for _ in range(3):
+                    await page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
+                    await asyncio.sleep(1.5)
+                # No tabs, just standard scroll and scrape
+                await self_scrape_items(page, container_selector, category, current_data, today_str)
             
             return True
                     
@@ -186,6 +176,49 @@ async def scrape_category(sem, browser, category, current_data):
             return False
         finally:
             await context.close()
+
+async def self_scrape_items(page, container_selector, category, current_data, today_str):
+    container = await page.query_selector(container_selector) or page
+    items = await container.query_selector_all('.product-box')
+    logger.info(f"  [+] Extracted {len(items)} items from active view")
+    
+    for item in items:
+        try:
+            title_el = await item.query_selector('.product-box-title a')
+            if not title_el: continue
+            name = await title_el.inner_text()
+            url_suffix = await title_el.get_attribute('href')
+            product_url = f"https://www.shwapno.com{url_suffix}"
+            
+            img_el = await item.query_selector('img')
+            img_src = await img_el.get_attribute('src') if img_el else ""
+            
+            price_el = await item.query_selector('.product-price .active-price')
+            if not price_el: continue
+            price_text = await price_el.inner_text()
+            current_price = float(re.sub(r'[^\d.]', '', price_text))
+            
+            qty_disp, norm_price, unit_type = normalize_unit(name, price_text)
+            prod_id = re.sub(r'\W+', '', name).lower()
+            
+            if prod_id not in current_data:
+                current_data[prod_id] = {
+                    "id": prod_id, "name": name, "url": product_url, 
+                    "image": img_src, "category": category['name'], "history": []
+                }
+            
+            current_data[prod_id].update({
+                "current_price": current_price, "normalized_price": norm_price,
+                "unit": qty_disp, "unit_type": unit_type, "image": img_src
+            })
+            
+            history = current_data[prod_id]["history"]
+            if not history or history[-1]['date'] != today_str:
+                 history.append({"date": today_str, "price": current_price, "normalized_price": norm_price})
+            elif history[-1]['date'] == today_str:
+                history[-1]['price'] = current_price
+                history[-1]['normalized_price'] = norm_price
+        except: pass
 
 async def main():
     data = load_data()

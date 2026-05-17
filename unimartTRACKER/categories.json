@@ -1,0 +1,20 @@
+{
+  "groups": [
+    {
+      "id": "main",
+      "name": "Unimart Categories",
+      "categories": [
+        { "name": "Meat & Fish", "url": "https://www.unimart.online/category/meat-and-fish", "enabled": true },
+        { "name": "Dairy", "url": "https://www.unimart.online/category/dairy", "enabled": true },
+        { "name": "Groceries", "url": "https://www.unimart.online/category/groceries", "enabled": true },
+        { "name": "Snacks", "url": "https://www.unimart.online/category/snacks", "enabled": true },
+        { "name": "Beverage", "url": "https://www.unimart.online/category/beverage", "enabled": true },
+        { "name": "Baby Care", "url": "https://www.unimart.online/category/baby-care", "enabled": true },
+        { "name": "Personal Care", "url": "https://www.unimart.online/category/personal-care", "enabled": true },
+        { "name": "Household", "url": "https://www.unimart.online/category/household", "enabled": true },
+        { "name": "Home & Kitchen", "url": "https://www.unimart.online/category/home-and-kitchen", "enabled": true }
+      ]
+    }
+  ],
+  "custom": []
+}

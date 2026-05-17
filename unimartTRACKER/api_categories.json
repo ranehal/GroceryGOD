@@ -1,0 +1,4611 @@
+[
+  {
+    "id": 3,
+    "code": "BS",
+    "name": "Bakery And Snacks",
+    "image": "BS.jpg",
+    "parent_id": 0,
+    "position": 0,
+    "status": 1,
+    "created_at": "2025-11-20T10:12:55.000000Z",
+    "updated_at": "2026-04-22T04:07:03.000000Z",
+    "priority": 0,
+    "module_id": 1,
+    "slug": null,
+    "featured": 0,
+    "products_count": 0,
+    "childes_count": 4,
+    "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/BS.jpg",
+    "childes": [
+      {
+        "id": 29,
+        "code": "BS01",
+        "name": "Breads",
+        "image": "BS01.jpg",
+        "parent_id": 3,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 12,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 3,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/BS01.jpg",
+        "storage": [
+          {
+            "id": 160,
+            "data_type": "App\\Models\\Category",
+            "data_id": "29",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 30,
+        "code": "BS02",
+        "name": "Imported  Biscuits & Cookies",
+        "image": "BS02.jpg",
+        "parent_id": 3,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 14,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 4,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/BS02.jpg",
+        "storage": [
+          {
+            "id": 161,
+            "data_type": "App\\Models\\Category",
+            "data_id": "30",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 31,
+        "code": "BS03",
+        "name": "Local Biscuits & Cookies",
+        "image": "BS03.jpg",
+        "parent_id": 3,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 16,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 3,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/BS03.jpg",
+        "storage": [
+          {
+            "id": 162,
+            "data_type": "App\\Models\\Category",
+            "data_id": "31",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 32,
+        "code": "BS04",
+        "name": "Savories",
+        "image": "BS04.jpg",
+        "parent_id": 3,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 18,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 3,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/BS04.jpg",
+        "storage": [
+          {
+            "id": 163,
+            "data_type": "App\\Models\\Category",
+            "data_id": "32",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      }
+    ],
+    "storage": [
+      {
+        "id": 134,
+        "data_type": "App\\Models\\Category",
+        "data_id": "3",
+        "key": "image",
+        "value": "public",
+        "created_at": "2025-11-20 16:12:55",
+        "updated_at": "2025-11-20 16:12:55"
+      }
+    ],
+    "translations": [
+      {
+        "id": 58,
+        "translationable_type": "App\\Models\\Category",
+        "translationable_id": 3,
+        "locale": "en",
+        "key": "name",
+        "value": "Bakery And Snacks",
+        "created_at": null,
+        "updated_at": null
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "code": "FG",
+    "name": "Grocery",
+    "image": "FG.jpg",
+    "parent_id": 0,
+    "position": 0,
+    "status": 1,
+    "created_at": "2025-11-20T10:12:55.000000Z",
+    "updated_at": "2026-04-03T18:21:20.000000Z",
+    "priority": 0,
+    "module_id": 1,
+    "slug": null,
+    "featured": 1,
+    "products_count": 0,
+    "childes_count": 29,
+    "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/FG.jpg",
+    "childes": [
+      {
+        "id": 54,
+        "code": "FG01",
+        "name": "Baby Food",
+        "image": "FG01.jpg",
+        "parent_id": 7,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 5,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 6,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/FG01.jpg",
+        "storage": [
+          {
+            "id": 185,
+            "data_type": "App\\Models\\Category",
+            "data_id": "54",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 55,
+        "code": "FG02",
+        "name": "Baking Needs",
+        "image": "FG02.jpg",
+        "parent_id": 7,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 4,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 12,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/FG02.jpg",
+        "storage": [
+          {
+            "id": 186,
+            "data_type": "App\\Models\\Category",
+            "data_id": "55",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 56,
+        "code": "FG03",
+        "name": "Candy/Chocolate/Gum",
+        "image": "FG03.jpg",
+        "parent_id": 7,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 0,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 14,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/FG03.jpg",
+        "storage": [
+          {
+            "id": 187,
+            "data_type": "App\\Models\\Category",
+            "data_id": "56",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 57,
+        "code": "FG04",
+        "name": "Canned Food",
+        "image": "FG04.jpg",
+        "parent_id": 7,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 2,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 8,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/FG04.jpg",
+        "storage": [
+          {
+            "id": 188,
+            "data_type": "App\\Models\\Category",
+            "data_id": "57",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 58,
+        "code": "FG05",
+        "name": "Cereals",
+        "image": "FG05.jpg",
+        "parent_id": 7,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 6,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 7,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/FG05.jpg",
+        "storage": [
+          {
+            "id": 189,
+            "data_type": "App\\Models\\Category",
+            "data_id": "58",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 59,
+        "code": "FG06",
+        "name": "Condiments",
+        "image": "FG06.jpg",
+        "parent_id": 7,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 7,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 28,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/FG06.jpg",
+        "storage": [
+          {
+            "id": 190,
+            "data_type": "App\\Models\\Category",
+            "data_id": "59",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 60,
+        "code": "FG07",
+        "name": "Cooking Oil",
+        "image": "FG07.jpg",
+        "parent_id": 7,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 8,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 11,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/FG07.jpg",
+        "storage": [
+          {
+            "id": 191,
+            "data_type": "App\\Models\\Category",
+            "data_id": "60",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 61,
+        "code": "FG08",
+        "name": "Flour",
+        "image": "FG08.jpg",
+        "parent_id": 7,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 9,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 6,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/FG08.jpg",
+        "storage": [
+          {
+            "id": 192,
+            "data_type": "App\\Models\\Category",
+            "data_id": "61",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 62,
+        "code": "FG09",
+        "name": "Food Bundle Pack",
+        "image": "FG09.jpg",
+        "parent_id": 7,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 3,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 2,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/FG09.jpg",
+        "storage": [
+          {
+            "id": 193,
+            "data_type": "App\\Models\\Category",
+            "data_id": "62",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 63,
+        "code": "FG10",
+        "name": "Food Spreads",
+        "image": "FG10.jpg",
+        "parent_id": 7,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-08T08:54:26.000000Z",
+        "priority": 45,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 8,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/FG10.jpg",
+        "storage": [
+          {
+            "id": 194,
+            "data_type": "App\\Models\\Category",
+            "data_id": "63",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 64,
+        "code": "FG11",
+        "name": "Ghee",
+        "image": "FG11.jpg",
+        "parent_id": 7,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-08T08:54:41.000000Z",
+        "priority": 46,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 3,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/FG11.jpg",
+        "storage": [
+          {
+            "id": 195,
+            "data_type": "App\\Models\\Category",
+            "data_id": "64",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 65,
+        "code": "FG12",
+        "name": "Health Food",
+        "image": "FG12.jpg",
+        "parent_id": 7,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-08T08:54:36.000000Z",
+        "priority": 47,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 3,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/FG12.jpg",
+        "storage": [
+          {
+            "id": 196,
+            "data_type": "App\\Models\\Category",
+            "data_id": "65",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 66,
+        "code": "FG13",
+        "name": "Homemade Snacks",
+        "image": "FG13.jpg",
+        "parent_id": 7,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-08T08:54:36.000000Z",
+        "priority": 48,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 9,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/FG13.jpg",
+        "storage": [
+          {
+            "id": 197,
+            "data_type": "App\\Models\\Category",
+            "data_id": "66",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 67,
+        "code": "FG14",
+        "name": "Juice",
+        "image": "FG14.jpg",
+        "parent_id": 7,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-08T08:54:15.000000Z",
+        "priority": 49,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 1,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/FG14.jpg",
+        "storage": [
+          {
+            "id": 198,
+            "data_type": "App\\Models\\Category",
+            "data_id": "67",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 68,
+        "code": "FG15",
+        "name": "Processed Milk",
+        "image": "2026-04-05-69d1f572470ce.png",
+        "parent_id": 7,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-05T05:38:58.000000Z",
+        "priority": 50,
+        "module_id": 1,
+        "slug": "processed-milk68",
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 1,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/2026-04-05-69d1f572470ce.png",
+        "storage": [
+          {
+            "id": 199,
+            "data_type": "App\\Models\\Category",
+            "data_id": "68",
+            "key": "image",
+            "value": "public",
+            "created_at": "2026-04-05 11:38:58",
+            "updated_at": "2026-04-05 11:38:58"
+          }
+        ],
+        "translations": [
+          {
+            "id": 590,
+            "translationable_type": "App\\Models\\Category",
+            "translationable_id": 68,
+            "locale": "en",
+            "key": "name",
+            "value": "Processed Milk",
+            "created_at": null,
+            "updated_at": null
+          }
+        ]
+      },
+      {
+        "id": 69,
+        "code": "FG16",
+        "name": "Lentils",
+        "image": "FG16.jpg",
+        "parent_id": 7,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-08T08:55:08.000000Z",
+        "priority": 51,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 7,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/FG16.jpg",
+        "storage": [
+          {
+            "id": 200,
+            "data_type": "App\\Models\\Category",
+            "data_id": "69",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 70,
+        "code": "FG17",
+        "name": "Salt",
+        "image": "2026-04-05-69d1f67f5b5f1.png",
+        "parent_id": 7,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-05T05:43:27.000000Z",
+        "priority": 52,
+        "module_id": 1,
+        "slug": "salt70",
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 3,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/2026-04-05-69d1f67f5b5f1.png",
+        "storage": [
+          {
+            "id": 201,
+            "data_type": "App\\Models\\Category",
+            "data_id": "70",
+            "key": "image",
+            "value": "public",
+            "created_at": "2026-04-05 11:43:27",
+            "updated_at": "2026-04-05 11:43:27"
+          }
+        ],
+        "translations": [
+          {
+            "id": 658,
+            "translationable_type": "App\\Models\\Category",
+            "translationable_id": 70,
+            "locale": "en",
+            "key": "name",
+            "value": "Salt",
+            "created_at": null,
+            "updated_at": null
+          }
+        ]
+      },
+      {
+        "id": 71,
+        "code": "FG18",
+        "name": "Loose Rice",
+        "image": "FG18.jpg",
+        "parent_id": 7,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-08T08:54:52.000000Z",
+        "priority": 53,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 4,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/FG18.jpg",
+        "storage": [
+          {
+            "id": 202,
+            "data_type": "App\\Models\\Category",
+            "data_id": "71",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 72,
+        "code": "FG19",
+        "name": "Noodles",
+        "image": "FG19.jpg",
+        "parent_id": 7,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-08T08:54:58.000000Z",
+        "priority": 54,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 5,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/FG19.jpg",
+        "storage": [
+          {
+            "id": 203,
+            "data_type": "App\\Models\\Category",
+            "data_id": "72",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 73,
+        "code": "FG20",
+        "name": "Packed Rice",
+        "image": "FG20.jpg",
+        "parent_id": 7,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2025-11-20T10:12:55.000000Z",
+        "priority": 55,
+        "module_id": 1,
+        "slug": null,
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 11,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/FG20.jpg",
+        "storage": [
+          {
+            "id": 204,
+            "data_type": "App\\Models\\Category",
+            "data_id": "73",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 74,
+        "code": "FG21",
+        "name": "Pastas",
+        "image": "FG21.jpg",
+        "parent_id": 7,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-08T08:55:27.000000Z",
+        "priority": 56,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 5,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/FG21.jpg",
+        "storage": [
+          {
+            "id": 205,
+            "data_type": "App\\Models\\Category",
+            "data_id": "74",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 75,
+        "code": "FG22",
+        "name": "Powder Milk",
+        "image": "FG22.jpg",
+        "parent_id": 7,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2025-11-20T10:12:55.000000Z",
+        "priority": 57,
+        "module_id": 1,
+        "slug": null,
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 3,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/FG22.jpg",
+        "storage": [
+          {
+            "id": 206,
+            "data_type": "App\\Models\\Category",
+            "data_id": "75",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 76,
+        "code": "FG24",
+        "name": "Ready Food",
+        "image": "FG24.jpg",
+        "parent_id": 7,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2025-11-20T10:12:55.000000Z",
+        "priority": 58,
+        "module_id": 1,
+        "slug": null,
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 8,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/FG24.jpg",
+        "storage": [
+          {
+            "id": 207,
+            "data_type": "App\\Models\\Category",
+            "data_id": "76",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 77,
+        "code": "FG25",
+        "name": "Ready Snacks",
+        "image": "2026-04-11-69d9e017a7281.png",
+        "parent_id": 7,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-11T05:45:59.000000Z",
+        "priority": 1,
+        "module_id": 1,
+        "slug": "ready-snacks77",
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 7,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/2026-04-11-69d9e017a7281.png",
+        "storage": [
+          {
+            "id": 208,
+            "data_type": "App\\Models\\Category",
+            "data_id": "77",
+            "key": "image",
+            "value": "public",
+            "created_at": "2026-04-11 11:45:59",
+            "updated_at": "2026-04-11 11:45:59"
+          }
+        ],
+        "translations": [
+          {
+            "id": 707,
+            "translationable_type": "App\\Models\\Category",
+            "translationable_id": 77,
+            "locale": "en",
+            "key": "name",
+            "value": "Ready Snacks",
+            "created_at": null,
+            "updated_at": null
+          }
+        ]
+      },
+      {
+        "id": 78,
+        "code": "FG26",
+        "name": "Salt",
+        "image": "FG26.jpg",
+        "parent_id": 7,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-08T08:55:23.000000Z",
+        "priority": 60,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 2,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/FG26.jpg",
+        "storage": [
+          {
+            "id": 209,
+            "data_type": "App\\Models\\Category",
+            "data_id": "78",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 79,
+        "code": "FG27",
+        "name": "Semai",
+        "image": "FG27.jpg",
+        "parent_id": 7,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2025-11-20T10:12:55.000000Z",
+        "priority": 61,
+        "module_id": 1,
+        "slug": null,
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 2,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/FG27.jpg",
+        "storage": [
+          {
+            "id": 210,
+            "data_type": "App\\Models\\Category",
+            "data_id": "79",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 80,
+        "code": "FG28",
+        "name": "Spices",
+        "image": "FG28.jpg",
+        "parent_id": 7,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-08T08:55:35.000000Z",
+        "priority": 62,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 8,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/FG28.jpg",
+        "storage": [
+          {
+            "id": 211,
+            "data_type": "App\\Models\\Category",
+            "data_id": "80",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 81,
+        "code": "FG29",
+        "name": "Sugar",
+        "image": "FG29.jpg",
+        "parent_id": 7,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2025-11-20T10:12:55.000000Z",
+        "priority": 63,
+        "module_id": 1,
+        "slug": null,
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 6,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/FG29.jpg",
+        "storage": [
+          {
+            "id": 212,
+            "data_type": "App\\Models\\Category",
+            "data_id": "81",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 82,
+        "code": "FG30",
+        "name": "Uht Milk",
+        "image": "FG30.jpg",
+        "parent_id": 7,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-08T08:56:37.000000Z",
+        "priority": 64,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 7,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/FG30.jpg",
+        "storage": [
+          {
+            "id": 213,
+            "data_type": "App\\Models\\Category",
+            "data_id": "82",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      }
+    ],
+    "storage": [
+      {
+        "id": 138,
+        "data_type": "App\\Models\\Category",
+        "data_id": "7",
+        "key": "image",
+        "value": "public",
+        "created_at": "2025-11-20 16:12:55",
+        "updated_at": "2025-11-20 16:12:55"
+      }
+    ],
+    "translations": []
+  },
+  {
+    "id": 4,
+    "code": "BT",
+    "name": "Books & Stationery",
+    "image": "BT.jpg",
+    "parent_id": 0,
+    "position": 0,
+    "status": 1,
+    "created_at": "2025-11-20T10:12:55.000000Z",
+    "updated_at": "2025-11-27T10:35:03.000000Z",
+    "priority": 1,
+    "module_id": 1,
+    "slug": null,
+    "featured": 0,
+    "products_count": 0,
+    "childes_count": 6,
+    "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/BT.jpg",
+    "childes": [
+      {
+        "id": 33,
+        "code": "BT01",
+        "name": "Books Nonfiction",
+        "image": "BT01.jpg",
+        "parent_id": 4,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 20,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 1,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/BT01.jpg",
+        "storage": [
+          {
+            "id": 164,
+            "data_type": "App\\Models\\Category",
+            "data_id": "33",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 34,
+        "code": "BT02",
+        "name": "Books Other",
+        "image": "BT02.jpg",
+        "parent_id": 4,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2025-11-20T10:12:55.000000Z",
+        "priority": 16,
+        "module_id": 1,
+        "slug": null,
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 1,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/BT02.jpg",
+        "storage": [
+          {
+            "id": 165,
+            "data_type": "App\\Models\\Category",
+            "data_id": "34",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 35,
+        "code": "BT03",
+        "name": "Stationery-Arts & Crafts",
+        "image": "BT03.jpg",
+        "parent_id": 4,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 22,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 4,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/BT03.jpg",
+        "storage": [
+          {
+            "id": 166,
+            "data_type": "App\\Models\\Category",
+            "data_id": "35",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 36,
+        "code": "BT04",
+        "name": "Stationery-Desktop",
+        "image": "BT04.jpg",
+        "parent_id": 4,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2025-11-20T10:12:55.000000Z",
+        "priority": 18,
+        "module_id": 1,
+        "slug": null,
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 5,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/BT04.jpg",
+        "storage": [
+          {
+            "id": 167,
+            "data_type": "App\\Models\\Category",
+            "data_id": "36",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 37,
+        "code": "BT05",
+        "name": "Stationery-Filing And Storage",
+        "image": "BT05.jpg",
+        "parent_id": 4,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2025-11-20T10:12:55.000000Z",
+        "priority": 19,
+        "module_id": 1,
+        "slug": null,
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 4,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/BT05.jpg",
+        "storage": [
+          {
+            "id": 168,
+            "data_type": "App\\Models\\Category",
+            "data_id": "37",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 38,
+        "code": "BT06",
+        "name": "Stationery-Writing Accessories",
+        "image": "BT06.jpg",
+        "parent_id": 4,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2025-11-20T10:12:55.000000Z",
+        "priority": 20,
+        "module_id": 1,
+        "slug": null,
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 6,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/BT06.jpg",
+        "storage": [
+          {
+            "id": 169,
+            "data_type": "App\\Models\\Category",
+            "data_id": "38",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      }
+    ],
+    "storage": [
+      {
+        "id": 135,
+        "data_type": "App\\Models\\Category",
+        "data_id": "4",
+        "key": "image",
+        "value": "public",
+        "created_at": "2025-11-20 16:12:55",
+        "updated_at": "2025-11-20 16:12:55"
+      }
+    ],
+    "translations": []
+  },
+  {
+    "id": 1,
+    "code": "AC",
+    "name": "Auto Care",
+    "image": "AC.jpg",
+    "parent_id": 0,
+    "position": 0,
+    "status": 1,
+    "created_at": "2025-11-20T10:12:55.000000Z",
+    "updated_at": "2025-11-20T10:12:55.000000Z",
+    "priority": 1,
+    "module_id": 1,
+    "slug": null,
+    "featured": 0,
+    "products_count": 0,
+    "childes_count": 2,
+    "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/AC.jpg",
+    "childes": [
+      {
+        "id": 19,
+        "code": "AC01",
+        "name": "Car Accessories",
+        "image": "AC01.jpg",
+        "parent_id": 1,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-08T08:52:51.000000Z",
+        "priority": 1,
+        "module_id": 1,
+        "slug": null,
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 1,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/AC01.jpg",
+        "storage": [
+          {
+            "id": 150,
+            "data_type": "App\\Models\\Category",
+            "data_id": "19",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:55",
+            "updated_at": "2025-11-20 16:12:55"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 20,
+        "code": "AC02",
+        "name": "Car Care",
+        "image": "AC02.jpg",
+        "parent_id": 1,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2025-11-20T10:12:55.000000Z",
+        "priority": 2,
+        "module_id": 1,
+        "slug": null,
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 2,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/AC02.jpg",
+        "storage": [
+          {
+            "id": 151,
+            "data_type": "App\\Models\\Category",
+            "data_id": "20",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      }
+    ],
+    "storage": [
+      {
+        "id": 47,
+        "data_type": "App\\Models\\Category",
+        "data_id": "1",
+        "key": "image",
+        "value": "public",
+        "created_at": "2025-11-20 16:12:55",
+        "updated_at": "2025-11-20 16:12:55"
+      }
+    ],
+    "translations": []
+  },
+  {
+    "id": 14,
+    "code": "PC",
+    "name": "Personal Care",
+    "image": "PC.jpg",
+    "parent_id": 0,
+    "position": 0,
+    "status": 1,
+    "created_at": "2025-11-20T10:12:55.000000Z",
+    "updated_at": "2026-04-03T18:21:20.000000Z",
+    "priority": 1,
+    "module_id": 1,
+    "slug": null,
+    "featured": 1,
+    "products_count": 0,
+    "childes_count": 8,
+    "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/PC.jpg",
+    "childes": [
+      {
+        "id": 124,
+        "code": "PC01",
+        "name": "Shoe Care",
+        "image": "PC01.jpg",
+        "parent_id": 14,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 39,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 1,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/PC01.jpg",
+        "storage": [
+          {
+            "id": 255,
+            "data_type": "App\\Models\\Category",
+            "data_id": "124",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:57",
+            "updated_at": "2025-11-20 16:12:57"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 125,
+        "code": "PC02",
+        "name": "Hair Care",
+        "image": "PC02.jpg",
+        "parent_id": 14,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 40,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 8,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/PC02.jpg",
+        "storage": [
+          {
+            "id": 256,
+            "data_type": "App\\Models\\Category",
+            "data_id": "125",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:57",
+            "updated_at": "2025-11-20 16:12:57"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 126,
+        "code": "PC03",
+        "name": "Face Care",
+        "image": "PC03.jpg",
+        "parent_id": 14,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 41,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 11,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/PC03.jpg",
+        "storage": [
+          {
+            "id": 257,
+            "data_type": "App\\Models\\Category",
+            "data_id": "126",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:57",
+            "updated_at": "2025-11-20 16:12:57"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 127,
+        "code": "PC04",
+        "name": "Men'S Grooming",
+        "image": "PC04.jpg",
+        "parent_id": 14,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 42,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 6,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/PC04.jpg",
+        "storage": [
+          {
+            "id": 258,
+            "data_type": "App\\Models\\Category",
+            "data_id": "127",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:57",
+            "updated_at": "2025-11-20 16:12:57"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 128,
+        "code": "PC05",
+        "name": "Oral Care",
+        "image": "PC05.jpg",
+        "parent_id": 14,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 43,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 7,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/PC05.jpg",
+        "storage": [
+          {
+            "id": 259,
+            "data_type": "App\\Models\\Category",
+            "data_id": "128",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:57",
+            "updated_at": "2025-11-20 16:12:57"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 129,
+        "code": "PC06",
+        "name": "Personal Hygiene",
+        "image": "PC06.jpg",
+        "parent_id": 14,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 44,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 9,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/PC06.jpg",
+        "storage": [
+          {
+            "id": 260,
+            "data_type": "App\\Models\\Category",
+            "data_id": "129",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:57",
+            "updated_at": "2025-11-20 16:12:57"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 130,
+        "code": "PC07",
+        "name": "Skin Care",
+        "image": "PC07.jpg",
+        "parent_id": 14,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 45,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 13,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/PC07.jpg",
+        "storage": [
+          {
+            "id": 261,
+            "data_type": "App\\Models\\Category",
+            "data_id": "130",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:57",
+            "updated_at": "2025-11-20 16:12:57"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 131,
+        "code": "PC08",
+        "name": "Women'S Grooming",
+        "image": "PC08.jpg",
+        "parent_id": 14,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 46,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 3,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/PC08.jpg",
+        "storage": [
+          {
+            "id": 262,
+            "data_type": "App\\Models\\Category",
+            "data_id": "131",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:57",
+            "updated_at": "2025-11-20 16:12:57"
+          }
+        ],
+        "translations": []
+      }
+    ],
+    "storage": [
+      {
+        "id": 145,
+        "data_type": "App\\Models\\Category",
+        "data_id": "14",
+        "key": "image",
+        "value": "public",
+        "created_at": "2025-11-20 16:12:55",
+        "updated_at": "2025-11-20 16:12:55"
+      }
+    ],
+    "translations": []
+  },
+  {
+    "id": 2,
+    "code": "BC",
+    "name": "Baby Care",
+    "image": "BC.jpg",
+    "parent_id": 0,
+    "position": 0,
+    "status": 1,
+    "created_at": "2025-11-20T10:12:55.000000Z",
+    "updated_at": "2025-11-23T15:34:35.000000Z",
+    "priority": 2,
+    "module_id": 1,
+    "slug": null,
+    "featured": 0,
+    "products_count": 0,
+    "childes_count": 8,
+    "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/BC.jpg",
+    "childes": [
+      {
+        "id": 21,
+        "code": "BC01",
+        "name": "Baby Essentials",
+        "image": "BC01.jpg",
+        "parent_id": 2,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2025-11-27T15:58:29.000000Z",
+        "priority": 3,
+        "module_id": 1,
+        "slug": "baby-essentials21",
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 15,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/BC01.jpg",
+        "storage": [
+          {
+            "id": 152,
+            "data_type": "App\\Models\\Category",
+            "data_id": "21",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-27 21:58:29",
+            "updated_at": "2025-11-27 21:58:29"
+          }
+        ],
+        "translations": [
+          {
+            "id": 230,
+            "translationable_type": "App\\Models\\Category",
+            "translationable_id": 21,
+            "locale": "en",
+            "key": "name",
+            "value": "Baby Essentials",
+            "created_at": null,
+            "updated_at": null
+          }
+        ]
+      },
+      {
+        "id": 22,
+        "code": "BC02",
+        "name": "Baby Linens",
+        "image": "BC02.jpg",
+        "parent_id": 2,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2025-11-27T15:59:01.000000Z",
+        "priority": 4,
+        "module_id": 1,
+        "slug": "baby-linens22",
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 2,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/BC02.jpg",
+        "storage": [
+          {
+            "id": 153,
+            "data_type": "App\\Models\\Category",
+            "data_id": "22",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-27 21:59:01",
+            "updated_at": "2025-11-27 21:59:01"
+          }
+        ],
+        "translations": [
+          {
+            "id": 231,
+            "translationable_type": "App\\Models\\Category",
+            "translationable_id": 22,
+            "locale": "en",
+            "key": "name",
+            "value": "Baby Linens",
+            "created_at": null,
+            "updated_at": null
+          }
+        ]
+      },
+      {
+        "id": 23,
+        "code": "BC03",
+        "name": "Baby Toiletries",
+        "image": "BC03.jpg",
+        "parent_id": 2,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2025-11-27T15:59:21.000000Z",
+        "priority": 5,
+        "module_id": 1,
+        "slug": "baby-toiletries23",
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 9,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/BC03.jpg",
+        "storage": [
+          {
+            "id": 154,
+            "data_type": "App\\Models\\Category",
+            "data_id": "23",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-27 21:59:22",
+            "updated_at": "2025-11-27 21:59:22"
+          }
+        ],
+        "translations": [
+          {
+            "id": 232,
+            "translationable_type": "App\\Models\\Category",
+            "translationable_id": 23,
+            "locale": "en",
+            "key": "name",
+            "value": "Baby Toiletries",
+            "created_at": null,
+            "updated_at": null
+          }
+        ]
+      },
+      {
+        "id": 24,
+        "code": "BC04",
+        "name": "Hair Care",
+        "image": "BC04.jpg",
+        "parent_id": 2,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2025-11-27T15:59:41.000000Z",
+        "priority": 6,
+        "module_id": 1,
+        "slug": "hair-care24",
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 2,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/BC04.jpg",
+        "storage": [
+          {
+            "id": 155,
+            "data_type": "App\\Models\\Category",
+            "data_id": "24",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-27 21:59:41",
+            "updated_at": "2025-11-27 21:59:41"
+          }
+        ],
+        "translations": [
+          {
+            "id": 233,
+            "translationable_type": "App\\Models\\Category",
+            "translationable_id": 24,
+            "locale": "en",
+            "key": "name",
+            "value": "Hair Care",
+            "created_at": null,
+            "updated_at": null
+          }
+        ]
+      },
+      {
+        "id": 25,
+        "code": "BC05",
+        "name": "Makeup Accessories",
+        "image": "BC05.jpg",
+        "parent_id": 2,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2025-11-27T16:00:02.000000Z",
+        "priority": 7,
+        "module_id": 1,
+        "slug": "makeup-accessories25",
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 1,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/BC05.jpg",
+        "storage": [
+          {
+            "id": 156,
+            "data_type": "App\\Models\\Category",
+            "data_id": "25",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-27 22:00:03",
+            "updated_at": "2025-11-27 22:00:03"
+          }
+        ],
+        "translations": [
+          {
+            "id": 234,
+            "translationable_type": "App\\Models\\Category",
+            "translationable_id": 25,
+            "locale": "en",
+            "key": "name",
+            "value": "Makeup Accessories",
+            "created_at": null,
+            "updated_at": null
+          }
+        ]
+      },
+      {
+        "id": 26,
+        "code": "BC06",
+        "name": "Party Accessories",
+        "image": "BC06.jpg",
+        "parent_id": 2,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2025-11-27T16:00:19.000000Z",
+        "priority": 8,
+        "module_id": 1,
+        "slug": "party-accessories26",
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 1,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/BC06.jpg",
+        "storage": [
+          {
+            "id": 157,
+            "data_type": "App\\Models\\Category",
+            "data_id": "26",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-27 22:00:19",
+            "updated_at": "2025-11-27 22:00:19"
+          }
+        ],
+        "translations": [
+          {
+            "id": 235,
+            "translationable_type": "App\\Models\\Category",
+            "translationable_id": 26,
+            "locale": "en",
+            "key": "name",
+            "value": "Party Accessories",
+            "created_at": null,
+            "updated_at": null
+          }
+        ]
+      },
+      {
+        "id": 27,
+        "code": "BC07",
+        "name": "Skin Care",
+        "image": "BC07.jpg",
+        "parent_id": 2,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2025-11-27T16:00:34.000000Z",
+        "priority": 9,
+        "module_id": 1,
+        "slug": "skin-care27",
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 2,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/BC07.jpg",
+        "storage": [
+          {
+            "id": 158,
+            "data_type": "App\\Models\\Category",
+            "data_id": "27",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-27 22:00:35",
+            "updated_at": "2025-11-27 22:00:35"
+          }
+        ],
+        "translations": [
+          {
+            "id": 236,
+            "translationable_type": "App\\Models\\Category",
+            "translationable_id": 27,
+            "locale": "en",
+            "key": "name",
+            "value": "Skin Care",
+            "created_at": null,
+            "updated_at": null
+          }
+        ]
+      },
+      {
+        "id": 28,
+        "code": "BC08",
+        "name": "Washing Aids",
+        "image": "BC08.jpg",
+        "parent_id": 2,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2025-11-27T16:00:55.000000Z",
+        "priority": 10,
+        "module_id": 1,
+        "slug": "washing-aids28",
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 1,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/BC08.jpg",
+        "storage": [
+          {
+            "id": 159,
+            "data_type": "App\\Models\\Category",
+            "data_id": "28",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-27 22:00:55",
+            "updated_at": "2025-11-27 22:00:55"
+          }
+        ],
+        "translations": [
+          {
+            "id": 237,
+            "translationable_type": "App\\Models\\Category",
+            "translationable_id": 28,
+            "locale": "en",
+            "key": "name",
+            "value": "Washing Aids",
+            "created_at": null,
+            "updated_at": null
+          }
+        ]
+      }
+    ],
+    "storage": [
+      {
+        "id": 408,
+        "data_type": "App\\Models\\Category",
+        "data_id": "2",
+        "key": "image",
+        "value": "public",
+        "created_at": "2025-11-20 16:12:55",
+        "updated_at": "2025-11-20 16:12:55"
+      }
+    ],
+    "translations": []
+  },
+  {
+    "id": 6,
+    "code": "DF",
+    "name": "Dairy & Frozen Foods",
+    "image": "DF.jpg",
+    "parent_id": 0,
+    "position": 0,
+    "status": 1,
+    "created_at": "2025-11-20T10:12:55.000000Z",
+    "updated_at": "2026-04-03T18:21:20.000000Z",
+    "priority": 2,
+    "module_id": 1,
+    "slug": null,
+    "featured": 1,
+    "products_count": 0,
+    "childes_count": 12,
+    "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/DF.jpg",
+    "childes": [
+      {
+        "id": 42,
+        "code": "DF01",
+        "name": "Butter",
+        "image": "DF01.jpg",
+        "parent_id": 6,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 26,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 2,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/DF01.jpg",
+        "storage": [
+          {
+            "id": 173,
+            "data_type": "App\\Models\\Category",
+            "data_id": "42",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 43,
+        "code": "DF02",
+        "name": "Cheese",
+        "image": "DF02.jpg",
+        "parent_id": 6,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 29,
+        "module_id": 1,
+        "slug": "cheese43",
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 7,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/DF02.jpg",
+        "storage": [
+          {
+            "id": 174,
+            "data_type": "App\\Models\\Category",
+            "data_id": "43",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": [
+          {
+            "id": 93,
+            "translationable_type": "App\\Models\\Category",
+            "translationable_id": 43,
+            "locale": "en",
+            "key": "name",
+            "value": "Cheese",
+            "created_at": null,
+            "updated_at": null
+          }
+        ]
+      },
+      {
+        "id": 44,
+        "code": "DF03",
+        "name": "Cream",
+        "image": "DF03.jpg",
+        "parent_id": 6,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 27,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 3,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/DF03.jpg",
+        "storage": [
+          {
+            "id": 175,
+            "data_type": "App\\Models\\Category",
+            "data_id": "44",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 45,
+        "code": "DF04",
+        "name": "Curd",
+        "image": "DF04.jpg",
+        "parent_id": 6,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 28,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 3,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/DF04.jpg",
+        "storage": [
+          {
+            "id": 176,
+            "data_type": "App\\Models\\Category",
+            "data_id": "45",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 46,
+        "code": "DF05",
+        "name": "Dairy Drinks",
+        "image": "DF05.jpg",
+        "parent_id": 6,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2025-11-20T10:12:55.000000Z",
+        "priority": 28,
+        "module_id": 1,
+        "slug": null,
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 3,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/DF05.jpg",
+        "storage": [
+          {
+            "id": 177,
+            "data_type": "App\\Models\\Category",
+            "data_id": "46",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 47,
+        "code": "DF06",
+        "name": "Frozen Perishable",
+        "image": "DF06.jpg",
+        "parent_id": 6,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 30,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 6,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/DF06.jpg",
+        "storage": [
+          {
+            "id": 178,
+            "data_type": "App\\Models\\Category",
+            "data_id": "47",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 48,
+        "code": "DF07",
+        "name": "Ice Cream",
+        "image": "DF07.jpg",
+        "parent_id": 6,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 32,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 2,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/DF07.jpg",
+        "storage": [
+          {
+            "id": 179,
+            "data_type": "App\\Models\\Category",
+            "data_id": "48",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 49,
+        "code": "DF08",
+        "name": "Milk",
+        "image": "DF08.jpg",
+        "parent_id": 6,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 33,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 3,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/DF08.jpg",
+        "storage": [
+          {
+            "id": 180,
+            "data_type": "App\\Models\\Category",
+            "data_id": "49",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 50,
+        "code": "DF09",
+        "name": "Other Food",
+        "image": "DF09.jpg",
+        "parent_id": 6,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 38,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 2,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/DF09.jpg",
+        "storage": [
+          {
+            "id": 181,
+            "data_type": "App\\Models\\Category",
+            "data_id": "50",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 51,
+        "code": "DF10",
+        "name": "Processed Food",
+        "image": "DF10.jpg",
+        "parent_id": 6,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 35,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 6,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/DF10.jpg",
+        "storage": [
+          {
+            "id": 182,
+            "data_type": "App\\Models\\Category",
+            "data_id": "51",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 52,
+        "code": "DF11",
+        "name": "Ruti/Parata",
+        "image": "DF11.jpg",
+        "parent_id": 6,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-08T08:54:30.000000Z",
+        "priority": 34,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 4,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/DF11.jpg",
+        "storage": [
+          {
+            "id": 183,
+            "data_type": "App\\Models\\Category",
+            "data_id": "52",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 53,
+        "code": "DF12",
+        "name": "Snacks",
+        "image": "DF12.jpg",
+        "parent_id": 6,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 37,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 7,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/DF12.jpg",
+        "storage": [
+          {
+            "id": 184,
+            "data_type": "App\\Models\\Category",
+            "data_id": "53",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      }
+    ],
+    "storage": [
+      {
+        "id": 137,
+        "data_type": "App\\Models\\Category",
+        "data_id": "6",
+        "key": "image",
+        "value": "public",
+        "created_at": "2025-11-20 16:12:55",
+        "updated_at": "2025-11-20 16:12:55"
+      }
+    ],
+    "translations": []
+  },
+  {
+    "id": 13,
+    "code": "JB",
+    "name": "Juice & Beverage",
+    "image": "JB.jpg",
+    "parent_id": 0,
+    "position": 0,
+    "status": 1,
+    "created_at": "2025-11-20T10:12:55.000000Z",
+    "updated_at": "2026-04-03T18:21:20.000000Z",
+    "priority": 3,
+    "module_id": 1,
+    "slug": null,
+    "featured": 1,
+    "products_count": 0,
+    "childes_count": 4,
+    "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/JB.jpg",
+    "childes": [
+      {
+        "id": 120,
+        "code": "JB01",
+        "name": "Juice",
+        "image": "JB01.jpg",
+        "parent_id": 13,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 59,
+        "module_id": 1,
+        "slug": "juice120",
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 22,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/JB01.jpg",
+        "storage": [
+          {
+            "id": 251,
+            "data_type": "App\\Models\\Category",
+            "data_id": "120",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-27 22:01:23",
+            "updated_at": "2025-11-27 22:01:23"
+          }
+        ],
+        "translations": [
+          {
+            "id": 238,
+            "translationable_type": "App\\Models\\Category",
+            "translationable_id": 120,
+            "locale": "en",
+            "key": "name",
+            "value": "Juice",
+            "created_at": null,
+            "updated_at": null
+          }
+        ]
+      },
+      {
+        "id": 121,
+        "code": "JB02",
+        "name": "Coffee",
+        "image": "JB02.jpg",
+        "parent_id": 13,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 31,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 8,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/JB02.jpg",
+        "storage": [
+          {
+            "id": 252,
+            "data_type": "App\\Models\\Category",
+            "data_id": "121",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:57",
+            "updated_at": "2025-11-20 16:12:57"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 122,
+        "code": "JB03",
+        "name": "Drinks",
+        "image": "JB03.jpg",
+        "parent_id": 13,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 34,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 8,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/JB03.jpg",
+        "storage": [
+          {
+            "id": 253,
+            "data_type": "App\\Models\\Category",
+            "data_id": "122",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:57",
+            "updated_at": "2025-11-20 16:12:57"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 123,
+        "code": "JB05",
+        "name": "Tea",
+        "image": "JB05.jpg",
+        "parent_id": 13,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 36,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 7,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/JB05.jpg",
+        "storage": [
+          {
+            "id": 254,
+            "data_type": "App\\Models\\Category",
+            "data_id": "123",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:57",
+            "updated_at": "2025-11-20 16:12:57"
+          }
+        ],
+        "translations": []
+      }
+    ],
+    "storage": [
+      {
+        "id": 144,
+        "data_type": "App\\Models\\Category",
+        "data_id": "13",
+        "key": "image",
+        "value": "public",
+        "created_at": "2025-11-20 16:12:55",
+        "updated_at": "2025-11-20 16:12:55"
+      }
+    ],
+    "translations": []
+  },
+  {
+    "id": 11,
+    "code": "HE",
+    "name": "Household Essentials",
+    "image": "HE.jpg",
+    "parent_id": 0,
+    "position": 0,
+    "status": 1,
+    "created_at": "2025-11-20T10:12:55.000000Z",
+    "updated_at": "2026-04-02T09:23:47.000000Z",
+    "priority": 3,
+    "module_id": 1,
+    "slug": null,
+    "featured": 0,
+    "products_count": 0,
+    "childes_count": 14,
+    "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/HE.jpg",
+    "childes": [
+      {
+        "id": 99,
+        "code": "HE01",
+        "name": "Bags & Luggages",
+        "image": "HE01.jpg",
+        "parent_id": 11,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 10,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 2,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/HE01.jpg",
+        "storage": [
+          {
+            "id": 230,
+            "data_type": "App\\Models\\Category",
+            "data_id": "99",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 100,
+        "code": "HE02",
+        "name": "Cleaning Accessories",
+        "image": "HE02.jpg",
+        "parent_id": 11,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 11,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 5,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/HE02.jpg",
+        "storage": [
+          {
+            "id": 231,
+            "data_type": "App\\Models\\Category",
+            "data_id": "100",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 101,
+        "code": "HE03",
+        "name": "Hardware And Tools",
+        "image": "HE03.jpg",
+        "parent_id": 11,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 13,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 4,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/HE03.jpg",
+        "storage": [
+          {
+            "id": 232,
+            "data_type": "App\\Models\\Category",
+            "data_id": "101",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 102,
+        "code": "HE04",
+        "name": "Household Electronics",
+        "image": "HE04.jpg",
+        "parent_id": 11,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 15,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 12,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/HE04.jpg",
+        "storage": [
+          {
+            "id": 233,
+            "data_type": "App\\Models\\Category",
+            "data_id": "102",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 103,
+        "code": "HE05",
+        "name": "Incense",
+        "image": "HE05.jpg",
+        "parent_id": 11,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 17,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 3,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/HE05.jpg",
+        "storage": [
+          {
+            "id": 234,
+            "data_type": "App\\Models\\Category",
+            "data_id": "103",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 104,
+        "code": "HE06",
+        "name": "Kitchen Accessories",
+        "image": "HE06.jpg",
+        "parent_id": 11,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 19,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 8,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/HE06.jpg",
+        "storage": [
+          {
+            "id": 235,
+            "data_type": "App\\Models\\Category",
+            "data_id": "104",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 105,
+        "code": "HE07",
+        "name": "Kitchen Appliances",
+        "image": "HE07.jpg",
+        "parent_id": 11,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 21,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 3,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/HE07.jpg",
+        "storage": [
+          {
+            "id": 236,
+            "data_type": "App\\Models\\Category",
+            "data_id": "105",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 106,
+        "code": "HE08",
+        "name": "Outdoor Activity Accessories",
+        "image": "HE08.jpg",
+        "parent_id": 11,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 23,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 2,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/HE08.jpg",
+        "storage": [
+          {
+            "id": 237,
+            "data_type": "App\\Models\\Category",
+            "data_id": "106",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 107,
+        "code": "HE09",
+        "name": "Pesticides",
+        "image": "HE09.jpg",
+        "parent_id": 11,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 24,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 6,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/HE09.jpg",
+        "storage": [
+          {
+            "id": 238,
+            "data_type": "App\\Models\\Category",
+            "data_id": "107",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 108,
+        "code": "HE10",
+        "name": "Storage & Organizer",
+        "image": "HE10.jpg",
+        "parent_id": 11,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 25,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 8,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/HE10.jpg",
+        "storage": [
+          {
+            "id": 239,
+            "data_type": "App\\Models\\Category",
+            "data_id": "108",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 109,
+        "code": "HE11",
+        "name": "Surface Cleaner",
+        "image": "HE11.jpg",
+        "parent_id": 11,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2025-11-20T10:12:55.000000Z",
+        "priority": 91,
+        "module_id": 1,
+        "slug": null,
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 11,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/HE11.jpg",
+        "storage": [
+          {
+            "id": 240,
+            "data_type": "App\\Models\\Category",
+            "data_id": "109",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 110,
+        "code": "HE12",
+        "name": "Tissue",
+        "image": "HE12.jpg",
+        "parent_id": 11,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2025-11-20T10:12:55.000000Z",
+        "priority": 92,
+        "module_id": 1,
+        "slug": null,
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 5,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/HE12.jpg",
+        "storage": [
+          {
+            "id": 241,
+            "data_type": "App\\Models\\Category",
+            "data_id": "110",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 111,
+        "code": "HE13",
+        "name": "Travel Accessories",
+        "image": "HE13.jpg",
+        "parent_id": 11,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2025-11-20T10:12:55.000000Z",
+        "priority": 93,
+        "module_id": 1,
+        "slug": null,
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 1,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/HE13.jpg",
+        "storage": [
+          {
+            "id": 242,
+            "data_type": "App\\Models\\Category",
+            "data_id": "111",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 112,
+        "code": "HE14",
+        "name": "Washing Aids",
+        "image": "HE14.jpg",
+        "parent_id": 11,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2025-11-20T10:12:55.000000Z",
+        "priority": 94,
+        "module_id": 1,
+        "slug": null,
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 7,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/HE14.jpg",
+        "storage": [
+          {
+            "id": 243,
+            "data_type": "App\\Models\\Category",
+            "data_id": "112",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      }
+    ],
+    "storage": [
+      {
+        "id": 142,
+        "data_type": "App\\Models\\Category",
+        "data_id": "11",
+        "key": "image",
+        "value": "public",
+        "created_at": "2025-11-20 16:12:55",
+        "updated_at": "2025-11-20 16:12:55"
+      }
+    ],
+    "translations": []
+  },
+  {
+    "id": 18,
+    "code": "TY",
+    "name": "Toys & Games",
+    "image": "TY.jpg",
+    "parent_id": 0,
+    "position": 0,
+    "status": 1,
+    "created_at": "2025-11-20T10:12:55.000000Z",
+    "updated_at": "2026-04-02T09:24:44.000000Z",
+    "priority": 4,
+    "module_id": 1,
+    "slug": null,
+    "featured": 0,
+    "products_count": 0,
+    "childes_count": 12,
+    "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/TY.jpg",
+    "childes": [
+      {
+        "id": 142,
+        "code": "TY01",
+        "name": "Action Figures",
+        "image": "TY01.jpg",
+        "parent_id": 18,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 47,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 1,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/TY01.jpg",
+        "storage": [
+          {
+            "id": 273,
+            "data_type": "App\\Models\\Category",
+            "data_id": "142",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:57",
+            "updated_at": "2025-11-20 16:12:57"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 143,
+        "code": "TY02",
+        "name": "Art And Craft Kits",
+        "image": "TY02.jpg",
+        "parent_id": 18,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 48,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 3,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/TY02.jpg",
+        "storage": [
+          {
+            "id": 274,
+            "data_type": "App\\Models\\Category",
+            "data_id": "143",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:57",
+            "updated_at": "2025-11-20 16:12:57"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 144,
+        "code": "TY03",
+        "name": "Baby And Toddler Toys",
+        "image": "TY03.jpg",
+        "parent_id": 18,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 49,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 2,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/TY03.jpg",
+        "storage": [
+          {
+            "id": 275,
+            "data_type": "App\\Models\\Category",
+            "data_id": "144",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:57",
+            "updated_at": "2025-11-20 16:12:57"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 145,
+        "code": "TY04",
+        "name": "Board Games And Card Games",
+        "image": "TY04.jpg",
+        "parent_id": 18,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 50,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 1,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/TY04.jpg",
+        "storage": [
+          {
+            "id": 276,
+            "data_type": "App\\Models\\Category",
+            "data_id": "145",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:57",
+            "updated_at": "2025-11-20 16:12:57"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 146,
+        "code": "TY05",
+        "name": "Collectibles",
+        "image": "TY05.jpg",
+        "parent_id": 18,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 51,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 1,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/TY05.jpg",
+        "storage": [
+          {
+            "id": 277,
+            "data_type": "App\\Models\\Category",
+            "data_id": "146",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:57",
+            "updated_at": "2025-11-20 16:12:57"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 147,
+        "code": "TY06",
+        "name": "Dolls And Accessories",
+        "image": "TY06.jpg",
+        "parent_id": 18,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 52,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 3,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/TY06.jpg",
+        "storage": [
+          {
+            "id": 278,
+            "data_type": "App\\Models\\Category",
+            "data_id": "147",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:57",
+            "updated_at": "2025-11-20 16:12:57"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 148,
+        "code": "TY07",
+        "name": "Educational And Learning Toys",
+        "image": "TY07.jpg",
+        "parent_id": 18,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 53,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 2,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/TY07.jpg",
+        "storage": [
+          {
+            "id": 279,
+            "data_type": "App\\Models\\Category",
+            "data_id": "148",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:57",
+            "updated_at": "2025-11-20 16:12:57"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 149,
+        "code": "TY08",
+        "name": "Musical Instruments And Music Toys",
+        "image": "TY08.jpg",
+        "parent_id": 18,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 54,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 1,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/TY08.jpg",
+        "storage": [
+          {
+            "id": 280,
+            "data_type": "App\\Models\\Category",
+            "data_id": "149",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:57",
+            "updated_at": "2025-11-20 16:12:57"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 150,
+        "code": "TY09",
+        "name": "Outdoor And Sports Toys",
+        "image": "TY09.jpg",
+        "parent_id": 18,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 55,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 2,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/TY09.jpg",
+        "storage": [
+          {
+            "id": 281,
+            "data_type": "App\\Models\\Category",
+            "data_id": "150",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:57",
+            "updated_at": "2025-11-20 16:12:57"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 151,
+        "code": "TY10",
+        "name": "Puzzles And Brain Teasers",
+        "image": "TY10.jpg",
+        "parent_id": 18,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 56,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 2,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/TY10.jpg",
+        "storage": [
+          {
+            "id": 282,
+            "data_type": "App\\Models\\Category",
+            "data_id": "151",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:57",
+            "updated_at": "2025-11-20 16:12:57"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 152,
+        "code": "TY11",
+        "name": "Remote-Controlled Vehicles",
+        "image": "TY11.jpg",
+        "parent_id": 18,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 57,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 1,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/TY11.jpg",
+        "storage": [
+          {
+            "id": 283,
+            "data_type": "App\\Models\\Category",
+            "data_id": "152",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:57",
+            "updated_at": "2025-11-20 16:12:57"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 153,
+        "code": "TY12",
+        "name": "Vehicles",
+        "image": "TY12.jpg",
+        "parent_id": 18,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2026-04-03T18:21:20.000000Z",
+        "priority": 58,
+        "module_id": 1,
+        "slug": null,
+        "featured": 1,
+        "products_count": 0,
+        "childes_count": 1,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/TY12.jpg",
+        "storage": [
+          {
+            "id": 284,
+            "data_type": "App\\Models\\Category",
+            "data_id": "153",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:57",
+            "updated_at": "2025-11-20 16:12:57"
+          }
+        ],
+        "translations": []
+      }
+    ],
+    "storage": [
+      {
+        "id": 149,
+        "data_type": "App\\Models\\Category",
+        "data_id": "18",
+        "key": "image",
+        "value": "public",
+        "created_at": "2025-11-20 16:12:55",
+        "updated_at": "2025-11-20 16:12:55"
+      }
+    ],
+    "translations": []
+  },
+  {
+    "id": 5,
+    "code": "CP",
+    "name": "Color Cosmetics & Perfumery",
+    "image": "CP.jpg",
+    "parent_id": 0,
+    "position": 0,
+    "status": 1,
+    "created_at": "2025-11-20T10:12:55.000000Z",
+    "updated_at": "2025-11-20T10:12:55.000000Z",
+    "priority": 5,
+    "module_id": 1,
+    "slug": null,
+    "featured": 0,
+    "products_count": 0,
+    "childes_count": 3,
+    "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/CP.jpg",
+    "childes": [
+      {
+        "id": 39,
+        "code": "CP01",
+        "name": "Color Cosmetics",
+        "image": "CP01.jpg",
+        "parent_id": 5,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2025-11-20T10:12:55.000000Z",
+        "priority": 21,
+        "module_id": 1,
+        "slug": null,
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 3,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/CP01.jpg",
+        "storage": [
+          {
+            "id": 170,
+            "data_type": "App\\Models\\Category",
+            "data_id": "39",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 40,
+        "code": "CP02",
+        "name": "Makeup Accessories",
+        "image": "CP02.jpg",
+        "parent_id": 5,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2025-11-20T10:12:55.000000Z",
+        "priority": 22,
+        "module_id": 1,
+        "slug": null,
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 4,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/CP02.jpg",
+        "storage": [
+          {
+            "id": 171,
+            "data_type": "App\\Models\\Category",
+            "data_id": "40",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 41,
+        "code": "CP03",
+        "name": "Perfumery",
+        "image": "CP03.jpg",
+        "parent_id": 5,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2025-11-20T10:12:55.000000Z",
+        "priority": 23,
+        "module_id": 1,
+        "slug": null,
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 3,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/CP03.jpg",
+        "storage": [
+          {
+            "id": 172,
+            "data_type": "App\\Models\\Category",
+            "data_id": "41",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      }
+    ],
+    "storage": [
+      {
+        "id": 136,
+        "data_type": "App\\Models\\Category",
+        "data_id": "5",
+        "key": "image",
+        "value": "public",
+        "created_at": "2025-11-20 16:12:55",
+        "updated_at": "2025-11-20 16:12:55"
+      }
+    ],
+    "translations": []
+  },
+  {
+    "id": 8,
+    "code": "FM",
+    "name": "Fish & Meat",
+    "image": "FM.jpg",
+    "parent_id": 0,
+    "position": 0,
+    "status": 1,
+    "created_at": "2025-11-20T10:12:55.000000Z",
+    "updated_at": "2025-11-27T10:41:45.000000Z",
+    "priority": 8,
+    "module_id": 1,
+    "slug": null,
+    "featured": 0,
+    "products_count": 0,
+    "childes_count": 6,
+    "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/FM.jpg",
+    "childes": [
+      {
+        "id": 83,
+        "code": "FM01",
+        "name": "Beef",
+        "image": "FM01.jpg",
+        "parent_id": 8,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2025-11-20T10:12:55.000000Z",
+        "priority": 65,
+        "module_id": 1,
+        "slug": null,
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 4,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/FM01.jpg",
+        "storage": [
+          {
+            "id": 214,
+            "data_type": "App\\Models\\Category",
+            "data_id": "83",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 84,
+        "code": "FM02",
+        "name": "Beef Value Added",
+        "image": "FM02.jpg",
+        "parent_id": 8,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2025-11-20T10:12:55.000000Z",
+        "priority": 66,
+        "module_id": 1,
+        "slug": null,
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 3,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/FM02.jpg",
+        "storage": [
+          {
+            "id": 215,
+            "data_type": "App\\Models\\Category",
+            "data_id": "84",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 85,
+        "code": "FM03",
+        "name": "Dry Fish",
+        "image": "FM03.jpg",
+        "parent_id": 8,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2025-11-20T10:12:55.000000Z",
+        "priority": 67,
+        "module_id": 1,
+        "slug": null,
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 2,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/FM03.jpg",
+        "storage": [
+          {
+            "id": 216,
+            "data_type": "App\\Models\\Category",
+            "data_id": "85",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 86,
+        "code": "FM04",
+        "name": "Fresh Water Fish",
+        "image": "FM04.jpg",
+        "parent_id": 8,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2025-11-20T10:12:55.000000Z",
+        "priority": 68,
+        "module_id": 1,
+        "slug": null,
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 3,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/FM04.jpg",
+        "storage": [
+          {
+            "id": 217,
+            "data_type": "App\\Models\\Category",
+            "data_id": "86",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 87,
+        "code": "FM05",
+        "name": "Mutton",
+        "image": "FM05.jpg",
+        "parent_id": 8,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2025-11-20T10:12:55.000000Z",
+        "priority": 69,
+        "module_id": 1,
+        "slug": null,
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 3,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/FM05.jpg",
+        "storage": [
+          {
+            "id": 218,
+            "data_type": "App\\Models\\Category",
+            "data_id": "87",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 88,
+        "code": "FM06",
+        "name": "Sea Fish",
+        "image": "FM06.jpg",
+        "parent_id": 8,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2025-11-20T10:12:55.000000Z",
+        "priority": 70,
+        "module_id": 1,
+        "slug": null,
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 4,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/FM06.jpg",
+        "storage": [
+          {
+            "id": 219,
+            "data_type": "App\\Models\\Category",
+            "data_id": "88",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      }
+    ],
+    "storage": [
+      {
+        "id": 139,
+        "data_type": "App\\Models\\Category",
+        "data_id": "8",
+        "key": "image",
+        "value": "public",
+        "created_at": "2025-11-20 16:12:55",
+        "updated_at": "2025-11-20 16:12:55"
+      }
+    ],
+    "translations": []
+  },
+  {
+    "id": 10,
+    "code": "HC",
+    "name": "Health And Wellbeing",
+    "image": "HC.jpg",
+    "parent_id": 0,
+    "position": 0,
+    "status": 1,
+    "created_at": "2025-11-20T10:12:55.000000Z",
+    "updated_at": "2025-11-27T19:26:10.000000Z",
+    "priority": 10,
+    "module_id": 1,
+    "slug": "health-and-wellbeing10",
+    "featured": 0,
+    "products_count": 0,
+    "childes_count": 5,
+    "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/HC.jpg",
+    "childes": [
+      {
+        "id": 94,
+        "code": "HC01",
+        "name": "Anti-Bacterial",
+        "image": "HC01.jpg",
+        "parent_id": 10,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2025-11-20T10:12:55.000000Z",
+        "priority": 76,
+        "module_id": 1,
+        "slug": null,
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 2,
+        "image_full_url": null,
+        "storage": [
+          {
+            "id": 225,
+            "data_type": "App\\Models\\Category",
+            "data_id": "94",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 95,
+        "code": "HC02",
+        "name": "Gym Supplements",
+        "image": "HC02.jpg",
+        "parent_id": 10,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2025-11-20T10:12:55.000000Z",
+        "priority": 77,
+        "module_id": 1,
+        "slug": null,
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 1,
+        "image_full_url": null,
+        "storage": [
+          {
+            "id": 226,
+            "data_type": "App\\Models\\Category",
+            "data_id": "95",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 96,
+        "code": "HC03",
+        "name": "Medicine",
+        "image": "HC03.jpg",
+        "parent_id": 10,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2025-11-20T10:12:55.000000Z",
+        "priority": 78,
+        "module_id": 1,
+        "slug": null,
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 1,
+        "image_full_url": null,
+        "storage": [
+          {
+            "id": 227,
+            "data_type": "App\\Models\\Category",
+            "data_id": "96",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 97,
+        "code": "HC04",
+        "name": "Otc",
+        "image": "HC04.jpg",
+        "parent_id": 10,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2025-11-20T10:12:55.000000Z",
+        "priority": 79,
+        "module_id": 1,
+        "slug": null,
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 1,
+        "image_full_url": null,
+        "storage": [
+          {
+            "id": 228,
+            "data_type": "App\\Models\\Category",
+            "data_id": "97",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 98,
+        "code": "HC05",
+        "name": "Surgical",
+        "image": "HC05.jpg",
+        "parent_id": 10,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2025-11-20T10:12:55.000000Z",
+        "priority": 80,
+        "module_id": 1,
+        "slug": null,
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 1,
+        "image_full_url": null,
+        "storage": [
+          {
+            "id": 229,
+            "data_type": "App\\Models\\Category",
+            "data_id": "98",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:56",
+            "updated_at": "2025-11-20 16:12:56"
+          }
+        ],
+        "translations": []
+      }
+    ],
+    "storage": [
+      {
+        "id": 141,
+        "data_type": "App\\Models\\Category",
+        "data_id": "10",
+        "key": "image",
+        "value": "public",
+        "created_at": "2025-11-28 01:26:10",
+        "updated_at": "2025-11-28 01:26:10"
+      }
+    ],
+    "translations": [
+      {
+        "id": 229,
+        "translationable_type": "App\\Models\\Category",
+        "translationable_id": 10,
+        "locale": "en",
+        "key": "name",
+        "value": "Health And Wellbeing",
+        "created_at": null,
+        "updated_at": null
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "code": "HL",
+    "name": "Home Decor",
+    "image": "HL.jpg",
+    "parent_id": 0,
+    "position": 0,
+    "status": 1,
+    "created_at": "2025-11-20T10:12:55.000000Z",
+    "updated_at": "2025-11-30T18:00:47.000000Z",
+    "priority": 14,
+    "module_id": 1,
+    "slug": null,
+    "featured": 0,
+    "products_count": 0,
+    "childes_count": 7,
+    "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/HL.jpg",
+    "childes": [
+      {
+        "id": 113,
+        "code": "HL01",
+        "name": "Bathroom Accessories",
+        "image": "HL01.jpg",
+        "parent_id": 12,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2025-11-20T10:12:55.000000Z",
+        "priority": 95,
+        "module_id": 1,
+        "slug": null,
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 3,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/HL01.jpg",
+        "storage": [
+          {
+            "id": 244,
+            "data_type": "App\\Models\\Category",
+            "data_id": "113",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:57",
+            "updated_at": "2025-11-20 16:12:57"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 114,
+        "code": "HL02",
+        "name": "Bedding",
+        "image": "HL02.jpg",
+        "parent_id": 12,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2025-11-20T10:12:55.000000Z",
+        "priority": 96,
+        "module_id": 1,
+        "slug": null,
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 1,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/HL02.jpg",
+        "storage": [
+          {
+            "id": 245,
+            "data_type": "App\\Models\\Category",
+            "data_id": "114",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:57",
+            "updated_at": "2025-11-20 16:12:57"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 115,
+        "code": "HL03",
+        "name": "Gardening",
+        "image": "HL03.jpg",
+        "parent_id": 12,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2025-11-20T10:12:55.000000Z",
+        "priority": 97,
+        "module_id": 1,
+        "slug": null,
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 1,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/HL03.jpg",
+        "storage": [
+          {
+            "id": 246,
+            "data_type": "App\\Models\\Category",
+            "data_id": "115",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:57",
+            "updated_at": "2025-11-20 16:12:57"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 116,
+        "code": "HL04",
+        "name": "Home Decor",
+        "image": "HL04.jpg",
+        "parent_id": 12,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2025-11-20T10:12:55.000000Z",
+        "priority": 98,
+        "module_id": 1,
+        "slug": null,
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 15,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/HL04.jpg",
+        "storage": [
+          {
+            "id": 247,
+            "data_type": "App\\Models\\Category",
+            "data_id": "116",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:57",
+            "updated_at": "2025-11-20 16:12:57"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 117,
+        "code": "HL05",
+        "name": "Party Accessories",
+        "image": "HL05.jpg",
+        "parent_id": 12,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2025-11-20T10:12:55.000000Z",
+        "priority": 99,
+        "module_id": 1,
+        "slug": null,
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 3,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/HL05.jpg",
+        "storage": [
+          {
+            "id": 248,
+            "data_type": "App\\Models\\Category",
+            "data_id": "117",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:57",
+            "updated_at": "2025-11-20 16:12:57"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 118,
+        "code": "HL06",
+        "name": "Rainwear & Umbrella",
+        "image": "HL06.jpg",
+        "parent_id": 12,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2025-11-20T10:12:55.000000Z",
+        "priority": 100,
+        "module_id": 1,
+        "slug": null,
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 1,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/HL06.jpg",
+        "storage": [
+          {
+            "id": 249,
+            "data_type": "App\\Models\\Category",
+            "data_id": "118",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:57",
+            "updated_at": "2025-11-20 16:12:57"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 119,
+        "code": "HL07",
+        "name": "Table Wear",
+        "image": "HL07.jpg",
+        "parent_id": 12,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2025-11-20T10:12:55.000000Z",
+        "priority": 101,
+        "module_id": 1,
+        "slug": null,
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 16,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/HL07.jpg",
+        "storage": [
+          {
+            "id": 250,
+            "data_type": "App\\Models\\Category",
+            "data_id": "119",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:57",
+            "updated_at": "2025-11-20 16:12:57"
+          }
+        ],
+        "translations": []
+      }
+    ],
+    "storage": [
+      {
+        "id": 143,
+        "data_type": "App\\Models\\Category",
+        "data_id": "12",
+        "key": "image",
+        "value": "public",
+        "created_at": "2025-11-20 16:12:55",
+        "updated_at": "2025-11-20 16:12:55"
+      }
+    ],
+    "translations": []
+  },
+  {
+    "id": 15,
+    "code": "PS",
+    "name": "Pet Supplies",
+    "image": "PS.jpg",
+    "parent_id": 0,
+    "position": 0,
+    "status": 1,
+    "created_at": "2025-11-20T10:12:55.000000Z",
+    "updated_at": "2025-11-20T10:12:55.000000Z",
+    "priority": 15,
+    "module_id": 1,
+    "slug": null,
+    "featured": 0,
+    "products_count": 0,
+    "childes_count": 2,
+    "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/PS.jpg",
+    "childes": [
+      {
+        "id": 132,
+        "code": "PS01",
+        "name": "Pet Care",
+        "image": "PS01.jpg",
+        "parent_id": 15,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2025-11-20T10:12:55.000000Z",
+        "priority": 114,
+        "module_id": 1,
+        "slug": null,
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 4,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/PS01.jpg",
+        "storage": [
+          {
+            "id": 263,
+            "data_type": "App\\Models\\Category",
+            "data_id": "132",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:57",
+            "updated_at": "2025-11-20 16:12:57"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 133,
+        "code": "PS02",
+        "name": "Pet Food",
+        "image": "PS02.jpg",
+        "parent_id": 15,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2025-11-20T10:12:55.000000Z",
+        "priority": 115,
+        "module_id": 1,
+        "slug": null,
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 4,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/PS02.jpg",
+        "storage": [
+          {
+            "id": 264,
+            "data_type": "App\\Models\\Category",
+            "data_id": "133",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:57",
+            "updated_at": "2025-11-20 16:12:57"
+          }
+        ],
+        "translations": []
+      }
+    ],
+    "storage": [
+      {
+        "id": 146,
+        "data_type": "App\\Models\\Category",
+        "data_id": "15",
+        "key": "image",
+        "value": "public",
+        "created_at": "2025-11-20 16:12:55",
+        "updated_at": "2025-11-20 16:12:55"
+      }
+    ],
+    "translations": []
+  },
+  {
+    "id": 16,
+    "code": "PU",
+    "name": "Poultry",
+    "image": "PU.jpg",
+    "parent_id": 0,
+    "position": 0,
+    "status": 1,
+    "created_at": "2025-11-20T10:12:55.000000Z",
+    "updated_at": "2025-11-20T10:12:55.000000Z",
+    "priority": 16,
+    "module_id": 1,
+    "slug": null,
+    "featured": 0,
+    "products_count": 0,
+    "childes_count": 3,
+    "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/PU.jpg",
+    "childes": [
+      {
+        "id": 134,
+        "code": "PU01",
+        "name": "Chicken",
+        "image": "PU01.jpg",
+        "parent_id": 16,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2025-11-20T10:12:55.000000Z",
+        "priority": 116,
+        "module_id": 1,
+        "slug": null,
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 3,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/PU01.jpg",
+        "storage": [
+          {
+            "id": 265,
+            "data_type": "App\\Models\\Category",
+            "data_id": "134",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:57",
+            "updated_at": "2025-11-20 16:12:57"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 135,
+        "code": "PU02",
+        "name": "Duck",
+        "image": "PU02.jpg",
+        "parent_id": 16,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2025-11-20T10:12:55.000000Z",
+        "priority": 117,
+        "module_id": 1,
+        "slug": null,
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 1,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/PU02.jpg",
+        "storage": [
+          {
+            "id": 266,
+            "data_type": "App\\Models\\Category",
+            "data_id": "135",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:57",
+            "updated_at": "2025-11-20 16:12:57"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 136,
+        "code": "PU03",
+        "name": "Egg",
+        "image": "PU03.jpg",
+        "parent_id": 16,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2025-11-20T10:12:55.000000Z",
+        "priority": 118,
+        "module_id": 1,
+        "slug": null,
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 3,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/PU03.jpg",
+        "storage": [
+          {
+            "id": 267,
+            "data_type": "App\\Models\\Category",
+            "data_id": "136",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:57",
+            "updated_at": "2025-11-20 16:12:57"
+          }
+        ],
+        "translations": []
+      }
+    ],
+    "storage": [
+      {
+        "id": 147,
+        "data_type": "App\\Models\\Category",
+        "data_id": "16",
+        "key": "image",
+        "value": "public",
+        "created_at": "2025-11-20 16:12:55",
+        "updated_at": "2025-11-20 16:12:55"
+      }
+    ],
+    "translations": []
+  },
+  {
+    "id": 17,
+    "code": "SF",
+    "name": "Sports & Fitness",
+    "image": "SF.jpg",
+    "parent_id": 0,
+    "position": 0,
+    "status": 1,
+    "created_at": "2025-11-20T10:12:55.000000Z",
+    "updated_at": "2025-11-20T10:12:55.000000Z",
+    "priority": 17,
+    "module_id": 1,
+    "slug": null,
+    "featured": 0,
+    "products_count": 0,
+    "childes_count": 5,
+    "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/SF.jpg",
+    "childes": [
+      {
+        "id": 137,
+        "code": "SF01",
+        "name": "Fitness Accessories",
+        "image": "SF01.jpg",
+        "parent_id": 17,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2025-11-20T10:12:55.000000Z",
+        "priority": 119,
+        "module_id": 1,
+        "slug": null,
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 2,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/SF01.jpg",
+        "storage": [
+          {
+            "id": 268,
+            "data_type": "App\\Models\\Category",
+            "data_id": "137",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:57",
+            "updated_at": "2025-11-20 16:12:57"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 138,
+        "code": "SF02",
+        "name": "Men Sports Wear",
+        "image": "SF02.jpg",
+        "parent_id": 17,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2025-11-20T10:12:55.000000Z",
+        "priority": 120,
+        "module_id": 1,
+        "slug": null,
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 1,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/SF02.jpg",
+        "storage": [
+          {
+            "id": 269,
+            "data_type": "App\\Models\\Category",
+            "data_id": "138",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:57",
+            "updated_at": "2025-11-20 16:12:57"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 139,
+        "code": "SF03",
+        "name": "Sports Accessories",
+        "image": "SF03.jpg",
+        "parent_id": 17,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2025-11-20T10:12:55.000000Z",
+        "priority": 121,
+        "module_id": 1,
+        "slug": null,
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 7,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/SF03.jpg",
+        "storage": [
+          {
+            "id": 270,
+            "data_type": "App\\Models\\Category",
+            "data_id": "139",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:57",
+            "updated_at": "2025-11-20 16:12:57"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 140,
+        "code": "SF04",
+        "name": "Sports Footwear",
+        "image": "SF04.jpg",
+        "parent_id": 17,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2025-11-20T10:12:55.000000Z",
+        "priority": 122,
+        "module_id": 1,
+        "slug": null,
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 1,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/SF04.jpg",
+        "storage": [
+          {
+            "id": 271,
+            "data_type": "App\\Models\\Category",
+            "data_id": "140",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:57",
+            "updated_at": "2025-11-20 16:12:57"
+          }
+        ],
+        "translations": []
+      },
+      {
+        "id": 141,
+        "code": "SF05",
+        "name": "Swimming Accessories",
+        "image": "SF05.jpg",
+        "parent_id": 17,
+        "position": 1,
+        "status": 1,
+        "created_at": "2025-11-20T10:12:55.000000Z",
+        "updated_at": "2025-11-20T10:12:55.000000Z",
+        "priority": 123,
+        "module_id": 1,
+        "slug": null,
+        "featured": 0,
+        "products_count": 0,
+        "childes_count": 3,
+        "image_full_url": "https://myadmin.unimart.online/storage/app/public/category/SF05.jpg",
+        "storage": [
+          {
+            "id": 272,
+            "data_type": "App\\Models\\Category",
+            "data_id": "141",
+            "key": "image",
+            "value": "public",
+            "created_at": "2025-11-20 16:12:57",
+            "updated_at": "2025-11-20 16:12:57"
+          }
+        ],
+        "translations": []
+      }
+    ],
+    "storage": [
+      {
+        "id": 148,
+        "data_type": "App\\Models\\Category",
+        "data_id": "17",
+        "key": "image",
+        "value": "public",
+        "created_at": "2025-11-20 16:12:55",
+        "updated_at": "2025-11-20 16:12:55"
+      }
+    ],
+    "translations": []
+  }
+]

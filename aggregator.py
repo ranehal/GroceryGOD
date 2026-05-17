@@ -9,9 +9,31 @@ SHWAPNO_DATA = 'swapnoTRACKER/data.json'
 CHALDAL_DATA = 'PRICETRACKER/data.js'
 MEENA_DB = 'MEENAtracker/backend/meenatracker.db'
 OTHOBA_DB = 'othobaTRACKER/backend/othoba_tracker.db'
+METRO_DB = 'metroTRACKER/backend/metro_tracker.db'
+UNIMART_DATA = 'unimartTRACKER/data.json'
+SHOTEJ_DATA = 'ShotejTRACKER/data.json'
 
 def parse_unit_and_calculate(name, unit_str, price):
-    text = (name + " " + (unit_str or "")).lower()
+    # Prioritize deep-extracted unit_str (e.g., 40gm x 20) over title name (e.g., 35gm x 20)
+    text = ((unit_str or "") + " " + name).lower()
+    
+    # 1. Handle Multipliers (Bulk Boxes like 40gm x 20pcs)
+    mult_match = re.search(r'(\d+(\.\d+)?)\s*(kg|gm|gram|g|ml|ltr|l)\s*[xX*]\s*(\d+)', text)
+    if mult_match:
+        val = float(mult_match.group(1))
+        unit = mult_match.group(3)
+        count = float(mult_match.group(4))
+        total_val = val * count
+        if total_val == 0: return 'kg', price
+        
+        if unit in ['gm', 'gram', 'g', 'ml']:
+            u_type = 'kg' if unit != 'ml' else 'liter'
+            return u_type, (price / total_val) * 1000
+        else:
+            u_type = 'kg' if unit == 'kg' else 'liter'
+            return u_type, (price / total_val)
+
+    # 2. Standard Unit Parsing
     text = re.sub(r'\(?[±\+\-]\d+\s*(gm|g|kg|ml|ltr|l)?\)?', '', text)
     
     weight_match = re.search(r'(\d+(\.\d+)?)\s*(kg|gm|gram|g)\b', text)
@@ -30,133 +52,267 @@ def parse_unit_and_calculate(name, unit_str, price):
 
     if any(x in text for x in ['pc', 'piece', 'hali', 'dozen', 'pkt', 'pack', 'each', 'bottle', 'can', 'box']):
         return 'piece', price
+        
     return 'kg', price
 
 def load_shwapno():
     print("Processing Shwapno...")
     if not os.path.exists(SHWAPNO_DATA): return None, None
-    with open(SHWAPNO_DATA, 'r', encoding='utf-8') as f:
-        data = json.load(f)
-    products = {}
-    all_dates = []
-    for pid, p in data.items():
-        if pid in ['metadata', 'products']: continue
-        hist = p.get('history', [])
-        curr_p = hist[-1].get('price', 0) if hist else 0
-        u_type, norm_p = parse_unit_and_calculate(p.get('name', ''), "", curr_p)
-        new_history = []
-        for h in hist:
-            _, h_norm = parse_unit_and_calculate(p.get('name', ''), "", h.get('price', 0))
-            new_history.append({"date": h.get('date'), "price": h.get('price'), "normalized_price": h_norm})
-            if h.get('date'): all_dates.append(h['date'])
-        products[f"sh_{pid}"] = {
-            "id": f"sh_{pid}", "name": p.get('name'), "store": "shwapno",
-            "category": p.get('category', 'General'), "unit": "N/A", "unit_type": u_type,
-            "current_price": curr_p, "normalized_price": norm_p,
-            "image": p.get('image'), "history": new_history
-        }
-    return products, f"{min(all_dates)} to {max(all_dates)}" if all_dates else "N/A"
+    try:
+        with open(SHWAPNO_DATA, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+            
+        # Identify pinned categories from categories.json
+        pinned_names = []
+        cats_file = 'swapnoTRACKER/categories.json'
+        if os.path.exists(cats_file):
+            with open(cats_file, 'r', encoding='utf-8') as cf:
+                cats_data = json.load(cf)
+                pinned_group = next((g for g in cats_data.get('groups', []) if g.get('id') == 'pinned_deals'), None)
+                if pinned_group:
+                    pinned_names = [c['name'] for c in pinned_group['categories']]
+
+        products = {}
+        all_dates = []
+        for pid, p in data.items():
+            if pid in ['metadata', 'products']: continue
+            hist = p.get('history', [])
+            curr_p = hist[-1].get('price', 0) if hist else 0
+            u_type, norm_p = parse_unit_and_calculate(p.get('name', ''), "", curr_p)
+            
+            # Apply pinning icon if category is pinned
+            category_name = p.get('category', 'General')
+            if category_name in pinned_names:
+                category_name = f"📌 {category_name}"
+
+            new_history = []
+            for h in hist:
+                _, h_norm = parse_unit_and_calculate(p.get('name', ''), "", h.get('price', 0))
+                new_history.append({"date": h.get('date'), "price": h.get('price'), "normalized_price": h_norm})
+                if h.get('date'): all_dates.append(h['date'])
+            products[f"sh_{pid}"] = {
+                "id": f"sh_{pid}", "name": p.get('name'), "store": "shwapno",
+                "category": category_name, "unit": "N/A", "unit_type": u_type,
+                "current_price": curr_p, "normalized_price": norm_p,
+                "image": p.get('image'), "history": new_history
+            }
+        return products, f"{min(all_dates)} to {max(all_dates)}" if all_dates else "N/A"
+    except Exception as e:
+        print(f"Error processing Shwapno: {e}")
+        return None, None
 
 def load_chaldal():
     print("Processing Chaldal...")
     if not os.path.exists(CHALDAL_DATA): return None, None
-    with open(CHALDAL_DATA, 'r', encoding='utf-8') as f:
-        content = f.read()
-    start, end = content.find('{'), content.rfind('}') + 1
-    if start == -1 or end == 0: return None, None
-    data = json.loads(content[start:end])
-    products = {}
-    all_dates = []
-    for pid, p in data.items():
-        if pid in ['metadata', 'products']: continue
-        source_history = p.get('history', [])
-        new_history = []
-        for h in source_history:
-            _, h_norm = parse_unit_and_calculate(p.get('name', ''), p.get('current_unit', ''), h.get('price', 0))
-            new_history.append({"date": h.get('date'), "price": h.get('price'), "normalized_price": h_norm})
-            if h.get('date'): all_dates.append(h['date'])
-        curr_p = p.get('current_price', 0)
-        u_type, norm_p = parse_unit_and_calculate(p.get('name', ''), p.get('current_unit', ''), curr_p)
-        products[f"ch_{pid}"] = {
-            "id": f"ch_{pid}", "name": p.get('name'), "store": "chaldal",
-            "category": p.get('category', 'General'), "unit": p.get('current_unit'), "unit_type": u_type,
-            "current_price": curr_p, "normalized_price": norm_p,
-            "image": p.get('image'), "history": new_history
-        }
-    return products, f"{min(all_dates)} to {max(all_dates)}" if all_dates else "N/A"
+    try:
+        with open(CHALDAL_DATA, 'r', encoding='utf-8') as f:
+            content = f.read()
+        start, end = content.find('{'), content.rfind('}') + 1
+        if start == -1 or end == 0: return None, None
+        data = json.loads(content[start:end])
+        products = {}
+        all_dates = []
+        for pid, p in data.items():
+            if pid in ['metadata', 'products']: continue
+            source_history = p.get('history', [])
+            new_history = []
+            for h in source_history:
+                _, h_norm = parse_unit_and_calculate(p.get('name', ''), p.get('current_unit', ''), h.get('price', 0))
+                new_history.append({"date": h.get('date'), "price": h.get('price'), "normalized_price": h_norm})
+                if h.get('date'): all_dates.append(h['date'])
+            curr_p = p.get('current_price', 0)
+            u_type, norm_p = parse_unit_and_calculate(p.get('name', ''), p.get('current_unit', ''), curr_p)
+            products[f"ch_{pid}"] = {
+                "id": f"ch_{pid}", "name": p.get('name'), "store": "chaldal",
+                "category": p.get('category', 'General'), "unit": p.get('current_unit'), "unit_type": u_type,
+                "current_price": curr_p, "normalized_price": norm_p,
+                "image": p.get('image'), "history": new_history
+            }
+        return products, f"{min(all_dates)} to {max(all_dates)}" if all_dates else "N/A"
+    except Exception as e:
+        print(f"Error processing Chaldal: {e}")
+        return None, None
 
 def load_meenabazar():
     print("Processing Meena Bazar (Optimized)...")
     if not os.path.exists(MEENA_DB): return None, None
-    conn = sqlite3.connect(MEENA_DB); conn.row_factory = sqlite3.Row; cursor = conn.cursor()
-    cursor.execute("SELECT id, name FROM categories")
-    cats = {row['id']: row['name'] for row in cursor.fetchall()}
-    cursor.execute("SELECT id, external_id, name, unit, unit_type, image_url, category_id FROM products")
-    db_p = cursor.fetchall()
-    print(f"  Loading price history for {len(db_p)} items...")
-    cursor.execute("SELECT product_id, actual_price, scraped_at FROM price_history ORDER BY scraped_at ASC")
-    all_history = {}
-    for row in cursor.fetchall():
-        pid = row['product_id']
-        if pid not in all_history: all_history[pid] = []
-        all_history[pid].append(row)
-    products = {}
-    all_dates = []
-    for p in db_p:
-        db_h = all_history.get(p['id'], [])
-        if not db_h: continue
-        new_history = []
-        for h in db_h:
-            date_str = h['scraped_at'].split('T')[0].split(' ')[0]
-            _, h_norm = parse_unit_and_calculate(p['name'], p['unit'], h['actual_price'])
-            new_history.append({"date": date_str, "price": h['actual_price'], "normalized_price": h_norm})
-            all_dates.append(date_str)
-        curr_p = new_history[-1]['price']
-        u_type, norm_p = parse_unit_and_calculate(p['name'], p['unit'], curr_p)
-        products[f"mb_{p['external_id'] or p['id']}"] = {
-            "id": f"mb_{p['external_id'] or p['id']}", "name": p['name'], "store": "meenabazar",
-            "category": cats.get(p['category_id'], 'General'), "unit": p['unit'], "unit_type": u_type,
-            "current_price": curr_p, "normalized_price": norm_p,
-            "image": p['image_url'], "history": new_history
-        }
-    conn.close()
-    return products, f"{min(all_dates)} to {max(all_dates)}" if all_dates else "N/A"
+    try:
+        conn = sqlite3.connect(MEENA_DB); conn.row_factory = sqlite3.Row; cursor = conn.cursor()
+        cursor.execute("SELECT id, name FROM categories")
+        cats = {row['id']: row['name'] for row in cursor.fetchall()}
+        cursor.execute("SELECT id, external_id, name, unit, unit_type, image_url, category_id FROM products")
+        db_p = cursor.fetchall()
+        print(f"  Loading price history for {len(db_p)} items...")
+        cursor.execute("SELECT product_id, actual_price, scraped_at FROM price_history ORDER BY scraped_at ASC")
+        all_history = {}
+        for row in cursor.fetchall():
+            pid = row['product_id']
+            if pid not in all_history: all_history[pid] = []
+            all_history[pid].append(row)
+        products = {}
+        all_dates = []
+        for p in db_p:
+            db_h = all_history.get(p['id'], [])
+            if not db_h: continue
+            new_history = []
+            for h in db_h:
+                raw_date = h['scraped_at']
+                date_str = raw_date.split('T')[0].split(' ')[0] if isinstance(raw_date, str) else raw_date.strftime("%Y-%m-%d")
+                _, h_norm = parse_unit_and_calculate(p['name'], p['unit'], h['actual_price'])
+                new_history.append({"date": date_str, "price": h['actual_price'], "normalized_price": h_norm})
+                all_dates.append(date_str)
+            curr_p = new_history[-1]['price']
+            u_type, norm_p = parse_unit_and_calculate(p['name'], p['unit'], curr_p)
+            products[f"mb_{p['external_id'] or p['id']}"] = {
+                "id": f"mb_{p['external_id'] or p['id']}", "name": p['name'], "store": "meenabazar",
+                "category": cats.get(p['category_id'], 'General'), "unit": p['unit'], "unit_type": u_type,
+                "current_price": curr_p, "normalized_price": norm_p,
+                "image": p['image_url'], "history": new_history
+            }
+        conn.close()
+        return products, f"{min(all_dates)} to {max(all_dates)}" if all_dates else "N/A"
+    except Exception as e:
+        print(f"Error processing Meena Bazar: {e}")
+        return None, None
 
 def load_othoba():
     print("Processing Othoba (Optimized)...")
     if not os.path.exists(OTHOBA_DB): return None, None
-    conn = sqlite3.connect(OTHOBA_DB); conn.row_factory = sqlite3.Row; cursor = conn.cursor()
-    cursor.execute("SELECT id, name, category_name, image_url, extracted_unit_type, extracted_unit_value FROM products")
-    db_p = cursor.fetchall()
-    print(f"  Loading price history for {len(db_p)} items...")
-    cursor.execute("SELECT product_id, price_amount, timestamp FROM price_history ORDER BY timestamp ASC")
-    all_history = {}
-    for row in cursor.fetchall():
-        pid = row['product_id']
-        if pid not in all_history: all_history[pid] = []
-        all_history[pid].append(row)
-    products = {}
-    all_dates = []
-    for p in db_p:
-        db_h = all_history.get(p['id'], [])
-        if not db_h: continue
-        new_history = []
-        unit_str = f"{p['extracted_unit_value']} {p['extracted_unit_type']}"
-        for h in db_h:
-            date_str = h['timestamp'].split('T')[0].split(' ')[0]
-            _, h_norm = parse_unit_and_calculate(p['name'], unit_str, h['price_amount'])
-            new_history.append({"date": date_str, "price": h['price_amount'], "normalized_price": h_norm})
-            all_dates.append(date_str)
-        curr_p = new_history[-1]['price']
-        u_type, norm_p = parse_unit_and_calculate(p['name'], unit_str, curr_p)
-        products[f"ot_{p['id']}"] = {
-            "id": f"ot_{p['id']}", "name": p['name'], "store": "othoba",
-            "category": p['category_name'] or 'General', "unit": unit_str, "unit_type": u_type,
-            "current_price": curr_p, "normalized_price": norm_p,
-            "image": p['image_url'], "history": new_history
-        }
-    conn.close()
-    return products, f"{min(all_dates)} to {max(all_dates)}" if all_dates else "N/A"
+    try:
+        conn = sqlite3.connect(OTHOBA_DB); conn.row_factory = sqlite3.Row; cursor = conn.cursor()
+        cursor.execute("SELECT id, name, category_name, image_url, extracted_unit_type, extracted_unit_value FROM products")
+        db_p = cursor.fetchall()
+        print(f"  Loading price history for {len(db_p)} items...")
+        cursor.execute("SELECT product_id, price_amount, timestamp FROM price_history ORDER BY timestamp ASC")
+        all_history = {}
+        for row in cursor.fetchall():
+            pid = row['product_id']
+            if pid not in all_history: all_history[pid] = []
+            all_history[pid].append(row)
+        products = {}
+        all_dates = []
+        for p in db_p:
+            db_h = all_history.get(p['id'], [])
+            if not db_h: continue
+            new_history = []
+            unit_str = f"{p['extracted_unit_value']} {p['extracted_unit_type']}"
+            for h in db_h:
+                raw_date = h['timestamp']
+                date_str = raw_date.split('T')[0].split(' ')[0] if isinstance(raw_date, str) else raw_date.strftime("%Y-%m-%d")
+                _, h_norm = parse_unit_and_calculate(p['name'], unit_str, h['price_amount'])
+                new_history.append({"date": date_str, "price": h['price_amount'], "normalized_price": h_norm})
+                all_dates.append(date_str)
+            curr_p = new_history[-1]['price']
+            u_type, norm_p = parse_unit_and_calculate(p['name'], unit_str, curr_p)
+            products[f"ot_{p['id']}"] = {
+                "id": f"ot_{p['id']}", "name": p['name'], "store": "othoba",
+                "category": p['category_name'] or 'General', "unit": unit_str, "unit_type": u_type,
+                "current_price": curr_p, "normalized_price": norm_p,
+                "image": p['image_url'], "history": new_history
+            }
+        conn.close()
+        return products, f"{min(all_dates)} to {max(all_dates)}" if all_dates else "N/A"
+    except Exception as e:
+        print(f"Error processing Othoba: {e}")
+        return None, None
+
+def load_metromart():
+    print("Processing Metro Mart (Optimized)...")
+    if not os.path.exists(METRO_DB): return None, None
+    try:
+        conn = sqlite3.connect(METRO_DB); conn.row_factory = sqlite3.Row; cursor = conn.cursor()
+        cursor.execute("SELECT id, name FROM categories")
+        cats = {row['id']: row['name'] for row in cursor.fetchall()}
+        cursor.execute("SELECT id, external_id, name, unit, unit_type, image_url, category_id FROM products")
+        db_p = cursor.fetchall()
+        print(f"  Loading price history for {len(db_p)} items...")
+        cursor.execute("SELECT product_id, actual_price, scraped_at FROM price_history ORDER BY scraped_at ASC")
+        all_history = {}
+        for row in cursor.fetchall():
+            pid = row['product_id']
+            if pid not in all_history: all_history[pid] = []
+            all_history[pid].append(row)
+        products = {}
+        all_dates = []
+        for p in db_p:
+            db_h = all_history.get(p['id'], [])
+            if not db_h: continue
+            new_history = []
+            for h in db_h:
+                raw_date = h['scraped_at']
+                date_str = raw_date.split('T')[0].split(' ')[0] if isinstance(raw_date, str) else raw_date.strftime("%Y-%m-%d")
+                _, h_norm = parse_unit_and_calculate(p['name'], p['unit'], h['actual_price'])
+                new_history.append({"date": date_str, "price": h['actual_price'], "normalized_price": h_norm})
+                all_dates.append(date_str)
+            curr_p = new_history[-1]['price']
+            u_type, norm_p = parse_unit_and_calculate(p['name'], p['unit'], curr_p)
+            products[f"mt_{p['external_id'] or p['id']}"] = {
+                "id": f"mt_{p['external_id'] or p['id']}", "name": p['name'], "store": "metromart",
+                "category": cats.get(p['category_id'], 'General'), "unit": p['unit'], "unit_type": u_type,
+                "current_price": curr_p, "normalized_price": norm_p,
+                "image": p['image_url'], "history": new_history
+            }
+        conn.close()
+        return products, f"{min(all_dates)} to {max(all_dates)}" if all_dates else "N/A"
+    except Exception as e:
+        print(f"Error processing Metro Mart: {e}")
+        return None, None
+
+def load_unimart():
+    print("Processing Unimart...")
+    if not os.path.exists(UNIMART_DATA): return None, None
+    try:
+        with open(UNIMART_DATA, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        products = {}
+        all_dates = []
+        for pid, p in data.items():
+            hist = p.get('history', [])
+            curr_p = p.get('current_price', 0)
+            u_type, norm_p = parse_unit_and_calculate(p.get('name', ''), p.get('unit', ''), curr_p)
+            new_history = []
+            for h in hist:
+                _, h_norm = parse_unit_and_calculate(p.get('name', ''), p.get('unit', ''), h.get('price', 0))
+                new_history.append({"date": h.get('date'), "price": h.get('price'), "normalized_price": h_norm})
+                if h.get('date'): all_dates.append(h['date'])
+            products[f"un_{pid}"] = {
+                "id": f"un_{pid}", "name": p.get('name'), "store": "unimart",
+                "category": p.get('category', 'General'), "unit": p.get('unit'), "unit_type": u_type,
+                "current_price": curr_p, "normalized_price": norm_p,
+                "image": p.get('image'), "history": new_history
+            }
+        return products, f"{min(all_dates)} to {max(all_dates)}" if all_dates else "N/A"
+    except Exception as e:
+        print(f"Error processing Unimart: {e}")
+        return None, None
+
+def load_shotejbazar():
+    print("Processing ShotejBazar...")
+    if not os.path.exists(SHOTEJ_DATA): return None, None
+    try:
+        with open(SHOTEJ_DATA, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        products = {}
+        all_dates = []
+        for pid, p in data.items():
+            hist = p.get('history', [])
+            curr_p = p.get('current_price', 0)
+            u_type, norm_p = parse_unit_and_calculate(p.get('name', ''), p.get('unit', ''), curr_p)
+            new_history = []
+            for h in hist:
+                _, h_norm = parse_unit_and_calculate(p.get('name', ''), p.get('unit', ''), h.get('price', 0))
+                new_history.append({"date": h.get('date'), "price": h.get('price'), "normalized_price": h_norm})
+                if h.get('date'): all_dates.append(h['date'])
+            products[f"sj_{pid}"] = {
+                "id": f"sj_{pid}", "name": p.get('name'), "store": "shotejbazar",
+                "category": p.get('category', 'General'), "unit": p.get('unit'), "unit_type": u_type,
+                "current_price": curr_p, "normalized_price": norm_p,
+                "image": p.get('image'), "history": new_history
+            }
+        return products, f"{min(all_dates)} to {max(all_dates)}" if all_dates else "N/A"
+    except Exception as e:
+        print(f"Error processing ShotejBazar: {e}")
+        return None, None
 
 def save_store_data(name, data_tuple):
     """
@@ -164,21 +320,20 @@ def save_store_data(name, data_tuple):
     Outputs:
     - <store>_manifest.js: Metadata and chunk count.
     - <store>_data_partX.js: Chunked product data.
-    
-    PRESERVES: All existing logic regarding histories and data shapes.
     """
+    if not data_tuple: return
     products, date_range = data_tuple
     if not products: 
         print(f"Skipping {name}: No data found.")
         return
     
-    # Configuration: 20,000 items per chunk to keep files well under 100MB
+    # Configuration: 20,000 items per chunk
     CHUNK_SIZE = 20000
     
     total_items = len(products)
     last_update = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     
-    # Sort items by key to ensure deterministic chunking across runs
+    # Sort items by key to ensure deterministic chunking
     product_items = sorted(products.items())
     total_chunks = (total_items + CHUNK_SIZE - 1) // CHUNK_SIZE if total_items > 0 else 1
     
@@ -194,7 +349,6 @@ def save_store_data(name, data_tuple):
     }
     manifest_filename = f"{name}_manifest.js"
     with open(manifest_filename, 'w', encoding='utf-8') as f:
-        # Assign to window.<store>Manifest
         f.write(f"window.{name}Manifest = {json.dumps(manifest, separators=(',', ':'))};")
     
     # 2. Save Data Chunks
@@ -205,13 +359,11 @@ def save_store_data(name, data_tuple):
         
         chunk_filename = f"{name}_data_part{i+1}.js"
         with open(chunk_filename, 'w', encoding='utf-8') as f:
-            # Assign to window.<store>_partX
             f.write(f"window.{name}_part{i+1} = {json.dumps(chunk_data, separators=(',', ':'))};")
             
-    # Cleanup old massive file if it exists
+    # Cleanup old file
     old_file = f"{name}_data.js"
-    if os.path.exists(old_file):
-        os.remove(old_file)
+    if os.path.exists(old_file): os.remove(old_file)
             
     print(f"Saved {name:15} | Items: {total_items:5} | Chunks: {total_chunks:2} | Range: {date_range}")
 
@@ -221,6 +373,9 @@ def main():
     save_store_data("chaldal", load_chaldal())
     save_store_data("meenabazar", load_meenabazar())
     save_store_data("othoba", load_othoba())
+    save_store_data("metromart", load_metromart())
+    save_store_data("unimart", load_unimart())
+    save_store_data("shotejbazar", load_shotejbazar())
     print("="*70 + "\n")
 
 if __name__ == "__main__": main()

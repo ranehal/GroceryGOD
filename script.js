@@ -19,6 +19,7 @@ let compareModeActive = false;
 let showFavoritesOnly = false;
 let activeShopFilters = new Set(['shwapno']);
 let activeCategories = new Set();
+window.loadedStores = new Set(['shwapno']);
 
 let greatDealThreshold = 0.85;
 let goodBuyThreshold = 0.95;
@@ -27,7 +28,10 @@ const STORE_CONFIG = {
     shwapno: { color: '#ff4081', name: 'Shwapno' },
     chaldal: { color: '#007aff', name: 'Chaldal' },
     meenabazar: { color: '#34c759', name: 'Meena Bazar' },
-    othoba: { color: '#ff9f0a', name: 'Othoba' }
+    othoba: { color: '#ff9f0a', name: 'Othoba' },
+    metromart: { color: '#00bcd4', name: 'Metro Mart' },
+    unimart: { color: '#00d084', name: 'Unimart' },
+    shotejbazar: { color: '#9c27b0', name: 'ShotejBazar' }
 };
 
 function fmt(num) {
@@ -39,12 +43,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.title = "GroceryGOD";
     showLoading(true, 'Initializing GODdata Matrix...');
     
-    const storeKeys = Object.keys(STORE_CONFIG);
-    
-    // Sequential async loading to prevent browser thread locking
-    for (const key of storeKeys) {
-        await loadStoreData(key);
-    }
+    // Initial lazy load: Only shwapno
+    await loadStoreData('shwapno');
 
     processData();
     renderSidebar();
@@ -168,9 +168,16 @@ function renderSidebar() {
 
     Object.keys(STORE_CONFIG).forEach(sid => {
         const shopProducts = allProducts.filter(p => p.store === sid);
-        const categories = [...new Set(shopProducts.map(p => p.category))].sort();
+        const categories = [...new Set(shopProducts.map(p => p.category))].sort((a, b) => {
+            const aPinned = a.startsWith('📌');
+            const bPinned = b.startsWith('📌');
+            if (aPinned && !bPinned) return -1;
+            if (!aPinned && bPinned) return 1;
+            return a.localeCompare(b);
+        });
         const group = document.createElement('div'); group.className = 'shop-group';
         const header = document.createElement('div');
+        header.dataset.sid = sid; // Set data-sid for lazy loading
         header.className = `shop-header ${activeShopFilters.has(sid) ? 'active' : ''}`;
         header.innerHTML = `
             <div class="shop-toggle-container">
@@ -184,10 +191,22 @@ function renderSidebar() {
         `;
         
         const cb = header.querySelector('.shop-checkbox');
-        cb.onclick = (e) => {
+        cb.onclick = async (e) => {
             e.stopPropagation();
-            if (cb.checked) activeShopFilters.add(sid);
-            else activeShopFilters.delete(sid);
+            if (cb.checked) {
+                activeShopFilters.add(sid);
+                if (!window.loadedStores.has(sid)) {
+                    await loadStoreData(sid);
+                    window.loadedStores.add(sid);
+                    processData();
+                    renderSidebar();
+                    renderProducts();
+                    updateStatsBar();
+                    return;
+                }
+            } else {
+                activeShopFilters.delete(sid);
+            }
             renderProducts(); updateStatsBar();
         };
 
