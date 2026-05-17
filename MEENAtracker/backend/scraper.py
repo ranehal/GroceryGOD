@@ -4,8 +4,7 @@ import re
 import sys
 from playwright.async_api import async_playwright
 from datetime import datetime, timezone
-from database import async_session, Category, Product, PriceHistory, init_db
-from sqlalchemy.future import select
+from database import SessionLocal, Category, Product, PriceHistory, init_db
 
 BASE_URL = "https://meenabazaronline.com"
 
@@ -126,8 +125,6 @@ async def scrape_products_in_category(page, category_url):
             unit_price = round(unit_price, 2)
             external_id = f"{name}_{unit}".replace(" ", "_").lower()
 
-            print(f" -> Scraped: {name} | Pack: {unit} | Actual Price: TK {actual_price} | Per {unit_type}: TK {unit_price}")
-
             products.append({
                 "external_id": external_id,
                 "name": name,
@@ -144,60 +141,58 @@ async def scrape_products_in_category(page, category_url):
     return products
 
 async def save_to_db(category_data, products_data):
-    """Save scraped data to the database."""
-    async with async_session() as session:
-        try:
-            result = await session.execute(select(Category).filter_by(name=category_data['name']))
-            db_category = result.scalars().first()
+    """Save scraped data to the database using synchronous session."""
+    db = SessionLocal()
+    try:
+        db_category = db.query(Category).filter(Category.name == category_data['name']).first()
+        
+        if not db_category:
+            db_category = Category(name=category_data['name'], url=category_data['url'])
+            db.add(db_category)
+            db.flush()
             
-            if not db_category:
-                db_category = Category(name=category_data['name'], url=category_data['url'])
-                session.add(db_category)
-                await session.flush()
-                
-            for p_data in products_data:
-                result = await session.execute(select(Product).filter_by(external_id=p_data['external_id']))
-                db_product = result.scalars().first()
-                
-                if not db_product:
-                    db_product = Product(
-                        external_id=p_data['external_id'],
-                        name=p_data['name'],
-                        unit=p_data['unit'],
-                        unit_type=p_data['unit_type'],
-                        image_url=p_data['image_url'],
-                        category_id=db_category.id
-                    )
-                    session.add(db_product)
-                    await session.flush()
-                    
-                # Using naive UTC to avoid serialization issues
-                history = PriceHistory(
-                    product_id=db_product.id,
-                    actual_price=p_data['actual_price'],
-                    unit_price=p_data['unit_price'],
-                    scraped_at=p_data['scraped_at'].replace(tzinfo=None)
+        for p_data in products_data:
+            db_product = db.query(Product).filter(Product.external_id == p_data['external_id']).first()
+            
+            if not db_product:
+                db_product = Product(
+                    external_id=p_data['external_id'],
+                    name=p_data['name'],
+                    unit=p_data['unit'],
+                    unit_type=p_data['unit_type'],
+                    image_url=p_data['image_url'],
+                    category_id=db_category.id
                 )
-                session.add(history)
+                db.add(db_product)
+                db.flush()
                 
-            await session.commit()
-        except Exception as e:
-            await session.rollback()
-            print(f" [!] Meena Bazar Database Error: {e}")
-            raise e
+            history = PriceHistory(
+                product_id=db_product.id,
+                actual_price=p_data['actual_price'],
+                unit_price=p_data['unit_price'],
+                scraped_at=p_data['scraped_at'].replace(tzinfo=None)
+            )
+            db.add(history)
+            
+        db.commit()
+    except Exception as e:
+        db.rollback()
+        print(f" [!] Meena Bazar Database Error: {e}")
+        raise e
+    finally:
+        db.close()
 
 async def main():
-    await init_db()
+    init_db()
     async with async_playwright() as p:
         browser = await p.chromium.launch(headless=True)
         page = await browser.new_page()
         
         categories = await scrape_categories(page)
         
-        # Scrape all hardcoded categories
         for cat in categories: 
             all_products = await scrape_products_in_category(page, cat['url'])
-            print(f"\n[Summary] Scraped {len(all_products)} products from {cat['name']}")
+            print(f" -> Scraped {len(all_products)} products from {cat['name']}")
             await save_to_db(cat, all_products)
                 
         await browser.close()
