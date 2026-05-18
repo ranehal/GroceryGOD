@@ -23,19 +23,18 @@ CATEGORIES_FILE = 'categories.json'
 
 USER_AGENTS = [
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36",
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36",
-    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36",
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:122.0) Gecko/20100101 Firefox/122.0"
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36"
 ]
 
 def load_data():
     if os.path.exists(DATA_FILE):
-        with open(DATA_FILE, 'r', encoding='utf-8') as f:
-            return json.load(f)
+        try:
+            with open(DATA_FILE, 'r', encoding='utf-8') as f:
+                return json.load(f)
+        except: pass
     return {}
 
 def save_data(data):
-    # Save as JSON for both backend and frontend use
     with open(DATA_FILE, 'w', encoding='utf-8') as f:
         json.dump(data, f, indent=2)
 
@@ -44,6 +43,13 @@ def load_categories():
         with open(CATEGORIES_FILE, 'r', encoding='utf-8') as f:
             return json.load(f)
     return {"groups": [], "custom": []}
+
+def load_pinned_names():
+    cats = load_categories()
+    pinned = next((g for g in cats.get('groups', []) if g.get('id') == 'pinned_deals'), None)
+    if pinned:
+        return [c['name'] for c in pinned['categories']]
+    return []
 
 def flatten_categories(category_data):
     all_categories = []
@@ -56,8 +62,8 @@ def normalize_unit(name, price_str):
     name_lower = name.lower()
     price = float(re.sub(r'[^\d.]', '', price_str))
     
-    kg_pattern = r'(\d+(?:\.\d+)?)\s*(kg|gm|g)\b'
-    l_pattern = r'(\d+(?:\.\d+)?)\s*(l|ml|ltr)\b'
+    kg_pattern = r'(\d+(?:\.\d+)?)\s*(kg|gm|gram|g)\b'
+    l_pattern = r'(\d+(?:\.\d+)?)\s*(l|ml|ltr|liter)\b'
     
     kg_match = re.search(kg_pattern, name_lower)
     l_match = re.search(l_pattern, name_lower)
@@ -75,26 +81,8 @@ def normalize_unit(name, price_str):
             is_kg = False
             
         val = base_val
-        if unit in ['gm', 'g', 'ml']: val /= 1000.0
+        if unit in ['gm', 'g', 'gram', 'ml']: val /= 1000.0
         
-        # Check for Buy X Get Y Free offers
-        buy_match = re.search(r'buy\s*(\d+)', name_lower)
-        get_match = re.search(r'get\s*(?:.*?\s+)?(\d+(?:\.\d+)?)\s*(kg|gm|g|ml|l|ltr)?.*?\s*free', name_lower)
-        
-        if buy_match and get_match:
-            buy_qty = float(buy_match.group(1))
-            get_val = float(get_match.group(1))
-            get_unit = get_match.group(2)
-            
-            if get_unit:
-                # Free quantity has a specified unit (e.g., 500gm)
-                free_val = get_val
-                if get_unit in ['gm', 'g', 'ml']: free_val /= 1000.0
-                val = (buy_qty * val) + free_val
-            else:
-                # Free quantity is in terms of items (e.g., Get 1 Free)
-                val = (buy_qty + get_val) * val
-                
         if val > 0:
             norm_price = price / val
             if is_kg:
@@ -106,94 +94,25 @@ def normalize_unit(name, price_str):
                 
     return quantity_display, round(norm_price, 2), unit_type
 
-async def scrape_category(sem, browser, category, current_data):
-    async with sem:
-        ua = random.choice(USER_AGENTS)
-        context = await browser.new_context(user_agent=ua, viewport={'width': 1920, 'height': 1080})
-        page = await context.new_page()
-        
-        logger.info(f"Scraping: {category['name']} ({category['url']})")
-        try:
-            # Wait between categories to avoid detection
-            await asyncio.sleep(random.uniform(3, 7))
-            
-            response = await page.goto(category['url'], wait_until="load", timeout=120000)
-            
-            if response.status == 403:
-                logger.warning(f"  [!] 403 Forbidden for {category['name']}")
-                return False
-            
-            today_str = datetime.date.today().isoformat()
-            # Use category-specific container if provided (e.g. for Deals)
-            container_selector = f"xpath={category['xpath']}" if category.get('xpath') else "body"
-            
-            # Check for tabs (common on complex deal pages like buy-save-more-2)
-            tabs = await page.query_selector_all('.category-tab-list .category-tab, .category-tab-list div, .nav-tabs li a')
-            # Filter for elements that actually have text and look like tabs
-            valid_tabs = []
-            for t in tabs:
-                t_text = await t.inner_text()
-                if t_text.strip() and len(t_text.strip()) < 30:
-                    valid_tabs.append(t)
-            
-            if valid_tabs and len(valid_tabs) > 1:
-                logger.info(f"  [+] Detected {len(valid_tabs)} tabs in {category['name']}. Deep scraping...")
-                for i in range(len(valid_tabs)):
-                    # Re-query to avoid stale elements
-                    current_tabs = await page.query_selector_all('.category-tab-list .category-tab, .category-tab-list div, .nav-tabs li a')
-                    # Find the same one by index from the re-queried list
-                    actual_tabs = []
-                    for t in current_tabs:
-                        t_text = await t.inner_text()
-                        if t_text.strip() and len(t_text.strip()) < 30:
-                            actual_tabs.append(t)
-                    
-                    if i >= len(actual_tabs): break
-                    tab = actual_tabs[i]
-                    tab_name = await tab.inner_text()
-                    logger.info(f"    -> Clicking Tab: {tab_name.strip()}")
-                    await tab.click()
-                    await asyncio.sleep(2) # Wait for content to swap
-                    
-                    # Scroll within the active tab content
-                    for _ in range(2):
-                        await page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
-                        await asyncio.sleep(1)
-                    
-                    await self_scrape_items(page, container_selector, category, current_data, today_str)
-            else:
-                # Additional scroll to ensure lazy loading items appear
-                for _ in range(3):
-                    await page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
-                    await asyncio.sleep(1.5)
-                # No tabs, just standard scroll and scrape
-                await self_scrape_items(page, container_selector, category, current_data, today_str)
-            
-            return True
-                    
-        except Exception as e:
-            logger.error(f"  [X] Error scraping {category['name']}: {str(e)[:100]}")
-            return False
-        finally:
-            await context.close()
-
-async def self_scrape_items(page, container_selector, category, current_data, today_str):
+async def self_scrape_items(page, container_selector, category, current_data, today_str, is_pinned=False):
     container = await page.query_selector(container_selector) or page
-    items = await container.query_selector_all('.product-box')
-    logger.info(f"  [+] Extracted {len(items)} items from active view")
+    # Broaden selector to capture products in different layouts
+    items = await container.query_selector_all('.product-box, div[class*="product-grid-item"], .product-item-info')
+    logger.info(f"    [+] Extracted {len(items)} items from current view")
     
     for item in items:
         try:
-            title_el = await item.query_selector('.product-box-title a')
+            # Flexible title/link selector
+            title_el = await item.query_selector('.product-box-title a, a[class*="title"], .name a')
             if not title_el: continue
-            name = await title_el.inner_text()
+            name = (await title_el.inner_text()).strip()
             url_suffix = await title_el.get_attribute('href')
-            product_url = f"https://www.shwapno.com{url_suffix}"
+            product_url = f"https://www.shwapno.com{url_suffix}" if url_suffix.startswith('/') else url_suffix
             
             img_el = await item.query_selector('img')
             img_src = await img_el.get_attribute('src') if img_el else ""
             
-            price_el = await item.query_selector('.product-price .active-price')
+            price_el = await item.query_selector('.active-price, .price, span[class*="price"]')
             if not price_el: continue
             price_text = await price_el.inner_text()
             current_price = float(re.sub(r'[^\d.]', '', price_text))
@@ -201,15 +120,19 @@ async def self_scrape_items(page, container_selector, category, current_data, to
             qty_disp, norm_price, unit_type = normalize_unit(name, price_text)
             prod_id = re.sub(r'\W+', '', name).lower()
             
+            # PINNING PRIORITY LOGIC:
             if prod_id not in current_data:
                 current_data[prod_id] = {
                     "id": prod_id, "name": name, "url": product_url, 
                     "image": img_src, "category": category['name'], "history": []
                 }
+            elif is_pinned:
+                # If product already exists but current category is a high-priority Pinned one, overwrite the category tag
+                current_data[prod_id]["category"] = category['name']
             
             current_data[prod_id].update({
                 "current_price": current_price, "normalized_price": norm_price,
-                "unit": qty_disp, "unit_type": unit_type, "image": img_src
+                "unit": qty_disp, "unit_type": unit_type, "image": img_src, "url": product_url
             })
             
             history = current_data[prod_id]["history"]
@@ -220,54 +143,92 @@ async def self_scrape_items(page, container_selector, category, current_data, to
                 history[-1]['normalized_price'] = norm_price
         except: pass
 
+async def scrape_category(sem, browser, category, current_data, pinned_names=[]):
+    async with sem:
+        is_pinned = category['name'] in pinned_names
+        context = await browser.new_context(user_agent=random.choice(USER_AGENTS))
+        page = await context.new_page()
+        
+        logger.info(f"Scraping: {category['name']} ({category['url']})")
+        try:
+            await page.goto(category['url'], wait_until="load", timeout=120000)
+            await asyncio.sleep(5) # Allow dynamic content
+            
+            today_str = datetime.date.today().isoformat()
+            container_selector = f"xpath={category['xpath']}" if category.get('xpath') else "body"
+            
+            # Robust Tab Detection for "More Items" pages
+            tabs = await page.query_selector_all('.category-tab-list div, .category-tab-list a, .nav-tabs li a, .category-item-title')
+            valid_tabs = []
+            for t in tabs:
+                t_text = (await t.inner_text()).strip()
+                if t_text and len(t_text) < 40:
+                    valid_tabs.append(t)
+            
+            if len(valid_tabs) > 1:
+                logger.info(f"  [+] Detected {len(valid_tabs)} tabs in {category['name']}. Deep clicking...")
+                for i in range(len(valid_tabs)):
+                    # Refresh tab elements to avoid detached DOM
+                    current_tabs = await page.query_selector_all('.category-tab-list div, .category-tab-list a, .nav-tabs li a, .category-item-title')
+                    # Match by text to be safe
+                    tab_name = (await valid_tabs[i].inner_text()).strip()
+                    target_tab = None
+                    for ct in current_tabs:
+                        if (await ct.inner_text()).strip() == tab_name:
+                            target_tab = ct
+                            break
+                    
+                    if not target_tab: continue
+                    
+                    logger.info(f"    -> Tab {i+1}/{len(valid_tabs)}: {tab_name}")
+                    try:
+                        await target_tab.click()
+                        await asyncio.sleep(4)
+                        for _ in range(4): # Scroll deep within tab
+                            await page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
+                            await asyncio.sleep(1.5)
+                        await self_scrape_items(page, container_selector, category, current_data, today_str, is_pinned)
+                    except: continue
+            else:
+                # Standard Scroll Scrape
+                for _ in range(10):
+                    await page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
+                    await asyncio.sleep(1.5)
+                await self_scrape_items(page, container_selector, category, current_data, today_str, is_pinned)
+            
+            return True
+        except Exception as e:
+            logger.error(f"  [X] Error: {str(e)[:100]}")
+            return False
+        finally:
+            await context.close()
+
 async def main():
     data = load_data()
     category_data = load_categories()
-    all_categories = flatten_categories(category_data)
-    enabled_categories = [c for c in all_categories if c.get('enabled', True)]
+    pinned_names = load_pinned_names()
+    enabled_categories = [c for c in flatten_categories(category_data) if c.get('enabled', True)]
     
-    logger.info(f"Loaded {len(all_categories)} categories. {len(enabled_categories)} enabled.")
-
+    logger.info(f"Started Scraper: {len(enabled_categories)} categories, {len(pinned_names)} pinned.")
+    
     async with async_playwright() as p:
-        # Launch browser once
-        browser = await p.chromium.launch(headless=True, args=["--no-sandbox", "--disable-setuid-sandbox"])
+        browser = await p.chromium.launch(headless=True)
+        sem = asyncio.Semaphore(1) 
         
-        sem = asyncio.Semaphore(1) # SEQUENTIAL to avoid blocking
+        # Order: Pinned Categories FIRST
+        pinned_cats = [c for c in enabled_categories if c['name'] in pinned_names]
+        other_cats = [c for c in enabled_categories if c['name'] not in pinned_names]
         
-        results = []
-        chunk_size = 5
-        for i in range(0, len(enabled_categories), chunk_size):
-            chunk = enabled_categories[i:i + chunk_size]
-            tasks = [scrape_category(sem, browser, cat, data) for cat in chunk]
-            chunk_results = await asyncio.gather(*tasks, return_exceptions=True)
-            results.extend(chunk_results)
+        queue = pinned_cats + other_cats
+        for i, cat in enumerate(queue):
+            logger.info(f"Progress: {i+1}/{len(queue)}")
+            await scrape_category(sem, browser, cat, data, pinned_names)
+            if (i+1) % 5 == 0: save_data(data) # Save every 5 cats
             
-            # Save progress often
-            try:
-                save_data(data)
-                logger.info(f"Progress: {min(i + chunk_size, len(enabled_categories))}/{len(enabled_categories)} categories. Data saved.")
-            except Exception as e:
-                logger.error(f"Failed to save data progress: {e}")
-            
-            # Big pause between chunks
-            await asyncio.sleep(random.uniform(5, 10))
-        
         await browser.close()
     
     save_data(data)
-    
-    # Sync categories
-    with open('categories.json', 'w', encoding='utf-8') as f:
-        json.dump(category_data, f, indent=2)
-
-    success_count = sum(1 for r in results if r is True)
-    logger.info(f"Scraping complete! Success: {success_count}, Failed: {len(results) - success_count}")
+    logger.info("Shwapno Scraper Complete.")
 
 if __name__ == "__main__":
-    try:
-        asyncio.run(main())
-    except Exception as e:
-        logger.critical(f"FATAL ERROR: {str(e)}", exc_info=True)
-        print(f"\n[CRITICAL] Scraper crashed: {e}")
-        import traceback
-        traceback.print_exc()
+    asyncio.run(main())

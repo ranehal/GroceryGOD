@@ -186,12 +186,15 @@ body.pitch-black {
 }
 
 .product-name {
-    font-size: 0.85rem;
+    font-size: 0.82rem; /* Slightly smaller to fit more */
     font-weight: 700;
-    line-height: 1.3;
-    height: 2.6em;
+    line-height: 1.25;
+    height: 3.75em; /* Exactly 3 lines */
     overflow: hidden;
-    margin-bottom: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    margin-bottom: 8px;
     color: var(--text-primary);
 }
 
@@ -245,17 +248,29 @@ body.pitch-black {
 
 /* Multi-Check Category Styles */
 .shop-cat-item {
-    padding: 6px 15px 6px 35px;
+    padding: 12px 15px 12px 35px; /* Larger padding for touch */
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
+    cursor: pointer;
+    border-bottom: 1px solid #0a0a0a;
+}
+
+.cat-checkbox, .shop-checkbox {
+    width: 20px; /* Bigger toggles */
+    height: 20px;
+    accent-color: var(--accent-color);
     cursor: pointer;
 }
 
-.cat-checkbox {
-    width: 14px;
-    height: 14px;
-    accent-color: var(--accent-color);
+/* Pinned Category Highlighting */
+.shop-cat-item.pinned .cat-name {
+    color: var(--gold) !important;
+    font-weight: 900;
+}
+
+.shop-cat-item.pinned {
+    background: rgba(245, 158, 11, 0.05);
 }
 
 /* Interactive Buttons */
@@ -263,97 +278,11 @@ body.pitch-black {
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
+    -webkit-tap-highlight-color: transparent; /* Fix mobile blue flash */
 }
 
-.btn-icon:hover {
-    background: rgba(255,255,255,0.1);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-}
-
-.btn-icon:active {
-    transform: translateY(0);
-}
-
-.btn-icon.active {
-    background: var(--accent-color);
-    color: #000;
-    border-color: var(--accent-color);
-}
-
-.intel-btn:hover {
-    border-color: var(--accent-color);
-    background: rgba(187, 134, 252, 0.1);
-}
-
-.intel-btn.active {
-    background: var(--accent-color);
-    color: #000;
-    font-weight: 900;
-}
-
-/* Custom Groups CRUD Styles */
-.group-header {
-    background: #111;
-    color: var(--gold);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 15px;
-    font-size: 0.7rem;
-    font-weight: 900;
-    text-transform: uppercase;
-    border-top: 1px solid #222;
-    border-bottom: 1px solid #222;
-}
-.group-item {
-    padding: 8px 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-    font-size: 0.8rem;
-    border-bottom: 1px solid #0a0a0a;
-}
-.group-item:hover {
-    background: rgba(245, 158, 11, 0.05);
-}
-.group-item.active {
-    color: var(--gold);
-    border-left: 3px solid var(--gold);
-}
-
-/* Shop Toggle Fix */
-.shop-toggle-container {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-.shop-checkbox {
-    width: 14px;
-    height: 14px;
-    cursor: pointer;
-    accent-color: var(--accent-color);
-}
-
-/* Sticky Search Suggestions */
-.search-wrapper {
-    position: relative;
-}
-.suggestions-box {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 450px; /* Slightly wider than input */
-    background: #080808;
-    border: 1px solid var(--accent-color);
-    border-top: none;
-    border-radius: 0 0 8px 8px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.9);
-    z-index: 10000;
-    display: none;
-    max-height: 500px;
-    overflow-y: auto;
+.shop-header:active, .shop-cat-item:active {
+    background: rgba(255,255,255,0.1) !important;
 }
 
 /* Sidebar Shop Hierarchy */
@@ -361,16 +290,26 @@ body.pitch-black {
     border-bottom: 1px solid #111;
 }
 .shop-header {
-    padding: 12px 15px;
+    padding: 15px; /* Larger touch target */
     background: #0a0a0a;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: space-between;
     font-weight: 800;
-    font-size: 0.75rem;
+    font-size: 0.85rem;
     color: var(--text-primary);
     transition: 0.2s;
+}
+
+/* Mobile Sidebar Fixes */
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 85%; /* Wider on mobile for easier interaction */
+        max-width: 320px;
+    }
+    .shop-header { font-size: 0.9rem; }
+    .shop-cat-item { font-size: 0.85rem; }
 }
 .shop-header:hover {
     background: #111;

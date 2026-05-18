@@ -62,40 +62,63 @@ def load_shwapno():
         with open(SHWAPNO_DATA, 'r', encoding='utf-8') as f:
             data = json.load(f)
             
-        # Identify pinned categories from categories.json
+        # Identify pinned categories from categories.json (Extreme Robust Mapping)
         pinned_names = []
         cats_file = 'swapnoTRACKER/categories.json'
         if os.path.exists(cats_file):
-            with open(cats_file, 'r', encoding='utf-8') as cf:
-                cats_data = json.load(cf)
-                pinned_group = next((g for g in cats_data.get('groups', []) if g.get('id') == 'pinned_deals'), None)
-                if pinned_group:
-                    pinned_names = [c['name'] for c in pinned_group['categories']]
+            try:
+                with open(cats_file, 'r', encoding='utf-8') as cf:
+                    cats_data = json.load(cf)
+                    pinned_group = next((g for g in cats_data.get('groups', []) if g.get('id') == 'pinned_deals'), None)
+                    if pinned_group:
+                        pinned_names = [c['name'] for c in pinned_group['categories']]
+            except Exception as e:
+                print(f"Warning: Could not parse categories.json: {e}")
+
+        def get_display_cat(raw_cat):
+            raw_clean = raw_cat.strip().lower()
+            # 1. Direct Match
+            for pn in pinned_names:
+                if pn.strip().lower() == raw_clean: return f"📌 {pn}"
+            # 2. Fuzzy Match (Contains or is Contained In)
+            for pn in pinned_names:
+                pn_clean = pn.strip().lower()
+                # e.g. "Women's Care" matches "Womens Care Collection"
+                # Strip special chars for better fuzzy matching
+                s_pn = re.sub(r'\W+', '', pn_clean)
+                s_raw = re.sub(r'\W+', '', raw_clean)
+                if s_pn in s_raw or s_raw in s_pn:
+                    return f"📌 {pn}"
+            return raw_cat
 
         products = {}
         all_dates = []
+        pinned_count = 0
+        
         for pid, p in data.items():
             if pid in ['metadata', 'products']: continue
             hist = p.get('history', [])
             curr_p = hist[-1].get('price', 0) if hist else 0
             u_type, norm_p = parse_unit_and_calculate(p.get('name', ''), "", curr_p)
             
-            # Apply pinning icon if category is pinned
-            category_name = p.get('category', 'General')
-            if category_name in pinned_names:
-                category_name = f"📌 {category_name}"
+            # Apply robust fuzzy pinning
+            raw_cat = p.get('category', 'General')
+            display_cat = get_display_cat(raw_cat)
+            if display_cat.startswith('📌'): pinned_count += 1
 
             new_history = []
             for h in hist:
                 _, h_norm = parse_unit_and_calculate(p.get('name', ''), "", h.get('price', 0))
                 new_history.append({"date": h.get('date'), "price": h.get('price'), "normalized_price": h_norm})
                 if h.get('date'): all_dates.append(h['date'])
+                
             products[f"sh_{pid}"] = {
                 "id": f"sh_{pid}", "name": p.get('name'), "store": "shwapno",
-                "category": category_name, "unit": "N/A", "unit_type": u_type,
+                "category": display_cat, "unit": p.get('unit', 'N/A'), "unit_type": u_type,
                 "current_price": curr_p, "normalized_price": norm_p,
-                "image": p.get('image'), "history": new_history
+                "image": p.get('image'), "url": p.get('url'), "history": new_history
             }
+        print(f"  Shwapno Matrix: {len(products)} units, {pinned_count} in 📌 pinned categories.")
         return products, f"{min(all_dates)} to {max(all_dates)}" if all_dates else "N/A"
     except Exception as e:
         print(f"Error processing Shwapno: {e}")

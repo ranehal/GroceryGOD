@@ -161,7 +161,7 @@ function renderSidebar() {
     });
     list.appendChild(groupList);
 
-    const shopHeading = document.createElement('div');
+        const shopHeading = document.createElement('div');
     shopHeading.className = 'category-group-header';
     shopHeading.innerHTML = `<span><i class="fas fa-microchip"></i> Market Uplinks</span>`;
     list.appendChild(shopHeading);
@@ -177,22 +177,42 @@ function renderSidebar() {
         });
         const group = document.createElement('div'); group.className = 'shop-group';
         const header = document.createElement('div');
-        header.dataset.sid = sid; // Set data-sid for lazy loading
+        header.dataset.sid = sid;
         header.className = `shop-header ${activeShopFilters.has(sid) ? 'active' : ''}`;
         header.innerHTML = `
             <div class="shop-toggle-container">
                 <input type="checkbox" class="shop-checkbox" ${activeShopFilters.has(sid) ? 'checked' : ''}>
                 <span style="color:${STORE_CONFIG[sid].color}">${STORE_CONFIG[sid].name}</span>
             </div>
-            <div style="display:flex; align-items:center; gap:10px;">
-                <span style="opacity:0.4; font-size:0.6rem;">${shopProducts.length}</span>
-                <i class="fas fa-chevron-down toggle-icon" style="font-size:0.6rem;"></i>
+            <div style="display:flex; align-items:center; gap:12px;">
+                <span style="opacity:0.4; font-size:0.7rem;">${shopProducts.length}</span>
+                <i class="fas fa-chevron-down toggle-icon" style="font-size:0.7rem; padding: 10px;"></i>
             </div>
         `;
         
         const cb = header.querySelector('.shop-checkbox');
-        cb.onclick = async (e) => {
-            e.stopPropagation();
+        const chevron = header.querySelector('.toggle-icon');
+
+        // Robust Row Click Toggle
+        header.onclick = async (e) => {
+            // 1. If clicking the chevron, just expand/collapse sub-menu
+            if (e.target.closest('.toggle-icon')) {
+                const isOpen = catList.classList.contains('active');
+                // document.querySelectorAll('.shop-categories').forEach(el => el.classList.remove('active'));
+                // document.querySelectorAll('.shop-header').forEach(el => el.classList.remove('expanded'));
+                if (!isOpen) {
+                    catList.classList.add('active');
+                    header.classList.add('expanded');
+                } else {
+                    catList.classList.remove('active');
+                    header.classList.remove('expanded');
+                }
+                return;
+            }
+
+            // 2. Otherwise, treat entire row as a toggle for the STORE
+            if (e.target !== cb) cb.checked = !cb.checked;
+            
             if (cb.checked) {
                 activeShopFilters.add(sid);
                 if (!window.loadedStores.has(sid)) {
@@ -209,31 +229,34 @@ function renderSidebar() {
             }
             renderProducts(); updateStatsBar();
         };
+        cb.onclick = (e) => e.stopPropagation(); 
 
         const catList = document.createElement('ul');
         catList.className = 'shop-categories';
-        header.onclick = (e) => {
-            if (e.target === cb) return;
-            const isOpen = catList.classList.contains('active');
-            document.querySelectorAll('.shop-categories').forEach(el => el.classList.remove('active'));
-            if (!isOpen) catList.classList.add('active');
-        };
 
         categories.forEach(cat => {
             const count = shopProducts.filter(p => p.category === cat).length;
             const li = document.createElement('li');
-            li.className = 'shop-cat-item';
+            const isPinned = cat.includes('📌');
+            li.className = `shop-cat-item ${activeCategories.has(`${sid}_${cat}`) ? 'active' : ''} ${isPinned ? 'pinned' : ''}`;
             const catId = `${sid}_${cat}`;
             li.innerHTML = `
-                <input type="checkbox" class="cat-checkbox" ${activeCategories.has(catId) ? 'checked' : ''}>
-                <span>${cat}</span> 
-                <span style="opacity:0.3; font-size:0.6rem; margin-left:auto;">${count}</span>
+                <div class="cat-row-content" style="display:flex; align-items:center; gap:12px; flex:1;">
+                    <input type="checkbox" class="cat-checkbox" ${activeCategories.has(catId) ? 'checked' : ''}>
+                    <span class="cat-name">${cat}</span> 
+                </div>
+                <span class="cat-count">${count}</span>
             `;
             const catCb = li.querySelector('.cat-checkbox');
-            li.onclick = () => {
-                catCb.checked = !catCb.checked;
-                if (catCb.checked) activeCategories.add(catId);
-                else activeCategories.delete(catId);
+            li.onclick = (e) => {
+                if (e.target !== catCb) catCb.checked = !catCb.checked;
+                if (catCb.checked) {
+                    activeCategories.add(catId);
+                    li.classList.add('active');
+                } else {
+                    activeCategories.delete(catId);
+                    li.classList.remove('active');
+                }
                 renderProducts();
             };
             catCb.onclick = (e) => e.stopPropagation();
