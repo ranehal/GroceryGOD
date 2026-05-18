@@ -1898,12 +1898,12 @@
     "history": [
       {
         "date": "2026-05-18",
-        "price": 480.0,
-        "normalized_price": 480.0
+        "price": 400.0,
+        "normalized_price": 400.0
       }
     ],
-    "current_price": 480.0,
-    "normalized_price": 480.0,
+    "current_price": 400.0,
+    "normalized_price": 400.0,
     "unit": "1.0kg",
     "unit_type": "kg"
   },
@@ -9134,12 +9134,12 @@
     "history": [
       {
         "date": "2026-05-18",
-        "price": 295.0,
-        "normalized_price": 694.12
+        "price": 285.0,
+        "normalized_price": 670.59
       }
     ],
-    "current_price": 295.0,
-    "normalized_price": 694.12,
+    "current_price": 285.0,
+    "normalized_price": 670.59,
     "unit": "425.0gm",
     "unit_type": "kg"
   },
@@ -9170,12 +9170,12 @@
     "history": [
       {
         "date": "2026-05-18",
-        "price": 295.0,
-        "normalized_price": 694.12
+        "price": 285.0,
+        "normalized_price": 670.59
       }
     ],
-    "current_price": 295.0,
-    "normalized_price": 694.12,
+    "current_price": 285.0,
+    "normalized_price": 670.59,
     "unit": "425.0gm",
     "unit_type": "kg"
   },
@@ -11456,12 +11456,12 @@
     "history": [
       {
         "date": "2026-05-18",
-        "price": 159.0,
-        "normalized_price": 318.0
+        "price": 169.0,
+        "normalized_price": 338.0
       }
     ],
-    "current_price": 159.0,
-    "normalized_price": 318.0,
+    "current_price": 169.0,
+    "normalized_price": 338.0,
     "unit": "500.0ml",
     "unit_type": "liter"
   },
@@ -11474,12 +11474,12 @@
     "history": [
       {
         "date": "2026-05-18",
-        "price": 82.0,
-        "normalized_price": 328.0
+        "price": 87.0,
+        "normalized_price": 348.0
       }
     ],
-    "current_price": 82.0,
-    "normalized_price": 328.0,
+    "current_price": 87.0,
+    "normalized_price": 348.0,
     "unit": "250.0ml",
     "unit_type": "liter"
   },
@@ -15405,6 +15405,6468 @@
     "current_price": 1105.0,
     "normalized_price": 1168.08,
     "unit": "946.0ml",
+    "unit_type": "liter"
+  },
+  "uni_44834": {
+    "id": "uni_44834",
+    "name": "Momeasy Silicone Baby Bib  45363 CN",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0412086.webp",
+    "category": "Feeding Accessories Kit",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 500.0,
+        "normalized_price": 500.0
+      }
+    ],
+    "current_price": 500.0,
+    "normalized_price": 500.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_44881": {
+    "id": "uni_44881",
+    "name": "Momeasy Silicone Nipples Standard  45405 CN",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0412087.webp",
+    "category": "Nipples",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 250.0,
+        "normalized_price": 250.0
+      }
+    ],
+    "current_price": 250.0,
+    "normalized_price": 250.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_44864": {
+    "id": "uni_44864",
+    "name": "Momeasy Silicone Nipples Wide Neck  45414N CN",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0412088.webp",
+    "category": "Nipples",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 330.0,
+        "normalized_price": 330.0
+      }
+    ],
+    "current_price": 330.0,
+    "normalized_price": 330.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_44876": {
+    "id": "uni_44876",
+    "name": "Momeasy Silicone Nipples(5.2G)  45431 CN",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0412089.webp",
+    "category": "Nipples",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 80.0,
+        "normalized_price": 15384.62
+      }
+    ],
+    "current_price": 80.0,
+    "normalized_price": 15384.62,
+    "unit": "5.2g",
+    "unit_type": "kg"
+  },
+  "uni_44880": {
+    "id": "uni_44880",
+    "name": "Momeasy Pacifier Physiological Type  45552 CN",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0412090.webp",
+    "category": "Feeding Accessories Kit",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 500.0,
+        "normalized_price": 500.0
+      }
+    ],
+    "current_price": 500.0,
+    "normalized_price": 500.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_44857": {
+    "id": "uni_44857",
+    "name": "Momeasy Fresh Food Feeder (M)  45501 CN",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0412091.webp",
+    "category": "Feeding Accessories Kit",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 400.0,
+        "normalized_price": 400.0
+      }
+    ],
+    "current_price": 400.0,
+    "normalized_price": 400.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_44859": {
+    "id": "uni_44859",
+    "name": "Momeasy Nail Clipper With Magnifier   46005 CN",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0412092.webp",
+    "category": "Nail Clipper",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 300.0,
+        "normalized_price": 300.0
+      }
+    ],
+    "current_price": 300.0,
+    "normalized_price": 300.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_44893": {
+    "id": "uni_44893",
+    "name": "Momeasy Plastic Cotton Buds 200Pcs  46018 CN",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0412093.webp",
+    "category": "Cotton Buds",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 300.0,
+        "normalized_price": 300.0
+      }
+    ],
+    "current_price": 300.0,
+    "normalized_price": 300.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_44873": {
+    "id": "uni_44873",
+    "name": "Momeasy Children?S Toothbrush  46082 CN",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0412094.webp",
+    "category": "Brush",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 300.0,
+        "normalized_price": 300.0
+      }
+    ],
+    "current_price": 300.0,
+    "normalized_price": 300.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_44896": {
+    "id": "uni_44896",
+    "name": "Momeasy Cotton Balls(100 Balls)  46084 CN",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0412095.webp",
+    "category": "Cotton Buds",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 300.0,
+        "normalized_price": 300.0
+      }
+    ],
+    "current_price": 300.0,
+    "normalized_price": 300.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_45026": {
+    "id": "uni_45026",
+    "name": "Momeasy Eva Baby Bibs    46075 CN",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0412096.webp",
+    "category": "Grooming Kit",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 300.0,
+        "normalized_price": 300.0
+      }
+    ],
+    "current_price": 300.0,
+    "normalized_price": 300.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_44872": {
+    "id": "uni_44872",
+    "name": "Momeasy Bottle Brush Set  45901 CN",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0412097.webp",
+    "category": "Brush",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 350.0,
+        "normalized_price": 350.0
+      }
+    ],
+    "current_price": 350.0,
+    "normalized_price": 350.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_44862": {
+    "id": "uni_44862",
+    "name": "Momeasy Breast Care Pump  45801 CN",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0412098.webp",
+    "category": "Feeding Accessories Kit",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 500.0,
+        "normalized_price": 500.0
+      }
+    ],
+    "current_price": 500.0,
+    "normalized_price": 500.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_44854": {
+    "id": "uni_44854",
+    "name": "Momeasy Lunch Box  46601 CN",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0412099.webp",
+    "category": "Lunch / Tiffin Boxes",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 350.0,
+        "normalized_price": 350.0
+      }
+    ],
+    "current_price": 350.0,
+    "normalized_price": 350.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_44855": {
+    "id": "uni_44855",
+    "name": "Momeasy Lunch Box Set  46606 CN",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0412100.webp",
+    "category": "Lunch / Tiffin Boxes",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 950.0,
+        "normalized_price": 950.0
+      }
+    ],
+    "current_price": 950.0,
+    "normalized_price": 950.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_45140": {
+    "id": "uni_45140",
+    "name": "Ajinomoto Birdy Espresso Less Sugar Ready To Drink Coffee  180Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0413034.webp",
+    "category": "Ready-To-Drink Coffee",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 205.0,
+        "normalized_price": 1138.89
+      }
+    ],
+    "current_price": 205.0,
+    "normalized_price": 1138.89,
+    "unit": "180.0ml",
+    "unit_type": "liter"
+  },
+  "uni_30920": {
+    "id": "uni_30920",
+    "name": "Vim Bar 125gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0307693.webp",
+    "category": "Dishwash Bar",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 15.0,
+        "normalized_price": 120.0
+      }
+    ],
+    "current_price": 15.0,
+    "normalized_price": 120.0,
+    "unit": "125.0gm",
+    "unit_type": "kg"
+  },
+  "uni_28156": {
+    "id": "uni_28156",
+    "name": "Suree Barbecue Sauce 300Ml",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0308085.webp",
+    "category": "Sweet & Spicy Sauce",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 375.0,
+        "normalized_price": 1250.0
+      }
+    ],
+    "current_price": 375.0,
+    "normalized_price": 1250.0,
+    "unit": "300.0ml",
+    "unit_type": "liter"
+  },
+  "uni_31988": {
+    "id": "uni_31988",
+    "name": "Danisa Trad. Butter Cookies 454?79 gm Tin Indonesia",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0308311.webp",
+    "category": "Imported Biscuits Tin Packed",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 1200.0,
+        "normalized_price": 15189.87
+      }
+    ],
+    "current_price": 1200.0,
+    "normalized_price": 15189.87,
+    "unit": "79.0gm",
+    "unit_type": "kg"
+  },
+  "uni_30035": {
+    "id": "uni_30035",
+    "name": "Mama Noodles Chicken Flavor 620 gm 10 Pcs Pack",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0308607.webp",
+    "category": "Instant Noodles",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 220.0,
+        "normalized_price": 354.84
+      }
+    ],
+    "current_price": 220.0,
+    "normalized_price": 354.84,
+    "unit": "620.0gm",
+    "unit_type": "kg"
+  },
+  "uni_27664": {
+    "id": "uni_27664",
+    "name": "Thai Choice Black Pepper 200 ML Thailand",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0308613.webp",
+    "category": "Chilli Sauce",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 350.0,
+        "normalized_price": 1750.0
+      }
+    ],
+    "current_price": 350.0,
+    "normalized_price": 1750.0,
+    "unit": "200.0ml",
+    "unit_type": "liter"
+  },
+  "uni_31782": {
+    "id": "uni_31782",
+    "name": "Dove Conditioner Hair Fall Rescue 170ml",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0309196.webp",
+    "category": "Conditioner",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 290.0,
+        "normalized_price": 1705.88
+      }
+    ],
+    "current_price": 290.0,
+    "normalized_price": 1705.88,
+    "unit": "170.0ml",
+    "unit_type": "liter"
+  },
+  "uni_31548": {
+    "id": "uni_31548",
+    "name": "Pond's Cream Bright Beauty 23 gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0309197.webp",
+    "category": "Face Cream",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 160.0,
+        "normalized_price": 6956.52
+      }
+    ],
+    "current_price": 160.0,
+    "normalized_price": 6956.52,
+    "unit": "23.0gm",
+    "unit_type": "kg"
+  },
+  "uni_31755": {
+    "id": "uni_31755",
+    "name": "Kokola Butter Cookies 400 gm Indonesia",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0309251.webp",
+    "category": "Imported Biscuits Tin Packed",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 990.0,
+        "normalized_price": 2475.0
+      }
+    ],
+    "current_price": 990.0,
+    "normalized_price": 2475.0,
+    "unit": "400.0gm",
+    "unit_type": "kg"
+  },
+  "uni_27196": {
+    "id": "uni_27196",
+    "name": "Erko Mallow Plus Stick 20 gm China",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0309257.webp",
+    "category": "Marshmallows",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 60.0,
+        "normalized_price": 3000.0
+      }
+    ],
+    "current_price": 60.0,
+    "normalized_price": 3000.0,
+    "unit": "20.0gm",
+    "unit_type": "kg"
+  },
+  "uni_30063": {
+    "id": "uni_30063",
+    "name": "Nongshim Soon Veggie Ramyun Noodle 112 Gm KR",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0309575.webp",
+    "category": "Ramen",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 190.0,
+        "normalized_price": 1696.43
+      }
+    ],
+    "current_price": 190.0,
+    "normalized_price": 1696.43,
+    "unit": "112.0gm",
+    "unit_type": "kg"
+  },
+  "uni_25769": {
+    "id": "uni_25769",
+    "name": "Reeses 2peanut Butter Cups 42 Gm US",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0309584.webp",
+    "category": "Chocolate Bar",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 195.0,
+        "normalized_price": 4642.86
+      }
+    ],
+    "current_price": 195.0,
+    "normalized_price": 4642.86,
+    "unit": "42.0gm",
+    "unit_type": "kg"
+  },
+  "uni_27659": {
+    "id": "uni_27659",
+    "name": "Tabasco Pepper Sauce 59 Ml US",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0309603.webp",
+    "category": "Chilli Sauce",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 415.0,
+        "normalized_price": 7033.9
+      }
+    ],
+    "current_price": 415.0,
+    "normalized_price": 7033.9,
+    "unit": "59.0ml",
+    "unit_type": "liter"
+  },
+  "uni_32116": {
+    "id": "uni_32116",
+    "name": "Everest Pav Bhaji Masala 50 gm India",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0309699.webp",
+    "category": "Recipe Spice/ Curry Mix",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 125.0,
+        "normalized_price": 2500.0
+      }
+    ],
+    "current_price": 125.0,
+    "normalized_price": 2500.0,
+    "unit": "50.0gm",
+    "unit_type": "kg"
+  },
+  "uni_32117": {
+    "id": "uni_32117",
+    "name": "Everest Shahi Biryani Masala 50 gm India",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0309701.webp",
+    "category": "Recipe Spice/ Curry Mix",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 225.0,
+        "normalized_price": 4500.0
+      }
+    ],
+    "current_price": 225.0,
+    "normalized_price": 4500.0,
+    "unit": "50.0gm",
+    "unit_type": "kg"
+  },
+  "uni_32118": {
+    "id": "uni_32118",
+    "name": "Everest Meat Masala 50 gm India",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0309702.webp",
+    "category": "Recipe Spice/ Curry Mix",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 125.0,
+        "normalized_price": 2500.0
+      }
+    ],
+    "current_price": 125.0,
+    "normalized_price": 2500.0,
+    "unit": "50.0gm",
+    "unit_type": "kg"
+  },
+  "uni_31930": {
+    "id": "uni_31930",
+    "name": "Hazrat Alir Cooking Cheese (Ponir) 250gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0310912.webp",
+    "category": "Poneer",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 250.0,
+        "normalized_price": 1000.0
+      }
+    ],
+    "current_price": 250.0,
+    "normalized_price": 1000.0,
+    "unit": "250.0gm",
+    "unit_type": "kg"
+  },
+  "uni_31843": {
+    "id": "uni_31843",
+    "name": "Hazrat Alir Cheese (Ponir) 200gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0310914.webp",
+    "category": "Poneer",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 200.0,
+        "normalized_price": 1000.0
+      }
+    ],
+    "current_price": 200.0,
+    "normalized_price": 1000.0,
+    "unit": "200.0gm",
+    "unit_type": "kg"
+  },
+  "uni_30129": {
+    "id": "uni_30129",
+    "name": "Ottogi Wheat Noodle Thin Round 900 gm KR",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0311218.webp",
+    "category": "Stick Noodles",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 650.0,
+        "normalized_price": 722.22
+      }
+    ],
+    "current_price": 650.0,
+    "normalized_price": 722.22,
+    "unit": "900.0gm",
+    "unit_type": "kg"
+  },
+  "uni_31369": {
+    "id": "uni_31369",
+    "name": "Beef Paya /Pc",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0311726.webp",
+    "category": "Other Parts/ Beef Organ",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 610.0,
+        "normalized_price": 610.0
+      }
+    ],
+    "current_price": 610.0,
+    "normalized_price": 610.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_31367": {
+    "id": "uni_31367",
+    "name": "Mutton Head /Pc",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0311728.webp",
+    "category": "Others/ Mutton Organ",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 315.0,
+        "normalized_price": 315.0
+      }
+    ],
+    "current_price": 315.0,
+    "normalized_price": 315.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_27514": {
+    "id": "uni_27514",
+    "name": "Oderich Chicken Luncheon Meat 320gm BR",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0311950.webp",
+    "category": "Canned Meat & Poultry",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 465.0,
+        "normalized_price": 1453.12
+      }
+    ],
+    "current_price": 465.0,
+    "normalized_price": 1453.12,
+    "unit": "320.0gm",
+    "unit_type": "kg"
+  },
+  "uni_27513": {
+    "id": "uni_27513",
+    "name": "Oderich Chicken Luncheon Meat 800gm BR",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0311952.webp",
+    "category": "Canned Meat & Poultry",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 475.0,
+        "normalized_price": 593.75
+      }
+    ],
+    "current_price": 475.0,
+    "normalized_price": 593.75,
+    "unit": "800.0gm",
+    "unit_type": "kg"
+  },
+  "uni_29312": {
+    "id": "uni_29312",
+    "name": "Allah Shafi Honey 250gm AU",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0311977.webp",
+    "category": "Honey",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 565.0,
+        "normalized_price": 2260.0
+      }
+    ],
+    "current_price": 565.0,
+    "normalized_price": 2260.0,
+    "unit": "250.0gm",
+    "unit_type": "kg"
+  },
+  "uni_32321": {
+    "id": "uni_32321",
+    "name": "Ceylon N. Organic Coconut Milk Powder 150gm LK",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0312374.webp",
+    "category": "Coconut Milk",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 438.0,
+        "normalized_price": 2920.0
+      }
+    ],
+    "current_price": 438.0,
+    "normalized_price": 2920.0,
+    "unit": "150.0gm",
+    "unit_type": "kg"
+  },
+  "uni_28281": {
+    "id": "uni_28281",
+    "name": "Ceylon N. Organic Extra Virgin Coconut Oil 1000ml LK",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0312375.webp",
+    "category": "Coconut Oil",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 2303.0,
+        "normalized_price": 2303.0
+      }
+    ],
+    "current_price": 2303.0,
+    "normalized_price": 2303.0,
+    "unit": "1000.0ml",
+    "unit_type": "liter"
+  },
+  "uni_28279": {
+    "id": "uni_28279",
+    "name": "Ceylon N. Organic Extra Virgin Coconut Oil 200ml LK",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0312376.webp",
+    "category": "Coconut Oil",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 623.0,
+        "normalized_price": 3115.0
+      }
+    ],
+    "current_price": 623.0,
+    "normalized_price": 3115.0,
+    "unit": "200.0ml",
+    "unit_type": "liter"
+  },
+  "uni_28280": {
+    "id": "uni_28280",
+    "name": "Ceylon N. Organic Extra Virgin Coconut Oil 500ml LK",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0312378.webp",
+    "category": "Coconut Oil",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 1415.0,
+        "normalized_price": 2830.0
+      }
+    ],
+    "current_price": 1415.0,
+    "normalized_price": 2830.0,
+    "unit": "500.0ml",
+    "unit_type": "liter"
+  },
+  "uni_32263": {
+    "id": "uni_32263",
+    "name": "SIS Brown Sugar 800gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0312425.webp",
+    "category": "Brown Sugar Pack",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 677.0,
+        "normalized_price": 846.25
+      }
+    ],
+    "current_price": 677.0,
+    "normalized_price": 846.25,
+    "unit": "800.0gm",
+    "unit_type": "kg"
+  },
+  "uni_32277": {
+    "id": "uni_32277",
+    "name": "SIS Cube Sugar White 454gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0312426.webp",
+    "category": "Cube Sugar",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 415.0,
+        "normalized_price": 914.1
+      }
+    ],
+    "current_price": 415.0,
+    "normalized_price": 914.1,
+    "unit": "454.0gm",
+    "unit_type": "kg"
+  },
+  "uni_25136": {
+    "id": "uni_25136",
+    "name": "SIS Icing Sugar 500gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0312427.webp",
+    "category": "Confectionary / Icing Sugar",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 450.0,
+        "normalized_price": 900.0
+      }
+    ],
+    "current_price": 450.0,
+    "normalized_price": 900.0,
+    "unit": "500.0gm",
+    "unit_type": "kg"
+  },
+  "uni_25286": {
+    "id": "uni_25286",
+    "name": "ACI Pure Falooda Mix 250gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0312530.webp",
+    "category": "Ready Mixes",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 110.0,
+        "normalized_price": 440.0
+      }
+    ],
+    "current_price": 110.0,
+    "normalized_price": 440.0,
+    "unit": "250.0gm",
+    "unit_type": "kg"
+  },
+  "uni_31957": {
+    "id": "uni_31957",
+    "name": "ACI Pure Coriander Powder Jar 200gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0312534.webp",
+    "category": "Grinded Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 120.0,
+        "normalized_price": 600.0
+      }
+    ],
+    "current_price": 120.0,
+    "normalized_price": 600.0,
+    "unit": "200.0gm",
+    "unit_type": "kg"
+  },
+  "uni_32015": {
+    "id": "uni_32015",
+    "name": "NESCAFE 3in1 Hazelnut Latte 22gm Pouch",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0312644.webp",
+    "category": "Instant Coffee",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 30.0,
+        "normalized_price": 1363.64
+      }
+    ],
+    "current_price": 30.0,
+    "normalized_price": 1363.64,
+    "unit": "22.0gm",
+    "unit_type": "kg"
+  },
+  "uni_32269": {
+    "id": "uni_32269",
+    "name": "Kazi Organic Black Tea Family Pack 200 gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0313061.webp",
+    "category": "Regular Black Tea",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 130.0,
+        "normalized_price": 650.0
+      }
+    ],
+    "current_price": 130.0,
+    "normalized_price": 650.0,
+    "unit": "200.0gm",
+    "unit_type": "kg"
+  },
+  "uni_31740": {
+    "id": "uni_31740",
+    "name": "KSF Mozzarella Cheese 250 gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0313063.webp",
+    "category": "Grated Chese",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 240.0,
+        "normalized_price": 960.0
+      }
+    ],
+    "current_price": 240.0,
+    "normalized_price": 960.0,
+    "unit": "250.0gm",
+    "unit_type": "kg"
+  },
+  "uni_31864": {
+    "id": "uni_31864",
+    "name": "Country Natural Plain Paratha (Jambo) 1600 Gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0314081.webp",
+    "category": "Parata",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 370.0,
+        "normalized_price": 231.25
+      }
+    ],
+    "current_price": 370.0,
+    "normalized_price": 231.25,
+    "unit": "1600.0gm",
+    "unit_type": "kg"
+  },
+  "uni_31624": {
+    "id": "uni_31624",
+    "name": "Revival Black Tea 200 gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0314709.webp",
+    "category": "Regular Black Tea",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 120.0,
+        "normalized_price": 600.0
+      }
+    ],
+    "current_price": 120.0,
+    "normalized_price": 600.0,
+    "unit": "200.0gm",
+    "unit_type": "kg"
+  },
+  "uni_32025": {
+    "id": "uni_32025",
+    "name": "Orion Custard Premium 138 Gm VN",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0314956.webp",
+    "category": "Imported Biscuit",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 365.0,
+        "normalized_price": 2644.93
+      }
+    ],
+    "current_price": 365.0,
+    "normalized_price": 2644.93,
+    "unit": "138.0gm",
+    "unit_type": "kg"
+  },
+  "uni_30064": {
+    "id": "uni_30064",
+    "name": "Ottogi Kimchi Ramen 120 Gm KR",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0314958.webp",
+    "category": "Ramen",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 150.0,
+        "normalized_price": 1250.0
+      }
+    ],
+    "current_price": 150.0,
+    "normalized_price": 1250.0,
+    "unit": "120.0gm",
+    "unit_type": "kg"
+  },
+  "uni_32149": {
+    "id": "uni_32149",
+    "name": "Horlicks Junior Jar Stage-1 500gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0315279.webp",
+    "category": "Malted / Chocolate Drinks",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 550.0,
+        "normalized_price": 1100.0
+      }
+    ],
+    "current_price": 550.0,
+    "normalized_price": 1100.0,
+    "unit": "500.0gm",
+    "unit_type": "kg"
+  },
+  "uni_32032": {
+    "id": "uni_32032",
+    "name": "Country Natural Multigrain Roti 20 pcs 1000 gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0315362.webp",
+    "category": "Ruti/Chapati",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 260.0,
+        "normalized_price": 260.0
+      }
+    ],
+    "current_price": 260.0,
+    "normalized_price": 260.0,
+    "unit": "1000.0gm",
+    "unit_type": "kg"
+  },
+  "uni_29023": {
+    "id": "uni_29023",
+    "name": "ACI Nutrilife Brown Atta 2kg",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0315526.webp",
+    "category": "Brown Atta Packed",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 140.0,
+        "normalized_price": 70.0
+      }
+    ],
+    "current_price": 140.0,
+    "normalized_price": 70.0,
+    "unit": "2.0kg",
+    "unit_type": "kg"
+  },
+  "uni_32276": {
+    "id": "uni_32276",
+    "name": "Masyirah Sugarcane Sugar 1 kg",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0315627.webp",
+    "category": "Cane Sugar Pack",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 177.0,
+        "normalized_price": 177.0
+      }
+    ],
+    "current_price": 177.0,
+    "normalized_price": 177.0,
+    "unit": "1.0kg",
+    "unit_type": "kg"
+  },
+  "uni_27538": {
+    "id": "uni_27538",
+    "name": "Hosen Quality Mushroom Choice Whole 425gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0316343.webp",
+    "category": "Canned Vegetables",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 285.0,
+        "normalized_price": 670.59
+      }
+    ],
+    "current_price": 285.0,
+    "normalized_price": 670.59,
+    "unit": "425.0gm",
+    "unit_type": "kg"
+  },
+  "uni_27540": {
+    "id": "uni_27540",
+    "name": "Hosen Quality Straw Mushroom 425gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0316344.webp",
+    "category": "Canned Vegetables",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 295.0,
+        "normalized_price": 694.12
+      }
+    ],
+    "current_price": 295.0,
+    "normalized_price": 694.12,
+    "unit": "425.0gm",
+    "unit_type": "kg"
+  },
+  "uni_27539": {
+    "id": "uni_27539",
+    "name": "Hosen Quality Mushroom Pieces & Stems 425Gm CN",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0316346.webp",
+    "category": "Canned Vegetables",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 285.0,
+        "normalized_price": 670.59
+      }
+    ],
+    "current_price": 285.0,
+    "normalized_price": 670.59,
+    "unit": "425.0gm",
+    "unit_type": "kg"
+  },
+  "uni_27638": {
+    "id": "uni_27638",
+    "name": "Hosen Select Black Olives Whole 350gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0316350.webp",
+    "category": "Black Olive",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 375.0,
+        "normalized_price": 1071.43
+      }
+    ],
+    "current_price": 375.0,
+    "normalized_price": 1071.43,
+    "unit": "350.0gm",
+    "unit_type": "kg"
+  },
+  "uni_27503": {
+    "id": "uni_27503",
+    "name": "Hosen Quality Sweet Corn 400gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0316353.webp",
+    "category": "Canned Grains",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 275.0,
+        "normalized_price": 687.5
+      }
+    ],
+    "current_price": 275.0,
+    "normalized_price": 687.5,
+    "unit": "400.0gm",
+    "unit_type": "kg"
+  },
+  "uni_27545": {
+    "id": "uni_27545",
+    "name": "Hosen Quality Baby Corn Young Spear 425gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0316355.webp",
+    "category": "Canned Vegetables",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 325.0,
+        "normalized_price": 764.71
+      }
+    ],
+    "current_price": 325.0,
+    "normalized_price": 764.71,
+    "unit": "425.0gm",
+    "unit_type": "kg"
+  },
+  "uni_27505": {
+    "id": "uni_27505",
+    "name": "Hosen Quality Green Peas 397gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0316361.webp",
+    "category": "Canned Grains",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 275.0,
+        "normalized_price": 692.7
+      }
+    ],
+    "current_price": 275.0,
+    "normalized_price": 692.7,
+    "unit": "397.0gm",
+    "unit_type": "kg"
+  },
+  "uni_27542": {
+    "id": "uni_27542",
+    "name": "Hosen Select Whole Peeled Tomato Pelati 400gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0316367.webp",
+    "category": "Canned Vegetables",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 275.0,
+        "normalized_price": 687.5
+      }
+    ],
+    "current_price": 275.0,
+    "normalized_price": 687.5,
+    "unit": "400.0gm",
+    "unit_type": "kg"
+  },
+  "uni_27550": {
+    "id": "uni_27550",
+    "name": "Hosen Select Tomato Paste 400gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0316369.webp",
+    "category": "Paste & Purees",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 325.0,
+        "normalized_price": 812.5
+      }
+    ],
+    "current_price": 325.0,
+    "normalized_price": 812.5,
+    "unit": "400.0gm",
+    "unit_type": "kg"
+  },
+  "uni_27483": {
+    "id": "uni_27483",
+    "name": "Fortune Tuna Chunks in Spring Water 170gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0316376.webp",
+    "category": "Canned Fish & Sea Food",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 445.0,
+        "normalized_price": 2617.65
+      }
+    ],
+    "current_price": 445.0,
+    "normalized_price": 2617.65,
+    "unit": "170.0gm",
+    "unit_type": "kg"
+  },
+  "uni_31677": {
+    "id": "uni_31677",
+    "name": "KohKae Salted?&?Roasted?Cashew?Nuts 100 gm TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0316398.webp",
+    "category": "Nuts & Mixes",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 650.0,
+        "normalized_price": 6500.0
+      }
+    ],
+    "current_price": 650.0,
+    "normalized_price": 6500.0,
+    "unit": "100.0gm",
+    "unit_type": "kg"
+  },
+  "uni_32119": {
+    "id": "uni_32119",
+    "name": "Teer Beef Masala 100gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0316420.webp",
+    "category": "Recipe Spice/ Curry Mix",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 90.0,
+        "normalized_price": 900.0
+      }
+    ],
+    "current_price": 90.0,
+    "normalized_price": 900.0,
+    "unit": "100.0gm",
+    "unit_type": "kg"
+  },
+  "uni_32120": {
+    "id": "uni_32120",
+    "name": "Teer Meat Masala 100gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0316421.webp",
+    "category": "Recipe Spice/ Curry Mix",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 95.0,
+        "normalized_price": 950.0
+      }
+    ],
+    "current_price": 95.0,
+    "normalized_price": 950.0,
+    "unit": "100.0gm",
+    "unit_type": "kg"
+  },
+  "uni_32031": {
+    "id": "uni_32031",
+    "name": "Ispahani Lexus Vegetable Biscuits 180g",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0316787.webp",
+    "category": "Local Biscuit",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 100.0,
+        "normalized_price": 555.56
+      }
+    ],
+    "current_price": 100.0,
+    "normalized_price": 555.56,
+    "unit": "180.0g",
+    "unit_type": "kg"
+  },
+  "uni_30939": {
+    "id": "uni_30939",
+    "name": "Aarong Shredded Mozzarella Classic 500Gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0316938.webp",
+    "category": "Grated Chese",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 650.0,
+        "normalized_price": 1300.0
+      }
+    ],
+    "current_price": 650.0,
+    "normalized_price": 1300.0,
+    "unit": "500.0gm",
+    "unit_type": "kg"
+  },
+  "uni_30947": {
+    "id": "uni_30947",
+    "name": "Aarong Shredded Mozzarella Classic 200Gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0316939.webp",
+    "category": "Block Cheese",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 270.0,
+        "normalized_price": 1350.0
+      }
+    ],
+    "current_price": 270.0,
+    "normalized_price": 1350.0,
+    "unit": "200.0gm",
+    "unit_type": "kg"
+  },
+  "uni_31534": {
+    "id": "uni_31534",
+    "name": "Castello Camembert Cheese 125gm DK",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0317441.webp",
+    "category": "Block Cheese",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 565.0,
+        "normalized_price": 4520.0
+      }
+    ],
+    "current_price": 565.0,
+    "normalized_price": 4520.0,
+    "unit": "125.0gm",
+    "unit_type": "kg"
+  },
+  "uni_32044": {
+    "id": "uni_32044",
+    "name": "Arla Emmental Cheese 200gm DK",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0317442.webp",
+    "category": "Block Cheese",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 810.0,
+        "normalized_price": 4050.0
+      }
+    ],
+    "current_price": 810.0,
+    "normalized_price": 4050.0,
+    "unit": "200.0gm",
+    "unit_type": "kg"
+  },
+  "uni_31538": {
+    "id": "uni_31538",
+    "name": "Emborg Mixed Vegetables 450gm BE",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0317738.webp",
+    "category": "Frozen Vege Packed",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 415.0,
+        "normalized_price": 922.22
+      }
+    ],
+    "current_price": 415.0,
+    "normalized_price": 922.22,
+    "unit": "450.0gm",
+    "unit_type": "kg"
+  },
+  "uni_31767": {
+    "id": "uni_31767",
+    "name": "Ultra Mozzarella Cheese 200gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0318581.webp",
+    "category": "Grated Chese",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 260.0,
+        "normalized_price": 1300.0
+      }
+    ],
+    "current_price": 260.0,
+    "normalized_price": 1300.0,
+    "unit": "200.0gm",
+    "unit_type": "kg"
+  },
+  "uni_31943": {
+    "id": "uni_31943",
+    "name": "Shokti+ Yogurt Vanilla Delight Combo 4pcs 320g",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0318754.webp",
+    "category": "Flavored Yoghurt",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 186.0,
+        "normalized_price": 581.25
+      }
+    ],
+    "current_price": 186.0,
+    "normalized_price": 581.25,
+    "unit": "320.0g",
+    "unit_type": "kg"
+  },
+  "uni_30858": {
+    "id": "uni_30858",
+    "name": "Lady Anna Cream of Chicken Cup Soup 66gm TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0319541.webp",
+    "category": "Soups",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 220.0,
+        "normalized_price": 3333.33
+      }
+    ],
+    "current_price": 220.0,
+    "normalized_price": 3333.33,
+    "unit": "66.0gm",
+    "unit_type": "kg"
+  },
+  "uni_27631": {
+    "id": "uni_27631",
+    "name": "Kelloggs Rolled Oats 900gm.IN",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0319571.webp",
+    "category": "Oat Meals",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 625.0,
+        "normalized_price": 694.44
+      }
+    ],
+    "current_price": 625.0,
+    "normalized_price": 694.44,
+    "unit": "900.0gm",
+    "unit_type": "kg"
+  },
+  "uni_31895": {
+    "id": "uni_31895",
+    "name": "Shokti+ Mango Delight adult Combo 4pcs 320gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0320040.webp",
+    "category": "Flavored Yoghurt",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 190.0,
+        "normalized_price": 593.75
+      }
+    ],
+    "current_price": 190.0,
+    "normalized_price": 593.75,
+    "unit": "320.0gm",
+    "unit_type": "kg"
+  },
+  "uni_32341": {
+    "id": "uni_32341",
+    "name": "Pran Low Fat UHT Milk 1 Ltr",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0320058.webp",
+    "category": "Uht Full Cream",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 150.0,
+        "normalized_price": 150.0
+      }
+    ],
+    "current_price": 150.0,
+    "normalized_price": 150.0,
+    "unit": "1.0ltr",
+    "unit_type": "liter"
+  },
+  "uni_29995": {
+    "id": "uni_29995",
+    "name": "Bisk Club Fit Milk Crackers Small 60gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0320066.webp",
+    "category": "Local Biscuit",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 20.0,
+        "normalized_price": 333.33
+      }
+    ],
+    "current_price": 20.0,
+    "normalized_price": 333.33,
+    "unit": "60.0gm",
+    "unit_type": "kg"
+  },
+  "uni_32147": {
+    "id": "uni_32147",
+    "name": "Bisk Club Kheer Cookies Family Pack 230gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0320074.webp",
+    "category": "Local Biscuit",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 70.0,
+        "normalized_price": 304.35
+      }
+    ],
+    "current_price": 70.0,
+    "normalized_price": 304.35,
+    "unit": "230.0gm",
+    "unit_type": "kg"
+  },
+  "uni_27511": {
+    "id": "uni_27511",
+    "name": "Del Monte Sweet Corn Cream Style F/C 418gm US",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0320454.webp",
+    "category": "Canned Grains",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 690.0,
+        "normalized_price": 1650.72
+      }
+    ],
+    "current_price": 690.0,
+    "normalized_price": 1650.72,
+    "unit": "418.0gm",
+    "unit_type": "kg"
+  },
+  "uni_32079": {
+    "id": "uni_32079",
+    "name": "Twinings Lemon & Ginger 20Tea Bag 30gm UK",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0320751.webp",
+    "category": "Flavoured Black Tea",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 720.0,
+        "normalized_price": 24000.0
+      }
+    ],
+    "current_price": 720.0,
+    "normalized_price": 24000.0,
+    "unit": "30.0gm",
+    "unit_type": "kg"
+  },
+  "uni_25871": {
+    "id": "uni_25871",
+    "name": "Hubba Bubba Fancy Fruit  56gm  UK",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0320777.webp",
+    "category": "Gums",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 395.0,
+        "normalized_price": 7053.57
+      }
+    ],
+    "current_price": 395.0,
+    "normalized_price": 7053.57,
+    "unit": "56.0gm",
+    "unit_type": "kg"
+  },
+  "uni_25829": {
+    "id": "uni_25829",
+    "name": "Hubba Bubba  Strawberry 56gm  UK",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0320779.webp",
+    "category": "Gums",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 395.0,
+        "normalized_price": 7053.57
+      }
+    ],
+    "current_price": 395.0,
+    "normalized_price": 7053.57,
+    "unit": "56.0gm",
+    "unit_type": "kg"
+  },
+  "uni_31675": {
+    "id": "uni_31675",
+    "name": "Pacific West Tempura Fish Fillet 325gm Malay",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0321500.webp",
+    "category": "Frozen Fish Ready To Cook",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 1180.0,
+        "normalized_price": 3630.77
+      }
+    ],
+    "current_price": 1180.0,
+    "normalized_price": 3630.77,
+    "unit": "325.0gm",
+    "unit_type": "kg"
+  },
+  "uni_31720": {
+    "id": "uni_31720",
+    "name": "Country Natural Whole Wheat Roti 900gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0321547.webp",
+    "category": "Ruti/Chapati",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 230.0,
+        "normalized_price": 255.56
+      }
+    ],
+    "current_price": 230.0,
+    "normalized_price": 255.56,
+    "unit": "900.0gm",
+    "unit_type": "kg"
+  },
+  "uni_30130": {
+    "id": "uni_30130",
+    "name": "ACI Pure Thai Chilli Chicken Stick Noodles 150gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0322073.webp",
+    "category": "Stick Noodles",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 45.0,
+        "normalized_price": 300.0
+      }
+    ],
+    "current_price": 45.0,
+    "normalized_price": 300.0,
+    "unit": "150.0gm",
+    "unit_type": "kg"
+  },
+  "uni_30131": {
+    "id": "uni_30131",
+    "name": "ACI Pure Thai Hot & Spicy Stick Noodles 150gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0322074.webp",
+    "category": "Stick Noodles",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 45.0,
+        "normalized_price": 300.0
+      }
+    ],
+    "current_price": 45.0,
+    "normalized_price": 300.0,
+    "unit": "150.0gm",
+    "unit_type": "kg"
+  },
+  "uni_25884": {
+    "id": "uni_25884",
+    "name": "Tridents Sugarfree Gum 14 stick All Flv",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0322285.webp",
+    "category": "Gums",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 210.0,
+        "normalized_price": 210.0
+      }
+    ],
+    "current_price": 210.0,
+    "normalized_price": 210.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_31496": {
+    "id": "uni_31496",
+    "name": "Flamingo Carburetor & Choke Cleaner 450 ml",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0322565.webp",
+    "category": "Car Wash & Cleaning",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 550.0,
+        "normalized_price": 1222.22
+      }
+    ],
+    "current_price": 550.0,
+    "normalized_price": 1222.22,
+    "unit": "450.0ml",
+    "unit_type": "liter"
+  },
+  "uni_32264": {
+    "id": "uni_32264",
+    "name": "Gatoradr Blue Bolt 600 Ml KO",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0322629.webp",
+    "category": "Sports & Energy Drinks",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 580.0,
+        "normalized_price": 966.67
+      }
+    ],
+    "current_price": 580.0,
+    "normalized_price": 966.67,
+    "unit": "600.0ml",
+    "unit_type": "liter"
+  },
+  "uni_30067": {
+    "id": "uni_30067",
+    "name": "Nongshim Tako Chips 60gm KO",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0323666.webp",
+    "category": "Ramen",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 210.0,
+        "normalized_price": 3500.0
+      }
+    ],
+    "current_price": 210.0,
+    "normalized_price": 3500.0,
+    "unit": "60.0gm",
+    "unit_type": "kg"
+  },
+  "uni_45146": {
+    "id": "uni_45146",
+    "name": "Omo Hs Tlhw Laundry Powder Red Ui 400G CN",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0414358.webp",
+    "category": "Laundry Powder Detergents",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 235.0,
+        "normalized_price": 587.5
+      }
+    ],
+    "current_price": 235.0,
+    "normalized_price": 587.5,
+    "unit": "400.0g",
+    "unit_type": "kg"
+  },
+  "uni_45383": {
+    "id": "uni_45383",
+    "name": "Johnson Classic Cornstarch Baby Powder 200Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417005.webp",
+    "category": "Baby Powder",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 795.0,
+        "normalized_price": 3975.0
+      }
+    ],
+    "current_price": 795.0,
+    "normalized_price": 3975.0,
+    "unit": "200.0ml",
+    "unit_type": "liter"
+  },
+  "uni_45350": {
+    "id": "uni_45350",
+    "name": "Johnson Classic Cornstarch Baby Powder 50Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417006.webp",
+    "category": "Baby Powder",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 250.0,
+        "normalized_price": 5000.0
+      }
+    ],
+    "current_price": 250.0,
+    "normalized_price": 5000.0,
+    "unit": "50.0ml",
+    "unit_type": "liter"
+  },
+  "uni_45392": {
+    "id": "uni_45392",
+    "name": "Johnson Top To Toe Wash 100Ml MY",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417007.webp",
+    "category": "Top To Toe Wash",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 395.0,
+        "normalized_price": 3950.0
+      }
+    ],
+    "current_price": 395.0,
+    "normalized_price": 3950.0,
+    "unit": "100.0ml",
+    "unit_type": "liter"
+  },
+  "uni_45374": {
+    "id": "uni_45374",
+    "name": "Johnson Top To Toe Wash 200Ml MY",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417008.webp",
+    "category": "Top To Toe Wash",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 695.0,
+        "normalized_price": 3475.0
+      }
+    ],
+    "current_price": 695.0,
+    "normalized_price": 3475.0,
+    "unit": "200.0ml",
+    "unit_type": "liter"
+  },
+  "uni_45312": {
+    "id": "uni_45312",
+    "name": "Loreal Aura Perfect Milky Foam 100Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417009.webp",
+    "category": "Face Cream",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 1150.0,
+        "normalized_price": 11500.0
+      }
+    ],
+    "current_price": 1150.0,
+    "normalized_price": 11500.0,
+    "unit": "100.0ml",
+    "unit_type": "liter"
+  },
+  "uni_45669": {
+    "id": "uni_45669",
+    "name": "Loreal Fall Resist Conditioner 410Ml ID",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417012.webp",
+    "category": "Conditioner",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 1650.0,
+        "normalized_price": 4024.39
+      }
+    ],
+    "current_price": 1650.0,
+    "normalized_price": 4024.39,
+    "unit": "410.0ml",
+    "unit_type": "liter"
+  },
+  "uni_45375": {
+    "id": "uni_45375",
+    "name": "Nivea Extra Bright 10 Super Serum Spf-15 180Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417021.webp",
+    "category": "Face Serum",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 1750.0,
+        "normalized_price": 9722.22
+      }
+    ],
+    "current_price": 1750.0,
+    "normalized_price": 9722.22,
+    "unit": "180.0ml",
+    "unit_type": "liter"
+  },
+  "uni_45352": {
+    "id": "uni_45352",
+    "name": "Nivea Extra Bright Body Serum Spf50 180Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417022.webp",
+    "category": "Face Serum",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 1350.0,
+        "normalized_price": 7500.0
+      }
+    ],
+    "current_price": 1350.0,
+    "normalized_price": 7500.0,
+    "unit": "180.0ml",
+    "unit_type": "liter"
+  },
+  "uni_45364": {
+    "id": "uni_45364",
+    "name": "Nivea Extra Bright C & E Vitamin Lotion 170Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417023.webp",
+    "category": "Body Lotion",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 1750.0,
+        "normalized_price": 10294.12
+      }
+    ],
+    "current_price": 1750.0,
+    "normalized_price": 10294.12,
+    "unit": "170.0ml",
+    "unit_type": "liter"
+  },
+  "uni_45354": {
+    "id": "uni_45354",
+    "name": "Nivea Extra Bright Super C Serum 180Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417025.webp",
+    "category": "Face Serum",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 1850.0,
+        "normalized_price": 10277.78
+      }
+    ],
+    "current_price": 1850.0,
+    "normalized_price": 10277.78,
+    "unit": "180.0ml",
+    "unit_type": "liter"
+  },
+  "uni_45391": {
+    "id": "uni_45391",
+    "name": "Nivea Men Anti-Age 4D Effect Spf30 45Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417028.webp",
+    "category": "Skin Sun Care",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 2750.0,
+        "normalized_price": 61111.11
+      }
+    ],
+    "current_price": 2750.0,
+    "normalized_price": 61111.11,
+    "unit": "45.0ml",
+    "unit_type": "liter"
+  },
+  "uni_45688": {
+    "id": "uni_45688",
+    "name": "Nivea Men Bright Oil Clear Face Serum 45Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417029.webp",
+    "category": "Face Wash",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 1850.0,
+        "normalized_price": 41111.11
+      }
+    ],
+    "current_price": 1850.0,
+    "normalized_price": 41111.11,
+    "unit": "45.0ml",
+    "unit_type": "liter"
+  },
+  "uni_45380": {
+    "id": "uni_45380",
+    "name": "Vaseline Luminous Shower Cream 425M TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417068.webp",
+    "category": "Shower Creame & Gels",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 1750.0,
+        "normalized_price": 1750.0
+      }
+    ],
+    "current_price": 1750.0,
+    "normalized_price": 1750.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_45371": {
+    "id": "uni_45371",
+    "name": "Tresemme Keratin Smooth Shampoo 370Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417066.webp",
+    "category": "Shampoo",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 1475.0,
+        "normalized_price": 3986.49
+      }
+    ],
+    "current_price": 1475.0,
+    "normalized_price": 3986.49,
+    "unit": "370.0ml",
+    "unit_type": "liter"
+  },
+  "uni_45387": {
+    "id": "uni_45387",
+    "name": "Watson Apricot Exfoliating Body Wash 410Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417072.webp",
+    "category": "Body Scrubs",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 1495.0,
+        "normalized_price": 3646.34
+      }
+    ],
+    "current_price": 1495.0,
+    "normalized_price": 3646.34,
+    "unit": "410.0ml",
+    "unit_type": "liter"
+  },
+  "uni_25372": {
+    "id": "uni_25372",
+    "name": "Skittles Fruits 38gm Gr",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0361694.webp",
+    "category": "Chocolate Bags",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 200.0,
+        "normalized_price": 5263.16
+      }
+    ],
+    "current_price": 200.0,
+    "normalized_price": 5263.16,
+    "unit": "38.0gm",
+    "unit_type": "kg"
+  },
+  "uni_25688": {
+    "id": "uni_25688",
+    "name": "Cadbury Dairy Milk Chocolate Bar 45gm UK",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0361799.webp",
+    "category": "Chocolate Bar",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 320.0,
+        "normalized_price": 7111.11
+      }
+    ],
+    "current_price": 320.0,
+    "normalized_price": 7111.11,
+    "unit": "45.0gm",
+    "unit_type": "kg"
+  },
+  "uni_27662": {
+    "id": "uni_27662",
+    "name": "Parachute Natural Shampoo Egg Shine 170Ml",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0365708.webp",
+    "category": "Shampoo",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 140.0,
+        "normalized_price": 823.53
+      }
+    ],
+    "current_price": 140.0,
+    "normalized_price": 823.53,
+    "unit": "170.0ml",
+    "unit_type": "liter"
+  },
+  "uni_27507": {
+    "id": "uni_27507",
+    "name": "Parachute Natural Shampoo Egg Shine 320Ml",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0365709.webp",
+    "category": "Shampoo",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 265.0,
+        "normalized_price": 828.12
+      }
+    ],
+    "current_price": 265.0,
+    "normalized_price": 828.12,
+    "unit": "320.0ml",
+    "unit_type": "liter"
+  },
+  "uni_27653": {
+    "id": "uni_27653",
+    "name": "Good Day Cappuccino Coffee (With Cocoa Granule) 25gm IND",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366438.webp",
+    "category": "Instant Coffee",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 70.0,
+        "normalized_price": 2800.0
+      }
+    ],
+    "current_price": 70.0,
+    "normalized_price": 2800.0,
+    "unit": "25.0gm",
+    "unit_type": "kg"
+  },
+  "uni_27588": {
+    "id": "uni_27588",
+    "name": "Kapal Api White Coffee 3 in 1 with Choco Topping 20gm IND",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366439.webp",
+    "category": "Instant Coffee",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 55.0,
+        "normalized_price": 2750.0
+      }
+    ],
+    "current_price": 55.0,
+    "normalized_price": 2750.0,
+    "unit": "20.0gm",
+    "unit_type": "kg"
+  },
+  "uni_27706": {
+    "id": "uni_27706",
+    "name": "Viva Refreshing Wipes-25Pcs",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366443.webp",
+    "category": "Face Cleansers",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 200.0,
+        "normalized_price": 200.0
+      }
+    ],
+    "current_price": 200.0,
+    "normalized_price": 200.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_27741": {
+    "id": "uni_27741",
+    "name": "Alex Car Wash 100Ml (B3G3) ",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366450.webp",
+    "category": "Car Wash & Cleaning",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 240.0,
+        "normalized_price": 2400.0
+      }
+    ],
+    "current_price": 240.0,
+    "normalized_price": 2400.0,
+    "unit": "100.0ml",
+    "unit_type": "liter"
+  },
+  "uni_30057": {
+    "id": "uni_30057",
+    "name": "Chopstick Ramen Noodles Hot Chicken 160 Gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366459.webp",
+    "category": "Ramen",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 120.0,
+        "normalized_price": 750.0
+      }
+    ],
+    "current_price": 120.0,
+    "normalized_price": 750.0,
+    "unit": "160.0gm",
+    "unit_type": "kg"
+  },
+  "uni_30058": {
+    "id": "uni_30058",
+    "name": "Chopstick Ramen Noodles Hot Chicken 640 Gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366460.webp",
+    "category": "Ramen",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 650.0,
+        "normalized_price": 1015.62
+      }
+    ],
+    "current_price": 650.0,
+    "normalized_price": 1015.62,
+    "unit": "640.0gm",
+    "unit_type": "kg"
+  },
+  "uni_30060": {
+    "id": "uni_30060",
+    "name": "Chopstick Ramen Noodles Hot Cheese 160 Gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366461.webp",
+    "category": "Ramen",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 120.0,
+        "normalized_price": 750.0
+      }
+    ],
+    "current_price": 120.0,
+    "normalized_price": 750.0,
+    "unit": "160.0gm",
+    "unit_type": "kg"
+  },
+  "uni_30059": {
+    "id": "uni_30059",
+    "name": "Chopstick Ramen Noodles Hot Cheese 640 Gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366462.webp",
+    "category": "Ramen",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 650.0,
+        "normalized_price": 1015.62
+      }
+    ],
+    "current_price": 650.0,
+    "normalized_price": 1015.62,
+    "unit": "640.0gm",
+    "unit_type": "kg"
+  },
+  "uni_25241": {
+    "id": "uni_25241",
+    "name": "Green Touch Agar Agar 20gm Jar",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366464.webp",
+    "category": "Improvers",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 160.0,
+        "normalized_price": 8000.0
+      }
+    ],
+    "current_price": 160.0,
+    "normalized_price": 8000.0,
+    "unit": "20.0gm",
+    "unit_type": "kg"
+  },
+  "uni_32148": {
+    "id": "uni_32148",
+    "name": "Green Touch Ajwain 50gm Pkt",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366465.webp",
+    "category": "Whole Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 90.0,
+        "normalized_price": 1800.0
+      }
+    ],
+    "current_price": 90.0,
+    "normalized_price": 1800.0,
+    "unit": "50.0gm",
+    "unit_type": "kg"
+  },
+  "uni_25132": {
+    "id": "uni_25132",
+    "name": "Green Touch Baking Soda 50gm Jar",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366467.webp",
+    "category": "Baking Soda",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 60.0,
+        "normalized_price": 1200.0
+      }
+    ],
+    "current_price": 60.0,
+    "normalized_price": 1200.0,
+    "unit": "50.0gm",
+    "unit_type": "kg"
+  },
+  "uni_31963": {
+    "id": "uni_31963",
+    "name": "Green Touch Basil Leaves 15gm Jar",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366469.webp",
+    "category": "Herb Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 100.0,
+        "normalized_price": 6666.67
+      }
+    ],
+    "current_price": 100.0,
+    "normalized_price": 6666.67,
+    "unit": "15.0gm",
+    "unit_type": "kg"
+  },
+  "uni_31966": {
+    "id": "uni_31966",
+    "name": "Green Touch Bay Leaves (Tej Pata) 50G Pkt",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366470.webp",
+    "category": "Herb Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 48.0,
+        "normalized_price": 960.0
+      }
+    ],
+    "current_price": 48.0,
+    "normalized_price": 960.0,
+    "unit": "50.0g",
+    "unit_type": "kg"
+  },
+  "uni_32193": {
+    "id": "uni_32193",
+    "name": "Green Touch Black Cardamom 50gm Pkt",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366472.webp",
+    "category": "Whole Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 298.0,
+        "normalized_price": 5960.0
+      }
+    ],
+    "current_price": 298.0,
+    "normalized_price": 5960.0,
+    "unit": "50.0gm",
+    "unit_type": "kg"
+  },
+  "uni_31868": {
+    "id": "uni_31868",
+    "name": "Green Touch Black Peper Powd 25gm Jar",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366475.webp",
+    "category": "Grinded Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 100.0,
+        "normalized_price": 4000.0
+      }
+    ],
+    "current_price": 100.0,
+    "normalized_price": 4000.0,
+    "unit": "25.0gm",
+    "unit_type": "kg"
+  },
+  "uni_31869": {
+    "id": "uni_31869",
+    "name": "Green Touch Black Peper Powd 50gm Jar",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366476.webp",
+    "category": "Grinded Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 198.0,
+        "normalized_price": 3960.0
+      }
+    ],
+    "current_price": 198.0,
+    "normalized_price": 3960.0,
+    "unit": "50.0gm",
+    "unit_type": "kg"
+  },
+  "uni_32225": {
+    "id": "uni_32225",
+    "name": "Green Touch Black Pepper 100gm Pkt",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366477.webp",
+    "category": "Whole Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 280.0,
+        "normalized_price": 2800.0
+      }
+    ],
+    "current_price": 280.0,
+    "normalized_price": 2800.0,
+    "unit": "100.0gm",
+    "unit_type": "kg"
+  },
+  "uni_32226": {
+    "id": "uni_32226",
+    "name": "Green Touch Black Pepper 200gm Pkt",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366478.webp",
+    "category": "Whole Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 558.0,
+        "normalized_price": 2790.0
+      }
+    ],
+    "current_price": 558.0,
+    "normalized_price": 2790.0,
+    "unit": "200.0gm",
+    "unit_type": "kg"
+  },
+  "uni_32183": {
+    "id": "uni_32183",
+    "name": "Green Touch Black Pepper 50gm Pkt",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366479.webp",
+    "category": "Whole Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 145.0,
+        "normalized_price": 2900.0
+      }
+    ],
+    "current_price": 145.0,
+    "normalized_price": 2900.0,
+    "unit": "50.0gm",
+    "unit_type": "kg"
+  },
+  "uni_31871": {
+    "id": "uni_31871",
+    "name": "Green Touch Black Pepper Powder 12Ogm Jar",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366480.webp",
+    "category": "Grinded Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 474.0,
+        "normalized_price": 474.0
+      }
+    ],
+    "current_price": 474.0,
+    "normalized_price": 474.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_31874": {
+    "id": "uni_31874",
+    "name": "Green Touch Cardamom Powder 25gm Jar",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366481.webp",
+    "category": "Grinded Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 320.0,
+        "normalized_price": 12800.0
+      }
+    ],
+    "current_price": 320.0,
+    "normalized_price": 12800.0,
+    "unit": "25.0gm",
+    "unit_type": "kg"
+  },
+  "uni_32171": {
+    "id": "uni_32171",
+    "name": "Green Touch Cardamom(Elachi) 200gm Pkt",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366482.webp",
+    "category": "Whole Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 1700.0,
+        "normalized_price": 8500.0
+      }
+    ],
+    "current_price": 1700.0,
+    "normalized_price": 8500.0,
+    "unit": "200.0gm",
+    "unit_type": "kg"
+  },
+  "uni_32150": {
+    "id": "uni_32150",
+    "name": "Green Touch Cardamom(Elachi) 100gm Pkt",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366483.webp",
+    "category": "Whole Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 850.0,
+        "normalized_price": 8500.0
+      }
+    ],
+    "current_price": 850.0,
+    "normalized_price": 8500.0,
+    "unit": "100.0gm",
+    "unit_type": "kg"
+  },
+  "uni_32172": {
+    "id": "uni_32172",
+    "name": "Green Touch Cardamom(Elachi) 50gm Pkt",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366484.webp",
+    "category": "Whole Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 430.0,
+        "normalized_price": 8600.0
+      }
+    ],
+    "current_price": 430.0,
+    "normalized_price": 8600.0,
+    "unit": "50.0gm",
+    "unit_type": "kg"
+  },
+  "uni_31838": {
+    "id": "uni_31838",
+    "name": "Green Touch Chilli Dry 100gm Pkt",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366485.webp",
+    "category": "Grinded Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 80.0,
+        "normalized_price": 800.0
+      }
+    ],
+    "current_price": 80.0,
+    "normalized_price": 800.0,
+    "unit": "100.0gm",
+    "unit_type": "kg"
+  },
+  "uni_31842": {
+    "id": "uni_31842",
+    "name": "Green Touch Chilli Flakes 30 G Jar",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366486.webp",
+    "category": "Grinded Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 60.0,
+        "normalized_price": 2000.0
+      }
+    ],
+    "current_price": 60.0,
+    "normalized_price": 2000.0,
+    "unit": "30.0g",
+    "unit_type": "kg"
+  },
+  "uni_31971": {
+    "id": "uni_31971",
+    "name": "Green Touch China Grass 10G Pkt",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366487.webp",
+    "category": "Herb Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 120.0,
+        "normalized_price": 12000.0
+      }
+    ],
+    "current_price": 120.0,
+    "normalized_price": 12000.0,
+    "unit": "10.0g",
+    "unit_type": "kg"
+  },
+  "uni_25265": {
+    "id": "uni_25265",
+    "name": "Green Touch China Nut 100gm Pkt",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366488.webp",
+    "category": "Ready Mixes",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 60.0,
+        "normalized_price": 600.0
+      }
+    ],
+    "current_price": 60.0,
+    "normalized_price": 600.0,
+    "unit": "100.0gm",
+    "unit_type": "kg"
+  },
+  "uni_32153": {
+    "id": "uni_32153",
+    "name": "Green Touch Chinnamon (Silong) 50 G Pkt",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366489.webp",
+    "category": "Whole Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 160.0,
+        "normalized_price": 3200.0
+      }
+    ],
+    "current_price": 160.0,
+    "normalized_price": 3200.0,
+    "unit": "50.0g",
+    "unit_type": "kg"
+  },
+  "uni_32194": {
+    "id": "uni_32194",
+    "name": "Green Touch Cinnamon (Daruchini) 100G Pkt",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366490.webp",
+    "category": "Whole Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 148.0,
+        "normalized_price": 1480.0
+      }
+    ],
+    "current_price": 148.0,
+    "normalized_price": 1480.0,
+    "unit": "100.0g",
+    "unit_type": "kg"
+  },
+  "uni_32227": {
+    "id": "uni_32227",
+    "name": "Green Touch Cinnamon (Daruchini) 200G Pkt",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366491.webp",
+    "category": "Whole Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 290.0,
+        "normalized_price": 1450.0
+      }
+    ],
+    "current_price": 290.0,
+    "normalized_price": 1450.0,
+    "unit": "200.0g",
+    "unit_type": "kg"
+  },
+  "uni_32140": {
+    "id": "uni_32140",
+    "name": "Green Touch Cinnamon (Daruchini) 50 G Pkt",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366493.webp",
+    "category": "Whole Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 80.0,
+        "normalized_price": 1600.0
+      }
+    ],
+    "current_price": 80.0,
+    "normalized_price": 1600.0,
+    "unit": "50.0g",
+    "unit_type": "kg"
+  },
+  "uni_31860": {
+    "id": "uni_31860",
+    "name": "Green Touch Cinnamon Powder 50G Jar",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366494.webp",
+    "category": "Grinded Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 98.0,
+        "normalized_price": 1960.0
+      }
+    ],
+    "current_price": 98.0,
+    "normalized_price": 1960.0,
+    "unit": "50.0g",
+    "unit_type": "kg"
+  },
+  "uni_32154": {
+    "id": "uni_32154",
+    "name": "Green Touch Cloves (Labango) 100gm Pkt",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366495.webp",
+    "category": "Whole Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 330.0,
+        "normalized_price": 3300.0
+      }
+    ],
+    "current_price": 330.0,
+    "normalized_price": 3300.0,
+    "unit": "100.0gm",
+    "unit_type": "kg"
+  },
+  "uni_32195": {
+    "id": "uni_32195",
+    "name": "Green Touch Cloves (Labango) 50G Pkt",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366496.webp",
+    "category": "Whole Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 170.0,
+        "normalized_price": 3400.0
+      }
+    ],
+    "current_price": 170.0,
+    "normalized_price": 3400.0,
+    "unit": "50.0g",
+    "unit_type": "kg"
+  },
+  "uni_31880": {
+    "id": "uni_31880",
+    "name": "Green Touch Cloves Powder 25G Jar",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366497.webp",
+    "category": "Grinded Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 120.0,
+        "normalized_price": 4800.0
+      }
+    ],
+    "current_price": 120.0,
+    "normalized_price": 4800.0,
+    "unit": "25.0g",
+    "unit_type": "kg"
+  },
+  "uni_31882": {
+    "id": "uni_31882",
+    "name": "Green Touch Coriander 100gm Pkt",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366498.webp",
+    "category": "Grinded Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 68.0,
+        "normalized_price": 680.0
+      }
+    ],
+    "current_price": 68.0,
+    "normalized_price": 680.0,
+    "unit": "100.0gm",
+    "unit_type": "kg"
+  },
+  "uni_32184": {
+    "id": "uni_32184",
+    "name": "Green Touch Cumin (Jira) 100G Pkt",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366499.webp",
+    "category": "Whole Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 158.0,
+        "normalized_price": 1580.0
+      }
+    ],
+    "current_price": 158.0,
+    "normalized_price": 1580.0,
+    "unit": "100.0g",
+    "unit_type": "kg"
+  },
+  "uni_32185": {
+    "id": "uni_32185",
+    "name": "Green Touch Cumin (Jira) 200 G Pkt",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366500.webp",
+    "category": "Whole Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 315.0,
+        "normalized_price": 1575.0
+      }
+    ],
+    "current_price": 315.0,
+    "normalized_price": 1575.0,
+    "unit": "200.0g",
+    "unit_type": "kg"
+  },
+  "uni_32175": {
+    "id": "uni_32175",
+    "name": "Green Touch Cumin (Jira) 400 G Pkt",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366501.webp",
+    "category": "Whole Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 630.0,
+        "normalized_price": 1575.0
+      }
+    ],
+    "current_price": 630.0,
+    "normalized_price": 1575.0,
+    "unit": "400.0g",
+    "unit_type": "kg"
+  },
+  "uni_31848": {
+    "id": "uni_31848",
+    "name": "Green Touch Dry Chili Flakes 60gm Jar",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366502.webp",
+    "category": "Grinded Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 120.0,
+        "normalized_price": 2000.0
+      }
+    ],
+    "current_price": 120.0,
+    "normalized_price": 2000.0,
+    "unit": "60.0gm",
+    "unit_type": "kg"
+  },
+  "uni_32155": {
+    "id": "uni_32155",
+    "name": "Green Touch Dry Plum 100G Pkt",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366503.webp",
+    "category": "Whole Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 180.0,
+        "normalized_price": 1800.0
+      }
+    ],
+    "current_price": 180.0,
+    "normalized_price": 1800.0,
+    "unit": "100.0g",
+    "unit_type": "kg"
+  },
+  "uni_31849": {
+    "id": "uni_31849",
+    "name": "Green Touch Garlic Powder 100 G Jar",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366504.webp",
+    "category": "Grinded Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 130.0,
+        "normalized_price": 1300.0
+      }
+    ],
+    "current_price": 130.0,
+    "normalized_price": 1300.0,
+    "unit": "100.0g",
+    "unit_type": "kg"
+  },
+  "uni_31875": {
+    "id": "uni_31875",
+    "name": "Green Touch Garlic Powder 50gm Jar",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366505.webp",
+    "category": "Grinded Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 68.0,
+        "normalized_price": 1360.0
+      }
+    ],
+    "current_price": 68.0,
+    "normalized_price": 1360.0,
+    "unit": "50.0gm",
+    "unit_type": "kg"
+  },
+  "uni_31877": {
+    "id": "uni_31877",
+    "name": "Green Touch Ginger Powder 50G Jar",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366507.webp",
+    "category": "Grinded Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 140.0,
+        "normalized_price": 2800.0
+      }
+    ],
+    "current_price": 140.0,
+    "normalized_price": 2800.0,
+    "unit": "50.0g",
+    "unit_type": "kg"
+  },
+  "uni_29849": {
+    "id": "uni_29849",
+    "name": "Green Touch Gol Gappa Puri 200gm Pkt",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366508.webp",
+    "category": "Traditional Food",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 150.0,
+        "normalized_price": 750.0
+      }
+    ],
+    "current_price": 150.0,
+    "normalized_price": 750.0,
+    "unit": "200.0gm",
+    "unit_type": "kg"
+  },
+  "uni_32196": {
+    "id": "uni_32196",
+    "name": "Green Touch Gua Mouri 100gm Pkt",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366509.webp",
+    "category": "Whole Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 85.0,
+        "normalized_price": 850.0
+      }
+    ],
+    "current_price": 85.0,
+    "normalized_price": 850.0,
+    "unit": "100.0gm",
+    "unit_type": "kg"
+  },
+  "uni_32228": {
+    "id": "uni_32228",
+    "name": "Green Touch Halim Dana 100gm Pkt",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366510.webp",
+    "category": "Whole Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 80.0,
+        "normalized_price": 800.0
+      }
+    ],
+    "current_price": 80.0,
+    "normalized_price": 800.0,
+    "unit": "100.0gm",
+    "unit_type": "kg"
+  },
+  "uni_32229": {
+    "id": "uni_32229",
+    "name": "Green Touch Kabab Chini 50gm Pkt",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366511.webp",
+    "category": "Whole Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 280.0,
+        "normalized_price": 5600.0
+      }
+    ],
+    "current_price": 280.0,
+    "normalized_price": 5600.0,
+    "unit": "50.0gm",
+    "unit_type": "kg"
+  },
+  "uni_32141": {
+    "id": "uni_32141",
+    "name": "Green Touch Mace (Joitric) 25G Pkt",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366512.webp",
+    "category": "Whole Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 175.0,
+        "normalized_price": 7000.0
+      }
+    ],
+    "current_price": 175.0,
+    "normalized_price": 7000.0,
+    "unit": "25.0g",
+    "unit_type": "kg"
+  },
+  "uni_32230": {
+    "id": "uni_32230",
+    "name": "Green Touch Mace (Joitric) 50G Pkt",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366513.webp",
+    "category": "Whole Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 340.0,
+        "normalized_price": 6800.0
+      }
+    ],
+    "current_price": 340.0,
+    "normalized_price": 6800.0,
+    "unit": "50.0g",
+    "unit_type": "kg"
+  },
+  "uni_31873": {
+    "id": "uni_31873",
+    "name": "Green Touch Mace Powder 20G Jar",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366514.webp",
+    "category": "Grinded Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 220.0,
+        "normalized_price": 11000.0
+      }
+    ],
+    "current_price": 220.0,
+    "normalized_price": 11000.0,
+    "unit": "20.0g",
+    "unit_type": "kg"
+  },
+  "uni_31844": {
+    "id": "uni_31844",
+    "name": "Green Touch Mace Powder 50G Jar",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366515.webp",
+    "category": "Grinded Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 440.0,
+        "normalized_price": 8800.0
+      }
+    ],
+    "current_price": 440.0,
+    "normalized_price": 8800.0,
+    "unit": "50.0g",
+    "unit_type": "kg"
+  },
+  "uni_32156": {
+    "id": "uni_32156",
+    "name": "Green Touch Methi 100gm Pkt",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366516.webp",
+    "category": "Whole Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 60.0,
+        "normalized_price": 600.0
+      }
+    ],
+    "current_price": 60.0,
+    "normalized_price": 600.0,
+    "unit": "100.0gm",
+    "unit_type": "kg"
+  },
+  "uni_32198": {
+    "id": "uni_32198",
+    "name": "Green Touch Methi 200gm Pkt",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366517.webp",
+    "category": "Whole Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 120.0,
+        "normalized_price": 600.0
+      }
+    ],
+    "current_price": 120.0,
+    "normalized_price": 600.0,
+    "unit": "200.0gm",
+    "unit_type": "kg"
+  },
+  "uni_31850": {
+    "id": "uni_31850",
+    "name": "Green Touch Methi Powder 60G Jar",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366518.webp",
+    "category": "Grinded Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 60.0,
+        "normalized_price": 1000.0
+      }
+    ],
+    "current_price": 60.0,
+    "normalized_price": 1000.0,
+    "unit": "60.0g",
+    "unit_type": "kg"
+  },
+  "uni_31968": {
+    "id": "uni_31968",
+    "name": "Green Touch Mixed Herbs 20gm Jar",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366519.webp",
+    "category": "Herb Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 148.0,
+        "normalized_price": 7400.0
+      }
+    ],
+    "current_price": 148.0,
+    "normalized_price": 7400.0,
+    "unit": "20.0gm",
+    "unit_type": "kg"
+  },
+  "uni_32157": {
+    "id": "uni_32157",
+    "name": "Green Touch Mixed Masala 100gm Pkt",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366521.webp",
+    "category": "Whole Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 235.0,
+        "normalized_price": 2350.0
+      }
+    ],
+    "current_price": 235.0,
+    "normalized_price": 2350.0,
+    "unit": "100.0gm",
+    "unit_type": "kg"
+  },
+  "uni_32176": {
+    "id": "uni_32176",
+    "name": "Green Touch Mixed Masala 40G Jar",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366522.webp",
+    "category": "Whole Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 90.0,
+        "normalized_price": 2250.0
+      }
+    ],
+    "current_price": 90.0,
+    "normalized_price": 2250.0,
+    "unit": "40.0g",
+    "unit_type": "kg"
+  },
+  "uni_32231": {
+    "id": "uni_32231",
+    "name": "Green Touch Mixed Massala 50G Pkt",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366523.webp",
+    "category": "Whole Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 120.0,
+        "normalized_price": 2400.0
+      }
+    ],
+    "current_price": 120.0,
+    "normalized_price": 2400.0,
+    "unit": "50.0g",
+    "unit_type": "kg"
+  },
+  "uni_32200": {
+    "id": "uni_32200",
+    "name": "Green Touch Mustard Red 100gm Pkt",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366524.webp",
+    "category": "Whole Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 48.0,
+        "normalized_price": 480.0
+      }
+    ],
+    "current_price": 48.0,
+    "normalized_price": 480.0,
+    "unit": "100.0gm",
+    "unit_type": "kg"
+  },
+  "uni_32186": {
+    "id": "uni_32186",
+    "name": "Green Touch Mustard White 100gm Pkt",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366525.webp",
+    "category": "Whole Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 48.0,
+        "normalized_price": 480.0
+      }
+    ],
+    "current_price": 48.0,
+    "normalized_price": 480.0,
+    "unit": "100.0gm",
+    "unit_type": "kg"
+  },
+  "uni_32177": {
+    "id": "uni_32177",
+    "name": "Green Touch Nutmeg (Jaiphal) 50G Pkt",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366527.webp",
+    "category": "Whole Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 110.0,
+        "normalized_price": 2200.0
+      }
+    ],
+    "current_price": 110.0,
+    "normalized_price": 2200.0,
+    "unit": "50.0g",
+    "unit_type": "kg"
+  },
+  "uni_32189": {
+    "id": "uni_32189",
+    "name": "Green Touch Nutmeg 100gm Pkt",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366528.webp",
+    "category": "Whole Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 220.0,
+        "normalized_price": 2200.0
+      }
+    ],
+    "current_price": 220.0,
+    "normalized_price": 2200.0,
+    "unit": "100.0gm",
+    "unit_type": "kg"
+  },
+  "uni_31878": {
+    "id": "uni_31878",
+    "name": "Green Touch Nutmeg Powder 25G Jar",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366529.webp",
+    "category": "Grinded Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 90.0,
+        "normalized_price": 3600.0
+      }
+    ],
+    "current_price": 90.0,
+    "normalized_price": 3600.0,
+    "unit": "25.0g",
+    "unit_type": "kg"
+  },
+  "uni_31839": {
+    "id": "uni_31839",
+    "name": "Green Touch Nutmeg Powder 50 G Jar",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366530.webp",
+    "category": "Grinded Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 170.0,
+        "normalized_price": 3400.0
+      }
+    ],
+    "current_price": 170.0,
+    "normalized_price": 3400.0,
+    "unit": "50.0g",
+    "unit_type": "kg"
+  },
+  "uni_31851": {
+    "id": "uni_31851",
+    "name": "Green Touch Onion Powder 50gm Jar",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366531.webp",
+    "category": "Grinded Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 85.0,
+        "normalized_price": 1700.0
+      }
+    ],
+    "current_price": 85.0,
+    "normalized_price": 1700.0,
+    "unit": "50.0gm",
+    "unit_type": "kg"
+  },
+  "uni_31964": {
+    "id": "uni_31964",
+    "name": "Green Touch Oregano Pizza 15G Jar",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366532.webp",
+    "category": "Herb Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 85.0,
+        "normalized_price": 5666.67
+      }
+    ],
+    "current_price": 85.0,
+    "normalized_price": 5666.67,
+    "unit": "15.0g",
+    "unit_type": "kg"
+  },
+  "uni_31974": {
+    "id": "uni_31974",
+    "name": "Green Touch Oregano Pizza 55gm Jar",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366533.webp",
+    "category": "Herb Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 300.0,
+        "normalized_price": 5454.55
+      }
+    ],
+    "current_price": 300.0,
+    "normalized_price": 5454.55,
+    "unit": "55.0gm",
+    "unit_type": "kg"
+  },
+  "uni_31853": {
+    "id": "uni_31853",
+    "name": "Green Touch Panchforon Powder 50G Jar",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366534.webp",
+    "category": "Grinded Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 80.0,
+        "normalized_price": 1600.0
+      }
+    ],
+    "current_price": 80.0,
+    "normalized_price": 1600.0,
+    "unit": "50.0g",
+    "unit_type": "kg"
+  },
+  "uni_31847": {
+    "id": "uni_31847",
+    "name": "Green Touch Paprika Powder 20G Jar",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366535.webp",
+    "category": "Grinded Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 98.0,
+        "normalized_price": 4900.0
+      }
+    ],
+    "current_price": 98.0,
+    "normalized_price": 4900.0,
+    "unit": "20.0g",
+    "unit_type": "kg"
+  },
+  "uni_31854": {
+    "id": "uni_31854",
+    "name": "Green Touch Paprika Powder 50G Jar",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366536.webp",
+    "category": "Grinded Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 198.0,
+        "normalized_price": 3960.0
+      }
+    ],
+    "current_price": 198.0,
+    "normalized_price": 3960.0,
+    "unit": "50.0g",
+    "unit_type": "kg"
+  },
+  "uni_32232": {
+    "id": "uni_32232",
+    "name": "Green Touch Pach Foron (Fiv Spic)100gm Pkt",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366537.webp",
+    "category": "Whole Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 85.0,
+        "normalized_price": 850.0
+      }
+    ],
+    "current_price": 85.0,
+    "normalized_price": 850.0,
+    "unit": "100.0gm",
+    "unit_type": "kg"
+  },
+  "uni_32142": {
+    "id": "uni_32142",
+    "name": "Green Touch Radhuni 100gm Pkt",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366540.webp",
+    "category": "Whole Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 120.0,
+        "normalized_price": 1200.0
+      }
+    ],
+    "current_price": 120.0,
+    "normalized_price": 1200.0,
+    "unit": "100.0gm",
+    "unit_type": "kg"
+  },
+  "uni_31959": {
+    "id": "uni_31959",
+    "name": "Green Touch Rose Mary Leaves 15gm Jar",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366541.webp",
+    "category": "Herb Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 110.0,
+        "normalized_price": 7333.33
+      }
+    ],
+    "current_price": 110.0,
+    "normalized_price": 7333.33,
+    "unit": "15.0gm",
+    "unit_type": "kg"
+  },
+  "uni_32209": {
+    "id": "uni_32209",
+    "name": "Green Touch Shahi Jira 50gm Pkt",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366542.webp",
+    "category": "Whole Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 178.0,
+        "normalized_price": 3560.0
+      }
+    ],
+    "current_price": 178.0,
+    "normalized_price": 3560.0,
+    "unit": "50.0gm",
+    "unit_type": "kg"
+  },
+  "uni_32158": {
+    "id": "uni_32158",
+    "name": "Green Touch Star Spice 50gm Pkt ",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366544.webp",
+    "category": "Whole Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 138.0,
+        "normalized_price": 2760.0
+      }
+    ],
+    "current_price": 138.0,
+    "normalized_price": 2760.0,
+    "unit": "50.0gm",
+    "unit_type": "kg"
+  },
+  "uni_31857": {
+    "id": "uni_31857",
+    "name": "Green Touch Star Spice Powder 20gm Jar",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366545.webp",
+    "category": "Grinded Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 68.0,
+        "normalized_price": 3400.0
+      }
+    ],
+    "current_price": 68.0,
+    "normalized_price": 3400.0,
+    "unit": "20.0gm",
+    "unit_type": "kg"
+  },
+  "uni_31969": {
+    "id": "uni_31969",
+    "name": "Green Touch Thyme 15gm Jar",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366547.webp",
+    "category": "Herb Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 90.0,
+        "normalized_price": 6000.0
+      }
+    ],
+    "current_price": 90.0,
+    "normalized_price": 6000.0,
+    "unit": "15.0gm",
+    "unit_type": "kg"
+  },
+  "uni_31863": {
+    "id": "uni_31863",
+    "name": "Green Touch White Peper Powd 25G Jar",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366548.webp",
+    "category": "Grinded Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 120.0,
+        "normalized_price": 4800.0
+      }
+    ],
+    "current_price": 120.0,
+    "normalized_price": 4800.0,
+    "unit": "25.0g",
+    "unit_type": "kg"
+  },
+  "uni_31841": {
+    "id": "uni_31841",
+    "name": "Green Touch White Peper Powd 50G Jar",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366549.webp",
+    "category": "Grinded Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 235.0,
+        "normalized_price": 4700.0
+      }
+    ],
+    "current_price": 235.0,
+    "normalized_price": 4700.0,
+    "unit": "50.0g",
+    "unit_type": "kg"
+  },
+  "uni_32208": {
+    "id": "uni_32208",
+    "name": "Green Touch White Pepper 100gm Pkt",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366550.webp",
+    "category": "Whole Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 340.0,
+        "normalized_price": 3400.0
+      }
+    ],
+    "current_price": 340.0,
+    "normalized_price": 3400.0,
+    "unit": "100.0gm",
+    "unit_type": "kg"
+  },
+  "uni_45567": {
+    "id": "uni_45567",
+    "name": "Watsons Solar Filter Aloe Face & Body Lotion 100 Ml Spf 50 Pa++++ TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417662.webp",
+    "category": "Body Lotion",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 1847.0,
+        "normalized_price": 18470.0
+      }
+    ],
+    "current_price": 1847.0,
+    "normalized_price": 18470.0,
+    "unit": "100.0ml",
+    "unit_type": "liter"
+  },
+  "uni_45562": {
+    "id": "uni_45562",
+    "name": "Watsons Solar Filter Body Lotion 100 Ml Spf 30 Pa++++ TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417663.webp",
+    "category": "Body Lotion",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 1847.0,
+        "normalized_price": 18470.0
+      }
+    ],
+    "current_price": 1847.0,
+    "normalized_price": 18470.0,
+    "unit": "100.0ml",
+    "unit_type": "liter"
+  },
+  "uni_45906": {
+    "id": "uni_45906",
+    "name": "Sunsilk Hc Soft & Smooth 300 Ml TH ",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417868.webp",
+    "category": "Shampoo",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 675.0,
+        "normalized_price": 2250.0
+      }
+    ],
+    "current_price": 675.0,
+    "normalized_price": 2250.0,
+    "unit": "300.0ml",
+    "unit_type": "liter"
+  },
+  "uni_45681": {
+    "id": "uni_45681",
+    "name": "Good Mate Chocolate Deluxe Oatmilk 1L TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417872.webp",
+    "category": "Flavored Milk",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 1850.0,
+        "normalized_price": 1850.0
+      }
+    ],
+    "current_price": 1850.0,
+    "normalized_price": 1850.0,
+    "unit": "1.0l",
+    "unit_type": "liter"
+  },
+  "uni_45581": {
+    "id": "uni_45581",
+    "name": "Ochasan Cha Soda Sprkling Melon O Sugar Tea 330Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417877.webp",
+    "category": "Seltzers Tonic And Soda Waters",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 350.0,
+        "normalized_price": 1060.61
+      }
+    ],
+    "current_price": 350.0,
+    "normalized_price": 1060.61,
+    "unit": "330.0ml",
+    "unit_type": "liter"
+  },
+  "uni_43851": {
+    "id": "uni_43851",
+    "name": "Nautilus Tuna In Soybean Oil 170Gm TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417889.webp",
+    "category": "Canned Fish & Sea Food",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 330.0,
+        "normalized_price": 1941.18
+      }
+    ],
+    "current_price": 330.0,
+    "normalized_price": 1941.18,
+    "unit": "170.0gm",
+    "unit_type": "kg"
+  },
+  "uni_43852": {
+    "id": "uni_43852",
+    "name": "Nautilus Sandwich Tuna Flakes In Soybean Oil 165Gm TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417890.webp",
+    "category": "Canned Fish & Sea Food",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 330.0,
+        "normalized_price": 2000.0
+      }
+    ],
+    "current_price": 330.0,
+    "normalized_price": 2000.0,
+    "unit": "165.0gm",
+    "unit_type": "kg"
+  },
+  "uni_43847": {
+    "id": "uni_43847",
+    "name": "Aro Tuna Chunk In Brine 185Gm TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417891.webp",
+    "category": "Canned Fish & Sea Food",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 360.0,
+        "normalized_price": 1945.95
+      }
+    ],
+    "current_price": 360.0,
+    "normalized_price": 1945.95,
+    "unit": "185.0gm",
+    "unit_type": "kg"
+  },
+  "uni_44438": {
+    "id": "uni_44438",
+    "name": "Nguan Chiang Sweet Soy Sauce 970Gm TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417892.webp",
+    "category": "Soya Sauce",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 735.0,
+        "normalized_price": 757.73
+      }
+    ],
+    "current_price": 735.0,
+    "normalized_price": 757.73,
+    "unit": "970.0gm",
+    "unit_type": "kg"
+  },
+  "uni_48672": {
+    "id": "uni_48672",
+    "name": "Wholly Nuts Pistachio So Pure 180Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417898.webp",
+    "category": "Almond Milk",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 490.0,
+        "normalized_price": 2722.22
+      }
+    ],
+    "current_price": 490.0,
+    "normalized_price": 2722.22,
+    "unit": "180.0ml",
+    "unit_type": "liter"
+  },
+  "uni_44100": {
+    "id": "uni_44100",
+    "name": "Doi Kham Tomato Ketchup Low Sodium 200Gm TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417899.webp",
+    "category": "Ketchup",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 680.0,
+        "normalized_price": 3400.0
+      }
+    ],
+    "current_price": 680.0,
+    "normalized_price": 3400.0,
+    "unit": "200.0gm",
+    "unit_type": "kg"
+  },
+  "uni_45776": {
+    "id": "uni_45776",
+    "name": "Doi Kham Mixed Bean Drink 250Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417903.webp",
+    "category": "Flavored Juice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 690.0,
+        "normalized_price": 2760.0
+      }
+    ],
+    "current_price": 690.0,
+    "normalized_price": 2760.0,
+    "unit": "250.0ml",
+    "unit_type": "liter"
+  },
+  "uni_45649": {
+    "id": "uni_45649",
+    "name": "Doi Kham 100% Honey 230Gm TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417905.webp",
+    "category": "Honey",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 1180.0,
+        "normalized_price": 5130.43
+      }
+    ],
+    "current_price": 1180.0,
+    "normalized_price": 5130.43,
+    "unit": "230.0gm",
+    "unit_type": "kg"
+  },
+  "uni_45656": {
+    "id": "uni_45656",
+    "name": "Doi Kham 100% Honey 770Gm TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417906.webp",
+    "category": "Honey",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 3850.0,
+        "normalized_price": 5000.0
+      }
+    ],
+    "current_price": 3850.0,
+    "normalized_price": 5000.0,
+    "unit": "770.0gm",
+    "unit_type": "kg"
+  },
+  "uni_45652": {
+    "id": "uni_45652",
+    "name": "Doi Kham Lime Scented Honey 230Gm TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417907.webp",
+    "category": "Honey",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 1120.0,
+        "normalized_price": 4869.57
+      }
+    ],
+    "current_price": 1120.0,
+    "normalized_price": 4869.57,
+    "unit": "230.0gm",
+    "unit_type": "kg"
+  },
+  "uni_45602": {
+    "id": "uni_45602",
+    "name": "Doi Kham Passion Fruits Squash 500Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417910.webp",
+    "category": "Squash",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 950.0,
+        "normalized_price": 1900.0
+      }
+    ],
+    "current_price": 950.0,
+    "normalized_price": 1900.0,
+    "unit": "500.0ml",
+    "unit_type": "liter"
+  },
+  "uni_45631": {
+    "id": "uni_45631",
+    "name": "Doi Kham Honey & Lime Squash 500Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417911.webp",
+    "category": "Squash",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 950.0,
+        "normalized_price": 1900.0
+      }
+    ],
+    "current_price": 950.0,
+    "normalized_price": 1900.0,
+    "unit": "500.0ml",
+    "unit_type": "liter"
+  },
+  "uni_45723": {
+    "id": "uni_45723",
+    "name": "Doi Kham Chinese Apricot Squash 500Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417912.webp",
+    "category": "Squash",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 950.0,
+        "normalized_price": 1900.0
+      }
+    ],
+    "current_price": 950.0,
+    "normalized_price": 1900.0,
+    "unit": "500.0ml",
+    "unit_type": "liter"
+  },
+  "uni_45642": {
+    "id": "uni_45642",
+    "name": "Doi Kham Peach Spread 220Gm TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417917.webp",
+    "category": "Dips & Spreads",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 950.0,
+        "normalized_price": 4318.18
+      }
+    ],
+    "current_price": 950.0,
+    "normalized_price": 4318.18,
+    "unit": "220.0gm",
+    "unit_type": "kg"
+  },
+  "uni_45655": {
+    "id": "uni_45655",
+    "name": "Boss Coffee Americano 230Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417920.webp",
+    "category": "Instant Coffee",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 350.0,
+        "normalized_price": 1521.74
+      }
+    ],
+    "current_price": 350.0,
+    "normalized_price": 1521.74,
+    "unit": "230.0ml",
+    "unit_type": "liter"
+  },
+  "uni_45654": {
+    "id": "uni_45654",
+    "name": "Coca Cola Zero Sugar Vanilla Flavour 325Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417922.webp",
+    "category": "Soft Drinks",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 285.0,
+        "normalized_price": 876.92
+      }
+    ],
+    "current_price": 285.0,
+    "normalized_price": 876.92,
+    "unit": "325.0ml",
+    "unit_type": "liter"
+  },
+  "uni_45570": {
+    "id": "uni_45570",
+    "name": "Jack N Jill Sandwich Cookies Filled With Chocolate Cream 67.5Gm TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417927.webp",
+    "category": "Cookies",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 210.0,
+        "normalized_price": 3111.11
+      }
+    ],
+    "current_price": 210.0,
+    "normalized_price": 3111.11,
+    "unit": "67.5gm",
+    "unit_type": "kg"
+  },
+  "uni_45577": {
+    "id": "uni_45577",
+    "name": "Jack N Jill Cream Chocolate Sandwich Cookies Vanila 67.5Gm TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417928.webp",
+    "category": "Cookies",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 210.0,
+        "normalized_price": 3111.11
+      }
+    ],
+    "current_price": 210.0,
+    "normalized_price": 3111.11,
+    "unit": "67.5gm",
+    "unit_type": "kg"
+  },
+  "uni_45621": {
+    "id": "uni_45621",
+    "name": "Jack N Jill Sandwich Cookies Filled With Strawberry Cream 67.5Gm TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417929.webp",
+    "category": "Cookies",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 210.0,
+        "normalized_price": 3111.11
+      }
+    ],
+    "current_price": 210.0,
+    "normalized_price": 3111.11,
+    "unit": "67.5gm",
+    "unit_type": "kg"
+  },
+  "uni_45614": {
+    "id": "uni_45614",
+    "name": "Jack N Jill Sandwich Cookies Filled With Milk Cream 67.5Gm TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417930.webp",
+    "category": "Cookies",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 210.0,
+        "normalized_price": 3111.11
+      }
+    ],
+    "current_price": 210.0,
+    "normalized_price": 3111.11,
+    "unit": "67.5gm",
+    "unit_type": "kg"
+  },
+  "uni_45761": {
+    "id": "uni_45761",
+    "name": "Jack N Jill Sandwich Cookies Filled With Chocolate Flavoured Cream 67.5Gm TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417931.webp",
+    "category": "Cookies",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 210.0,
+        "normalized_price": 3111.11
+      }
+    ],
+    "current_price": 210.0,
+    "normalized_price": 3111.11,
+    "unit": "67.5gm",
+    "unit_type": "kg"
+  },
+  "uni_45568": {
+    "id": "uni_45568",
+    "name": "Jack N Jill Chocolate Sandwich Cookies Filled With Chocolate Cream 67.5Gm TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417932.webp",
+    "category": "Cookies",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 210.0,
+        "normalized_price": 3111.11
+      }
+    ],
+    "current_price": 210.0,
+    "normalized_price": 3111.11,
+    "unit": "67.5gm",
+    "unit_type": "kg"
+  },
+  "uni_45578": {
+    "id": "uni_45578",
+    "name": "Jack N Jill Sandwich Cookies Filled With Red Soda Flavour 67.5Gm TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417934.webp",
+    "category": "Cookies",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 210.0,
+        "normalized_price": 3111.11
+      }
+    ],
+    "current_price": 210.0,
+    "normalized_price": 3111.11,
+    "unit": "67.5gm",
+    "unit_type": "kg"
+  },
+  "uni_45624": {
+    "id": "uni_45624",
+    "name": "Jack N Jill Chcolate Sandwich Cookies Filled With Chocolate Cream 121.5Gm TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417941.webp",
+    "category": "Cookies",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 360.0,
+        "normalized_price": 2962.96
+      }
+    ],
+    "current_price": 360.0,
+    "normalized_price": 2962.96,
+    "unit": "121.5gm",
+    "unit_type": "kg"
+  },
+  "uni_45779": {
+    "id": "uni_45779",
+    "name": "Jack N Jill Sandwich Cookies Filled With Milk Cream 121.5Gm TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417942.webp",
+    "category": "Cookies",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 360.0,
+        "normalized_price": 2962.96
+      }
+    ],
+    "current_price": 360.0,
+    "normalized_price": 2962.96,
+    "unit": "121.5gm",
+    "unit_type": "kg"
+  },
+  "uni_45625": {
+    "id": "uni_45625",
+    "name": "Jack N Jill Sandwich Cookies Filled With Chocolate Cream 121.5Gm TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417943.webp",
+    "category": "Cookies",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 360.0,
+        "normalized_price": 2962.96
+      }
+    ],
+    "current_price": 360.0,
+    "normalized_price": 2962.96,
+    "unit": "121.5gm",
+    "unit_type": "kg"
+  },
+  "uni_45726": {
+    "id": "uni_45726",
+    "name": "Jack N Jill Magic Sandwich Cracker Chese 115Gm TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417946.webp",
+    "category": "Imported Crackers",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 350.0,
+        "normalized_price": 3043.48
+      }
+    ],
+    "current_price": 350.0,
+    "normalized_price": 3043.48,
+    "unit": "115.0gm",
+    "unit_type": "kg"
+  },
+  "uni_45639": {
+    "id": "uni_45639",
+    "name": "Jack N Jill Coconut Cracker 27G X 3P TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417947.webp",
+    "category": "Imported Crackers",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 250.0,
+        "normalized_price": 9259.26
+      }
+    ],
+    "current_price": 250.0,
+    "normalized_price": 9259.26,
+    "unit": "27.0g",
+    "unit_type": "kg"
+  },
+  "uni_45628": {
+    "id": "uni_45628",
+    "name": "Jack N Jill Butter Cracker 27G X 3P TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417948.webp",
+    "category": "Imported Crackers",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 250.0,
+        "normalized_price": 9259.26
+      }
+    ],
+    "current_price": 250.0,
+    "normalized_price": 9259.26,
+    "unit": "27.0g",
+    "unit_type": "kg"
+  },
+  "uni_45620": {
+    "id": "uni_45620",
+    "name": "Oreo Chocolate Sandwich Cookies With Vanila Flavour Cream 64.4Gm ID",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417951.webp",
+    "category": "Cookies",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 220.0,
+        "normalized_price": 3416.15
+      }
+    ],
+    "current_price": 220.0,
+    "normalized_price": 3416.15,
+    "unit": "64.4gm",
+    "unit_type": "kg"
+  },
+  "uni_45640": {
+    "id": "uni_45640",
+    "name": "Ritz Crunchy Salti Crackers 100Gm ID",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417952.webp",
+    "category": "Imported Crackers",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 300.0,
+        "normalized_price": 3000.0
+      }
+    ],
+    "current_price": 300.0,
+    "normalized_price": 3000.0,
+    "unit": "100.0gm",
+    "unit_type": "kg"
+  },
+  "uni_47816": {
+    "id": "uni_47816",
+    "name": "Rinbee Makado Sticks Original Flavour 55Gm TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417960.webp",
+    "category": "Chips",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 490.0,
+        "normalized_price": 8909.09
+      }
+    ],
+    "current_price": 490.0,
+    "normalized_price": 8909.09,
+    "unit": "55.0gm",
+    "unit_type": "kg"
+  },
+  "uni_45759": {
+    "id": "uni_45759",
+    "name": "Homey Nori Seaweed Crackers 120Gm TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417966.webp",
+    "category": "Imported Crackers",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 300.0,
+        "normalized_price": 2500.0
+      }
+    ],
+    "current_price": 300.0,
+    "normalized_price": 2500.0,
+    "unit": "120.0gm",
+    "unit_type": "kg"
+  },
+  "uni_47515": {
+    "id": "uni_47515",
+    "name": "Kokola Majorico Vanilla Wafer Roll 250gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0296517.webp",
+    "category": "Imported Wafers",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 650.0,
+        "normalized_price": 2600.0
+      }
+    ],
+    "current_price": 650.0,
+    "normalized_price": 2600.0,
+    "unit": "250.0gm",
+    "unit_type": "kg"
+  },
+  "uni_47322": {
+    "id": "uni_47322",
+    "name": "Aarong Dairy Sliced Cheese Pizza 204gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0296964.webp",
+    "category": "Sliced Cheese",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 370.0,
+        "normalized_price": 1813.73
+      }
+    ],
+    "current_price": 370.0,
+    "normalized_price": 1813.73,
+    "unit": "204.0gm",
+    "unit_type": "kg"
+  },
+  "uni_48138": {
+    "id": "uni_48138",
+    "name": "AG Agro Chicken Keema Paratha 250gm /Pk",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0296983.webp",
+    "category": "Parata",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 130.0,
+        "normalized_price": 520.0
+      }
+    ],
+    "current_price": 130.0,
+    "normalized_price": 520.0,
+    "unit": "250.0gm",
+    "unit_type": "kg"
+  },
+  "uni_47289": {
+    "id": "uni_47289",
+    "name": "Wheel Washing Powder Clean & Fresh 2kg",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0296984.webp",
+    "category": "Laundry Powder Detergents",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 260.0,
+        "normalized_price": 130.0
+      }
+    ],
+    "current_price": 260.0,
+    "normalized_price": 130.0,
+    "unit": "2.0kg",
+    "unit_type": "kg"
+  },
+  "uni_47271": {
+    "id": "uni_47271",
+    "name": "Ruchi BBQ Chanachur 500gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0297575.webp",
+    "category": "Chanachurs",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 150.0,
+        "normalized_price": 300.0
+      }
+    ],
+    "current_price": 150.0,
+    "normalized_price": 300.0,
+    "unit": "500.0gm",
+    "unit_type": "kg"
+  },
+  "uni_44444": {
+    "id": "uni_44444",
+    "name": "Kikkoman Less Sodium Soy Sauce 296 ml US",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0297910.webp",
+    "category": "Soya Sauce",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 820.0,
+        "normalized_price": 2770.27
+      }
+    ],
+    "current_price": 820.0,
+    "normalized_price": 2770.27,
+    "unit": "296.0ml",
+    "unit_type": "liter"
+  },
+  "uni_46368": {
+    "id": "uni_46368",
+    "name": "Nongshim Veggie Ramyun Noodles 112 Gm x 4 Pack  KR",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0298401.webp",
+    "category": "Instant Noodles",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 750.0,
+        "normalized_price": 6696.43
+      }
+    ],
+    "current_price": 750.0,
+    "normalized_price": 6696.43,
+    "unit": "112.0gm",
+    "unit_type": "kg"
+  },
+  "uni_41737": {
+    "id": "uni_41737",
+    "name": "Kinder Creamy Milky & Crunchy 19gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0298460.webp",
+    "category": "Chocolate Bags",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 65.0,
+        "normalized_price": 3421.05
+      }
+    ],
+    "current_price": 65.0,
+    "normalized_price": 3421.05,
+    "unit": "19.0gm",
+    "unit_type": "kg"
+  },
+  "uni_48143": {
+    "id": "uni_48143",
+    "name": "Sunsilk Shampoo Black Shine 450ml",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0298892.webp",
+    "category": "Shampoo",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 550.0,
+        "normalized_price": 1222.22
+      }
+    ],
+    "current_price": 550.0,
+    "normalized_price": 1222.22,
+    "unit": "450.0ml",
+    "unit_type": "liter"
+  },
+  "uni_48477": {
+    "id": "uni_48477",
+    "name": "Radhuni BBQ Masala 50gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0298895.webp",
+    "category": "Recipe Spice/ Curry Mix",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 80.0,
+        "normalized_price": 1600.0
+      }
+    ],
+    "current_price": 80.0,
+    "normalized_price": 1600.0,
+    "unit": "50.0gm",
+    "unit_type": "kg"
+  },
+  "uni_43891": {
+    "id": "uni_43891",
+    "name": "Domee Red Kidney Beans 425Gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0299199.webp",
+    "category": "Canned Grains",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 180.0,
+        "normalized_price": 423.53
+      }
+    ],
+    "current_price": 180.0,
+    "normalized_price": 423.53,
+    "unit": "425.0gm",
+    "unit_type": "kg"
+  },
+  "uni_43884": {
+    "id": "uni_43884",
+    "name": "Domee Baked Beans In Tomato Sauce 425Gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0299200.webp",
+    "category": "Canned Grains",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 180.0,
+        "normalized_price": 423.53
+      }
+    ],
+    "current_price": 180.0,
+    "normalized_price": 423.53,
+    "unit": "425.0gm",
+    "unit_type": "kg"
+  },
+  "uni_48496": {
+    "id": "uni_48496",
+    "name": "Bombay Premium Fish Curry Masala 100gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0299248.webp",
+    "category": "Recipe Spice/ Curry Mix",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 80.0,
+        "normalized_price": 800.0
+      }
+    ],
+    "current_price": 80.0,
+    "normalized_price": 800.0,
+    "unit": "100.0gm",
+    "unit_type": "kg"
+  },
+  "uni_48541": {
+    "id": "uni_48541",
+    "name": "Al Haramain Urbanist Femme Deodorant AHP 1817",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0299394.webp",
+    "category": "Body Spray - Women",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 620.0,
+        "normalized_price": 620.0
+      }
+    ],
+    "current_price": 620.0,
+    "normalized_price": 620.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_47569": {
+    "id": "uni_47569",
+    "name": "Domex Toilet Cleaner Lime Fresh 750ml",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0300346.webp",
+    "category": "Toilet Bowl Cleaner",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 180.0,
+        "normalized_price": 240.0
+      }
+    ],
+    "current_price": 180.0,
+    "normalized_price": 240.0,
+    "unit": "750.0ml",
+    "unit_type": "liter"
+  },
+  "uni_47587": {
+    "id": "uni_47587",
+    "name": "Domex Toilet Cleaner Ocean Fresh 750ml",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0300347.webp",
+    "category": "Toilet Bowl Cleaner",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 180.0,
+        "normalized_price": 240.0
+      }
+    ],
+    "current_price": 180.0,
+    "normalized_price": 240.0,
+    "unit": "750.0ml",
+    "unit_type": "liter"
+  },
+  "uni_46654": {
+    "id": "uni_46654",
+    "name": "Barilla Rigatoni N.89 Pasta 500gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0300443.webp",
+    "category": "Pasta",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 449.0,
+        "normalized_price": 898.0
+      }
+    ],
+    "current_price": 449.0,
+    "normalized_price": 898.0,
+    "unit": "500.0gm",
+    "unit_type": "kg"
+  },
+  "uni_46448": {
+    "id": "uni_46448",
+    "name": "Samyang Korean Kimchi Ramen 120gm Gm KR",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0300507.webp",
+    "category": "Ramen",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 190.0,
+        "normalized_price": 1583.33
+      }
+    ],
+    "current_price": 190.0,
+    "normalized_price": 1583.33,
+    "unit": "120.0gm",
+    "unit_type": "kg"
+  },
+  "uni_47285": {
+    "id": "uni_47285",
+    "name": "Dettol Re-Energize Handwash 5Ltr",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0300616.webp",
+    "category": "Hand Wash",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 1400.0,
+        "normalized_price": 280.0
+      }
+    ],
+    "current_price": 1400.0,
+    "normalized_price": 280.0,
+    "unit": "5.0ltr",
+    "unit_type": "liter"
+  },
+  "uni_47845": {
+    "id": "uni_47845",
+    "name": "Dettol Antiseptic Liquid 50ml",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0300617.webp",
+    "category": "Antiseptic Liquid & Spray",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 45.0,
+        "normalized_price": 900.0
+      }
+    ],
+    "current_price": 45.0,
+    "normalized_price": 900.0,
+    "unit": "50.0ml",
+    "unit_type": "liter"
+  },
+  "uni_48007": {
+    "id": "uni_48007",
+    "name": "Ispahani Blenders Choice Black Tea 400gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0300619.webp",
+    "category": "Regular Black Tea",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 310.0,
+        "normalized_price": 775.0
+      }
+    ],
+    "current_price": 310.0,
+    "normalized_price": 775.0,
+    "unit": "400.0gm",
+    "unit_type": "kg"
+  },
+  "uni_47990": {
+    "id": "uni_47990",
+    "name": "Emborg Havarti Sliced 150gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0300661.webp",
+    "category": "Sliced Cheese",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 830.0,
+        "normalized_price": 5533.33
+      }
+    ],
+    "current_price": 830.0,
+    "normalized_price": 5533.33,
+    "unit": "150.0gm",
+    "unit_type": "kg"
+  },
+  "uni_48518": {
+    "id": "uni_48518",
+    "name": "Emborg Greek Style Cheese Olives & Herbs 300gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0300668.webp",
+    "category": "Flavored Cheese",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 1250.0,
+        "normalized_price": 4166.67
+      }
+    ],
+    "current_price": 1250.0,
+    "normalized_price": 4166.67,
+    "unit": "300.0gm",
+    "unit_type": "kg"
+  },
+  "uni_47197": {
+    "id": "uni_47197",
+    "name": "Odonil Air Freshener Citrus Fresh 300ml",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0301066.webp",
+    "category": "Bathroom Air Fresheners",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 320.0,
+        "normalized_price": 1066.67
+      }
+    ],
+    "current_price": 320.0,
+    "normalized_price": 1066.67,
+    "unit": "300.0ml",
+    "unit_type": "liter"
+  },
+  "uni_48003": {
+    "id": "uni_48003",
+    "name": "AMA Coffee 3 in 1 Foil Pack 15 gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0301124.webp",
+    "category": "Single Serve Cups & Pods Coffee",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 10.0,
+        "normalized_price": 666.67
+      }
+    ],
+    "current_price": 10.0,
+    "normalized_price": 666.67,
+    "unit": "15.0gm",
+    "unit_type": "kg"
+  },
+  "uni_47890": {
+    "id": "uni_47890",
+    "name": "Kurkure Chips Spicy Chicken 60Gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0301170.webp",
+    "category": "Chips",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 50.0,
+        "normalized_price": 833.33
+      }
+    ],
+    "current_price": 50.0,
+    "normalized_price": 833.33,
+    "unit": "60.0gm",
+    "unit_type": "kg"
+  },
+  "uni_42153": {
+    "id": "uni_42153",
+    "name": "Toblerone White Bar 100gm SW",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0301604.webp",
+    "category": "Chocolate Bar",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 480.0,
+        "normalized_price": 4800.0
+      }
+    ],
+    "current_price": 480.0,
+    "normalized_price": 4800.0,
+    "unit": "100.0gm",
+    "unit_type": "kg"
+  },
+  "uni_47679": {
+    "id": "uni_47679",
+    "name": "Twinkle Baby Pant Diaper Large 48pcs",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0302135.webp",
+    "category": "Diaper",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 950.0,
+        "normalized_price": 950.0
+      }
+    ],
+    "current_price": 950.0,
+    "normalized_price": 950.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_48355": {
+    "id": "uni_48355",
+    "name": "Paragon Paratha Familypack 10 Pcs 650gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0302224.webp",
+    "category": "Parata",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 170.0,
+        "normalized_price": 261.54
+      }
+    ],
+    "current_price": 170.0,
+    "normalized_price": 261.54,
+    "unit": "650.0gm",
+    "unit_type": "kg"
+  },
+  "uni_44740": {
+    "id": "uni_44740",
+    "name": "Fortune Kachi Ghani Mustard Oil 250ml",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0302451.webp",
+    "category": "Mustard Oil",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 100.0,
+        "normalized_price": 400.0
+      }
+    ],
+    "current_price": 100.0,
+    "normalized_price": 400.0,
+    "unit": "250.0ml",
+    "unit_type": "liter"
+  },
+  "uni_44717": {
+    "id": "uni_44717",
+    "name": "Fortune Kachi Ghani Mustard Oil 500ml",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0302452.webp",
+    "category": "Mustard Oil",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 195.0,
+        "normalized_price": 390.0
+      }
+    ],
+    "current_price": 195.0,
+    "normalized_price": 390.0,
+    "unit": "500.0ml",
+    "unit_type": "liter"
+  },
+  "uni_47673": {
+    "id": "uni_47673",
+    "name": "Olay Total Effects 7in1 Daily Serum 50ml",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0302788.webp",
+    "category": "Face Serum",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 1605.0,
+        "normalized_price": 32100.0
+      }
+    ],
+    "current_price": 1605.0,
+    "normalized_price": 32100.0,
+    "unit": "50.0ml",
+    "unit_type": "liter"
+  },
+  "uni_47458": {
+    "id": "uni_47458",
+    "name": "?Olympic Dry Cake 130gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0302801.webp",
+    "category": "Local Biscuit",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 75.0,
+        "normalized_price": 576.92
+      }
+    ],
+    "current_price": 75.0,
+    "normalized_price": 576.92,
+    "unit": "130.0gm",
+    "unit_type": "kg"
+  },
+  "uni_44038": {
+    "id": "uni_44038",
+    "name": "Ruchi Sweet Chilli Sauce 350gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0302804.webp",
+    "category": "Chilli Sauce",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 130.0,
+        "normalized_price": 371.43
+      }
+    ],
+    "current_price": 130.0,
+    "normalized_price": 371.43,
+    "unit": "350.0gm",
+    "unit_type": "kg"
+  },
+  "uni_46064": {
+    "id": "uni_46064",
+    "name": "Savoy Ice Cream Caramel Choco Crunch Container 1000ml",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0303262.webp",
+    "category": "Box Ice Cream",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 420.0,
+        "normalized_price": 420.0
+      }
+    ],
+    "current_price": 420.0,
+    "normalized_price": 420.0,
+    "unit": "1000.0ml",
+    "unit_type": "liter"
+  },
+  "uni_47424": {
+    "id": "uni_47424",
+    "name": "Olympic Biscotti Elachi Cookies 60gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0303471.webp",
+    "category": "Local Biscuit",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 20.0,
+        "normalized_price": 333.33
+      }
+    ],
+    "current_price": 20.0,
+    "normalized_price": 333.33,
+    "unit": "60.0gm",
+    "unit_type": "kg"
+  },
+  "uni_47185": {
+    "id": "uni_47185",
+    "name": "Olympic Nut & Cream Biscuit 100gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0303474.webp",
+    "category": "Local Biscuit",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 30.0,
+        "normalized_price": 300.0
+      }
+    ],
+    "current_price": 30.0,
+    "normalized_price": 300.0,
+    "unit": "100.0gm",
+    "unit_type": "kg"
+  },
+  "uni_46361": {
+    "id": "uni_46361",
+    "name": "Mr. Noodles Korean Super Spicy 4pcs Pack",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0303872.webp",
+    "category": "Instant Noodles",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 110.0,
+        "normalized_price": 110.0
+      }
+    ],
+    "current_price": 110.0,
+    "normalized_price": 110.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_46669": {
+    "id": "uni_46669",
+    "name": "LA Berberi Cous Cous 1Kg.IT",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0304780.webp",
+    "category": "Quinoa",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 1085.0,
+        "normalized_price": 1085.0
+      }
+    ],
+    "current_price": 1085.0,
+    "normalized_price": 1085.0,
+    "unit": "1.0kg",
+    "unit_type": "kg"
+  },
+  "uni_48054": {
+    "id": "uni_48054",
+    "name": "Fresh Garden Organic Mixed  Nuts 380gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0304990.webp",
+    "category": "Dehydrated Fruits",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 1145.0,
+        "normalized_price": 3013.16
+      }
+    ],
+    "current_price": 1145.0,
+    "normalized_price": 3013.16,
+    "unit": "380.0gm",
+    "unit_type": "kg"
+  },
+  "uni_47277": {
+    "id": "uni_47277",
+    "name": "Lux Body Wash Black Orchid Scent & Juniper Oil 245ml",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0305024.webp",
+    "category": "Shower Creame & Gels",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 200.0,
+        "normalized_price": 816.33
+      }
+    ],
+    "current_price": 200.0,
+    "normalized_price": 816.33,
+    "unit": "245.0ml",
+    "unit_type": "liter"
+  },
+  "uni_47278": {
+    "id": "uni_47278",
+    "name": "Lux Body Wash Freesia Scent & Aloe Vera 245ml",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0305025.webp",
+    "category": "Shower Creame & Gels",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 200.0,
+        "normalized_price": 816.33
+      }
+    ],
+    "current_price": 200.0,
+    "normalized_price": 816.33,
+    "unit": "245.0ml",
+    "unit_type": "liter"
+  },
+  "uni_44440": {
+    "id": "uni_44440",
+    "name": "Chef Le Light Soya Sauce 250ml",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0305032.webp",
+    "category": "Soya Sauce",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 175.0,
+        "normalized_price": 700.0
+      }
+    ],
+    "current_price": 175.0,
+    "normalized_price": 700.0,
+    "unit": "250.0ml",
+    "unit_type": "liter"
+  },
+  "uni_44441": {
+    "id": "uni_44441",
+    "name": "Chef Le Light Soya Sauce 500ml",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0305033.webp",
+    "category": "Soya Sauce",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 310.0,
+        "normalized_price": 620.0
+      }
+    ],
+    "current_price": 310.0,
+    "normalized_price": 620.0,
+    "unit": "500.0ml",
+    "unit_type": "liter"
+  },
+  "uni_46025": {
+    "id": "uni_46025",
+    "name": "Trident Watermelon Twist SF Gum 14 Stick US",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0305431.webp",
+    "category": "Dietary Management",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 200.0,
+        "normalized_price": 200.0
+      }
+    ],
+    "current_price": 200.0,
+    "normalized_price": 200.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_47926": {
+    "id": "uni_47926",
+    "name": "Bombay Plain Paratha 650gm (10pcs)",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0306615.webp",
+    "category": "Parata",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 170.0,
+        "normalized_price": 261.54
+      }
+    ],
+    "current_price": 170.0,
+    "normalized_price": 261.54,
+    "unit": "650.0gm",
+    "unit_type": "kg"
+  },
+  "uni_47274": {
+    "id": "uni_47274",
+    "name": "Tresemme Shampoo Color Revitalise 580ml",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0306618.webp",
+    "category": "Shampoo",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 850.0,
+        "normalized_price": 1465.52
+      }
+    ],
+    "current_price": 850.0,
+    "normalized_price": 1465.52,
+    "unit": "580.0ml",
+    "unit_type": "liter"
+  },
+  "uni_42149": {
+    "id": "uni_42149",
+    "name": "Nestle Kitkat-4 Finger 38.5Gm.IN",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0306661.webp",
+    "category": "Chocolate Bar",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 85.0,
+        "normalized_price": 2207.79
+      }
+    ],
+    "current_price": 85.0,
+    "normalized_price": 2207.79,
+    "unit": "38.5gm",
+    "unit_type": "kg"
+  },
+  "uni_47590": {
+    "id": "uni_47590",
+    "name": "Vaseline Lotion Intensive Care 400ml",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0306883.webp",
+    "category": "Foot Cream & Lotions",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 570.0,
+        "normalized_price": 1425.0
+      }
+    ],
+    "current_price": 570.0,
+    "normalized_price": 1425.0,
+    "unit": "400.0ml",
+    "unit_type": "liter"
+  },
+  "uni_46073": {
+    "id": "uni_46073",
+    "name": "Pierre Cardin Mineral Powder",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0307146.webp",
+    "category": "Face Powder",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 2360.0,
+        "normalized_price": 2360.0
+      }
+    ],
+    "current_price": 2360.0,
+    "normalized_price": 2360.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_47931": {
+    "id": "uni_47931",
+    "name": "Pierre Cardin Body Lotion",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0307148.webp",
+    "category": "Body Lotion",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 2280.0,
+        "normalized_price": 2280.0
+      }
+    ],
+    "current_price": 2280.0,
+    "normalized_price": 2280.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_47897": {
+    "id": "uni_47897",
+    "name": "Bombay Plain Paratha 1300gm (20pcs)",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0307689.webp",
+    "category": "Parata",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 310.0,
+        "normalized_price": 238.46
+      }
+    ],
+    "current_price": 310.0,
+    "normalized_price": 238.46,
+    "unit": "1300.0gm",
+    "unit_type": "kg"
+  },
+  "uni_48681": {
+    "id": "uni_48681",
+    "name": "Bombay Aloo Puri 454gm (10pcs)",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0307690.webp",
+    "category": "Alu Puri",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 140.0,
+        "normalized_price": 308.37
+      }
+    ],
+    "current_price": 140.0,
+    "normalized_price": 308.37,
+    "unit": "454.0gm",
+    "unit_type": "kg"
+  },
+  "uni_48682": {
+    "id": "uni_48682",
+    "name": "Bombay Dal Puri 454gm (10pcs)",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0307691.webp",
+    "category": "Dal Puri",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 145.0,
+        "normalized_price": 319.38
+      }
+    ],
+    "current_price": 145.0,
+    "normalized_price": 319.38,
+    "unit": "454.0gm",
+    "unit_type": "kg"
+  },
+  "uni_47302": {
+    "id": "uni_47302",
+    "name": "Vim Bar 125gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0307693.webp",
+    "category": "Dishwash Bar",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 15.0,
+        "normalized_price": 120.0
+      }
+    ],
+    "current_price": 15.0,
+    "normalized_price": 120.0,
+    "unit": "125.0gm",
+    "unit_type": "kg"
+  },
+  "uni_48370": {
+    "id": "uni_48370",
+    "name": "Danisa Trad. Butter Cookies 454?79 gm Tin Indonesia",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0308311.webp",
+    "category": "Imported Biscuits Tin Packed",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 1200.0,
+        "normalized_price": 15189.87
+      }
+    ],
+    "current_price": 1200.0,
+    "normalized_price": 15189.87,
+    "unit": "79.0gm",
+    "unit_type": "kg"
+  },
+  "uni_46417": {
+    "id": "uni_46417",
+    "name": "Mama Noodles Chicken Flavor 620 gm 10 Pcs Pack",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0308607.webp",
+    "category": "Instant Noodles",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 220.0,
+        "normalized_price": 354.84
+      }
+    ],
+    "current_price": 220.0,
+    "normalized_price": 354.84,
+    "unit": "620.0gm",
+    "unit_type": "kg"
+  },
+  "uni_44046": {
+    "id": "uni_44046",
+    "name": "Thai Choice Black Pepper 200 ML Thailand",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0308613.webp",
+    "category": "Chilli Sauce",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 350.0,
+        "normalized_price": 1750.0
+      }
+    ],
+    "current_price": 350.0,
+    "normalized_price": 1750.0,
+    "unit": "200.0ml",
+    "unit_type": "liter"
+  },
+  "uni_48164": {
+    "id": "uni_48164",
+    "name": "Dove Conditioner Hair Fall Rescue 170ml",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0309196.webp",
+    "category": "Conditioner",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 290.0,
+        "normalized_price": 1705.88
+      }
+    ],
+    "current_price": 290.0,
+    "normalized_price": 1705.88,
+    "unit": "170.0ml",
+    "unit_type": "liter"
+  },
+  "uni_47930": {
+    "id": "uni_47930",
+    "name": "Pond's Cream Bright Beauty 23 gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0309197.webp",
+    "category": "Face Cream",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 160.0,
+        "normalized_price": 6956.52
+      }
+    ],
+    "current_price": 160.0,
+    "normalized_price": 6956.52,
+    "unit": "23.0gm",
+    "unit_type": "kg"
+  },
+  "uni_48137": {
+    "id": "uni_48137",
+    "name": "Kokola Butter Cookies 400 gm Indonesia",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0309251.webp",
+    "category": "Imported Biscuits Tin Packed",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 990.0,
+        "normalized_price": 2475.0
+      }
+    ],
+    "current_price": 990.0,
+    "normalized_price": 2475.0,
+    "unit": "400.0gm",
+    "unit_type": "kg"
+  },
+  "uni_43578": {
+    "id": "uni_43578",
+    "name": "Erko Mallow Plus Stick 20 gm China",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0309257.webp",
+    "category": "Marshmallows",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 60.0,
+        "normalized_price": 3000.0
+      }
+    ],
+    "current_price": 60.0,
+    "normalized_price": 3000.0,
+    "unit": "20.0gm",
+    "unit_type": "kg"
+  },
+  "uni_48347": {
+    "id": "uni_48347",
+    "name": "Lotus Biscoff Cookies 250 Gm US",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0309564.webp",
+    "category": "Imported Biscuit",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 635.0,
+        "normalized_price": 2540.0
+      }
+    ],
+    "current_price": 635.0,
+    "normalized_price": 2540.0,
+    "unit": "250.0gm",
+    "unit_type": "kg"
+  },
+  "uni_46322": {
+    "id": "uni_46322",
+    "name": "Nongshim Shin Cup Noodle 68 Gm KR",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0309570.webp",
+    "category": "Cup Noodles",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 180.0,
+        "normalized_price": 2647.06
+      }
+    ],
+    "current_price": 180.0,
+    "normalized_price": 2647.06,
+    "unit": "68.0gm",
+    "unit_type": "kg"
+  },
+  "uni_41719": {
+    "id": "uni_41719",
+    "name": "Tesco Dark Chocolate Chips 100gm UK",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0309643.webp",
+    "category": "Toppings & Decorations",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 730.0,
+        "normalized_price": 7300.0
+      }
+    ],
+    "current_price": 730.0,
+    "normalized_price": 7300.0,
+    "unit": "100.0gm",
+    "unit_type": "kg"
+  },
+  "uni_48498": {
+    "id": "uni_48498",
+    "name": "Everest Pav Bhaji Masala 50 gm India",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0309699.webp",
+    "category": "Recipe Spice/ Curry Mix",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 125.0,
+        "normalized_price": 2500.0
+      }
+    ],
+    "current_price": 125.0,
+    "normalized_price": 2500.0,
+    "unit": "50.0gm",
+    "unit_type": "kg"
+  },
+  "uni_48499": {
+    "id": "uni_48499",
+    "name": "Everest Shahi Biryani Masala 50 gm India",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0309701.webp",
+    "category": "Recipe Spice/ Curry Mix",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 225.0,
+        "normalized_price": 4500.0
+      }
+    ],
+    "current_price": 225.0,
+    "normalized_price": 4500.0,
+    "unit": "50.0gm",
+    "unit_type": "kg"
+  },
+  "uni_48500": {
+    "id": "uni_48500",
+    "name": "Everest Meat Masala 50 gm India",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0309702.webp",
+    "category": "Recipe Spice/ Curry Mix",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 125.0,
+        "normalized_price": 2500.0
+      }
+    ],
+    "current_price": 125.0,
+    "normalized_price": 2500.0,
+    "unit": "50.0gm",
+    "unit_type": "kg"
+  },
+  "uni_48050": {
+    "id": "uni_48050",
+    "name": "Emborg Red Chedder Portion 200gm UK",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0310209.webp",
+    "category": "Block Cheese",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 910.0,
+        "normalized_price": 4550.0
+      }
+    ],
+    "current_price": 910.0,
+    "normalized_price": 4550.0,
+    "unit": "200.0gm",
+    "unit_type": "kg"
+  },
+  "uni_48653": {
+    "id": "uni_48653",
+    "name": "Ispahani Bakery Fresh Dry Cake 300 gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0310904.webp",
+    "category": "Local Biscuit",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 150.0,
+        "normalized_price": 500.0
+      }
+    ],
+    "current_price": 150.0,
+    "normalized_price": 500.0,
+    "unit": "300.0gm",
+    "unit_type": "kg"
+  },
+  "uni_48225": {
+    "id": "uni_48225",
+    "name": "Hazrat Alir Cheese (Ponir) 200gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0310914.webp",
+    "category": "Poneer",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 200.0,
+        "normalized_price": 1000.0
+      }
+    ],
+    "current_price": 200.0,
+    "normalized_price": 1000.0,
+    "unit": "200.0gm",
+    "unit_type": "kg"
+  },
+  "uni_46511": {
+    "id": "uni_46511",
+    "name": "Ottogi Wheat Noodle Thin Round 900 gm KR",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0311218.webp",
+    "category": "Stick Noodles",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 650.0,
+        "normalized_price": 722.22
+      }
+    ],
+    "current_price": 650.0,
+    "normalized_price": 722.22,
+    "unit": "900.0gm",
+    "unit_type": "kg"
+  },
+  "uni_48367": {
+    "id": "uni_48367",
+    "name": "Ultra Fruit?n Yogurt Strawberry 75gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0311724.webp",
+    "category": "Flavored Yoghurt",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 50.0,
+        "normalized_price": 666.67
+      }
+    ],
+    "current_price": 50.0,
+    "normalized_price": 666.67,
+    "unit": "75.0gm",
+    "unit_type": "kg"
+  },
+  "uni_48652": {
+    "id": "uni_48652",
+    "name": "American Harvest Strawberry Juice Drink 290ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0311936.webp",
+    "category": "Flavored Juice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 270.0,
+        "normalized_price": 931.03
+      }
+    ],
+    "current_price": 270.0,
+    "normalized_price": 931.03,
+    "unit": "290.0ml",
+    "unit_type": "liter"
+  },
+  "uni_43896": {
+    "id": "uni_43896",
+    "name": "Oderich Chicken Luncheon Meat 320gm BR",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0311950.webp",
+    "category": "Canned Meat & Poultry",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 465.0,
+        "normalized_price": 1453.12
+      }
+    ],
+    "current_price": 465.0,
+    "normalized_price": 1453.12,
+    "unit": "320.0gm",
+    "unit_type": "kg"
+  },
+  "uni_45694": {
+    "id": "uni_45694",
+    "name": "Allah Shafi Honey 250gm AU",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0311977.webp",
+    "category": "Honey",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 565.0,
+        "normalized_price": 2260.0
+      }
+    ],
+    "current_price": 565.0,
+    "normalized_price": 2260.0,
+    "unit": "250.0gm",
+    "unit_type": "kg"
+  },
+  "uni_28243": {
+    "id": "uni_28243",
+    "name": "AM Organic Apple Cider Vinegar C&T 500ml IT",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0284221.webp",
+    "category": "Vinegar",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 1325.0,
+        "normalized_price": 2650.0
+      }
+    ],
+    "current_price": 1325.0,
+    "normalized_price": 2650.0,
+    "unit": "500.0ml",
+    "unit_type": "liter"
+  },
+  "uni_30008": {
+    "id": "uni_30008",
+    "name": "Paragon Red wheat roti 20 pcs 900 gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0282864.webp",
+    "category": "Ruti/Chapati",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 220.0,
+        "normalized_price": 244.44
+      }
+    ],
+    "current_price": 220.0,
+    "normalized_price": 244.44,
+    "unit": "900.0gm",
+    "unit_type": "kg"
+  },
+  "uni_30787": {
+    "id": "uni_30787",
+    "name": "BIBIGO CRISPY SEAWEED SPICY 15 GM KR",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0282733.webp",
+    "category": "Seaweed",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 290.0,
+        "normalized_price": 19333.33
+      }
+    ],
+    "current_price": 290.0,
+    "normalized_price": 19333.33,
+    "unit": "15.0gm",
+    "unit_type": "kg"
+  },
+  "uni_30800": {
+    "id": "uni_30800",
+    "name": "BIBIGO CRISPY SEAWEED WASABI 15 GM KR",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0282731.webp",
+    "category": "Snacks",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 290.0,
+        "normalized_price": 19333.33
+      }
+    ],
+    "current_price": 290.0,
+    "normalized_price": 19333.33,
+    "unit": "15.0gm",
+    "unit_type": "kg"
+  },
+  "uni_30807": {
+    "id": "uni_30807",
+    "name": "BIBIGO CRISPY SEAWEED BBQ FLVR 15 GM KR",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0282730.webp",
+    "category": "Snacks",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 290.0,
+        "normalized_price": 19333.33
+      }
+    ],
+    "current_price": 290.0,
+    "normalized_price": 19333.33,
+    "unit": "15.0gm",
+    "unit_type": "kg"
+  },
+  "uni_43845": {
+    "id": "uni_43845",
+    "name": "German Butcher Beef Original Fr. Sausage 5pcs 300gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0358563.webp",
+    "category": "Sausages",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 360.0,
+        "normalized_price": 1200.0
+      }
+    ],
+    "current_price": 360.0,
+    "normalized_price": 1200.0,
+    "unit": "300.0gm",
+    "unit_type": "kg"
+  },
+  "uni_45403": {
+    "id": "uni_45403",
+    "name": "TEER WHOLE WHEAT ATTA 2KG",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0360369.webp",
+    "category": "Brown Atta Packed",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 140.0,
+        "normalized_price": 70.0
+      }
+    ],
+    "current_price": 140.0,
+    "normalized_price": 70.0,
+    "unit": "2.0kg",
+    "unit_type": "kg"
+  },
+  "uni_42070": {
+    "id": "uni_42070",
+    "name": "Cadbury Dairy Milk Chocolate Bar 45gm UK",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0361799.webp",
+    "category": "Chocolate Bar",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 320.0,
+        "normalized_price": 7111.11
+      }
+    ],
+    "current_price": 320.0,
+    "normalized_price": 7111.11,
+    "unit": "45.0gm",
+    "unit_type": "kg"
+  },
+  "uni_42146": {
+    "id": "uni_42146",
+    "name": "Cadbury Whole Nut Std Chocolate Bar 45gm UK",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0361913.webp",
+    "category": "Chocolate Bar",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 320.0,
+        "normalized_price": 7111.11
+      }
+    ],
+    "current_price": 320.0,
+    "normalized_price": 7111.11,
+    "unit": "45.0gm",
+    "unit_type": "kg"
+  },
+  "uni_44044": {
+    "id": "uni_44044",
+    "name": "Parachute Natural Shampoo Egg Shine 170Ml",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0365708.webp",
+    "category": "Shampoo",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 140.0,
+        "normalized_price": 823.53
+      }
+    ],
+    "current_price": 140.0,
+    "normalized_price": 823.53,
+    "unit": "170.0ml",
+    "unit_type": "liter"
+  },
+  "uni_43889": {
+    "id": "uni_43889",
+    "name": "Parachute Natural Shampoo Egg Shine 320Ml",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0365709.webp",
+    "category": "Shampoo",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 265.0,
+        "normalized_price": 828.12
+      }
+    ],
+    "current_price": 265.0,
+    "normalized_price": 828.12,
+    "unit": "320.0ml",
+    "unit_type": "liter"
+  },
+  "uni_44068": {
+    "id": "uni_44068",
+    "name": "Senora Confidence Sanitary Napkin Heavy Flow 16 Pads",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366435.webp",
+    "category": "Pads",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 200.0,
+        "normalized_price": 200.0
+      }
+    ],
+    "current_price": 200.0,
+    "normalized_price": 200.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_44035": {
+    "id": "uni_44035",
+    "name": "Good Day Cappuccino Coffee (With Cocoa Granule) 25gm IND",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366438.webp",
+    "category": "Instant Coffee",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 70.0,
+        "normalized_price": 2800.0
+      }
+    ],
+    "current_price": 70.0,
+    "normalized_price": 2800.0,
+    "unit": "25.0gm",
+    "unit_type": "kg"
+  },
+  "uni_43970": {
+    "id": "uni_43970",
+    "name": "Kapal Api White Coffee 3 in 1 with Choco Topping 20gm IND",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366439.webp",
+    "category": "Instant Coffee",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 55.0,
+        "normalized_price": 2750.0
+      }
+    ],
+    "current_price": 55.0,
+    "normalized_price": 2750.0,
+    "unit": "20.0gm",
+    "unit_type": "kg"
+  },
+  "uni_43903": {
+    "id": "uni_43903",
+    "name": "Lumera Make Up Remover Wipes-25Pcs",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366442.webp",
+    "category": "Facial Wipe Make Up Remover",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 200.0,
+        "normalized_price": 200.0
+      }
+    ],
+    "current_price": 200.0,
+    "normalized_price": 200.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_44053": {
+    "id": "uni_44053",
+    "name": "Surf Excel Detergent Powder 1kg  (B2G50tkOFF)",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366457.webp",
+    "category": "Laundry Powder Detergents",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 420.0,
+        "normalized_price": 420.0
+      }
+    ],
+    "current_price": 420.0,
+    "normalized_price": 420.0,
+    "unit": "1.0kg",
+    "unit_type": "kg"
+  },
+  "uni_46439": {
+    "id": "uni_46439",
+    "name": "Chopstick Ramen Noodles Hot Chicken 160 Gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366459.webp",
+    "category": "Ramen",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 120.0,
+        "normalized_price": 750.0
+      }
+    ],
+    "current_price": 120.0,
+    "normalized_price": 750.0,
+    "unit": "160.0gm",
+    "unit_type": "kg"
+  },
+  "uni_46440": {
+    "id": "uni_46440",
+    "name": "Chopstick Ramen Noodles Hot Chicken 640 Gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366460.webp",
+    "category": "Ramen",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 650.0,
+        "normalized_price": 1015.62
+      }
+    ],
+    "current_price": 650.0,
+    "normalized_price": 1015.62,
+    "unit": "640.0gm",
+    "unit_type": "kg"
+  },
+  "uni_46442": {
+    "id": "uni_46442",
+    "name": "Chopstick Ramen Noodles Hot Cheese 160 Gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366461.webp",
+    "category": "Ramen",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 120.0,
+        "normalized_price": 750.0
+      }
+    ],
+    "current_price": 120.0,
+    "normalized_price": 750.0,
+    "unit": "160.0gm",
+    "unit_type": "kg"
+  },
+  "uni_46441": {
+    "id": "uni_46441",
+    "name": "Chopstick Ramen Noodles Hot Cheese 640 Gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366462.webp",
+    "category": "Ramen",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 650.0,
+        "normalized_price": 1015.62
+      }
+    ],
+    "current_price": 650.0,
+    "normalized_price": 1015.62,
+    "unit": "640.0gm",
+    "unit_type": "kg"
+  },
+  "uni_41623": {
+    "id": "uni_41623",
+    "name": "Green Touch Agar Agar 20gm Jar",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366464.webp",
+    "category": "Improvers",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 160.0,
+        "normalized_price": 8000.0
+      }
+    ],
+    "current_price": 160.0,
+    "normalized_price": 8000.0,
+    "unit": "20.0gm",
+    "unit_type": "kg"
+  },
+  "uni_48530": {
+    "id": "uni_48530",
+    "name": "Green Touch Ajwain 50gm Pkt",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366465.webp",
+    "category": "Whole Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 90.0,
+        "normalized_price": 1800.0
+      }
+    ],
+    "current_price": 90.0,
+    "normalized_price": 1800.0,
+    "unit": "50.0gm",
+    "unit_type": "kg"
+  },
+  "uni_41514": {
+    "id": "uni_41514",
+    "name": "Green Touch Baking Soda 50gm Jar",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366467.webp",
+    "category": "Baking Soda",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 60.0,
+        "normalized_price": 1200.0
+      }
+    ],
+    "current_price": 60.0,
+    "normalized_price": 1200.0,
+    "unit": "50.0gm",
+    "unit_type": "kg"
+  },
+  "uni_48345": {
+    "id": "uni_48345",
+    "name": "Green Touch Basil Leaves 15gm Jar",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366469.webp",
+    "category": "Herb Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 100.0,
+        "normalized_price": 6666.67
+      }
+    ],
+    "current_price": 100.0,
+    "normalized_price": 6666.67,
+    "unit": "15.0gm",
+    "unit_type": "kg"
+  },
+  "uni_48348": {
+    "id": "uni_48348",
+    "name": "Green Touch Bay Leaves (Tej Pata) 50G Pkt",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366470.webp",
+    "category": "Herb Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 48.0,
+        "normalized_price": 960.0
+      }
+    ],
+    "current_price": 48.0,
+    "normalized_price": 960.0,
+    "unit": "50.0g",
+    "unit_type": "kg"
+  },
+  "uni_48575": {
+    "id": "uni_48575",
+    "name": "Green Touch Black Cardamom 50gm Pkt",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366472.webp",
+    "category": "Whole Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 298.0,
+        "normalized_price": 5960.0
+      }
+    ],
+    "current_price": 298.0,
+    "normalized_price": 5960.0,
+    "unit": "50.0gm",
+    "unit_type": "kg"
+  },
+  "uni_48250": {
+    "id": "uni_48250",
+    "name": "Green Touch Black Peper Powd 25gm Jar",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366475.webp",
+    "category": "Grinded Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 100.0,
+        "normalized_price": 4000.0
+      }
+    ],
+    "current_price": 100.0,
+    "normalized_price": 4000.0,
+    "unit": "25.0gm",
+    "unit_type": "kg"
+  },
+  "uni_48251": {
+    "id": "uni_48251",
+    "name": "Green Touch Black Peper Powd 50gm Jar",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366476.webp",
+    "category": "Grinded Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 198.0,
+        "normalized_price": 3960.0
+      }
+    ],
+    "current_price": 198.0,
+    "normalized_price": 3960.0,
+    "unit": "50.0gm",
+    "unit_type": "kg"
+  },
+  "uni_48607": {
+    "id": "uni_48607",
+    "name": "Green Touch Black Pepper 100gm Pkt",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366477.webp",
+    "category": "Whole Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 280.0,
+        "normalized_price": 2800.0
+      }
+    ],
+    "current_price": 280.0,
+    "normalized_price": 2800.0,
+    "unit": "100.0gm",
+    "unit_type": "kg"
+  },
+  "uni_48608": {
+    "id": "uni_48608",
+    "name": "Green Touch Black Pepper 200gm Pkt",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366478.webp",
+    "category": "Whole Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 558.0,
+        "normalized_price": 2790.0
+      }
+    ],
+    "current_price": 558.0,
+    "normalized_price": 2790.0,
+    "unit": "200.0gm",
+    "unit_type": "kg"
+  },
+  "uni_48565": {
+    "id": "uni_48565",
+    "name": "Green Touch Black Pepper 50gm Pkt",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366479.webp",
+    "category": "Whole Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 145.0,
+        "normalized_price": 2900.0
+      }
+    ],
+    "current_price": 145.0,
+    "normalized_price": 2900.0,
+    "unit": "50.0gm",
+    "unit_type": "kg"
+  },
+  "uni_48253": {
+    "id": "uni_48253",
+    "name": "Green Touch Black Pepper Powder 12Ogm Jar",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366480.webp",
+    "category": "Grinded Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 474.0,
+        "normalized_price": 474.0
+      }
+    ],
+    "current_price": 474.0,
+    "normalized_price": 474.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_48256": {
+    "id": "uni_48256",
+    "name": "Green Touch Cardamom Powder 25gm Jar",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366481.webp",
+    "category": "Grinded Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 320.0,
+        "normalized_price": 12800.0
+      }
+    ],
+    "current_price": 320.0,
+    "normalized_price": 12800.0,
+    "unit": "25.0gm",
+    "unit_type": "kg"
+  },
+  "uni_48553": {
+    "id": "uni_48553",
+    "name": "Green Touch Cardamom(Elachi) 200gm Pkt",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366482.webp",
+    "category": "Whole Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 1700.0,
+        "normalized_price": 8500.0
+      }
+    ],
+    "current_price": 1700.0,
+    "normalized_price": 8500.0,
+    "unit": "200.0gm",
+    "unit_type": "kg"
+  },
+  "uni_48532": {
+    "id": "uni_48532",
+    "name": "Green Touch Cardamom(Elachi) 100gm Pkt",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366483.webp",
+    "category": "Whole Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 850.0,
+        "normalized_price": 8500.0
+      }
+    ],
+    "current_price": 850.0,
+    "normalized_price": 8500.0,
+    "unit": "100.0gm",
+    "unit_type": "kg"
+  },
+  "uni_48554": {
+    "id": "uni_48554",
+    "name": "Green Touch Cardamom(Elachi) 50gm Pkt",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366484.webp",
+    "category": "Whole Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 430.0,
+        "normalized_price": 8600.0
+      }
+    ],
+    "current_price": 430.0,
+    "normalized_price": 8600.0,
+    "unit": "50.0gm",
+    "unit_type": "kg"
+  },
+  "uni_48220": {
+    "id": "uni_48220",
+    "name": "Green Touch Chilli Dry 100gm Pkt",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0366485.webp",
+    "category": "Grinded Spice",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 80.0,
+        "normalized_price": 800.0
+      }
+    ],
+    "current_price": 80.0,
+    "normalized_price": 800.0,
+    "unit": "100.0gm",
+    "unit_type": "kg"
+  },
+  "uni_32069": {
+    "id": "uni_32069",
+    "name": "NUTRILIFE Cranberry Juice 1ltr .BT",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0280248.webp",
+    "category": "Juice Cranberry",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 395.0,
+        "normalized_price": 395.0
+      }
+    ],
+    "current_price": 395.0,
+    "normalized_price": 395.0,
+    "unit": "1.0ltr",
+    "unit_type": "liter"
+  },
+  "uni_30778": {
+    "id": "uni_30778",
+    "name": "Parachute SkinPure Natural white Lotion 300 ml",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0280688.webp",
+    "category": "Body Lotion",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 370.0,
+        "normalized_price": 1233.33
+      }
+    ],
+    "current_price": 370.0,
+    "normalized_price": 1233.33,
+    "unit": "300.0ml",
+    "unit_type": "liter"
+  },
+  "uni_30777": {
+    "id": "uni_30777",
+    "name": "Parachute SkinPure Deep Moisture Lotion 200ml",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0280687.webp",
+    "category": "Body Lotion",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 275.0,
+        "normalized_price": 1375.0
+      }
+    ],
+    "current_price": 275.0,
+    "normalized_price": 1375.0,
+    "unit": "200.0ml",
+    "unit_type": "liter"
+  },
+  "uni_30171": {
+    "id": "uni_30171",
+    "name": "ERFAN CHINIGURA RICE 2 KG",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0272346.webp",
+    "category": "Chinigura Rice Packed",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 360.0,
+        "normalized_price": 180.0
+      }
+    ],
+    "current_price": 360.0,
+    "normalized_price": 180.0,
+    "unit": "2.0kg",
+    "unit_type": "kg"
+  },
+  "uni_30295": {
+    "id": "uni_30295",
+    "name": "Naturel Organic Spaghetti 500gm IT",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0273054.webp",
+    "category": "Spaghetti",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 650.0,
+        "normalized_price": 1300.0
+      }
+    ],
+    "current_price": 650.0,
+    "normalized_price": 1300.0,
+    "unit": "500.0gm",
+    "unit_type": "kg"
+  },
+  "uni_30270": {
+    "id": "uni_30270",
+    "name": "Naturel Organic Penne 500gm IT",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0273056.webp",
+    "category": "Pasta",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 650.0,
+        "normalized_price": 1300.0
+      }
+    ],
+    "current_price": 650.0,
+    "normalized_price": 1300.0,
+    "unit": "500.0gm",
+    "unit_type": "kg"
+  },
+  "uni_31952": {
+    "id": "uni_31952",
+    "name": "Fowzia Special Curd ( Sweet ) 500 Gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0278339.webp",
+    "category": "Sweet Curd",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 320.0,
+        "normalized_price": 640.0
+      }
+    ],
+    "current_price": 320.0,
+    "normalized_price": 640.0,
+    "unit": "500.0gm",
+    "unit_type": "kg"
+  },
+  "uni_30417": {
+    "id": "uni_30417",
+    "name": "Surf Excel Matic Liquid Top Load 500ml IN",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0277875.webp",
+    "category": "Laundry Liquid Detergents",
+    "history": [
+      {
+        "date": "2026-05-18",
+        "price": 240.0,
+        "normalized_price": 480.0
+      }
+    ],
+    "current_price": 240.0,
+    "normalized_price": 480.0,
+    "unit": "500.0ml",
     "unit_type": "liter"
   }
 }
