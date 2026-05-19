@@ -188,11 +188,11 @@ body.pitch-black {
 .product-name {
     font-size: 0.82rem; /* Slightly smaller to fit more */
     font-weight: 700;
-    line-height: 1.25;
-    height: 3.75em; /* Exactly 3 lines */
+    line-height: 1.2;
+    height: 4.8em; /* Exactly 4 lines */
     overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     margin-bottom: 8px;
     color: var(--text-primary);
@@ -440,14 +440,61 @@ body.pitch-black {
 .category-item label { width: 100%; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
 
 
-/* Clear Search */
 .clear-search {
-    position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
-    cursor: pointer; color: #555; display: none;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+    cursor: pointer;
+    display: none;
+    z-index: 10;
+    font-size: 1.2rem;
+    transition: color 0.2s, transform 0.1s;
 }
+.clear-search:hover { color: var(--accent-color); }
+.clear-search:active { transform: translateY(-50%) scale(0.9); }
 .clear-search.visible { display: block; }
 
-/* Sidebar Toggle */
+/* Scroll Navigation */
+.scroll-nav {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1000;
+}
+
+.scroll-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: var(--accent-color);
+    color: #000;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(187, 134, 252, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    transition: 0.3s;
+    opacity: 0.7;
+}
+
+.scroll-btn:hover {
+    opacity: 1;
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(187, 134, 252, 0.6);
+}
+
+.scroll-btn:active {
+    transform: scale(0.9);
+}
+
+/* Intelligence Bar */
 .sidebar-toggle-btn { display: none; }
 @media (max-width: 1024px) {
     .sidebar-toggle-btn { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: #111; border: 1px solid #333; color: #fff; border-radius: 8px; cursor: pointer; }

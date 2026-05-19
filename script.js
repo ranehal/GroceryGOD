@@ -119,7 +119,13 @@ function showLoading(show, message = 'Loading...') {
 }
 
 function processData() {
+    const today = new Date("2026-05-19"); // Mocking today as per session context
     allProducts.forEach(p => {
+        // Apply Custom Overrides
+        if (customOverrides[p.id]) {
+            Object.assign(p, customOverrides[p.id]);
+        }
+
         const history = p.history || [];
         const prices = history.map(h => h.normalized_price || h.price);
         p.avgPrice = prices.length > 0 ? prices.reduce((a, b) => a + b, 0) / prices.length : p.normalized_price;
@@ -134,6 +140,16 @@ function processData() {
             p.priceChangePercent = prev > 0 ? ((curr - prev) / prev * 100) : 0;
         }
         p.isFavorite = favorites.includes(p.id);
+
+        // New Item Detection
+        if (history.length > 0) {
+            const firstSeen = new Date(history[0].date);
+            const diffTime = Math.abs(today - firstSeen);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            p.isNew = diffDays <= newDaysThreshold;
+        } else {
+            p.isNew = true;
+        }
     });
 }
 
@@ -404,6 +420,18 @@ function setupEventListeners() {
         updateSuggestions(searchQuery); renderProducts();
     };
 
+    document.getElementById('clear-search').onclick = () => {
+        searchInput.value = '';
+        searchQuery = '';
+        document.getElementById('clear-search').classList.remove('visible');
+        document.getElementById('search-suggestions').style.display = 'none';
+        renderProducts();
+        searchInput.focus();
+    };
+
+    document.getElementById('scroll-top').onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+    document.getElementById('scroll-bottom').onclick = () => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+
     // Auto-hide suggestions when clicking outside
     document.addEventListener('click', (e) => {
         const wrapper = document.querySelector('.search-wrapper');
@@ -650,3 +678,29 @@ function updateStoreStats() {
     });
     sidebarStats.innerHTML = html;
 }
+
+window.customizeItem = (id) => {
+    const p = allProducts.find(x => x.id === id);
+    if (!p) return;
+    const name = prompt("Customize Name:", p.name) || p.name;
+    const cat = prompt("Customize Category:", p.category) || p.category;
+    const unit = prompt("Customize Pack/Unit:", p.unit) || p.unit;
+    const unitType = prompt("Customize Unit Type (kg/liter/piece):", p.unit_type) || p.unit_type;
+    
+    customOverrides[id] = { name, category: cat, unit, unit_type: unitType };
+    localStorage.setItem('god_custom_overrides', JSON.stringify(customOverrides));
+    processData();
+    renderProducts();
+    openDetailedChart(allProducts.find(x => x.id === id));
+};
+
+window.setNewThreshold = () => {
+    const val = prompt("Days to consider item as 'NEW':", newDaysThreshold);
+    if (val !== null) {
+        newDaysThreshold = parseInt(val);
+        localStorage.setItem('god_new_days', newDaysThreshold);
+        processData();
+        renderProducts();
+        alert(`New items threshold set to ${newDaysThreshold} days.`);
+    }
+};
