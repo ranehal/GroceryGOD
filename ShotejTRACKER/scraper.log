@@ -59,3 +59,29 @@ Call log:
   - navigating to "https://shotejbazar.com/product-category/coffee/", waiting until "networkidle"
 
 [2026-05-18 19:12:55,756] INFO: ShotejBazar scraping complete.
+[2026-05-19 06:57:13,113] INFO: Scraping: Chocolate (https://shotejbazar.com/product-category/chocolate/)
+[2026-05-19 06:58:13,136] ERROR:   [X] Error: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://shotejbazar.com/product-category/chocolate/", waiting until "networkidle"
+
+[2026-05-19 06:58:13,328] INFO: Scraping: Food (https://shotejbazar.com/product-category/food/)
+[2026-05-19 06:59:13,341] ERROR:   [X] Error: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://shotejbazar.com/product-category/food/", waiting until "networkidle"
+
+[2026-05-19 06:59:13,601] INFO: Scraping: Snacks (https://shotejbazar.com/product-category/snacks/)
+[2026-05-19 07:00:13,609] ERROR:   [X] Error: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://shotejbazar.com/product-category/snacks/", waiting until "networkidle"
+
+[2026-05-19 07:00:13,831] INFO: Scraping: Cookies (https://shotejbazar.com/product-category/cookies/)
+[2026-05-19 07:01:13,860] ERROR:   [X] Error: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://shotejbazar.com/product-category/cookies/", waiting until "networkidle"
+
+[2026-05-19 07:01:14,169] INFO: Scraping: Coffee (https://shotejbazar.com/product-category/coffee/)
+[2026-05-19 07:02:14,225] ERROR:   [X] Error: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://shotejbazar.com/product-category/coffee/", waiting until "networkidle"
+
+[2026-05-19 07:02:14,514] INFO: ShotejBazar scraping complete.
