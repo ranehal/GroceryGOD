@@ -23,6 +23,8 @@ window.loadedStores = new Set(['shwapno']);
 
 let greatDealThreshold = 0.85;
 let goodBuyThreshold = 0.95;
+let newDaysThreshold = parseInt(localStorage.getItem('god_new_days') || '7');
+let customOverrides = JSON.parse(localStorage.getItem('god_custom_overrides') || '{}');
 
 const STORE_CONFIG = {
     shwapno: { color: '#ff4081', name: 'Shwapno' },
@@ -40,28 +42,28 @@ function fmt(num) {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
-    document.title = "GroceryGOD";
-    showLoading(true, 'Initializing GODdata Matrix...');
-    
-    // Initial lazy load: Only shwapno
-    await loadStoreData('shwapno');
+    try {
+        document.title = "GroceryGOD";
+        showLoading(true, 'Initializing GODdata Matrix...');
+        
+        // Initial lazy load: Only shwapno
+        await loadStoreData('shwapno');
 
-    processData();
-    renderSidebar();
-    renderProducts();
-    setupEventListeners();
-    updateStoreStats();
-    updateStatsBar();
-    showLoading(false);
+        processData();
+        renderSidebar();
+        renderProducts();
+        setupEventListeners();
+        updateStoreStats();
+        updateStatsBar();
+    } catch (err) {
+        console.error("[GOD_CRITICAL] Core Engine Failure:", err);
+    } finally {
+        showLoading(false);
+    }
 });
 
 /**
  * Asynchronously loads chunked data parts for a given store.
- * 1. Reads manifest (already loaded via script tag).
- * 2. Loops through total_chunks.
- * 3. Dynamically injects script tags for each part.
- * 4. Stitches the product parts into the master allProducts array.
- * 5. Cleans up memory by deleting global part variables and removing script tags.
  */
 async function loadStoreData(storeKey) {
     const manifest = window[storeKey + 'Manifest'];
@@ -85,23 +87,24 @@ async function loadStoreData(storeKey) {
                 const partData = window[partVarName];
                 if (partData) {
                     Object.assign(masterProducts, partData);
-                    // CRITICAL: Immediately delete from window to free up memory
                     delete window[partVarName];
                 }
-                script.remove(); // Clean up DOM
+                script.remove();
                 resolve();
             };
             script.onerror = () => {
                 console.error(`[GOD_UPLINK] Failed to load ${storeKey} part ${i}`);
-                resolve(); // Continue with next chunk
+                resolve();
             };
             document.head.appendChild(script);
         });
     }
 
-    // Integrate into the main application state
     const productsArray = Object.values(masterProducts);
-    allProducts.push(...productsArray);
+    // Use loop instead of spread to avoid stack limits
+    for (let p of productsArray) {
+        allProducts.push(p);
+    }
     
     metadata.stores = metadata.stores || {};
     metadata.stores[storeKey] = manifest.metadata;
@@ -119,7 +122,7 @@ function showLoading(show, message = 'Loading...') {
 }
 
 function processData() {
-    const today = new Date("2026-05-19"); // Mocking today as per session context
+    const today = new Date("2026-05-19"); 
     allProducts.forEach(p => {
         // Apply Custom Overrides
         if (customOverrides[p.id]) {
@@ -177,7 +180,7 @@ function renderSidebar() {
     });
     list.appendChild(groupList);
 
-        const shopHeading = document.createElement('div');
+    const shopHeading = document.createElement('div');
     shopHeading.className = 'category-group-header';
     shopHeading.innerHTML = `<span><i class="fas fa-microchip"></i> Market Uplinks</span>`;
     list.appendChild(shopHeading);
@@ -207,28 +210,14 @@ function renderSidebar() {
         `;
         
         const cb = header.querySelector('.shop-checkbox');
-        const chevron = header.querySelector('.toggle-icon');
-
-        // Robust Row Click Toggle
         header.onclick = async (e) => {
-            // 1. If clicking the chevron, just expand/collapse sub-menu
             if (e.target.closest('.toggle-icon')) {
                 const isOpen = catList.classList.contains('active');
-                // document.querySelectorAll('.shop-categories').forEach(el => el.classList.remove('active'));
-                // document.querySelectorAll('.shop-header').forEach(el => el.classList.remove('expanded'));
-                if (!isOpen) {
-                    catList.classList.add('active');
-                    header.classList.add('expanded');
-                } else {
-                    catList.classList.remove('active');
-                    header.classList.remove('expanded');
-                }
+                if (!isOpen) { catList.classList.add('active'); header.classList.add('expanded'); }
+                else { catList.classList.remove('active'); header.classList.remove('expanded'); }
                 return;
             }
-
-            // 2. Otherwise, treat entire row as a toggle for the STORE
             if (e.target !== cb) cb.checked = !cb.checked;
-            
             if (cb.checked) {
                 activeShopFilters.add(sid);
                 if (!window.loadedStores.has(sid)) {
@@ -266,13 +255,8 @@ function renderSidebar() {
             const catCb = li.querySelector('.cat-checkbox');
             li.onclick = (e) => {
                 if (e.target !== catCb) catCb.checked = !catCb.checked;
-                if (catCb.checked) {
-                    activeCategories.add(catId);
-                    li.classList.add('active');
-                } else {
-                    activeCategories.delete(catId);
-                    li.classList.remove('active');
-                }
+                if (catCb.checked) { activeCategories.add(catId); li.classList.add('active'); }
+                else { activeCategories.delete(catId); li.classList.remove('active'); }
                 renderProducts();
             };
             catCb.onclick = (e) => e.stopPropagation();
@@ -350,12 +334,19 @@ function createProductCard(p) {
         </div>
     ` : '';
 
+    const newBadge = p.isNew ? `
+        <div style="position:absolute; top:35px; right:8px; font-size:0.55rem; font-weight:900; background:var(--gold); padding:1px 5px; border-radius:3px; color:#000; z-index:11;">
+            NEW
+        </div>
+    ` : '';
+
     card.innerHTML = `
         <div class="store-badge" style="background:${storeColor}">${p.store}</div>
         <div class="fav-btn ${p.isFavorite ? 'active' : ''}" onclick="toggleFavorite(event, '${p.id}')">
             <i class="fas fa-star"></i>
         </div>
         ${trend}
+        ${newBadge}
         <div class="p-img-box">
             <img src="${p.image}" class="product-image" loading="lazy" onerror="this.src='https://placehold.co/200x200/000/fff?text=NO_SIGNAL'">
             <div class="price-tag">${Math.round(p.current_price)}</div>
@@ -432,13 +423,10 @@ function setupEventListeners() {
     document.getElementById('scroll-top').onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
     document.getElementById('scroll-bottom').onclick = () => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
 
-    // Auto-hide suggestions when clicking outside
     document.addEventListener('click', (e) => {
         const wrapper = document.querySelector('.search-wrapper');
         const box = document.getElementById('search-suggestions');
-        if (wrapper && !wrapper.contains(e.target)) {
-            box.style.display = 'none';
-        }
+        if (wrapper && !wrapper.contains(e.target)) { box.style.display = 'none'; }
     });
 
     document.addEventListener('keydown', (e) => {
@@ -638,7 +626,28 @@ function openDetailedChart(product) {
     document.getElementById('chart-actual').innerText = fmt(product.current_price);
     document.getElementById('chart-unit').innerText = fmt(product.normalized_price);
     document.getElementById('chart-avg').innerText = fmt(product.avgPrice);
-    document.getElementById('chart-min-max').innerHTML = `<span style="color:var(--accent-secondary)">${fmt(product.minPrice)}</span> / <span style="color:var(--danger)">${fmt(product.maxPrice)}</span>`;
+    
+    const isAllTimeLow = product.normalized_price <= (product.minPrice + 0.01);
+    const minDisplay = isAllTimeLow 
+        ? `<span style="color:var(--gold); font-weight:900;">ALL TIME LOW: ${fmt(product.minPrice)}</span>`
+        : `<span style="color:var(--text-secondary)">High: ${fmt(product.maxPrice)}</span>`;
+    
+    document.getElementById('chart-min-max').innerHTML = minDisplay;
+
+    let footer = modal.querySelector('.modal-footer-custom');
+    if (!footer) {
+        footer = document.createElement('div');
+        footer.className = 'modal-footer-custom';
+        footer.style.padding = '20px';
+        footer.style.borderTop = '1px solid #222';
+        footer.style.display = 'flex';
+        footer.style.gap = '10px';
+        modal.querySelector('.modal-content').appendChild(footer);
+    }
+    footer.innerHTML = `
+        <button class="btn-icon" onclick="customizeItem('${product.id}')"><i class="fas fa-edit"></i> Customize Details</button>
+        <button class="btn-icon" onclick="setNewThreshold()"><i class="fas fa-calendar-alt"></i> Set "New" Days (${newDaysThreshold})</button>
+    `;
     
     const ctx = document.getElementById('price-history-chart').getContext('2d');
     const history = product.history || [];
