@@ -270,11 +270,15 @@ def load_metromart():
                 all_dates.append(date_str)
             curr_p = new_history[-1]['price']
             u_type, norm_p = parse_unit_and_calculate(p['name'], p['unit'], curr_p)
+            img_url = p['image_url']
+            if img_url and img_url.startswith('/'):
+                img_url = "https://www.metromartonline.com" + img_url
+                
             products[f"mt_{p['external_id'] or p['id']}"] = {
                 "id": f"mt_{p['external_id'] or p['id']}", "name": p['name'], "store": "metromart",
                 "category": cats.get(p['category_id'], 'General'), "unit": p['unit'], "unit_type": u_type,
                 "current_price": curr_p, "normalized_price": norm_p,
-                "image": p['image_url'], "history": new_history
+                "image": img_url, "history": new_history
             }
         conn.close()
         return products, f"{min(all_dates)} to {max(all_dates)}" if all_dates else "N/A"
@@ -299,8 +303,10 @@ def load_unimart():
                 _, h_norm = parse_unit_and_calculate(p.get('name', ''), p.get('unit', ''), h.get('price', 0))
                 new_history.append({"date": h.get('date'), "price": h.get('price'), "normalized_price": h_norm})
                 if h.get('date'): all_dates.append(h['date'])
-            products[f"un_{pid}"] = {
-                "id": f"un_{pid}", "name": p.get('name'), "store": "unimart",
+            
+            p_id = f"un_{pid}" if not pid.startswith("un_") else pid
+            products[p_id] = {
+                "id": p_id, "name": p.get('name'), "store": "unimart",
                 "category": p.get('category', 'General'), "unit": p.get('unit'), "unit_type": u_type,
                 "current_price": curr_p, "normalized_price": norm_p,
                 "image": p.get('image'), "history": new_history
@@ -327,8 +333,10 @@ def load_shotejbazar():
                 _, h_norm = parse_unit_and_calculate(p.get('name', ''), p.get('unit', ''), h.get('price', 0))
                 new_history.append({"date": h.get('date'), "price": h.get('price'), "normalized_price": h_norm})
                 if h.get('date'): all_dates.append(h['date'])
-            products[f"sj_{pid}"] = {
-                "id": f"sj_{pid}", "name": p.get('name'), "store": "shotejbazar",
+            
+            p_id = f"sj_{pid}" if not pid.startswith("sj_") else pid
+            products[p_id] = {
+                "id": p_id, "name": p.get('name'), "store": "shotejbazar",
                 "category": p.get('category', 'General'), "unit": p.get('unit'), "unit_type": u_type,
                 "current_price": curr_p, "normalized_price": norm_p,
                 "image": p.get('image'), "history": new_history
