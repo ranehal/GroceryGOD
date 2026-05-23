@@ -8215,7 +8215,7 @@
     ],
     "current_price": 400.0,
     "normalized_price": 800.0,
-    "unit": "500gm x 1",
+    "unit": "500.0gm",
     "unit_type": "kg",
     "url": "https://shotejbazar.com/product/moringa-powder/"
   },
@@ -8729,7 +8729,7 @@
     ],
     "current_price": 350.0,
     "normalized_price": 2800.0,
-    "unit": "125.0gm",
+    "unit": "125.0g",
     "unit_type": "kg",
     "url": "https://shotejbazar.com/product/mister-potato-barbeku-125g/"
   },
@@ -8763,7 +8763,7 @@
     ],
     "current_price": 350.0,
     "normalized_price": 2800.0,
-    "unit": "125.0gm",
+    "unit": "125.0g",
     "unit_type": "kg",
     "url": "https://shotejbazar.com/product/mister-potato-crisps-125g/"
   },
@@ -8797,7 +8797,7 @@
     ],
     "current_price": 350.0,
     "normalized_price": 2800.0,
-    "unit": "125.0gm",
+    "unit": "125.0g",
     "unit_type": "kg",
     "url": "https://shotejbazar.com/product/mister-potato-crisps-hot-spicy-125g/"
   },
@@ -8831,7 +8831,7 @@
     ],
     "current_price": 350.0,
     "normalized_price": 2800.0,
-    "unit": "125.0gm",
+    "unit": "125.0g",
     "unit_type": "kg",
     "url": "https://shotejbazar.com/product/mister-potato-crisps-original-125g/"
   },
