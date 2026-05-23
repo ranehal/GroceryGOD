@@ -2324,6 +2324,11 @@
         "date": "2026-05-22",
         "price": 150.0,
         "normalized_price": 750.0
+      },
+      {
+        "date": "2026-05-23",
+        "price": 150.0,
+        "normalized_price": 750.0
       }
     ],
     "current_price": 150.0,
@@ -2375,6 +2380,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 550.0,
+        "normalized_price": 2750.0
+      },
+      {
+        "date": "2026-05-23",
         "price": 550.0,
         "normalized_price": 2750.0
       }
@@ -3966,6 +3976,11 @@
         "date": "2026-05-22",
         "price": 1050.0,
         "normalized_price": 1050.0
+      },
+      {
+        "date": "2026-05-23",
+        "price": 1050.0,
+        "normalized_price": 1050.0
       }
     ],
     "current_price": 1050.0,
@@ -4835,6 +4850,11 @@
         "date": "2026-05-22",
         "price": 650.0,
         "normalized_price": 28260.87
+      },
+      {
+        "date": "2026-05-23",
+        "price": 650.0,
+        "normalized_price": 28260.87
       }
     ],
     "current_price": 650.0,
@@ -4982,6 +5002,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 1450.0,
+        "normalized_price": 4142.86
+      },
+      {
+        "date": "2026-05-23",
         "price": 1450.0,
         "normalized_price": 4142.86
       }
@@ -5733,6 +5758,11 @@
         "date": "2026-05-22",
         "price": 580.0,
         "normalized_price": 26363.64
+      },
+      {
+        "date": "2026-05-23",
+        "price": 580.0,
+        "normalized_price": 26363.64
       }
     ],
     "current_price": 580.0,
@@ -6002,6 +6032,11 @@
         "date": "2026-05-22",
         "price": 200.0,
         "normalized_price": 4255.32
+      },
+      {
+        "date": "2026-05-23",
+        "price": 200.0,
+        "normalized_price": 4255.32
       }
     ],
     "current_price": 200.0,
@@ -6245,6 +6280,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 400.0,
+        "normalized_price": 2684.56
+      },
+      {
+        "date": "2026-05-23",
         "price": 400.0,
         "normalized_price": 2684.56
       }
@@ -7860,6 +7900,11 @@
         "date": "2026-05-22",
         "price": 2650.0,
         "normalized_price": 2650.0
+      },
+      {
+        "date": "2026-05-23",
+        "price": 2650.0,
+        "normalized_price": 2650.0
       }
     ],
     "current_price": 2650.0,
@@ -7887,6 +7932,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 1450.0,
+        "normalized_price": 1532.77
+      },
+      {
+        "date": "2026-05-23",
         "price": 1450.0,
         "normalized_price": 1532.77
       }
@@ -7918,6 +7968,11 @@
         "date": "2026-05-22",
         "price": 600.0,
         "normalized_price": 600.0
+      },
+      {
+        "date": "2026-05-23",
+        "price": 600.0,
+        "normalized_price": 600.0
       }
     ],
     "current_price": 600.0,
@@ -7945,6 +8000,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 320.0,
+        "normalized_price": 640.0
+      },
+      {
+        "date": "2026-05-23",
         "price": 320.0,
         "normalized_price": 640.0
       }
@@ -7976,6 +8036,11 @@
         "date": "2026-05-22",
         "price": 350.0,
         "normalized_price": 350.0
+      },
+      {
+        "date": "2026-05-23",
+        "price": 350.0,
+        "normalized_price": 350.0
       }
     ],
     "current_price": 350.0,
@@ -8003,6 +8068,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 380.0,
+        "normalized_price": 380.0
+      },
+      {
+        "date": "2026-05-23",
         "price": 380.0,
         "normalized_price": 380.0
       }
@@ -8034,6 +8104,11 @@
         "date": "2026-05-22",
         "price": 750.0,
         "normalized_price": 937.5
+      },
+      {
+        "date": "2026-05-23",
+        "price": 750.0,
+        "normalized_price": 937.5
       }
     ],
     "current_price": 750.0,
@@ -8061,6 +8136,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 1800.0,
+        "normalized_price": 1800.0
+      },
+      {
+        "date": "2026-05-23",
         "price": 1800.0,
         "normalized_price": 1800.0
       }
@@ -8092,6 +8172,11 @@
         "date": "2026-05-22",
         "price": 1700.0,
         "normalized_price": 1700.0
+      },
+      {
+        "date": "2026-05-23",
+        "price": 1700.0,
+        "normalized_price": 1700.0
       }
     ],
     "current_price": 1700.0,
@@ -8119,6 +8204,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 400.0,
+        "normalized_price": 800.0
+      },
+      {
+        "date": "2026-05-23",
         "price": 400.0,
         "normalized_price": 800.0
       }
@@ -8150,6 +8240,11 @@
         "date": "2026-05-22",
         "price": 450.0,
         "normalized_price": 900.0
+      },
+      {
+        "date": "2026-05-23",
+        "price": 450.0,
+        "normalized_price": 900.0
       }
     ],
     "current_price": 450.0,
@@ -8174,6 +8269,11 @@
         "date": "2026-05-22",
         "price": 150.0,
         "normalized_price": 300.0
+      },
+      {
+        "date": "2026-05-23",
+        "price": 150.0,
+        "normalized_price": 300.0
       }
     ],
     "current_price": 150.0,
@@ -8196,6 +8296,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 450.0,
+        "normalized_price": 900.0
+      },
+      {
+        "date": "2026-05-23",
         "price": 450.0,
         "normalized_price": 900.0
       }
@@ -8227,6 +8332,11 @@
         "date": "2026-05-22",
         "price": 450.0,
         "normalized_price": 900.0
+      },
+      {
+        "date": "2026-05-23",
+        "price": 450.0,
+        "normalized_price": 900.0
       }
     ],
     "current_price": 450.0,
@@ -8249,6 +8359,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 450.0,
+        "normalized_price": 900.0
+      },
+      {
+        "date": "2026-05-23",
         "price": 450.0,
         "normalized_price": 900.0
       }
@@ -8275,6 +8390,11 @@
         "date": "2026-05-22",
         "price": 700.0,
         "normalized_price": 2058.82
+      },
+      {
+        "date": "2026-05-23",
+        "price": 700.0,
+        "normalized_price": 2058.82
       }
     ],
     "current_price": 700.0,
@@ -8299,6 +8419,11 @@
         "date": "2026-05-22",
         "price": 1850.0,
         "normalized_price": 1850.0
+      },
+      {
+        "date": "2026-05-23",
+        "price": 1850.0,
+        "normalized_price": 1850.0
       }
     ],
     "current_price": 1850.0,
@@ -8321,6 +8446,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 1050.0,
+        "normalized_price": 2100.0
+      },
+      {
+        "date": "2026-05-23",
         "price": 1050.0,
         "normalized_price": 2100.0
       }
@@ -8352,6 +8482,11 @@
         "date": "2026-05-22",
         "price": 750.0,
         "normalized_price": 1071.43
+      },
+      {
+        "date": "2026-05-23",
+        "price": 750.0,
+        "normalized_price": 1071.43
       }
     ],
     "current_price": 750.0,
@@ -8379,6 +8514,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 1150.0,
+        "normalized_price": 1150.0
+      },
+      {
+        "date": "2026-05-23",
         "price": 1150.0,
         "normalized_price": 1150.0
       }
@@ -8410,6 +8550,11 @@
         "date": "2026-05-22",
         "price": 350.0,
         "normalized_price": 2243.59
+      },
+      {
+        "date": "2026-05-23",
+        "price": 350.0,
+        "normalized_price": 2243.59
       }
     ],
     "current_price": 350.0,
@@ -8437,6 +8582,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 950.0,
+        "normalized_price": 2533.33
+      },
+      {
+        "date": "2026-05-23",
         "price": 950.0,
         "normalized_price": 2533.33
       }
@@ -8468,6 +8618,11 @@
         "date": "2026-05-22",
         "price": 850.0,
         "normalized_price": 42500.0
+      },
+      {
+        "date": "2026-05-23",
+        "price": 850.0,
+        "normalized_price": 42500.0
       }
     ],
     "current_price": 850.0,
@@ -8495,6 +8650,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 750.0,
+        "normalized_price": 1071.43
+      },
+      {
+        "date": "2026-05-23",
         "price": 750.0,
         "normalized_price": 1071.43
       }
@@ -8526,6 +8686,11 @@
         "date": "2026-05-22",
         "price": 300.0,
         "normalized_price": 3846.15
+      },
+      {
+        "date": "2026-05-23",
+        "price": 300.0,
+        "normalized_price": 3846.15
       }
     ],
     "current_price": 300.0,
@@ -8553,6 +8718,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 350.0,
+        "normalized_price": 2800.0
+      },
+      {
+        "date": "2026-05-23",
         "price": 350.0,
         "normalized_price": 2800.0
       }
@@ -8584,6 +8754,11 @@
         "date": "2026-05-22",
         "price": 350.0,
         "normalized_price": 2800.0
+      },
+      {
+        "date": "2026-05-23",
+        "price": 350.0,
+        "normalized_price": 2800.0
       }
     ],
     "current_price": 350.0,
@@ -8611,6 +8786,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 350.0,
+        "normalized_price": 2800.0
+      },
+      {
+        "date": "2026-05-23",
         "price": 350.0,
         "normalized_price": 2800.0
       }
@@ -8642,6 +8822,11 @@
         "date": "2026-05-22",
         "price": 350.0,
         "normalized_price": 2800.0
+      },
+      {
+        "date": "2026-05-23",
+        "price": 350.0,
+        "normalized_price": 2800.0
       }
     ],
     "current_price": 350.0,
@@ -8669,6 +8854,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 350.0,
+        "normalized_price": 3500.0
+      },
+      {
+        "date": "2026-05-23",
         "price": 350.0,
         "normalized_price": 3500.0
       }
@@ -8700,6 +8890,11 @@
         "date": "2026-05-22",
         "price": 350.0,
         "normalized_price": 2800.0
+      },
+      {
+        "date": "2026-05-23",
+        "price": 350.0,
+        "normalized_price": 2800.0
       }
     ],
     "current_price": 350.0,
@@ -8727,6 +8922,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 350.0,
+        "normalized_price": 2333.33
+      },
+      {
+        "date": "2026-05-23",
         "price": 350.0,
         "normalized_price": 2333.33
       }
@@ -8758,6 +8958,11 @@
         "date": "2026-05-22",
         "price": 420.0,
         "normalized_price": 1866.67
+      },
+      {
+        "date": "2026-05-23",
+        "price": 420.0,
+        "normalized_price": 1866.67
       }
     ],
     "current_price": 420.0,
@@ -8785,6 +8990,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 420.0,
+        "normalized_price": 1866.67
+      },
+      {
+        "date": "2026-05-23",
         "price": 420.0,
         "normalized_price": 1866.67
       }
@@ -8816,6 +9026,11 @@
         "date": "2026-05-22",
         "price": 1350.0,
         "normalized_price": 1928.57
+      },
+      {
+        "date": "2026-05-23",
+        "price": 1350.0,
+        "normalized_price": 1928.57
       }
     ],
     "current_price": 1350.0,
@@ -8843,6 +9058,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 1350.0,
+        "normalized_price": 1928.57
+      },
+      {
+        "date": "2026-05-23",
         "price": 1350.0,
         "normalized_price": 1928.57
       }
@@ -8874,6 +9094,11 @@
         "date": "2026-05-22",
         "price": 400.0,
         "normalized_price": 2380.95
+      },
+      {
+        "date": "2026-05-23",
+        "price": 400.0,
+        "normalized_price": 2380.95
       }
     ],
     "current_price": 400.0,
@@ -8901,6 +9126,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 350.0,
+        "normalized_price": 2611.94
+      },
+      {
+        "date": "2026-05-23",
         "price": 350.0,
         "normalized_price": 2611.94
       }
@@ -8932,6 +9162,11 @@
         "date": "2026-05-22",
         "price": 400.0,
         "normalized_price": 2531.65
+      },
+      {
+        "date": "2026-05-23",
+        "price": 400.0,
+        "normalized_price": 2531.65
       }
     ],
     "current_price": 400.0,
@@ -8959,6 +9194,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 400.0,
+        "normalized_price": 2531.65
+      },
+      {
+        "date": "2026-05-23",
         "price": 400.0,
         "normalized_price": 2531.65
       }
@@ -8990,6 +9230,11 @@
         "date": "2026-05-22",
         "price": 750.0,
         "normalized_price": 1071.43
+      },
+      {
+        "date": "2026-05-23",
+        "price": 750.0,
+        "normalized_price": 1071.43
       }
     ],
     "current_price": 750.0,
@@ -9017,6 +9262,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 750.0,
+        "normalized_price": 1071.43
+      },
+      {
+        "date": "2026-05-23",
         "price": 750.0,
         "normalized_price": 1071.43
       }
@@ -9048,6 +9298,11 @@
         "date": "2026-05-22",
         "price": 750.0,
         "normalized_price": 1071.43
+      },
+      {
+        "date": "2026-05-23",
+        "price": 750.0,
+        "normalized_price": 1071.43
       }
     ],
     "current_price": 750.0,
@@ -9075,6 +9330,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 950.0,
+        "normalized_price": 2375.0
+      },
+      {
+        "date": "2026-05-23",
         "price": 950.0,
         "normalized_price": 2375.0
       }
@@ -9106,6 +9366,11 @@
         "date": "2026-05-22",
         "price": 950.0,
         "normalized_price": 2375.0
+      },
+      {
+        "date": "2026-05-23",
+        "price": 950.0,
+        "normalized_price": 2375.0
       }
     ],
     "current_price": 950.0,
@@ -9133,6 +9398,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 350.0,
+        "normalized_price": 1261.26
+      },
+      {
+        "date": "2026-05-23",
         "price": 350.0,
         "normalized_price": 1261.26
       }
@@ -9164,6 +9434,11 @@
         "date": "2026-05-22",
         "price": 350.0,
         "normalized_price": 1405.62
+      },
+      {
+        "date": "2026-05-23",
+        "price": 350.0,
+        "normalized_price": 1405.62
       }
     ],
     "current_price": 350.0,
@@ -9191,6 +9466,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 5200.0,
+        "normalized_price": 5942.86
+      },
+      {
+        "date": "2026-05-23",
         "price": 5200.0,
         "normalized_price": 5942.86
       }
@@ -9222,6 +9502,11 @@
         "date": "2026-05-22",
         "price": 1850.0,
         "normalized_price": 925.0
+      },
+      {
+        "date": "2026-05-23",
+        "price": 1850.0,
+        "normalized_price": 925.0
       }
     ],
     "current_price": 1850.0,
@@ -9249,6 +9534,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 1400.0,
+        "normalized_price": 10370.37
+      },
+      {
+        "date": "2026-05-23",
         "price": 1400.0,
         "normalized_price": 10370.37
       }
@@ -9280,6 +9570,11 @@
         "date": "2026-05-22",
         "price": 450.0,
         "normalized_price": 1800.0
+      },
+      {
+        "date": "2026-05-23",
+        "price": 450.0,
+        "normalized_price": 1800.0
       }
     ],
     "current_price": 450.0,
@@ -9307,6 +9602,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 450.0,
+        "normalized_price": 2500.0
+      },
+      {
+        "date": "2026-05-23",
         "price": 450.0,
         "normalized_price": 2500.0
       }
@@ -9338,6 +9638,11 @@
         "date": "2026-05-22",
         "price": 650.0,
         "normalized_price": 2500.0
+      },
+      {
+        "date": "2026-05-23",
+        "price": 650.0,
+        "normalized_price": 2500.0
       }
     ],
     "current_price": 650.0,
@@ -9365,6 +9670,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 550.0,
+        "normalized_price": 3525.64
+      },
+      {
+        "date": "2026-05-23",
         "price": 550.0,
         "normalized_price": 3525.64
       }
@@ -9396,6 +9706,11 @@
         "date": "2026-05-22",
         "price": 400.0,
         "normalized_price": 724.17
+      },
+      {
+        "date": "2026-05-23",
+        "price": 400.0,
+        "normalized_price": 724.17
       }
     ],
     "current_price": 400.0,
@@ -9423,6 +9738,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 600.0,
+        "normalized_price": 833.33
+      },
+      {
+        "date": "2026-05-23",
         "price": 600.0,
         "normalized_price": 833.33
       }
@@ -9454,6 +9774,11 @@
         "date": "2026-05-22",
         "price": 600.0,
         "normalized_price": 833.33
+      },
+      {
+        "date": "2026-05-23",
+        "price": 600.0,
+        "normalized_price": 833.33
       }
     ],
     "current_price": 600.0,
@@ -9481,6 +9806,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 400.0,
+        "normalized_price": 724.17
+      },
+      {
+        "date": "2026-05-23",
         "price": 400.0,
         "normalized_price": 724.17
       }
@@ -9512,6 +9842,11 @@
         "date": "2026-05-22",
         "price": 350.0,
         "normalized_price": 2333.33
+      },
+      {
+        "date": "2026-05-23",
+        "price": 350.0,
+        "normalized_price": 2333.33
       }
     ],
     "current_price": 350.0,
@@ -9539,6 +9874,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 650.0,
+        "normalized_price": 2166.67
+      },
+      {
+        "date": "2026-05-23",
         "price": 650.0,
         "normalized_price": 2166.67
       }
@@ -9570,6 +9910,11 @@
         "date": "2026-05-22",
         "price": 350.0,
         "normalized_price": 2333.33
+      },
+      {
+        "date": "2026-05-23",
+        "price": 350.0,
+        "normalized_price": 2333.33
       }
     ],
     "current_price": 350.0,
@@ -9597,6 +9942,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 720.0,
+        "normalized_price": 1600.0
+      },
+      {
+        "date": "2026-05-23",
         "price": 720.0,
         "normalized_price": 1600.0
       }
@@ -9628,6 +9978,11 @@
         "date": "2026-05-22",
         "price": 650.0,
         "normalized_price": 2006.17
+      },
+      {
+        "date": "2026-05-23",
+        "price": 650.0,
+        "normalized_price": 2006.17
       }
     ],
     "current_price": 650.0,
@@ -9655,6 +10010,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 650.0,
+        "normalized_price": 2006.17
+      },
+      {
+        "date": "2026-05-23",
         "price": 650.0,
         "normalized_price": 2006.17
       }
@@ -9686,6 +10046,11 @@
         "date": "2026-05-22",
         "price": 750.0,
         "normalized_price": 2884.62
+      },
+      {
+        "date": "2026-05-23",
+        "price": 750.0,
+        "normalized_price": 2884.62
       }
     ],
     "current_price": 750.0,
@@ -9713,6 +10078,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 650.0,
+        "normalized_price": 4333.33
+      },
+      {
+        "date": "2026-05-23",
         "price": 650.0,
         "normalized_price": 4333.33
       }
@@ -9744,6 +10114,11 @@
         "date": "2026-05-22",
         "price": 950.0,
         "normalized_price": 3125.0
+      },
+      {
+        "date": "2026-05-23",
+        "price": 950.0,
+        "normalized_price": 3125.0
       }
     ],
     "current_price": 950.0,
@@ -9771,6 +10146,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 650.0,
+        "normalized_price": 3915.66
+      },
+      {
+        "date": "2026-05-23",
         "price": 650.0,
         "normalized_price": 3915.66
       }
@@ -9802,6 +10182,11 @@
         "date": "2026-05-22",
         "price": 650.0,
         "normalized_price": 2642.28
+      },
+      {
+        "date": "2026-05-23",
+        "price": 650.0,
+        "normalized_price": 2642.28
       }
     ],
     "current_price": 650.0,
@@ -9829,6 +10214,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 650.0,
+        "normalized_price": 650.0
+      },
+      {
+        "date": "2026-05-23",
         "price": 650.0,
         "normalized_price": 650.0
       }
@@ -9860,6 +10250,11 @@
         "date": "2026-05-22",
         "price": 700.0,
         "normalized_price": 1166.67
+      },
+      {
+        "date": "2026-05-23",
+        "price": 700.0,
+        "normalized_price": 1166.67
       }
     ],
     "current_price": 700.0,
@@ -9887,6 +10282,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 700.0,
+        "normalized_price": 1.17
+      },
+      {
+        "date": "2026-05-23",
         "price": 700.0,
         "normalized_price": 1.17
       }
@@ -9918,6 +10318,11 @@
         "date": "2026-05-22",
         "price": 600.0,
         "normalized_price": 0.83
+      },
+      {
+        "date": "2026-05-23",
+        "price": 600.0,
+        "normalized_price": 0.83
       }
     ],
     "current_price": 600.0,
@@ -9945,6 +10350,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 650.0,
+        "normalized_price": 3693.18
+      },
+      {
+        "date": "2026-05-23",
         "price": 650.0,
         "normalized_price": 3693.18
       }
@@ -9976,6 +10386,11 @@
         "date": "2026-05-22",
         "price": 650.0,
         "normalized_price": 1444.44
+      },
+      {
+        "date": "2026-05-23",
+        "price": 650.0,
+        "normalized_price": 1444.44
       }
     ],
     "current_price": 650.0,
@@ -10003,6 +10418,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 750.0,
+        "normalized_price": 2622.38
+      },
+      {
+        "date": "2026-05-23",
         "price": 750.0,
         "normalized_price": 2622.38
       }
@@ -10034,6 +10454,11 @@
         "date": "2026-05-22",
         "price": 400.0,
         "normalized_price": 1904.76
+      },
+      {
+        "date": "2026-05-23",
+        "price": 400.0,
+        "normalized_price": 1904.76
       }
     ],
     "current_price": 400.0,
@@ -10061,6 +10486,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 550.0,
+        "normalized_price": 2750.0
+      },
+      {
+        "date": "2026-05-23",
         "price": 550.0,
         "normalized_price": 2750.0
       }
@@ -10092,6 +10522,11 @@
         "date": "2026-05-22",
         "price": 1350.0,
         "normalized_price": 6750.0
+      },
+      {
+        "date": "2026-05-23",
+        "price": 1350.0,
+        "normalized_price": 6750.0
       }
     ],
     "current_price": 1350.0,
@@ -10119,6 +10554,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 1350.0,
+        "normalized_price": 6750.0
+      },
+      {
+        "date": "2026-05-23",
         "price": 1350.0,
         "normalized_price": 6750.0
       }
@@ -10150,6 +10590,11 @@
         "date": "2026-05-22",
         "price": 1350.0,
         "normalized_price": 6750.0
+      },
+      {
+        "date": "2026-05-23",
+        "price": 1350.0,
+        "normalized_price": 6750.0
       }
     ],
     "current_price": 1350.0,
@@ -10177,6 +10622,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 450.0,
+        "normalized_price": 9000.0
+      },
+      {
+        "date": "2026-05-23",
         "price": 450.0,
         "normalized_price": 9000.0
       }
@@ -10208,6 +10658,11 @@
         "date": "2026-05-22",
         "price": 450.0,
         "normalized_price": 9000.0
+      },
+      {
+        "date": "2026-05-23",
+        "price": 450.0,
+        "normalized_price": 9000.0
       }
     ],
     "current_price": 450.0,
@@ -10235,6 +10690,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 450.0,
+        "normalized_price": 9000.0
+      },
+      {
+        "date": "2026-05-23",
         "price": 450.0,
         "normalized_price": 9000.0
       }
@@ -10266,6 +10726,11 @@
         "date": "2026-05-22",
         "price": 450.0,
         "normalized_price": 18750.0
+      },
+      {
+        "date": "2026-05-23",
+        "price": 450.0,
+        "normalized_price": 18750.0
       }
     ],
     "current_price": 450.0,
@@ -10293,6 +10758,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 450.0,
+        "normalized_price": 9000.0
+      },
+      {
+        "date": "2026-05-23",
         "price": 450.0,
         "normalized_price": 9000.0
       }
@@ -10324,6 +10794,11 @@
         "date": "2026-05-22",
         "price": 450.0,
         "normalized_price": 9000.0
+      },
+      {
+        "date": "2026-05-23",
+        "price": 450.0,
+        "normalized_price": 9000.0
       }
     ],
     "current_price": 450.0,
@@ -10351,6 +10826,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 450.0,
+        "normalized_price": 9000.0
+      },
+      {
+        "date": "2026-05-23",
         "price": 450.0,
         "normalized_price": 9000.0
       }
@@ -10382,6 +10862,11 @@
         "date": "2026-05-22",
         "price": 450.0,
         "normalized_price": 9000.0
+      },
+      {
+        "date": "2026-05-23",
+        "price": 450.0,
+        "normalized_price": 9000.0
       }
     ],
     "current_price": 450.0,
@@ -10409,6 +10894,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 450.0,
+        "normalized_price": 9000.0
+      },
+      {
+        "date": "2026-05-23",
         "price": 450.0,
         "normalized_price": 9000.0
       }
@@ -10440,6 +10930,11 @@
         "date": "2026-05-22",
         "price": 750.0,
         "normalized_price": 1666.67
+      },
+      {
+        "date": "2026-05-23",
+        "price": 750.0,
+        "normalized_price": 1666.67
       }
     ],
     "current_price": 750.0,
@@ -10467,6 +10962,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 950.0,
+        "normalized_price": 9500.0
+      },
+      {
+        "date": "2026-05-23",
         "price": 950.0,
         "normalized_price": 9500.0
       }
@@ -10498,6 +10998,11 @@
         "date": "2026-05-22",
         "price": 850.0,
         "normalized_price": 8500.0
+      },
+      {
+        "date": "2026-05-23",
+        "price": 850.0,
+        "normalized_price": 8500.0
       }
     ],
     "current_price": 850.0,
@@ -10525,6 +11030,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 850.0,
+        "normalized_price": 8500.0
+      },
+      {
+        "date": "2026-05-23",
         "price": 850.0,
         "normalized_price": 8500.0
       }
@@ -10556,6 +11066,11 @@
         "date": "2026-05-22",
         "price": 950.0,
         "normalized_price": 9500.0
+      },
+      {
+        "date": "2026-05-23",
+        "price": 950.0,
+        "normalized_price": 9500.0
       }
     ],
     "current_price": 950.0,
@@ -10583,6 +11098,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 850.0,
+        "normalized_price": 8500.0
+      },
+      {
+        "date": "2026-05-23",
         "price": 850.0,
         "normalized_price": 8500.0
       }
@@ -10614,6 +11134,11 @@
         "date": "2026-05-22",
         "price": 1850.0,
         "normalized_price": 9736.84
+      },
+      {
+        "date": "2026-05-23",
+        "price": 1850.0,
+        "normalized_price": 9736.84
       }
     ],
     "current_price": 1850.0,
@@ -10641,6 +11166,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 1850.0,
+        "normalized_price": 9736.84
+      },
+      {
+        "date": "2026-05-23",
         "price": 1850.0,
         "normalized_price": 9736.84
       }
@@ -10672,6 +11202,11 @@
         "date": "2026-05-22",
         "price": 1850.0,
         "normalized_price": 9250.0
+      },
+      {
+        "date": "2026-05-23",
+        "price": 1850.0,
+        "normalized_price": 9250.0
       }
     ],
     "current_price": 1850.0,
@@ -10699,6 +11234,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 450.0,
+        "normalized_price": 2250.0
+      },
+      {
+        "date": "2026-05-23",
         "price": 450.0,
         "normalized_price": 2250.0
       }
@@ -10730,6 +11270,11 @@
         "date": "2026-05-22",
         "price": 450.0,
         "normalized_price": 11250.0
+      },
+      {
+        "date": "2026-05-23",
+        "price": 450.0,
+        "normalized_price": 11250.0
       }
     ],
     "current_price": 450.0,
@@ -10757,6 +11302,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 450.0,
+        "normalized_price": 450.0
+      },
+      {
+        "date": "2026-05-23",
         "price": 450.0,
         "normalized_price": 450.0
       }
@@ -10788,6 +11338,11 @@
         "date": "2026-05-22",
         "price": 650.0,
         "normalized_price": 21666.67
+      },
+      {
+        "date": "2026-05-23",
+        "price": 650.0,
+        "normalized_price": 21666.67
       }
     ],
     "current_price": 650.0,
@@ -10815,6 +11370,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 2150.0,
+        "normalized_price": 10750.0
+      },
+      {
+        "date": "2026-05-23",
         "price": 2150.0,
         "normalized_price": 10750.0
       }
@@ -10846,6 +11406,11 @@
         "date": "2026-05-22",
         "price": 2150.0,
         "normalized_price": 10750.0
+      },
+      {
+        "date": "2026-05-23",
+        "price": 2150.0,
+        "normalized_price": 10750.0
       }
     ],
     "current_price": 2150.0,
@@ -10873,6 +11438,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 2150.0,
+        "normalized_price": 10750.0
+      },
+      {
+        "date": "2026-05-23",
         "price": 2150.0,
         "normalized_price": 10750.0
       }
@@ -10904,6 +11474,11 @@
         "date": "2026-05-22",
         "price": 950.0,
         "normalized_price": 1979.17
+      },
+      {
+        "date": "2026-05-23",
+        "price": 950.0,
+        "normalized_price": 1979.17
       }
     ],
     "current_price": 950.0,
@@ -10931,6 +11506,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 850.0,
+        "normalized_price": 1827.96
+      },
+      {
+        "date": "2026-05-23",
         "price": 850.0,
         "normalized_price": 1827.96
       }
@@ -10962,6 +11542,11 @@
         "date": "2026-05-22",
         "price": 650.0,
         "normalized_price": 5241.94
+      },
+      {
+        "date": "2026-05-23",
+        "price": 650.0,
+        "normalized_price": 5241.94
       }
     ],
     "current_price": 650.0,
@@ -10989,6 +11574,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 650.0,
+        "normalized_price": 650.0
+      },
+      {
+        "date": "2026-05-23",
         "price": 650.0,
         "normalized_price": 650.0
       }
@@ -11020,6 +11610,11 @@
         "date": "2026-05-22",
         "price": 950.0,
         "normalized_price": 4523.81
+      },
+      {
+        "date": "2026-05-23",
+        "price": 950.0,
+        "normalized_price": 4523.81
       }
     ],
     "current_price": 950.0,
@@ -11047,6 +11642,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 650.0,
+        "normalized_price": 650.0
+      },
+      {
+        "date": "2026-05-23",
         "price": 650.0,
         "normalized_price": 650.0
       }
@@ -11078,6 +11678,11 @@
         "date": "2026-05-22",
         "price": 1580.0,
         "normalized_price": 8315.79
+      },
+      {
+        "date": "2026-05-23",
+        "price": 1580.0,
+        "normalized_price": 8315.79
       }
     ],
     "current_price": 1580.0,
@@ -11105,6 +11710,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 650.0,
+        "normalized_price": 650.0
+      },
+      {
+        "date": "2026-05-23",
         "price": 650.0,
         "normalized_price": 650.0
       }
@@ -11136,6 +11746,11 @@
         "date": "2026-05-22",
         "price": 650.0,
         "normalized_price": 4513.89
+      },
+      {
+        "date": "2026-05-23",
+        "price": 650.0,
+        "normalized_price": 4513.89
       }
     ],
     "current_price": 650.0,
@@ -11163,6 +11778,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 650.0,
+        "normalized_price": 4761.9
+      },
+      {
+        "date": "2026-05-23",
         "price": 650.0,
         "normalized_price": 4761.9
       }
@@ -11194,6 +11814,11 @@
         "date": "2026-05-22",
         "price": 950.0,
         "normalized_price": 1900.0
+      },
+      {
+        "date": "2026-05-23",
+        "price": 950.0,
+        "normalized_price": 1900.0
       }
     ],
     "current_price": 950.0,
@@ -11221,6 +11846,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 650.0,
+        "normalized_price": 650.0
+      },
+      {
+        "date": "2026-05-23",
         "price": 650.0,
         "normalized_price": 650.0
       }
@@ -11252,6 +11882,11 @@
         "date": "2026-05-22",
         "price": 650.0,
         "normalized_price": 650.0
+      },
+      {
+        "date": "2026-05-23",
+        "price": 650.0,
+        "normalized_price": 650.0
       }
     ],
     "current_price": 650.0,
@@ -11279,6 +11914,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 450.0,
+        "normalized_price": 1125.0
+      },
+      {
+        "date": "2026-05-23",
         "price": 450.0,
         "normalized_price": 1125.0
       }
@@ -11310,6 +11950,11 @@
         "date": "2026-05-22",
         "price": 950.0,
         "normalized_price": 1759.26
+      },
+      {
+        "date": "2026-05-23",
+        "price": 950.0,
+        "normalized_price": 1759.26
       }
     ],
     "current_price": 950.0,
@@ -11337,6 +11982,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 1050.0,
+        "normalized_price": 1944.44
+      },
+      {
+        "date": "2026-05-23",
         "price": 1050.0,
         "normalized_price": 1944.44
       }
@@ -11368,6 +12018,11 @@
         "date": "2026-05-22",
         "price": 1050.0,
         "normalized_price": 1842.11
+      },
+      {
+        "date": "2026-05-23",
+        "price": 1050.0,
+        "normalized_price": 1842.11
       }
     ],
     "current_price": 1050.0,
@@ -11395,6 +12050,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 1050.0,
+        "normalized_price": 2800.0
+      },
+      {
+        "date": "2026-05-23",
         "price": 1050.0,
         "normalized_price": 2800.0
       }
@@ -11426,6 +12086,11 @@
         "date": "2026-05-22",
         "price": 1050.0,
         "normalized_price": 2000.0
+      },
+      {
+        "date": "2026-05-23",
+        "price": 1050.0,
+        "normalized_price": 2000.0
       }
     ],
     "current_price": 1050.0,
@@ -11453,6 +12118,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 1050.0,
+        "normalized_price": 1842.11
+      },
+      {
+        "date": "2026-05-23",
         "price": 1050.0,
         "normalized_price": 1842.11
       }
@@ -11484,6 +12154,11 @@
         "date": "2026-05-22",
         "price": 900.0,
         "normalized_price": 1978.02
+      },
+      {
+        "date": "2026-05-23",
+        "price": 900.0,
+        "normalized_price": 1978.02
       }
     ],
     "current_price": 900.0,
@@ -11511,6 +12186,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 650.0,
+        "normalized_price": 27659.57
+      },
+      {
+        "date": "2026-05-23",
         "price": 650.0,
         "normalized_price": 27659.57
       }
@@ -11542,6 +12222,11 @@
         "date": "2026-05-22",
         "price": 650.0,
         "normalized_price": 27083.33
+      },
+      {
+        "date": "2026-05-23",
+        "price": 650.0,
+        "normalized_price": 27083.33
       }
     ],
     "current_price": 650.0,
@@ -11569,6 +12254,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 650.0,
+        "normalized_price": 650.0
+      },
+      {
+        "date": "2026-05-23",
         "price": 650.0,
         "normalized_price": 650.0
       }
@@ -11600,6 +12290,11 @@
         "date": "2026-05-22",
         "price": 1450.0,
         "normalized_price": 7250.0
+      },
+      {
+        "date": "2026-05-23",
+        "price": 1450.0,
+        "normalized_price": 7250.0
       }
     ],
     "current_price": 1450.0,
@@ -11627,6 +12322,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 650.0,
+        "normalized_price": 52000.0
+      },
+      {
+        "date": "2026-05-23",
         "price": 650.0,
         "normalized_price": 52000.0
       }
@@ -11658,6 +12358,11 @@
         "date": "2026-05-22",
         "price": 750.0,
         "normalized_price": 3125.0
+      },
+      {
+        "date": "2026-05-23",
+        "price": 750.0,
+        "normalized_price": 3125.0
       }
     ],
     "current_price": 750.0,
@@ -11685,6 +12390,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 750.0,
+        "normalized_price": 3125.0
+      },
+      {
+        "date": "2026-05-23",
         "price": 750.0,
         "normalized_price": 3125.0
       }
@@ -11716,6 +12426,11 @@
         "date": "2026-05-22",
         "price": 450.0,
         "normalized_price": 450.0
+      },
+      {
+        "date": "2026-05-23",
+        "price": 450.0,
+        "normalized_price": 450.0
       }
     ],
     "current_price": 450.0,
@@ -11745,6 +12460,11 @@
         "date": "2026-05-22",
         "price": 450.0,
         "normalized_price": 450.0
+      },
+      {
+        "date": "2026-05-23",
+        "price": 450.0,
+        "normalized_price": 450.0
       }
     ],
     "current_price": 450.0,
@@ -11767,6 +12487,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 450.0,
+        "normalized_price": 4500.0
+      },
+      {
+        "date": "2026-05-23",
         "price": 450.0,
         "normalized_price": 4500.0
       }
@@ -11793,6 +12518,11 @@
         "date": "2026-05-22",
         "price": 380.0,
         "normalized_price": 2533.33
+      },
+      {
+        "date": "2026-05-23",
+        "price": 380.0,
+        "normalized_price": 2533.33
       }
     ],
     "current_price": 380.0,
@@ -11815,6 +12545,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 380.0,
+        "normalized_price": 3166.67
+      },
+      {
+        "date": "2026-05-23",
         "price": 380.0,
         "normalized_price": 3166.67
       }
@@ -11841,6 +12576,11 @@
         "date": "2026-05-22",
         "price": 380.0,
         "normalized_price": 3800.0
+      },
+      {
+        "date": "2026-05-23",
+        "price": 380.0,
+        "normalized_price": 3800.0
       }
     ],
     "current_price": 380.0,
@@ -11863,6 +12603,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 380.0,
+        "normalized_price": 3166.67
+      },
+      {
+        "date": "2026-05-23",
         "price": 380.0,
         "normalized_price": 3166.67
       }
@@ -11889,6 +12634,11 @@
         "date": "2026-05-22",
         "price": 380.0,
         "normalized_price": 3166.67
+      },
+      {
+        "date": "2026-05-23",
+        "price": 380.0,
+        "normalized_price": 3166.67
       }
     ],
     "current_price": 380.0,
@@ -11911,6 +12661,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 380.0,
+        "normalized_price": 3166.67
+      },
+      {
+        "date": "2026-05-23",
         "price": 380.0,
         "normalized_price": 3166.67
       }
@@ -11937,6 +12692,11 @@
         "date": "2026-05-22",
         "price": 380.0,
         "normalized_price": 3166.67
+      },
+      {
+        "date": "2026-05-23",
+        "price": 380.0,
+        "normalized_price": 3166.67
       }
     ],
     "current_price": 380.0,
@@ -11959,6 +12719,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 380.0,
+        "normalized_price": 3166.67
+      },
+      {
+        "date": "2026-05-23",
         "price": 380.0,
         "normalized_price": 3166.67
       }
@@ -11985,6 +12750,11 @@
         "date": "2026-05-22",
         "price": 380.0,
         "normalized_price": 3800.0
+      },
+      {
+        "date": "2026-05-23",
+        "price": 380.0,
+        "normalized_price": 3800.0
       }
     ],
     "current_price": 380.0,
@@ -12009,6 +12779,11 @@
         "date": "2026-05-22",
         "price": 380.0,
         "normalized_price": 3800.0
+      },
+      {
+        "date": "2026-05-23",
+        "price": 380.0,
+        "normalized_price": 3800.0
       }
     ],
     "current_price": 380.0,
@@ -12031,6 +12806,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 380.0,
+        "normalized_price": 3166.67
+      },
+      {
+        "date": "2026-05-23",
         "price": 380.0,
         "normalized_price": 3166.67
       }
