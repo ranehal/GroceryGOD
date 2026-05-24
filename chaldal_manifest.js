@@ -1,1 +1,1 @@
-window.chaldalManifest = {"metadata":{"last_update":"2026-05-23 23:44:31","total":4309,"date_range":"2026-02-15 to 2026-05-23","total_chunks":1,"chunk_size":20000}};
+window.chaldalManifest = {"metadata":{"last_update":"2026-05-24 11:40:53","total":4309,"date_range":"2026-02-15 to 2026-05-24","total_chunks":1,"chunk_size":20000}};

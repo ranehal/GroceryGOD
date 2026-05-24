@@ -15,6 +15,11 @@
         "date": "2026-05-22",
         "price": 650.0,
         "normalized_price": 6500.0
+      },
+      {
+        "date": "2026-05-24",
+        "price": 650.0,
+        "normalized_price": 6500.0
       }
     ],
     "current_price": 650.0,
@@ -159,11 +164,16 @@
         "date": "2026-05-22",
         "price": 450.0,
         "normalized_price": 4500.0
+      },
+      {
+        "date": "2026-05-24",
+        "price": 450.0,
+        "normalized_price": 4500.0
       }
     ],
     "current_price": 450.0,
     "normalized_price": 4500.0,
-    "unit": "100.0gm",
+    "unit": "100.0g",
     "unit_type": "kg",
     "url": "https://shotejbazar.com/product/al-tahhan-dates-with-dark-chocolate-100-g/"
   },
@@ -181,6 +191,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 1200.0,
+        "normalized_price": 1500.0
+      },
+      {
+        "date": "2026-05-24",
         "price": 1200.0,
         "normalized_price": 1500.0
       }
@@ -207,6 +222,11 @@
         "date": "2026-05-22",
         "price": 750.0,
         "normalized_price": 23148.15
+      },
+      {
+        "date": "2026-05-24",
+        "price": 750.0,
+        "normalized_price": 23148.15
       }
     ],
     "current_price": 750.0,
@@ -229,6 +249,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 450.0,
+        "normalized_price": 29032.26
+      },
+      {
+        "date": "2026-05-24",
         "price": 450.0,
         "normalized_price": 29032.26
       }
@@ -2385,6 +2410,11 @@
       },
       {
         "date": "2026-05-23",
+        "price": 550.0,
+        "normalized_price": 2750.0
+      },
+      {
+        "date": "2026-05-24",
         "price": 550.0,
         "normalized_price": 2750.0
       }
@@ -8487,6 +8517,11 @@
         "date": "2026-05-23",
         "price": 750.0,
         "normalized_price": 1071.43
+      },
+      {
+        "date": "2026-05-24",
+        "price": 750.0,
+        "normalized_price": 1071.43
       }
     ],
     "current_price": 750.0,
@@ -8555,6 +8590,11 @@
         "date": "2026-05-23",
         "price": 350.0,
         "normalized_price": 2243.59
+      },
+      {
+        "date": "2026-05-24",
+        "price": 350.0,
+        "normalized_price": 2243.59
       }
     ],
     "current_price": 350.0,
@@ -8587,6 +8627,11 @@
       },
       {
         "date": "2026-05-23",
+        "price": 950.0,
+        "normalized_price": 2533.33
+      },
+      {
+        "date": "2026-05-24",
         "price": 950.0,
         "normalized_price": 2533.33
       }
@@ -8623,6 +8668,11 @@
         "date": "2026-05-23",
         "price": 850.0,
         "normalized_price": 42500.0
+      },
+      {
+        "date": "2026-05-24",
+        "price": 850.0,
+        "normalized_price": 42500.0
       }
     ],
     "current_price": 850.0,
@@ -8655,6 +8705,11 @@
       },
       {
         "date": "2026-05-23",
+        "price": 750.0,
+        "normalized_price": 1071.43
+      },
+      {
+        "date": "2026-05-24",
         "price": 750.0,
         "normalized_price": 1071.43
       }
@@ -8691,6 +8746,11 @@
         "date": "2026-05-23",
         "price": 300.0,
         "normalized_price": 3846.15
+      },
+      {
+        "date": "2026-05-24",
+        "price": 300.0,
+        "normalized_price": 3846.15
       }
     ],
     "current_price": 300.0,
@@ -8723,6 +8783,11 @@
       },
       {
         "date": "2026-05-23",
+        "price": 350.0,
+        "normalized_price": 2800.0
+      },
+      {
+        "date": "2026-05-24",
         "price": 350.0,
         "normalized_price": 2800.0
       }
@@ -8759,6 +8824,11 @@
         "date": "2026-05-23",
         "price": 350.0,
         "normalized_price": 2800.0
+      },
+      {
+        "date": "2026-05-24",
+        "price": 350.0,
+        "normalized_price": 2800.0
       }
     ],
     "current_price": 350.0,
@@ -8793,6 +8863,11 @@
         "date": "2026-05-23",
         "price": 350.0,
         "normalized_price": 2800.0
+      },
+      {
+        "date": "2026-05-24",
+        "price": 350.0,
+        "normalized_price": 2800.0
       }
     ],
     "current_price": 350.0,
@@ -8825,6 +8900,11 @@
       },
       {
         "date": "2026-05-23",
+        "price": 350.0,
+        "normalized_price": 2800.0
+      },
+      {
+        "date": "2026-05-24",
         "price": 350.0,
         "normalized_price": 2800.0
       }
@@ -9643,11 +9723,16 @@
         "date": "2026-05-23",
         "price": 650.0,
         "normalized_price": 2500.0
+      },
+      {
+        "date": "2026-05-24",
+        "price": 650.0,
+        "normalized_price": 2500.0
       }
     ],
     "current_price": 650.0,
     "normalized_price": 2500.0,
-    "unit": "260.0gm",
+    "unit": "260.0g",
     "unit_type": "kg",
     "url": "https://shotejbazar.com/product/cadbury-choco-filled-sandwich-biscuits-260g/"
   },
@@ -9711,6 +9796,11 @@
         "date": "2026-05-23",
         "price": 400.0,
         "normalized_price": 724.17
+      },
+      {
+        "date": "2026-05-24",
+        "price": 400.0,
+        "normalized_price": 724.17
       }
     ],
     "current_price": 400.0,
@@ -9743,6 +9833,11 @@
       },
       {
         "date": "2026-05-23",
+        "price": 600.0,
+        "normalized_price": 833.33
+      },
+      {
+        "date": "2026-05-24",
         "price": 600.0,
         "normalized_price": 833.33
       }
@@ -9779,6 +9874,11 @@
         "date": "2026-05-23",
         "price": 600.0,
         "normalized_price": 833.33
+      },
+      {
+        "date": "2026-05-24",
+        "price": 600.0,
+        "normalized_price": 833.33
       }
     ],
     "current_price": 600.0,
@@ -9811,6 +9911,11 @@
       },
       {
         "date": "2026-05-23",
+        "price": 400.0,
+        "normalized_price": 724.17
+      },
+      {
+        "date": "2026-05-24",
         "price": 400.0,
         "normalized_price": 724.17
       }
@@ -9847,11 +9952,16 @@
         "date": "2026-05-23",
         "price": 350.0,
         "normalized_price": 2333.33
+      },
+      {
+        "date": "2026-05-24",
+        "price": 350.0,
+        "normalized_price": 2333.33
       }
     ],
     "current_price": 350.0,
     "normalized_price": 2333.33,
-    "unit": "150.0gm",
+    "unit": "150.0g",
     "unit_type": "kg",
     "url": "https://shotejbazar.com/product/cocoa-land-dark-chocolate-coco-pie-150g/"
   },
@@ -9879,6 +9989,11 @@
       },
       {
         "date": "2026-05-23",
+        "price": 650.0,
+        "normalized_price": 2166.67
+      },
+      {
+        "date": "2026-05-24",
         "price": 650.0,
         "normalized_price": 2166.67
       }
@@ -9949,6 +10064,11 @@
         "date": "2026-05-23",
         "price": 720.0,
         "normalized_price": 1600.0
+      },
+      {
+        "date": "2026-05-24",
+        "price": 720.0,
+        "normalized_price": 1600.0
       }
     ],
     "current_price": 720.0,
@@ -9983,11 +10103,16 @@
         "date": "2026-05-23",
         "price": 650.0,
         "normalized_price": 2006.17
+      },
+      {
+        "date": "2026-05-24",
+        "price": 650.0,
+        "normalized_price": 24074.07
       }
     ],
     "current_price": 650.0,
-    "normalized_price": 2006.17,
-    "unit": "324.0gm",
+    "normalized_price": 24074.07,
+    "unit": "27.0gm",
     "unit_type": "kg",
     "url": "https://shotejbazar.com/product/jack-jill-dewberry-strawberry-flavoured-sandwich-cookies-1-box-27gmx12pc-324gm/"
   },
@@ -10017,11 +10142,16 @@
         "date": "2026-05-23",
         "price": 650.0,
         "normalized_price": 2006.17
+      },
+      {
+        "date": "2026-05-24",
+        "price": 650.0,
+        "normalized_price": 24074.07
       }
     ],
     "current_price": 650.0,
-    "normalized_price": 2006.17,
-    "unit": "324.0gm",
+    "normalized_price": 24074.07,
+    "unit": "27.0gm",
     "unit_type": "kg",
     "url": "https://shotejbazar.com/product/jack-n-jill-dewberry-blueberry-biscuit-1-box-27gmx12pc-324gm/"
   },
@@ -10527,11 +10657,16 @@
         "date": "2026-05-23",
         "price": 1350.0,
         "normalized_price": 6750.0
+      },
+      {
+        "date": "2026-05-24",
+        "price": 1350.0,
+        "normalized_price": 6750.0
       }
     ],
     "current_price": 1350.0,
     "normalized_price": 6750.0,
-    "unit": "200gm x 1",
+    "unit": "200.0g",
     "unit_type": "kg",
     "url": "https://shotejbazar.com/product/alcafe-rich-roast-instant-coffee-200g/"
   },
@@ -10561,11 +10696,16 @@
         "date": "2026-05-23",
         "price": 1350.0,
         "normalized_price": 6750.0
+      },
+      {
+        "date": "2026-05-24",
+        "price": 1350.0,
+        "normalized_price": 6750.0
       }
     ],
     "current_price": 1350.0,
     "normalized_price": 6750.0,
-    "unit": "200gm x 1",
+    "unit": "200.0g",
     "unit_type": "kg",
     "url": "https://shotejbazar.com/product/asda-gold-roast-decaf-rice-smooth-coffee-200g-2/"
   },
@@ -10595,11 +10735,16 @@
         "date": "2026-05-23",
         "price": 1350.0,
         "normalized_price": 6750.0
+      },
+      {
+        "date": "2026-05-24",
+        "price": 1350.0,
+        "normalized_price": 6750.0
       }
     ],
     "current_price": 1350.0,
     "normalized_price": 6750.0,
-    "unit": "200gm x 1",
+    "unit": "200.0gm",
     "unit_type": "kg",
     "url": "https://shotejbazar.com/product/asda-gold-roast-instant-coffee-200-gm/"
   },
@@ -10629,11 +10774,16 @@
         "date": "2026-05-23",
         "price": 450.0,
         "normalized_price": 9000.0
+      },
+      {
+        "date": "2026-05-24",
+        "price": 450.0,
+        "normalized_price": 9000.0
       }
     ],
     "current_price": 450.0,
     "normalized_price": 9000.0,
-    "unit": "50.0gm",
+    "unit": "50.0g",
     "unit_type": "kg",
     "url": "https://shotejbazar.com/product/beanies-americano-flavour-instant-coffee-50g/"
   },
@@ -10663,11 +10813,16 @@
         "date": "2026-05-23",
         "price": 450.0,
         "normalized_price": 9000.0
+      },
+      {
+        "date": "2026-05-24",
+        "price": 450.0,
+        "normalized_price": 9000.0
       }
     ],
     "current_price": 450.0,
     "normalized_price": 9000.0,
-    "unit": "50.0gm",
+    "unit": "50.0g",
     "unit_type": "kg",
     "url": "https://shotejbazar.com/product/beanies-chocolate-brownie-instant-coffee-50g/"
   },
@@ -10697,11 +10852,16 @@
         "date": "2026-05-23",
         "price": 450.0,
         "normalized_price": 9000.0
+      },
+      {
+        "date": "2026-05-24",
+        "price": 450.0,
+        "normalized_price": 9000.0
       }
     ],
     "current_price": 450.0,
     "normalized_price": 9000.0,
-    "unit": "50.0gm",
+    "unit": "50.0g",
     "unit_type": "kg",
     "url": "https://shotejbazar.com/product/beanies-chai-latte-instant-coffee-50g/"
   },
@@ -10729,6 +10889,11 @@
       },
       {
         "date": "2026-05-23",
+        "price": 450.0,
+        "normalized_price": 18750.0
+      },
+      {
+        "date": "2026-05-24",
         "price": 450.0,
         "normalized_price": 18750.0
       }
@@ -10799,11 +10964,16 @@
         "date": "2026-05-23",
         "price": 450.0,
         "normalized_price": 9000.0
+      },
+      {
+        "date": "2026-05-24",
+        "price": 450.0,
+        "normalized_price": 9000.0
       }
     ],
     "current_price": 450.0,
     "normalized_price": 9000.0,
-    "unit": "50.0gm",
+    "unit": "50.0g",
     "unit_type": "kg",
     "url": "https://shotejbazar.com/product/beanies-cookie-dough-instant-coffee-50g/"
   },
@@ -10833,11 +11003,16 @@
         "date": "2026-05-23",
         "price": 450.0,
         "normalized_price": 9000.0
+      },
+      {
+        "date": "2026-05-24",
+        "price": 450.0,
+        "normalized_price": 9000.0
       }
     ],
     "current_price": 450.0,
     "normalized_price": 9000.0,
-    "unit": "50.0gm",
+    "unit": "50.0g",
     "unit_type": "kg",
     "url": "https://shotejbazar.com/product/beanies-cappuccino-flavour-instant-coffee-50g/"
   },
@@ -10867,11 +11042,16 @@
         "date": "2026-05-23",
         "price": 450.0,
         "normalized_price": 9000.0
+      },
+      {
+        "date": "2026-05-24",
+        "price": 450.0,
+        "normalized_price": 9000.0
       }
     ],
     "current_price": 450.0,
     "normalized_price": 9000.0,
-    "unit": "50.0gm",
+    "unit": "50.0g",
     "unit_type": "kg",
     "url": "https://shotejbazar.com/product/beaniesmaple-fudge-flavour-instant-coffee-50g-copy/"
   },
@@ -10901,11 +11081,16 @@
         "date": "2026-05-23",
         "price": 450.0,
         "normalized_price": 9000.0
+      },
+      {
+        "date": "2026-05-24",
+        "price": 450.0,
+        "normalized_price": 9000.0
       }
     ],
     "current_price": 450.0,
     "normalized_price": 9000.0,
-    "unit": "50.0gm",
+    "unit": "50.0g",
     "unit_type": "kg",
     "url": "https://shotejbazar.com/product/beanies-very-vanilla-flavour-instant-coffee-50g/"
   },
