@@ -8105,6 +8105,11 @@
         "date": "2026-05-23",
         "price": 380.0,
         "normalized_price": 380.0
+      },
+      {
+        "date": "2026-05-24",
+        "price": 380.0,
+        "normalized_price": 380.0
       }
     ],
     "current_price": 380.0,
@@ -8239,6 +8244,11 @@
       },
       {
         "date": "2026-05-23",
+        "price": 400.0,
+        "normalized_price": 800.0
+      },
+      {
+        "date": "2026-05-24",
         "price": 400.0,
         "normalized_price": 800.0
       }
