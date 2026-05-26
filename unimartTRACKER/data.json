@@ -48823,12 +48823,12 @@
       },
       {
         "date": "2026-05-26",
-        "price": 1580.0,
-        "normalized_price": 1580.0
+        "price": 1106.0,
+        "normalized_price": 1106.0
       }
     ],
-    "current_price": 1580.0,
-    "normalized_price": 1580.0,
+    "current_price": 1106.0,
+    "normalized_price": 1106.0,
     "unit": "1 unit",
     "unit_type": "piece"
   },

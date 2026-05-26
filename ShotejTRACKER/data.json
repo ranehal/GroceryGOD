@@ -8145,6 +8145,11 @@
         "date": "2026-05-24",
         "price": 380.0,
         "normalized_price": 380.0
+      },
+      {
+        "date": "2026-05-26",
+        "price": 380.0,
+        "normalized_price": 380.0
       }
     ],
     "current_price": 380.0,
