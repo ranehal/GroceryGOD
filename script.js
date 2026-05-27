@@ -13,8 +13,8 @@ let currentFilteredProducts = [];
 
 let searchQuery = '';
 let activeUnitFilters = new Set(['kg', 'liter', 'piece']);
-let sortOption = 'name_asc';
-let activeIntelFilter = 'all';
+let sortOption = 'unit_price_asc';
+let activeIntelFilter = 'low';
 let compareModeActive = false;
 let showFavoritesOnly = false;
 let activeShopFilters = new Set(['shwapno']);
@@ -122,7 +122,16 @@ function showLoading(show, message = 'Loading...') {
 }
 
 function processData() {
-    const today = new Date("2026-05-19"); 
+    const today = new Date("2026-05-28"); 
+    const storeLatestDates = {};
+    if (metadata.stores) {
+        Object.entries(metadata.stores).forEach(([store, data]) => {
+            if (data.date_range && data.date_range.includes(' to ')) {
+                storeLatestDates[store] = data.date_range.split(' to ')[1];
+            }
+        });
+    }
+
     allProducts.forEach(p => {
         // Apply Custom Overrides
         if (customOverrides[p.id]) {
@@ -136,6 +145,10 @@ function processData() {
         p.maxPrice = prices.length > 0 ? Math.max(...prices) : p.normalized_price;
         p.hasPriceHistory = prices.length > 1 && (p.maxPrice > p.minPrice);
         
+        // Outdated / Has Price Today check
+        const lastDate = history.length > 0 ? history[history.length - 1].date : null;
+        p.hasPriceToday = lastDate && storeLatestDates[p.store] && lastDate === storeLatestDates[p.store];
+
         p.priceChangePercent = 0;
         if (history.length >= 2) {
             const curr = history[history.length - 1].normalized_price || history[history.length - 1].price;
@@ -304,7 +317,7 @@ function renderProducts() {
         if (activeIntelFilter === 'great') return p.normalized_price < (p.avgPrice * greatDealThreshold);
         if (activeIntelFilter === 'good') return p.normalized_price < (p.avgPrice * goodBuyThreshold);
         if (activeIntelFilter === 'wait') return p.normalized_price > (p.avgPrice * 1.05);
-        if (activeIntelFilter === 'low') return p.hasPriceHistory && p.normalized_price <= (p.minPrice + 0.01);
+        if (activeIntelFilter === 'low') return p.hasPriceHistory && p.hasPriceToday && p.normalized_price <= (p.minPrice + 0.01);
         return true;
     });
 
@@ -674,15 +687,33 @@ function openDetailedChart(product) {
 
 function updateStoreStats() {
     const sidebarStats = document.getElementById('store-stats-sidebar');
-    if (!sidebarStats || !metadata.stores) return;
-    let html = '<div style="font-size: 0.6rem; color: #444; margin-bottom: 8px; font-weight: 800;">GODDATA UPLINK STATUS</div>';
-    Object.entries(metadata.stores).forEach(([store, data]) => {
-        html += `<div class="legend-item" style="display:flex; flex-direction:column; margin-bottom:8px;">
-            <div style="display:flex; justify-content:space-between; font-weight:700;">
-                <span style="color:${STORE_CONFIG[store].color}">${store.toUpperCase()}</span>
-                <span>${data.total} items</span>
+    if (!sidebarStats) return;
+    
+    // Initialize stats from manifests if not already in metadata
+    const stores = ['shwapno', 'chaldal', 'meenabazar', 'othoba', 'metromart', 'unimart', 'shotejbazar'];
+    stores.forEach(s => {
+        if (!metadata.stores) metadata.stores = {};
+        if (!metadata.stores[s]) {
+            const manifest = window[s + 'Manifest'];
+            if (manifest && manifest.metadata) {
+                metadata.stores[s] = manifest.metadata;
+            }
+        }
+    });
+
+    let html = '<div style="font-size: 0.65rem; color: var(--gold); margin-bottom: 12px; font-weight: 800; letter-spacing:1px; border-bottom:1px solid #222; padding-bottom:5px;">GODDATA UPLINK STATUS</div>';
+    
+    // Sort stores alphabetically
+    const sortedStores = Object.entries(metadata.stores).sort((a, b) => a[0].localeCompare(b[0]));
+    
+    sortedStores.forEach(([store, data]) => {
+        const config = STORE_CONFIG[store] || { color: '#888', name: store };
+        html += `<div class="legend-item" style="display:flex; flex-direction:column; margin-bottom:10px;">
+            <div style="display:flex; justify-content:space-between; font-weight:800; font-size:0.75rem;">
+                <span style="color:${config.color}">${config.name.toUpperCase()}</span>
+                <span style="color:#eee;">${data.total} units</span>
             </div>
-            <div style="font-size:0.55rem; opacity:0.5;">Range: ${data.date_range || 'N/A'}</div>
+            <div style="font-size:0.6rem; opacity:0.6; color:#888;">Range: ${data.date_range || 'N/A'}</div>
         </div>`;
     });
     sidebarStats.innerHTML = html;
