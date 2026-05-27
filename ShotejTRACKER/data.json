@@ -25,6 +25,11 @@
         "date": "2026-05-26",
         "price": 650.0,
         "normalized_price": 6500.0
+      },
+      {
+        "date": "2026-05-27",
+        "price": 650.0,
+        "normalized_price": 6500.0
       }
     ],
     "current_price": 650.0,
@@ -47,6 +52,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 450.0,
+        "normalized_price": 4500.0
+      },
+      {
+        "date": "2026-05-27",
         "price": 450.0,
         "normalized_price": 4500.0
       }
@@ -73,6 +83,11 @@
         "date": "2026-05-22",
         "price": 450.0,
         "normalized_price": 4500.0
+      },
+      {
+        "date": "2026-05-27",
+        "price": 450.0,
+        "normalized_price": 4500.0
       }
     ],
     "current_price": 450.0,
@@ -95,6 +110,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 450.0,
+        "normalized_price": 4500.0
+      },
+      {
+        "date": "2026-05-27",
         "price": 450.0,
         "normalized_price": 4500.0
       }
@@ -121,6 +141,11 @@
         "date": "2026-05-22",
         "price": 750.0,
         "normalized_price": 3750.0
+      },
+      {
+        "date": "2026-05-27",
+        "price": 750.0,
+        "normalized_price": 3750.0
       }
     ],
     "current_price": 750.0,
@@ -143,6 +168,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 450.0,
+        "normalized_price": 4500.0
+      },
+      {
+        "date": "2026-05-27",
         "price": 450.0,
         "normalized_price": 4500.0
       }
@@ -179,6 +209,11 @@
         "date": "2026-05-26",
         "price": 450.0,
         "normalized_price": 4500.0
+      },
+      {
+        "date": "2026-05-27",
+        "price": 450.0,
+        "normalized_price": 4500.0
       }
     ],
     "current_price": 450.0,
@@ -211,6 +246,11 @@
       },
       {
         "date": "2026-05-26",
+        "price": 1200.0,
+        "normalized_price": 1500.0
+      },
+      {
+        "date": "2026-05-27",
         "price": 1200.0,
         "normalized_price": 1500.0
       }
@@ -247,6 +287,11 @@
         "date": "2026-05-26",
         "price": 750.0,
         "normalized_price": 23148.15
+      },
+      {
+        "date": "2026-05-27",
+        "price": 750.0,
+        "normalized_price": 23148.15
       }
     ],
     "current_price": 750.0,
@@ -276,6 +321,11 @@
         "date": "2026-05-24",
         "price": 450.0,
         "normalized_price": 29032.26
+      },
+      {
+        "date": "2026-05-27",
+        "price": 450.0,
+        "normalized_price": 29032.26
       }
     ],
     "current_price": 450.0,
@@ -298,6 +348,11 @@
       },
       {
         "date": "2026-05-22",
+        "price": 3450.0,
+        "normalized_price": 2760.0
+      },
+      {
+        "date": "2026-05-27",
         "price": 3450.0,
         "normalized_price": 2760.0
       }
@@ -324,11 +379,16 @@
         "date": "2026-05-22",
         "price": 1650.0,
         "normalized_price": 2062.5
+      },
+      {
+        "date": "2026-05-27",
+        "price": 1650.0,
+        "normalized_price": 2357.14
       }
     ],
     "current_price": 1650.0,
-    "normalized_price": 2062.5,
-    "unit": "40gm x 20",
+    "normalized_price": 2357.14,
+    "unit": "35gm x 20",
     "unit_type": "kg",
     "url": "https://shotejbazar.com/product/amul-dark-40gm/"
   },
