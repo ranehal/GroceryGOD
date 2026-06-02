@@ -4,6 +4,7 @@ import os
 import re
 import datetime
 import logging
+from collections import Counter
 
 # Setup logging
 logging.basicConfig(
@@ -16,7 +17,11 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-DATA_FILE = 'data.json'
+# Correctly determine base directory for the script
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_FILE = os.path.join(BASE_DIR, 'data.json')
+LOG_FILE = os.path.join(BASE_DIR, 'last_run_log.txt')
+
 BASE_API_URL = "https://myadmin.unimart.online/api/v1/"
 HEADERS = {
     "moduleid": "1",
@@ -38,6 +43,19 @@ def load_data():
 def save_data(data):
     with open(DATA_FILE, 'w', encoding='utf-8') as f:
         json.dump(data, f, indent=2)
+
+def save_last_run_log(summary):
+    with open(LOG_FILE, "w", encoding='utf-8') as f:
+        f.write(f"Last Run: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+        f.write("-" * 30 + "\n")
+        f.write(f"Total Scraped: {summary['total']}\n")
+        f.write(f"New Items: {summary['new']}\n")
+        f.write("-" * 30 + "\n")
+        f.write("Categories:\n")
+        for cat, count in sorted(summary['categories'].items(), key=lambda x: x[1], reverse=True)[:10]:
+            f.write(f"- {cat}: {count}\n")
+        if len(summary['categories']) > 10:
+            f.write(f"... and {len(summary['categories']) - 10} more.")
 
 def normalize_unimart_unit(name, price):
     name_lower = name.lower()
@@ -68,84 +86,97 @@ def scrape_unimart():
     data = load_data()
     today_str = datetime.date.today().isoformat()
     
-    # We use multiple search queries to ensure we cover the entire inventory
-    # "a" alone covers 12k+ items, adding others for redundancy
-    search_queries = ["a", "e", "i", "o", "u"]
+    summary = {
+        'total': 0,
+        'new': 0,
+        'categories': Counter()
+    }
     
-    total_new = 0
-    for query in search_queries:
-        logger.info(f"Searching for '{query}'...")
-        offset = 0
-        limit = 100
-        
-        while True:
-            url = f"{BASE_API_URL}items/search?name={query}&limit={limit}&offset={offset}"
-            try:
-                r = requests.get(url, headers=HEADERS, timeout=20)
-                if r.status_code != 200:
-                    logger.error(f"  [!] Failed: {r.status_code}")
-                    break
-                
-                res = r.json()
-                products = res.get('products', [])
-                
-                if not products:
-                    break
-                
-                logger.info(f"  [+] Query '{query}': Found {len(products)} products (Offset: {offset})")
-                
-                for p in products:
-                    p_id = f"uni_{p['id']}"
-                    p_name = p['name']
-                    p_price = float(p['price'])
-                    
-                    # Apply discount
-                    discount = float(p.get('discount', 0))
-                    if discount > 0:
-                        if p.get('discount_type') == 'amount':
-                            p_price -= discount
-                        else:
-                            p_price *= (1 - discount/100.0)
-
-                    qty_label, norm_price, u_type = normalize_unimart_unit(p_name, p_price)
-                    
-                    # Category handling (from nested category_ids)
-                    category = "General"
-                    if p.get('category_ids'):
-                        # Take the second to last or last relevant category name
-                        category = p['category_ids'][-1].get('name', 'General')
-
-                    if p_id not in data:
-                        img_url = p.get('image_full_url', "")
-                        data[p_id] = {
-                            "id": p_id, "name": p_name, "store": "unimart",
-                            "image": img_url, "category": category, "history": []
-                        }
-                        total_new += 1
-                    
-                    data[p_id].update({
-                        "current_price": p_price, "normalized_price": norm_price,
-                        "unit": qty_label, "unit_type": u_type
-                    })
-                    
-                    history = data[p_id]["history"]
-                    if not history or history[-1]['date'] != today_str:
-                         history.append({"date": today_str, "price": p_price, "normalized_price": norm_price})
-                    elif history[-1]['date'] == today_str:
-                        history[-1]['price'] = p_price
-                        history[-1]['normalized_price'] = norm_price
-                
-                if len(products) < limit:
-                    break
-                offset += limit # Offset in this API seems to be cumulative items, not pages
-                
-            except Exception as e:
-                logger.error(f"Error fetching offset {offset}: {e}")
+    # Using wildcard query to fetch all products
+    query = "%%"
+    offset = 0
+    limit = 100 # Maximum allowed by API
+    
+    logger.info("Starting Unimart bulk scrape...")
+    
+    while True:
+        url = f"{BASE_API_URL}items/search?name={query}&limit={limit}&offset={offset}"
+        try:
+            r = requests.get(url, headers=HEADERS, timeout=30)
+            if r.status_code != 200:
+                logger.error(f"  [!] API Error: {r.status_code}")
                 break
-        
-        save_data(data) # Partial save
+            
+            res = r.json()
+            products = res.get('products', [])
+            try:
+                total_size = int(res.get('total_size', 0))
+            except:
+                total_size = 0
+            
+            if not products:
+                break
+            
+            logger.info(f"  [+] Fetched {len(products)} products (Offset: {offset}/{total_size})")
+            
+            for p in products:
+                p_id = f"uni_{p['id']}"
+                p_name = p['name']
+                p_price = float(p['price'])
+                
+                # Apply discount
+                discount = float(p.get('discount', 0))
+                if discount > 0:
+                    if p.get('discount_type') == 'amount':
+                        p_price -= discount
+                    else:
+                        p_price *= (1 - discount/100.0)
 
-    logger.info(f"Unimart scraping complete. Total items in DB: {len(data)}")
+                qty_label, norm_price, u_type = normalize_unimart_unit(p_name, p_price)
+                
+                # Category handling
+                category = "General"
+                if p.get('category_ids'):
+                    category = p['category_ids'][-1].get('name', 'General')
+
+                summary['total'] += 1
+                summary['categories'][category] += 1
+
+                if p_id not in data:
+                    img_url = p.get('image_full_url', "")
+                    data[p_id] = {
+                        "id": p_id, "name": p_name, "store": "unimart",
+                        "image": img_url, "category": category, "history": []
+                    }
+                    summary['new'] += 1
+                
+                data[p_id].update({
+                    "current_price": p_price, "normalized_price": norm_p,
+                    "unit": qty_label, "unit_type": u_type
+                })
+                
+                history = data[p_id]["history"]
+                if not history or history[-1]['date'] != today_str:
+                     history.append({"date": today_str, "price": p_price, "normalized_price": norm_price})
+                elif history[-1]['date'] == today_str:
+                    history[-1]['price'] = p_price
+                    history[-1]['normalized_price'] = norm_price
+            
+            if len(products) < limit:
+                break
+            offset += len(products)
+            
+            # Save every 1000 items to prevent data loss
+            if summary['total'] % 1000 == 0:
+                save_data(data)
+
+        except Exception as e:
+            logger.error(f"Error fetching offset {offset}: {e}")
+            break
+    
+    save_data(data)
+    save_last_run_log(summary)
+    logger.info(f"Unimart bulk scrape complete. Total items: {summary['total']}, New: {summary['new']}")
 
 if __name__ == "__main__":
     scrape_unimart()

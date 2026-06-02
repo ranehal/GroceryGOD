@@ -275,9 +275,6 @@ async def main():
         save_last_run_log(summary)
         print(f"Scraping finished. Total products in database: {len(products_data)}")
 
-if __name__ == "__main__":
-    asyncio.run(main())
-
 def save_last_run_log(summary):
     import os
     from datetime import datetime
@@ -294,3 +291,7 @@ def save_last_run_log(summary):
             f.write(f"- {cat}: {count}\n")
         if len(summary['categories']) > 10:
             f.write(f"... and {len(summary['categories']) - 10} more.")
+
+if __name__ == "__main__":
+    asyncio.run(main())
+
