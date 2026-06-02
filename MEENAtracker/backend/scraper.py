@@ -195,6 +195,8 @@ async def main():
         
         for cat in categories: 
             all_products = await scrape_products_in_category(page, cat['url'])
+            summary['total'] += len(all_products)
+            summary['categories'][cat['name']] += len(all_products)
             print(f" -> Scraped {len(all_products)} products from {cat['name']}")
             await save_to_db(cat, all_products)
                 

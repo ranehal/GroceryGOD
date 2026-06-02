@@ -93,7 +93,7 @@ def parse_box_weight(description, name):
         
     return 1.0, 'piece', '1 unit'
 
-async def scrape_category(sem, browser, category, current_data):
+async def scrape_category(sem, browser, category, current_data, summary):
     async with sem:
         context = await browser.new_context(user_agent=random.choice(USER_AGENTS))
         page = await context.new_page()
@@ -153,6 +153,8 @@ async def scrape_category(sem, browser, category, current_data):
                     total_weight, unit_type, qty_label = parse_box_weight(description, name)
                     norm_price = current_price / total_weight if total_weight > 0 else current_price
 
+                    summary['total'] += 1
+                    summary['categories'][category['name']] += 1
                     if prod_id not in current_data:
                         current_data[prod_id] = {
                             "id": prod_id, "name": name, "store": "shotejbazar",
@@ -194,7 +196,7 @@ async def main():
         # Sequential processing to be respectful and avoid memory spikes with deep extraction
         sem = asyncio.Semaphore(1) 
         for cat in enabled_categories:
-            await scrape_category(sem, browser, cat, data)
+            await scrape_category(sem, browser, cat, data, summary)
             save_data(data) # Save after each category
             
         await browser.close()

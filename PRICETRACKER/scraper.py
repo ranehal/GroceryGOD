@@ -112,7 +112,7 @@ async def discover_categories(page):
 
     return discovered
 
-async def scrape_category(browser, cat_entry, products_data, semaphore, timestamp, today_date):
+async def scrape_category(browser, cat_entry, products_data, summary, semaphore, timestamp, today_date):
     async with semaphore:
         url = cat_entry['url']
         cat_name = cat_entry['name']
@@ -170,6 +170,8 @@ async def scrape_category(browser, cat_entry, products_data, semaphore, timestam
                     prod_id = re.sub(r'\W+', '_', name + "_" + unit_text).lower()
 
                     # Shared dict update (Async safe)
+                    summary['total'] += 1
+                    summary['categories'][cat_name] += 1
                     if prod_id not in products_data:
                         products_data[prod_id] = {
                             "id": prod_id, "name": name, "image": img_src,

@@ -96,7 +96,7 @@ def normalize_unit(name, price_str):
                 
     return quantity_display, round(norm_price, 2), unit_type
 
-async def self_scrape_items(page, container_selector, category, current_data, today_str, is_pinned=False):
+async def self_scrape_items(page, container_selector, category, current_data, today_str, summary, is_pinned=False):
     container = await page.query_selector(container_selector) or page
     # Broaden selector to capture products in different layouts
     items = await container.query_selector_all('.product-box, div[class*="product-grid-item"], .product-item-info')
@@ -123,6 +123,8 @@ async def self_scrape_items(page, container_selector, category, current_data, to
             prod_id = re.sub(r'\W+', '', name).lower()
             
             # PINNING PRIORITY LOGIC:
+            summary['total'] += 1
+            summary['categories'][category['name']] += 1
             if prod_id not in current_data:
                 current_data[prod_id] = {
                     "id": prod_id, "name": name, "url": product_url, 
@@ -145,7 +147,7 @@ async def self_scrape_items(page, container_selector, category, current_data, to
                 history[-1]['normalized_price'] = norm_price
         except: pass
 
-async def scrape_category(sem, browser, category, current_data, pinned_names=[]):
+async def scrape_category(sem, browser, category, current_data, summary, pinned_names=[]):
     async with sem:
         is_pinned = category['name'] in pinned_names
         context = await browser.new_context(user_agent=random.choice(USER_AGENTS))
@@ -189,14 +191,14 @@ async def scrape_category(sem, browser, category, current_data, pinned_names=[])
                         for _ in range(4): # Scroll deep within tab
                             await page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
                             await asyncio.sleep(1.5)
-                        await self_scrape_items(page, container_selector, category, current_data, today_str, is_pinned)
+                        await self_scrape_items(page, container_selector, category, current_data, today_str, summary, is_pinned)
                     except: continue
             else:
                 # Standard Scroll Scrape
                 for _ in range(10):
                     await page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
                     await asyncio.sleep(1.5)
-                await self_scrape_items(page, container_selector, category, current_data, today_str, is_pinned)
+                await self_scrape_items(page, container_selector, category, current_data, today_str, summary, is_pinned)
             
             return True
         except Exception as e:
@@ -226,7 +228,7 @@ async def main():
         queue = pinned_cats + other_cats
         for i, cat in enumerate(queue):
             logger.info(f"Progress: {i+1}/{len(queue)}")
-            await scrape_category(sem, browser, cat, data, pinned_names)
+            await scrape_category(sem, browser, cat, data, summary, pinned_names)
             if (i+1) % 5 == 0: save_data(data) # Save every 5 cats
             
         await browser.close()

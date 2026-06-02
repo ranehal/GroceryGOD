@@ -93,14 +93,14 @@ def scrape_unimart():
     }
     
     # Using wildcard query to fetch all products
-    query = "%%"
+    pass
     offset = 0
     limit = 100 # Maximum allowed by API
     
     logger.info("Starting Unimart bulk scrape...")
     
     while True:
-        url = f"{BASE_API_URL}items/search?name={query}&limit={limit}&offset={offset}"
+        # Replaced by multi-query
         try:
             r = requests.get(url, headers=HEADERS, timeout=30)
             if r.status_code != 200:

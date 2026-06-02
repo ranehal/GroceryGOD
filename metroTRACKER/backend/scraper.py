@@ -143,7 +143,10 @@ async def main():
         page = await browser.new_page()
         for cat in CATEGORIES:
             products = await scrape_products_in_category(page, cat['url'])
-            if products: await save_to_db(cat['name'], cat['url'], products)
+            if products: 
+                await save_to_db(cat['name'], cat['url'], products)
+                summary['total'] += len(products)
+                summary['categories'][cat['name']] += len(products)
         save_last_run_log(summary)
         await browser.close()
 
