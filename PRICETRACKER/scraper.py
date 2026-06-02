@@ -273,7 +273,7 @@ async def main():
             f.write(f"window.PRODUCT_DATA = {json.dumps(products_data, indent=2)};")
         
         save_last_run_log(summary)
-        print. Total products in database: {len(products_data)}")
+        print(f"Scraping finished. Total products in database: {len(products_data)}")
 
 if __name__ == "__main__":
     asyncio.run(main())
