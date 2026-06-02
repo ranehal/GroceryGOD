@@ -1,0 +1,3602 @@
+{
+  "uni_44270": {
+    "id": "uni_44270",
+    "name": "Lakeme Lip Love 22hr Moisture Spf15 Lip Balm- Cherry 4.5g IN",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0397081.webp",
+    "category": "Lip Care",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 470.0,
+        "normalized_price": 104444.44
+      }
+    ],
+    "current_price": 470.0,
+    "normalized_price": 104444.44,
+    "unit": "4.5g",
+    "unit_type": "kg"
+  },
+  "uni_44488": {
+    "id": "uni_44488",
+    "name": "Herbal Essences Coconut Milk Hydrate Shampoo 400ml FR",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0402339.webp",
+    "category": "Shampoo",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1450.0,
+        "normalized_price": 3625.0
+      }
+    ],
+    "current_price": 1450.0,
+    "normalized_price": 3625.0,
+    "unit": "400.0ml",
+    "unit_type": "liter"
+  },
+  "uni_44490": {
+    "id": "uni_44490",
+    "name": "Herbal Essences Potent Aloe+Bamboo Strength Builder Shampoo 400ml FR",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0402338.webp",
+    "category": "Shampoo",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1450.0,
+        "normalized_price": 3625.0
+      }
+    ],
+    "current_price": 1450.0,
+    "normalized_price": 3625.0,
+    "unit": "400.0ml",
+    "unit_type": "liter"
+  },
+  "uni_44497": {
+    "id": "uni_44497",
+    "name": "Herbal Essences White Strawberry & Sweet Mint Clean Shampoo 400ml FR",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0402337.webp",
+    "category": "Shampoo",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1450.0,
+        "normalized_price": 3625.0
+      }
+    ],
+    "current_price": 1450.0,
+    "normalized_price": 3625.0,
+    "unit": "400.0ml",
+    "unit_type": "liter"
+  },
+  "uni_44496": {
+    "id": "uni_44496",
+    "name": "Herbal Essences Arabica Coffee Bruit Conditioner 400ml FR",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0402335.webp",
+    "category": "Conditioner",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1450.0,
+        "normalized_price": 3625.0
+      }
+    ],
+    "current_price": 1450.0,
+    "normalized_price": 3625.0,
+    "unit": "400.0ml",
+    "unit_type": "liter"
+  },
+  "uni_44563": {
+    "id": "uni_44563",
+    "name": "Nivea Boday Loation Natural Glow Moisturizes And Evens Skin Tone 625ml ES",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0402320.webp",
+    "category": "Body Lotion",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 2390.0,
+        "normalized_price": 3824.0
+      }
+    ],
+    "current_price": 2390.0,
+    "normalized_price": 3824.0,
+    "unit": "625.0ml",
+    "unit_type": "liter"
+  },
+  "uni_44590": {
+    "id": "uni_44590",
+    "name": "Gillette   Antiperspirant Gel Sport Triumph Stick 70ml UK",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0402315.webp",
+    "category": "Deo Stick",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 750.0,
+        "normalized_price": 10714.29
+      }
+    ],
+    "current_price": 750.0,
+    "normalized_price": 10714.29,
+    "unit": "70.0ml",
+    "unit_type": "liter"
+  },
+  "uni_44520": {
+    "id": "uni_44520",
+    "name": "Creme 21 Moisturizing Cream Soft Care And Hydro-Balance Dry Skin With Vitamin E 50ML DE ",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0402311.webp",
+    "category": "Face Moisturizers",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 380.0,
+        "normalized_price": 7600.0
+      }
+    ],
+    "current_price": 380.0,
+    "normalized_price": 7600.0,
+    "unit": "50.0ml",
+    "unit_type": "liter"
+  },
+  "uni_44562": {
+    "id": "uni_44562",
+    "name": "Creme 21 Body Lotion Ultra Dry Skin With Almond Oil And Vitamine E 400ML DE ",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0402308.webp",
+    "category": "Body Lotion",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1850.0,
+        "normalized_price": 4625.0
+      }
+    ],
+    "current_price": 1850.0,
+    "normalized_price": 4625.0,
+    "unit": "400.0ml",
+    "unit_type": "liter"
+  },
+  "uni_44539": {
+    "id": "uni_44539",
+    "name": "Creme 21 Body Lotion Normal Skin Aqua Soft With Pro -Vitamin 85 400ML DE ",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0402307.webp",
+    "category": "Body Lotion",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1850.0,
+        "normalized_price": 4625.0
+      }
+    ],
+    "current_price": 1850.0,
+    "normalized_price": 4625.0,
+    "unit": "400.0ml",
+    "unit_type": "liter"
+  },
+  "uni_44592": {
+    "id": "uni_44592",
+    "name": "Colgate Triple Action Toothpaste 100 Ml CN",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0402305.webp",
+    "category": "Toothpaste",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 439.0,
+        "normalized_price": 4390.0
+      }
+    ],
+    "current_price": 439.0,
+    "normalized_price": 4390.0,
+    "unit": "100.0ml",
+    "unit_type": "liter"
+  },
+  "uni_44633": {
+    "id": "uni_44633",
+    "name": "Colgate Salt Herbal Toothpaste 100 Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0402304.webp",
+    "category": "Toothpaste",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 535.0,
+        "normalized_price": 5350.0
+      }
+    ],
+    "current_price": 535.0,
+    "normalized_price": 5350.0,
+    "unit": "100.0ml",
+    "unit_type": "liter"
+  },
+  "uni_44630": {
+    "id": "uni_44630",
+    "name": "Colgate Salt Charcoal Toothpaste 100 Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0402303.webp",
+    "category": "Toothpaste",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 535.0,
+        "normalized_price": 5350.0
+      }
+    ],
+    "current_price": 535.0,
+    "normalized_price": 5350.0,
+    "unit": "100.0ml",
+    "unit_type": "liter"
+  },
+  "uni_44478": {
+    "id": "uni_44478",
+    "name": "Colgate Salt Herbal Toothpaste 150 Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0402302.webp",
+    "category": "Toothpaste",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 575.0,
+        "normalized_price": 3833.33
+      }
+    ],
+    "current_price": 575.0,
+    "normalized_price": 3833.33,
+    "unit": "150.0ml",
+    "unit_type": "liter"
+  },
+  "uni_44459": {
+    "id": "uni_44459",
+    "name": "Colgate Proven Cavity Protection Toothpaste 150 Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0402301.webp",
+    "category": "Toothpaste",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 575.0,
+        "normalized_price": 3833.33
+      }
+    ],
+    "current_price": 575.0,
+    "normalized_price": 3833.33,
+    "unit": "150.0ml",
+    "unit_type": "liter"
+  },
+  "uni_44577": {
+    "id": "uni_44577",
+    "name": "Gillette Shave Foam Regular 200 Ml UK",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0402293.webp",
+    "category": "Shaving Foam",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 699.0,
+        "normalized_price": 3495.0
+      }
+    ],
+    "current_price": 699.0,
+    "normalized_price": 3495.0,
+    "unit": "200.0ml",
+    "unit_type": "liter"
+  },
+  "uni_44526": {
+    "id": "uni_44526",
+    "name": "Gillette Shave Foam Original Scent Sensative 200 Ml UK",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0402290.webp",
+    "category": "Shaving Foam",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 699.0,
+        "normalized_price": 3495.0
+      }
+    ],
+    "current_price": 699.0,
+    "normalized_price": 3495.0,
+    "unit": "200.0ml",
+    "unit_type": "liter"
+  },
+  "uni_44542": {
+    "id": "uni_44542",
+    "name": "Boots Moisturising Shower Cream Rose 1000 Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0402286.webp",
+    "category": "Shower Creame & Gels",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 2790.0,
+        "normalized_price": 2790.0
+      }
+    ],
+    "current_price": 2790.0,
+    "normalized_price": 2790.0,
+    "unit": "1000.0ml",
+    "unit_type": "liter"
+  },
+  "uni_44541": {
+    "id": "uni_44541",
+    "name": "Boots Moisturising Shower Cream Peony 1000 Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0402285.webp",
+    "category": "Shower Creame & Gels",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 2790.0,
+        "normalized_price": 2790.0
+      }
+    ],
+    "current_price": 2790.0,
+    "normalized_price": 2790.0,
+    "unit": "1000.0ml",
+    "unit_type": "liter"
+  },
+  "uni_44505": {
+    "id": "uni_44505",
+    "name": "Boots Baby Moisturising Lotion 500 Ml UK",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0402281.webp",
+    "category": "Body Wash",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1865.0,
+        "normalized_price": 3730.0
+      }
+    ],
+    "current_price": 1865.0,
+    "normalized_price": 3730.0,
+    "unit": "500.0ml",
+    "unit_type": "liter"
+  },
+  "uni_44525": {
+    "id": "uni_44525",
+    "name": "Boots Baby Bath Bubbles 500 Ml UK",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0402280.webp",
+    "category": "Body Wash",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1865.0,
+        "normalized_price": 3730.0
+      }
+    ],
+    "current_price": 1865.0,
+    "normalized_price": 3730.0,
+    "unit": "500.0ml",
+    "unit_type": "liter"
+  },
+  "uni_44504": {
+    "id": "uni_44504",
+    "name": "Boots Baby Head To Toe Wash 500 Ml UK",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0402279.webp",
+    "category": "Body Wash",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1865.0,
+        "normalized_price": 3730.0
+      }
+    ],
+    "current_price": 1865.0,
+    "normalized_price": 3730.0,
+    "unit": "500.0ml",
+    "unit_type": "liter"
+  },
+  "uni_44511": {
+    "id": "uni_44511",
+    "name": "Boots Cucumber Moisturising Lotion 150 Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0402278.webp",
+    "category": "Face Moisturizers",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1035.0,
+        "normalized_price": 6900.0
+      }
+    ],
+    "current_price": 1035.0,
+    "normalized_price": 6900.0,
+    "unit": "150.0ml",
+    "unit_type": "liter"
+  },
+  "uni_44514": {
+    "id": "uni_44514",
+    "name": "Omuda Nail Clippers No A2011 CN",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0402276.webp",
+    "category": "Nail Clipper",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 235.0,
+        "normalized_price": 235.0
+      }
+    ],
+    "current_price": 235.0,
+    "normalized_price": 235.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_44513": {
+    "id": "uni_44513",
+    "name": "Omuda Nail Clippers No A2014 CN",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0402275.webp",
+    "category": "Nail Clipper",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 235.0,
+        "normalized_price": 235.0
+      }
+    ],
+    "current_price": 235.0,
+    "normalized_price": 235.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_44475": {
+    "id": "uni_44475",
+    "name": "Omuda Nail Clippers No A3001-9 CN",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0402273.webp",
+    "category": "Nail Clipper",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 235.0,
+        "normalized_price": 235.0
+      }
+    ],
+    "current_price": 235.0,
+    "normalized_price": 235.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_44454": {
+    "id": "uni_44454",
+    "name": "Omuda Nail Clippers No A2038 CN",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0402272.webp",
+    "category": "Nail Clipper",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 235.0,
+        "normalized_price": 235.0
+      }
+    ],
+    "current_price": 235.0,
+    "normalized_price": 235.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_44483": {
+    "id": "uni_44483",
+    "name": "Carebeau Body Massage Oil Jasmine 450 Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0402270.webp",
+    "category": "Body Oil",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1487.0,
+        "normalized_price": 3304.44
+      }
+    ],
+    "current_price": 1487.0,
+    "normalized_price": 3304.44,
+    "unit": "450.0ml",
+    "unit_type": "liter"
+  },
+  "uni_44455": {
+    "id": "uni_44455",
+    "name": "Carebeau Body Massage Oil Coconut 450 Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0402269.webp",
+    "category": "Body Oil",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1487.0,
+        "normalized_price": 3304.44
+      }
+    ],
+    "current_price": 1487.0,
+    "normalized_price": 3304.44,
+    "unit": "450.0ml",
+    "unit_type": "liter"
+  },
+  "uni_44499": {
+    "id": "uni_44499",
+    "name": "Rexona Dreamy Bright 40Ml ID",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0402263.webp",
+    "category": "Roll-On Women",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 240.0,
+        "normalized_price": 6000.0
+      }
+    ],
+    "current_price": 240.0,
+    "normalized_price": 6000.0,
+    "unit": "40.0ml",
+    "unit_type": "liter"
+  },
+  "uni_44479": {
+    "id": "uni_44479",
+    "name": "Rexona Glowing 40Ml ID",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0402262.webp",
+    "category": "Roll-On Women",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 240.0,
+        "normalized_price": 6000.0
+      }
+    ],
+    "current_price": 240.0,
+    "normalized_price": 6000.0,
+    "unit": "40.0ml",
+    "unit_type": "liter"
+  },
+  "uni_44451": {
+    "id": "uni_44451",
+    "name": "Rexona Hijab Natural Peach&Mint Cool 45Ml ID",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0402261.webp",
+    "category": "Roll-On Women",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 240.0,
+        "normalized_price": 5333.33
+      }
+    ],
+    "current_price": 240.0,
+    "normalized_price": 5333.33,
+    "unit": "45.0ml",
+    "unit_type": "liter"
+  },
+  "uni_44509": {
+    "id": "uni_44509",
+    "name": "Dove Ultimate Repair Removes Dark Spots 40Ml ID",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0402260.webp",
+    "category": "Face Moisturizers",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 230.0,
+        "normalized_price": 5750.0
+      }
+    ],
+    "current_price": 230.0,
+    "normalized_price": 5750.0,
+    "unit": "40.0ml",
+    "unit_type": "liter"
+  },
+  "uni_44575": {
+    "id": "uni_44575",
+    "name": "Ponds Sandal Radiance Talcum Powder 100G IN",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0402249.webp",
+    "category": "Face Powder",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 375.0,
+        "normalized_price": 3750.0
+      }
+    ],
+    "current_price": 375.0,
+    "normalized_price": 3750.0,
+    "unit": "100.0g",
+    "unit_type": "kg"
+  },
+  "uni_44417": {
+    "id": "uni_44417",
+    "name": "Fiamma Mushroom Alfredo Pasta Sauce 350Gm IT",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0402235.webp",
+    "category": "Pasta Ready Sauce",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 550.0,
+        "normalized_price": 1571.43
+      }
+    ],
+    "current_price": 550.0,
+    "normalized_price": 1571.43,
+    "unit": "350.0gm",
+    "unit_type": "kg"
+  },
+  "uni_44418": {
+    "id": "uni_44418",
+    "name": "Fiamma Four Cheese Pasta Sauce 350Gm IT",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0402234.webp",
+    "category": "Pasta Ready Sauce",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 550.0,
+        "normalized_price": 1571.43
+      }
+    ],
+    "current_price": 550.0,
+    "normalized_price": 1571.43,
+    "unit": "350.0gm",
+    "unit_type": "kg"
+  },
+  "uni_41960": {
+    "id": "uni_41960",
+    "name": "Elit Golden Love(8211)Green 160G  TR",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0402229.webp",
+    "category": "Chocolate Bar",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1155.0,
+        "normalized_price": 7218.75
+      }
+    ],
+    "current_price": 1155.0,
+    "normalized_price": 7218.75,
+    "unit": "160.0g",
+    "unit_type": "kg"
+  },
+  "uni_41934": {
+    "id": "uni_41934",
+    "name": "Elit Golden Love(8204)Yellow 160G  TR",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0402228.webp",
+    "category": "Chocolate Bar",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1155.0,
+        "normalized_price": 7218.75
+      }
+    ],
+    "current_price": 1155.0,
+    "normalized_price": 7218.75,
+    "unit": "160.0g",
+    "unit_type": "kg"
+  },
+  "uni_44678": {
+    "id": "uni_44678",
+    "name": "Radhuni Mustard Oil 2Liter",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0399214.webp",
+    "category": "Mustard Oil",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 750.0,
+        "normalized_price": 375.0
+      }
+    ],
+    "current_price": 750.0,
+    "normalized_price": 375.0,
+    "unit": "2.0liter",
+    "unit_type": "liter"
+  },
+  "uni_48268": {
+    "id": "uni_48268",
+    "name": "Radhuni Chaat Masala 50Gm",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0399213.webp",
+    "category": "Grinded Spice",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 75.0,
+        "normalized_price": 1500.0
+      }
+    ],
+    "current_price": 75.0,
+    "normalized_price": 1500.0,
+    "unit": "50.0gm",
+    "unit_type": "kg"
+  },
+  "uni_44405": {
+    "id": "uni_44405",
+    "name": "Chicken & Vegetable Recipe-Can Food-375G CN",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0399195.webp",
+    "category": "Cat Food",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 300.0,
+        "normalized_price": 800.0
+      }
+    ],
+    "current_price": 300.0,
+    "normalized_price": 800.0,
+    "unit": "375.0g",
+    "unit_type": "kg"
+  },
+  "uni_44404": {
+    "id": "uni_44404",
+    "name": "Chicken Recipe-Can Food-375G CN",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0399194.webp",
+    "category": "Cat Food",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 300.0,
+        "normalized_price": 800.0
+      }
+    ],
+    "current_price": 300.0,
+    "normalized_price": 800.0,
+    "unit": "375.0g",
+    "unit_type": "kg"
+  },
+  "uni_44379": {
+    "id": "uni_44379",
+    "name": "Three Rabbits Wall Hook Wh-2203,Cn",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0398108.webp",
+    "category": "Clothes Hanger",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 150.0,
+        "normalized_price": 150.0
+      }
+    ],
+    "current_price": 150.0,
+    "normalized_price": 150.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_44381": {
+    "id": "uni_44381",
+    "name": "Three Rabbits Wall Hook Wh-2227,Cn",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0398106.webp",
+    "category": "Clothes Hanger",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 150.0,
+        "normalized_price": 150.0
+      }
+    ],
+    "current_price": 150.0,
+    "normalized_price": 150.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_44377": {
+    "id": "uni_44377",
+    "name": "Three Rabbits Wall Hook Wh-2234,Cn",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0398105.webp",
+    "category": "Clothes Hanger",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 100.0,
+        "normalized_price": 100.0
+      }
+    ],
+    "current_price": 100.0,
+    "normalized_price": 100.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_44374": {
+    "id": "uni_44374",
+    "name": "Supermom Mild Baby Wipes 20 pcs",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0398104.webp",
+    "category": "Wipes",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 60.0,
+        "normalized_price": 60.0
+      }
+    ],
+    "current_price": 60.0,
+    "normalized_price": 60.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_44383": {
+    "id": "uni_44383",
+    "name": "MAYA True Herbs Rose Coconut Hair oil 200ml",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0398103.webp",
+    "category": "Hair Oil",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 220.0,
+        "normalized_price": 1100.0
+      }
+    ],
+    "current_price": 220.0,
+    "normalized_price": 1100.0,
+    "unit": "200.0ml",
+    "unit_type": "liter"
+  },
+  "uni_44382": {
+    "id": "uni_44382",
+    "name": "MAYA True Herbs Cooling Coconut Hair Oil 200ml",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0398102.webp",
+    "category": "Hair Oil",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 280.0,
+        "normalized_price": 1400.0
+      }
+    ],
+    "current_price": 280.0,
+    "normalized_price": 1400.0,
+    "unit": "200.0ml",
+    "unit_type": "liter"
+  },
+  "uni_44369": {
+    "id": "uni_44369",
+    "name": "Betagen YoGood Drinking Yoghurt Strawberry 300ml X 6 Pcs TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0397615.webp",
+    "category": "Probiotic Drinks",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1590.0,
+        "normalized_price": 5300.0
+      }
+    ],
+    "current_price": 1590.0,
+    "normalized_price": 5300.0,
+    "unit": "300.0ml",
+    "unit_type": "liter"
+  },
+  "uni_44363": {
+    "id": "uni_44363",
+    "name": "Betagen YoGood Drinking Yoghurt Orange 300ml X 6 Pcs TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0397614.webp",
+    "category": "Probiotic Drinks",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1590.0,
+        "normalized_price": 5300.0
+      }
+    ],
+    "current_price": 1590.0,
+    "normalized_price": 5300.0,
+    "unit": "300.0ml",
+    "unit_type": "liter"
+  },
+  "uni_44350": {
+    "id": "uni_44350",
+    "name": "Betagen YoGood Drinking Yoghurt 300ml X 6 Pcs TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0397613.webp",
+    "category": "Probiotic Drinks",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1590.0,
+        "normalized_price": 5300.0
+      }
+    ],
+    "current_price": 1590.0,
+    "normalized_price": 5300.0,
+    "unit": "300.0ml",
+    "unit_type": "liter"
+  },
+  "uni_44339": {
+    "id": "uni_44339",
+    "name": "Betagen YoGood Drinking Yoghurt Strawberry 300ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0397612.webp",
+    "category": "Probiotic Drinks",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 350.0,
+        "normalized_price": 1166.67
+      }
+    ],
+    "current_price": 350.0,
+    "normalized_price": 1166.67,
+    "unit": "300.0ml",
+    "unit_type": "liter"
+  },
+  "uni_44368": {
+    "id": "uni_44368",
+    "name": "Betagen YoGood Drinking Yoghurt Orange 300ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0397611.webp",
+    "category": "Probiotic Drinks",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 350.0,
+        "normalized_price": 1166.67
+      }
+    ],
+    "current_price": 350.0,
+    "normalized_price": 1166.67,
+    "unit": "300.0ml",
+    "unit_type": "liter"
+  },
+  "uni_44370": {
+    "id": "uni_44370",
+    "name": "Betagen YoGood Drinking Yoghurt  300ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0397610.webp",
+    "category": "Probiotic Drinks",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 350.0,
+        "normalized_price": 1166.67
+      }
+    ],
+    "current_price": 350.0,
+    "normalized_price": 1166.67,
+    "unit": "300.0ml",
+    "unit_type": "liter"
+  },
+  "uni_44362": {
+    "id": "uni_44362",
+    "name": "Betagen YoGood Drinking Yoghurt Strawberry 85ml X 4 Pcs TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0397609.webp",
+    "category": "Probiotic Drinks",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 350.0,
+        "normalized_price": 4117.65
+      }
+    ],
+    "current_price": 350.0,
+    "normalized_price": 4117.65,
+    "unit": "85.0ml",
+    "unit_type": "liter"
+  },
+  "uni_44346": {
+    "id": "uni_44346",
+    "name": "Betagen YoGood Drinking Yoghurt Orange 85ml X 4 Pcs TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0397608.webp",
+    "category": "Probiotic Drinks",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 350.0,
+        "normalized_price": 4117.65
+      }
+    ],
+    "current_price": 350.0,
+    "normalized_price": 4117.65,
+    "unit": "85.0ml",
+    "unit_type": "liter"
+  },
+  "uni_44338": {
+    "id": "uni_44338",
+    "name": "Betagen YoGood Drinking Yoghurt 85ml X 4 Pcs TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0397607.webp",
+    "category": "Probiotic Drinks",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 350.0,
+        "normalized_price": 4117.65
+      }
+    ],
+    "current_price": 350.0,
+    "normalized_price": 4117.65,
+    "unit": "85.0ml",
+    "unit_type": "liter"
+  },
+  "uni_44347": {
+    "id": "uni_44347",
+    "name": "Betagen YoGood Drinking Yoghurt Strawberry 85ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0397606.webp",
+    "category": "Probiotic Drinks",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 90.0,
+        "normalized_price": 1058.82
+      }
+    ],
+    "current_price": 90.0,
+    "normalized_price": 1058.82,
+    "unit": "85.0ml",
+    "unit_type": "liter"
+  },
+  "uni_44337": {
+    "id": "uni_44337",
+    "name": "Betagen YoGood Drinking Yoghurt Orange 85ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0397605.webp",
+    "category": "Probiotic Drinks",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 90.0,
+        "normalized_price": 1058.82
+      }
+    ],
+    "current_price": 90.0,
+    "normalized_price": 1058.82,
+    "unit": "85.0ml",
+    "unit_type": "liter"
+  },
+  "uni_44361": {
+    "id": "uni_44361",
+    "name": "Betagen YoGood Drinking Yoghurt  85ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0397604.webp",
+    "category": "Probiotic Drinks",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 90.0,
+        "normalized_price": 1058.82
+      }
+    ],
+    "current_price": 90.0,
+    "normalized_price": 1058.82,
+    "unit": "85.0ml",
+    "unit_type": "liter"
+  },
+  "uni_44376": {
+    "id": "uni_44376",
+    "name": "Ogx Renewing + Argan Oil Of Morocco Penetrating Oil 100ml GR",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0397113.webp",
+    "category": "Body Oil",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1945.0,
+        "normalized_price": 19450.0
+      }
+    ],
+    "current_price": 1945.0,
+    "normalized_price": 19450.0,
+    "unit": "100.0ml",
+    "unit_type": "liter"
+  },
+  "uni_44316": {
+    "id": "uni_44316",
+    "name": "Nivea Deep Moisture Care Cocoa Butter Body Lotion For Dry 625ml ES",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0397100.webp",
+    "category": "Body Lotion",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 2400.0,
+        "normalized_price": 3840.0
+      }
+    ],
+    "current_price": 2400.0,
+    "normalized_price": 3840.0,
+    "unit": "625.0ml",
+    "unit_type": "liter"
+  },
+  "uni_44284": {
+    "id": "uni_44284",
+    "name": "Naturals By Watsons Prestige Rose Body Lotion 490ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0397094.webp",
+    "category": "Body Lotion",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1900.0,
+        "normalized_price": 3877.55
+      }
+    ],
+    "current_price": 1900.0,
+    "normalized_price": 3877.55,
+    "unit": "490.0ml",
+    "unit_type": "liter"
+  },
+  "uni_44286": {
+    "id": "uni_44286",
+    "name": "Naturals By Watsons Cherry Blossom  Body Lotion 490ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0397092.webp",
+    "category": "Body Lotion",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1900.0,
+        "normalized_price": 3877.55
+      }
+    ],
+    "current_price": 1900.0,
+    "normalized_price": 3877.55,
+    "unit": "490.0ml",
+    "unit_type": "liter"
+  },
+  "uni_44310": {
+    "id": "uni_44310",
+    "name": "Mielle Rosemary Mint Strengthening Shampoo 355ml US",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0397089.webp",
+    "category": "Shampoo",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 3130.0,
+        "normalized_price": 8816.9
+      }
+    ],
+    "current_price": 3130.0,
+    "normalized_price": 8816.9,
+    "unit": "355.0ml",
+    "unit_type": "liter"
+  },
+  "uni_44372": {
+    "id": "uni_44372",
+    "name": "Mielle Rosemary Mint Scalp & Hair Strengthening Oil 59ml US",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0397088.webp",
+    "category": "Body Oil",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 2485.0,
+        "normalized_price": 42118.64
+      }
+    ],
+    "current_price": 2485.0,
+    "normalized_price": 42118.64,
+    "unit": "59.0ml",
+    "unit_type": "liter"
+  },
+  "uni_44267": {
+    "id": "uni_44267",
+    "name": "Mielle Pomegranate & Honey Moisturizing & Detangling Shampoo 355ml US",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0397087.webp",
+    "category": "Face Moisturizers",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 3315.0,
+        "normalized_price": 9338.03
+      }
+    ],
+    "current_price": 3315.0,
+    "normalized_price": 9338.03,
+    "unit": "355.0ml",
+    "unit_type": "liter"
+  },
+  "uni_44352": {
+    "id": "uni_44352",
+    "name": "Maybelline Baby Lips Color Lip Balm SPF11 - Pink Lolita 4g IN",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0397086.webp",
+    "category": "Lip Care",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 485.0,
+        "normalized_price": 121250.0
+      }
+    ],
+    "current_price": 485.0,
+    "normalized_price": 121250.0,
+    "unit": "4.0g",
+    "unit_type": "kg"
+  },
+  "uni_44271": {
+    "id": "uni_44271",
+    "name": "Maybelline Baby Lips Color Lip Balm SPF11 - Berry Crush 4g IN",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0397084.webp",
+    "category": "Lip Care",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 485.0,
+        "normalized_price": 121250.0
+      }
+    ],
+    "current_price": 485.0,
+    "normalized_price": 121250.0,
+    "unit": "4.0g",
+    "unit_type": "kg"
+  },
+  "uni_44226": {
+    "id": "uni_44226",
+    "name": "Yellow Casual Premium Long Socks Bicycle Pattern:mb219-men-L-12",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0396509.webp",
+    "category": "Socks",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 219.0,
+        "normalized_price": 219.0
+      }
+    ],
+    "current_price": 219.0,
+    "normalized_price": 219.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_44335": {
+    "id": "uni_44335",
+    "name": "Ash Formal Quarter Socks Small Dots Antibacterial:ff249-men-Q-03as",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0396526.webp",
+    "category": "Socks",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 249.0,
+        "normalized_price": 249.0
+      }
+    ],
+    "current_price": 249.0,
+    "normalized_price": 249.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_44208": {
+    "id": "uni_44208",
+    "name": "Navy Formal Quarter Socks Stripe Bands Antibacterial:ff249-men-Q-06na",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0396525.webp",
+    "category": "Socks",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 249.0,
+        "normalized_price": 249.0
+      }
+    ],
+    "current_price": 249.0,
+    "normalized_price": 249.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_44214": {
+    "id": "uni_44214",
+    "name": "Beige Formal Quarter Socks Stripe Bands Antibacterial:ff249-men-Q-06bg",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0396524.webp",
+    "category": "Socks",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 249.0,
+        "normalized_price": 249.0
+      }
+    ],
+    "current_price": 249.0,
+    "normalized_price": 249.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_44211": {
+    "id": "uni_44211",
+    "name": "Navy Casual Long Socks Spiral Stripes:mb169-men-L-04na",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0396523.webp",
+    "category": "Socks",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 169.0,
+        "normalized_price": 169.0
+      }
+    ],
+    "current_price": 169.0,
+    "normalized_price": 169.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_44196": {
+    "id": "uni_44196",
+    "name": "Black Casual Long Socks Spiral Stripes:mb169-men-L-04bl",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0396522.webp",
+    "category": "Socks",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 169.0,
+        "normalized_price": 169.0
+      }
+    ],
+    "current_price": 169.0,
+    "normalized_price": 169.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_44334": {
+    "id": "uni_44334",
+    "name": "Black Casual Premium Long Socks Stripe Bands:mb219-men-L-25bl",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0396521.webp",
+    "category": "Socks",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 219.0,
+        "normalized_price": 219.0
+      }
+    ],
+    "current_price": 219.0,
+    "normalized_price": 219.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_44288": {
+    "id": "uni_44288",
+    "name": "Green & Ash Casual Long Socks Stripe Bands:mb149-men-L-42",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0396520.webp",
+    "category": "Socks",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 149.0,
+        "normalized_price": 149.0
+      }
+    ],
+    "current_price": 149.0,
+    "normalized_price": 149.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_44202": {
+    "id": "uni_44202",
+    "name": "Blue Casual Premium Long Socks Stripe Bands:mb219-men-L-25blue",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0396519.webp",
+    "category": "Socks",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 219.0,
+        "normalized_price": 219.0
+      }
+    ],
+    "current_price": 219.0,
+    "normalized_price": 219.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_44333": {
+    "id": "uni_44333",
+    "name": "Navy Casual Premium Long Socks Diamond Pattern:mb219-men-L-04na2",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0396518.webp",
+    "category": "Socks",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 219.0,
+        "normalized_price": 219.0
+      }
+    ],
+    "current_price": 219.0,
+    "normalized_price": 219.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_44195": {
+    "id": "uni_44195",
+    "name": "Chocolate Casual Premium Long Socks Diamond Pattern:mb219-men-L-05ch",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0396517.webp",
+    "category": "Socks",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 219.0,
+        "normalized_price": 219.0
+      }
+    ],
+    "current_price": 219.0,
+    "normalized_price": 219.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_44205": {
+    "id": "uni_44205",
+    "name": "Black Casual Premium Long Socks Diamond Pattern:mb219-men-L-01bl",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0396516.webp",
+    "category": "Socks",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 219.0,
+        "normalized_price": 219.0
+      }
+    ],
+    "current_price": 219.0,
+    "normalized_price": 219.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_44207": {
+    "id": "uni_44207",
+    "name": "Black Casual Premium Long Socks Diamond Stripes:mb249-men-L-26",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0396515.webp",
+    "category": "Socks",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 249.0,
+        "normalized_price": 249.0
+      }
+    ],
+    "current_price": 249.0,
+    "normalized_price": 249.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_44201": {
+    "id": "uni_44201",
+    "name": "Red Casual Loafer Socks Stripe Pattern:No Show Socks_12",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0396514.webp",
+    "category": "Socks",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 150.0,
+        "normalized_price": 150.0
+      }
+    ],
+    "current_price": 150.0,
+    "normalized_price": 150.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_44200": {
+    "id": "uni_44200",
+    "name": "Black Casual Loafer Socks Diamond Pattern:No Show Socks_05",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0396513.webp",
+    "category": "Socks",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 150.0,
+        "normalized_price": 150.0
+      }
+    ],
+    "current_price": 150.0,
+    "normalized_price": 150.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_44194": {
+    "id": "uni_44194",
+    "name": "Green Casual Loafer Socks Polka Dots:W&S 3",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0396512.webp",
+    "category": "Socks",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 150.0,
+        "normalized_price": 150.0
+      }
+    ],
+    "current_price": 150.0,
+    "normalized_price": 150.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_44227": {
+    "id": "uni_44227",
+    "name": "Charcoal Casual Long Socks Stripes Pattern:mb179-men-L-39",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0396511.webp",
+    "category": "Socks",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 179.0,
+        "normalized_price": 179.0
+      }
+    ],
+    "current_price": 179.0,
+    "normalized_price": 179.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_44287": {
+    "id": "uni_44287",
+    "name": "Ash Casual Premium Long Socks Umbrella Pattern:mb249-men-L-27as",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0396510.webp",
+    "category": "Socks",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 249.0,
+        "normalized_price": 249.0
+      }
+    ],
+    "current_price": 249.0,
+    "normalized_price": 249.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_44332": {
+    "id": "uni_44332",
+    "name": "Navy Casual Long Socks Rectangular Pattern:superdog-men-L-35na",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0396500.webp",
+    "category": "Socks",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 129.0,
+        "normalized_price": 129.0
+      }
+    ],
+    "current_price": 129.0,
+    "normalized_price": 129.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_41004": {
+    "id": "uni_41004",
+    "name": "Ten Ten Broccoli Baby Noodle 150Gm MY",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0394727.webp",
+    "category": "Baby Meals",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 480.0,
+        "normalized_price": 3200.0
+      }
+    ],
+    "current_price": 480.0,
+    "normalized_price": 3200.0,
+    "unit": "150.0gm",
+    "unit_type": "kg"
+  },
+  "uni_44220": {
+    "id": "uni_44220",
+    "name": "White Casual Ankle Socks Thin Stripes Design:mb119-men-A-03wh",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0396492.webp",
+    "category": "Socks",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 119.0,
+        "normalized_price": 119.0
+      }
+    ],
+    "current_price": 119.0,
+    "normalized_price": 119.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_44206": {
+    "id": "uni_44206",
+    "name": "Navy Casual Ankle Socks Thin Stripes Design:mb119-men-A-03na",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0396493.webp",
+    "category": "Socks",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 119.0,
+        "normalized_price": 119.0
+      }
+    ],
+    "current_price": 119.0,
+    "normalized_price": 119.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_44221": {
+    "id": "uni_44221",
+    "name": "Blue & Yellow Casual Ankle Socks Foot Rib:mb219-men-A-03blue",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0396494.webp",
+    "category": "Socks",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 219.0,
+        "normalized_price": 219.0
+      }
+    ],
+    "current_price": 219.0,
+    "normalized_price": 219.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_44197": {
+    "id": "uni_44197",
+    "name": "Navy & Orange Casual Ankle Socks Foot Rib:mb219-men-A-03na",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0396495.webp",
+    "category": "Socks",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 219.0,
+        "normalized_price": 219.0
+      }
+    ],
+    "current_price": 219.0,
+    "normalized_price": 219.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_44222": {
+    "id": "uni_44222",
+    "name": "Red Ash & Black Casual Ankle Socks Stripe Design:mb139-men-A-01B",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0396496.webp",
+    "category": "Socks",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 139.0,
+        "normalized_price": 139.0
+      }
+    ],
+    "current_price": 139.0,
+    "normalized_price": 139.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_44198": {
+    "id": "uni_44198",
+    "name": "Navy Casual Ankle Socks Diamond Pattern:action-men-A-22na",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0396498.webp",
+    "category": "Socks",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 169.0,
+        "normalized_price": 169.0
+      }
+    ],
+    "current_price": 169.0,
+    "normalized_price": 169.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_44331": {
+    "id": "uni_44331",
+    "name": "Black Casual Ankle Socks Diamond Pattern:action-men-A-22bl",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0396499.webp",
+    "category": "Socks",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 169.0,
+        "normalized_price": 169.0
+      }
+    ],
+    "current_price": 169.0,
+    "normalized_price": 169.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_44192": {
+    "id": "uni_44192",
+    "name": "Black Casual Premium Long Socks Diamond Pattern:mb219-men-L-02bl",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0396506.webp",
+    "category": "Socks",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 219.0,
+        "normalized_price": 219.0
+      }
+    ],
+    "current_price": 219.0,
+    "normalized_price": 219.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_44223": {
+    "id": "uni_44223",
+    "name": "Cream Casual Long Socks Heart Pattern:mb219-men-L-22cr",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0396505.webp",
+    "category": "Socks",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 219.0,
+        "normalized_price": 219.0
+      }
+    ],
+    "current_price": 219.0,
+    "normalized_price": 219.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_44191": {
+    "id": "uni_44191",
+    "name": "Ash Casual Premium Long Socks Diamond Pattern:mb249-men-L-01as",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0396504.webp",
+    "category": "Socks",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 249.0,
+        "normalized_price": 249.0
+      }
+    ],
+    "current_price": 249.0,
+    "normalized_price": 249.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_44193": {
+    "id": "uni_44193",
+    "name": "Chocolate Casual Premium Long Socks Diamond Pattern:mb219-men-L-05ch2",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0396508.webp",
+    "category": "Socks",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 219.0,
+        "normalized_price": 219.0
+      }
+    ],
+    "current_price": 219.0,
+    "normalized_price": 219.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_20765": {
+    "id": "uni_20765",
+    "name": "Sunsilk Perfect Straight Shampoo 325Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417056.webp",
+    "category": "Shampoo",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1150.0,
+        "normalized_price": 3538.46
+      }
+    ],
+    "current_price": 1150.0,
+    "normalized_price": 3538.46,
+    "unit": "325.0ml",
+    "unit_type": "liter"
+  },
+  "uni_20766": {
+    "id": "uni_20766",
+    "name": "Sunsilk Perfect Straight Shampoo 370Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417057.webp",
+    "category": "Shampoo",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1220.0,
+        "normalized_price": 3297.3
+      }
+    ],
+    "current_price": 1220.0,
+    "normalized_price": 3297.3,
+    "unit": "370.0ml",
+    "unit_type": "liter"
+  },
+  "uni_20754": {
+    "id": "uni_20754",
+    "name": "Sunsilk Smooth & Managable Shampoo 325Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417060.webp",
+    "category": "Shampoo",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1150.0,
+        "normalized_price": 3538.46
+      }
+    ],
+    "current_price": 1150.0,
+    "normalized_price": 3538.46,
+    "unit": "325.0ml",
+    "unit_type": "liter"
+  },
+  "uni_20797": {
+    "id": "uni_20797",
+    "name": "Sunsilk Smooth & Managable Shampoo 350Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417061.webp",
+    "category": "Shampoo",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1190.0,
+        "normalized_price": 3400.0
+      }
+    ],
+    "current_price": 1190.0,
+    "normalized_price": 3400.0,
+    "unit": "350.0ml",
+    "unit_type": "liter"
+  },
+  "uni_20755": {
+    "id": "uni_20755",
+    "name": "Sunsilk Smooth & Managable Shampoo 370Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417062.webp",
+    "category": "Shampoo",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1220.0,
+        "normalized_price": 3297.3
+      }
+    ],
+    "current_price": 1220.0,
+    "normalized_price": 3297.3,
+    "unit": "370.0ml",
+    "unit_type": "liter"
+  },
+  "uni_20806": {
+    "id": "uni_20806",
+    "name": "Sunsilk Soft & Smooth Shampoo 370Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417065.webp",
+    "category": "Shampoo",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1220.0,
+        "normalized_price": 3297.3
+      }
+    ],
+    "current_price": 1220.0,
+    "normalized_price": 3297.3,
+    "unit": "370.0ml",
+    "unit_type": "liter"
+  },
+  "uni_20807": {
+    "id": "uni_20807",
+    "name": "Vaseline Luminous Shower Cream 425M TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417068.webp",
+    "category": "Shower Creame & Gels",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1750.0,
+        "normalized_price": 1750.0
+      }
+    ],
+    "current_price": 1750.0,
+    "normalized_price": 1750.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_21078": {
+    "id": "uni_21078",
+    "name": "Watson Tamarind Exfoliating Body Wash 410Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417076.webp",
+    "category": "Body Scrubs",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1495.0,
+        "normalized_price": 3646.34
+      }
+    ],
+    "current_price": 1495.0,
+    "normalized_price": 3646.34,
+    "unit": "410.0ml",
+    "unit_type": "liter"
+  },
+  "uni_19891": {
+    "id": "uni_19891",
+    "name": "Kraft Mesquite Smoke Barbecue Sauce 510Gm US",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417426.webp",
+    "category": "Specialized Sauce",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 795.0,
+        "normalized_price": 1558.82
+      }
+    ],
+    "current_price": 795.0,
+    "normalized_price": 1558.82,
+    "unit": "510.0gm",
+    "unit_type": "kg"
+  },
+  "uni_19894": {
+    "id": "uni_19894",
+    "name": "Kraft Hickory Smoke Barbecue Sauce 496Gm US",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417430.webp",
+    "category": "Specialized Sauce",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 795.0,
+        "normalized_price": 1602.82
+      }
+    ],
+    "current_price": 795.0,
+    "normalized_price": 1602.82,
+    "unit": "496.0gm",
+    "unit_type": "kg"
+  },
+  "uni_19899": {
+    "id": "uni_19899",
+    "name": "A.1.  Original Sauce 142Gm US",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417433.webp",
+    "category": "Specialized Sauce",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 650.0,
+        "normalized_price": 4577.46
+      }
+    ],
+    "current_price": 650.0,
+    "normalized_price": 4577.46,
+    "unit": "142.0gm",
+    "unit_type": "kg"
+  },
+  "uni_19895": {
+    "id": "uni_19895",
+    "name": "Lea & Perrins  Worcestershire Sauce 148Ml US",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417434.webp",
+    "category": "Specialized Sauce",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 600.0,
+        "normalized_price": 4054.05
+      }
+    ],
+    "current_price": 600.0,
+    "normalized_price": 4054.05,
+    "unit": "148.0ml",
+    "unit_type": "liter"
+  },
+  "uni_19756": {
+    "id": "uni_19756",
+    "name": "Heinz Sweet Relish 296Ml US",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417435.webp",
+    "category": "Mixed Pickles",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 700.0,
+        "normalized_price": 2364.86
+      }
+    ],
+    "current_price": 700.0,
+    "normalized_price": 2364.86,
+    "unit": "296.0ml",
+    "unit_type": "liter"
+  },
+  "uni_21062": {
+    "id": "uni_21062",
+    "name": "Smucker'S Natural Orange Marmalade Fruit Spread 489Gm US",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417441.webp",
+    "category": "Dips & Spreads",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1400.0,
+        "normalized_price": 2862.99
+      }
+    ],
+    "current_price": 1400.0,
+    "normalized_price": 2862.99,
+    "unit": "489.0gm",
+    "unit_type": "kg"
+  },
+  "uni_21136": {
+    "id": "uni_21136",
+    "name": "Smucker'S Suger Free Red Raspberry Preserves 361Gm US",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417443.webp",
+    "category": "Jam",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1050.0,
+        "normalized_price": 2908.59
+      }
+    ],
+    "current_price": 1050.0,
+    "normalized_price": 2908.59,
+    "unit": "361.0gm",
+    "unit_type": "kg"
+  },
+  "uni_21134": {
+    "id": "uni_21134",
+    "name": "Smucker'S Suger Free Strawberry Jam 361Gm US",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417444.webp",
+    "category": "Jam",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1050.0,
+        "normalized_price": 2908.59
+      }
+    ],
+    "current_price": 1050.0,
+    "normalized_price": 2908.59,
+    "unit": "361.0gm",
+    "unit_type": "kg"
+  },
+  "uni_21138": {
+    "id": "uni_21138",
+    "name": "Smucker'S Concord Grape Jam  340Gm US",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417446.webp",
+    "category": "Jam",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 995.0,
+        "normalized_price": 2926.47
+      }
+    ],
+    "current_price": 995.0,
+    "normalized_price": 2926.47,
+    "unit": "340.0gm",
+    "unit_type": "kg"
+  },
+  "uni_21140": {
+    "id": "uni_21140",
+    "name": "Smucke'S Blueberry Preserves  340Gm US",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417447.webp",
+    "category": "Jam",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 995.0,
+        "normalized_price": 2926.47
+      }
+    ],
+    "current_price": 995.0,
+    "normalized_price": 2926.47,
+    "unit": "340.0gm",
+    "unit_type": "kg"
+  },
+  "uni_21061": {
+    "id": "uni_21061",
+    "name": "Smucke'S  Seedless Strawberry Fruit Spread 284Gm US",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417448.webp",
+    "category": "Dips & Spreads",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 995.0,
+        "normalized_price": 3503.52
+      }
+    ],
+    "current_price": 995.0,
+    "normalized_price": 3503.52,
+    "unit": "284.0gm",
+    "unit_type": "kg"
+  },
+  "uni_21281": {
+    "id": "uni_21281",
+    "name": "Jif  Reduced Fat Peanut Butter Creamy 454G US",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417449.webp",
+    "category": "Peanut Butter",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 950.0,
+        "normalized_price": 2092.51
+      }
+    ],
+    "current_price": 950.0,
+    "normalized_price": 2092.51,
+    "unit": "454.0g",
+    "unit_type": "kg"
+  },
+  "uni_21283": {
+    "id": "uni_21283",
+    "name": "Jif Extra Crunchy Peanut Butter 1.13Kg US",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417450.webp",
+    "category": "Peanut Butter",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1895.0,
+        "normalized_price": 1676.99
+      }
+    ],
+    "current_price": 1895.0,
+    "normalized_price": 1676.99,
+    "unit": "1.13kg",
+    "unit_type": "kg"
+  },
+  "uni_20082": {
+    "id": "uni_20082",
+    "name": "Crisco Pure Canola Oil 3.78L US",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417453.webp",
+    "category": "Canola Oil",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 4500.0,
+        "normalized_price": 1190.48
+      }
+    ],
+    "current_price": 4500.0,
+    "normalized_price": 1190.48,
+    "unit": "3.78l",
+    "unit_type": "liter"
+  },
+  "uni_22068": {
+    "id": "uni_22068",
+    "name": "Annie'S Organic  Shells & White Cheddar 170Gm US",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417464.webp",
+    "category": "Pasta",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 500.0,
+        "normalized_price": 2941.18
+      }
+    ],
+    "current_price": 500.0,
+    "normalized_price": 2941.18,
+    "unit": "170.0gm",
+    "unit_type": "kg"
+  },
+  "uni_20838": {
+    "id": "uni_20838",
+    "name": "Annie'S Spirals With Butter & Parmesan Pasta & Cheese 149Gm US",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417465.webp",
+    "category": "Sliced Cheese",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 500.0,
+        "normalized_price": 3355.7
+      }
+    ],
+    "current_price": 500.0,
+    "normalized_price": 3355.7,
+    "unit": "149.0gm",
+    "unit_type": "kg"
+  },
+  "uni_19383": {
+    "id": "uni_19383",
+    "name": "Cream Of Wheat Cereal Bananas & Cream 350Gm US",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417466.webp",
+    "category": "Cereal",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1350.0,
+        "normalized_price": 3857.14
+      }
+    ],
+    "current_price": 1350.0,
+    "normalized_price": 3857.14,
+    "unit": "350.0gm",
+    "unit_type": "kg"
+  },
+  "uni_19381": {
+    "id": "uni_19381",
+    "name": "Cream Of Rice  Cereal Gluten Free 397Gm US",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417467.webp",
+    "category": "Cereal",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1300.0,
+        "normalized_price": 3274.56
+      }
+    ],
+    "current_price": 1300.0,
+    "normalized_price": 3274.56,
+    "unit": "397.0gm",
+    "unit_type": "kg"
+  },
+  "uni_18094": {
+    "id": "uni_18094",
+    "name": "Frix Lemon Mint Flavoured Candy With Vitamin C 25Gm X 15Pkts  MY",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417468.webp",
+    "category": "Hard Candy",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 70.0,
+        "normalized_price": 2800.0
+      }
+    ],
+    "current_price": 70.0,
+    "normalized_price": 2800.0,
+    "unit": "25.0gm",
+    "unit_type": "kg"
+  },
+  "uni_18095": {
+    "id": "uni_18095",
+    "name": "Frix Passion Fruit Mint Flavoured Candy With Vitamin C 25Gm X 15Pkts  MY",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417469.webp",
+    "category": "Hard Candy",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 70.0,
+        "normalized_price": 2800.0
+      }
+    ],
+    "current_price": 70.0,
+    "normalized_price": 2800.0,
+    "unit": "25.0gm",
+    "unit_type": "kg"
+  },
+  "uni_20988": {
+    "id": "uni_20988",
+    "name": "Watsons Solar Filter Bright Face & Body Lotion 100 Ml Spf 50 Pa++++ TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417490.webp",
+    "category": "Body Lotion",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1850.0,
+        "normalized_price": 18500.0
+      }
+    ],
+    "current_price": 1850.0,
+    "normalized_price": 18500.0,
+    "unit": "100.0ml",
+    "unit_type": "liter"
+  },
+  "uni_20889": {
+    "id": "uni_20889",
+    "name": "Watsons Solar Filter Face Serum 45 Ml Spf 30 Ps++++ TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417491.webp",
+    "category": "Face Serum",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1730.0,
+        "normalized_price": 38444.44
+      }
+    ],
+    "current_price": 1730.0,
+    "normalized_price": 38444.44,
+    "unit": "45.0ml",
+    "unit_type": "liter"
+  },
+  "uni_20888": {
+    "id": "uni_20888",
+    "name": "Watsons Solar Filter Face Serum 45 Ml Spf 50 Pa++++ TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417492.webp",
+    "category": "Face Serum",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1730.0,
+        "normalized_price": 38444.44
+      }
+    ],
+    "current_price": 1730.0,
+    "normalized_price": 38444.44,
+    "unit": "45.0ml",
+    "unit_type": "liter"
+  },
+  "uni_21189": {
+    "id": "uni_21189",
+    "name": "Watsons Tapered Bristles Toothbrush CN",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417496.webp",
+    "category": "Toothbrush",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 650.0,
+        "normalized_price": 650.0
+      }
+    ],
+    "current_price": 650.0,
+    "normalized_price": 650.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_20934": {
+    "id": "uni_20934",
+    "name": "Watsons Unscented Invigorating Wet Wipes 20 Wipes CN",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417499.webp",
+    "category": "Wipes",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 699.0,
+        "normalized_price": 699.0
+      }
+    ],
+    "current_price": 699.0,
+    "normalized_price": 699.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_20868": {
+    "id": "uni_20868",
+    "name": "Pantine Shampoo Daily Moisture Renewal 300 Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417501.webp",
+    "category": "Shampoo",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1347.0,
+        "normalized_price": 4490.0
+      }
+    ],
+    "current_price": 1347.0,
+    "normalized_price": 4490.0,
+    "unit": "300.0ml",
+    "unit_type": "liter"
+  },
+  "uni_20846": {
+    "id": "uni_20846",
+    "name": "Pantine Shampoo Hair Fall Control 300 Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417502.webp",
+    "category": "Shampoo",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1347.0,
+        "normalized_price": 4490.0
+      }
+    ],
+    "current_price": 1347.0,
+    "normalized_price": 4490.0,
+    "unit": "300.0ml",
+    "unit_type": "liter"
+  },
+  "uni_20922": {
+    "id": "uni_20922",
+    "name": "Pantine Shampoo Silky Smooth Care 300 Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417503.webp",
+    "category": "Shampoo",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1347.0,
+        "normalized_price": 4490.0
+      }
+    ],
+    "current_price": 1347.0,
+    "normalized_price": 4490.0,
+    "unit": "300.0ml",
+    "unit_type": "liter"
+  },
+  "uni_21033": {
+    "id": "uni_21033",
+    "name": "Head & Shoulders Apple Fresh Anti-Dandruff Shampoo 300 Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417505.webp",
+    "category": "Shampoo",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1399.0,
+        "normalized_price": 4663.33
+      }
+    ],
+    "current_price": 1399.0,
+    "normalized_price": 4663.33,
+    "unit": "300.0ml",
+    "unit_type": "liter"
+  },
+  "uni_20897": {
+    "id": "uni_20897",
+    "name": "Head & Shoulders Clean & Balanced Anti-Dandruff Shampoo 300 Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417507.webp",
+    "category": "Shampoo",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1399.0,
+        "normalized_price": 4663.33
+      }
+    ],
+    "current_price": 1399.0,
+    "normalized_price": 4663.33,
+    "unit": "300.0ml",
+    "unit_type": "liter"
+  },
+  "uni_21185": {
+    "id": "uni_21185",
+    "name": "Tresemme Keratine Smooth Conditioner 380 Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417508.webp",
+    "category": "Conditioner",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1549.0,
+        "normalized_price": 4076.32
+      }
+    ],
+    "current_price": 1549.0,
+    "normalized_price": 4076.32,
+    "unit": "380.0ml",
+    "unit_type": "liter"
+  },
+  "uni_20844": {
+    "id": "uni_20844",
+    "name": "Infinite Pleasure Just Girl Parfum Deodorant Spray 200 Ml FR",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417509.webp",
+    "category": "Deo Stick",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 725.0,
+        "normalized_price": 3625.0
+      }
+    ],
+    "current_price": 725.0,
+    "normalized_price": 3625.0,
+    "unit": "200.0ml",
+    "unit_type": "liter"
+  },
+  "uni_21087": {
+    "id": "uni_21087",
+    "name": "L'Oreal Conditioner Full Restore 300 Ml Fr FR",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417516.webp",
+    "category": "Conditioner",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1779.0,
+        "normalized_price": 5930.0
+      }
+    ],
+    "current_price": 1779.0,
+    "normalized_price": 5930.0,
+    "unit": "300.0ml",
+    "unit_type": "liter"
+  },
+  "uni_20869": {
+    "id": "uni_20869",
+    "name": "Suave Kid'S 3 In 1 Shampoo 350 Ml Th TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417518.webp",
+    "category": "Shampoo",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1449.0,
+        "normalized_price": 4140.0
+      }
+    ],
+    "current_price": 1449.0,
+    "normalized_price": 4140.0,
+    "unit": "350.0ml",
+    "unit_type": "liter"
+  },
+  "uni_21019": {
+    "id": "uni_21019",
+    "name": "Suave Kid'S 3 In 1 Shampoo 700 Ml Th  TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417519.webp",
+    "category": "Shampoo",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 2485.0,
+        "normalized_price": 3550.0
+      }
+    ],
+    "current_price": 2485.0,
+    "normalized_price": 3550.0,
+    "unit": "700.0ml",
+    "unit_type": "liter"
+  },
+  "uni_21154": {
+    "id": "uni_21154",
+    "name": "Pantene Conditioner Colour Protect 400 Ml Fr FR",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417522.webp",
+    "category": "Hair Color",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1649.0,
+        "normalized_price": 4122.5
+      }
+    ],
+    "current_price": 1649.0,
+    "normalized_price": 4122.5,
+    "unit": "400.0ml",
+    "unit_type": "liter"
+  },
+  "uni_20860": {
+    "id": "uni_20860",
+    "name": "Pantene Conditioner Repair & Protect 400 Ml Fr FR",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417523.webp",
+    "category": "Conditioner",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1649.0,
+        "normalized_price": 4122.5
+      }
+    ],
+    "current_price": 1649.0,
+    "normalized_price": 4122.5,
+    "unit": "400.0ml",
+    "unit_type": "liter"
+  },
+  "uni_20865": {
+    "id": "uni_20865",
+    "name": "Pantene Conditioner Moisture Renewal 400 Ml Fr FR",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417524.webp",
+    "category": "Conditioner",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1649.0,
+        "normalized_price": 4122.5
+      }
+    ],
+    "current_price": 1649.0,
+    "normalized_price": 4122.5,
+    "unit": "400.0ml",
+    "unit_type": "liter"
+  },
+  "uni_21183": {
+    "id": "uni_21183",
+    "name": "Pantene Shampoo Colour Protect 400 Ml Fr FR",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417526.webp",
+    "category": "Hair Color",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1649.0,
+        "normalized_price": 4122.5
+      }
+    ],
+    "current_price": 1649.0,
+    "normalized_price": 4122.5,
+    "unit": "400.0ml",
+    "unit_type": "liter"
+  },
+  "uni_21286": {
+    "id": "uni_21286",
+    "name": "Pantene Shampoo Moisture Renewal 400 Ml Fr FR",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417528.webp",
+    "category": "Shampoo",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1649.0,
+        "normalized_price": 4122.5
+      }
+    ],
+    "current_price": 1649.0,
+    "normalized_price": 4122.5,
+    "unit": "400.0ml",
+    "unit_type": "liter"
+  },
+  "uni_20858": {
+    "id": "uni_20858",
+    "name": "Gillette Shaving Gel Cleansing Charcoal 200 Ml Uk UK",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417529.webp",
+    "category": "Face Cleansers",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 905.0,
+        "normalized_price": 4525.0
+      }
+    ],
+    "current_price": 905.0,
+    "normalized_price": 4525.0,
+    "unit": "200.0ml",
+    "unit_type": "liter"
+  },
+  "uni_20874": {
+    "id": "uni_20874",
+    "name": "Watsons Pore Refining Nose Pore Strips With Aloe Vera 10 Pcs TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417530.webp",
+    "category": "Face Treatments",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 835.0,
+        "normalized_price": 835.0
+      }
+    ],
+    "current_price": 835.0,
+    "normalized_price": 835.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_20875": {
+    "id": "uni_20875",
+    "name": "Watsons Deep Cleansing Nose Pore Strips With Charcoal Powder 10 Pcs TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417531.webp",
+    "category": "Face Treatments",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 835.0,
+        "normalized_price": 835.0
+      }
+    ],
+    "current_price": 835.0,
+    "normalized_price": 835.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_20853": {
+    "id": "uni_20853",
+    "name": "Watsons Oil Control Nose Pore Strips With Aha Bha 10 Pcs TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417532.webp",
+    "category": "Face Treatments",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 835.0,
+        "normalized_price": 835.0
+      }
+    ],
+    "current_price": 835.0,
+    "normalized_price": 835.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_20848": {
+    "id": "uni_20848",
+    "name": "Neutrogena Deep Clean Gentle Foaming Cleanser 100 G TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417534.webp",
+    "category": "Face Cleansers",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1565.0,
+        "normalized_price": 15650.0
+      }
+    ],
+    "current_price": 1565.0,
+    "normalized_price": 15650.0,
+    "unit": "100.0g",
+    "unit_type": "kg"
+  },
+  "uni_20917": {
+    "id": "uni_20917",
+    "name": "Neutrogena Deep Clean Brightening Foaming Cleanser 100 G TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417535.webp",
+    "category": "Face Cleansers",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1565.0,
+        "normalized_price": 15650.0
+      }
+    ],
+    "current_price": 1565.0,
+    "normalized_price": 15650.0,
+    "unit": "100.0g",
+    "unit_type": "kg"
+  },
+  "uni_20857": {
+    "id": "uni_20857",
+    "name": "Neutrogena Deep Clean Hydrating Foaming Cleanser 100 G Th TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417538.webp",
+    "category": "Face Cleansers",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1565.0,
+        "normalized_price": 15650.0
+      }
+    ],
+    "current_price": 1565.0,
+    "normalized_price": 15650.0,
+    "unit": "100.0g",
+    "unit_type": "kg"
+  },
+  "uni_21037": {
+    "id": "uni_21037",
+    "name": "Cowhead 3 In 1 Premium White Coffee 432Gm MY ",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417539.webp",
+    "category": "Ready-To-Drink Coffee",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1050.0,
+        "normalized_price": 2430.56
+      }
+    ],
+    "current_price": 1050.0,
+    "normalized_price": 2430.56,
+    "unit": "432.0gm",
+    "unit_type": "kg"
+  },
+  "uni_21000": {
+    "id": "uni_21000",
+    "name": "Cowhead 3 In 1 Premium Milk Tea 432 Gm MY ",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417540.webp",
+    "category": "Ready-To-Drink Tea",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1050.0,
+        "normalized_price": 2430.56
+      }
+    ],
+    "current_price": 1050.0,
+    "normalized_price": 2430.56,
+    "unit": "432.0gm",
+    "unit_type": "kg"
+  },
+  "uni_19413": {
+    "id": "uni_19413",
+    "name": "Cowhead Granola Banan Raisin 250 Gm VN",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417541.webp",
+    "category": "Granola & Muesli",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 690.0,
+        "normalized_price": 2760.0
+      }
+    ],
+    "current_price": 690.0,
+    "normalized_price": 2760.0,
+    "unit": "250.0gm",
+    "unit_type": "kg"
+  },
+  "uni_19412": {
+    "id": "uni_19412",
+    "name": "Cowhead Granola Assorted Fruits 250 Gm VN",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417542.webp",
+    "category": "Granola & Muesli",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 690.0,
+        "normalized_price": 2760.0
+      }
+    ],
+    "current_price": 690.0,
+    "normalized_price": 2760.0,
+    "unit": "250.0gm",
+    "unit_type": "kg"
+  },
+  "uni_21179": {
+    "id": "uni_21179",
+    "name": "Cif Floors Summer Flower&Mint 1Kg VN ",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417543.webp",
+    "category": "Floor & Tiles Cleaner",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 445.0,
+        "normalized_price": 445.0
+      }
+    ],
+    "current_price": 445.0,
+    "normalized_price": 445.0,
+    "unit": "1.0kg",
+    "unit_type": "kg"
+  },
+  "uni_20978": {
+    "id": "uni_20978",
+    "name": "Cif Floors Lily&Rosemary 1Kg VN",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417544.webp",
+    "category": "Floor & Tiles Cleaner",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 445.0,
+        "normalized_price": 445.0
+      }
+    ],
+    "current_price": 445.0,
+    "normalized_price": 445.0,
+    "unit": "1.0kg",
+    "unit_type": "kg"
+  },
+  "uni_20872": {
+    "id": "uni_20872",
+    "name": "Comfort Ult Blossom Fresh Btl 800Ml VN ",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417545.webp",
+    "category": "Laundry Powder Detergents",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 650.0,
+        "normalized_price": 812.5
+      }
+    ],
+    "current_price": 650.0,
+    "normalized_price": 812.5,
+    "unit": "800.0ml",
+    "unit_type": "liter"
+  },
+  "uni_21016": {
+    "id": "uni_21016",
+    "name": "Sunsilk Hc Hf Solution 300 Ml TH ",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417546.webp",
+    "category": "Shampoo",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 725.0,
+        "normalized_price": 2416.67
+      }
+    ],
+    "current_price": 725.0,
+    "normalized_price": 2416.67,
+    "unit": "300.0ml",
+    "unit_type": "liter"
+  },
+  "uni_20854": {
+    "id": "uni_20854",
+    "name": "Boots Aloe Vera Sheet Mask 18 Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417570.webp",
+    "category": "Face Treatments",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 315.0,
+        "normalized_price": 17500.0
+      }
+    ],
+    "current_price": 315.0,
+    "normalized_price": 17500.0,
+    "unit": "18.0ml",
+    "unit_type": "liter"
+  },
+  "uni_20876": {
+    "id": "uni_20876",
+    "name": "Boots Ceramide Sheet Mask 20 Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417572.webp",
+    "category": "Face Treatments",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 325.0,
+        "normalized_price": 16250.0
+      }
+    ],
+    "current_price": 325.0,
+    "normalized_price": 16250.0,
+    "unit": "20.0ml",
+    "unit_type": "liter"
+  },
+  "uni_20863": {
+    "id": "uni_20863",
+    "name": "Boots Cica Sheet Mask Clearer & Smoother Skin 3 Days 20 Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417573.webp",
+    "category": "Face Treatments",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 327.0,
+        "normalized_price": 16350.0
+      }
+    ],
+    "current_price": 327.0,
+    "normalized_price": 16350.0,
+    "unit": "20.0ml",
+    "unit_type": "liter"
+  },
+  "uni_20867": {
+    "id": "uni_20867",
+    "name": "Boots Mixed Berries Sheet Mask Anti-Oxidant 20 Ml KR",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417581.webp",
+    "category": "Face Treatments",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 330.0,
+        "normalized_price": 16500.0
+      }
+    ],
+    "current_price": 330.0,
+    "normalized_price": 16500.0,
+    "unit": "20.0ml",
+    "unit_type": "liter"
+  },
+  "uni_20948": {
+    "id": "uni_20948",
+    "name": "Boots Pearl Sheet Mask Radiant Skin 20 Ml KR",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417583.webp",
+    "category": "Face Treatments",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 330.0,
+        "normalized_price": 16500.0
+      }
+    ],
+    "current_price": 330.0,
+    "normalized_price": 16500.0,
+    "unit": "20.0ml",
+    "unit_type": "liter"
+  },
+  "uni_20877": {
+    "id": "uni_20877",
+    "name": "Boots Pro-Retinol Sheet Mask 20 Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417587.webp",
+    "category": "Face Treatments",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 325.0,
+        "normalized_price": 16250.0
+      }
+    ],
+    "current_price": 325.0,
+    "normalized_price": 16250.0,
+    "unit": "20.0ml",
+    "unit_type": "liter"
+  },
+  "uni_20898": {
+    "id": "uni_20898",
+    "name": "Boots Yuzu Sheet Mask 20 Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417593.webp",
+    "category": "Face Treatments",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 325.0,
+        "normalized_price": 16250.0
+      }
+    ],
+    "current_price": 325.0,
+    "normalized_price": 16250.0,
+    "unit": "20.0ml",
+    "unit_type": "liter"
+  },
+  "uni_20993": {
+    "id": "uni_20993",
+    "name": "Bots Brightening Hydrogel Eye Patches 3G KR",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417594.webp",
+    "category": "Eye Treatments",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 295.0,
+        "normalized_price": 98333.33
+      }
+    ],
+    "current_price": 295.0,
+    "normalized_price": 98333.33,
+    "unit": "3.0g",
+    "unit_type": "kg"
+  },
+  "uni_20928": {
+    "id": "uni_20928",
+    "name": "Clean & Clear Essentials Self Foaming Facial Wash Oil Free 150 Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417595.webp",
+    "category": "Face Wash",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1675.0,
+        "normalized_price": 11166.67
+      }
+    ],
+    "current_price": 1675.0,
+    "normalized_price": 11166.67,
+    "unit": "150.0ml",
+    "unit_type": "liter"
+  },
+  "uni_20899": {
+    "id": "uni_20899",
+    "name": "L'Oreal Innovation Glycolic Bright 22 G CN",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417605.webp",
+    "category": "Face Treatments",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 755.0,
+        "normalized_price": 34318.18
+      }
+    ],
+    "current_price": 755.0,
+    "normalized_price": 34318.18,
+    "unit": "22.0g",
+    "unit_type": "kg"
+  },
+  "uni_20912": {
+    "id": "uni_20912",
+    "name": "L'Oreal Innovation Revitalife Crystal Mask 25 G CN",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417606.webp",
+    "category": "Face Treatments",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 755.0,
+        "normalized_price": 30200.0
+      }
+    ],
+    "current_price": 755.0,
+    "normalized_price": 30200.0,
+    "unit": "25.0g",
+    "unit_type": "kg"
+  },
+  "uni_21059": {
+    "id": "uni_21059",
+    "name": "I Care Air Freshner Kiwi 300 Ml AE",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417607.webp",
+    "category": "Room Air Freshener",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 475.0,
+        "normalized_price": 1583.33
+      }
+    ],
+    "current_price": 475.0,
+    "normalized_price": 1583.33,
+    "unit": "300.0ml",
+    "unit_type": "liter"
+  },
+  "uni_20900": {
+    "id": "uni_20900",
+    "name": "Nivea Acne Care Micellair Oxygen Boost 125 Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417610.webp",
+    "category": "Face Wash",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1095.0,
+        "normalized_price": 8760.0
+      }
+    ],
+    "current_price": 1095.0,
+    "normalized_price": 8760.0,
+    "unit": "125.0ml",
+    "unit_type": "liter"
+  },
+  "uni_20966": {
+    "id": "uni_20966",
+    "name": "Nivea Bright Oil Clear Deep Clean Foam 100 G TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417611.webp",
+    "category": "Face Wash",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1165.0,
+        "normalized_price": 11650.0
+      }
+    ],
+    "current_price": 1165.0,
+    "normalized_price": 11650.0,
+    "unit": "100.0g",
+    "unit_type": "kg"
+  },
+  "uni_20967": {
+    "id": "uni_20967",
+    "name": "Nivea Derma Acne Care Micellar 400 Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417614.webp",
+    "category": "Face Wash",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 2825.0,
+        "normalized_price": 7062.5
+      }
+    ],
+    "current_price": 2825.0,
+    "normalized_price": 7062.5,
+    "unit": "400.0ml",
+    "unit_type": "liter"
+  },
+  "uni_20957": {
+    "id": "uni_20957",
+    "name": "Nivea Extra Bright C & Hya Vitamin Deep Clean Foam 100 Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417619.webp",
+    "category": "Face Wash",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1170.0,
+        "normalized_price": 11700.0
+      }
+    ],
+    "current_price": 1170.0,
+    "normalized_price": 11700.0,
+    "unit": "100.0ml",
+    "unit_type": "liter"
+  },
+  "uni_20903": {
+    "id": "uni_20903",
+    "name": "Nivea Extra Bright C & Hya Vitamin Micellar 125 Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417620.webp",
+    "category": "Face Wash",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1170.0,
+        "normalized_price": 9360.0
+      }
+    ],
+    "current_price": 1170.0,
+    "normalized_price": 9360.0,
+    "unit": "125.0ml",
+    "unit_type": "liter"
+  },
+  "uni_20958": {
+    "id": "uni_20958",
+    "name": "Nivea Men Anti-Age 4D Effect Foam 100 G TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417621.webp",
+    "category": "Face Wash",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1535.0,
+        "normalized_price": 15350.0
+      }
+    ],
+    "current_price": 1535.0,
+    "normalized_price": 15350.0,
+    "unit": "100.0g",
+    "unit_type": "kg"
+  },
+  "uni_20921": {
+    "id": "uni_20921",
+    "name": "Nivea Peral Bright Microbubbles Clay Foam 100 Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417627.webp",
+    "category": "Face Wash",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1165.0,
+        "normalized_price": 11650.0
+      }
+    ],
+    "current_price": 1165.0,
+    "normalized_price": 11650.0,
+    "unit": "100.0ml",
+    "unit_type": "liter"
+  },
+  "uni_20961": {
+    "id": "uni_20961",
+    "name": "Nivea Rosy Bright Horraido Rose Whip Foam 100 Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417629.webp",
+    "category": "Face Wash",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1597.0,
+        "normalized_price": 15970.0
+      }
+    ],
+    "current_price": 1597.0,
+    "normalized_price": 15970.0,
+    "unit": "100.0ml",
+    "unit_type": "liter"
+  },
+  "uni_20970": {
+    "id": "uni_20970",
+    "name": "Watsons Cleansing Wipes Hygienic 50 Wipes MY",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417634.webp",
+    "category": "Wipes",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1097.0,
+        "normalized_price": 1097.0
+      }
+    ],
+    "current_price": 1097.0,
+    "normalized_price": 1097.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_20930": {
+    "id": "uni_20930",
+    "name": "Watsons Collage Rejuvenating Ha Mask 21 Ml KR",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417635.webp",
+    "category": "Face Treatments",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 297.0,
+        "normalized_price": 14142.86
+      }
+    ],
+    "current_price": 297.0,
+    "normalized_price": 14142.86,
+    "unit": "21.0ml",
+    "unit_type": "liter"
+  },
+  "uni_20953": {
+    "id": "uni_20953",
+    "name": "Watsons Cucumber Refreshing Mask 30 Ml KR",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417636.webp",
+    "category": "Face Treatments",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 695.0,
+        "normalized_price": 23166.67
+      }
+    ],
+    "current_price": 695.0,
+    "normalized_price": 23166.67,
+    "unit": "30.0ml",
+    "unit_type": "liter"
+  },
+  "uni_21290": {
+    "id": "uni_21290",
+    "name": "Watsons Garlish Bright Up Facial Foam 100 Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417639.webp",
+    "category": "Facial Wipe Make Up Remover",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 820.0,
+        "normalized_price": 8200.0
+      }
+    ],
+    "current_price": 820.0,
+    "normalized_price": 8200.0,
+    "unit": "100.0ml",
+    "unit_type": "liter"
+  },
+  "uni_21026": {
+    "id": "uni_21026",
+    "name": "Watsons Glow Up Jelly Mask 30 Ml KR",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417643.webp",
+    "category": "Face Treatments",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 699.0,
+        "normalized_price": 23300.0
+      }
+    ],
+    "current_price": 699.0,
+    "normalized_price": 23300.0,
+    "unit": "30.0ml",
+    "unit_type": "liter"
+  },
+  "uni_20943": {
+    "id": "uni_20943",
+    "name": "Watsons Go Greener Toothbrush Ultrasoft CN",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417644.webp",
+    "category": "Toothbrush",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 595.0,
+        "normalized_price": 595.0
+      }
+    ],
+    "current_price": 595.0,
+    "normalized_price": 595.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_21119": {
+    "id": "uni_21119",
+    "name": "Watsons Gold Kiwi Whitening Mask 30 Ml KR",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417645.webp",
+    "category": "Face Treatments",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 340.0,
+        "normalized_price": 11333.33
+      }
+    ],
+    "current_price": 340.0,
+    "normalized_price": 11333.33,
+    "unit": "30.0ml",
+    "unit_type": "liter"
+  },
+  "uni_21065": {
+    "id": "uni_21065",
+    "name": "Watsons Hair System Colour Wonder Foam  90 Ml KR",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417646.webp",
+    "category": "Hair Color",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 2195.0,
+        "normalized_price": 24388.89
+      }
+    ],
+    "current_price": 2195.0,
+    "normalized_price": 24388.89,
+    "unit": "90.0ml",
+    "unit_type": "liter"
+  },
+  "uni_20968": {
+    "id": "uni_20968",
+    "name": "Watsons Hygienic Cleansing Wet Wipes 10 Wipes  CN",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417647.webp",
+    "category": "Wipes",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 435.0,
+        "normalized_price": 435.0
+      }
+    ],
+    "current_price": 435.0,
+    "normalized_price": 435.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_20915": {
+    "id": "uni_20915",
+    "name": "Watsons Men 5System Razor 4Cartridges USA",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417649.webp",
+    "category": "Razors & Epilators",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 1560.0,
+        "normalized_price": 1560.0
+      }
+    ],
+    "current_price": 1560.0,
+    "normalized_price": 1560.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_20996": {
+    "id": "uni_20996",
+    "name": "Watsons Men Charcoal Shaving Gel 100 Ml TH",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417650.webp",
+    "category": "Shaving Gel",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 897.0,
+        "normalized_price": 8970.0
+      }
+    ],
+    "current_price": 897.0,
+    "normalized_price": 8970.0,
+    "unit": "100.0ml",
+    "unit_type": "liter"
+  },
+  "uni_20969": {
+    "id": "uni_20969",
+    "name": "Watsons Micellar Cleansing Wipes Deep 20 Wipes VN",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417651.webp",
+    "category": "Wipes",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 975.0,
+        "normalized_price": 975.0
+      }
+    ],
+    "current_price": 975.0,
+    "normalized_price": 975.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_20980": {
+    "id": "uni_20980",
+    "name": "Watsons Micellar Cleansing Wipes Gentle 20 Wipes VN",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417652.webp",
+    "category": "Wipes",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 855.0,
+        "normalized_price": 855.0
+      }
+    ],
+    "current_price": 855.0,
+    "normalized_price": 855.0,
+    "unit": "1 unit",
+    "unit_type": "piece"
+  },
+  "uni_20933": {
+    "id": "uni_20933",
+    "name": "Watsons Natural Green Tea & Mint Toothpaste 110 G MY",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417654.webp",
+    "category": "Toothpaste",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 980.0,
+        "normalized_price": 8909.09
+      }
+    ],
+    "current_price": 980.0,
+    "normalized_price": 8909.09,
+    "unit": "110.0g",
+    "unit_type": "kg"
+  },
+  "uni_21209": {
+    "id": "uni_21209",
+    "name": "Watsons Natural Tea Tree & Aloe Vera Toothpaste 110 G MY",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417655.webp",
+    "category": "Toothpaste",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 980.0,
+        "normalized_price": 8909.09
+      }
+    ],
+    "current_price": 980.0,
+    "normalized_price": 8909.09,
+    "unit": "110.0g",
+    "unit_type": "kg"
+  },
+  "uni_20937": {
+    "id": "uni_20937",
+    "name": "Watsons Naturals Cica & Sunflower Soothing Facial Mask 25 Ml KR",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417656.webp",
+    "category": "Face Treatments",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 595.0,
+        "normalized_price": 23800.0
+      }
+    ],
+    "current_price": 595.0,
+    "normalized_price": 23800.0,
+    "unit": "25.0ml",
+    "unit_type": "liter"
+  },
+  "uni_20955": {
+    "id": "uni_20955",
+    "name": "Watsons Naturals Fermented Sugar & White Tea Youthing Facial Mask 25 Ml KR",
+    "store": "unimart",
+    "image": "https://myadmin.unimart.online/storage/app/public/product/all_img/0417657.webp",
+    "category": "Face Treatments",
+    "history": [
+      {
+        "date": "2026-06-01",
+        "price": 595.0,
+        "normalized_price": 23800.0
+      }
+    ],
+    "current_price": 595.0,
+    "normalized_price": 23800.0,
+    "unit": "25.0ml",
+    "unit_type": "liter"
+  }
+}

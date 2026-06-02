@@ -1,0 +1,58 @@
+Last Run: 2026-06-01 15:27:25
+------------------------------
+Total Scraped: 200
+New Items: 200
+------------------------------
+Categories:
+- Socks: 30
+- Shampoo: 19
+- Face Treatments: 18
+- Probiotic Drinks: 12
+- Face Wash: 9
+- Body Lotion: 7
+- Toothpaste: 7
+- Wipes: 6
+- Conditioner: 5
+- Face Moisturizers: 4
+- Nail Clipper: 4
+- Body Oil: 4
+- Specialized Sauce: 4
+- Jam: 4
+- Face Cleansers: 4
+- Lip Care: 3
+- Shower Creame & Gels: 3
+- Body Wash: 3
+- Roll-On Women: 3
+- Clothes Hanger: 3
+- Hair Color: 3
+- Deo Stick: 2
+- Shaving Foam: 2
+- Pasta Ready Sauce: 2
+- Chocolate Bar: 2
+- Cat Food: 2
+- Hair Oil: 2
+- Dips & Spreads: 2
+- Peanut Butter: 2
+- Cereal: 2
+- Hard Candy: 2
+- Face Serum: 2
+- Toothbrush: 2
+- Granola & Muesli: 2
+- Floor & Tiles Cleaner: 2
+- Face Powder: 1
+- Mustard Oil: 1
+- Grinded Spice: 1
+- Baby Meals: 1
+- Body Scrubs: 1
+- Mixed Pickles: 1
+- Canola Oil: 1
+- Pasta: 1
+- Sliced Cheese: 1
+- Ready-To-Drink Coffee: 1
+- Ready-To-Drink Tea: 1
+- Laundry Powder Detergents: 1
+- Eye Treatments: 1
+- Room Air Freshener: 1
+- Facial Wipe Make Up Remover: 1
+- Razors & Epilators: 1
+- Shaving Gel: 1

@@ -1,0 +1,11 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Solid Background Circle -->
+  <circle cx="32" cy="32" r="32" fill="#000000"/>
+  
+  <!-- Bold "G" - Max size for visibility -->
+  <path d="M42 32C42 26.4772 37.5228 22 32 22C26.4772 22 22 26.4772 22 32C22 37.5228 26.4772 42 32 42H42V32H36" 
+        stroke="#d4af37" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Simple Halo / Celestial Ring -->
+  <circle cx="32" cy="32" r="28" stroke="#d4af37" stroke-width="2" stroke-dasharray="4 4"/>
+</svg>
