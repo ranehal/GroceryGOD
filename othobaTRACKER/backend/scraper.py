@@ -81,7 +81,7 @@ async def scrape_page(page, url, page_num):
         print(f"[ERROR] Scrape failed for {url}: {str(e)[:100]}")
         return [], 0
 
-async def sector_worker(context, url, idx, total):
+async def sector_worker(context, url, idx, total, summary):
     async with semaphore:
         page = await context.new_page()
         pn = 1
@@ -97,8 +97,13 @@ async def sector_worker(context, url, idx, total):
                 if not p:
                     p = Product(id=d['id'], name=d['name'], vendor_name=d['vendor'], category_name=d['category'], image_url=d['img'], extracted_unit_type=d['ut'], extracted_unit_value=d['uv'])
                     db.add(p)
+                    summary['new'] += 1
                 if d['price'] > 0:
                     db.add(PriceHistory(product_id=d['id'], price_amount=d['price'], timestamp=datetime.datetime.utcnow()))
+                
+                summary['total'] += 1
+                summary['categories'][d['category']] += 1
+
             db.commit()
             total_indexed += len(items)
             # Some pages have fewer than 80 but more than 0 items
@@ -120,7 +125,7 @@ async def main():
         context = await browser.new_context(
             user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
         )
-        tasks = [sector_worker(context, url, i+1, len(urls)) for i, url in enumerate(urls)]
+        tasks = [sector_worker(context, url, i+1, len(urls), summary) for i, url in enumerate(urls)]
         await asyncio.gather(*tasks)
         save_last_run_log(summary)
         await browser.close()
@@ -144,4 +149,3 @@ def save_last_run_log(summary):
 
 if __name__ == "__main__":
     asyncio.run(main())
-

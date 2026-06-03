@@ -18442,5 +18442,442 @@
     "unit": "1 unit",
     "unit_type": "piece",
     "url": "https://shotejbazar.com/product/twinings-pure-green-tea-20-bags/"
+  },
+  "sj_2xspicyhotchickenflavorramennoodles140g5packs": {
+    "id": "sj_2xspicyhotchickenflavorramennoodles140g5packs",
+    "name": "2x Spicy Hot Chicken Flavor Ramen Noodles (140g*5packs)",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/07/1-2.webp",
+    "category": "Snacks",
+    "history": [
+      {
+        "date": "2026-06-02",
+        "price": 750.0,
+        "normalized_price": 1071.43
+      }
+    ],
+    "current_price": 750.0,
+    "normalized_price": 1071.43,
+    "unit": "140g x 5",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/2x-spicy-hot-chicken-flavor-ramen-noodles-140g5packs/"
+  },
+  "sj_amultspecialpremiumdairywhitenermilkpowder1kg": {
+    "id": "sj_amultspecialpremiumdairywhitenermilkpowder1kg",
+    "name": "Amul T-Special Premium Dairy Whitener Milk Powder 1 kg",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/07/2.webp",
+    "category": "Snacks",
+    "history": [
+      {
+        "date": "2026-06-02",
+        "price": 1150.0,
+        "normalized_price": 1150.0
+      }
+    ],
+    "current_price": 1150.0,
+    "normalized_price": 1150.0,
+    "unit": "1.0kg",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/amul-t-special-premium-dairy-whitener-milk-powder-1-kg/"
+  },
+  "sj_crispscheddarcheesechips156g": {
+    "id": "sj_crispscheddarcheesechips156g",
+    "name": "Crisps, Cheddar Cheese Chips 156g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/07/3-1.webp",
+    "category": "Snacks",
+    "history": [
+      {
+        "date": "2026-06-02",
+        "price": 350.0,
+        "normalized_price": 2243.59
+      }
+    ],
+    "current_price": 350.0,
+    "normalized_price": 2243.59,
+    "unit": "156.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/crisps-cheddar-cheese-chips-156-g/"
+  },
+  "sj_kelloggscerealiextragustofruttirossigranola375g": {
+    "id": "sj_kelloggscerealiextragustofruttirossigranola375g",
+    "name": "Kellogg\u2019s Cereali Extra Gusto Frutti Rossi Granola 375g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2025/04/11.webp",
+    "category": "Snacks",
+    "history": [
+      {
+        "date": "2026-06-02",
+        "price": 950.0,
+        "normalized_price": 2533.33
+      }
+    ],
+    "current_price": 950.0,
+    "normalized_price": 2533.33,
+    "unit": "375.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/kelloggs-cereali-extra-gusto-frutti-rossi-granola-con-avena-croccante-confezione-singola-da-375g/"
+  },
+  "sj_kentboringerchickenstock20g": {
+    "id": "sj_kentboringerchickenstock20g",
+    "name": "Kent Boringer Chicken Stock 20 g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/07/4.webp",
+    "category": "Snacks",
+    "history": [
+      {
+        "date": "2026-06-02",
+        "price": 850.0,
+        "normalized_price": 42500.0
+      }
+    ],
+    "current_price": 850.0,
+    "normalized_price": 42500.0,
+    "unit": "20.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/kent-boringer-chicken-stock-20-g/"
+  },
+  "sj_koreaninstantnoodles3xspicyhotchickenflavorramennoodles140g5packs": {
+    "id": "sj_koreaninstantnoodles3xspicyhotchickenflavorramennoodles140g5packs",
+    "name": "Korean Instant Noodles 3x Spicy Hot Chicken Flavor Ramen Noodles (140g*5packs)",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/07/5.webp",
+    "category": "Snacks",
+    "history": [
+      {
+        "date": "2026-06-02",
+        "price": 750.0,
+        "normalized_price": 1071.43
+      }
+    ],
+    "current_price": 750.0,
+    "normalized_price": 1071.43,
+    "unit": "140g x 5",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/korean-instant-noodles-3x-spicy-hot-chicken-flavor-ramen-noodles-140g5packs/"
+  },
+  "sj_kurkuremasalamunch78gmeach3pcs": {
+    "id": "sj_kurkuremasalamunch78gmeach3pcs",
+    "name": "KURKURE Masala Munch 78 gm Each 3 pcs",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/07/6.webp",
+    "category": "Snacks",
+    "history": [
+      {
+        "date": "2026-06-02",
+        "price": 300.0,
+        "normalized_price": 3846.15
+      }
+    ],
+    "current_price": 300.0,
+    "normalized_price": 3846.15,
+    "unit": "78.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/kurkure-masala-munch-78-gm-each-3-pcs/"
+  },
+  "sj_misterpotatobarbeku125g": {
+    "id": "sj_misterpotatobarbeku125g",
+    "name": "Mister potato barbeku 125g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/07/7.webp",
+    "category": "Snacks",
+    "history": [
+      {
+        "date": "2026-06-02",
+        "price": 350.0,
+        "normalized_price": 2800.0
+      }
+    ],
+    "current_price": 350.0,
+    "normalized_price": 2800.0,
+    "unit": "125.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/mister-potato-barbeku-125g/"
+  },
+  "sj_misterpotatocrisps125g": {
+    "id": "sj_misterpotatocrisps125g",
+    "name": "Mister Potato Crisps 125g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/07/8.webp",
+    "category": "Snacks",
+    "history": [
+      {
+        "date": "2026-06-02",
+        "price": 350.0,
+        "normalized_price": 2800.0
+      }
+    ],
+    "current_price": 350.0,
+    "normalized_price": 2800.0,
+    "unit": "125.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/mister-potato-crisps-125g/"
+  },
+  "sj_misterpotatocrispshotspicy125g": {
+    "id": "sj_misterpotatocrispshotspicy125g",
+    "name": "Mister Potato Crisps Hot & Spicy \u2013 125g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/9-2.webp",
+    "category": "Snacks",
+    "history": [
+      {
+        "date": "2026-06-02",
+        "price": 350.0,
+        "normalized_price": 2800.0
+      }
+    ],
+    "current_price": 350.0,
+    "normalized_price": 2800.0,
+    "unit": "125.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/mister-potato-crisps-hot-spicy-125g/"
+  },
+  "sj_misterpotatocrispsoriginal125g": {
+    "id": "sj_misterpotatocrispsoriginal125g",
+    "name": "Mister Potato Crisps Original \u2013 125g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/10-4.webp",
+    "category": "Snacks",
+    "history": [
+      {
+        "date": "2026-06-02",
+        "price": 350.0,
+        "normalized_price": 2800.0
+      }
+    ],
+    "current_price": 350.0,
+    "normalized_price": 2800.0,
+    "unit": "125.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/mister-potato-crisps-original-125g/"
+  },
+  "sj_misterpotatocrispsoriginal100gm": {
+    "id": "sj_misterpotatocrispsoriginal100gm",
+    "name": "Mister Potato Crisps Original 100gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/11-3.webp",
+    "category": "Snacks",
+    "history": [
+      {
+        "date": "2026-06-02",
+        "price": 350.0,
+        "normalized_price": 3500.0
+      }
+    ],
+    "current_price": 350.0,
+    "normalized_price": 3500.0,
+    "unit": "100.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/mister-potato-crisps-original-100gm/"
+  },
+  "sj_misterpotatocrispstomato125g": {
+    "id": "sj_misterpotatocrispstomato125g",
+    "name": "Mister Potato Crisps Tomato \u2013 125g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/12-3.webp",
+    "category": "Snacks",
+    "history": [
+      {
+        "date": "2026-06-02",
+        "price": 350.0,
+        "normalized_price": 2800.0
+      }
+    ],
+    "current_price": 350.0,
+    "normalized_price": 2800.0,
+    "unit": "125.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/mister-potato-crisps-tomato-125g/"
+  },
+  "sj_pringlesbaconflavorpotatochipseuropeansnacks168g": {
+    "id": "sj_pringlesbaconflavorpotatochipseuropeansnacks168g",
+    "name": "PRINGLES Bacon Flavor Potato Chips European Snacks 168g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/14-2.webp",
+    "category": "Snacks",
+    "history": [
+      {
+        "date": "2026-06-02",
+        "price": 400.0,
+        "normalized_price": 2380.95
+      }
+    ],
+    "current_price": 400.0,
+    "normalized_price": 2380.95,
+    "unit": "168.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/pringles-bacon-flavor-potato-chips-european-snacks-168g/"
+  },
+  "sj_pringlesoriginalpotatochips134gm": {
+    "id": "sj_pringlesoriginalpotatochips134gm",
+    "name": "Pringles Original Potato Chips 134 gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/15-1.webp",
+    "category": "Snacks",
+    "history": [
+      {
+        "date": "2026-06-02",
+        "price": 350.0,
+        "normalized_price": 2611.94
+      }
+    ],
+    "current_price": 350.0,
+    "normalized_price": 2611.94,
+    "unit": "134.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/pringles-original-potato-chips-134-gm/"
+  },
+  "sj_pringlespizzapotatocrisps158g": {
+    "id": "sj_pringlespizzapotatocrisps158g",
+    "name": "Pringles Pizza Potato Crisps,158 g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/16-1.webp",
+    "category": "Snacks",
+    "history": [
+      {
+        "date": "2026-06-02",
+        "price": 400.0,
+        "normalized_price": 2531.65
+      }
+    ],
+    "current_price": 400.0,
+    "normalized_price": 2531.65,
+    "unit": "158.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/pringles-pizza-potato-crisps158-g/"
+  },
+  "sj_pringlessourcreamandonion158gm": {
+    "id": "sj_pringlessourcreamandonion158gm",
+    "name": "Pringles Sour Cream and Onion 158 gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/18-3.webp",
+    "category": "Snacks",
+    "history": [
+      {
+        "date": "2026-06-02",
+        "price": 400.0,
+        "normalized_price": 2531.65
+      }
+    ],
+    "current_price": 400.0,
+    "normalized_price": 2531.65,
+    "unit": "158.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/pringles-sour-cream-and-onion-158-gm/"
+  },
+  "sj_samyangbuldakcheeseflavorramen140g5pack": {
+    "id": "sj_samyangbuldakcheeseflavorramen140g5pack",
+    "name": "Samyang Buldak Cheese Flavor Ramen (140g*5pack)",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/19-2.webp",
+    "category": "Snacks",
+    "history": [
+      {
+        "date": "2026-06-02",
+        "price": 750.0,
+        "normalized_price": 1071.43
+      }
+    ],
+    "current_price": 750.0,
+    "normalized_price": 1071.43,
+    "unit": "140g x 5",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/samyang-buldak-cheese-flavor-ramen-140g5pack/"
+  },
+  "sj_samyangbuldakhotchickenflavouredramen140g5pcs": {
+    "id": "sj_samyangbuldakhotchickenflavouredramen140g5pcs",
+    "name": "Samyang Buldak Hot Chicken Flavoured Ramen (140g*5pcs)",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/20-3.webp",
+    "category": "Snacks",
+    "history": [
+      {
+        "date": "2026-06-02",
+        "price": 750.0,
+        "normalized_price": 1071.43
+      }
+    ],
+    "current_price": 750.0,
+    "normalized_price": 1071.43,
+    "unit": "140g x 5",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/samyang-buldak-hot-chicken-flavoured-ramen-140g5pcs/"
+  },
+  "sj_samyanghotchickenramencarbonaraflavour140g5pcs": {
+    "id": "sj_samyanghotchickenramencarbonaraflavour140g5pcs",
+    "name": "Samyang Hot Chicken Ramen Carbonara flavour (140g*5pcs)",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/21-2.webp",
+    "category": "Snacks",
+    "history": [
+      {
+        "date": "2026-06-02",
+        "price": 750.0,
+        "normalized_price": 1071.43
+      }
+    ],
+    "current_price": 750.0,
+    "normalized_price": 1071.43,
+    "unit": "140g x 5",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/samyang-hot-chicken-ramen-carbonara-flavour-140g5pcs/"
+  },
+  "sj_takisfuegomini1packet25minipack875gm": {
+    "id": "sj_takisfuegomini1packet25minipack875gm",
+    "name": "Takis Fuego Mini 1 packet 25 mini pack 875 gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/22-3.webp",
+    "category": "Snacks",
+    "history": [
+      {
+        "date": "2026-06-02",
+        "price": 5200.0,
+        "normalized_price": 5942.86
+      }
+    ],
+    "current_price": 5200.0,
+    "normalized_price": 5942.86,
+    "unit": "875.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/takis-fuego-mini-1-packet-25-mini-pack-875-gm/"
+  },
+  "sj_tangsoftdrinkspowdermangoflavour2kgproductofbahrain": {
+    "id": "sj_tangsoftdrinkspowdermangoflavour2kgproductofbahrain",
+    "name": "Tang Soft Drinks Powder Mango Flavour 2kg (Product Of Bahrain)",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/23-2.webp",
+    "category": "Snacks",
+    "history": [
+      {
+        "date": "2026-06-02",
+        "price": 1850.0,
+        "normalized_price": 925.0
+      }
+    ],
+    "current_price": 1850.0,
+    "normalized_price": 925.0,
+    "unit": "2.0kg",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/tang-soft-drinks-powder-mango-flavour-2kg/"
+  },
+  "sj_wholesalelaysstaxspicylobsterpotatochip135gmar4pcs": {
+    "id": "sj_wholesalelaysstaxspicylobsterpotatochip135gmar4pcs",
+    "name": "Wholesale Lays Stax Spicy Lobster Potato Chip 135 gm ar 4 pcs",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/24-2.webp",
+    "category": "Snacks",
+    "history": [
+      {
+        "date": "2026-06-02",
+        "price": 1400.0,
+        "normalized_price": 10370.37
+      }
+    ],
+    "current_price": 1400.0,
+    "normalized_price": 10370.37,
+    "unit": "135.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/wholesale-lays-stax-spicy-lobster-potato-chip-135-gm-ar-4-pcs/"
   }
 }

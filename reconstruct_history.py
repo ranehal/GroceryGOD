@@ -3,44 +3,57 @@ import sqlite3
 import os
 import re
 
-def load_chunked_js(prefix, count):
-    """Reconstructs full data from window.prefix_partX chunks."""
+def load_chunked_js(prefix):
+    """Dynamically reconstructs full data by reading manifest and all parts."""
+    manifest_path = f"{prefix}_manifest.js"
+    if not os.path.exists(manifest_path):
+        print(f"  [!] Manifest {manifest_path} not found.")
+        return {}
+    
+    with open(manifest_path, 'r', encoding='utf-8') as f:
+        content = f.read()
+        # Extract JSON
+        match = re.search(r'\{.*\}', content, re.DOTALL)
+        if not match: return {}
+        manifest = json.loads(match.group(0))
+        total_chunks = manifest.get('metadata', {}).get('total_chunks', 1)
+        print(f"  [+] Manifest found for {prefix}: {total_chunks} chunks expected.")
+
     all_data = {}
-    for i in range(1, count + 1):
+    for i in range(1, total_chunks + 1):
         path = f"{prefix}_data_part{i}.js"
-        if not os.path.exists(path): continue
+        if not os.path.exists(path):
+            print(f"  [!] Chunk {path} missing!")
+            continue
         with open(path, 'r', encoding='utf-8') as f:
             content = f.read()
-            # Extract JSON between first '{' and last '}'
             match = re.search(r'\{.*\}', content, re.DOTALL)
             if match:
                 try:
                     chunk = json.loads(match.group(0))
                     all_data.update(chunk)
                 except: pass
+    print(f"  [+] Total items loaded for {prefix}: {len(all_data)}")
     return all_data
 
 def reconstruct_meena():
     print("Reconstructing Meena Bazar...")
-    data = load_chunked_js("meenabazar", 1)
+    data = load_chunked_js("meenabazar")
     if not data: return
     db_path = 'MEENAtracker/backend/meenatracker.db'
+    os.makedirs(os.path.dirname(db_path), exist_ok=True)
     conn = sqlite3.connect(db_path)
     cur = conn.cursor()
-    
-    # Precise schema match for Meena
     cur.execute("CREATE TABLE IF NOT EXISTS categories (id INTEGER PRIMARY KEY, name VARCHAR UNIQUE, url VARCHAR, is_custom BOOLEAN)")
     cur.execute("CREATE TABLE IF NOT EXISTS products (id INTEGER PRIMARY KEY, external_id VARCHAR UNIQUE, name VARCHAR, unit VARCHAR, unit_type VARCHAR, image_url VARCHAR, category_id INTEGER, is_favorite BOOLEAN)")
     cur.execute("CREATE TABLE IF NOT EXISTS price_history (id INTEGER PRIMARY KEY, product_id INTEGER, actual_price FLOAT, unit_price FLOAT, scraped_at DATETIME)")
     
-    # Ensure a general category exists
     cur.execute("INSERT OR IGNORE INTO categories (name) VALUES (?)", ("General",))
     cur.execute("SELECT id FROM categories WHERE name = ?", ("General",))
     gen_cat_id = cur.fetchone()[0]
 
     for pid, p in data.items():
         base_id = pid[3:] if pid.startswith('mb_') else pid
-        # Map category name if possible
         cat_id = gen_cat_id
         if p.get('category'):
             cur.execute("INSERT OR IGNORE INTO categories (name) VALUES (?)", (p['category'],))
@@ -59,13 +72,12 @@ def reconstruct_meena():
 
 def reconstruct_othoba():
     print("Reconstructing Othoba...")
-    data = load_chunked_js("othoba", 6)
+    data = load_chunked_js("othoba")
     if not data: return
     db_path = 'othobaTRACKER/backend/othoba_tracker.db'
+    os.makedirs(os.path.dirname(db_path), exist_ok=True)
     conn = sqlite3.connect(db_path)
     cur = conn.cursor()
-    
-    # Precise schema match for Othoba
     cur.execute("CREATE TABLE IF NOT EXISTS products (id VARCHAR PRIMARY KEY, name VARCHAR, sku VARCHAR, vendor_name VARCHAR, category_name VARCHAR, image_url VARCHAR, extracted_unit_type VARCHAR, extracted_unit_value FLOAT)")
     cur.execute("CREATE TABLE IF NOT EXISTS price_history (id INTEGER PRIMARY KEY, product_id VARCHAR, timestamp DATETIME, price_amount FLOAT, is_out_of_stock BOOLEAN)")
     
@@ -85,9 +97,9 @@ def reconstruct_othoba():
     conn.commit()
     conn.close()
 
-def reconstruct_json(dest_path, prefix, count, base_prefix):
+def reconstruct_json(dest_path, prefix, base_prefix):
     print(f"Reconstructing {dest_path}...")
-    data = load_chunked_js(prefix, count)
+    data = load_chunked_js(prefix)
     if not data: return
     clean_data = {}
     for pid, p in data.items():
@@ -95,18 +107,18 @@ def reconstruct_json(dest_path, prefix, count, base_prefix):
         clean_data[base_id] = p
     
     with open(dest_path, 'w', encoding='utf-8') as f:
-        json.dump(clean_data, f, indent=2)
+        json.dump(clean_data, f, separators=(',', ':'))
 
 if __name__ == "__main__":
     reconstruct_meena()
     reconstruct_othoba()
-    reconstruct_json("swapnoTRACKER/data.json", "shwapno", 1, "sw_")
-    reconstruct_json("unimartTRACKER/data.json", "unimart", 1, "uni_")
-    reconstruct_json("ShotejTRACKER/data.json", "shotejbazar", 1, "sj_")
+    reconstruct_json("swapnoTRACKER/data.json", "shwapno", "sw_")
+    reconstruct_json("unimartTRACKER/data.json", "unimart", "uni_")
+    reconstruct_json("ShotejTRACKER/data.json", "shotejbazar", "sj_")
     
     print("Reconstructing Chaldal...")
-    ch_data = load_chunked_js("chaldal", 1)
+    ch_data = load_chunked_js("chaldal")
     if ch_data:
         clean_ch = { (k[3:] if k.startswith('ch_') else k): v for k, v in ch_data.items() }
         with open("PRICETRACKER/data.js", "w", encoding='utf-8') as f:
-            f.write(f"window.PRODUCT_DATA = {json.dumps(clean_ch, indent=2)};")
+            f.write(f"window.PRODUCT_DATA = {json.dumps(clean_ch, separators=(',', ':'))};")
