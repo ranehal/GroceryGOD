@@ -122,8 +122,15 @@ async def scrape_category(browser, cat_entry, products_data, summary, semaphore,
         page = await context.new_page()
         
         try:
-            await page.goto(url, timeout=90000, wait_until="domcontentloaded")
-            
+            # Robust load for category pages
+            for attempt in range(2):
+                try:
+                    await page.goto(url, timeout=60000, wait_until="domcontentloaded")
+                    break
+                except:
+                    if attempt == 1: raise
+                    await asyncio.sleep(5)
+
             # Scroll to load all items
             last_height = await page.evaluate("document.body.scrollHeight")
             for _ in range(15): # Max 15 scrolls to prevent infinite loops
@@ -178,6 +185,7 @@ async def scrape_category(browser, cat_entry, products_data, summary, semaphore,
                             "category": cat_name,
                             "current_price": price_val, "current_unit": unit_text, "history": []
                         }
+                        summary['new'] += 1
                     else:
                         products_data[prod_id]["category"] = cat_name
 
@@ -208,7 +216,6 @@ async def scrape_category(browser, cat_entry, products_data, summary, semaphore,
 
 async def main():
     summary = {'total': 0, 'new': 0, 'categories': Counter()}
-    summary = {'total': 0, 'new': 0, 'categories': Counter()}
     async with async_playwright() as p:
         # 1. Headless Mode
         browser = await p.chromium.launch(headless=True)
@@ -217,10 +224,26 @@ async def main():
         print("Running Category Discovery...")
         discovery_context = await browser.new_context(user_agent=USER_AGENT)
         discovery_page = await discovery_context.new_page()
-        await discovery_page.goto("https://chaldal.com/", timeout=60000)
-        await asyncio.sleep(3)
         
-        new_cats_map = await discover_categories(discovery_page)
+        # Robust load for main page
+        discovery_success = False
+        for attempt in range(3):
+            try:
+                print(f"  Attempt {attempt+1} to reach Chaldal...")
+                await discovery_page.goto("https://chaldal.com/", timeout=90000, wait_until="load")
+                await asyncio.sleep(5) # Wait for JS rendering
+                discovery_success = True
+                break
+            except Exception as e:
+                print(f"  [!] Discovery attempt {attempt+1} failed: {e}")
+                await asyncio.sleep(10)
+        
+        if discovery_success:
+            new_cats_map = await discover_categories(discovery_page)
+        else:
+            print("  [X] Failed all discovery attempts. Using existing categories.")
+            new_cats_map = {}
+
         await discovery_context.close()
 
         # Merge Categories
@@ -265,7 +288,7 @@ async def main():
         print(f"Starting concurrent scrape of {len(active_categories)} categories...")
 
         for cat_entry in active_categories:
-            tasks.append(scrape_category(browser, cat_entry, products_data, semaphore, timestamp, today_date))
+            tasks.append(scrape_category(browser, cat_entry, products_data, summary, semaphore, timestamp, today_date))
         
         await asyncio.gather(*tasks)
         await browser.close()
@@ -296,4 +319,3 @@ def save_last_run_log(summary):
 
 if __name__ == "__main__":
     asyncio.run(main())
-
