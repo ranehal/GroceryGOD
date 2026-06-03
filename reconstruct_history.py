@@ -12,7 +12,6 @@ def load_chunked_js(prefix):
     
     with open(manifest_path, 'r', encoding='utf-8') as f:
         content = f.read()
-        # Extract JSON
         match = re.search(r'\{.*\}', content, re.DOTALL)
         if not match: return {}
         manifest = json.loads(match.group(0))
@@ -44,6 +43,7 @@ def reconstruct_meena():
     os.makedirs(os.path.dirname(db_path), exist_ok=True)
     conn = sqlite3.connect(db_path)
     cur = conn.cursor()
+    # PRECISE SCHEMA
     cur.execute("CREATE TABLE IF NOT EXISTS categories (id INTEGER PRIMARY KEY, name VARCHAR UNIQUE, url VARCHAR, is_custom BOOLEAN)")
     cur.execute("CREATE TABLE IF NOT EXISTS products (id INTEGER PRIMARY KEY, external_id VARCHAR UNIQUE, name VARCHAR, unit VARCHAR, unit_type VARCHAR, image_url VARCHAR, category_id INTEGER, is_favorite BOOLEAN)")
     cur.execute("CREATE TABLE IF NOT EXISTS price_history (id INTEGER PRIMARY KEY, product_id INTEGER, actual_price FLOAT, unit_price FLOAT, scraped_at DATETIME)")
@@ -78,6 +78,7 @@ def reconstruct_othoba():
     os.makedirs(os.path.dirname(db_path), exist_ok=True)
     conn = sqlite3.connect(db_path)
     cur = conn.cursor()
+    # PRECISE SCHEMA matching models.py
     cur.execute("CREATE TABLE IF NOT EXISTS products (id VARCHAR PRIMARY KEY, name VARCHAR, sku VARCHAR, vendor_name VARCHAR, category_name VARCHAR, image_url VARCHAR, extracted_unit_type VARCHAR, extracted_unit_value FLOAT)")
     cur.execute("CREATE TABLE IF NOT EXISTS price_history (id INTEGER PRIMARY KEY, product_id VARCHAR, timestamp DATETIME, price_amount FLOAT, is_out_of_stock BOOLEAN)")
     
@@ -106,6 +107,7 @@ def reconstruct_json(dest_path, prefix, base_prefix):
         base_id = pid[len(base_prefix):] if pid.startswith(base_prefix) else pid
         clean_data[base_id] = p
     
+    os.makedirs(os.path.dirname(dest_path), exist_ok=True)
     with open(dest_path, 'w', encoding='utf-8') as f:
         json.dump(clean_data, f, separators=(',', ':'))
 
@@ -120,5 +122,6 @@ if __name__ == "__main__":
     ch_data = load_chunked_js("chaldal")
     if ch_data:
         clean_ch = { (k[3:] if k.startswith('ch_') else k): v for k, v in ch_data.items() }
+        os.makedirs("PRICETRACKER", exist_ok=True)
         with open("PRICETRACKER/data.js", "w", encoding='utf-8') as f:
             f.write(f"window.PRODUCT_DATA = {json.dumps(clean_ch, separators=(',', ':'))};")
