@@ -1,17 +1,6 @@
-Last Run: 2026-06-03 09:18:05
+Last Run: 2026-06-03 12:47:28
 ------------------------------
-Total Scraped: 1154
-New Items: 1154
+Total Scraped: 0
+New Items: 0
 ------------------------------
 Categories:
-- Snacks: 225
-- Groceries: 189
-- Health Care & Cleaning Supplies: 135
-- Beauty & Personal Care: 133
-- Others: 121
-- Electricals: 74
-- Cycle: 60
-- Spice & Masala: 45
-- Beverage: 30
-- Dairy: 28
-... and 9 more.
