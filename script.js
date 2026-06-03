@@ -454,6 +454,10 @@ function setupEventListeners() {
     });
 
     document.getElementById('sort-options').onchange = (e) => { sortOption = e.target.value; renderProducts(); };
+    
+    // Set initial intel filter UI state
+    document.querySelectorAll('.intel-btn').forEach(b => b.classList.toggle('active', b.dataset.filter === activeIntelFilter));
+
     document.querySelectorAll('.multi-filter-group input').forEach(cb => {
         cb.onchange = () => {
             if (cb.checked) activeUnitFilters.add(cb.value);

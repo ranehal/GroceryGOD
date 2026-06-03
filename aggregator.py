@@ -84,17 +84,23 @@ def load_shwapno():
         all_dates = []
         for pid, p in data.items():
             if pid in ['metadata', 'products']: continue
+            final_pid = pid if pid.startswith("sh_") else f"sh_{pid}"
             hist = p.get('history', [])
             curr_p = hist[-1].get('price', 0) if hist else 0
             u_type, norm_p = parse_unit_and_calculate(p.get('name', ''), "", curr_p)
-            new_history = []
+            
+            # Deduplicate history by date
+            unique_hist = {}
             for h in hist:
-                _, h_norm = parse_unit_and_calculate(p.get('name', ''), "", h.get('price', 0))
-                new_history.append({"date": h.get('date'), "price": h.get('price'), "normalized_price": h_norm})
-                if h.get('date'): all_dates.append(h['date'])
+                if h.get('date'):
+                    _, h_norm = parse_unit_and_calculate(p.get('name', ''), "", h.get('price', 0))
+                    unique_hist[h['date']] = {"date": h['date'], "price": h.get('price', 0), "normalized_price": h_norm}
+            
+            new_history = sorted(unique_hist.values(), key=lambda x: x['date'])
+            for h in new_history: all_dates.append(h['date'])
                 
-            products[f"sh_{pid}"] = {
-                "id": f"sh_{pid}", "name": p.get('name'), "store": "shwapno",
+            products[final_pid] = {
+                "id": final_pid, "name": p.get('name'), "store": "shwapno",
                 "category": get_display_cat(p.get('category', 'General')), "unit": p.get('unit', 'N/A'), "unit_type": u_type,
                 "current_price": curr_p, "normalized_price": norm_p,
                 "image": p.get('image'), "url": p.get('url'), "history": new_history
