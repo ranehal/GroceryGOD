@@ -1,17 +1,17 @@
-Last Run: 2026-06-03 16:36:22
+Last Run: 2026-06-04 09:03:55
 ------------------------------
-Total Scraped: 1700
-New Items: 1132
+Total Scraped: 1000
+New Items: 316
 ------------------------------
 Categories:
-- Shampoo: 114
-- Socks: 52
-- Toothpaste: 50
-- Body Wash: 38
-- Chocolate Bar: 37
-- Razors & Epilators: 35
-- Imported Biscuit: 31
-- Men’S Perfume: 31
-- Cookies: 31
-- Hand Wash: 30
-... and 244 more.
+- Local Biscuit: 94
+- Canned Vegetables: 33
+- Instant Noodles: 25
+- Soya Sauce: 25
+- Regular Black Tea: 24
+- Chilli Sauce: 23
+- Malted / Chocolate Drinks: 22
+- Shampoo: 20
+- Shower Creame & Gels: 19
+- Mustard Oil: 18
+... and 127 more.

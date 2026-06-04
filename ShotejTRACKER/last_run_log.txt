@@ -1,7 +1,6 @@
-Last Run: 2026-06-03 16:50:01
+Last Run: 2026-06-04 09:05:32
 ------------------------------
-Total Scraped: 72
+Total Scraped: 0
 New Items: 0
 ------------------------------
 Categories:
-- Coffee: 72
