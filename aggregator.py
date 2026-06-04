@@ -89,8 +89,12 @@ def load_shwapno():
             curr_p = hist[-1].get('price', 0) if hist else 0
             u_type, norm_p = parse_unit_and_calculate(p.get('name', ''), "", curr_p)
             
-            # Deduplicate history by date
+            # Deduplicate and merge history
             unique_hist = {}
+            if final_pid in products:
+                for h in products[final_pid]['history']:
+                    unique_hist[h['date']] = h
+
             for h in hist:
                 if h.get('date'):
                     _, h_norm = parse_unit_and_calculate(p.get('name', ''), "", h.get('price', 0))
@@ -271,15 +275,22 @@ def load_unimart():
         with open(UNIMART_DATA, 'r', encoding='utf-8') as f: data = json.load(f)
         products = {}; all_dates = []
         for pid, p in data.items():
+            p_id = f"un_{pid}" if not pid.startswith("un_") else pid
             hist = p.get('history', [])
             curr_p = p.get('current_price', 0)
             u_type, norm_p = parse_unit_and_calculate(p.get('name', ''), p.get('unit', ''), curr_p)
-            new_history = []
+            
+            unique_hist = {}
+            if p_id in products:
+                for h in products[p_id]['history']: unique_hist[h['date']] = h
+
             for h in hist:
-                _, h_norm = parse_unit_and_calculate(p.get('name', ''), p.get('unit', ''), h.get('price', 0))
-                new_history.append({"date": h.get('date'), "price": h.get('price'), "normalized_price": h_norm})
-                if h.get('date'): all_dates.append(h['date'])
-            p_id = f"un_{pid}" if not pid.startswith("un_") else pid
+                if h.get('date'):
+                    _, h_norm = parse_unit_and_calculate(p.get('name', ''), p.get('unit', ''), h.get('price', 0))
+                    unique_hist[h['date']] = {"date": h.get('date'), "price": h.get('price'), "normalized_price": h_norm}
+                    all_dates.append(h['date'])
+            
+            new_history = sorted(unique_hist.values(), key=lambda x: x['date'])
             products[p_id] = {
                 "id": p_id, "name": p.get('name'), "store": "unimart",
                 "category": p.get('category', 'General'), "unit": p.get('unit'), "unit_type": u_type,
@@ -296,15 +307,22 @@ def load_shotejbazar():
         with open(SHOTEJ_DATA, 'r', encoding='utf-8') as f: data = json.load(f)
         products = {}; all_dates = []
         for pid, p in data.items():
+            p_id = f"sj_{pid}" if not pid.startswith("sj_") else pid
             hist = p.get('history', [])
             curr_p = p.get('current_price', 0)
             u_type, norm_p = parse_unit_and_calculate(p.get('name', ''), p.get('unit', ''), curr_p)
-            new_history = []
+            
+            unique_hist = {}
+            if p_id in products:
+                for h in products[p_id]['history']: unique_hist[h['date']] = h
+
             for h in hist:
-                _, h_norm = parse_unit_and_calculate(p.get('name', ''), p.get('unit', ''), h.get('price', 0))
-                new_history.append({"date": h.get('date'), "price": h.get('price'), "normalized_price": h_norm})
-                if h.get('date'): all_dates.append(h['date'])
-            p_id = f"sj_{pid}" if not pid.startswith("sj_") else pid
+                if h.get('date'):
+                    _, h_norm = parse_unit_and_calculate(p.get('name', ''), p.get('unit', ''), h.get('price', 0))
+                    unique_hist[h['date']] = {"date": h.get('date'), "price": h.get('price'), "normalized_price": h_norm}
+                    all_dates.append(h['date'])
+
+            new_history = sorted(unique_hist.values(), key=lambda x: x['date'])
             products[p_id] = {
                 "id": p_id, "name": p.get('name'), "store": "shotejbazar",
                 "category": p.get('category', 'General'), "unit": p.get('unit'), "unit_type": u_type,
