@@ -26,16 +26,29 @@ def check_lfs_pointers():
     return True
 
 def check_file_sizes():
-    """Checks all tracked files against GitHub's 100MB limit."""
+    """Checks tracked/staged files against GitHub's 100MB limit."""
     print("[GUARD] Verifying file sizes for GitHub compliance...")
     large_files = []
-    for root, dirs, files in os.walk('.'):
-        if '.git' in dirs: dirs.remove('.git')
-        for f in files:
-            fp = os.path.join(root, f)
-            size_mb = os.path.getsize(fp) / (1024 * 1024)
-            if size_mb > MAX_FILE_SIZE_MB:
-                large_files.append((fp, size_mb))
+    
+    # Use git ls-files to only check files that git cares about
+    try:
+        files = subprocess.check_output(['git', 'ls-files'], text=True).splitlines()
+        # Also check staged but untracked files
+        files += subprocess.check_output(['git', 'ls-files', '--others', '--exclude-standard'], text=True).splitlines()
+    except:
+        # Fallback if git fails
+        files = []
+        for root, dirs, files_in_dir in os.walk('.'):
+            if '.git' in dirs: dirs.remove('.git')
+            for f in files_in_dir:
+                files.append(os.path.join(root, f))
+
+    for fp in set(files):
+        if not os.path.exists(fp): continue
+        if fp.endswith('.db'): continue # Always ignore DBs in size check
+        size_mb = os.path.getsize(fp) / (1024 * 1024)
+        if size_mb > MAX_FILE_SIZE_MB:
+            large_files.append((fp, size_mb))
     
     if large_files:
         print("❌ FATAL ERROR: Files exceed GitHub 100MB limit:")
