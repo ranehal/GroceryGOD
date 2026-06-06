@@ -9,6 +9,8 @@ import logging
 from collections import Counter
 from playwright.async_api import async_playwright
 
+DHAKA_TZ = datetime.timezone(datetime.timedelta(hours=6))
+
 # Setup logging
 logging.basicConfig(
     level=logging.INFO,
@@ -238,10 +240,6 @@ async def main():
     logger.info("Shwapno Scraper Complete.")
 
 def save_last_run_log(summary):
-    import os
-    from datetime import datetime, timedelta, timezone
-DHAKA_TZ = timezone(timedelta(hours=6))
-
     base_dir = os.path.dirname(os.path.abspath(__file__))
     log_path = os.path.join(base_dir, "last_run_log.txt")
     with open(log_path, "w", encoding='utf-8') as f:

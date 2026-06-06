@@ -6,7 +6,6 @@ import sys
 from playwright.async_api import async_playwright
 from datetime import datetime, timedelta, timezone
 DHAKA_TZ = timezone(timedelta(hours=6))
-, timezone
 from database import SessionLocal, Category, Product, PriceHistory, init_db
 
 BASE_URL = "https://meenabazaronline.com"
@@ -207,9 +206,6 @@ async def main():
 
 def save_last_run_log(summary):
     import os
-    from datetime import datetime, timedelta, timezone
-DHAKA_TZ = timezone(timedelta(hours=6))
-
     base_dir = os.path.dirname(os.path.abspath(__file__))
     log_path = os.path.join(base_dir, "last_run_log.txt")
     with open(log_path, "w", encoding='utf-8') as f:
