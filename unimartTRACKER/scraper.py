@@ -3,6 +3,7 @@ import json
 import os
 import re
 import datetime
+DHAKA_TZ = datetime.timezone(datetime.timedelta(hours=6))
 import logging
 from collections import Counter
 
@@ -46,7 +47,7 @@ def save_data(data):
 
 def save_last_run_log(summary):
     with open(LOG_FILE, "w", encoding='utf-8') as f:
-        f.write(f"Last Run: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+        f.write(f"Last Run: {datetime.datetime.now(DHAKA_TZ).strftime('%Y-%m-%d %H:%M:%S')}\n")
         f.write("-" * 30 + "\n")
         f.write(f"Total Scraped: {summary['total']}\n")
         f.write(f"New Items: {summary['new']}\n")

@@ -14,11 +14,13 @@ scrapers = [
 LOG_HELPER = """
 def save_last_run_log(summary):
     import os
-    from datetime import datetime
+    from datetime import datetime, timedelta, timezone
+DHAKA_TZ = timezone(timedelta(hours=6))
+
     base_dir = os.path.dirname(os.path.abspath(__file__))
     log_path = os.path.join(base_dir, "last_run_log.txt")
     with open(log_path, "w", encoding='utf-8') as f:
-        f.write(f"Last Run: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\\n")
+        f.write(f"Last Run: {datetime.now(DHAKA_TZ).strftime('%Y-%m-%d %H:%M:%S')}\\n")
         f.write("-" * 30 + "\\n")
         f.write(f"Total Scraped: {summary['total']}\\n")
         f.write(f"New Items: {summary.get('new', 'N/A')}\\n")

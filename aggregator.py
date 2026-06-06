@@ -3,7 +3,7 @@ import json
 import sqlite3
 import os
 import re
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 
 # Paths to data sources (Relative to GroceryGOD root)
 SHWAPNO_DATA = 'swapnoTRACKER/data.json'
@@ -13,6 +13,8 @@ OTHOBA_DB = 'othobaTRACKER/backend/othoba_tracker.db'
 METRO_DB = 'metroTRACKER/backend/metro_tracker.db'
 UNIMART_DATA = 'unimartTRACKER/data.json'
 SHOTEJ_DATA = 'ShotejTRACKER/data.json'
+
+DHAKA_TZ = timezone(timedelta(hours=6))
 
 # --- SECURITY & ROBUSTNESS CONSTANTS ---
 MAX_FILE_SIZE_MB = 45 # Safely under GitHub's 50MB warning and 100MB hard limit
@@ -339,7 +341,7 @@ def save_store_data(name, data_tuple):
     if not products: return
     
     total_items = len(products)
-    last_update = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    last_update = datetime.now(DHAKA_TZ).strftime("%Y-%m-%d %H:%M:%S")
     product_items = sorted(products.items())
     
     # 1. Atomic Size Calculation
