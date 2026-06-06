@@ -104,12 +104,13 @@ def load_shwapno():
             
             new_history = sorted(unique_hist.values(), key=lambda x: x['date'])
             for h in new_history: all_dates.append(h['date'])
+            first_seen = new_history[0]['date'] if new_history else datetime.now(DHAKA_TZ).strftime("%Y-%m-%d")
                 
             products[final_pid] = {
                 "id": final_pid, "name": p.get('name'), "store": "shwapno",
                 "category": get_display_cat(p.get('category', 'General')), "unit": p.get('unit', 'N/A'), "unit_type": u_type,
                 "current_price": curr_p, "normalized_price": norm_p,
-                "image": p.get('image'), "url": p.get('url'), "history": new_history
+                "image": p.get('image'), "url": p.get('url'), "history": new_history, "first_seen": first_seen
             }
         return products, f"{min(all_dates)} to {max(all_dates)}" if all_dates else "N/A"
     except Exception as e:
@@ -325,10 +326,11 @@ def load_shotejbazar():
                     all_dates.append(h['date'])
 
             new_history = sorted(unique_hist.values(), key=lambda x: x['date'])
+            first_seen = new_history[0]['date'] if new_history else datetime.now(DHAKA_TZ).strftime("%Y-%m-%d")
             products[p_id] = {
                 "id": p_id, "name": p.get('name'), "store": "shotejbazar",
                 "category": p.get('category', 'General'), "unit": p.get('unit'), "unit_type": u_type,
-                "current_price": curr_p, "normalized_price": norm_p, "image": p.get('image'), "history": new_history
+                "current_price": curr_p, "normalized_price": norm_p, "image": p.get('image'), "history": new_history, "first_seen": first_seen
             }
         return products, f"{min(all_dates)} to {max(all_dates)}" if all_dates else "N/A"
     except Exception as e:

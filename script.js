@@ -253,7 +253,10 @@ function renderSidebar() {
         catList.className = 'shop-categories';
 
         categories.forEach(cat => {
-            const count = shopProducts.filter(p => p.category === cat).length;
+            const catProducts = shopProducts.filter(p => p.category === cat);
+            const count = catProducts.length;
+            const newCount = catProducts.filter(p => p.ageDays <= 7).length;
+
             const li = document.createElement('li');
             const isPinned = cat.includes('📌');
             li.className = `shop-cat-item ${activeCategories.has(`${sid}_${cat}`) ? 'active' : ''} ${isPinned ? 'pinned' : ''}`;
@@ -263,7 +266,10 @@ function renderSidebar() {
                     <input type="checkbox" class="cat-checkbox" ${activeCategories.has(catId) ? 'checked' : ''}>
                     <span class="cat-name">${cat}</span> 
                 </div>
-                <span class="cat-count">${count}</span>
+                <div style="display:flex; align-items:center; gap:6px;">
+                    ${newCount > 0 ? `<span class="new-tag-tiny" title="New items in last 7 days">+${newCount}</span>` : ''}
+                    <span class="cat-count">${count}</span>
+                </div>
             `;
             const catCb = li.querySelector('.cat-checkbox');
             li.onclick = (e) => {
@@ -742,6 +748,15 @@ window.setNewThreshold = () => {
     const val = prompt("Days to consider item as 'NEW':", newDaysThreshold);
     if (val !== null) {
         newDaysThreshold = parseInt(val);
+        localStorage.setItem('god_new_days', newDaysThreshold);
+        processData();
+        renderProducts();
+        alert(`New items threshold set to ${newDaysThreshold} days.`);
+    }
+};
+ ${newDaysThreshold} days.`);
+    }
+};
         localStorage.setItem('god_new_days', newDaysThreshold);
         processData();
         renderProducts();

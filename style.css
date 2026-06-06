@@ -105,7 +105,18 @@ body.pitch-black {
     padding: 5px 12px; border-radius: 20px; cursor: pointer; font-size: 0.75rem; font-weight: 700;
 }
 .intel-btn:hover { border-color: var(--accent-color); color: #fff; }
-.intel-btn.active { 
+.new-tag-tiny {
+    font-size: 0.6rem;
+    font-weight: 900;
+    background: var(--gold);
+    color: #000;
+    padding: 1px 4px;
+    border-radius: 3px;
+    letter-spacing: 0;
+}
+
+.intel-btn.active {
+ 
     border-color: var(--gold); 
     color: #000; 
     background: var(--gold);
