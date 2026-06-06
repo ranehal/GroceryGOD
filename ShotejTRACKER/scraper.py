@@ -180,7 +180,6 @@ async def scrape_category(sem, browser, category, current_data, summary):
 
 async def main():
     summary = {'total': 0, 'new': 0, 'categories': Counter()}
-    summary = {'total': 0, 'new': 0, 'categories': Counter()}
     data = load_data()
     category_data = load_categories()
     enabled_categories = [c for c in flatten_categories(category_data) if c.get('enabled', True)]
@@ -212,6 +211,11 @@ def save_last_run_log(summary):
             f.write(f"- {cat}: {count}\n")
         if len(summary['categories']) > 10:
             f.write(f"... and {len(summary['categories']) - 10} more.")
+
+if __name__ == "__main__":
+    asyncio.run(main())
+
+
 
 if __name__ == "__main__":
     asyncio.run(main())

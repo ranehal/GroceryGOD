@@ -211,7 +211,6 @@ async def scrape_category(sem, browser, category, current_data, summary, pinned_
 
 async def main():
     summary = {'total': 0, 'new': 0, 'categories': Counter()}
-    summary = {'total': 0, 'new': 0, 'categories': Counter()}
     data = load_data()
     category_data = load_categories()
     pinned_names = load_pinned_names()
@@ -226,13 +225,13 @@ async def main():
         # Order: Pinned Categories FIRST
         pinned_cats = [c for c in enabled_categories if c['name'] in pinned_names]
         other_cats = [c for c in enabled_categories if c['name'] not in pinned_names]
-        
         queue = pinned_cats + other_cats
-        for i, cat in enumerate(queue):
-            logger.info(f"Progress: {i+1}/{len(queue)}")
-            await scrape_category(sem, browser, cat, data, summary, pinned_names)
-            if (i+1) % 5 == 0: save_data(data) # Save every 5 cats
-            
+
+        tasks = []
+        for cat in queue:
+            tasks.append(scrape_category(sem, browser, cat, data, summary, pinned_names))
+        
+        await asyncio.gather(*tasks)
         await browser.close()
     
     save_data(data)
