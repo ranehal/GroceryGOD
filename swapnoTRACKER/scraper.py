@@ -221,7 +221,7 @@ async def main():
     
     async with async_playwright() as p:
         browser = await p.chromium.launch(headless=True)
-        sem = asyncio.Semaphore(1) 
+        sem = asyncio.Semaphore(3) 
         
         # Order: Pinned Categories FIRST
         pinned_cats = [c for c in enabled_categories if c['name'] in pinned_names]

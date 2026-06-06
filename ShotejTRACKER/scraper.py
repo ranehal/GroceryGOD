@@ -142,17 +142,9 @@ async def scrape_category(sem, browser, category, current_data, summary):
 
                     prod_id = "sj_" + re.sub(r'\W+', '', name).lower()
                     
-                    # Deep Extraction: Get short description for weight calculation
-                    # To be faster, we could fetch just the product page HTML
-                    # But for now, we navigate to the page to be safe with dynamic content
-                    p_page = await context.new_page()
-                    await p_page.goto(product_url, wait_until="domcontentloaded", timeout=30000)
-                    desc_el = await p_page.query_selector('.woocommerce-product-details__short-description')
-                    description = await desc_el.inner_text() if desc_el else ""
-                    await p_page.close()
-
-                    # Calculate weight and normalized price
-                    total_weight, unit_type, qty_label = parse_box_weight(description, name)
+                    # Optimization: Skip deep extraction (opening new page per product)
+                    # We will use parse_box_weight on the name itself or aggregator logic
+                    total_weight, unit_type, qty_label = parse_box_weight("", name)
                     norm_price = current_price / total_weight if total_weight > 0 else current_price
 
                     summary['total'] += 1
