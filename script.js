@@ -17,6 +17,7 @@ let sortOption = 'unit_price_asc';
 let activeIntelFilter = 'low';
 let compareModeActive = false;
 let showFavoritesOnly = false;
+let showNewOnly = false;
 let activeShopFilters = new Set(['shwapno']);
 let activeCategories = new Set();
 window.loadedStores = new Set(['shwapno']);
@@ -318,6 +319,7 @@ function renderProducts() {
         if (!activeShopFilters.has(p.store)) return false;
         if (activeCategories.size > 0 && !activeCategories.has(`${p.store}_${p.category}`)) return false;
         if (showFavoritesOnly && !p.isFavorite) return false;
+        if (showNewOnly && !p.isNew) return false;
         if (searchQuery && !p.name.toLowerCase().includes(searchQuery) && !p.category.toLowerCase().includes(searchQuery)) return false;
         if (!activeUnitFilters.has(p.unit_type)) return false;
         if (activeIntelFilter === 'great') return p.normalized_price < (p.avgPrice * greatDealThreshold);
@@ -460,6 +462,20 @@ function setupEventListeners() {
     });
 
     document.getElementById('sort-options').onchange = (e) => { sortOption = e.target.value; renderProducts(); };
+    
+    document.getElementById('bookmark-cat-btn').onclick = () => {
+        showFavoritesOnly = !showFavoritesOnly;
+        document.getElementById('bookmark-cat-btn').classList.toggle('active', showFavoritesOnly);
+        renderProducts();
+    };
+
+    const newOnlyCb = document.getElementById('new-only-checkbox');
+    if (newOnlyCb) {
+        newOnlyCb.onchange = (e) => {
+            showNewOnly = e.target.checked;
+            renderProducts();
+        };
+    }
     
     // Set initial intel filter UI state
     document.querySelectorAll('.intel-btn').forEach(b => b.classList.toggle('active', b.dataset.filter === activeIntelFilter));
