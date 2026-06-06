@@ -123,7 +123,18 @@ function showLoading(show, message = 'Loading...') {
 }
 
 function processData() {
-    const today = new Date("2026-05-28"); 
+    // Determine the \"Reference Today\" based on the latest update in metadata
+    let latestDate = new Date();
+    if (metadata.stores) {
+        Object.values(metadata.stores).forEach(s => {
+            if (s.date_range && s.date_range.includes(' to ')) {
+                const d = new Date(s.date_range.split(' to ')[1]);
+                if (isNaN(latestDate.getTime()) || d > latestDate) latestDate = d;
+            }
+        });
+    }
+    const today = latestDate;
+
     const storeLatestDates = {};
     if (metadata.stores) {
         Object.entries(metadata.stores).forEach(([store, data]) => {
@@ -158,14 +169,17 @@ function processData() {
         }
         p.isFavorite = favorites.includes(p.id);
 
-        // New Item Detection
-        if (history.length > 0) {
-            const firstSeen = new Date(history[0].date);
+        // New Item Detection (Dynamic)
+        const firstSeenStr = p.first_seen || (history.length > 0 ? history[0].date : null);
+        if (firstSeenStr) {
+            const firstSeen = new Date(firstSeenStr);
             const diffTime = Math.abs(today - firstSeen);
             const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
             p.isNew = diffDays <= newDaysThreshold;
+            p.ageDays = diffDays;
         } else {
             p.isNew = true;
+            p.ageDays = 0;
         }
     });
 }
@@ -188,7 +202,7 @@ function renderSidebar() {
         item.onclick = () => filterByGroup(gName);
         item.querySelector('.delete-group-btn').onclick = (e) => {
             e.stopPropagation();
-            if(confirm(`Delete matrix group "${gName}"?`)) { delete customGroups[gName]; saveGroups(); renderSidebar(); }
+            if(confirm(`Delete matrix group \"${gName}\"?`)) { delete customGroups[gName]; saveGroups(); renderSidebar(); }
         };
         groupList.appendChild(item);
     });
@@ -213,13 +227,13 @@ function renderSidebar() {
         header.dataset.sid = sid;
         header.className = `shop-header ${activeShopFilters.has(sid) ? 'active' : ''}`;
         header.innerHTML = `
-            <div class="shop-toggle-container">
-                <input type="checkbox" class="shop-checkbox" ${activeShopFilters.has(sid) ? 'checked' : ''}>
-                <span style="color:${STORE_CONFIG[sid].color}">${STORE_CONFIG[sid].name}</span>
+            <div class=\"shop-toggle-container\">
+                <input type=\"checkbox\" class=\"shop-checkbox\" ${activeShopFilters.has(sid) ? 'checked' : ''}>
+                <span style=\"color:${STORE_CONFIG[sid].color}\">${STORE_CONFIG[sid].name}</span>
             </div>
-            <div style="display:flex; align-items:center; gap:12px;">
-                <span style="opacity:0.4; font-size:0.7rem;">${shopProducts.length}</span>
-                <i class="fas fa-chevron-down toggle-icon" style="font-size:0.7rem; padding: 10px;"></i>
+            <div style=\"display:flex; align-items:center; gap:12px;\">
+                <span style=\"opacity:0.4; font-size:0.7rem;\">${shopProducts.length}</span>
+                <i class=\"fas fa-chevron-down toggle-icon\" style=\"font-size:0.7rem; padding: 10px;\"></i>
             </div>
         `;
         
@@ -263,13 +277,13 @@ function renderSidebar() {
             li.className = `shop-cat-item ${activeCategories.has(`${sid}_${cat}`) ? 'active' : ''} ${isPinned ? 'pinned' : ''}`;
             const catId = `${sid}_${cat}`;
             li.innerHTML = `
-                <div class="cat-row-content" style="display:flex; align-items:center; gap:12px; flex:1;">
-                    <input type="checkbox" class="cat-checkbox" ${activeCategories.has(catId) ? 'checked' : ''}>
-                    <span class="cat-name">${cat}</span> 
+                <div class=\"cat-row-content\" style=\"display:flex; align-items:center; gap:12px; flex:1;\">
+                    <input type=\"checkbox\" class=\"cat-checkbox\" ${activeCategories.has(catId) ? 'checked' : ''}>
+                    <span class=\"cat-name\">${cat}</span> 
                 </div>
-                <div style="display:flex; align-items:center; gap:6px;">
-                    ${newCount > 0 ? `<span class="new-tag-tiny" title="New items in last 7 days">+${newCount}</span>` : ''}
-                    <span class="cat-count">${count}</span>
+                <div style=\"display:flex; align-items:center; gap:6px;\">
+                    ${newCount > 0 ? `<span class=\"new-tag-tiny\" title=\"New items in last 7 days\">+${newCount}</span>` : ''}
+                    <span class=\"cat-count\">${count}</span>
                 </div>
             `;
             const catCb = li.querySelector('.cat-checkbox');
@@ -326,6 +340,7 @@ function renderProducts() {
         if (activeIntelFilter === 'good') return p.normalized_price < (p.avgPrice * goodBuyThreshold);
         if (activeIntelFilter === 'wait') return p.normalized_price > (p.avgPrice * 1.05);
         if (activeIntelFilter === 'low') return p.hasPriceHistory && p.hasPriceToday && p.normalized_price <= (p.minPrice + 0.01);
+        if (activeIntelFilter === 'new') return p.isNew;
         return true;
     });
 
@@ -350,37 +365,37 @@ function createProductCard(p) {
     card.style.setProperty('--store-color', storeColor);
     
     const trend = p.priceChangePercent !== 0 ? `
-        <div style="position:absolute; top:35px; left:8px; font-size:0.55rem; font-weight:900; background:rgba(0,0,0,0.85); padding:1px 5px; border-radius:3px; color:${p.priceChangePercent < 0 ? 'var(--accent-secondary)' : 'var(--danger)'}; z-index:11;">
+        <div style=\"position:absolute; top:35px; left:8px; font-size:0.55rem; font-weight:900; background:rgba(0,0,0,0.85); padding:1px 5px; border-radius:3px; color:${p.priceChangePercent < 0 ? 'var(--accent-secondary)' : 'var(--danger)'}; z-index:11;\">
             ${p.priceChangePercent > 0 ? '▲' : '▼'}${Math.abs(p.priceChangePercent).toFixed(0)}%
         </div>
     ` : '';
 
     const newBadge = p.isNew ? `
-        <div style="position:absolute; top:35px; right:8px; font-size:0.55rem; font-weight:900; background:var(--gold); padding:1px 5px; border-radius:3px; color:#000; z-index:11;">
+        <div style=\"position:absolute; top:35px; right:8px; font-size:0.55rem; font-weight:900; background:var(--gold); padding:1px 5px; border-radius:3px; color:#000; z-index:11;\">
             NEW
         </div>
     ` : '';
 
     card.innerHTML = `
-        <div class="store-badge" style="background:${storeColor}">${p.store}</div>
-        <div class="fav-btn ${p.isFavorite ? 'active' : ''}" onclick="toggleFavorite(event, '${p.id}')">
-            <i class="fas fa-star"></i>
+        <div class=\"store-badge\" style=\"background:${storeColor}\">${p.store}</div>
+        <div class=\"fav-btn ${p.isFavorite ? 'active' : ''}\" onclick=\"toggleFavorite(event, '${p.id}')\">
+            <i class=\"fas fa-star\"></i>
         </div>
         ${trend}
         ${newBadge}
-        <div class="p-img-box">
-            <img src="${p.image}" class="product-image" loading="lazy" onerror="this.src='https://placehold.co/200x200/000/fff?text=NO_SIGNAL'">
-            <div class="price-tag">${Math.round(p.current_price)}</div>
+        <div class=\"p-img-box\">
+            <img src=\"${p.image}\" class=\"product-image\" loading=\"lazy\" onerror=\"this.src='https://placehold.co/200x200/000/fff?text=NO_SIGNAL'\">
+            <div class=\"price-tag\">${Math.round(p.current_price)}</div>
         </div>
-        <div class="p-detail-sh">
-            <div class="product-name" title="${p.name}">${p.name}</div>
-            <div class="product-meta">
-                <div class="meta-row">
-                    <span class="price-main" style="color:${storeColor}">${fmt(p.normalized_price)} <span class="unit-label">/${p.unit_type}</span></span>
-                    <span class="cat-tag">${p.category}</span>
+        <div class=\"p-detail-sh\">
+            <div class=\"product-name\" title=\"${p.name}\">${p.name}</div>
+            <div class=\"product-meta\">
+                <div class=\"meta-row\">
+                    <span class=\"price-main\" style=\"color:${storeColor}\">${fmt(p.normalized_price)} <span class=\"unit-label\">/${p.unit_type}</span></span>
+                    <span class=\"cat-tag\">${p.category}</span>
                 </div>
-                <div class="meta-row">
-                    <span class="pack-info">Pack: ${p.unit || 'N/A'}</span>
+                <div class=\"meta-row\">
+                    <span class=\"pack-info\">Pack: ${p.unit || 'N/A'}</span>
                 </div>
             </div>
         </div>
@@ -505,7 +520,7 @@ function setupEventListeners() {
 
     document.getElementById('cart-comp-btn').onclick = openCartModal;
     document.getElementById('reset-cart-btn').onclick = () => {
-        if(confirm("Empty Cart?")) {
+        if(confirm(\"Empty Cart?\")) {
             favorites = []; localStorage.setItem('god_favorites', '[]');
             allProducts.forEach(p => p.isFavorite = false);
             openCartModal(); renderProducts();
@@ -513,18 +528,30 @@ function setupEventListeners() {
     };
 
     document.getElementById('save-current-list-btn').onclick = () => {
-        if (favorites.length === 0) return alert("Cart is empty!");
-        const name = prompt("Enter List name:");
+        if (favorites.length === 0) return alert(\"Cart is empty!\");
+        const name = prompt(\"Enter List name:\");
         if (name) { shoppingLists[name] = [...favorites]; localStorage.setItem('god_shopping_lists', JSON.stringify(shoppingLists)); renderShoppingLists(); }
     };
 
     document.getElementById('compare-clear-all').onclick = () => {
-        if(confirm("Clear staged Matrix?")) {
+        if(confirm(\"Clear staged Matrix?\")) {
             selectedForComparison = []; localStorage.setItem('god_comparison', '[]');
             document.getElementById('compare-modal').style.display = 'none';
             renderProducts();
         }
     };
+
+    const newDaysInput = document.getElementById('new-days-input');
+    if (newDaysInput) {
+        newDaysInput.value = newDaysThreshold;
+        newDaysInput.onchange = (e) => {
+            newDaysThreshold = parseInt(e.target.value) || 7;
+            localStorage.setItem('god_new_days', newDaysThreshold);
+            processData();
+            renderProducts();
+        };
+    }
+
     document.querySelectorAll('.close-modal').forEach(btn => btn.onclick = () => btn.closest('.modal').style.display = 'none');
 }
 
@@ -543,19 +570,19 @@ function renderShoppingLists() {
         group.style.display = 'flex'; group.style.gap = '2px';
         const btn = document.createElement('button');
         btn.className = 'btn-icon'; btn.style.fontSize = '0.7rem';
-        btn.innerHTML = `<i class="fas fa-list"></i> ${name}`;
+        btn.innerHTML = `<i class=\"fas fa-list\"></i> ${name}`;
         btn.onclick = () => {
-            if(confirm(`Load "${name}"?`)) {
+            if(confirm(`Load \"${name}\"?`)) {
                 favorites = [...shoppingLists[name]]; localStorage.setItem('god_favorites', JSON.stringify(favorites));
                 processData(); openCartModal(); renderProducts();
             }
         };
         const del = document.createElement('button');
         del.className = 'btn-icon danger'; del.style.padding = '5px 8px';
-        del.innerHTML = `<i class="fas fa-trash"></i>`;
+        del.innerHTML = `<i class=\"fas fa-trash\"></i>`;
         del.onclick = (e) => {
             e.stopPropagation();
-            if(confirm(`Delete list "${name}"?`)) { delete shoppingLists[name]; localStorage.setItem('god_shopping_lists', JSON.stringify(shoppingLists)); renderShoppingLists(); }
+            if(confirm(`Delete list \"${name}\"?`)) { delete shoppingLists[name]; localStorage.setItem('god_shopping_lists', JSON.stringify(shoppingLists)); renderShoppingLists(); }
         };
         group.appendChild(btn); group.appendChild(del);
         container.appendChild(group);
@@ -568,12 +595,12 @@ function updateSuggestions(query) {
     const matches = allProducts.filter(p => p.name.toLowerCase().includes(query)).slice(0, 15);
     if (matches.length === 0) { box.style.display = 'none'; return; }
     box.innerHTML = matches.map(p => `
-        <div class="suggestion-item" tabindex="-1" onclick="selectSuggestion('${p.name.replace(/'/g, "\\'")}')">
-            <div style="display:flex; align-items:center; gap:10px;">
-                <img src="${p.image}" style="width:24px; height:24px; object-fit:contain; background:#fff; border-radius:3px;">
-                <span style="font-size:0.75rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:280px;">${p.name}</span>
+        <div class=\"suggestion-item\" tabindex=\"-1\" onclick=\"selectSuggestion('${p.name.replace(/'/g, \"\\\\'\")}')\">
+            <div style=\"display:flex; align-items:center; gap:10px;\">
+                <img src=\"${p.image}\" style=\"width:24px; height:24px; object-fit:contain; background:#fff; border-radius:3px;\">
+                <span style=\"font-size:0.75rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:280px;\">${p.name}</span>
             </div>
-            <span style="color:${STORE_CONFIG[p.store].color}; font-size:0.55rem; font-weight:900;">${p.store.toUpperCase()}</span>
+            <span style=\"color:${STORE_CONFIG[p.store].color}; font-size:0.55rem; font-weight:900;\">${p.store.toUpperCase()}</span>
         </div>
     `).join('');
     box.style.display = 'block';
@@ -591,11 +618,11 @@ function openCompareModal() {
     const products = allProducts.filter(p => selectedForComparison.includes(p.id));
     document.getElementById('selected-count').innerText = `${products.length} units staged`;
     const ctrl = document.querySelector('.compare-details-grid') || document.getElementById('compare-details');
-    ctrl.innerHTML = `<button id="matrix-to-cart-btn" class="btn-icon" style="margin:20px; width:200px; background:var(--gold); color:#000;"><i class="${favorites.some(f => selectedForComparison.includes(f)) ? 'fa-solid' : 'fa-regular'} fa-star"></i> Move Matrix to Cart</button>`;
+    ctrl.innerHTML = `<button id=\"matrix-to-cart-btn\" class=\"btn-icon\" style=\"margin:20px; width:200px; background:var(--gold); color:#000;\"><i class=\"${favorites.some(f => selectedForComparison.includes(f)) ? 'fa-solid' : 'fa-regular'} fa-star\"></i> Move Matrix to Cart</button>`;
     document.getElementById('matrix-to-cart-btn').onclick = () => {
         selectedForComparison.forEach(id => { if (!favorites.includes(id)) favorites.push(id); });
         localStorage.setItem('god_favorites', JSON.stringify(favorites));
-        processData(); alert("Items added to Cart!"); renderProducts();
+        processData(); alert(\"Items added to Cart!\"); renderProducts();
     };
     const ctx = document.getElementById('compare-chart').getContext('2d');
     if (compareChart) compareChart.destroy();
@@ -623,28 +650,28 @@ function openCartModal() {
     renderShoppingLists();
     const container = document.getElementById('cart-content');
     const cartItems = allProducts.filter(p => favorites.includes(p.id));
-    if (cartItems.length === 0) { container.innerHTML = '<div style="padding:100px; text-align:center; opacity:0.3; font-size:2rem;">CART_EMPTY</div>'; return; }
-    let html = '<div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:15px;">';
+    if (cartItems.length === 0) { container.innerHTML = '<div style=\"padding:100px; text-align:center; opacity:0.3; font-size:2rem;\">CART_EMPTY</div>'; return; }
+    let html = '<div style=\"display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:15px;\">';
     Object.keys(STORE_CONFIG).forEach(sid => {
         let total = 0;
         const itemsHtml = cartItems.map(item => {
             const match = allProducts.find(p => p.store === sid && p.name === item.name);
             if (match) {
                 total += match.current_price;
-                return `<div style="display:flex; align-items:center; gap:8px; padding:5px 0; border-bottom:1px solid #111;">
-                    <img src="${match.image}" style="width:30px; height:30px; object-fit:contain; background:#fff; border-radius:4px;">
-                    <div style="flex:1; font-size:0.75rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${item.name}</div>
-                    <div style="font-weight:800; font-size:0.8rem;">${Math.round(match.current_price)}</div>
+                return `<div style=\"display:flex; align-items:center; gap:8px; padding:5px 0; border-bottom:1px solid #111;\">
+                    <img src=\"${match.image}\" style=\"width:30px; height:30px; object-fit:contain; background:#fff; border-radius:4px;\">
+                    <div style=\"flex:1; font-size:0.75rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;\">${item.name}</div>
+                    <div style=\"font-weight:800; font-size:0.8rem;\">${Math.round(match.current_price)}</div>
                 </div>`;
             }
             return '';
         }).join('');
         if (total > 0) {
-            html += `<div style="padding:15px; background:#050505; border-radius:12px; border:1px solid ${STORE_CONFIG[sid].color}33;">
-                <h3 style="color:${STORE_CONFIG[sid].color}; margin:0 0 10px 0; font-size:1rem;">${STORE_CONFIG[sid].name}</h3>
-                <div style="max-height: 300px; overflow-y:auto;">${itemsHtml}</div>
-                <div style="margin-top:15px; padding-top:10px; border-top:2px solid #222; display:flex; justify-content:space-between; font-weight:900;">
-                    <span>TOTAL</span><span style="color:var(--accent-secondary)">${Math.round(total)}</span>
+            html += `<div style=\"padding:15px; background:#050505; border-radius:12px; border:1px solid ${STORE_CONFIG[sid].color}33;\">
+                <h3 style=\"color:${STORE_CONFIG[sid].color}; margin:0 0 10px 0; font-size:1rem;\">${STORE_CONFIG[sid].name}</h3>
+                <div style=\"max-height: 300px; overflow-y:auto;\">${itemsHtml}</div>
+                <div style=\"margin-top:15px; padding-top:10px; border-top:2px solid #222; display:flex; justify-content:space-between; font-weight:900;\">
+                    <span>TOTAL</span><span style=\"color:var(--accent-secondary)\">${Math.round(total)}</span>
                 </div>
             </div>`;
         }
@@ -668,8 +695,8 @@ function openDetailedChart(product) {
     
     const isAllTimeLow = product.normalized_price <= (product.minPrice + 0.01);
     const minDisplay = isAllTimeLow 
-        ? `<span style="color:var(--gold); font-weight:900;">ALL TIME LOW: ${fmt(product.minPrice)}</span>`
-        : `<span style="color:var(--text-secondary)">High: ${fmt(product.maxPrice)}</span>`;
+        ? `<span style=\"color:var(--gold); font-weight:900;\">ALL TIME LOW: ${fmt(product.minPrice)}</span>`
+        : `<span style=\"color:var(--text-secondary)\">High: ${fmt(product.maxPrice)}</span>`;
     
     document.getElementById('chart-min-max').innerHTML = minDisplay;
 
@@ -684,8 +711,8 @@ function openDetailedChart(product) {
         modal.querySelector('.modal-content').appendChild(footer);
     }
     footer.innerHTML = `
-        <button class="btn-icon" onclick="customizeItem('${product.id}')"><i class="fas fa-edit"></i> Customize Details</button>
-        <button class="btn-icon" onclick="setNewThreshold()"><i class="fas fa-calendar-alt"></i> Set "New" Days (${newDaysThreshold})</button>
+        <button class=\"btn-icon\" onclick=\"customizeItem('${product.id}')\"><i class=\"fas fa-edit\"></i> Customize Details</button>
+        <button class=\"btn-icon\" onclick=\"setNewThreshold()\"><i class=\"fas fa-calendar-alt\"></i> Set \"New\" Days (${newDaysThreshold})</button>
     `;
     
     const ctx = document.getElementById('price-history-chart').getContext('2d');
@@ -727,19 +754,19 @@ function updateStoreStats() {
         }
     });
 
-    let html = '<div style="font-size: 0.65rem; color: var(--gold); margin-bottom: 12px; font-weight: 800; letter-spacing:1px; border-bottom:1px solid #222; padding-bottom:5px;">GODDATA UPLINK STATUS</div>';
+    let html = '<div style=\"font-size: 0.65rem; color: var(--gold); margin-bottom: 12px; font-weight: 800; letter-spacing:1px; border-bottom:1px solid #222; padding-bottom:5px;\">GODDATA UPLINK STATUS</div>';
     
     // Sort stores alphabetically
     const sortedStores = Object.entries(metadata.stores).sort((a, b) => a[0].localeCompare(b[0]));
     
     sortedStores.forEach(([store, data]) => {
         const config = STORE_CONFIG[store] || { color: '#888', name: store };
-        html += `<div class="legend-item" style="display:flex; flex-direction:column; margin-bottom:10px;">
-            <div style="display:flex; justify-content:space-between; font-weight:800; font-size:0.75rem;">
-                <span style="color:${config.color}">${config.name.toUpperCase()}</span>
-                <span style="color:#eee;">${data.total} units</span>
+        html += `<div class=\"legend-item\" style=\"display:flex; flex-direction:column; margin-bottom:10px;\">
+            <div style=\"display:flex; justify-content:space-between; font-weight:800; font-size:0.75rem;\">
+                <span style=\"color:${config.color}\">${config.name.toUpperCase()}</span>
+                <span style=\"color:#eee;\">${data.total} units</span>
             </div>
-            <div style="font-size:0.6rem; opacity:0.6; color:#888;">Range: ${data.date_range || 'N/A'}</div>
+            <div style=\"font-size:0.6rem; opacity:0.6; color:#888;\">Range: ${data.date_range || 'N/A'}</div>
         </div>`;
     });
     sidebarStats.innerHTML = html;
@@ -748,10 +775,10 @@ function updateStoreStats() {
 window.customizeItem = (id) => {
     const p = allProducts.find(x => x.id === id);
     if (!p) return;
-    const name = prompt("Customize Name:", p.name) || p.name;
-    const cat = prompt("Customize Category:", p.category) || p.category;
-    const unit = prompt("Customize Pack/Unit:", p.unit) || p.unit;
-    const unitType = prompt("Customize Unit Type (kg/liter/piece):", p.unit_type) || p.unit_type;
+    const name = prompt(\"Customize Name:\", p.name) || p.name;
+    const cat = prompt(\"Customize Category:\", p.category) || p.category;
+    const unit = prompt(\"Customize Pack/Unit:\", p.unit) || p.unit;
+    const unitType = prompt(\"Customize Unit Type (kg/liter/piece):\", p.unit_type) || p.unit_type;
     
     customOverrides[id] = { name, category: cat, unit, unit_type: unitType };
     localStorage.setItem('god_custom_overrides', JSON.stringify(customOverrides));
@@ -761,18 +788,9 @@ window.customizeItem = (id) => {
 };
 
 window.setNewThreshold = () => {
-    const val = prompt("Days to consider item as 'NEW':", newDaysThreshold);
+    const val = prompt(\"Days to consider item as 'NEW':\", newDaysThreshold);
     if (val !== null) {
         newDaysThreshold = parseInt(val);
-        localStorage.setItem('god_new_days', newDaysThreshold);
-        processData();
-        renderProducts();
-        alert(`New items threshold set to ${newDaysThreshold} days.`);
-    }
-};
- ${newDaysThreshold} days.`);
-    }
-};
         localStorage.setItem('god_new_days', newDaysThreshold);
         processData();
         renderProducts();
