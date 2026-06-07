@@ -47,7 +47,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.title = "GroceryGOD";
         showLoading(true, 'Initializing GODdata Matrix...');
         
-        // Initial lazy load: Only shwapno
         await loadStoreData('shwapno');
 
         processData();
@@ -63,9 +62,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 });
 
-/**
- * Asynchronously loads chunked data parts for a given store.
- */
 async function loadStoreData(storeKey) {
     const manifest = window[storeKey + 'Manifest'];
     if (!manifest || !manifest.metadata) {
@@ -102,7 +98,6 @@ async function loadStoreData(storeKey) {
     }
 
     const productsArray = Object.values(masterProducts);
-    // Use loop instead of spread to avoid stack limits
     for (let p of productsArray) {
         allProducts.push(p);
     }
@@ -123,7 +118,6 @@ function showLoading(show, message = 'Loading...') {
 }
 
 function processData() {
-    // Determine the "Reference Today" based on the latest update in metadata
     let latestDate = new Date();
     if (metadata.stores) {
         Object.values(metadata.stores).forEach(s => {
@@ -145,7 +139,6 @@ function processData() {
     }
 
     allProducts.forEach(p => {
-        // Apply Custom Overrides
         if (customOverrides[p.id]) {
             Object.assign(p, customOverrides[p.id]);
         }
@@ -157,7 +150,6 @@ function processData() {
         p.maxPrice = prices.length > 0 ? Math.max(...prices) : p.normalized_price;
         p.hasPriceHistory = prices.length > 1 && (p.maxPrice > p.minPrice);
         
-        // Outdated / Has Price Today check
         const lastDate = history.length > 0 ? history[history.length - 1].date : null;
         p.hasPriceToday = lastDate && storeLatestDates[p.store] && lastDate === storeLatestDates[p.store];
 
@@ -169,7 +161,6 @@ function processData() {
         }
         p.isFavorite = favorites.includes(p.id);
 
-        // New Item Detection (Dynamic)
         const firstSeenStr = p.first_seen || (history.length > 0 ? history[0].date : null);
         if (firstSeenStr) {
             const firstSeen = new Date(firstSeenStr);
@@ -191,18 +182,18 @@ function renderSidebar() {
     
     const groupHeader = document.createElement('div');
     groupHeader.className = 'group-header';
-    groupHeader.innerHTML = `<span><i class="fas fa-folder-plus"></i> Matrix Groups</span> <button id="add-group-btn" class="btn-icon"><i class="fas fa-plus"></i></button>`;
+    groupHeader.innerHTML = '<span><i class="fas fa-folder-plus"></i> Matrix Groups</span> <button id="add-group-btn" class="btn-icon"><i class="fas fa-plus"></i></button>';
     list.appendChild(groupHeader);
 
     const groupList = document.createElement('div');
     Object.keys(customGroups).forEach(gName => {
         const item = document.createElement('div');
         item.className = 'group-item';
-        item.innerHTML = `<span>${gName}</span> <i class="fas fa-trash delete-group-btn" style="color:var(--danger); font-size:0.7rem; cursor:pointer;"></i>`;
+        item.innerHTML = '<span>' + gName + '</span> <i class="fas fa-trash delete-group-btn" style="color:var(--danger); font-size:0.7rem; cursor:pointer;"></i>';
         item.onclick = () => filterByGroup(gName);
         item.querySelector('.delete-group-btn').onclick = (e) => {
             e.stopPropagation();
-            if(confirm(`Delete matrix group "${gName}"?`)) { delete customGroups[gName]; saveGroups(); renderSidebar(); }
+            if(confirm('Delete matrix group "' + gName + '"?')) { delete customGroups[gName]; saveGroups(); renderSidebar(); }
         };
         groupList.appendChild(item);
     });
@@ -210,7 +201,7 @@ function renderSidebar() {
 
     const shopHeading = document.createElement('div');
     shopHeading.className = 'category-group-header';
-    shopHeading.innerHTML = `<span><i class="fas fa-microchip"></i> Market Uplinks</span>`;
+    shopHeading.innerHTML = '<span><i class="fas fa-microchip"></i> Market Uplinks</span>';
     list.appendChild(shopHeading);
 
     Object.keys(STORE_CONFIG).forEach(sid => {
@@ -225,7 +216,7 @@ function renderSidebar() {
         const group = document.createElement('div'); group.className = 'shop-group';
         const header = document.createElement('div');
         header.dataset.sid = sid;
-        header.className = `shop-header ${activeShopFilters.has(sid) ? 'active' : ''}`;
+        header.className = 'shop-header ' + (activeShopFilters.has(sid) ? 'active' : '');
         header.innerHTML = `
             <div class="shop-toggle-container">
                 <input type="checkbox" class="shop-checkbox" ${activeShopFilters.has(sid) ? 'checked' : ''}>
@@ -274,15 +265,15 @@ function renderSidebar() {
 
             const li = document.createElement('li');
             const isPinned = cat.includes('📌');
-            li.className = `shop-cat-item ${activeCategories.has(`${sid}_${cat}`) ? 'active' : ''} ${isPinned ? 'pinned' : ''}`;
-            const catId = `${sid}_${cat}`;
+            li.className = `shop-cat-item ${activeCategories.has(sid + '_' + cat) ? 'active' : ''} ${isPinned ? 'pinned' : ''}`;
+            const catId = sid + '_' + cat;
             li.innerHTML = `
                 <div class="cat-row-content" style="display:flex; align-items:center; gap:12px; flex:1;">
                     <input type="checkbox" class="cat-checkbox" ${activeCategories.has(catId) ? 'checked' : ''}>
                     <span class="cat-name">${cat}</span> 
                 </div>
                 <div style="display:flex; align-items:center; gap:6px;">
-                    ${newCount > 0 ? `<span class="new-tag-tiny" title="New items in last 7 days">+${newCount}</span>` : ''}
+                    ${newCount > 0 ? '<span class="new-tag-tiny" title="New items in last 7 days">+' + newCount + '</span>' : ''}
                     <span class="cat-count">${count}</span>
                 </div>
             `;
@@ -311,7 +302,7 @@ function filterByGroup(name) {
     const ids = customGroups[name] || [];
     searchQuery = ''; activeIntelFilter = 'all'; activeCategories.clear();
     const grid = document.getElementById('sh-grid'); grid.innerHTML = '';
-    document.getElementById('current-view-title').innerText = `Group: ${name}`;
+    document.getElementById('current-view-title').innerText = 'Group: ' + name;
     currentFilteredProducts = allProducts.filter(p => ids.includes(p.id));
     currentFilteredProducts.forEach(p => grid.appendChild(createProductCard(p)));
 }
@@ -331,7 +322,7 @@ function renderProducts() {
     
     currentFilteredProducts = allProducts.filter(p => {
         if (!activeShopFilters.has(p.store)) return false;
-        if (activeCategories.size > 0 && !activeCategories.has(`${p.store}_${p.category}`)) return false;
+        if (activeCategories.size > 0 && !activeCategories.has(p.store + '_' + p.category)) return false;
         if (showFavoritesOnly && !p.isFavorite) return false;
         if (showNewOnly && !p.isNew) return false;
         if (searchQuery && !p.name.toLowerCase().includes(searchQuery) && !p.category.toLowerCase().includes(searchQuery)) return false;
@@ -361,7 +352,7 @@ function renderProducts() {
 function createProductCard(p) {
     const card = document.createElement('div');
     const storeColor = STORE_CONFIG[p.store].color;
-    card.className = `p-item-sh ${selectedForComparison.includes(p.id) ? 'selected' : ''}`;
+    card.className = 'p-item-sh ' + (selectedForComparison.includes(p.id) ? 'selected' : '');
     card.style.setProperty('--store-color', storeColor);
     
     const trend = p.priceChangePercent !== 0 ? `
@@ -492,7 +483,6 @@ function setupEventListeners() {
         };
     }
     
-    // Set initial intel filter UI state
     document.querySelectorAll('.intel-btn').forEach(b => b.classList.toggle('active', b.dataset.filter === activeIntelFilter));
 
     document.querySelectorAll('.multi-filter-group input').forEach(cb => {
@@ -520,7 +510,7 @@ function setupEventListeners() {
 
     document.getElementById('cart-comp-btn').onclick = openCartModal;
     document.getElementById('reset-cart-btn').onclick = () => {
-        if(confirm("Empty Cart?")) {
+        if(confirm('Empty Cart?')) {
             favorites = []; localStorage.setItem('god_favorites', '[]');
             allProducts.forEach(p => p.isFavorite = false);
             openCartModal(); renderProducts();
@@ -534,7 +524,7 @@ function setupEventListeners() {
     };
 
     document.getElementById('compare-clear-all').onclick = () => {
-        if(confirm("Clear staged Matrix?")) {
+        if(confirm('Clear staged Matrix?')) {
             selectedForComparison = []; localStorage.setItem('god_comparison', '[]');
             document.getElementById('compare-modal').style.display = 'none';
             renderProducts();
@@ -570,19 +560,19 @@ function renderShoppingLists() {
         group.style.display = 'flex'; group.style.gap = '2px';
         const btn = document.createElement('button');
         btn.className = 'btn-icon'; btn.style.fontSize = '0.7rem';
-        btn.innerHTML = `<i class="fas fa-list"></i> ${name}`;
+        btn.innerHTML = '<i class="fas fa-list"></i> ' + name;
         btn.onclick = () => {
-            if(confirm(`Load "${name}"?`)) {
+            if(confirm('Load "' + name + '"?')) {
                 favorites = [...shoppingLists[name]]; localStorage.setItem('god_favorites', JSON.stringify(favorites));
                 processData(); openCartModal(); renderProducts();
             }
         };
         const del = document.createElement('button');
         del.className = 'btn-icon danger'; del.style.padding = '5px 8px';
-        del.innerHTML = `<i class="fas fa-trash"></i>`;
+        del.innerHTML = '<i class="fas fa-trash"></i>';
         del.onclick = (e) => {
             e.stopPropagation();
-            if(confirm(`Delete list "${name}"?`)) { delete shoppingLists[name]; localStorage.setItem('god_shopping_lists', JSON.stringify(shoppingLists)); renderShoppingLists(); }
+            if(confirm('Delete list "' + name + '"?')) { delete shoppingLists[name]; localStorage.setItem('god_shopping_lists', JSON.stringify(shoppingLists)); renderShoppingLists(); }
         };
         group.appendChild(btn); group.appendChild(del);
         container.appendChild(group);
@@ -595,7 +585,7 @@ function updateSuggestions(query) {
     const matches = allProducts.filter(p => p.name.toLowerCase().includes(query)).slice(0, 15);
     if (matches.length === 0) { box.style.display = 'none'; return; }
     box.innerHTML = matches.map(p => `
-        <div class="suggestion-item" tabindex="-1" onclick="selectSuggestion('${p.name.replace(/'/g, "\\\\'")}')">
+        <div class="suggestion-item" tabindex="-1" onclick="selectSuggestion('${p.name.replace(/'/g, "\\'")}')">
             <div style="display:flex; align-items:center; gap:10px;">
                 <img src="${p.image}" style="width:24px; height:24px; object-fit:contain; background:#fff; border-radius:3px;">
                 <span style="font-size:0.75rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:280px;">${p.name}</span>
@@ -616,9 +606,9 @@ window.selectSuggestion = (name) => {
 function openCompareModal() {
     document.getElementById('compare-modal').style.display = 'flex';
     const products = allProducts.filter(p => selectedForComparison.includes(p.id));
-    document.getElementById('selected-count').innerText = `${products.length} units staged`;
+    document.getElementById('selected-count').innerText = products.length + ' units staged';
     const ctrl = document.querySelector('.compare-details-grid') || document.getElementById('compare-details');
-    ctrl.innerHTML = `<button id="matrix-to-cart-btn" class="btn-icon" style="margin:20px; width:200px; background:var(--gold); color:#000;"><i class="${favorites.some(f => selectedForComparison.includes(f)) ? 'fa-solid' : 'fa-regular'} fa-star"></i> Move Matrix to Cart</button>`;
+    ctrl.innerHTML = '<button id="matrix-to-cart-btn" class="btn-icon" style="margin:20px; width:200px; background:var(--gold); color:#000;"><i class="' + (favorites.some(f => selectedForComparison.includes(f)) ? 'fa-solid' : 'fa-regular') + ' fa-star"></i> Move Matrix to Cart</button>';
     document.getElementById('matrix-to-cart-btn').onclick = () => {
         selectedForComparison.forEach(id => { if (!favorites.includes(id)) favorites.push(id); });
         localStorage.setItem('god_favorites', JSON.stringify(favorites));
@@ -632,7 +622,7 @@ function openCompareModal() {
         data: {
             labels: allDates,
             datasets: products.map(p => ({
-                label: `${p.name} [${p.store}]`,
+                label: p.name + ' [' + p.store + ']',
                 data: allDates.map(d => { const h = p.history.find(hx => hx.date === d); return h ? h.normalized_price : null; }),
                 borderColor: STORE_CONFIG[p.store].color, borderWidth: 3, tension: 0.3, fill: false
             }))
@@ -658,7 +648,8 @@ function openCartModal() {
             const match = allProducts.find(p => p.store === sid && p.name === item.name);
             if (match) {
                 total += match.current_price;
-                return `<div style="display:flex; align-items:center; gap:8px; padding:5px 0; border-bottom:1px solid #111;">
+                return `
+                <div style="display:flex; align-items:center; gap:8px; padding:5px 0; border-bottom:1px solid #111;">
                     <img src="${match.image}" style="width:30px; height:30px; object-fit:contain; background:#fff; border-radius:4px;">
                     <div style="flex:1; font-size:0.75rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${item.name}</div>
                     <div style="font-weight:800; font-size:0.8rem;">${Math.round(match.current_price)}</div>
@@ -667,7 +658,8 @@ function openCartModal() {
             return '';
         }).join('');
         if (total > 0) {
-            html += `<div style="padding:15px; background:#050505; border-radius:12px; border:1px solid ${STORE_CONFIG[sid].color}33;">
+            html += `
+            <div style="padding:15px; background:#050505; border-radius:12px; border:1px solid ${STORE_CONFIG[sid].color}33;">
                 <h3 style="color:${STORE_CONFIG[sid].color}; margin:0 0 10px 0; font-size:1rem;">${STORE_CONFIG[sid].name}</h3>
                 <div style="max-height: 300px; overflow-y:auto;">${itemsHtml}</div>
                 <div style="margin-top:15px; padding-top:10px; border-top:2px solid #222; display:flex; justify-content:space-between; font-weight:900;">
@@ -683,7 +675,7 @@ function openDetailedChart(product) {
     currentDetailProductIndex = currentFilteredProducts.findIndex(p => p.id === product.id);
     const modal = document.getElementById('chart-modal');
     modal.style.display = 'flex';
-    modal.querySelector('.modal-content').style.setProperty('--modal-bg-img', `url('${product.image}')`);
+    modal.querySelector('.modal-content').style.setProperty('--modal-bg-img', "url('" + product.image + "')");
     
     document.getElementById('chart-product-name').innerText = product.name;
     const store = STORE_CONFIG[product.store];
@@ -695,8 +687,8 @@ function openDetailedChart(product) {
     
     const isAllTimeLow = product.normalized_price <= (product.minPrice + 0.01);
     const minDisplay = isAllTimeLow 
-        ? `<span style="color:var(--gold); font-weight:900;">ALL TIME LOW: ${fmt(product.minPrice)}</span>`
-        : `<span style="color:var(--text-secondary)">High: ${fmt(product.maxPrice)}</span>`;
+        ? '<span style="color:var(--gold); font-weight:900;">ALL TIME LOW: ' + fmt(product.minPrice) + '</span>'
+        : '<span style="color:var(--text-secondary)">High: ' + fmt(product.maxPrice) + '</span>';
     
     document.getElementById('chart-min-max').innerHTML = minDisplay;
 
@@ -742,7 +734,6 @@ function updateStoreStats() {
     const sidebarStats = document.getElementById('store-stats-sidebar');
     if (!sidebarStats) return;
     
-    // Initialize stats from manifests if not already in metadata
     const stores = ['shwapno', 'chaldal', 'meenabazar', 'othoba', 'metromart', 'unimart', 'shotejbazar'];
     stores.forEach(s => {
         if (!metadata.stores) metadata.stores = {};
@@ -756,12 +747,12 @@ function updateStoreStats() {
 
     let html = '<div style="font-size: 0.65rem; color: var(--gold); margin-bottom: 12px; font-weight: 800; letter-spacing:1px; border-bottom:1px solid #222; padding-bottom:5px;">GODDATA UPLINK STATUS</div>';
     
-    // Sort stores alphabetically
     const sortedStores = Object.entries(metadata.stores).sort((a, b) => a[0].localeCompare(b[0]));
     
     sortedStores.forEach(([store, data]) => {
         const config = STORE_CONFIG[store] || { color: '#888', name: store };
-        html += `<div class="legend-item" style="display:flex; flex-direction:column; margin-bottom:10px;">
+        html += `
+        <div class="legend-item" style="display:flex; flex-direction:column; margin-bottom:10px;">
             <div style="display:flex; justify-content:space-between; font-weight:800; font-size:0.75rem;">
                 <span style="color:${config.color}">${config.name.toUpperCase()}</span>
                 <span style="color:#eee;">${data.total} units</span>
@@ -794,6 +785,6 @@ window.setNewThreshold = () => {
         localStorage.setItem('god_new_days', newDaysThreshold);
         processData();
         renderProducts();
-        alert(`New items threshold set to ${newDaysThreshold} days.`);
+        alert('New items threshold set to ' + newDaysThreshold + ' days.');
     }
 };
