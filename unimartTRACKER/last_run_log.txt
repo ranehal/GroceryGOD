@@ -1,17 +1,17 @@
-Last Run: 2026-06-10 08:04:10
+Last Run: 2026-06-11 19:23:42
 ------------------------------
 Total Scraped: 1700
-New Items: 1108
+New Items: 1100
 ------------------------------
 Categories:
-- Shampoo: 139
-- Socks: 52
-- Whole Spice: 41
-- Grinded Spice: 39
-- Cookies: 35
-- Conditioner: 32
-- Imported Wafers: 31
-- Feeding Accessories Kit: 31
+- Shampoo: 101
+- Toothpaste: 51
+- Socks: 44
+- Men’S Perfume: 35
+- Hand Wash: 34
+- Cookies: 32
+- Jhuri Bhaja: 31
 - Body Lotion: 30
-- Toothpaste: 28
-... and 244 more.
+- Baby Powder: 28
+- Body Wash: 26
+... and 268 more.
