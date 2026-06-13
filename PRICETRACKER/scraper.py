@@ -1,3 +1,5 @@
+from datetime import timezone, timedelta
+DHAKA_TZ = timezone(timedelta(hours=6))
 import re
 import json
 import asyncio
