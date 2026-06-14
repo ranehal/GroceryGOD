@@ -1,17 +1,17 @@
-Last Run: 2026-06-14 00:54:12
+Last Run: 2026-06-15 04:55:33
 ------------------------------
 Total Scraped: 1700
-New Items: 1087
+New Items: 1085
 ------------------------------
 Categories:
-- Shampoo: 108
-- Toothpaste: 50
-- Hand Wash: 39
-- Socks: 37
-- Men’S Perfume: 36
-- Cookies: 32
-- Body Wash: 31
+- Shampoo: 112
+- Socks: 55
+- Toothpaste: 49
+- Cookies: 36
+- Men’S Perfume: 35
 - Jhuri Bhaja: 31
-- Body Lotion: 30
-- Conditioner: 26
-... and 266 more.
+- Hand Wash: 30
+- Conditioner: 28
+- Olive Oil: 27
+- Body Lotion: 27
+... and 259 more.
