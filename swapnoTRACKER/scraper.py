@@ -220,7 +220,7 @@ async def main():
     
     async with async_playwright() as p:
         browser = await p.chromium.launch(headless=True)
-        sem = asyncio.Semaphore(2) 
+        sem = asyncio.Semaphore(3) 
         
         # Order: Pinned Categories FIRST
         pinned_cats = [c for c in enabled_categories if c['name'] in pinned_names]
@@ -242,7 +242,7 @@ def save_last_run_log(summary):
     base_dir = os.path.dirname(os.path.abspath(__file__))
     log_path = os.path.join(base_dir, "last_run_log.txt")
     with open(log_path, "w", encoding='utf-8') as f:
-        f.write(f"Last Run: {datetime.datetime.now(DHAKA_TZ).strftime('%Y-%m-%d %H:%M:%S')}\n")
+        f.write(f"Last Run: {datetime.now(DHAKA_TZ).strftime('%Y-%m-%d %H:%M:%S')}\n")
         f.write("-" * 30 + "\n")
         f.write(f"Total Scraped: {summary['total']}\n")
         f.write(f"New Items: {summary.get('new', 'N/A')}\n")
