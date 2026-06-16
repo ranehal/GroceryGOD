@@ -10,26 +10,14 @@ BASE_URL = "https://www.metromartonline.com"
 
 # Expanded categories list based on user discovery
 CATEGORIES = [
-    {"name": "Dairy", "url": f"{BASE_URL}/allproductslist?q=Dairy"},
-    {"name": "Snacks", "url": f"{BASE_URL}/allproductslist?q=Snacks"},
-    {"name": "Books", "url": f"{BASE_URL}/allproductslist?q=Books"},
-    {"name": "Groceries", "url": f"{BASE_URL}/allproductslist?q=Groceries"},
-    {"name": "Cycle", "url": f"{BASE_URL}/allproductslist?q=Cycle"},
-    {"name": "Grain", "url": f"{BASE_URL}/allproductslist?q=Grain"},
-    {"name": "Drinking Water", "url": f"{BASE_URL}/allproductslist?q=Drinking%20Water"},
-    {"name": "Condiments", "url": f"{BASE_URL}/allproductslist?q=Condiments"},
-    {"name": "Bakery", "url": f"{BASE_URL}/allproductslist?q=Bakery"},
-    {"name": "Electricals", "url": f"{BASE_URL}/allproductslist?q=Electricals"},
-    {"name": "Health Care & Cleaning Supplies", "url": f"{BASE_URL}/allproductslist?q=Health%20Care%20%26%20Cleaning%20Supplies"},
-    {"name": "Fruit Drinks", "url": f"{BASE_URL}/allproductslist?q=Fruit%20Drinks"},
-    {"name": "Cleaning Supplies", "url": f"{BASE_URL}/allproductslist?q=Cleaning%20Supplies"},
-    {"name": "Beverage", "url": f"{BASE_URL}/allproductslist?q=Beverage"},
-    {"name": "Rain Protection", "url": f"{BASE_URL}/allproductslist?q=Rain%20Protection"},
-    {"name": "Others", "url": f"{BASE_URL}/allproductslist?q=Others"},
-    {"name": "Spice & Masala", "url": f"{BASE_URL}/allproductslist?q=Spice%20%26%20Masala"},
-    {"name": "Beauty & Personal Care", "url": f"{BASE_URL}/allproductslist?q=Beauty%20%26%20Personal%20Care"},
-    {"name": "Ramadan Deals", "url": f"{BASE_URL}/allproductslist?q=Ramadan%20Deals"},
-    {"name": "Rechargeable Fan", "url": f"{BASE_URL}/allproductslist?q=Rechargeable%20Fan"}
+    {"name": "Beverage", "url": f"{BASE_URL}/shop?category=old_cat_129"},
+    {"name": "Food & Grocery", "url": f"{BASE_URL}/shop?category=old_cat_130"},
+    {"name": "Baby Items & Care", "url": f"{BASE_URL}/shop?category=old_cat_132"},
+    {"name": "Household & Cleaning", "url": f"{BASE_URL}/shop?category=old_cat_133"},
+    {"name": "Electric & Electronics", "url": f"{BASE_URL}/shop?category=old_cat_135"},
+    {"name": "Grains & Commodities", "url": f"{BASE_URL}/shop?category=old_cat_136"},
+    {"name": "Home & Kitchen", "url": f"{BASE_URL}/shop?category=old_cat_137"},
+    {"name": "Office & Stationary", "url": f"{BASE_URL}/shop?category=old_cat_138"}
 ]
 
 async def scrape_products_in_category(page, category_url):
@@ -39,7 +27,7 @@ async def scrape_products_in_category(page, category_url):
         await page.goto(category_url, wait_until="networkidle", timeout=90000)
         # Check if items exist, otherwise skip early
         try:
-            await page.wait_for_selector('img[alt]', timeout=20000)
+            await page.wait_for_selector('a[href*="/product/"]', timeout=20000)
         except:
             print(f" -> No immediate items found in {category_url}. Moving on.")
             return []
@@ -47,51 +35,63 @@ async def scrape_products_in_category(page, category_url):
         print(f" -> Access failed for {category_url}: {e}")
         return []
 
-    print(" -> Expanding list via 'Load More'...")
-    load_more_attempts = 0
-    max_load_more = 100 
+    print(" -> Scrolling to load all items...")
+    last_count = 0
+    scroll_attempts = 0
+    max_scrolls = 50 
     
-    while load_more_attempts < max_load_more:
+    while scroll_attempts < max_scrolls:
         await page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
         await asyncio.sleep(2)
-        try:
-            # More robust 'Load More' detection
-            load_more_btn = await page.query_selector('button:has-text("Load More")')
-            if load_more_btn and await load_more_btn.is_visible():
-                await load_more_btn.click()
-                print(f"   [+] Clicked Load More ({load_more_attempts + 1})", end='\r')
-                await asyncio.sleep(3)
-                load_more_attempts += 1
-            else:
-                # One last wait and check for slower loading buttons
-                await asyncio.sleep(2)
-                load_more_btn = await page.query_selector('button:has-text("Load More")')
-                if not load_more_btn or not await load_more_btn.is_visible():
-                    break
-        except Exception: 
-            break
+        
+        current_cards = await page.query_selector_all('a[href*="/product/"]')
+        current_count = len(current_cards)
+        print(f"   [+] Loaded {current_count} products", end='\r')
+        
+        if current_count == last_count:
+            # Try one more time with a longer wait
+            await asyncio.sleep(3)
+            await page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
+            current_cards = await page.query_selector_all('a[href*="/product/"]')
+            current_count = len(current_cards)
+            if current_count == last_count:
+                break
+        
+        last_count = current_count
+        scroll_attempts += 1
             
-    cards = await page.query_selector_all('a[href].w-full')
-    valid_cards = []
-    for card in cards:
-        img = await card.query_selector('img')
-        price = await card.query_selector('span:has-text("৳")')
-        if img and price: valid_cards.append(card)
-
-    print(f"\n -> Extraction: Found {len(valid_cards)} product units.")
+    cards = await page.query_selector_all('a[href*="/product/"]')
+    print(f"\n -> Extraction: Found {len(cards)} product units.")
     products = []
-    for card in valid_cards:
+    for card in cards:
         try:
+            # Name extraction
+            name_el = await card.query_selector('p.line-clamp-2')
+            name = await name_el.inner_text() if name_el else "N/A"
+            name = name.strip()
+            
+            # Image extraction
             img_el = await card.query_selector('img')
-            name = await img_el.get_attribute('alt') if img_el else "N/A"
             image_url = await img_el.get_attribute('src') if img_el else ""
+            
+            # Price extraction
             price_el = await card.query_selector('span:has-text("৳")')
-            if not price_el: continue
-            price_text = await price_el.inner_text()
-            price_match = re.search(r'৳\s*([\d,.]+)', price_text)
+            if not price_el:
+                # Sometimes the span might be different, let's try a broader search within card
+                text = await card.inner_text()
+                price_match = re.search(r'৳\s*([\d,.]+)', text)
+            else:
+                price_text = await price_el.inner_text()
+                price_match = re.search(r'৳\s*([\d,.]+)', price_text)
+            
             actual_price = float(price_match.group(1).replace(',', '')) if price_match else 0.0
-            unit_el = await card.query_selector('span.flex-1.text-inherit')
-            unit = await unit_el.inner_text() if unit_el else "N/A"
+            
+            # Unit extraction (from name if not separate)
+            unit = "N/A"
+            # Try to find a pattern like "500gm", "1kg", "2L" in the name
+            unit_match = re.search(r'(\d+\s*(kg|gm|g|ltr|liter|l|ml|pcs|piece|each|dzn|dozen))', name, re.IGNORECASE)
+            if unit_match:
+                unit = unit_match.group(1)
             
             if name == "N/A" or actual_price == 0: continue
             
@@ -102,7 +102,7 @@ async def scrape_products_in_category(page, category_url):
             if 'kg' in unit_lower:
                 match = re.search(r'(\d+\.?\d*)\s*kg', unit_lower)
                 weight = float(match.group(1)) if match else 1.0
-                unit_price = actual_price / weight
+                unit_price = actual_price / weight if weight > 0 else actual_price
                 unit_type = "kg"
             elif 'gm' in unit_lower or ' g ' in unit_lower or unit_lower.endswith(' g'):
                 match = re.search(r'(\d+\.?\d*)\s*g', unit_lower)
@@ -112,7 +112,7 @@ async def scrape_products_in_category(page, category_url):
             elif 'ltr' in unit_lower or 'liter' in unit_lower or ' l ' in unit_lower:
                 match = re.search(r'(\d+\.?\d*)\s*(ltr|liter|l)', unit_lower)
                 volume = float(match.group(1)) if match else 1.0
-                unit_price = actual_price / volume
+                unit_price = actual_price / volume if volume > 0 else actual_price
                 unit_type = "liter"
             elif 'ml' in unit_lower:
                 match = re.search(r'(\d+\.?\d*)\s*ml', unit_lower)
@@ -127,7 +127,9 @@ async def scrape_products_in_category(page, category_url):
                 "unit_type": unit_type, "image_url": image_url,
                 "scraped_at": datetime.now(DHAKA_TZ)
             })
-        except Exception: continue
+        except Exception as e: 
+            print(f"Error extracting card: {e}")
+            continue
     return products
 
 async def save_to_db(category_name, category_url, products, summary):

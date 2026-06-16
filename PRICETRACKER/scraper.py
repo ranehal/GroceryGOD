@@ -3,6 +3,7 @@ DHAKA_TZ = timezone(timedelta(hours=6))
 import re
 import json
 import asyncio
+import os
 from collections import Counter
 import datetime
 from playwright.async_api import async_playwright
@@ -303,6 +304,8 @@ async def main():
         print(f"Scraping finished. Total products in database: {len(products_data)}")
 
 def save_last_run_log(summary):
+    import os
+    import datetime
     base_dir = os.path.dirname(os.path.abspath(__file__))
     log_path = os.path.join(base_dir, "last_run_log.txt")
     with open(log_path, "w", encoding='utf-8') as f:

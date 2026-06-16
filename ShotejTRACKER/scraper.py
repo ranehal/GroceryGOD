@@ -201,7 +201,7 @@ def save_last_run_log(summary):
     base_dir = os.path.dirname(os.path.abspath(__file__))
     log_path = os.path.join(base_dir, "last_run_log.txt")
     with open(log_path, "w", encoding='utf-8') as f:
-        f.write(f"Last Run: {datetime.now(DHAKA_TZ).strftime('%Y-%m-%d %H:%M:%S')}\n")
+        f.write(f"Last Run: {datetime.datetime.now(DHAKA_TZ).strftime('%Y-%m-%d %H:%M:%S')}\n")
         f.write("-" * 30 + "\n")
         f.write(f"Total Scraped: {summary['total']}\n")
         f.write(f"New Items: {summary.get('new', 'N/A')}\n")
@@ -211,11 +211,6 @@ def save_last_run_log(summary):
             f.write(f"- {cat}: {count}\n")
         if len(summary['categories']) > 10:
             f.write(f"... and {len(summary['categories']) - 10} more.")
-
-if __name__ == "__main__":
-    asyncio.run(main())
-
-
 
 if __name__ == "__main__":
     asyncio.run(main())
