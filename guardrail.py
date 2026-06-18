@@ -3,6 +3,9 @@ import sys
 import subprocess
 import json
 
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8')
+
 # --- CONFIGURATION ---
 MAX_FILE_SIZE_MB = 98 # Hard limit for GitHub (leaving 2MB buffer)
 VITAL_FILES = [
