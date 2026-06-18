@@ -1,18 +1,14 @@
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
+from datetime import datetime, date, timezone, timedelta
 import asyncio
 from collections import Counter
 import json
 import re
-import datetime
 import os
 import random
 import logging
-from collections import Counter
 from playwright.async_api import async_playwright
 
-DHAKA_TZ = datetime.timezone(datetime.timedelta(hours=6))
+DHAKA_TZ = timezone(timedelta(hours=6))
 
 # Setup logging
 logging.basicConfig(
@@ -103,13 +99,11 @@ def normalize_unit(name, price_str):
 
 async def self_scrape_items(page, container_selector, category, current_data, today_str, summary, is_pinned=False):
     container = await page.query_selector(container_selector) or page
-    # Broaden selector to capture products in different layouts
     items = await container.query_selector_all('.product-box, div[class*="product-grid-item"], .product-item-info')
     logger.info(f"    [+] Extracted {len(items)} items from current view")
     
     for item in items:
         try:
-            # Flexible title/link selector
             title_el = await item.query_selector('.product-box-title a, a[class*="title"], .name a')
             if not title_el: continue
             name = (await title_el.inner_text()).strip()
@@ -127,7 +121,6 @@ async def self_scrape_items(page, container_selector, category, current_data, to
             qty_disp, norm_price, unit_type = normalize_unit(name, price_text)
             prod_id = re.sub(r'\W+', '', name).lower()
             
-            # PINNING PRIORITY LOGIC:
             summary['total'] += 1
             summary['categories'][category['name']] += 1
             if prod_id not in current_data:
@@ -136,7 +129,6 @@ async def self_scrape_items(page, container_selector, category, current_data, to
                     "image": img_src, "category": category['name'], "history": []
                 }
             elif is_pinned:
-                # If product already exists but current category is a high-priority Pinned one, overwrite the category tag
                 current_data[prod_id]["category"] = category['name']
             
             current_data[prod_id].update({
@@ -161,12 +153,11 @@ async def scrape_category(sem, browser, category, current_data, summary, pinned_
         logger.info(f"Scraping: {category['name']} ({category['url']})")
         try:
             await page.goto(category['url'], wait_until="load", timeout=120000)
-            await asyncio.sleep(5) # Allow dynamic content
+            await asyncio.sleep(5) 
             
-            today_str = datetime.date.today().isoformat()
+            today_str = date.today().isoformat()
             container_selector = f"xpath={category['xpath']}" if category.get('xpath') else "body"
             
-            # Robust Tab Detection for "More Items" pages
             tabs = await page.query_selector_all('.category-tab-list div, .category-tab-list a, .nav-tabs li a, .category-item-title')
             valid_tabs = []
             for t in tabs:
@@ -177,9 +168,7 @@ async def scrape_category(sem, browser, category, current_data, summary, pinned_
             if len(valid_tabs) > 1:
                 logger.info(f"  [+] Detected {len(valid_tabs)} tabs in {category['name']}. Deep clicking...")
                 for i in range(len(valid_tabs)):
-                    # Refresh tab elements to avoid detached DOM
                     current_tabs = await page.query_selector_all('.category-tab-list div, .category-tab-list a, .nav-tabs li a, .category-item-title')
-                    # Match by text to be safe
                     tab_name = (await valid_tabs[i].inner_text()).strip()
                     target_tab = None
                     for ct in current_tabs:
@@ -193,13 +182,12 @@ async def scrape_category(sem, browser, category, current_data, summary, pinned_
                     try:
                         await target_tab.click()
                         await asyncio.sleep(4)
-                        for _ in range(4): # Scroll deep within tab
+                        for _ in range(4): 
                             await page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
                             await asyncio.sleep(1.5)
                         await self_scrape_items(page, container_selector, category, current_data, today_str, summary, is_pinned)
                     except: continue
             else:
-                # Standard Scroll Scrape
                 for _ in range(10):
                     await page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
                     await asyncio.sleep(1.5)
@@ -225,7 +213,6 @@ async def main():
         browser = await p.chromium.launch(headless=True)
         sem = asyncio.Semaphore(3) 
         
-        # Order: Pinned Categories FIRST
         pinned_cats = [c for c in enabled_categories if c['name'] in pinned_names]
         other_cats = [c for c in enabled_categories if c['name'] not in pinned_names]
         queue = pinned_cats + other_cats
@@ -258,4 +245,3 @@ def save_last_run_log(summary):
 
 if __name__ == "__main__":
     asyncio.run(main())
-

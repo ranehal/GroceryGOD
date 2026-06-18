@@ -37920,6 +37920,11 @@
         "date": "2026-06-17",
         "price": 650.0,
         "normalized_price": 6500.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 650.0,
+        "normalized_price": 6500.0
       }
     ],
     "current_price": 650.0,
@@ -37937,6 +37942,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 450.0,
+        "normalized_price": 4500.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 450.0,
         "normalized_price": 4500.0
       }
@@ -37958,6 +37968,11 @@
         "date": "2026-06-17",
         "price": 450.0,
         "normalized_price": 4500.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 450.0,
+        "normalized_price": 4500.0
       }
     ],
     "current_price": 450.0,
@@ -37975,6 +37990,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 450.0,
+        "normalized_price": 4500.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 450.0,
         "normalized_price": 4500.0
       }
@@ -37996,6 +38016,11 @@
         "date": "2026-06-17",
         "price": 750.0,
         "normalized_price": 3750.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 750.0,
+        "normalized_price": 3750.0
       }
     ],
     "current_price": 750.0,
@@ -38013,6 +38038,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 450.0,
+        "normalized_price": 4500.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 450.0,
         "normalized_price": 4500.0
       }
@@ -38034,6 +38064,11 @@
         "date": "2026-06-17",
         "price": 450.0,
         "normalized_price": 4500.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 450.0,
+        "normalized_price": 4500.0
       }
     ],
     "current_price": 450.0,
@@ -38051,6 +38086,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 1200.0,
+        "normalized_price": 1500.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 1200.0,
         "normalized_price": 1500.0
       }
@@ -38072,6 +38112,11 @@
         "date": "2026-06-17",
         "price": 750.0,
         "normalized_price": 23148.15
+      },
+      {
+        "date": "2026-06-18",
+        "price": 750.0,
+        "normalized_price": 23148.15
       }
     ],
     "current_price": 750.0,
@@ -38089,6 +38134,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 450.0,
+        "normalized_price": 29032.26
+      },
+      {
+        "date": "2026-06-18",
         "price": 450.0,
         "normalized_price": 29032.26
       }
@@ -38110,6 +38160,11 @@
         "date": "2026-06-17",
         "price": 3450.0,
         "normalized_price": 2760.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 3450.0,
+        "normalized_price": 2760.0
       }
     ],
     "current_price": 3450.0,
@@ -38127,6 +38182,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 2050.0,
+        "normalized_price": 2928.57
+      },
+      {
+        "date": "2026-06-18",
         "price": 2050.0,
         "normalized_price": 2928.57
       }
@@ -38148,6 +38208,11 @@
         "date": "2026-06-17",
         "price": 1050.0,
         "normalized_price": 2800.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 1050.0,
+        "normalized_price": 2800.0
       }
     ],
     "current_price": 1050.0,
@@ -38165,6 +38230,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 2150.0,
+        "normalized_price": 3071.43
+      },
+      {
+        "date": "2026-06-18",
         "price": 2150.0,
         "normalized_price": 3071.43
       }
@@ -38186,6 +38256,11 @@
         "date": "2026-06-17",
         "price": 2050.0,
         "normalized_price": 2928.57
+      },
+      {
+        "date": "2026-06-18",
+        "price": 2050.0,
+        "normalized_price": 2928.57
       }
     ],
     "current_price": 2050.0,
@@ -38203,6 +38278,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 950.0,
+        "normalized_price": 27142.86
+      },
+      {
+        "date": "2026-06-18",
         "price": 950.0,
         "normalized_price": 27142.86
       }
@@ -38224,6 +38304,11 @@
         "date": "2026-06-17",
         "price": 750.0,
         "normalized_price": 1000.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 750.0,
+        "normalized_price": 1000.0
       }
     ],
     "current_price": 750.0,
@@ -38241,6 +38326,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 750.0,
+        "normalized_price": 1000.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 750.0,
         "normalized_price": 1000.0
       }
@@ -38262,6 +38352,11 @@
         "date": "2026-06-17",
         "price": 750.0,
         "normalized_price": 1000.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 750.0,
+        "normalized_price": 1000.0
       }
     ],
     "current_price": 750.0,
@@ -38279,6 +38374,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 750.0,
+        "normalized_price": 1000.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 750.0,
         "normalized_price": 1000.0
       }
@@ -38300,6 +38400,11 @@
         "date": "2026-06-17",
         "price": 750.0,
         "normalized_price": 1000.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 750.0,
+        "normalized_price": 1000.0
       }
     ],
     "current_price": 750.0,
@@ -38317,6 +38422,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 650.0,
+        "normalized_price": 6500.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 6500.0
       }
@@ -38338,6 +38448,11 @@
         "date": "2026-06-17",
         "price": 1200.0,
         "normalized_price": 5454.55
+      },
+      {
+        "date": "2026-06-18",
+        "price": 1200.0,
+        "normalized_price": 5454.55
       }
     ],
     "current_price": 1200.0,
@@ -38355,6 +38470,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 850.0,
+        "normalized_price": 4722.22
+      },
+      {
+        "date": "2026-06-18",
         "price": 850.0,
         "normalized_price": 4722.22
       }
@@ -38376,6 +38496,11 @@
         "date": "2026-06-17",
         "price": 750.0,
         "normalized_price": 1428.57
+      },
+      {
+        "date": "2026-06-18",
+        "price": 750.0,
+        "normalized_price": 1428.57
       }
     ],
     "current_price": 750.0,
@@ -38393,6 +38518,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 750.0,
+        "normalized_price": 1428.57
+      },
+      {
+        "date": "2026-06-18",
         "price": 750.0,
         "normalized_price": 1428.57
       }
@@ -38414,6 +38544,11 @@
         "date": "2026-06-17",
         "price": 750.0,
         "normalized_price": 1428.57
+      },
+      {
+        "date": "2026-06-18",
+        "price": 750.0,
+        "normalized_price": 1428.57
       }
     ],
     "current_price": 750.0,
@@ -38431,6 +38566,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 750.0,
+        "normalized_price": 1428.57
+      },
+      {
+        "date": "2026-06-18",
         "price": 750.0,
         "normalized_price": 1428.57
       }
@@ -38452,6 +38592,11 @@
         "date": "2026-06-17",
         "price": 750.0,
         "normalized_price": 750.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 750.0,
+        "normalized_price": 750.0
       }
     ],
     "current_price": 750.0,
@@ -38469,6 +38614,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 3050.0,
+        "normalized_price": 2229.53
+      },
+      {
+        "date": "2026-06-18",
         "price": 3050.0,
         "normalized_price": 2229.53
       }
@@ -38490,6 +38640,11 @@
         "date": "2026-06-17",
         "price": 400.0,
         "normalized_price": 3076.92
+      },
+      {
+        "date": "2026-06-18",
+        "price": 400.0,
+        "normalized_price": 3076.92
       }
     ],
     "current_price": 400.0,
@@ -38507,6 +38662,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 1050.0,
+        "normalized_price": 51980.2
+      },
+      {
+        "date": "2026-06-18",
         "price": 1050.0,
         "normalized_price": 51980.2
       }
@@ -38528,6 +38688,11 @@
         "date": "2026-06-17",
         "price": 380.0,
         "normalized_price": 380.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 380.0,
+        "normalized_price": 380.0
       }
     ],
     "current_price": 380.0,
@@ -38545,6 +38710,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 700.0,
+        "normalized_price": 2083.33
+      },
+      {
+        "date": "2026-06-18",
         "price": 700.0,
         "normalized_price": 2083.33
       }
@@ -38566,6 +38736,11 @@
         "date": "2026-06-17",
         "price": 550.0,
         "normalized_price": 4400.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 550.0,
+        "normalized_price": 4400.0
       }
     ],
     "current_price": 550.0,
@@ -38585,6 +38760,11 @@
         "date": "2026-06-17",
         "price": 400.0,
         "normalized_price": 3076.92
+      },
+      {
+        "date": "2026-06-18",
+        "price": 400.0,
+        "normalized_price": 3076.92
       }
     ],
     "current_price": 400.0,
@@ -38602,6 +38782,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 750.0,
+        "normalized_price": 4464.29
+      },
+      {
+        "date": "2026-06-18",
         "price": 750.0,
         "normalized_price": 4464.29
       }
@@ -38642,6 +38827,11 @@
         "date": "2026-06-17",
         "price": 750.0,
         "normalized_price": 4464.29
+      },
+      {
+        "date": "2026-06-18",
+        "price": 750.0,
+        "normalized_price": 4464.29
       }
     ],
     "current_price": 750.0,
@@ -38659,6 +38849,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 400.0,
+        "normalized_price": 3076.92
+      },
+      {
+        "date": "2026-06-18",
         "price": 400.0,
         "normalized_price": 3076.92
       }
@@ -38680,6 +38875,11 @@
         "date": "2026-06-17",
         "price": 750.0,
         "normalized_price": 4464.29
+      },
+      {
+        "date": "2026-06-18",
+        "price": 750.0,
+        "normalized_price": 4464.29
       }
     ],
     "current_price": 750.0,
@@ -38697,6 +38897,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 1350.0,
+        "normalized_price": 3534.03
+      },
+      {
+        "date": "2026-06-18",
         "price": 1350.0,
         "normalized_price": 3534.03
       }
@@ -38718,6 +38923,11 @@
         "date": "2026-06-17",
         "price": 750.0,
         "normalized_price": 4702.19
+      },
+      {
+        "date": "2026-06-18",
+        "price": 750.0,
+        "normalized_price": 4702.19
       }
     ],
     "current_price": 750.0,
@@ -38735,6 +38945,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 650.0,
+        "normalized_price": 5416.67
+      },
+      {
+        "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 5416.67
       }
@@ -38756,6 +38971,11 @@
         "date": "2026-06-17",
         "price": 400.0,
         "normalized_price": 3076.92
+      },
+      {
+        "date": "2026-06-18",
+        "price": 400.0,
+        "normalized_price": 3076.92
       }
     ],
     "current_price": 400.0,
@@ -38773,6 +38993,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 1250.0,
+        "normalized_price": 5000.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 1250.0,
         "normalized_price": 5000.0
       }
@@ -38794,6 +39019,11 @@
         "date": "2026-06-17",
         "price": 2080.0,
         "normalized_price": 4160.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 2080.0,
+        "normalized_price": 4160.0
       }
     ],
     "current_price": 2080.0,
@@ -38811,6 +39041,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 1600.0,
+        "normalized_price": 1990.05
+      },
+      {
+        "date": "2026-06-18",
         "price": 1600.0,
         "normalized_price": 1990.05
       }
@@ -38832,6 +39067,11 @@
         "date": "2026-06-17",
         "price": 1530.0,
         "normalized_price": 3722.63
+      },
+      {
+        "date": "2026-06-18",
+        "price": 1530.0,
+        "normalized_price": 3722.63
       }
     ],
     "current_price": 1530.0,
@@ -38849,6 +39089,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 2180.0,
+        "normalized_price": 3963.64
+      },
+      {
+        "date": "2026-06-18",
         "price": 2180.0,
         "normalized_price": 3963.64
       }
@@ -38870,6 +39115,11 @@
         "date": "2026-06-17",
         "price": 1200.0,
         "normalized_price": 2797.2
+      },
+      {
+        "date": "2026-06-18",
+        "price": 1200.0,
+        "normalized_price": 2797.2
       }
     ],
     "current_price": 1200.0,
@@ -38887,6 +39137,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 2000.0,
+        "normalized_price": 34482.76
+      },
+      {
+        "date": "2026-06-18",
         "price": 2000.0,
         "normalized_price": 34482.76
       }
@@ -38908,6 +39163,11 @@
         "date": "2026-06-17",
         "price": 1530.0,
         "normalized_price": 10699.3
+      },
+      {
+        "date": "2026-06-18",
+        "price": 1530.0,
+        "normalized_price": 10699.3
       }
     ],
     "current_price": 1530.0,
@@ -38925,6 +39185,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 2280.0,
+        "normalized_price": 39310.34
+      },
+      {
+        "date": "2026-06-18",
         "price": 2280.0,
         "normalized_price": 39310.34
       }
@@ -38946,6 +39211,11 @@
         "date": "2026-06-17",
         "price": 1530.0,
         "normalized_price": 3400.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 1530.0,
+        "normalized_price": 3400.0
       }
     ],
     "current_price": 1530.0,
@@ -38963,6 +39233,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 2180.0,
+        "normalized_price": 3633.33
+      },
+      {
+        "date": "2026-06-18",
         "price": 2180.0,
         "normalized_price": 3633.33
       }
@@ -38984,6 +39259,11 @@
         "date": "2026-06-17",
         "price": 1530.0,
         "normalized_price": 4250.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 1530.0,
+        "normalized_price": 4250.0
       }
     ],
     "current_price": 1530.0,
@@ -39001,6 +39281,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 1530.0,
+        "normalized_price": 3923.08
+      },
+      {
+        "date": "2026-06-18",
         "price": 1530.0,
         "normalized_price": 3923.08
       }
@@ -39022,6 +39307,11 @@
         "date": "2026-06-17",
         "price": 2080.0,
         "normalized_price": 3466.67
+      },
+      {
+        "date": "2026-06-18",
+        "price": 2080.0,
+        "normalized_price": 3466.67
       }
     ],
     "current_price": 2080.0,
@@ -39039,6 +39329,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 1250.0,
+        "normalized_price": 2500.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 1250.0,
         "normalized_price": 2500.0
       }
@@ -39060,6 +39355,11 @@
         "date": "2026-06-17",
         "price": 450.0,
         "normalized_price": 3560.13
+      },
+      {
+        "date": "2026-06-18",
+        "price": 450.0,
+        "normalized_price": 3560.13
       }
     ],
     "current_price": 450.0,
@@ -39077,6 +39377,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 450.0,
+        "normalized_price": 450.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 450.0,
         "normalized_price": 450.0
       }
@@ -39098,6 +39403,11 @@
         "date": "2026-06-17",
         "price": 2250.0,
         "normalized_price": 4500.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 2250.0,
+        "normalized_price": 4500.0
       }
     ],
     "current_price": 2250.0,
@@ -39117,10 +39427,15 @@
         "date": "2026-06-17",
         "price": 2400.0,
         "normalized_price": 4000.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 2550.0,
+        "normalized_price": 4250.0
       }
     ],
-    "current_price": 2400.0,
-    "normalized_price": 4000.0,
+    "current_price": 2550.0,
+    "normalized_price": 4250.0,
     "unit": "600.0gm",
     "unit_type": "kg",
     "url": "https://shotejbazar.com/product/celebrations-chocolate-tub-600gm-made-in-uk/"
@@ -39134,6 +39449,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 850.0,
+        "normalized_price": 4336.73
+      },
+      {
+        "date": "2026-06-18",
         "price": 850.0,
         "normalized_price": 4336.73
       }
@@ -39155,6 +39475,11 @@
         "date": "2026-06-17",
         "price": 1350.0,
         "normalized_price": 4153.85
+      },
+      {
+        "date": "2026-06-18",
+        "price": 1350.0,
+        "normalized_price": 4153.85
       }
     ],
     "current_price": 1350.0,
@@ -39172,6 +39497,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 650.0,
+        "normalized_price": 32500.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 32500.0
       }
@@ -39193,6 +39523,11 @@
         "date": "2026-06-17",
         "price": 380.0,
         "normalized_price": 2500.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 380.0,
+        "normalized_price": 2500.0
       }
     ],
     "current_price": 380.0,
@@ -39210,6 +39545,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 380.0,
+        "normalized_price": 2500.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 380.0,
         "normalized_price": 2500.0
       }
@@ -39248,6 +39588,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 950.0,
+        "normalized_price": 950.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 950.0,
         "normalized_price": 950.0
       }
@@ -39345,6 +39690,11 @@
         "date": "2026-06-17",
         "price": 850.0,
         "normalized_price": 1666.67
+      },
+      {
+        "date": "2026-06-18",
+        "price": 850.0,
+        "normalized_price": 1666.67
       }
     ],
     "current_price": 850.0,
@@ -39362,6 +39712,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 850.0,
+        "normalized_price": 4250.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 850.0,
         "normalized_price": 4250.0
       }
@@ -39383,6 +39738,11 @@
         "date": "2026-06-17",
         "price": 700.0,
         "normalized_price": 2222.22
+      },
+      {
+        "date": "2026-06-18",
+        "price": 700.0,
+        "normalized_price": 2222.22
       }
     ],
     "current_price": 700.0,
@@ -39400,6 +39760,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 850.0,
+        "normalized_price": 154545.45
+      },
+      {
+        "date": "2026-06-18",
         "price": 850.0,
         "normalized_price": 154545.45
       }
@@ -39421,6 +39786,11 @@
         "date": "2026-06-17",
         "price": 500.0,
         "normalized_price": 3571.43
+      },
+      {
+        "date": "2026-06-18",
+        "price": 500.0,
+        "normalized_price": 3571.43
       }
     ],
     "current_price": 500.0,
@@ -39438,6 +39808,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 1250.0,
+        "normalized_price": 2029.22
+      },
+      {
+        "date": "2026-06-18",
         "price": 1250.0,
         "normalized_price": 2029.22
       }
@@ -39554,6 +39929,11 @@
         "date": "2026-06-17",
         "price": 150.0,
         "normalized_price": 750.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 150.0,
+        "normalized_price": 750.0
       }
     ],
     "current_price": 150.0,
@@ -39571,6 +39951,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 1200.0,
+        "normalized_price": 60000.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 1200.0,
         "normalized_price": 60000.0
       }
@@ -39649,6 +40034,11 @@
         "date": "2026-06-17",
         "price": 350.0,
         "normalized_price": 1296.3
+      },
+      {
+        "date": "2026-06-18",
+        "price": 350.0,
+        "normalized_price": 1296.3
       }
     ],
     "current_price": 350.0,
@@ -39666,6 +40056,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 550.0,
+        "normalized_price": 9166.67
+      },
+      {
+        "date": "2026-06-18",
         "price": 550.0,
         "normalized_price": 9166.67
       }
@@ -39687,6 +40082,11 @@
         "date": "2026-06-17",
         "price": 550.0,
         "normalized_price": 9166.67
+      },
+      {
+        "date": "2026-06-18",
+        "price": 550.0,
+        "normalized_price": 9166.67
       }
     ],
     "current_price": 550.0,
@@ -39704,6 +40104,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 550.0,
+        "normalized_price": 9166.67
+      },
+      {
+        "date": "2026-06-18",
         "price": 550.0,
         "normalized_price": 9166.67
       }
@@ -39725,6 +40130,11 @@
         "date": "2026-06-17",
         "price": 550.0,
         "normalized_price": 9166.67
+      },
+      {
+        "date": "2026-06-18",
+        "price": 550.0,
+        "normalized_price": 9166.67
       }
     ],
     "current_price": 550.0,
@@ -39744,10 +40154,15 @@
         "date": "2026-06-17",
         "price": 1500.0,
         "normalized_price": 5597.01
+      },
+      {
+        "date": "2026-06-18",
+        "price": 2250.0,
+        "normalized_price": 8395.52
       }
     ],
-    "current_price": 1500.0,
-    "normalized_price": 5597.01,
+    "current_price": 2250.0,
+    "normalized_price": 8395.52,
     "unit": "268.0gm",
     "unit_type": "kg",
     "url": "https://shotejbazar.com/product/ferero-collection-gift-box-of-chocolates-24-pieces-268gm/"
@@ -39761,6 +40176,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 1450.0,
+        "normalized_price": 8430.23
+      },
+      {
+        "date": "2026-06-18",
         "price": 1450.0,
         "normalized_price": 8430.23
       }
@@ -39782,6 +40202,11 @@
         "date": "2026-06-17",
         "price": 2850.0,
         "normalized_price": 2850.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 2850.0,
+        "normalized_price": 2850.0
       }
     ],
     "current_price": 2850.0,
@@ -39799,6 +40224,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 650.0,
+        "normalized_price": 7222.22
+      },
+      {
+        "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 7222.22
       }
@@ -39820,6 +40250,11 @@
         "date": "2026-06-17",
         "price": 650.0,
         "normalized_price": 7222.22
+      },
+      {
+        "date": "2026-06-18",
+        "price": 650.0,
+        "normalized_price": 7222.22
       }
     ],
     "current_price": 650.0,
@@ -39837,6 +40272,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 950.0,
+        "normalized_price": 950.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 950.0,
         "normalized_price": 950.0
       }
@@ -39858,6 +40298,11 @@
         "date": "2026-06-17",
         "price": 650.0,
         "normalized_price": 7222.22
+      },
+      {
+        "date": "2026-06-18",
+        "price": 650.0,
+        "normalized_price": 7222.22
       }
     ],
     "current_price": 650.0,
@@ -39875,6 +40320,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 240.0,
+        "normalized_price": 909.09
+      },
+      {
+        "date": "2026-06-18",
         "price": 240.0,
         "normalized_price": 909.09
       }
@@ -39896,6 +40346,11 @@
         "date": "2026-06-17",
         "price": 400.0,
         "normalized_price": 909.09
+      },
+      {
+        "date": "2026-06-18",
+        "price": 400.0,
+        "normalized_price": 909.09
       }
     ],
     "current_price": 400.0,
@@ -39915,6 +40370,11 @@
         "date": "2026-06-17",
         "price": 320.0,
         "normalized_price": 1777.78
+      },
+      {
+        "date": "2026-06-18",
+        "price": 320.0,
+        "normalized_price": 1777.78
       }
     ],
     "current_price": 320.0,
@@ -39932,6 +40392,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 350.0,
+        "normalized_price": 1944.44
+      },
+      {
+        "date": "2026-06-18",
         "price": 350.0,
         "normalized_price": 1944.44
       }
@@ -39972,6 +40437,11 @@
         "date": "2026-06-17",
         "price": 700.0,
         "normalized_price": 87500.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 700.0,
+        "normalized_price": 87500.0
       }
     ],
     "current_price": 700.0,
@@ -39989,6 +40459,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 700.0,
+        "normalized_price": 87500.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 700.0,
         "normalized_price": 87500.0
       }
@@ -40010,6 +40485,11 @@
         "date": "2026-06-17",
         "price": 700.0,
         "normalized_price": 87500.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 700.0,
+        "normalized_price": 87500.0
       }
     ],
     "current_price": 700.0,
@@ -40027,6 +40507,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 700.0,
+        "normalized_price": 87500.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 700.0,
         "normalized_price": 87500.0
       }
@@ -40048,6 +40533,11 @@
         "date": "2026-06-17",
         "price": 750.0,
         "normalized_price": 6000.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 750.0,
+        "normalized_price": 6000.0
       }
     ],
     "current_price": 750.0,
@@ -40067,6 +40557,11 @@
         "date": "2026-06-17",
         "price": 750.0,
         "normalized_price": 4807.69
+      },
+      {
+        "date": "2026-06-18",
+        "price": 750.0,
+        "normalized_price": 4807.69
       }
     ],
     "current_price": 750.0,
@@ -40084,6 +40579,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 650.0,
+        "normalized_price": 4814.81
+      },
+      {
+        "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 4814.81
       }
@@ -40200,6 +40700,11 @@
         "date": "2026-06-17",
         "price": 450.0,
         "normalized_price": 2812.5
+      },
+      {
+        "date": "2026-06-18",
+        "price": 450.0,
+        "normalized_price": 2812.5
       }
     ],
     "current_price": 450.0,
@@ -40217,6 +40722,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 3050.0,
+        "normalized_price": 76250.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 3050.0,
         "normalized_price": 76250.0
       }
@@ -40238,6 +40748,11 @@
         "date": "2026-06-17",
         "price": 450.0,
         "normalized_price": 450.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 450.0,
+        "normalized_price": 450.0
       }
     ],
     "current_price": 450.0,
@@ -40255,6 +40770,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 650.0,
+        "normalized_price": 4452.05
+      },
+      {
+        "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 4452.05
       }
@@ -40276,6 +40796,11 @@
         "date": "2026-06-17",
         "price": 650.0,
         "normalized_price": 4452.05
+      },
+      {
+        "date": "2026-06-18",
+        "price": 650.0,
+        "normalized_price": 4452.05
       }
     ],
     "current_price": 650.0,
@@ -40295,6 +40820,11 @@
         "date": "2026-06-17",
         "price": 450.0,
         "normalized_price": 4500.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 450.0,
+        "normalized_price": 4500.0
       }
     ],
     "current_price": 450.0,
@@ -40312,6 +40842,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 500.0,
+        "normalized_price": 10000.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 500.0,
         "normalized_price": 10000.0
       }
@@ -40352,6 +40887,11 @@
         "date": "2026-06-17",
         "price": 650.0,
         "normalized_price": 4452.05
+      },
+      {
+        "date": "2026-06-18",
+        "price": 650.0,
+        "normalized_price": 4452.05
       }
     ],
     "current_price": 650.0,
@@ -40369,6 +40909,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 450.0,
+        "normalized_price": 4500.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 450.0,
         "normalized_price": 4500.0
       }
@@ -40390,6 +40935,11 @@
         "date": "2026-06-17",
         "price": 3050.0,
         "normalized_price": 3.18
+      },
+      {
+        "date": "2026-06-18",
+        "price": 3050.0,
+        "normalized_price": 3.18
       }
     ],
     "current_price": 3050.0,
@@ -40407,6 +40957,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 600.0,
+        "normalized_price": 5555.56
+      },
+      {
+        "date": "2026-06-18",
         "price": 600.0,
         "normalized_price": 5555.56
       }
@@ -40428,6 +40983,11 @@
         "date": "2026-06-17",
         "price": 1600.0,
         "normalized_price": 41025.64
+      },
+      {
+        "date": "2026-06-18",
+        "price": 1600.0,
+        "normalized_price": 41025.64
       }
     ],
     "current_price": 1600.0,
@@ -40445,6 +41005,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 4550.0,
+        "normalized_price": 116666.67
+      },
+      {
+        "date": "2026-06-18",
         "price": 4550.0,
         "normalized_price": 116666.67
       }
@@ -40485,6 +41050,11 @@
         "date": "2026-06-17",
         "price": 1950.0,
         "normalized_price": 3.02
+      },
+      {
+        "date": "2026-06-18",
+        "price": 1950.0,
+        "normalized_price": 3.02
       }
     ],
     "current_price": 1950.0,
@@ -40502,6 +41072,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 3900.0,
+        "normalized_price": 3.02
+      },
+      {
+        "date": "2026-06-18",
         "price": 3900.0,
         "normalized_price": 3.02
       }
@@ -40523,6 +41098,11 @@
         "date": "2026-06-17",
         "price": 1200.0,
         "normalized_price": 4687.5
+      },
+      {
+        "date": "2026-06-18",
+        "price": 1200.0,
+        "normalized_price": 4687.5
       }
     ],
     "current_price": 1200.0,
@@ -40540,6 +41120,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 650.0,
+        "normalized_price": 25490.2
+      },
+      {
+        "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 25490.2
       }
@@ -40561,6 +41146,11 @@
         "date": "2026-06-17",
         "price": 1200.0,
         "normalized_price": 4000.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 1200.0,
+        "normalized_price": 4000.0
       }
     ],
     "current_price": 1200.0,
@@ -40578,6 +41168,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 1200.0,
+        "normalized_price": 4000.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 1200.0,
         "normalized_price": 4000.0
       }
@@ -40599,6 +41194,11 @@
         "date": "2026-06-17",
         "price": 1350.0,
         "normalized_price": 71052.63
+      },
+      {
+        "date": "2026-06-18",
+        "price": 1350.0,
+        "normalized_price": 71052.63
       }
     ],
     "current_price": 1350.0,
@@ -40618,6 +41218,11 @@
         "date": "2026-06-17",
         "price": 1150.0,
         "normalized_price": 2948.72
+      },
+      {
+        "date": "2026-06-18",
+        "price": 1150.0,
+        "normalized_price": 2948.72
       }
     ],
     "current_price": 1150.0,
@@ -40635,6 +41240,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 600.0,
+        "normalized_price": 6741.57
+      },
+      {
+        "date": "2026-06-18",
         "price": 600.0,
         "normalized_price": 6741.57
       }
@@ -40675,6 +41285,11 @@
         "date": "2026-06-17",
         "price": 850.0,
         "normalized_price": 2059.11
+      },
+      {
+        "date": "2026-06-18",
+        "price": 850.0,
+        "normalized_price": 2059.11
       }
     ],
     "current_price": 850.0,
@@ -40692,6 +41307,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 950.0,
+        "normalized_price": 950.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 950.0,
         "normalized_price": 950.0
       }
@@ -40713,6 +41333,11 @@
         "date": "2026-06-17",
         "price": 1450.0,
         "normalized_price": 1450.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 1450.0,
+        "normalized_price": 1450.0
       }
     ],
     "current_price": 1450.0,
@@ -40730,6 +41355,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 1450.0,
+        "normalized_price": 1450.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 1450.0,
         "normalized_price": 1450.0
       }
@@ -40751,6 +41381,11 @@
         "date": "2026-06-17",
         "price": 550.0,
         "normalized_price": 4583.33
+      },
+      {
+        "date": "2026-06-18",
+        "price": 550.0,
+        "normalized_price": 4583.33
       }
     ],
     "current_price": 550.0,
@@ -40768,6 +41403,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 1850.0,
+        "normalized_price": 104519.77
+      },
+      {
+        "date": "2026-06-18",
         "price": 1850.0,
         "normalized_price": 104519.77
       }
@@ -40827,6 +41467,11 @@
         "date": "2026-06-17",
         "price": 500.0,
         "normalized_price": 12500.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 500.0,
+        "normalized_price": 12500.0
       }
     ],
     "current_price": 500.0,
@@ -40846,6 +41491,11 @@
         "date": "2026-06-17",
         "price": 550.0,
         "normalized_price": 4583.33
+      },
+      {
+        "date": "2026-06-18",
+        "price": 550.0,
+        "normalized_price": 4583.33
       }
     ],
     "current_price": 550.0,
@@ -40863,6 +41513,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 650.0,
+        "normalized_price": 4062.5
+      },
+      {
+        "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 4062.5
       }
@@ -40903,6 +41558,11 @@
         "date": "2026-06-17",
         "price": 1050.0,
         "normalized_price": 1050.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 1050.0,
+        "normalized_price": 1050.0
       }
     ],
     "current_price": 1050.0,
@@ -40920,6 +41580,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 650.0,
+        "normalized_price": 4062.5
+      },
+      {
+        "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 4062.5
       }
@@ -40958,6 +41623,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 550.0,
+        "normalized_price": 5.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 550.0,
         "normalized_price": 5.0
       }
@@ -41017,6 +41687,11 @@
         "date": "2026-06-17",
         "price": 950.0,
         "normalized_price": 45893.72
+      },
+      {
+        "date": "2026-06-18",
+        "price": 950.0,
+        "normalized_price": 45893.72
       }
     ],
     "current_price": 950.0,
@@ -41055,6 +41730,11 @@
         "date": "2026-06-17",
         "price": 200.0,
         "normalized_price": 200.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 200.0,
+        "normalized_price": 200.0
       }
     ],
     "current_price": 200.0,
@@ -41072,6 +41752,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 400.0,
+        "normalized_price": 400.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 400.0,
         "normalized_price": 400.0
       }
@@ -41093,6 +41778,11 @@
         "date": "2026-06-17",
         "price": 200.0,
         "normalized_price": 200.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 200.0,
+        "normalized_price": 200.0
       }
     ],
     "current_price": 200.0,
@@ -41110,6 +41800,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 1200.0,
+        "normalized_price": 1500.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 1200.0,
         "normalized_price": 1500.0
       }
@@ -41150,6 +41845,11 @@
         "date": "2026-06-17",
         "price": 650.0,
         "normalized_price": 6500.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 650.0,
+        "normalized_price": 6500.0
       }
     ],
     "current_price": 650.0,
@@ -41167,6 +41867,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 650.0,
+        "normalized_price": 6500.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 6500.0
       }
@@ -41226,6 +41931,11 @@
         "date": "2026-06-17",
         "price": 650.0,
         "normalized_price": 6500.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 650.0,
+        "normalized_price": 6500.0
       }
     ],
     "current_price": 650.0,
@@ -41243,6 +41953,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 650.0,
+        "normalized_price": 6500.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 6500.0
       }
@@ -41264,6 +41979,11 @@
         "date": "2026-06-17",
         "price": 650.0,
         "normalized_price": 6500.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 650.0,
+        "normalized_price": 6500.0
       }
     ],
     "current_price": 650.0,
@@ -41283,6 +42003,11 @@
         "date": "2026-06-17",
         "price": 650.0,
         "normalized_price": 6500.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 650.0,
+        "normalized_price": 6500.0
       }
     ],
     "current_price": 650.0,
@@ -41300,6 +42025,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 650.0,
+        "normalized_price": 6500.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 6500.0
       }
@@ -41340,6 +42070,11 @@
         "date": "2026-06-17",
         "price": 750.0,
         "normalized_price": 5000.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 750.0,
+        "normalized_price": 5000.0
       }
     ],
     "current_price": 750.0,
@@ -41376,6 +42111,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 750.0,
+        "normalized_price": 5000.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 750.0,
         "normalized_price": 5000.0
       }
@@ -41587,6 +42327,11 @@
         "date": "2026-06-17",
         "price": 650.0,
         "normalized_price": 28260.87
+      },
+      {
+        "date": "2026-06-18",
+        "price": 650.0,
+        "normalized_price": 28260.87
       }
     ],
     "current_price": 650.0,
@@ -41604,6 +42349,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 3050.0,
+        "normalized_price": 67777.78
+      },
+      {
+        "date": "2026-06-18",
         "price": 3050.0,
         "normalized_price": 67777.78
       }
@@ -41625,6 +42375,11 @@
         "date": "2026-06-17",
         "price": 1400.0,
         "normalized_price": 31111.11
+      },
+      {
+        "date": "2026-06-18",
+        "price": 1400.0,
+        "normalized_price": 31111.11
       }
     ],
     "current_price": 1400.0,
@@ -41642,6 +42397,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 3050.0,
+        "normalized_price": 67777.78
+      },
+      {
+        "date": "2026-06-18",
         "price": 3050.0,
         "normalized_price": 67777.78
       }
@@ -41663,6 +42423,11 @@
         "date": "2026-06-17",
         "price": 1400.0,
         "normalized_price": 31111.11
+      },
+      {
+        "date": "2026-06-18",
+        "price": 1400.0,
+        "normalized_price": 31111.11
       }
     ],
     "current_price": 1400.0,
@@ -41680,6 +42445,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 1850.0,
+        "normalized_price": 4625.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 1850.0,
         "normalized_price": 4625.0
       }
@@ -41701,6 +42471,11 @@
         "date": "2026-06-17",
         "price": 1450.0,
         "normalized_price": 4142.86
+      },
+      {
+        "date": "2026-06-18",
+        "price": 1450.0,
+        "normalized_price": 4142.86
       }
     ],
     "current_price": 1450.0,
@@ -41718,6 +42493,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 650.0,
+        "normalized_price": 6500.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 6500.0
       }
@@ -41796,6 +42576,11 @@
         "date": "2026-06-17",
         "price": 250.0,
         "normalized_price": 4464.29
+      },
+      {
+        "date": "2026-06-18",
+        "price": 250.0,
+        "normalized_price": 4464.29
       }
     ],
     "current_price": 250.0,
@@ -41813,6 +42598,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 1500.0,
+        "normalized_price": 1500.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 1500.0,
         "normalized_price": 1500.0
       }
@@ -41834,6 +42624,11 @@
         "date": "2026-06-17",
         "price": 300.0,
         "normalized_price": 5357.14
+      },
+      {
+        "date": "2026-06-18",
+        "price": 300.0,
+        "normalized_price": 5357.14
       }
     ],
     "current_price": 300.0,
@@ -41851,6 +42646,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 300.0,
+        "normalized_price": 5357.14
+      },
+      {
+        "date": "2026-06-18",
         "price": 300.0,
         "normalized_price": 5357.14
       }
@@ -41872,6 +42672,11 @@
         "date": "2026-06-17",
         "price": 850.0,
         "normalized_price": 990.68
+      },
+      {
+        "date": "2026-06-18",
+        "price": 850.0,
+        "normalized_price": 990.68
       }
     ],
     "current_price": 850.0,
@@ -41889,6 +42694,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 850.0,
+        "normalized_price": 990.68
+      },
+      {
+        "date": "2026-06-18",
         "price": 850.0,
         "normalized_price": 990.68
       }
@@ -41910,6 +42720,11 @@
         "date": "2026-06-17",
         "price": 1550.0,
         "normalized_price": 53448.28
+      },
+      {
+        "date": "2026-06-18",
+        "price": 1550.0,
+        "normalized_price": 53448.28
       }
     ],
     "current_price": 1550.0,
@@ -41927,6 +42742,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 1550.0,
+        "normalized_price": 53448.28
+      },
+      {
+        "date": "2026-06-18",
         "price": 1550.0,
         "normalized_price": 53448.28
       }
@@ -41948,6 +42768,11 @@
         "date": "2026-06-17",
         "price": 1550.0,
         "normalized_price": 53448.28
+      },
+      {
+        "date": "2026-06-18",
+        "price": 1550.0,
+        "normalized_price": 53448.28
       }
     ],
     "current_price": 1550.0,
@@ -41967,6 +42792,11 @@
         "date": "2026-06-17",
         "price": 1500.0,
         "normalized_price": 17142.86
+      },
+      {
+        "date": "2026-06-18",
+        "price": 1500.0,
+        "normalized_price": 17142.86
       }
     ],
     "current_price": 1500.0,
@@ -41984,6 +42814,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 850.0,
+        "normalized_price": 990.68
+      },
+      {
+        "date": "2026-06-18",
         "price": 850.0,
         "normalized_price": 990.68
       }
@@ -42024,6 +42859,11 @@
         "date": "2026-06-17",
         "price": 1250.0,
         "normalized_price": 2125.85
+      },
+      {
+        "date": "2026-06-18",
+        "price": 1250.0,
+        "normalized_price": 2125.85
       }
     ],
     "current_price": 1250.0,
@@ -42041,6 +42881,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 2000.0,
+        "normalized_price": 8333.33
+      },
+      {
+        "date": "2026-06-18",
         "price": 2000.0,
         "normalized_price": 8333.33
       }
@@ -42062,6 +42907,11 @@
         "date": "2026-06-17",
         "price": 2800.0,
         "normalized_price": 2811.24
+      },
+      {
+        "date": "2026-06-18",
+        "price": 2800.0,
+        "normalized_price": 2811.24
       }
     ],
     "current_price": 2800.0,
@@ -42079,6 +42929,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 1450.0,
+        "normalized_price": 38157.89
+      },
+      {
+        "date": "2026-06-18",
         "price": 1450.0,
         "normalized_price": 38157.89
       }
@@ -42100,6 +42955,11 @@
         "date": "2026-06-17",
         "price": 600.0,
         "normalized_price": 5000.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 600.0,
+        "normalized_price": 5000.0
       }
     ],
     "current_price": 600.0,
@@ -42119,6 +42979,11 @@
         "date": "2026-06-17",
         "price": 350.0,
         "normalized_price": 40229.89
+      },
+      {
+        "date": "2026-06-18",
+        "price": 350.0,
+        "normalized_price": 40229.89
       }
     ],
     "current_price": 350.0,
@@ -42136,6 +43001,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 450.0,
+        "normalized_price": 450.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 450.0,
         "normalized_price": 450.0
       }
@@ -42176,10 +43046,15 @@
         "date": "2026-06-17",
         "price": 2200.0,
         "normalized_price": 4000.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 2450.0,
+        "normalized_price": 4454.55
       }
     ],
-    "current_price": 2200.0,
-    "normalized_price": 4000.0,
+    "current_price": 2450.0,
+    "normalized_price": 4454.55,
     "unit": "550.0gm",
     "unit_type": "kg",
     "url": "https://shotejbazar.com/product/nestle-quality-street-chocolate-600gm-box-made-in-uk/"
@@ -42214,6 +43089,11 @@
         "date": "2026-06-17",
         "price": 650.0,
         "normalized_price": 2166.67
+      },
+      {
+        "date": "2026-06-18",
+        "price": 650.0,
+        "normalized_price": 2166.67
       }
     ],
     "current_price": 650.0,
@@ -42231,6 +43111,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 650.0,
+        "normalized_price": 2166.67
+      },
+      {
+        "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 2166.67
       }
@@ -42271,6 +43156,11 @@
         "date": "2026-06-17",
         "price": 950.0,
         "normalized_price": 43181.82
+      },
+      {
+        "date": "2026-06-18",
+        "price": 950.0,
+        "normalized_price": 43181.82
       }
     ],
     "current_price": 950.0,
@@ -42288,6 +43178,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 650.0,
+        "normalized_price": 29545.45
+      },
+      {
+        "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 29545.45
       }
@@ -42309,6 +43204,11 @@
         "date": "2026-06-17",
         "price": 2250.0,
         "normalized_price": 2250.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 2250.0,
+        "normalized_price": 2250.0
       }
     ],
     "current_price": 2250.0,
@@ -42326,6 +43226,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 1050.0,
+        "normalized_price": 3000.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 1050.0,
         "normalized_price": 3000.0
       }
@@ -42347,10 +43252,15 @@
         "date": "2026-06-17",
         "price": 2150.0,
         "normalized_price": 2606.06
+      },
+      {
+        "date": "2026-06-18",
+        "price": 1950.0,
+        "normalized_price": 2363.64
       }
     ],
-    "current_price": 2150.0,
-    "normalized_price": 2606.06,
+    "current_price": 1950.0,
+    "normalized_price": 2363.64,
     "unit": "825.0gm",
     "unit_type": "kg",
     "url": "https://shotejbazar.com/product/nutella-chocolate-hazelnut-spread-825gm/"
@@ -42364,6 +43274,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 2350.0,
+        "normalized_price": 2473.68
+      },
+      {
+        "date": "2026-06-18",
         "price": 2350.0,
         "normalized_price": 2473.68
       }
@@ -42385,6 +43300,11 @@
         "date": "2026-06-17",
         "price": 440.0,
         "normalized_price": 4166.67
+      },
+      {
+        "date": "2026-06-18",
+        "price": 440.0,
+        "normalized_price": 4166.67
       }
     ],
     "current_price": 440.0,
@@ -42402,6 +43322,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 440.0,
+        "normalized_price": 133333.33
+      },
+      {
+        "date": "2026-06-18",
         "price": 440.0,
         "normalized_price": 133333.33
       }
@@ -42423,6 +43348,11 @@
         "date": "2026-06-17",
         "price": 440.0,
         "normalized_price": 133333.33
+      },
+      {
+        "date": "2026-06-18",
+        "price": 440.0,
+        "normalized_price": 133333.33
       }
     ],
     "current_price": 440.0,
@@ -42442,6 +43372,11 @@
         "date": "2026-06-17",
         "price": 440.0,
         "normalized_price": 133333.33
+      },
+      {
+        "date": "2026-06-18",
+        "price": 440.0,
+        "normalized_price": 133333.33
       }
     ],
     "current_price": 440.0,
@@ -42459,6 +43394,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 440.0,
+        "normalized_price": 133333.33
+      },
+      {
+        "date": "2026-06-18",
         "price": 440.0,
         "normalized_price": 133333.33
       }
@@ -42499,6 +43439,11 @@
         "date": "2026-06-17",
         "price": 200.0,
         "normalized_price": 4255.32
+      },
+      {
+        "date": "2026-06-18",
+        "price": 200.0,
+        "normalized_price": 4255.32
       }
     ],
     "current_price": 200.0,
@@ -42516,6 +43461,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 200.0,
+        "normalized_price": 4444.44
+      },
+      {
+        "date": "2026-06-18",
         "price": 200.0,
         "normalized_price": 4444.44
       }
@@ -42537,6 +43487,11 @@
         "date": "2026-06-17",
         "price": 200.0,
         "normalized_price": 5000.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 200.0,
+        "normalized_price": 5000.0
       }
     ],
     "current_price": 200.0,
@@ -42554,6 +43509,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 200.0,
+        "normalized_price": 4255.32
+      },
+      {
+        "date": "2026-06-18",
         "price": 200.0,
         "normalized_price": 4255.32
       }
@@ -42575,6 +43535,11 @@
         "date": "2026-06-17",
         "price": 750.0,
         "normalized_price": 750.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 750.0,
+        "normalized_price": 750.0
       }
     ],
     "current_price": 750.0,
@@ -42592,6 +43557,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 200.0,
+        "normalized_price": 6060.61
+      },
+      {
+        "date": "2026-06-18",
         "price": 200.0,
         "normalized_price": 6060.61
       }
@@ -42613,6 +43583,11 @@
         "date": "2026-06-17",
         "price": 1750.0,
         "normalized_price": 1750.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 1750.0,
+        "normalized_price": 1750.0
       }
     ],
     "current_price": 1750.0,
@@ -42630,6 +43605,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 1950.0,
+        "normalized_price": 1950.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 1950.0,
         "normalized_price": 1950.0
       }
@@ -42651,6 +43631,11 @@
         "date": "2026-06-17",
         "price": 3650.0,
         "normalized_price": 3650.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 3650.0,
+        "normalized_price": 3650.0
       }
     ],
     "current_price": 3650.0,
@@ -42668,6 +43653,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 1950.0,
+        "normalized_price": 1950.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 1950.0,
         "normalized_price": 1950.0
       }
@@ -42689,6 +43679,11 @@
         "date": "2026-06-17",
         "price": 400.0,
         "normalized_price": 400.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 400.0,
+        "normalized_price": 400.0
       }
     ],
     "current_price": 400.0,
@@ -42706,6 +43701,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 2250.0,
+        "normalized_price": 2250.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 2250.0,
         "normalized_price": 2250.0
       }
@@ -42727,6 +43727,11 @@
         "date": "2026-06-17",
         "price": 750.0,
         "normalized_price": 5000.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 750.0,
+        "normalized_price": 5000.0
       }
     ],
     "current_price": 750.0,
@@ -42746,6 +43751,11 @@
         "date": "2026-06-17",
         "price": 850.0,
         "normalized_price": 850.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 850.0,
+        "normalized_price": 850.0
       }
     ],
     "current_price": 850.0,
@@ -42763,6 +43773,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 850.0,
+        "normalized_price": 2833.33
+      },
+      {
+        "date": "2026-06-18",
         "price": 850.0,
         "normalized_price": 2833.33
       }
@@ -42879,6 +43894,11 @@
         "date": "2026-06-17",
         "price": 420.0,
         "normalized_price": 4200.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 420.0,
+        "normalized_price": 4200.0
       }
     ],
     "current_price": 420.0,
@@ -42896,6 +43916,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 450.0,
+        "normalized_price": 2250.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 450.0,
         "normalized_price": 2250.0
       }
@@ -42917,6 +43942,11 @@
         "date": "2026-06-17",
         "price": 1150.0,
         "normalized_price": 1464.97
+      },
+      {
+        "date": "2026-06-18",
+        "price": 1150.0,
+        "normalized_price": 1464.97
       }
     ],
     "current_price": 1150.0,
@@ -42934,6 +43964,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 850.0,
+        "normalized_price": 2125.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 850.0,
         "normalized_price": 2125.0
       }
@@ -42955,10 +43990,15 @@
         "date": "2026-06-17",
         "price": 2550.0,
         "normalized_price": 2550.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 2250.0,
+        "normalized_price": 2250.0
       }
     ],
-    "current_price": 2550.0,
-    "normalized_price": 2550.0,
+    "current_price": 2250.0,
+    "normalized_price": 2250.0,
     "unit": "1.0kg",
     "unit_type": "kg",
     "url": "https://shotejbazar.com/product/roshen-konafetto-rolled-wafer-candy-1kg-110-pcs/"
@@ -42972,6 +44012,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 2250.0,
+        "normalized_price": 2250.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 2250.0,
         "normalized_price": 2250.0
       }
@@ -42993,6 +44038,11 @@
         "date": "2026-06-17",
         "price": 450.0,
         "normalized_price": 2250.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 450.0,
+        "normalized_price": 2250.0
       }
     ],
     "current_price": 450.0,
@@ -43010,6 +44060,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 450.0,
+        "normalized_price": 2250.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 450.0,
         "normalized_price": 2250.0
       }
@@ -43031,6 +44086,11 @@
         "date": "2026-06-17",
         "price": 500.0,
         "normalized_price": 1666.67
+      },
+      {
+        "date": "2026-06-18",
+        "price": 500.0,
+        "normalized_price": 1666.67
       }
     ],
     "current_price": 500.0,
@@ -43048,6 +44108,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 550.0,
+        "normalized_price": 5500.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 550.0,
         "normalized_price": 5500.0
       }
@@ -43069,6 +44134,11 @@
         "date": "2026-06-17",
         "price": 1200.0,
         "normalized_price": 60000.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 1200.0,
+        "normalized_price": 60000.0
       }
     ],
     "current_price": 1200.0,
@@ -43088,6 +44158,11 @@
         "date": "2026-06-17",
         "price": 1490.0,
         "normalized_price": 1490.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 1490.0,
+        "normalized_price": 1490.0
       }
     ],
     "current_price": 1490.0,
@@ -43105,6 +44180,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 550.0,
+        "normalized_price": 3666.67
+      },
+      {
+        "date": "2026-06-18",
         "price": 550.0,
         "normalized_price": 3666.67
       }
@@ -43164,6 +44244,11 @@
         "date": "2026-06-17",
         "price": 650.0,
         "normalized_price": 4779.41
+      },
+      {
+        "date": "2026-06-18",
+        "price": 650.0,
+        "normalized_price": 4779.41
       }
     ],
     "current_price": 650.0,
@@ -43181,6 +44266,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 850.0,
+        "normalized_price": 1931.82
+      },
+      {
+        "date": "2026-06-18",
         "price": 850.0,
         "normalized_price": 1931.82
       }
@@ -43202,6 +44292,11 @@
         "date": "2026-06-17",
         "price": 2850.0,
         "normalized_price": 2375.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 2850.0,
+        "normalized_price": 2375.0
       }
     ],
     "current_price": 2850.0,
@@ -43219,6 +44314,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 1350.0,
+        "normalized_price": 1917.61
+      },
+      {
+        "date": "2026-06-18",
         "price": 1350.0,
         "normalized_price": 1917.61
       }
@@ -43259,6 +44359,11 @@
         "date": "2026-06-17",
         "price": 750.0,
         "normalized_price": 3787.88
+      },
+      {
+        "date": "2026-06-18",
+        "price": 750.0,
+        "normalized_price": 3787.88
       }
     ],
     "current_price": 750.0,
@@ -43276,6 +44381,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 850.0,
+        "normalized_price": 35416.67
+      },
+      {
+        "date": "2026-06-18",
         "price": 850.0,
         "normalized_price": 35416.67
       }
@@ -43297,6 +44407,11 @@
         "date": "2026-06-17",
         "price": 550.0,
         "normalized_price": 550.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 550.0,
+        "normalized_price": 550.0
       }
     ],
     "current_price": 550.0,
@@ -43314,6 +44429,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 380.0,
+        "normalized_price": 2533.33
+      },
+      {
+        "date": "2026-06-18",
         "price": 380.0,
         "normalized_price": 2533.33
       }
@@ -43335,6 +44455,11 @@
         "date": "2026-06-17",
         "price": 380.0,
         "normalized_price": 3166.67
+      },
+      {
+        "date": "2026-06-18",
+        "price": 380.0,
+        "normalized_price": 3166.67
       }
     ],
     "current_price": 380.0,
@@ -43352,6 +44477,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 380.0,
+        "normalized_price": 3800.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 380.0,
         "normalized_price": 3800.0
       }
@@ -43373,6 +44503,11 @@
         "date": "2026-06-17",
         "price": 380.0,
         "normalized_price": 3166.67
+      },
+      {
+        "date": "2026-06-18",
+        "price": 380.0,
+        "normalized_price": 3166.67
       }
     ],
     "current_price": 380.0,
@@ -43390,6 +44525,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 380.0,
+        "normalized_price": 3166.67
+      },
+      {
+        "date": "2026-06-18",
         "price": 380.0,
         "normalized_price": 3166.67
       }
@@ -43411,6 +44551,11 @@
         "date": "2026-06-17",
         "price": 380.0,
         "normalized_price": 3166.67
+      },
+      {
+        "date": "2026-06-18",
+        "price": 380.0,
+        "normalized_price": 3166.67
       }
     ],
     "current_price": 380.0,
@@ -43428,6 +44573,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 380.0,
+        "normalized_price": 3166.67
+      },
+      {
+        "date": "2026-06-18",
         "price": 380.0,
         "normalized_price": 3166.67
       }
@@ -43449,6 +44599,11 @@
         "date": "2026-06-17",
         "price": 380.0,
         "normalized_price": 3800.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 380.0,
+        "normalized_price": 3800.0
       }
     ],
     "current_price": 380.0,
@@ -43468,6 +44623,11 @@
         "date": "2026-06-17",
         "price": 380.0,
         "normalized_price": 3800.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 380.0,
+        "normalized_price": 3800.0
       }
     ],
     "current_price": 380.0,
@@ -43485,6 +44645,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 380.0,
+        "normalized_price": 3166.67
+      },
+      {
+        "date": "2026-06-18",
         "price": 380.0,
         "normalized_price": 3166.67
       }
@@ -43563,6 +44728,11 @@
         "date": "2026-06-17",
         "price": 800.0,
         "normalized_price": 1600.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 800.0,
+        "normalized_price": 1600.0
       }
     ],
     "current_price": 800.0,
@@ -43580,6 +44750,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 350.0,
+        "normalized_price": 3500.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 350.0,
         "normalized_price": 3500.0
       }
@@ -43601,6 +44776,11 @@
         "date": "2026-06-17",
         "price": 1850.0,
         "normalized_price": 3083.33
+      },
+      {
+        "date": "2026-06-18",
+        "price": 1850.0,
+        "normalized_price": 3083.33
       }
     ],
     "current_price": 1850.0,
@@ -43618,6 +44798,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 350.0,
+        "normalized_price": 3500.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 350.0,
         "normalized_price": 3500.0
       }
@@ -43639,6 +44824,11 @@
         "date": "2026-06-17",
         "price": 6000.0,
         "normalized_price": 60000.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 6000.0,
+        "normalized_price": 60000.0
       }
     ],
     "current_price": 6000.0,
@@ -43656,6 +44846,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 900.0,
+        "normalized_price": 9000.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 900.0,
         "normalized_price": 9000.0
       }
@@ -43677,10 +44872,15 @@
         "date": "2026-06-17",
         "price": 1850.0,
         "normalized_price": 18500.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 1750.0,
+        "normalized_price": 17500.0
       }
     ],
-    "current_price": 1850.0,
-    "normalized_price": 18500.0,
+    "current_price": 1750.0,
+    "normalized_price": 17500.0,
     "unit": "100.0g",
     "unit_type": "kg",
     "url": "https://shotejbazar.com/product/toblerone-fruit-nut-milk-chocolate-with-honey-and-almond-nougat-100g-x-6-bars/"
@@ -43694,6 +44894,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 6000.0,
+        "normalized_price": 60000.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 6000.0,
         "normalized_price": 60000.0
       }
@@ -43715,10 +44920,15 @@
         "date": "2026-06-17",
         "price": 1850.0,
         "normalized_price": 18500.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 1750.0,
+        "normalized_price": 17500.0
       }
     ],
-    "current_price": 1850.0,
-    "normalized_price": 18500.0,
+    "current_price": 1750.0,
+    "normalized_price": 17500.0,
     "unit": "100.0g",
     "unit_type": "kg",
     "url": "https://shotejbazar.com/product/toblerone-milk-chocolate-with-honey-almond-nougat-salted-caramel-100g-x-6-bars/"
@@ -43732,6 +44942,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 650.0,
+        "normalized_price": 3250.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 3250.0
       }
@@ -43753,6 +44968,11 @@
         "date": "2026-06-17",
         "price": 350.0,
         "normalized_price": 3500.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 350.0,
+        "normalized_price": 3500.0
       }
     ],
     "current_price": 350.0,
@@ -43770,6 +44990,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 6000.0,
+        "normalized_price": 3000.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 6000.0,
         "normalized_price": 3000.0
       }
@@ -43791,6 +45016,11 @@
         "date": "2026-06-17",
         "price": 900.0,
         "normalized_price": 3000.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 900.0,
+        "normalized_price": 3000.0
       }
     ],
     "current_price": 900.0,
@@ -43810,10 +45040,15 @@
         "date": "2026-06-17",
         "price": 1850.0,
         "normalized_price": 3083.33
+      },
+      {
+        "date": "2026-06-18",
+        "price": 1750.0,
+        "normalized_price": 2916.67
       }
     ],
-    "current_price": 1850.0,
-    "normalized_price": 3083.33,
+    "current_price": 1750.0,
+    "normalized_price": 2916.67,
     "unit": "100gm x 6",
     "unit_type": "kg",
     "url": "https://shotejbazar.com/product/toblerone-chocolate/"
@@ -43827,6 +45062,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 350.0,
+        "normalized_price": 3500.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 350.0,
         "normalized_price": 3500.0
       }
@@ -43848,6 +45088,11 @@
         "date": "2026-06-17",
         "price": 900.0,
         "normalized_price": 450.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 900.0,
+        "normalized_price": 450.0
       }
     ],
     "current_price": 900.0,
@@ -43865,6 +45110,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 900.0,
+        "normalized_price": 3000.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 900.0,
         "normalized_price": 3000.0
       }
@@ -43886,10 +45136,15 @@
         "date": "2026-06-17",
         "price": 1850.0,
         "normalized_price": 3083.33
+      },
+      {
+        "date": "2026-06-18",
+        "price": 1750.0,
+        "normalized_price": 2916.67
       }
     ],
-    "current_price": 1850.0,
-    "normalized_price": 3083.33,
+    "current_price": 1750.0,
+    "normalized_price": 2916.67,
     "unit": "100gm x 6",
     "unit_type": "kg",
     "url": "https://shotejbazar.com/product/toblerone-white-chocolate-100gm-x-6pc/"
@@ -43943,6 +45198,11 @@
         "date": "2026-06-17",
         "price": 550.0,
         "normalized_price": 1375.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 550.0,
+        "normalized_price": 1375.0
       }
     ],
     "current_price": 550.0,
@@ -43960,6 +45220,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 1450.0,
+        "normalized_price": 1450.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 1450.0,
         "normalized_price": 1450.0
       }
@@ -43981,6 +45246,11 @@
         "date": "2026-06-17",
         "price": 1400.0,
         "normalized_price": 1400.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 1400.0,
+        "normalized_price": 1400.0
       }
     ],
     "current_price": 1400.0,
@@ -43998,6 +45268,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 1400.0,
+        "normalized_price": 1400.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 1400.0,
         "normalized_price": 1400.0
       }
@@ -44019,6 +45294,11 @@
         "date": "2026-06-17",
         "price": 1400.0,
         "normalized_price": 8333.33
+      },
+      {
+        "date": "2026-06-18",
+        "price": 1400.0,
+        "normalized_price": 8333.33
       }
     ],
     "current_price": 1400.0,
@@ -44036,6 +45316,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 1400.0,
+        "normalized_price": 1400.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 1400.0,
         "normalized_price": 1400.0
       }
@@ -44057,6 +45342,11 @@
         "date": "2026-06-17",
         "price": 550.0,
         "normalized_price": 1375.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 550.0,
+        "normalized_price": 1375.0
       }
     ],
     "current_price": 550.0,
@@ -44074,6 +45364,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 350.0,
+        "normalized_price": 1400.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 350.0,
         "normalized_price": 1400.0
       }
@@ -44095,6 +45390,11 @@
         "date": "2026-06-17",
         "price": 550.0,
         "normalized_price": 1375.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 550.0,
+        "normalized_price": 1375.0
       }
     ],
     "current_price": 550.0,
@@ -44114,6 +45414,11 @@
         "date": "2026-06-17",
         "price": 3050.0,
         "normalized_price": 2440.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 3050.0,
+        "normalized_price": 2440.0
       }
     ],
     "current_price": 3050.0,
@@ -44131,6 +45436,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 550.0,
+        "normalized_price": 2200.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 550.0,
         "normalized_price": 2200.0
       }
@@ -44171,6 +45481,11 @@
         "date": "2026-06-17",
         "price": 450.0,
         "normalized_price": 450.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 450.0,
+        "normalized_price": 450.0
       }
     ],
     "current_price": 450.0,
@@ -44188,6 +45503,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 960.0,
+        "normalized_price": 3478.26
+      },
+      {
+        "date": "2026-06-18",
         "price": 960.0,
         "normalized_price": 3478.26
       }
@@ -44228,6 +45548,11 @@
         "date": "2026-06-17",
         "price": 350.0,
         "normalized_price": 350.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 350.0,
+        "normalized_price": 350.0
       }
     ],
     "current_price": 350.0,
@@ -44245,6 +45570,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 650.0,
+        "normalized_price": 6500.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 6500.0
       }
@@ -44285,6 +45615,11 @@
         "date": "2026-06-17",
         "price": 650.0,
         "normalized_price": 2166.67
+      },
+      {
+        "date": "2026-06-18",
+        "price": 650.0,
+        "normalized_price": 2166.67
       }
     ],
     "current_price": 650.0,
@@ -44302,6 +45637,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 520.0,
+        "normalized_price": 37142.86
+      },
+      {
+        "date": "2026-06-18",
         "price": 520.0,
         "normalized_price": 37142.86
       }
@@ -44323,6 +45663,11 @@
         "date": "2026-06-17",
         "price": 520.0,
         "normalized_price": 37142.86
+      },
+      {
+        "date": "2026-06-18",
+        "price": 520.0,
+        "normalized_price": 37142.86
       }
     ],
     "current_price": 520.0,
@@ -44340,6 +45685,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 950.0,
+        "normalized_price": 67857.14
+      },
+      {
+        "date": "2026-06-18",
         "price": 950.0,
         "normalized_price": 67857.14
       }
@@ -44361,6 +45711,11 @@
         "date": "2026-06-17",
         "price": 950.0,
         "normalized_price": 67857.14
+      },
+      {
+        "date": "2026-06-18",
+        "price": 950.0,
+        "normalized_price": 67857.14
       }
     ],
     "current_price": 950.0,
@@ -44378,6 +45733,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 520.0,
+        "normalized_price": 37142.86
+      },
+      {
+        "date": "2026-06-18",
         "price": 520.0,
         "normalized_price": 37142.86
       }
@@ -44399,6 +45759,11 @@
         "date": "2026-06-17",
         "price": 1200.0,
         "normalized_price": 1500.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 1200.0,
+        "normalized_price": 1500.0
       }
     ],
     "current_price": 1200.0,
@@ -44416,6 +45781,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 2650.0,
+        "normalized_price": 2944.44
+      },
+      {
+        "date": "2026-06-18",
         "price": 2650.0,
         "normalized_price": 2944.44
       }
@@ -44437,6 +45807,11 @@
         "date": "2026-06-17",
         "price": 1450.0,
         "normalized_price": 1532.77
+      },
+      {
+        "date": "2026-06-18",
+        "price": 1450.0,
+        "normalized_price": 1532.77
       }
     ],
     "current_price": 1450.0,
@@ -44454,6 +45829,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 600.0,
+        "normalized_price": 600.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 600.0,
         "normalized_price": 600.0
       }
@@ -44475,6 +45855,11 @@
         "date": "2026-06-17",
         "price": 320.0,
         "normalized_price": 640.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 320.0,
+        "normalized_price": 640.0
       }
     ],
     "current_price": 320.0,
@@ -44492,6 +45877,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 350.0,
+        "normalized_price": 350.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 350.0,
         "normalized_price": 350.0
       }
@@ -44513,6 +45903,11 @@
         "date": "2026-06-17",
         "price": 2550.0,
         "normalized_price": 2550.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 2550.0,
+        "normalized_price": 2550.0
       }
     ],
     "current_price": 2550.0,
@@ -44530,6 +45925,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 380.0,
+        "normalized_price": 380.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 380.0,
         "normalized_price": 380.0
       }
@@ -44551,6 +45951,11 @@
         "date": "2026-06-17",
         "price": 500.0,
         "normalized_price": 1666.67
+      },
+      {
+        "date": "2026-06-18",
+        "price": 500.0,
+        "normalized_price": 1666.67
       }
     ],
     "current_price": 500.0,
@@ -44568,6 +45973,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 750.0,
+        "normalized_price": 937.5
+      },
+      {
+        "date": "2026-06-18",
         "price": 750.0,
         "normalized_price": 937.5
       }
@@ -44589,6 +45999,11 @@
         "date": "2026-06-17",
         "price": 950.0,
         "normalized_price": 863.64
+      },
+      {
+        "date": "2026-06-18",
+        "price": 950.0,
+        "normalized_price": 863.64
       }
     ],
     "current_price": 950.0,
@@ -44606,6 +46021,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 1800.0,
+        "normalized_price": 1800.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 1800.0,
         "normalized_price": 1800.0
       }
@@ -44627,6 +46047,11 @@
         "date": "2026-06-17",
         "price": 1700.0,
         "normalized_price": 1700.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 1700.0,
+        "normalized_price": 1700.0
       }
     ],
     "current_price": 1700.0,
@@ -44644,6 +46069,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 510.0,
+        "normalized_price": 1275.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 510.0,
         "normalized_price": 1275.0
       }
@@ -44665,6 +46095,11 @@
         "date": "2026-06-17",
         "price": 1000.0,
         "normalized_price": 2500.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 1000.0,
+        "normalized_price": 2500.0
       }
     ],
     "current_price": 1000.0,
@@ -44682,6 +46117,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 400.0,
+        "normalized_price": 800.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 400.0,
         "normalized_price": 800.0
       }
@@ -44703,6 +46143,11 @@
         "date": "2026-06-17",
         "price": 1550.0,
         "normalized_price": 3100.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 1550.0,
+        "normalized_price": 3100.0
       }
     ],
     "current_price": 1550.0,
@@ -44720,6 +46165,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 1450.0,
+        "normalized_price": 2900.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 1450.0,
         "normalized_price": 2900.0
       }
@@ -44741,6 +46191,11 @@
         "date": "2026-06-17",
         "price": 650.0,
         "normalized_price": 1300.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 650.0,
+        "normalized_price": 1300.0
       }
     ],
     "current_price": 650.0,
@@ -44758,6 +46213,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 1250.0,
+        "normalized_price": 2500.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 1250.0,
         "normalized_price": 2500.0
       }
@@ -44779,6 +46239,11 @@
         "date": "2026-06-17",
         "price": 730.0,
         "normalized_price": 1825.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 730.0,
+        "normalized_price": 1825.0
       }
     ],
     "current_price": 730.0,
@@ -44796,6 +46261,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 520.0,
+        "normalized_price": 1040.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 520.0,
         "normalized_price": 1040.0
       }
@@ -44817,6 +46287,11 @@
         "date": "2026-06-17",
         "price": 1000.0,
         "normalized_price": 2000.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 1000.0,
+        "normalized_price": 2000.0
       }
     ],
     "current_price": 1000.0,
@@ -44834,6 +46309,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 450.0,
+        "normalized_price": 900.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 450.0,
         "normalized_price": 900.0
       }
@@ -44855,6 +46335,11 @@
         "date": "2026-06-17",
         "price": 150.0,
         "normalized_price": 300.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 150.0,
+        "normalized_price": 300.0
       }
     ],
     "current_price": 150.0,
@@ -44872,6 +46357,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 400.0,
+        "normalized_price": 1600.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 400.0,
         "normalized_price": 1600.0
       }
@@ -44893,6 +46383,11 @@
         "date": "2026-06-17",
         "price": 750.0,
         "normalized_price": 3000.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 750.0,
+        "normalized_price": 3000.0
       }
     ],
     "current_price": 750.0,
@@ -44910,6 +46405,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 500.0,
+        "normalized_price": 1000.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 500.0,
         "normalized_price": 1000.0
       }
@@ -44931,6 +46431,11 @@
         "date": "2026-06-17",
         "price": 1000.0,
         "normalized_price": 2000.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 1000.0,
+        "normalized_price": 2000.0
       }
     ],
     "current_price": 1000.0,
@@ -44948,6 +46453,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 700.0,
+        "normalized_price": 1400.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 700.0,
         "normalized_price": 1400.0
       }
@@ -44969,6 +46479,11 @@
         "date": "2026-06-17",
         "price": 720.0,
         "normalized_price": 1800.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 720.0,
+        "normalized_price": 1800.0
       }
     ],
     "current_price": 720.0,
@@ -44986,6 +46501,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 1250.0,
+        "normalized_price": 2500.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 1250.0,
         "normalized_price": 2500.0
       }
@@ -45007,6 +46527,11 @@
         "date": "2026-06-17",
         "price": 280.0,
         "normalized_price": 2800.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 280.0,
+        "normalized_price": 2800.0
       }
     ],
     "current_price": 280.0,
@@ -45024,6 +46549,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 1050.0,
+        "normalized_price": 2625.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 1050.0,
         "normalized_price": 2625.0
       }
@@ -45045,6 +46575,11 @@
         "date": "2026-06-17",
         "price": 280.0,
         "normalized_price": 560.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 280.0,
+        "normalized_price": 560.0
       }
     ],
     "current_price": 280.0,
@@ -45062,6 +46597,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 550.0,
+        "normalized_price": 1100.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 550.0,
         "normalized_price": 1100.0
       }
@@ -45083,6 +46623,11 @@
         "date": "2026-06-17",
         "price": 800.0,
         "normalized_price": 2000.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 800.0,
+        "normalized_price": 2000.0
       }
     ],
     "current_price": 800.0,
@@ -45100,6 +46645,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 450.0,
+        "normalized_price": 450.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 450.0,
         "normalized_price": 450.0
       }
@@ -45121,6 +46671,11 @@
         "date": "2026-06-17",
         "price": 700.0,
         "normalized_price": 2058.82
+      },
+      {
+        "date": "2026-06-18",
+        "price": 700.0,
+        "normalized_price": 2058.82
       }
     ],
     "current_price": 700.0,
@@ -45138,6 +46693,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 1850.0,
+        "normalized_price": 1850.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 1850.0,
         "normalized_price": 1850.0
       }
@@ -45159,6 +46719,11 @@
         "date": "2026-06-17",
         "price": 1050.0,
         "normalized_price": 2100.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 1050.0,
+        "normalized_price": 2100.0
       }
     ],
     "current_price": 1050.0,
@@ -45176,6 +46741,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 600.0,
+        "normalized_price": 1500.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 600.0,
         "normalized_price": 1500.0
       }
@@ -45197,6 +46767,11 @@
         "date": "2026-06-17",
         "price": 300.0,
         "normalized_price": 750.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 300.0,
+        "normalized_price": 750.0
       }
     ],
     "current_price": 300.0,
@@ -45214,6 +46789,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 730.0,
+        "normalized_price": 1460.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 730.0,
         "normalized_price": 1460.0
       }
@@ -45235,6 +46815,11 @@
         "date": "2026-06-17",
         "price": 750.0,
         "normalized_price": 1071.43
+      },
+      {
+        "date": "2026-06-18",
+        "price": 750.0,
+        "normalized_price": 1071.43
       }
     ],
     "current_price": 750.0,
@@ -45252,6 +46837,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 1150.0,
+        "normalized_price": 1150.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 1150.0,
         "normalized_price": 1150.0
       }
@@ -45273,6 +46863,11 @@
         "date": "2026-06-17",
         "price": 350.0,
         "normalized_price": 2243.59
+      },
+      {
+        "date": "2026-06-18",
+        "price": 350.0,
+        "normalized_price": 2243.59
       }
     ],
     "current_price": 350.0,
@@ -45290,6 +46885,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 950.0,
+        "normalized_price": 2533.33
+      },
+      {
+        "date": "2026-06-18",
         "price": 950.0,
         "normalized_price": 2533.33
       }
@@ -45311,6 +46911,11 @@
         "date": "2026-06-17",
         "price": 850.0,
         "normalized_price": 42500.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 850.0,
+        "normalized_price": 42500.0
       }
     ],
     "current_price": 850.0,
@@ -45328,6 +46933,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 750.0,
+        "normalized_price": 1071.43
+      },
+      {
+        "date": "2026-06-18",
         "price": 750.0,
         "normalized_price": 1071.43
       }
@@ -45349,6 +46959,11 @@
         "date": "2026-06-17",
         "price": 300.0,
         "normalized_price": 3846.15
+      },
+      {
+        "date": "2026-06-18",
+        "price": 300.0,
+        "normalized_price": 3846.15
       }
     ],
     "current_price": 300.0,
@@ -45366,6 +46981,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 350.0,
+        "normalized_price": 2800.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 350.0,
         "normalized_price": 2800.0
       }
@@ -45387,6 +47007,11 @@
         "date": "2026-06-17",
         "price": 350.0,
         "normalized_price": 2800.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 350.0,
+        "normalized_price": 2800.0
       }
     ],
     "current_price": 350.0,
@@ -45404,6 +47029,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 350.0,
+        "normalized_price": 2800.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 350.0,
         "normalized_price": 2800.0
       }
@@ -45425,6 +47055,11 @@
         "date": "2026-06-17",
         "price": 350.0,
         "normalized_price": 2800.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 350.0,
+        "normalized_price": 2800.0
       }
     ],
     "current_price": 350.0,
@@ -45442,6 +47077,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 350.0,
+        "normalized_price": 3500.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 350.0,
         "normalized_price": 3500.0
       }
@@ -45463,6 +47103,11 @@
         "date": "2026-06-17",
         "price": 350.0,
         "normalized_price": 2800.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 350.0,
+        "normalized_price": 2800.0
       }
     ],
     "current_price": 350.0,
@@ -45480,6 +47125,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 350.0,
+        "normalized_price": 14000.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 350.0,
         "normalized_price": 14000.0
       }
@@ -45501,6 +47151,11 @@
         "date": "2026-06-17",
         "price": 420.0,
         "normalized_price": 1866.67
+      },
+      {
+        "date": "2026-06-18",
+        "price": 420.0,
+        "normalized_price": 1866.67
       }
     ],
     "current_price": 420.0,
@@ -45518,6 +47173,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 420.0,
+        "normalized_price": 1866.67
+      },
+      {
+        "date": "2026-06-18",
         "price": 420.0,
         "normalized_price": 1866.67
       }
@@ -45539,6 +47199,11 @@
         "date": "2026-06-17",
         "price": 1350.0,
         "normalized_price": 1928.57
+      },
+      {
+        "date": "2026-06-18",
+        "price": 1350.0,
+        "normalized_price": 1928.57
       }
     ],
     "current_price": 1350.0,
@@ -45556,6 +47221,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 1350.0,
+        "normalized_price": 1928.57
+      },
+      {
+        "date": "2026-06-18",
         "price": 1350.0,
         "normalized_price": 1928.57
       }
@@ -45577,6 +47247,11 @@
         "date": "2026-06-17",
         "price": 400.0,
         "normalized_price": 2380.95
+      },
+      {
+        "date": "2026-06-18",
+        "price": 400.0,
+        "normalized_price": 2380.95
       }
     ],
     "current_price": 400.0,
@@ -45594,6 +47269,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 350.0,
+        "normalized_price": 2611.94
+      },
+      {
+        "date": "2026-06-18",
         "price": 350.0,
         "normalized_price": 2611.94
       }
@@ -45615,6 +47295,11 @@
         "date": "2026-06-17",
         "price": 400.0,
         "normalized_price": 2531.65
+      },
+      {
+        "date": "2026-06-18",
+        "price": 400.0,
+        "normalized_price": 2531.65
       }
     ],
     "current_price": 400.0,
@@ -45632,6 +47317,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 400.0,
+        "normalized_price": 2531.65
+      },
+      {
+        "date": "2026-06-18",
         "price": 400.0,
         "normalized_price": 2531.65
       }
@@ -45653,6 +47343,11 @@
         "date": "2026-06-17",
         "price": 750.0,
         "normalized_price": 1071.43
+      },
+      {
+        "date": "2026-06-18",
+        "price": 750.0,
+        "normalized_price": 1071.43
       }
     ],
     "current_price": 750.0,
@@ -45670,6 +47365,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 750.0,
+        "normalized_price": 1071.43
+      },
+      {
+        "date": "2026-06-18",
         "price": 750.0,
         "normalized_price": 1071.43
       }
@@ -45691,6 +47391,11 @@
         "date": "2026-06-17",
         "price": 750.0,
         "normalized_price": 1071.43
+      },
+      {
+        "date": "2026-06-18",
+        "price": 750.0,
+        "normalized_price": 1071.43
       }
     ],
     "current_price": 750.0,
@@ -45708,6 +47413,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 950.0,
+        "normalized_price": 2375.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 950.0,
         "normalized_price": 2375.0
       }
@@ -45729,6 +47439,11 @@
         "date": "2026-06-17",
         "price": 950.0,
         "normalized_price": 2375.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 950.0,
+        "normalized_price": 2375.0
       }
     ],
     "current_price": 950.0,
@@ -45746,6 +47461,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 350.0,
+        "normalized_price": 1405.62
+      },
+      {
+        "date": "2026-06-18",
         "price": 350.0,
         "normalized_price": 1405.62
       }
@@ -45767,6 +47487,11 @@
         "date": "2026-06-17",
         "price": 350.0,
         "normalized_price": 1405.62
+      },
+      {
+        "date": "2026-06-18",
+        "price": 350.0,
+        "normalized_price": 1405.62
       }
     ],
     "current_price": 350.0,
@@ -45784,6 +47509,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 5200.0,
+        "normalized_price": 5942.86
+      },
+      {
+        "date": "2026-06-18",
         "price": 5200.0,
         "normalized_price": 5942.86
       }
@@ -45805,6 +47535,11 @@
         "date": "2026-06-17",
         "price": 2050.0,
         "normalized_price": 1025.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 2050.0,
+        "normalized_price": 1025.0
       }
     ],
     "current_price": 2050.0,
@@ -45822,6 +47557,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 1400.0,
+        "normalized_price": 10370.37
+      },
+      {
+        "date": "2026-06-18",
         "price": 1400.0,
         "normalized_price": 10370.37
       }
@@ -45843,6 +47583,11 @@
         "date": "2026-06-17",
         "price": 450.0,
         "normalized_price": 1800.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 450.0,
+        "normalized_price": 1800.0
       }
     ],
     "current_price": 450.0,
@@ -45860,6 +47605,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 450.0,
+        "normalized_price": 2500.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 450.0,
         "normalized_price": 2500.0
       }
@@ -45881,6 +47631,11 @@
         "date": "2026-06-17",
         "price": 650.0,
         "normalized_price": 2500.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 650.0,
+        "normalized_price": 2500.0
       }
     ],
     "current_price": 650.0,
@@ -45898,6 +47653,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 550.0,
+        "normalized_price": 3525.64
+      },
+      {
+        "date": "2026-06-18",
         "price": 550.0,
         "normalized_price": 3525.64
       }
@@ -45919,6 +47679,11 @@
         "date": "2026-06-17",
         "price": 400.0,
         "normalized_price": 724.17
+      },
+      {
+        "date": "2026-06-18",
+        "price": 400.0,
+        "normalized_price": 724.17
       }
     ],
     "current_price": 400.0,
@@ -45936,6 +47701,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 600.0,
+        "normalized_price": 833.33
+      },
+      {
+        "date": "2026-06-18",
         "price": 600.0,
         "normalized_price": 833.33
       }
@@ -45957,6 +47727,11 @@
         "date": "2026-06-17",
         "price": 600.0,
         "normalized_price": 833.33
+      },
+      {
+        "date": "2026-06-18",
+        "price": 600.0,
+        "normalized_price": 833.33
       }
     ],
     "current_price": 600.0,
@@ -45974,6 +47749,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 400.0,
+        "normalized_price": 724.17
+      },
+      {
+        "date": "2026-06-18",
         "price": 400.0,
         "normalized_price": 724.17
       }
@@ -45995,6 +47775,11 @@
         "date": "2026-06-17",
         "price": 350.0,
         "normalized_price": 2333.33
+      },
+      {
+        "date": "2026-06-18",
+        "price": 350.0,
+        "normalized_price": 2333.33
       }
     ],
     "current_price": 350.0,
@@ -46012,6 +47797,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 650.0,
+        "normalized_price": 2166.67
+      },
+      {
+        "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 2166.67
       }
@@ -46033,6 +47823,11 @@
         "date": "2026-06-17",
         "price": 350.0,
         "normalized_price": 2333.33
+      },
+      {
+        "date": "2026-06-18",
+        "price": 350.0,
+        "normalized_price": 2333.33
       }
     ],
     "current_price": 350.0,
@@ -46050,6 +47845,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 720.0,
+        "normalized_price": 1600.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 720.0,
         "normalized_price": 1600.0
       }
@@ -46071,6 +47871,11 @@
         "date": "2026-06-17",
         "price": 650.0,
         "normalized_price": 24074.07
+      },
+      {
+        "date": "2026-06-18",
+        "price": 650.0,
+        "normalized_price": 24074.07
       }
     ],
     "current_price": 650.0,
@@ -46088,6 +47893,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 650.0,
+        "normalized_price": 24074.07
+      },
+      {
+        "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 24074.07
       }
@@ -46109,6 +47919,11 @@
         "date": "2026-06-17",
         "price": 750.0,
         "normalized_price": 2884.62
+      },
+      {
+        "date": "2026-06-18",
+        "price": 750.0,
+        "normalized_price": 2884.62
       }
     ],
     "current_price": 750.0,
@@ -46126,6 +47941,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 650.0,
+        "normalized_price": 4333.33
+      },
+      {
+        "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 4333.33
       }
@@ -46147,6 +47967,11 @@
         "date": "2026-06-17",
         "price": 450.0,
         "normalized_price": 4500.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 450.0,
+        "normalized_price": 4500.0
       }
     ],
     "current_price": 450.0,
@@ -46164,6 +47989,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 950.0,
+        "normalized_price": 950.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 950.0,
         "normalized_price": 950.0
       }
@@ -46185,6 +48015,11 @@
         "date": "2026-06-17",
         "price": 650.0,
         "normalized_price": 3915.66
+      },
+      {
+        "date": "2026-06-18",
+        "price": 650.0,
+        "normalized_price": 3915.66
       }
     ],
     "current_price": 650.0,
@@ -46202,6 +48037,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 650.0,
+        "normalized_price": 2642.28
+      },
+      {
+        "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 2642.28
       }
@@ -46223,6 +48063,11 @@
         "date": "2026-06-17",
         "price": 650.0,
         "normalized_price": 650.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 650.0,
+        "normalized_price": 650.0
       }
     ],
     "current_price": 650.0,
@@ -46240,6 +48085,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 700.0,
+        "normalized_price": 1166.67
+      },
+      {
+        "date": "2026-06-18",
         "price": 700.0,
         "normalized_price": 1166.67
       }
@@ -46261,6 +48111,11 @@
         "date": "2026-06-17",
         "price": 700.0,
         "normalized_price": 1166.67
+      },
+      {
+        "date": "2026-06-18",
+        "price": 700.0,
+        "normalized_price": 1166.67
       }
     ],
     "current_price": 700.0,
@@ -46278,6 +48133,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 600.0,
+        "normalized_price": 833.33
+      },
+      {
+        "date": "2026-06-18",
         "price": 600.0,
         "normalized_price": 833.33
       }
@@ -46299,6 +48159,11 @@
         "date": "2026-06-17",
         "price": 650.0,
         "normalized_price": 14772.73
+      },
+      {
+        "date": "2026-06-18",
+        "price": 650.0,
+        "normalized_price": 14772.73
       }
     ],
     "current_price": 650.0,
@@ -46316,6 +48181,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 650.0,
+        "normalized_price": 1444.44
+      },
+      {
+        "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 1444.44
       }
@@ -46337,6 +48207,11 @@
         "date": "2026-06-17",
         "price": 2850.0,
         "normalized_price": 2850.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 2850.0,
+        "normalized_price": 2850.0
       }
     ],
     "current_price": 2850.0,
@@ -46354,6 +48229,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 380.0,
+        "normalized_price": 3166.67
+      },
+      {
+        "date": "2026-06-18",
         "price": 380.0,
         "normalized_price": 3166.67
       }
@@ -46375,6 +48255,11 @@
         "date": "2026-06-17",
         "price": 750.0,
         "normalized_price": 2622.38
+      },
+      {
+        "date": "2026-06-18",
+        "price": 750.0,
+        "normalized_price": 2622.38
       }
     ],
     "current_price": 750.0,
@@ -46392,6 +48277,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 400.0,
+        "normalized_price": 1904.76
+      },
+      {
+        "date": "2026-06-18",
         "price": 400.0,
         "normalized_price": 1904.76
       }
@@ -46413,6 +48303,11 @@
         "date": "2026-06-17",
         "price": 550.0,
         "normalized_price": 2750.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 550.0,
+        "normalized_price": 2750.0
       }
     ],
     "current_price": 550.0,
@@ -46430,6 +48325,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 1350.0,
+        "normalized_price": 6750.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 1350.0,
         "normalized_price": 6750.0
       }
@@ -46451,6 +48351,11 @@
         "date": "2026-06-17",
         "price": 1350.0,
         "normalized_price": 6750.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 1350.0,
+        "normalized_price": 6750.0
       }
     ],
     "current_price": 1350.0,
@@ -46468,6 +48373,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 1350.0,
+        "normalized_price": 6750.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 1350.0,
         "normalized_price": 6750.0
       }
@@ -46489,6 +48399,11 @@
         "date": "2026-06-17",
         "price": 500.0,
         "normalized_price": 10000.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 500.0,
+        "normalized_price": 10000.0
       }
     ],
     "current_price": 500.0,
@@ -46506,6 +48421,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 500.0,
+        "normalized_price": 10000.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 500.0,
         "normalized_price": 10000.0
       }
@@ -46527,6 +48447,11 @@
         "date": "2026-06-17",
         "price": 500.0,
         "normalized_price": 10000.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 500.0,
+        "normalized_price": 10000.0
       }
     ],
     "current_price": 500.0,
@@ -46544,6 +48469,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 500.0,
+        "normalized_price": 20833.33
+      },
+      {
+        "date": "2026-06-18",
         "price": 500.0,
         "normalized_price": 20833.33
       }
@@ -46565,6 +48495,11 @@
         "date": "2026-06-17",
         "price": 500.0,
         "normalized_price": 10000.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 500.0,
+        "normalized_price": 10000.0
       }
     ],
     "current_price": 500.0,
@@ -46582,6 +48517,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 500.0,
+        "normalized_price": 10000.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 500.0,
         "normalized_price": 10000.0
       }
@@ -46603,6 +48543,11 @@
         "date": "2026-06-17",
         "price": 500.0,
         "normalized_price": 10000.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 500.0,
+        "normalized_price": 10000.0
       }
     ],
     "current_price": 500.0,
@@ -46620,6 +48565,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 500.0,
+        "normalized_price": 10000.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 500.0,
         "normalized_price": 10000.0
       }
@@ -46641,6 +48591,11 @@
         "date": "2026-06-17",
         "price": 500.0,
         "normalized_price": 10000.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 500.0,
+        "normalized_price": 10000.0
       }
     ],
     "current_price": 500.0,
@@ -46658,6 +48613,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 750.0,
+        "normalized_price": 1666.67
+      },
+      {
+        "date": "2026-06-18",
         "price": 750.0,
         "normalized_price": 1666.67
       }
@@ -46679,6 +48639,11 @@
         "date": "2026-06-17",
         "price": 950.0,
         "normalized_price": 9500.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 950.0,
+        "normalized_price": 9500.0
       }
     ],
     "current_price": 950.0,
@@ -46696,6 +48661,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 850.0,
+        "normalized_price": 8500.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 850.0,
         "normalized_price": 8500.0
       }
@@ -46717,6 +48687,11 @@
         "date": "2026-06-17",
         "price": 850.0,
         "normalized_price": 8500.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 850.0,
+        "normalized_price": 8500.0
       }
     ],
     "current_price": 850.0,
@@ -46734,6 +48709,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 950.0,
+        "normalized_price": 9500.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 950.0,
         "normalized_price": 9500.0
       }
@@ -46755,6 +48735,11 @@
         "date": "2026-06-17",
         "price": 850.0,
         "normalized_price": 8500.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 850.0,
+        "normalized_price": 8500.0
       }
     ],
     "current_price": 850.0,
@@ -46772,6 +48757,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 1850.0,
+        "normalized_price": 9736.84
+      },
+      {
+        "date": "2026-06-18",
         "price": 1850.0,
         "normalized_price": 9736.84
       }
@@ -46793,6 +48783,11 @@
         "date": "2026-06-17",
         "price": 1850.0,
         "normalized_price": 9736.84
+      },
+      {
+        "date": "2026-06-18",
+        "price": 1850.0,
+        "normalized_price": 9736.84
       }
     ],
     "current_price": 1850.0,
@@ -46810,6 +48805,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 1850.0,
+        "normalized_price": 9736.84
+      },
+      {
+        "date": "2026-06-18",
         "price": 1850.0,
         "normalized_price": 9736.84
       }
@@ -46831,6 +48831,11 @@
         "date": "2026-06-17",
         "price": 450.0,
         "normalized_price": 2250.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 450.0,
+        "normalized_price": 2250.0
       }
     ],
     "current_price": 450.0,
@@ -46848,6 +48853,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 450.0,
+        "normalized_price": 11250.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 450.0,
         "normalized_price": 11250.0
       }
@@ -46869,6 +48879,11 @@
         "date": "2026-06-17",
         "price": 450.0,
         "normalized_price": 450.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 450.0,
+        "normalized_price": 450.0
       }
     ],
     "current_price": 450.0,
@@ -46886,6 +48901,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 650.0,
+        "normalized_price": 21666.67
+      },
+      {
+        "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 21666.67
       }
@@ -46907,6 +48927,11 @@
         "date": "2026-06-17",
         "price": 2150.0,
         "normalized_price": 10750.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 2150.0,
+        "normalized_price": 10750.0
       }
     ],
     "current_price": 2150.0,
@@ -46924,6 +48949,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 2150.0,
+        "normalized_price": 10750.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 2150.0,
         "normalized_price": 10750.0
       }
@@ -46945,6 +48975,11 @@
         "date": "2026-06-17",
         "price": 2150.0,
         "normalized_price": 10750.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 2150.0,
+        "normalized_price": 10750.0
       }
     ],
     "current_price": 2150.0,
@@ -46962,6 +48997,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 950.0,
+        "normalized_price": 950.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 950.0,
         "normalized_price": 950.0
       }
@@ -46983,6 +49023,11 @@
         "date": "2026-06-17",
         "price": 850.0,
         "normalized_price": 850.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 850.0,
+        "normalized_price": 850.0
       }
     ],
     "current_price": 850.0,
@@ -47000,6 +49045,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 650.0,
+        "normalized_price": 5241.94
+      },
+      {
+        "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 5241.94
       }
@@ -47021,6 +49071,11 @@
         "date": "2026-06-17",
         "price": 650.0,
         "normalized_price": 650.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 650.0,
+        "normalized_price": 650.0
       }
     ],
     "current_price": 650.0,
@@ -47038,6 +49093,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 950.0,
+        "normalized_price": 4523.81
+      },
+      {
+        "date": "2026-06-18",
         "price": 950.0,
         "normalized_price": 4523.81
       }
@@ -47059,6 +49119,11 @@
         "date": "2026-06-17",
         "price": 650.0,
         "normalized_price": 650.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 650.0,
+        "normalized_price": 650.0
       }
     ],
     "current_price": 650.0,
@@ -47076,6 +49141,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 1580.0,
+        "normalized_price": 8315.79
+      },
+      {
+        "date": "2026-06-18",
         "price": 1580.0,
         "normalized_price": 8315.79
       }
@@ -47097,6 +49167,11 @@
         "date": "2026-06-17",
         "price": 650.0,
         "normalized_price": 650.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 650.0,
+        "normalized_price": 650.0
       }
     ],
     "current_price": 650.0,
@@ -47114,6 +49189,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 650.0,
+        "normalized_price": 4513.89
+      },
+      {
+        "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 4513.89
       }
@@ -47135,6 +49215,11 @@
         "date": "2026-06-17",
         "price": 650.0,
         "normalized_price": 4761.9
+      },
+      {
+        "date": "2026-06-18",
+        "price": 650.0,
+        "normalized_price": 4761.9
       }
     ],
     "current_price": 650.0,
@@ -47152,6 +49237,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 950.0,
+        "normalized_price": 950.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 950.0,
         "normalized_price": 950.0
       }
@@ -47173,6 +49263,11 @@
         "date": "2026-06-17",
         "price": 650.0,
         "normalized_price": 650.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 650.0,
+        "normalized_price": 650.0
       }
     ],
     "current_price": 650.0,
@@ -47190,6 +49285,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 650.0,
+        "normalized_price": 650.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 650.0
       }
@@ -47211,6 +49311,11 @@
         "date": "2026-06-17",
         "price": 450.0,
         "normalized_price": 1125.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 450.0,
+        "normalized_price": 1125.0
       }
     ],
     "current_price": 450.0,
@@ -47228,6 +49333,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 950.0,
+        "normalized_price": 950.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 950.0,
         "normalized_price": 950.0
       }
@@ -47249,6 +49359,11 @@
         "date": "2026-06-17",
         "price": 1050.0,
         "normalized_price": 27631.58
+      },
+      {
+        "date": "2026-06-18",
+        "price": 1050.0,
+        "normalized_price": 27631.58
       }
     ],
     "current_price": 1050.0,
@@ -47266,6 +49381,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 1050.0,
+        "normalized_price": 42000.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 1050.0,
         "normalized_price": 42000.0
       }
@@ -47287,6 +49407,11 @@
         "date": "2026-06-17",
         "price": 1050.0,
         "normalized_price": 42000.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 1050.0,
+        "normalized_price": 42000.0
       }
     ],
     "current_price": 1050.0,
@@ -47304,6 +49429,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 1050.0,
+        "normalized_price": 2000.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 1050.0,
         "normalized_price": 2000.0
       }
@@ -47325,6 +49455,11 @@
         "date": "2026-06-17",
         "price": 1050.0,
         "normalized_price": 1842.11
+      },
+      {
+        "date": "2026-06-18",
+        "price": 1050.0,
+        "normalized_price": 1842.11
       }
     ],
     "current_price": 1050.0,
@@ -47342,6 +49477,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 900.0,
+        "normalized_price": 1978.02
+      },
+      {
+        "date": "2026-06-18",
         "price": 900.0,
         "normalized_price": 1978.02
       }
@@ -47363,6 +49503,11 @@
         "date": "2026-06-17",
         "price": 650.0,
         "normalized_price": 27659.57
+      },
+      {
+        "date": "2026-06-18",
+        "price": 650.0,
+        "normalized_price": 27659.57
       }
     ],
     "current_price": 650.0,
@@ -47380,6 +49525,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 650.0,
+        "normalized_price": 27083.33
+      },
+      {
+        "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 27083.33
       }
@@ -47401,6 +49551,11 @@
         "date": "2026-06-17",
         "price": 650.0,
         "normalized_price": 650.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 650.0,
+        "normalized_price": 650.0
       }
     ],
     "current_price": 650.0,
@@ -47418,6 +49573,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 1450.0,
+        "normalized_price": 7250.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 1450.0,
         "normalized_price": 7250.0
       }
@@ -47439,6 +49599,11 @@
         "date": "2026-06-17",
         "price": 650.0,
         "normalized_price": 52000.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 650.0,
+        "normalized_price": 52000.0
       }
     ],
     "current_price": 650.0,
@@ -47456,6 +49621,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 800.0,
+        "normalized_price": 800.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 800.0,
         "normalized_price": 800.0
       }
@@ -47477,6 +49647,11 @@
         "date": "2026-06-17",
         "price": 800.0,
         "normalized_price": 800.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 800.0,
+        "normalized_price": 800.0
       }
     ],
     "current_price": 800.0,
@@ -47494,6 +49669,11 @@
     "history": [
       {
         "date": "2026-06-17",
+        "price": 450.0,
+        "normalized_price": 450.0
+      },
+      {
+        "date": "2026-06-18",
         "price": 450.0,
         "normalized_price": 450.0
       }
@@ -47515,6 +49695,11 @@
         "date": "2026-06-17",
         "price": 450.0,
         "normalized_price": 450.0
+      },
+      {
+        "date": "2026-06-18",
+        "price": 450.0,
+        "normalized_price": 450.0
       }
     ],
     "current_price": 450.0,
@@ -47522,5 +49707,24 @@
     "unit": "1 unit",
     "unit_type": "piece",
     "url": "https://shotejbazar.com/product/twinings-pure-green-tea-20-bags/"
+  },
+  "sj_nestl\u00e9polomintroll12gx24pcs": {
+    "id": "sj_nestl\u00e9polomintroll12gx24pcs",
+    "name": "Nestl\u00e9 Polo Mint Roll 12gX 24pcs",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/a40ca963-4531-40bc-ba82-6cc85728e45f.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-06-18",
+        "price": 400.0,
+        "normalized_price": 1388.89
+      }
+    ],
+    "current_price": 400.0,
+    "normalized_price": 1388.89,
+    "unit": "12g x 24",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/nestle-polo-mint-roll-12gx-24pcs/"
   }
 }

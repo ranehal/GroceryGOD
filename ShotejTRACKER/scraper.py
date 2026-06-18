@@ -1,18 +1,14 @@
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
+from datetime import datetime, date, timezone, timedelta
 import asyncio
 from collections import Counter
 import json
 import re
-import datetime
 import os
 import random
 import logging
-from collections import Counter
 from playwright.async_api import async_playwright
 
-DHAKA_TZ = datetime.timezone(datetime.timedelta(hours=6))
+DHAKA_TZ = timezone(timedelta(hours=6))
 
 # Setup logging
 logging.basicConfig(
@@ -116,13 +112,12 @@ async def scrape_category(sem, browser, category, current_data, summary):
                 if new_height == last_height:
                     break
                 last_height = new_height
-                # Optional: break if items found are enough or limit scrolls
             
             # Extract basic info from list
             cards = await page.query_selector_all('.wd-product')
-            logger.info(f"  [+] Found {len(cards)} items in grid. Starting deep extraction...")
+            logger.info(f"  [+] Found {len(cards)} items in grid. Starting extraction...")
 
-            today_str = datetime.date.today().isoformat()
+            today_str = date.today().isoformat()
             
             for card in cards:
                 try:
@@ -145,8 +140,6 @@ async def scrape_category(sem, browser, category, current_data, summary):
 
                     prod_id = "sj_" + re.sub(r'\W+', '', name).lower()
                     
-                    # Optimization: Skip deep extraction (opening new page per product)
-                    # We will use parse_box_weight on the name itself or aggregator logic
                     total_weight, unit_type, qty_label = parse_box_weight("", name)
                     norm_price = current_price / total_weight if total_weight > 0 else current_price
 
@@ -189,7 +182,6 @@ async def main():
     
     async with async_playwright() as p:
         browser = await p.chromium.launch(headless=True)
-        # Sequential processing to be respectful and avoid memory spikes with deep extraction
         sem = asyncio.Semaphore(1) 
         for cat in enabled_categories:
             await scrape_category(sem, browser, cat, data, summary)
@@ -217,9 +209,3 @@ def save_last_run_log(summary):
 
 if __name__ == "__main__":
     asyncio.run(main())
-
-
-
-if __name__ == "__main__":
-    asyncio.run(main())
-
