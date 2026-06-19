@@ -114,6 +114,11 @@
         "date": "2026-06-18",
         "price": 750.0,
         "normalized_price": 1071.4285714285713
+      },
+      {
+        "date": "2026-06-19",
+        "price": 750.0,
+        "normalized_price": 1071.4285714285713
       }
     ],
     "first_seen": "2026-05-17"
@@ -227,6 +232,11 @@
         "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 6500.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 650.0,
+        "normalized_price": 6500.0
       }
     ],
     "first_seen": "2026-06-14"
@@ -324,6 +334,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 1200.0,
+        "normalized_price": 1500.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 1200.0,
         "normalized_price": 1500.0
       }
@@ -445,6 +460,11 @@
         "date": "2026-06-18",
         "price": 1350.0,
         "normalized_price": 6750.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 1350.0,
+        "normalized_price": 6750.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -549,6 +569,11 @@
         "date": "2026-06-18",
         "price": 2650.0,
         "normalized_price": 2944.444444444445
+      },
+      {
+        "date": "2026-06-19",
+        "price": 2650.0,
+        "normalized_price": 2944.444444444445
       }
     ],
     "first_seen": "2026-05-17"
@@ -648,6 +673,11 @@
         "date": "2026-06-18",
         "price": 750.0,
         "normalized_price": 23148.14814814815
+      },
+      {
+        "date": "2026-06-19",
+        "price": 750.0,
+        "normalized_price": 23148.14814814815
       }
     ],
     "first_seen": "2026-05-17"
@@ -735,6 +765,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 450.0,
+        "normalized_price": 4500.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 450.0,
         "normalized_price": 4500.0
       }
@@ -826,6 +861,11 @@
         "date": "2026-06-18",
         "price": 450.0,
         "normalized_price": 4500.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 450.0,
+        "normalized_price": 4500.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -913,6 +953,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 450.0,
+        "normalized_price": 4500.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 450.0,
         "normalized_price": 4500.0
       }
@@ -1004,6 +1049,11 @@
         "date": "2026-06-18",
         "price": 750.0,
         "normalized_price": 3750.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 750.0,
+        "normalized_price": 3750.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -1091,6 +1141,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 450.0,
+        "normalized_price": 4500.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 450.0,
         "normalized_price": 4500.0
       }
@@ -1192,6 +1247,11 @@
         "date": "2026-06-18",
         "price": 450.0,
         "normalized_price": 4500.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 450.0,
+        "normalized_price": 4500.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -1286,6 +1346,11 @@
         "date": "2026-06-18",
         "price": 450.0,
         "normalized_price": 29032.25806451613
+      },
+      {
+        "date": "2026-06-19",
+        "price": 450.0,
+        "normalized_price": 29032.25806451613
       }
     ],
     "first_seen": "2026-05-17"
@@ -1368,6 +1433,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 1050.0,
+        "normalized_price": 2800.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 1050.0,
         "normalized_price": 2800.0
       }
@@ -1459,6 +1529,11 @@
         "date": "2026-06-18",
         "price": 3450.0,
         "normalized_price": 2760.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 3450.0,
+        "normalized_price": 2760.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -1546,6 +1621,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 2050.0,
+        "normalized_price": 2928.5714285714284
+      },
+      {
+        "date": "2026-06-19",
         "price": 2050.0,
         "normalized_price": 2928.5714285714284
       }
@@ -1706,6 +1786,11 @@
         "date": "2026-06-18",
         "price": 2150.0,
         "normalized_price": 3071.4285714285716
+      },
+      {
+        "date": "2026-06-19",
+        "price": 2150.0,
+        "normalized_price": 3071.4285714285716
       }
     ],
     "first_seen": "2026-05-17"
@@ -1862,6 +1947,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 2050.0,
+        "normalized_price": 2928.5714285714284
+      },
+      {
+        "date": "2026-06-19",
         "price": 2050.0,
         "normalized_price": 2928.5714285714284
       }
@@ -2042,6 +2132,11 @@
         "date": "2026-06-18",
         "price": 1150.0,
         "normalized_price": 1150.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 1150.0,
+        "normalized_price": 1150.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -2139,6 +2234,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 1450.0,
+        "normalized_price": 1532.76955602537
+      },
+      {
+        "date": "2026-06-19",
         "price": 1450.0,
         "normalized_price": 1532.76955602537
       }
@@ -2260,6 +2360,11 @@
         "date": "2026-06-18",
         "price": 1350.0,
         "normalized_price": 6750.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 1350.0,
+        "normalized_price": 6750.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -2379,6 +2484,11 @@
         "date": "2026-06-18",
         "price": 1350.0,
         "normalized_price": 6750.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 1350.0,
+        "normalized_price": 6750.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -2461,6 +2571,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 950.0,
+        "normalized_price": 27142.85714285714
+      },
+      {
+        "date": "2026-06-19",
         "price": 950.0,
         "normalized_price": 27142.85714285714
       }
@@ -2656,6 +2771,11 @@
         "date": "2026-06-18",
         "price": 500.0,
         "normalized_price": 10000.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 500.0,
+        "normalized_price": 10000.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -2773,6 +2893,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 500.0,
+        "normalized_price": 10000.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 500.0,
         "normalized_price": 10000.0
       }
@@ -2894,6 +3019,11 @@
         "date": "2026-06-18",
         "price": 500.0,
         "normalized_price": 10000.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 500.0,
+        "normalized_price": 10000.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -3013,6 +3143,11 @@
         "date": "2026-06-18",
         "price": 500.0,
         "normalized_price": 20833.333333333332
+      },
+      {
+        "date": "2026-06-19",
+        "price": 500.0,
+        "normalized_price": 20833.333333333332
       }
     ],
     "first_seen": "2026-05-17"
@@ -3115,6 +3250,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 500.0,
+        "normalized_price": 10000.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 500.0,
         "normalized_price": 10000.0
       }
@@ -3236,6 +3376,11 @@
         "date": "2026-06-18",
         "price": 500.0,
         "normalized_price": 10000.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 500.0,
+        "normalized_price": 10000.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -3353,6 +3498,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 500.0,
+        "normalized_price": 10000.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 500.0,
         "normalized_price": 10000.0
       }
@@ -3474,6 +3624,11 @@
         "date": "2026-06-18",
         "price": 500.0,
         "normalized_price": 10000.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 500.0,
+        "normalized_price": 10000.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -3591,6 +3746,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 500.0,
+        "normalized_price": 10000.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 500.0,
         "normalized_price": 10000.0
       }
@@ -3899,6 +4059,11 @@
         "date": "2026-06-18",
         "price": 750.0,
         "normalized_price": 1000.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 750.0,
+        "normalized_price": 1000.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -3926,6 +4091,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 750.0,
+        "normalized_price": 1000.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 750.0,
         "normalized_price": 1000.0
       }
@@ -3957,6 +4127,11 @@
         "date": "2026-06-18",
         "price": 750.0,
         "normalized_price": 1000.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 750.0,
+        "normalized_price": 1000.0
       }
     ],
     "first_seen": "2026-06-16"
@@ -3986,6 +4161,11 @@
         "date": "2026-06-18",
         "price": 750.0,
         "normalized_price": 1000.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 750.0,
+        "normalized_price": 1000.0
       }
     ],
     "first_seen": "2026-06-16"
@@ -4013,6 +4193,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 750.0,
+        "normalized_price": 1000.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 750.0,
         "normalized_price": 1000.0
       }
@@ -4094,6 +4279,11 @@
         "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 6500.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 650.0,
+        "normalized_price": 6500.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -4173,6 +4363,11 @@
         "date": "2026-06-18",
         "price": 1200.0,
         "normalized_price": 5454.545454545454
+      },
+      {
+        "date": "2026-06-19",
+        "price": 1200.0,
+        "normalized_price": 5454.545454545454
       }
     ],
     "first_seen": "2026-05-17"
@@ -4210,6 +4405,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 850.0,
+        "normalized_price": 4722.222222222223
+      },
+      {
+        "date": "2026-06-19",
         "price": 850.0,
         "normalized_price": 4722.222222222223
       }
@@ -4291,6 +4491,11 @@
         "date": "2026-06-18",
         "price": 750.0,
         "normalized_price": 1428.5714285714287
+      },
+      {
+        "date": "2026-06-19",
+        "price": 750.0,
+        "normalized_price": 1428.5714285714287
       }
     ],
     "first_seen": "2026-05-17"
@@ -4368,6 +4573,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 750.0,
+        "normalized_price": 1428.5714285714287
+      },
+      {
+        "date": "2026-06-19",
         "price": 750.0,
         "normalized_price": 1428.5714285714287
       }
@@ -4449,6 +4659,11 @@
         "date": "2026-06-18",
         "price": 750.0,
         "normalized_price": 1428.5714285714287
+      },
+      {
+        "date": "2026-06-19",
+        "price": 750.0,
+        "normalized_price": 1428.5714285714287
       }
     ],
     "first_seen": "2026-05-17"
@@ -4526,6 +4741,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 750.0,
+        "normalized_price": 1428.5714285714287
+      },
+      {
+        "date": "2026-06-19",
         "price": 750.0,
         "normalized_price": 1428.5714285714287
       }
@@ -4607,6 +4827,11 @@
         "date": "2026-06-18",
         "price": 750.0,
         "normalized_price": 1428.5714285714287
+      },
+      {
+        "date": "2026-06-19",
+        "price": 750.0,
+        "normalized_price": 1428.5714285714287
       }
     ],
     "first_seen": "2026-05-17"
@@ -4684,6 +4909,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 3050.0,
+        "normalized_price": 2229.53216374269
+      },
+      {
+        "date": "2026-06-19",
         "price": 3050.0,
         "normalized_price": 2229.53216374269
       }
@@ -4785,6 +5015,11 @@
         "date": "2026-06-18",
         "price": 750.0,
         "normalized_price": 1666.6666666666667
+      },
+      {
+        "date": "2026-06-19",
+        "price": 750.0,
+        "normalized_price": 1666.6666666666667
       }
     ],
     "first_seen": "2026-05-17"
@@ -4862,6 +5097,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 400.0,
+        "normalized_price": 3076.923076923077
+      },
+      {
+        "date": "2026-06-19",
         "price": 400.0,
         "normalized_price": 3076.923076923077
       }
@@ -4943,6 +5183,11 @@
         "date": "2026-06-18",
         "price": 1050.0,
         "normalized_price": 51980.19801980198
+      },
+      {
+        "date": "2026-06-19",
+        "price": 1050.0,
+        "normalized_price": 51980.19801980198
       }
     ],
     "first_seen": "2026-05-17"
@@ -5020,6 +5265,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 380.0,
+        "normalized_price": 380.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 380.0,
         "normalized_price": 380.0
       }
@@ -5139,6 +5389,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 650.0,
+        "normalized_price": 2500.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 650.0,
         "normalized_price": 2500.0
       }
@@ -5289,6 +5544,11 @@
         "date": "2026-06-18",
         "price": 700.0,
         "normalized_price": 2083.3333333333335
+      },
+      {
+        "date": "2026-06-19",
+        "price": 700.0,
+        "normalized_price": 2083.3333333333335
       }
     ],
     "first_seen": "2026-05-17"
@@ -5366,6 +5626,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 550.0,
+        "normalized_price": 4400.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 550.0,
         "normalized_price": 4400.0
       }
@@ -5472,6 +5737,11 @@
         "date": "2026-06-18",
         "price": 550.0,
         "normalized_price": 3525.6410256410254
+      },
+      {
+        "date": "2026-06-19",
+        "price": 550.0,
+        "normalized_price": 3525.6410256410254
       }
     ],
     "first_seen": "2026-05-17"
@@ -5551,6 +5821,11 @@
         "date": "2026-06-18",
         "price": 2080.0,
         "normalized_price": 4160.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 2080.0,
+        "normalized_price": 4160.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -5628,6 +5903,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 750.0,
+        "normalized_price": 4464.285714285715
+      },
+      {
+        "date": "2026-06-19",
         "price": 750.0,
         "normalized_price": 4464.285714285715
       }
@@ -5783,6 +6063,11 @@
         "date": "2026-06-18",
         "price": 400.0,
         "normalized_price": 3076.923076923077
+      },
+      {
+        "date": "2026-06-19",
+        "price": 400.0,
+        "normalized_price": 3076.923076923077
       }
     ],
     "first_seen": "2026-05-17"
@@ -5874,6 +6159,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 1600.0,
+        "normalized_price": 1990.0497512437812
+      },
+      {
+        "date": "2026-06-19",
         "price": 1600.0,
         "normalized_price": 1990.0497512437812
       }
@@ -6024,6 +6314,11 @@
         "date": "2026-06-18",
         "price": 750.0,
         "normalized_price": 4464.285714285715
+      },
+      {
+        "date": "2026-06-19",
+        "price": 750.0,
+        "normalized_price": 4464.285714285715
       }
     ],
     "first_seen": "2026-05-17"
@@ -6101,6 +6396,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 1530.0,
+        "normalized_price": 3722.6277372262775
+      },
+      {
+        "date": "2026-06-19",
         "price": 1530.0,
         "normalized_price": 3722.6277372262775
       }
@@ -6182,6 +6482,11 @@
         "date": "2026-06-18",
         "price": 2180.0,
         "normalized_price": 3963.636363636364
+      },
+      {
+        "date": "2026-06-19",
+        "price": 2180.0,
+        "normalized_price": 3963.636363636364
       }
     ],
     "first_seen": "2026-05-17"
@@ -6259,6 +6564,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 1200.0,
+        "normalized_price": 2797.2027972027972
+      },
+      {
+        "date": "2026-06-19",
         "price": 1200.0,
         "normalized_price": 2797.2027972027972
       }
@@ -6340,6 +6650,11 @@
         "date": "2026-06-18",
         "price": 2000.0,
         "normalized_price": 34482.75862068966
+      },
+      {
+        "date": "2026-06-19",
+        "price": 2000.0,
+        "normalized_price": 34482.75862068966
       }
     ],
     "first_seen": "2026-05-17"
@@ -6417,6 +6732,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 400.0,
+        "normalized_price": 3076.923076923077
+      },
+      {
+        "date": "2026-06-19",
         "price": 400.0,
         "normalized_price": 3076.923076923077
       }
@@ -6498,6 +6818,11 @@
         "date": "2026-06-18",
         "price": 750.0,
         "normalized_price": 4464.285714285715
+      },
+      {
+        "date": "2026-06-19",
+        "price": 750.0,
+        "normalized_price": 4464.285714285715
       }
     ],
     "first_seen": "2026-05-17"
@@ -6575,6 +6900,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 1350.0,
+        "normalized_price": 3534.0314136125653
+      },
+      {
+        "date": "2026-06-19",
         "price": 1350.0,
         "normalized_price": 3534.0314136125653
       }
@@ -6656,6 +6986,11 @@
         "date": "2026-06-18",
         "price": 750.0,
         "normalized_price": 4702.194357366771
+      },
+      {
+        "date": "2026-06-19",
+        "price": 750.0,
+        "normalized_price": 4702.194357366771
       }
     ],
     "first_seen": "2026-05-17"
@@ -6733,6 +7068,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 650.0,
+        "normalized_price": 5416.666666666667
+      },
+      {
+        "date": "2026-06-19",
         "price": 650.0,
         "normalized_price": 5416.666666666667
       }
@@ -6814,6 +7154,11 @@
         "date": "2026-06-18",
         "price": 400.0,
         "normalized_price": 3076.923076923077
+      },
+      {
+        "date": "2026-06-19",
+        "price": 400.0,
+        "normalized_price": 3076.923076923077
       }
     ],
     "first_seen": "2026-05-17"
@@ -6891,6 +7236,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 1530.0,
+        "normalized_price": 10699.3006993007
+      },
+      {
+        "date": "2026-06-19",
         "price": 1530.0,
         "normalized_price": 10699.3006993007
       }
@@ -6972,6 +7322,11 @@
         "date": "2026-06-18",
         "price": 2280.0,
         "normalized_price": 39310.3448275862
+      },
+      {
+        "date": "2026-06-19",
+        "price": 2280.0,
+        "normalized_price": 39310.3448275862
       }
     ],
     "first_seen": "2026-05-17"
@@ -7049,6 +7404,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 1530.0,
+        "normalized_price": 3400.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 1530.0,
         "normalized_price": 3400.0
       }
@@ -7130,6 +7490,11 @@
         "date": "2026-06-18",
         "price": 2180.0,
         "normalized_price": 3633.3333333333335
+      },
+      {
+        "date": "2026-06-19",
+        "price": 2180.0,
+        "normalized_price": 3633.3333333333335
       }
     ],
     "first_seen": "2026-05-17"
@@ -7207,6 +7572,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 1530.0,
+        "normalized_price": 4250.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 1530.0,
         "normalized_price": 4250.0
       }
@@ -7288,6 +7658,11 @@
         "date": "2026-06-18",
         "price": 1250.0,
         "normalized_price": 5000.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 1250.0,
+        "normalized_price": 5000.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -7365,6 +7740,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 1530.0,
+        "normalized_price": 3923.076923076923
+      },
+      {
+        "date": "2026-06-19",
         "price": 1530.0,
         "normalized_price": 3923.076923076923
       }
@@ -7446,6 +7826,11 @@
         "date": "2026-06-18",
         "price": 2080.0,
         "normalized_price": 3466.666666666667
+      },
+      {
+        "date": "2026-06-19",
+        "price": 2080.0,
+        "normalized_price": 3466.666666666667
       }
     ],
     "first_seen": "2026-05-17"
@@ -7525,6 +7910,11 @@
         "date": "2026-06-18",
         "price": 1250.0,
         "normalized_price": 2500.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 1250.0,
+        "normalized_price": 2500.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -7602,6 +7992,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 450.0,
+        "normalized_price": 3560.126582278481
+      },
+      {
+        "date": "2026-06-19",
         "price": 450.0,
         "normalized_price": 3560.126582278481
       }
@@ -7792,6 +8187,11 @@
         "date": "2026-06-18",
         "price": 400.0,
         "normalized_price": 724.1653993772177
+      },
+      {
+        "date": "2026-06-19",
+        "price": 400.0,
+        "normalized_price": 724.1653993772177
       }
     ],
     "first_seen": "2026-05-17"
@@ -7909,6 +8309,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 600.0,
+        "normalized_price": 833.3333333333334
+      },
+      {
+        "date": "2026-06-19",
         "price": 600.0,
         "normalized_price": 833.3333333333334
       }
@@ -8030,6 +8435,11 @@
         "date": "2026-06-18",
         "price": 600.0,
         "normalized_price": 833.3333333333334
+      },
+      {
+        "date": "2026-06-19",
+        "price": 600.0,
+        "normalized_price": 833.3333333333334
       }
     ],
     "first_seen": "2026-05-17"
@@ -8149,6 +8559,11 @@
         "date": "2026-06-18",
         "price": 400.0,
         "normalized_price": 724.1653993772177
+      },
+      {
+        "date": "2026-06-19",
+        "price": 400.0,
+        "normalized_price": 724.1653993772177
       }
     ],
     "first_seen": "2026-05-17"
@@ -8226,6 +8641,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 450.0,
+        "normalized_price": 450.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 450.0,
         "normalized_price": 450.0
       }
@@ -8376,6 +8796,11 @@
         "date": "2026-06-18",
         "price": 2250.0,
         "normalized_price": 4500.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 2250.0,
+        "normalized_price": 4500.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -8387,9 +8812,9 @@
     "category": "Chocolate",
     "unit": "600.0gm",
     "unit_type": "kg",
-    "current_price": 2400.0,
-    "normalized_price": 4000.0,
-    "image": "https://shotejbazar.com/wp-content/uploads/2025/12/ea2622a0-808c-4c20-be05-e7a30dde29c2.jpg",
+    "current_price": 2550.0,
+    "normalized_price": 4250.0,
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/07/118f2ddf-27fc-45bc-9868-b28cbf6fc973.jpg",
     "history": [
       {
         "date": "2026-05-17",
@@ -8455,6 +8880,11 @@
         "date": "2026-06-18",
         "price": 2400.0,
         "normalized_price": 4000.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 2550.0,
+        "normalized_price": 4250.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -8532,6 +8962,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 850.0,
+        "normalized_price": 4336.734693877551
+      },
+      {
+        "date": "2026-06-19",
         "price": 850.0,
         "normalized_price": 4336.734693877551
       }
@@ -8613,6 +9048,11 @@
         "date": "2026-06-18",
         "price": 1350.0,
         "normalized_price": 4153.846153846154
+      },
+      {
+        "date": "2026-06-19",
+        "price": 1350.0,
+        "normalized_price": 4153.846153846154
       }
     ],
     "first_seen": "2026-05-17"
@@ -8690,6 +9130,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 650.0,
+        "normalized_price": 32500.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 650.0,
         "normalized_price": 32500.0
       }
@@ -8791,6 +9236,11 @@
         "date": "2026-06-18",
         "price": 600.0,
         "normalized_price": 600.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 600.0,
+        "normalized_price": 600.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -8888,6 +9338,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 320.0,
+        "normalized_price": 640.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 320.0,
         "normalized_price": 640.0
       }
@@ -9038,6 +9493,11 @@
         "date": "2026-06-18",
         "price": 380.0,
         "normalized_price": 2500.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 380.0,
+        "normalized_price": 2500.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -9115,6 +9575,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 380.0,
+        "normalized_price": 2500.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 380.0,
         "normalized_price": 2500.0
       }
@@ -9477,6 +9942,11 @@
         "date": "2026-06-18",
         "price": 950.0,
         "normalized_price": 950.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 950.0,
+        "normalized_price": 950.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -9744,6 +10214,11 @@
         "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 2166.6666666666665
+      },
+      {
+        "date": "2026-06-19",
+        "price": 650.0,
+        "normalized_price": 2166.6666666666665
       }
     ],
     "first_seen": "2026-05-17"
@@ -9846,6 +10321,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 350.0,
+        "normalized_price": 2333.3333333333335
+      },
+      {
+        "date": "2026-06-19",
         "price": 350.0,
         "normalized_price": 2333.3333333333335
       }
@@ -9965,6 +10445,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 350.0,
+        "normalized_price": 2333.3333333333335
+      },
+      {
+        "date": "2026-06-19",
         "price": 350.0,
         "normalized_price": 2333.3333333333335
       }
@@ -10234,6 +10719,11 @@
         "date": "2026-06-18",
         "price": 350.0,
         "normalized_price": 2243.5897435897436
+      },
+      {
+        "date": "2026-06-19",
+        "price": 350.0,
+        "normalized_price": 2243.5897435897436
       }
     ],
     "first_seen": "2026-05-17"
@@ -10311,6 +10801,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 850.0,
+        "normalized_price": 1666.6666666666667
+      },
+      {
+        "date": "2026-06-19",
         "price": 850.0,
         "normalized_price": 1666.6666666666667
       }
@@ -10392,6 +10887,11 @@
         "date": "2026-06-18",
         "price": 850.0,
         "normalized_price": 4250.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 850.0,
+        "normalized_price": 4250.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -10469,6 +10969,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 850.0,
+        "normalized_price": 154545.45454545453
+      },
+      {
+        "date": "2026-06-19",
         "price": 850.0,
         "normalized_price": 154545.45454545453
       }
@@ -10550,6 +11055,11 @@
         "date": "2026-06-18",
         "price": 700.0,
         "normalized_price": 2222.222222222222
+      },
+      {
+        "date": "2026-06-19",
+        "price": 700.0,
+        "normalized_price": 2222.222222222222
       }
     ],
     "first_seen": "2026-05-17"
@@ -10629,6 +11139,11 @@
         "date": "2026-06-18",
         "price": 1250.0,
         "normalized_price": 2029.2207792207791
+      },
+      {
+        "date": "2026-06-19",
+        "price": 1250.0,
+        "normalized_price": 2029.2207792207791
       }
     ],
     "first_seen": "2026-05-17"
@@ -10706,6 +11221,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 500.0,
+        "normalized_price": 3571.4285714285716
+      },
+      {
+        "date": "2026-06-19",
         "price": 500.0,
         "normalized_price": 3571.4285714285716
       }
@@ -10807,6 +11327,11 @@
         "date": "2026-06-18",
         "price": 950.0,
         "normalized_price": 9500.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 950.0,
+        "normalized_price": 9500.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -10904,6 +11429,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 850.0,
+        "normalized_price": 8500.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 850.0,
         "normalized_price": 8500.0
       }
@@ -11005,6 +11535,11 @@
         "date": "2026-06-18",
         "price": 850.0,
         "normalized_price": 8500.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 850.0,
+        "normalized_price": 8500.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -11104,6 +11639,11 @@
         "date": "2026-06-18",
         "price": 950.0,
         "normalized_price": 9500.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 950.0,
+        "normalized_price": 9500.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -11201,6 +11741,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 850.0,
+        "normalized_price": 8500.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 850.0,
         "normalized_price": 8500.0
       }
@@ -11672,6 +12217,11 @@
         "date": "2026-06-18",
         "price": 1850.0,
         "normalized_price": 9736.842105263158
+      },
+      {
+        "date": "2026-06-19",
+        "price": 1850.0,
+        "normalized_price": 9736.842105263158
       }
     ],
     "first_seen": "2026-05-17"
@@ -11771,6 +12321,11 @@
         "date": "2026-06-18",
         "price": 1850.0,
         "normalized_price": 9736.842105263158
+      },
+      {
+        "date": "2026-06-19",
+        "price": 1850.0,
+        "normalized_price": 9736.842105263158
       }
     ],
     "first_seen": "2026-05-17"
@@ -11868,6 +12423,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 1850.0,
+        "normalized_price": 9736.842105263158
+      },
+      {
+        "date": "2026-06-19",
         "price": 1850.0,
         "normalized_price": 9736.842105263158
       }
@@ -11979,6 +12539,11 @@
         "date": "2026-06-18",
         "price": 150.0,
         "normalized_price": 750.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 150.0,
+        "normalized_price": 750.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -12078,6 +12643,11 @@
         "date": "2026-06-18",
         "price": 350.0,
         "normalized_price": 350.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 350.0,
+        "normalized_price": 350.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -12115,6 +12685,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 1200.0,
+        "normalized_price": 60000.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 1200.0,
         "normalized_price": 60000.0
       }
@@ -12463,6 +13038,11 @@
         "date": "2026-06-18",
         "price": 350.0,
         "normalized_price": 1296.2962962962963
+      },
+      {
+        "date": "2026-06-19",
+        "price": 350.0,
+        "normalized_price": 1296.2962962962963
       }
     ],
     "first_seen": "2026-05-17"
@@ -12540,6 +13120,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 550.0,
+        "normalized_price": 9166.666666666666
+      },
+      {
+        "date": "2026-06-19",
         "price": 550.0,
         "normalized_price": 9166.666666666666
       }
@@ -12621,6 +13206,11 @@
         "date": "2026-06-18",
         "price": 550.0,
         "normalized_price": 9166.666666666666
+      },
+      {
+        "date": "2026-06-19",
+        "price": 550.0,
+        "normalized_price": 9166.666666666666
       }
     ],
     "first_seen": "2026-05-17"
@@ -12698,6 +13288,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 550.0,
+        "normalized_price": 9166.666666666666
+      },
+      {
+        "date": "2026-06-19",
         "price": 550.0,
         "normalized_price": 9166.666666666666
       }
@@ -12779,6 +13374,11 @@
         "date": "2026-06-18",
         "price": 550.0,
         "normalized_price": 9166.666666666666
+      },
+      {
+        "date": "2026-06-19",
+        "price": 550.0,
+        "normalized_price": 9166.666666666666
       }
     ],
     "first_seen": "2026-05-17"
@@ -12858,6 +13458,11 @@
         "date": "2026-06-18",
         "price": 2250.0,
         "normalized_price": 8395.522388059702
+      },
+      {
+        "date": "2026-06-19",
+        "price": 2250.0,
+        "normalized_price": 8395.522388059702
       }
     ],
     "first_seen": "2026-05-17"
@@ -12895,6 +13500,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 1450.0,
+        "normalized_price": 8430.232558139534
+      },
+      {
+        "date": "2026-06-19",
         "price": 1450.0,
         "normalized_price": 8430.232558139534
       }
@@ -13000,6 +13610,11 @@
         "date": "2026-06-18",
         "price": 2850.0,
         "normalized_price": 2850.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 2850.0,
+        "normalized_price": 2850.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -13077,6 +13692,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 650.0,
+        "normalized_price": 7222.222222222223
+      },
+      {
+        "date": "2026-06-19",
         "price": 650.0,
         "normalized_price": 7222.222222222223
       }
@@ -13158,6 +13778,11 @@
         "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 7222.222222222223
+      },
+      {
+        "date": "2026-06-19",
+        "price": 650.0,
+        "normalized_price": 7222.222222222223
       }
     ],
     "first_seen": "2026-05-17"
@@ -13237,6 +13862,11 @@
         "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 7222.222222222223
+      },
+      {
+        "date": "2026-06-19",
+        "price": 650.0,
+        "normalized_price": 7222.222222222223
       }
     ],
     "first_seen": "2026-05-17"
@@ -13314,6 +13944,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 950.0,
+        "normalized_price": 950.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 950.0,
         "normalized_price": 950.0
       }
@@ -13449,6 +14084,11 @@
         "date": "2026-06-18",
         "price": 240.0,
         "normalized_price": 909.090909090909
+      },
+      {
+        "date": "2026-06-19",
+        "price": 240.0,
+        "normalized_price": 909.090909090909
       }
     ],
     "first_seen": "2026-05-17"
@@ -13528,6 +14168,11 @@
         "date": "2026-06-18",
         "price": 400.0,
         "normalized_price": 909.090909090909
+      },
+      {
+        "date": "2026-06-19",
+        "price": 400.0,
+        "normalized_price": 909.090909090909
       }
     ],
     "first_seen": "2026-05-17"
@@ -13575,6 +14220,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 2550.0,
+        "normalized_price": 2550.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 2550.0,
         "normalized_price": 2550.0
       }
@@ -13686,6 +14336,11 @@
         "date": "2026-06-18",
         "price": 380.0,
         "normalized_price": 380.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 380.0,
+        "normalized_price": 380.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -13763,6 +14418,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 320.0,
+        "normalized_price": 1777.7777777777776
+      },
+      {
+        "date": "2026-06-19",
         "price": 320.0,
         "normalized_price": 1777.7777777777776
       }
@@ -13844,6 +14504,11 @@
         "date": "2026-06-18",
         "price": 350.0,
         "normalized_price": 1944.4444444444443
+      },
+      {
+        "date": "2026-06-19",
+        "price": 350.0,
+        "normalized_price": 1944.4444444444443
       }
     ],
     "first_seen": "2026-05-17"
@@ -13891,6 +14556,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 500.0,
+        "normalized_price": 1666.6666666666667
+      },
+      {
+        "date": "2026-06-19",
         "price": 500.0,
         "normalized_price": 1666.6666666666667
       }
@@ -14046,6 +14716,11 @@
         "date": "2026-06-18",
         "price": 700.0,
         "normalized_price": 87500.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 700.0,
+        "normalized_price": 87500.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -14123,6 +14798,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 700.0,
+        "normalized_price": 87500.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 700.0,
         "normalized_price": 87500.0
       }
@@ -14204,6 +14884,11 @@
         "date": "2026-06-18",
         "price": 700.0,
         "normalized_price": 87500.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 700.0,
+        "normalized_price": 87500.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -14281,6 +14966,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 700.0,
+        "normalized_price": 87500.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 700.0,
         "normalized_price": 87500.0
       }
@@ -14362,6 +15052,11 @@
         "date": "2026-06-18",
         "price": 750.0,
         "normalized_price": 6000.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 750.0,
+        "normalized_price": 6000.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -14441,6 +15136,11 @@
         "date": "2026-06-18",
         "price": 750.0,
         "normalized_price": 4807.692307692308
+      },
+      {
+        "date": "2026-06-19",
+        "price": 750.0,
+        "normalized_price": 4807.692307692308
       }
     ],
     "first_seen": "2026-05-17"
@@ -14518,6 +15218,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 650.0,
+        "normalized_price": 4814.814814814815
+      },
+      {
+        "date": "2026-06-19",
         "price": 650.0,
         "normalized_price": 4814.814814814815
       }
@@ -14989,6 +15694,11 @@
         "date": "2026-06-18",
         "price": 450.0,
         "normalized_price": 450.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 450.0,
+        "normalized_price": 450.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -15086,6 +15796,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 450.0,
+        "normalized_price": 2250.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 450.0,
         "normalized_price": 2250.0
       }
@@ -15187,6 +15902,11 @@
         "date": "2026-06-18",
         "price": 450.0,
         "normalized_price": 11250.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 450.0,
+        "normalized_price": 11250.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -15286,6 +16006,11 @@
         "date": "2026-06-18",
         "price": 750.0,
         "normalized_price": 937.5
+      },
+      {
+        "date": "2026-06-19",
+        "price": 750.0,
+        "normalized_price": 937.5
       }
     ],
     "first_seen": "2026-05-17"
@@ -15365,6 +16090,11 @@
         "date": "2026-06-18",
         "price": 450.0,
         "normalized_price": 2812.5
+      },
+      {
+        "date": "2026-06-19",
+        "price": 450.0,
+        "normalized_price": 2812.5
       }
     ],
     "first_seen": "2026-05-17"
@@ -15442,6 +16172,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 3050.0,
+        "normalized_price": 76250.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 3050.0,
         "normalized_price": 76250.0
       }
@@ -15597,6 +16332,11 @@
         "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 4452.054794520547
+      },
+      {
+        "date": "2026-06-19",
+        "price": 650.0,
+        "normalized_price": 4452.054794520547
       }
     ],
     "first_seen": "2026-05-17"
@@ -15674,6 +16414,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 450.0,
+        "normalized_price": 4500.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 450.0,
         "normalized_price": 4500.0
       }
@@ -15755,6 +16500,11 @@
         "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 4452.054794520547
+      },
+      {
+        "date": "2026-06-19",
+        "price": 650.0,
+        "normalized_price": 4452.054794520547
       }
     ],
     "first_seen": "2026-05-17"
@@ -15832,6 +16582,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 450.0,
+        "normalized_price": 4500.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 450.0,
         "normalized_price": 4500.0
       }
@@ -15913,6 +16668,11 @@
         "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 4452.054794520547
+      },
+      {
+        "date": "2026-06-19",
+        "price": 650.0,
+        "normalized_price": 4452.054794520547
       }
     ],
     "first_seen": "2026-05-17"
@@ -15990,6 +16750,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 450.0,
+        "normalized_price": 4500.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 450.0,
         "normalized_price": 4500.0
       }
@@ -16071,6 +16836,11 @@
         "date": "2026-06-18",
         "price": 3050.0,
         "normalized_price": 76250.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 3050.0,
+        "normalized_price": 76250.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -16148,6 +16918,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 500.0,
+        "normalized_price": 10000.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 500.0,
         "normalized_price": 10000.0
       }
@@ -16269,6 +17044,11 @@
         "date": "2026-06-18",
         "price": 720.0,
         "normalized_price": 1600.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 720.0,
+        "normalized_price": 1600.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -16386,6 +17166,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 650.0,
+        "normalized_price": 24074.074074074073
+      },
+      {
+        "date": "2026-06-19",
         "price": 650.0,
         "normalized_price": 24074.074074074073
       }
@@ -16507,6 +17292,11 @@
         "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 24074.074074074073
+      },
+      {
+        "date": "2026-06-19",
+        "price": 650.0,
+        "normalized_price": 24074.074074074073
       }
     ],
     "first_seen": "2026-05-17"
@@ -16554,6 +17344,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 950.0,
+        "normalized_price": 863.6363636363635
+      },
+      {
+        "date": "2026-06-19",
         "price": 950.0,
         "normalized_price": 863.6363636363635
       }
@@ -16675,6 +17470,11 @@
         "date": "2026-06-18",
         "price": 950.0,
         "normalized_price": 2533.333333333333
+      },
+      {
+        "date": "2026-06-19",
+        "price": 950.0,
+        "normalized_price": 2533.333333333333
       }
     ],
     "first_seen": "2026-05-17"
@@ -16794,6 +17594,11 @@
         "date": "2026-06-18",
         "price": 850.0,
         "normalized_price": 42500.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 850.0,
+        "normalized_price": 42500.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -16871,6 +17676,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 600.0,
+        "normalized_price": 5555.555555555556
+      },
+      {
+        "date": "2026-06-19",
         "price": 600.0,
         "normalized_price": 5555.555555555556
       }
@@ -16952,6 +17762,11 @@
         "date": "2026-06-18",
         "price": 1600.0,
         "normalized_price": 41025.64102564103
+      },
+      {
+        "date": "2026-06-19",
+        "price": 1600.0,
+        "normalized_price": 41025.64102564103
       }
     ],
     "first_seen": "2026-05-17"
@@ -17029,6 +17844,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 4550.0,
+        "normalized_price": 116666.66666666667
+      },
+      {
+        "date": "2026-06-19",
         "price": 4550.0,
         "normalized_price": 116666.66666666667
       }
@@ -17144,6 +17964,11 @@
         "date": "2026-06-18",
         "price": 1950.0,
         "normalized_price": 45348.83720930232
+      },
+      {
+        "date": "2026-06-19",
+        "price": 1950.0,
+        "normalized_price": 45348.83720930232
       }
     ],
     "first_seen": "2026-06-14"
@@ -17157,7 +17982,7 @@
     "unit_type": "kg",
     "current_price": 3900.0,
     "normalized_price": 90697.67441860464,
-    "image": "https://shotejbazar.com/wp-content/uploads/2023/03/67.webp",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/03/95a60071-5601-4621-a0d5-fc83b20d97b8.jpg",
     "history": [
       {
         "date": "2026-05-17",
@@ -17221,6 +18046,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 3900.0,
+        "normalized_price": 90697.67441860464
+      },
+      {
+        "date": "2026-06-19",
         "price": 3900.0,
         "normalized_price": 90697.67441860464
       }
@@ -17302,6 +18132,11 @@
         "date": "2026-06-18",
         "price": 1200.0,
         "normalized_price": 4687.5
+      },
+      {
+        "date": "2026-06-19",
+        "price": 1200.0,
+        "normalized_price": 4687.5
       }
     ],
     "first_seen": "2026-05-17"
@@ -17379,6 +18214,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 650.0,
+        "normalized_price": 25490.19607843137
+      },
+      {
+        "date": "2026-06-19",
         "price": 650.0,
         "normalized_price": 25490.19607843137
       }
@@ -17460,6 +18300,11 @@
         "date": "2026-06-18",
         "price": 1200.0,
         "normalized_price": 4000.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 1200.0,
+        "normalized_price": 4000.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -17537,6 +18382,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 1200.0,
+        "normalized_price": 4000.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 1200.0,
         "normalized_price": 4000.0
       }
@@ -17618,6 +18468,11 @@
         "date": "2026-06-18",
         "price": 1350.0,
         "normalized_price": 71052.63157894737
+      },
+      {
+        "date": "2026-06-19",
+        "price": 1350.0,
+        "normalized_price": 71052.63157894737
       }
     ],
     "first_seen": "2026-05-17"
@@ -17695,6 +18550,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 1150.0,
+        "normalized_price": 2948.7179487179487
+      },
+      {
+        "date": "2026-06-19",
         "price": 1150.0,
         "normalized_price": 2948.7179487179487
       }
@@ -17776,6 +18636,11 @@
         "date": "2026-06-18",
         "price": 600.0,
         "normalized_price": 6741.573033707865
+      },
+      {
+        "date": "2026-06-19",
+        "price": 600.0,
+        "normalized_price": 6741.573033707865
       }
     ],
     "first_seen": "2026-05-17"
@@ -17848,6 +18713,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 850.0,
+        "normalized_price": 2059.1085271317834
+      },
+      {
+        "date": "2026-06-19",
         "price": 850.0,
         "normalized_price": 2059.1085271317834
       }
@@ -17929,6 +18799,11 @@
         "date": "2026-06-18",
         "price": 950.0,
         "normalized_price": 950.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 950.0,
+        "normalized_price": 950.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -18008,6 +18883,11 @@
         "date": "2026-06-18",
         "price": 1450.0,
         "normalized_price": 1450.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 1450.0,
+        "normalized_price": 1450.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -18085,6 +18965,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 1450.0,
+        "normalized_price": 1450.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 1450.0,
         "normalized_price": 1450.0
       }
@@ -18240,6 +19125,11 @@
         "date": "2026-06-18",
         "price": 550.0,
         "normalized_price": 4583.333333333333
+      },
+      {
+        "date": "2026-06-19",
+        "price": 550.0,
+        "normalized_price": 4583.333333333333
       }
     ],
     "first_seen": "2026-05-17"
@@ -18391,6 +19281,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 1850.0,
+        "normalized_price": 104519.77401129944
+      },
+      {
+        "date": "2026-06-19",
         "price": 1850.0,
         "normalized_price": 104519.77401129944
       }
@@ -18546,6 +19441,11 @@
         "date": "2026-06-18",
         "price": 500.0,
         "normalized_price": 12500.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 500.0,
+        "normalized_price": 12500.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -18623,6 +19523,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 550.0,
+        "normalized_price": 4583.333333333333
+      },
+      {
+        "date": "2026-06-19",
         "price": 550.0,
         "normalized_price": 4583.333333333333
       }
@@ -18704,6 +19609,11 @@
         "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 4062.5
+      },
+      {
+        "date": "2026-06-19",
+        "price": 650.0,
+        "normalized_price": 4062.5
       }
     ],
     "first_seen": "2026-05-17"
@@ -18781,6 +19691,25 @@
       }
     ],
     "first_seen": "2026-05-17"
+  },
+  "kitkatdelightssaltedcaramelchocolatewaferbar120g": {
+    "id": "sj_kitkatdelightssaltedcaramelchocolatewaferbar120g",
+    "name": "KitKat Delights Salted Caramel Chocolate Wafer Bar 120g",
+    "store": "shotejbazar",
+    "category": "Chocolate",
+    "unit": "120.0g",
+    "unit_type": "kg",
+    "current_price": 600.0,
+    "normalized_price": 5000.0,
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/01/68276f72-1e86-45ee-86b7-cb44b73579d8.png",
+    "history": [
+      {
+        "date": "2026-06-19",
+        "price": 600.0,
+        "normalized_price": 5000.0
+      }
+    ],
+    "first_seen": "2026-06-19"
   },
   "kitkathotchocolatedrinkmalaysia10sachet": {
     "id": "sj_kitkathotchocolatedrinkmalaysia10sachet",
@@ -18877,6 +19806,11 @@
         "date": "2026-06-18",
         "price": 1050.0,
         "normalized_price": 1050.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 1050.0,
+        "normalized_price": 1050.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -18956,6 +19890,11 @@
         "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 4062.5
+      },
+      {
+        "date": "2026-06-19",
+        "price": 650.0,
+        "normalized_price": 4062.5
       }
     ],
     "first_seen": "2026-05-17"
@@ -19033,6 +19972,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 550.0,
+        "normalized_price": 50000.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 550.0,
         "normalized_price": 50000.0
       }
@@ -19336,6 +20280,11 @@
         "date": "2026-06-18",
         "price": 950.0,
         "normalized_price": 45893.719806763285
+      },
+      {
+        "date": "2026-06-19",
+        "price": 950.0,
+        "normalized_price": 45893.719806763285
       }
     ],
     "first_seen": "2026-05-17"
@@ -19504,6 +20453,11 @@
         "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 21666.666666666668
+      },
+      {
+        "date": "2026-06-19",
+        "price": 650.0,
+        "normalized_price": 21666.666666666668
       }
     ],
     "first_seen": "2026-05-17"
@@ -19581,6 +20535,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 200.0,
+        "normalized_price": 200.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 200.0,
         "normalized_price": 200.0
       }
@@ -19662,6 +20621,11 @@
         "date": "2026-06-18",
         "price": 200.0,
         "normalized_price": 200.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 200.0,
+        "normalized_price": 200.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -19739,6 +20703,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 400.0,
+        "normalized_price": 400.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 400.0,
         "normalized_price": 400.0
       }
@@ -19860,6 +20829,11 @@
         "date": "2026-06-18",
         "price": 750.0,
         "normalized_price": 1071.4285714285713
+      },
+      {
+        "date": "2026-06-19",
+        "price": 750.0,
+        "normalized_price": 1071.4285714285713
       }
     ],
     "first_seen": "2026-05-17"
@@ -19937,6 +20911,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 1200.0,
+        "normalized_price": 1500.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 1200.0,
         "normalized_price": 1500.0
       }
@@ -20058,6 +21037,11 @@
         "date": "2026-06-18",
         "price": 300.0,
         "normalized_price": 3846.153846153846
+      },
+      {
+        "date": "2026-06-19",
+        "price": 300.0,
+        "normalized_price": 3846.153846153846
       }
     ],
     "first_seen": "2026-05-17"
@@ -20157,6 +21141,11 @@
         "date": "2026-06-18",
         "price": 1800.0,
         "normalized_price": 1800.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 1800.0,
+        "normalized_price": 1800.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -20249,6 +21238,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 1700.0,
+        "normalized_price": 1700.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 1700.0,
         "normalized_price": 1700.0
       }
@@ -20404,6 +21398,11 @@
         "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 6500.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 650.0,
+        "normalized_price": 6500.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -20481,6 +21480,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 650.0,
+        "normalized_price": 6500.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 650.0,
         "normalized_price": 6500.0
       }
@@ -20710,6 +21714,11 @@
         "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 6500.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 650.0,
+        "normalized_price": 6500.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -20787,6 +21796,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 650.0,
+        "normalized_price": 6500.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 650.0,
         "normalized_price": 6500.0
       }
@@ -20868,6 +21882,11 @@
         "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 6500.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 650.0,
+        "normalized_price": 6500.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -20947,6 +21966,11 @@
         "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 6500.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 650.0,
+        "normalized_price": 6500.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -21024,6 +22048,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 650.0,
+        "normalized_price": 6500.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 650.0,
         "normalized_price": 6500.0
       }
@@ -21179,6 +22208,11 @@
         "date": "2026-06-18",
         "price": 750.0,
         "normalized_price": 5000.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 750.0,
+        "normalized_price": 5000.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -21330,6 +22364,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 750.0,
+        "normalized_price": 5000.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 750.0,
         "normalized_price": 5000.0
       }
@@ -21862,68 +22901,68 @@
     "unit": "1 unit",
     "unit_type": "kg",
     "current_price": 500.0,
-    "normalized_price": 500.0,
+    "normalized_price": 5000.0,
     "image": "https://shotejbazar.com/wp-content/uploads/2024/12/lindt-swiss-classic-white-chocolate-100gram167429517263cbb784c12c84.72403808-2-.jpg",
     "history": [
       {
         "date": "2026-05-17",
         "price": 500.0,
-        "normalized_price": 500.0
+        "normalized_price": 5000.0
       },
       {
         "date": "2026-05-22",
         "price": 500.0,
-        "normalized_price": 500.0
+        "normalized_price": 5000.0
       },
       {
         "date": "2026-05-27",
         "price": 500.0,
-        "normalized_price": 500.0
+        "normalized_price": 5000.0
       },
       {
         "date": "2026-06-03",
         "price": 500.0,
-        "normalized_price": 500.0
+        "normalized_price": 5000.0
       },
       {
         "date": "2026-06-05",
         "price": 500.0,
-        "normalized_price": 500.0
+        "normalized_price": 5000.0
       },
       {
         "date": "2026-06-06",
         "price": 500.0,
-        "normalized_price": 500.0
+        "normalized_price": 5000.0
       },
       {
         "date": "2026-06-08",
         "price": 500.0,
-        "normalized_price": 500.0
+        "normalized_price": 5000.0
       },
       {
         "date": "2026-06-10",
         "price": 500.0,
-        "normalized_price": 500.0
+        "normalized_price": 5000.0
       },
       {
         "date": "2026-06-14",
         "price": 500.0,
-        "normalized_price": 500.0
+        "normalized_price": 5000.0
       },
       {
         "date": "2026-06-15",
         "price": 500.0,
-        "normalized_price": 500.0
+        "normalized_price": 5000.0
       },
       {
         "date": "2026-06-16",
         "price": 500.0,
-        "normalized_price": 500.0
+        "normalized_price": 5000.0
       },
       {
         "date": "2026-06-17",
         "price": 500.0,
-        "normalized_price": 500.0
+        "normalized_price": 5000.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -22176,6 +23215,11 @@
         "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 28260.869565217392
+      },
+      {
+        "date": "2026-06-19",
+        "price": 650.0,
+        "normalized_price": 28260.869565217392
       }
     ],
     "first_seen": "2026-05-17"
@@ -22253,6 +23297,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 1850.0,
+        "normalized_price": 4625.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 1850.0,
         "normalized_price": 4625.0
       }
@@ -22354,6 +23403,11 @@
         "date": "2026-06-18",
         "price": 1450.0,
         "normalized_price": 4142.857142857143
+      },
+      {
+        "date": "2026-06-19",
+        "price": 1450.0,
+        "normalized_price": 4142.857142857143
       }
     ],
     "first_seen": "2026-05-17"
@@ -22431,6 +23485,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 650.0,
+        "normalized_price": 6500.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 650.0,
         "normalized_price": 6500.0
       }
@@ -22734,6 +23793,11 @@
         "date": "2026-06-18",
         "price": 250.0,
         "normalized_price": 4464.285714285715
+      },
+      {
+        "date": "2026-06-19",
+        "price": 250.0,
+        "normalized_price": 4464.285714285715
       }
     ],
     "first_seen": "2026-05-17"
@@ -22811,6 +23875,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 1500.0,
+        "normalized_price": 1500.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 1500.0,
         "normalized_price": 1500.0
       }
@@ -22892,6 +23961,11 @@
         "date": "2026-06-18",
         "price": 300.0,
         "normalized_price": 5357.142857142857
+      },
+      {
+        "date": "2026-06-19",
+        "price": 300.0,
+        "normalized_price": 5357.142857142857
       }
     ],
     "first_seen": "2026-05-17"
@@ -22969,6 +24043,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 300.0,
+        "normalized_price": 5357.142857142857
+      },
+      {
+        "date": "2026-06-19",
         "price": 300.0,
         "normalized_price": 5357.142857142857
       }
@@ -23050,6 +24129,11 @@
         "date": "2026-06-18",
         "price": 850.0,
         "normalized_price": 990.6759906759906
+      },
+      {
+        "date": "2026-06-19",
+        "price": 850.0,
+        "normalized_price": 990.6759906759906
       }
     ],
     "first_seen": "2026-05-17"
@@ -23127,6 +24211,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 850.0,
+        "normalized_price": 990.6759906759906
+      },
+      {
+        "date": "2026-06-19",
         "price": 850.0,
         "normalized_price": 990.6759906759906
       }
@@ -23208,6 +24297,11 @@
         "date": "2026-06-18",
         "price": 1550.0,
         "normalized_price": 53448.27586206897
+      },
+      {
+        "date": "2026-06-19",
+        "price": 1550.0,
+        "normalized_price": 53448.27586206897
       }
     ],
     "first_seen": "2026-05-17"
@@ -23285,6 +24379,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 1550.0,
+        "normalized_price": 53448.27586206897
+      },
+      {
+        "date": "2026-06-19",
         "price": 1550.0,
         "normalized_price": 53448.27586206897
       }
@@ -23366,6 +24465,11 @@
         "date": "2026-06-18",
         "price": 1550.0,
         "normalized_price": 53448.27586206897
+      },
+      {
+        "date": "2026-06-19",
+        "price": 1550.0,
+        "normalized_price": 53448.27586206897
       }
     ],
     "first_seen": "2026-05-17"
@@ -23445,6 +24549,11 @@
         "date": "2026-06-18",
         "price": 1500.0,
         "normalized_price": 17142.85714285714
+      },
+      {
+        "date": "2026-06-19",
+        "price": 1500.0,
+        "normalized_price": 17142.85714285714
       }
     ],
     "first_seen": "2026-05-17"
@@ -23522,6 +24631,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 850.0,
+        "normalized_price": 990.6759906759906
+      },
+      {
+        "date": "2026-06-19",
         "price": 850.0,
         "normalized_price": 990.6759906759906
       }
@@ -23697,6 +24811,11 @@
         "date": "2026-06-18",
         "price": 750.0,
         "normalized_price": 2884.6153846153848
+      },
+      {
+        "date": "2026-06-19",
+        "price": 750.0,
+        "normalized_price": 2884.6153846153848
       }
     ],
     "first_seen": "2026-05-17"
@@ -23796,6 +24915,11 @@
         "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 4333.333333333333
+      },
+      {
+        "date": "2026-06-19",
+        "price": 650.0,
+        "normalized_price": 4333.333333333333
       }
     ],
     "first_seen": "2026-05-17"
@@ -23873,6 +24997,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 1250.0,
+        "normalized_price": 2125.850340136054
+      },
+      {
+        "date": "2026-06-19",
         "price": 1250.0,
         "normalized_price": 2125.850340136054
       }
@@ -23994,6 +25123,11 @@
         "date": "2026-06-18",
         "price": 350.0,
         "normalized_price": 2800.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 350.0,
+        "normalized_price": 2800.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -24111,6 +25245,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 350.0,
+        "normalized_price": 2800.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 350.0,
         "normalized_price": 2800.0
       }
@@ -24232,6 +25371,11 @@
         "date": "2026-06-18",
         "price": 350.0,
         "normalized_price": 2800.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 350.0,
+        "normalized_price": 2800.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -24329,6 +25473,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 350.0,
+        "normalized_price": 3500.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 350.0,
         "normalized_price": 3500.0
       }
@@ -24450,6 +25599,11 @@
         "date": "2026-06-18",
         "price": 350.0,
         "normalized_price": 2800.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 350.0,
+        "normalized_price": 2800.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -24549,6 +25703,11 @@
         "date": "2026-06-18",
         "price": 350.0,
         "normalized_price": 2800.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 350.0,
+        "normalized_price": 2800.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -24593,6 +25752,11 @@
         "date": "2026-06-18",
         "price": 510.0,
         "normalized_price": 1275.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 510.0,
+        "normalized_price": 1275.0
       }
     ],
     "first_seen": "2026-06-11"
@@ -24635,6 +25799,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 1000.0,
+        "normalized_price": 2500.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 1000.0,
         "normalized_price": 2500.0
       }
@@ -24716,6 +25885,11 @@
         "date": "2026-06-18",
         "price": 3050.0,
         "normalized_price": 67777.77777777777
+      },
+      {
+        "date": "2026-06-19",
+        "price": 3050.0,
+        "normalized_price": 67777.77777777777
       }
     ],
     "first_seen": "2026-05-17"
@@ -24793,6 +25967,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 1400.0,
+        "normalized_price": 31111.11111111111
+      },
+      {
+        "date": "2026-06-19",
         "price": 1400.0,
         "normalized_price": 31111.11111111111
       }
@@ -24874,6 +26053,11 @@
         "date": "2026-06-18",
         "price": 3050.0,
         "normalized_price": 67777.77777777777
+      },
+      {
+        "date": "2026-06-19",
+        "price": 3050.0,
+        "normalized_price": 67777.77777777777
       }
     ],
     "first_seen": "2026-05-17"
@@ -24951,6 +26135,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 1400.0,
+        "normalized_price": 31111.11111111111
+      },
+      {
+        "date": "2026-06-19",
         "price": 1400.0,
         "normalized_price": 31111.11111111111
       }
@@ -25062,6 +26251,11 @@
         "date": "2026-06-18",
         "price": 400.0,
         "normalized_price": 800.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 400.0,
+        "normalized_price": 800.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -25139,6 +26333,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 2000.0,
+        "normalized_price": 8333.333333333334
+      },
+      {
+        "date": "2026-06-19",
         "price": 2000.0,
         "normalized_price": 8333.333333333334
       }
@@ -25235,6 +26434,11 @@
         "date": "2026-06-18",
         "price": 2150.0,
         "normalized_price": 10750.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 2150.0,
+        "normalized_price": 10750.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -25329,6 +26533,11 @@
         "date": "2026-06-18",
         "price": 2150.0,
         "normalized_price": 10750.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 2150.0,
+        "normalized_price": 10750.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -25421,6 +26630,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 2150.0,
+        "normalized_price": 10750.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 2150.0,
         "normalized_price": 10750.0
       }
@@ -25522,6 +26736,11 @@
         "date": "2026-06-18",
         "price": 350.0,
         "normalized_price": 14000.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 350.0,
+        "normalized_price": 14000.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -25619,6 +26838,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 1350.0,
+        "normalized_price": 1928.5714285714287
+      },
+      {
+        "date": "2026-06-19",
         "price": 1350.0,
         "normalized_price": 1928.5714285714287
       }
@@ -25720,6 +26944,11 @@
         "date": "2026-06-18",
         "price": 420.0,
         "normalized_price": 1866.6666666666667
+      },
+      {
+        "date": "2026-06-19",
+        "price": 420.0,
+        "normalized_price": 1866.6666666666667
       }
     ],
     "first_seen": "2026-05-17"
@@ -25817,6 +27046,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 420.0,
+        "normalized_price": 1866.6666666666667
+      },
+      {
+        "date": "2026-06-19",
         "price": 420.0,
         "normalized_price": 1866.6666666666667
       }
@@ -25918,6 +27152,11 @@
         "date": "2026-06-18",
         "price": 1350.0,
         "normalized_price": 1928.5714285714287
+      },
+      {
+        "date": "2026-06-19",
+        "price": 1350.0,
+        "normalized_price": 1928.5714285714287
       }
     ],
     "first_seen": "2026-05-17"
@@ -26010,6 +27249,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 450.0,
+        "normalized_price": 4500.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 450.0,
         "normalized_price": 4500.0
       }
@@ -26106,6 +27350,11 @@
         "date": "2026-06-18",
         "price": 950.0,
         "normalized_price": 950.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 950.0,
+        "normalized_price": 950.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -26198,6 +27447,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 850.0,
+        "normalized_price": 850.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 850.0,
         "normalized_price": 850.0
       }
@@ -26294,6 +27548,11 @@
         "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 5241.935483870968
+      },
+      {
+        "date": "2026-06-19",
+        "price": 650.0,
+        "normalized_price": 5241.935483870968
       }
     ],
     "first_seen": "2026-05-17"
@@ -26386,6 +27645,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 950.0,
+        "normalized_price": 4523.809523809524
+      },
+      {
+        "date": "2026-06-19",
         "price": 950.0,
         "normalized_price": 4523.809523809524
       }
@@ -26482,6 +27746,11 @@
         "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 650.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 650.0,
+        "normalized_price": 650.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -26574,6 +27843,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 1580.0,
+        "normalized_price": 8315.78947368421
+      },
+      {
+        "date": "2026-06-19",
         "price": 1580.0,
         "normalized_price": 8315.78947368421
       }
@@ -26670,6 +27944,11 @@
         "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 4513.88888888889
+      },
+      {
+        "date": "2026-06-19",
+        "price": 650.0,
+        "normalized_price": 4513.88888888889
       }
     ],
     "first_seen": "2026-05-17"
@@ -26762,6 +28041,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 650.0,
+        "normalized_price": 4761.9047619047615
+      },
+      {
+        "date": "2026-06-19",
         "price": 650.0,
         "normalized_price": 4761.9047619047615
       }
@@ -26858,6 +28142,11 @@
         "date": "2026-06-18",
         "price": 950.0,
         "normalized_price": 950.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 950.0,
+        "normalized_price": 950.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -26950,6 +28239,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 650.0,
+        "normalized_price": 650.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 650.0,
         "normalized_price": 650.0
       }
@@ -27046,6 +28340,11 @@
         "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 650.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 650.0,
+        "normalized_price": 650.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -27138,6 +28437,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 650.0,
+        "normalized_price": 650.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 650.0,
         "normalized_price": 650.0
       }
@@ -27234,6 +28538,11 @@
         "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 650.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 650.0,
+        "normalized_price": 650.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -27328,6 +28637,11 @@
         "date": "2026-06-18",
         "price": 450.0,
         "normalized_price": 1125.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 450.0,
+        "normalized_price": 1125.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -27405,6 +28719,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 2800.0,
+        "normalized_price": 2811.2449799196784
+      },
+      {
+        "date": "2026-06-19",
         "price": 2800.0,
         "normalized_price": 2811.2449799196784
       }
@@ -27486,6 +28805,11 @@
         "date": "2026-06-18",
         "price": 350.0,
         "normalized_price": 40229.88505747126
+      },
+      {
+        "date": "2026-06-19",
+        "price": 350.0,
+        "normalized_price": 40229.88505747126
       }
     ],
     "first_seen": "2026-05-17"
@@ -27563,6 +28887,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 450.0,
+        "normalized_price": 450.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 450.0,
         "normalized_price": 450.0
       }
@@ -27659,6 +28988,11 @@
         "date": "2026-06-18",
         "price": 950.0,
         "normalized_price": 950.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 950.0,
+        "normalized_price": 950.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -27738,6 +29072,11 @@
         "date": "2026-06-18",
         "price": 2450.0,
         "normalized_price": 4454.545454545454
+      },
+      {
+        "date": "2026-06-19",
+        "price": 2450.0,
+        "normalized_price": 4454.545454545454
       }
     ],
     "first_seen": "2026-05-17"
@@ -27815,6 +29154,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 1450.0,
+        "normalized_price": 38157.8947368421
+      },
+      {
+        "date": "2026-06-19",
         "price": 1450.0,
         "normalized_price": 38157.8947368421
       }
@@ -27989,6 +29333,11 @@
         "date": "2026-06-18",
         "price": 400.0,
         "normalized_price": 1388.888888888889
+      },
+      {
+        "date": "2026-06-19",
+        "price": 400.0,
+        "normalized_price": 1388.888888888889
       }
     ],
     "first_seen": "2026-06-18"
@@ -28107,6 +29456,11 @@
         "date": "2026-06-18",
         "price": 1550.0,
         "normalized_price": 3100.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 1550.0,
+        "normalized_price": 3100.0
       }
     ],
     "first_seen": "2026-06-11"
@@ -28184,6 +29538,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 650.0,
+        "normalized_price": 2166.6666666666665
+      },
+      {
+        "date": "2026-06-19",
         "price": 650.0,
         "normalized_price": 2166.6666666666665
       }
@@ -28265,6 +29624,11 @@
         "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 2166.6666666666665
+      },
+      {
+        "date": "2026-06-19",
+        "price": 650.0,
+        "normalized_price": 2166.6666666666665
       }
     ],
     "first_seen": "2026-05-17"
@@ -28307,6 +29671,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 1450.0,
+        "normalized_price": 2900.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 1450.0,
         "normalized_price": 2900.0
       }
@@ -28353,6 +29722,11 @@
         "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 1300.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 650.0,
+        "normalized_price": 1300.0
       }
     ],
     "first_seen": "2026-06-11"
@@ -28395,6 +29769,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 1250.0,
+        "normalized_price": 2500.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 1250.0,
         "normalized_price": 2500.0
       }
@@ -28570,6 +29949,11 @@
         "date": "2026-06-18",
         "price": 950.0,
         "normalized_price": 950.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 950.0,
+        "normalized_price": 950.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -28669,6 +30053,11 @@
         "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 3915.6626506024095
+      },
+      {
+        "date": "2026-06-19",
+        "price": 650.0,
+        "normalized_price": 3915.6626506024095
       }
     ],
     "first_seen": "2026-05-17"
@@ -28746,6 +30135,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 950.0,
+        "normalized_price": 43181.81818181818
+      },
+      {
+        "date": "2026-06-19",
         "price": 950.0,
         "normalized_price": 43181.81818181818
       }
@@ -28852,6 +30246,11 @@
         "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 29545.454545454548
+      },
+      {
+        "date": "2026-06-19",
+        "price": 650.0,
+        "normalized_price": 29545.454545454548
       }
     ],
     "first_seen": "2026-05-17"
@@ -28929,6 +30328,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 2250.0,
+        "normalized_price": 2250.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 2250.0,
         "normalized_price": 2250.0
       }
@@ -29010,6 +30414,11 @@
         "date": "2026-06-18",
         "price": 1050.0,
         "normalized_price": 3000.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 1050.0,
+        "normalized_price": 3000.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -29087,6 +30496,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 1950.0,
+        "normalized_price": 2363.636363636364
+      },
+      {
+        "date": "2026-06-19",
         "price": 1950.0,
         "normalized_price": 2363.636363636364
       }
@@ -29168,6 +30582,11 @@
         "date": "2026-06-18",
         "price": 2350.0,
         "normalized_price": 2473.684210526316
+      },
+      {
+        "date": "2026-06-19",
+        "price": 2350.0,
+        "normalized_price": 2473.684210526316
       }
     ],
     "first_seen": "2026-05-17"
@@ -29210,6 +30629,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 730.0,
+        "normalized_price": 1825.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 730.0,
         "normalized_price": 1825.0
       }
@@ -29306,6 +30730,11 @@
         "date": "2026-06-18",
         "price": 1050.0,
         "normalized_price": 27631.57894736842
+      },
+      {
+        "date": "2026-06-19",
+        "price": 1050.0,
+        "normalized_price": 27631.57894736842
       }
     ],
     "first_seen": "2026-05-17"
@@ -29398,6 +30827,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 1050.0,
+        "normalized_price": 2000.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 1050.0,
         "normalized_price": 2000.0
       }
@@ -29494,6 +30928,11 @@
         "date": "2026-06-18",
         "price": 1050.0,
         "normalized_price": 1842.1052631578948
+      },
+      {
+        "date": "2026-06-19",
+        "price": 1050.0,
+        "normalized_price": 1842.1052631578948
       }
     ],
     "first_seen": "2026-05-17"
@@ -29586,6 +31025,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 1050.0,
+        "normalized_price": 42000.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 1050.0,
         "normalized_price": 42000.0
       }
@@ -29682,6 +31126,11 @@
         "date": "2026-06-18",
         "price": 1050.0,
         "normalized_price": 42000.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 1050.0,
+        "normalized_price": 42000.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -29776,6 +31225,11 @@
         "date": "2026-06-18",
         "price": 900.0,
         "normalized_price": 1978.0219780219782
+      },
+      {
+        "date": "2026-06-19",
+        "price": 900.0,
+        "normalized_price": 1978.0219780219782
       }
     ],
     "first_seen": "2026-05-17"
@@ -29853,6 +31307,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 440.0,
+        "normalized_price": 4166.666666666667
+      },
+      {
+        "date": "2026-06-19",
         "price": 440.0,
         "normalized_price": 4166.666666666667
       }
@@ -29934,6 +31393,11 @@
         "date": "2026-06-18",
         "price": 440.0,
         "normalized_price": 133333.33333333334
+      },
+      {
+        "date": "2026-06-19",
+        "price": 440.0,
+        "normalized_price": 133333.33333333334
       }
     ],
     "first_seen": "2026-05-17"
@@ -30011,6 +31475,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 440.0,
+        "normalized_price": 133333.33333333334
+      },
+      {
+        "date": "2026-06-19",
         "price": 440.0,
         "normalized_price": 133333.33333333334
       }
@@ -30092,6 +31561,11 @@
         "date": "2026-06-18",
         "price": 440.0,
         "normalized_price": 133333.33333333334
+      },
+      {
+        "date": "2026-06-19",
+        "price": 440.0,
+        "normalized_price": 133333.33333333334
       }
     ],
     "first_seen": "2026-05-17"
@@ -30169,6 +31643,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 440.0,
+        "normalized_price": 133333.33333333334
+      },
+      {
+        "date": "2026-06-19",
         "price": 440.0,
         "normalized_price": 133333.33333333334
       }
@@ -30265,6 +31744,11 @@
         "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 2642.2764227642274
+      },
+      {
+        "date": "2026-06-19",
+        "price": 650.0,
+        "normalized_price": 2642.2764227642274
       }
     ],
     "first_seen": "2026-05-17"
@@ -30357,6 +31841,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 650.0,
+        "normalized_price": 1934.5238095238096
+      },
+      {
+        "date": "2026-06-19",
         "price": 650.0,
         "normalized_price": 1934.5238095238096
       }
@@ -30453,6 +31942,11 @@
         "date": "2026-06-18",
         "price": 700.0,
         "normalized_price": 1166.6666666666667
+      },
+      {
+        "date": "2026-06-19",
+        "price": 700.0,
+        "normalized_price": 1166.6666666666667
       }
     ],
     "first_seen": "2026-05-17"
@@ -30547,6 +32041,11 @@
         "date": "2026-06-18",
         "price": 700.0,
         "normalized_price": 1166.6666666666667
+      },
+      {
+        "date": "2026-06-19",
+        "price": 700.0,
+        "normalized_price": 1166.6666666666667
       }
     ],
     "first_seen": "2026-05-17"
@@ -30639,6 +32138,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 600.0,
+        "normalized_price": 833.3333333333334
+      },
+      {
+        "date": "2026-06-19",
         "price": 600.0,
         "normalized_price": 833.3333333333334
       }
@@ -30814,6 +32318,11 @@
         "date": "2026-06-18",
         "price": 200.0,
         "normalized_price": 4255.31914893617
+      },
+      {
+        "date": "2026-06-19",
+        "price": 200.0,
+        "normalized_price": 4255.31914893617
       }
     ],
     "first_seen": "2026-05-17"
@@ -30891,6 +32400,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 200.0,
+        "normalized_price": 5000.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 200.0,
         "normalized_price": 5000.0
       }
@@ -30972,6 +32486,11 @@
         "date": "2026-06-18",
         "price": 200.0,
         "normalized_price": 4444.444444444444
+      },
+      {
+        "date": "2026-06-19",
+        "price": 200.0,
+        "normalized_price": 4444.444444444444
       }
     ],
     "first_seen": "2026-05-17"
@@ -31049,6 +32568,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 200.0,
+        "normalized_price": 4255.31914893617
+      },
+      {
+        "date": "2026-06-19",
         "price": 200.0,
         "normalized_price": 4255.31914893617
       }
@@ -31130,6 +32654,11 @@
         "date": "2026-06-18",
         "price": 750.0,
         "normalized_price": 750.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 750.0,
+        "normalized_price": 750.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -31209,6 +32738,11 @@
         "date": "2026-06-18",
         "price": 200.0,
         "normalized_price": 6060.606060606061
+      },
+      {
+        "date": "2026-06-19",
+        "price": 200.0,
+        "normalized_price": 6060.606060606061
       }
     ],
     "first_seen": "2026-05-17"
@@ -31253,6 +32787,11 @@
         "date": "2026-06-18",
         "price": 520.0,
         "normalized_price": 1040.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 520.0,
+        "normalized_price": 1040.0
       }
     ],
     "first_seen": "2026-06-11"
@@ -31295,6 +32834,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 1000.0,
+        "normalized_price": 2000.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 1000.0,
         "normalized_price": 2000.0
       }
@@ -31376,6 +32920,11 @@
         "date": "2026-06-18",
         "price": 1750.0,
         "normalized_price": 1750.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 1750.0,
+        "normalized_price": 1750.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -31453,6 +33002,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 1950.0,
+        "normalized_price": 1950.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 1950.0,
         "normalized_price": 1950.0
       }
@@ -31534,6 +33088,11 @@
         "date": "2026-06-18",
         "price": 3650.0,
         "normalized_price": 3650.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 3650.0,
+        "normalized_price": 3650.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -31611,6 +33170,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 1950.0,
+        "normalized_price": 1950.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 1950.0,
         "normalized_price": 1950.0
       }
@@ -31707,6 +33271,11 @@
         "date": "2026-06-18",
         "price": 450.0,
         "normalized_price": 900.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 450.0,
+        "normalized_price": 900.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -31789,6 +33358,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 150.0,
+        "normalized_price": 300.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 150.0,
         "normalized_price": 300.0
       }
@@ -31875,6 +33449,11 @@
         "date": "2026-06-18",
         "price": 400.0,
         "normalized_price": 1600.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 400.0,
+        "normalized_price": 1600.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -31912,6 +33491,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 750.0,
+        "normalized_price": 3000.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 750.0,
         "normalized_price": 3000.0
       }
@@ -32003,6 +33587,11 @@
         "date": "2026-06-18",
         "price": 500.0,
         "normalized_price": 1000.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 500.0,
+        "normalized_price": 1000.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -32085,6 +33674,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 1000.0,
+        "normalized_price": 2000.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 1000.0,
         "normalized_price": 2000.0
       }
@@ -32186,6 +33780,11 @@
         "date": "2026-06-18",
         "price": 400.0,
         "normalized_price": 2380.9523809523807
+      },
+      {
+        "date": "2026-06-19",
+        "price": 400.0,
+        "normalized_price": 2380.9523809523807
       }
     ],
     "first_seen": "2026-05-17"
@@ -32285,6 +33884,11 @@
         "date": "2026-06-18",
         "price": 350.0,
         "normalized_price": 2611.940298507463
+      },
+      {
+        "date": "2026-06-19",
+        "price": 350.0,
+        "normalized_price": 2611.940298507463
       }
     ],
     "first_seen": "2026-05-17"
@@ -32382,6 +33986,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 400.0,
+        "normalized_price": 2531.6455696202534
+      },
+      {
+        "date": "2026-06-19",
         "price": 400.0,
         "normalized_price": 2531.6455696202534
       }
@@ -32488,6 +34097,11 @@
         "date": "2026-06-18",
         "price": 400.0,
         "normalized_price": 400.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 400.0,
+        "normalized_price": 400.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -32587,6 +34201,11 @@
         "date": "2026-06-18",
         "price": 400.0,
         "normalized_price": 2531.6455696202534
+      },
+      {
+        "date": "2026-06-19",
+        "price": 400.0,
+        "normalized_price": 2531.6455696202534
       }
     ],
     "first_seen": "2026-05-17"
@@ -32664,6 +34283,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 2250.0,
+        "normalized_price": 2250.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 2250.0,
         "normalized_price": 2250.0
       }
@@ -32745,6 +34369,11 @@
         "date": "2026-06-18",
         "price": 750.0,
         "normalized_price": 5000.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 750.0,
+        "normalized_price": 5000.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -32784,6 +34413,11 @@
         "date": "2026-06-18",
         "price": 700.0,
         "normalized_price": 1400.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 700.0,
+        "normalized_price": 1400.0
       }
     ],
     "first_seen": "2026-06-11"
@@ -32821,6 +34455,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 720.0,
+        "normalized_price": 1800.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 720.0,
         "normalized_price": 1800.0
       }
@@ -32902,6 +34541,11 @@
         "date": "2026-06-18",
         "price": 850.0,
         "normalized_price": 850.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 850.0,
+        "normalized_price": 850.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -32979,6 +34623,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 850.0,
+        "normalized_price": 2833.3333333333335
+      },
+      {
+        "date": "2026-06-19",
         "price": 850.0,
         "normalized_price": 2833.3333333333335
       }
@@ -33430,6 +35079,11 @@
         "date": "2026-06-18",
         "price": 420.0,
         "normalized_price": 4200.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 420.0,
+        "normalized_price": 4200.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -33467,6 +35121,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 800.0,
+        "normalized_price": 2000.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 800.0,
         "normalized_price": 2000.0
       }
@@ -33508,6 +35167,11 @@
         "date": "2026-06-18",
         "price": 450.0,
         "normalized_price": 450.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 450.0,
+        "normalized_price": 450.0
       }
     ],
     "first_seen": "2026-06-11"
@@ -33545,6 +35209,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 1250.0,
+        "normalized_price": 2500.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 1250.0,
         "normalized_price": 2500.0
       }
@@ -33586,6 +35255,11 @@
         "date": "2026-06-18",
         "price": 280.0,
         "normalized_price": 2800.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 280.0,
+        "normalized_price": 2800.0
       }
     ],
     "first_seen": "2026-06-11"
@@ -33623,6 +35297,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 1050.0,
+        "normalized_price": 2625.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 1050.0,
         "normalized_price": 2625.0
       }
@@ -33664,6 +35343,11 @@
         "date": "2026-06-18",
         "price": 280.0,
         "normalized_price": 560.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 280.0,
+        "normalized_price": 560.0
       }
     ],
     "first_seen": "2026-06-11"
@@ -33701,6 +35385,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 550.0,
+        "normalized_price": 1100.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 550.0,
         "normalized_price": 1100.0
       }
@@ -33782,6 +35471,11 @@
         "date": "2026-06-18",
         "price": 450.0,
         "normalized_price": 2250.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 450.0,
+        "normalized_price": 2250.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -33859,6 +35553,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 450.0,
+        "normalized_price": 2250.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 450.0,
         "normalized_price": 2250.0
       }
@@ -33940,6 +35639,11 @@
         "date": "2026-06-18",
         "price": 450.0,
         "normalized_price": 2250.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 450.0,
+        "normalized_price": 2250.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -34019,6 +35723,11 @@
         "date": "2026-06-18",
         "price": 1150.0,
         "normalized_price": 1464.968152866242
+      },
+      {
+        "date": "2026-06-19",
+        "price": 1150.0,
+        "normalized_price": 1464.968152866242
       }
     ],
     "first_seen": "2026-05-17"
@@ -34091,6 +35800,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 850.0,
+        "normalized_price": 2125.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 850.0,
         "normalized_price": 2125.0
       }
@@ -34172,6 +35886,11 @@
         "date": "2026-06-18",
         "price": 2250.0,
         "normalized_price": 2250.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 2250.0,
+        "normalized_price": 2250.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -34249,6 +35968,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 2250.0,
+        "normalized_price": 2250.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 2250.0,
         "normalized_price": 2250.0
       }
@@ -34335,6 +36059,11 @@
         "date": "2026-06-18",
         "price": 700.0,
         "normalized_price": 2058.8235294117644
+      },
+      {
+        "date": "2026-06-19",
+        "price": 700.0,
+        "normalized_price": 2058.8235294117644
       }
     ],
     "first_seen": "2026-05-17"
@@ -34412,6 +36141,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 500.0,
+        "normalized_price": 1666.6666666666667
+      },
+      {
+        "date": "2026-06-19",
         "price": 500.0,
         "normalized_price": 1666.6666666666667
       }
@@ -34513,6 +36247,11 @@
         "date": "2026-06-18",
         "price": 750.0,
         "normalized_price": 1071.4285714285713
+      },
+      {
+        "date": "2026-06-19",
+        "price": 750.0,
+        "normalized_price": 1071.4285714285713
       }
     ],
     "first_seen": "2026-05-17"
@@ -34610,6 +36349,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 750.0,
+        "normalized_price": 1071.4285714285713
+      },
+      {
+        "date": "2026-06-19",
         "price": 750.0,
         "normalized_price": 1071.4285714285713
       }
@@ -34711,6 +36455,11 @@
         "date": "2026-06-18",
         "price": 750.0,
         "normalized_price": 1071.4285714285713
+      },
+      {
+        "date": "2026-06-19",
+        "price": 750.0,
+        "normalized_price": 1071.4285714285713
       }
     ],
     "first_seen": "2026-05-17"
@@ -34805,6 +36554,11 @@
         "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 14772.727272727274
+      },
+      {
+        "date": "2026-06-19",
+        "price": 650.0,
+        "normalized_price": 14772.727272727274
       }
     ],
     "first_seen": "2026-05-17"
@@ -34887,6 +36641,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 1850.0,
+        "normalized_price": 1850.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 1850.0,
         "normalized_price": 1850.0
       }
@@ -34973,6 +36732,11 @@
         "date": "2026-06-18",
         "price": 1050.0,
         "normalized_price": 2100.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 1050.0,
+        "normalized_price": 2100.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -35052,6 +36816,11 @@
         "date": "2026-06-18",
         "price": 550.0,
         "normalized_price": 5500.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 550.0,
+        "normalized_price": 5500.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -35089,6 +36858,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 1200.0,
+        "normalized_price": 60000.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 1200.0,
         "normalized_price": 60000.0
       }
@@ -35190,6 +36964,11 @@
         "date": "2026-06-18",
         "price": 950.0,
         "normalized_price": 2375.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 950.0,
+        "normalized_price": 2375.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -35289,6 +37068,11 @@
         "date": "2026-06-18",
         "price": 950.0,
         "normalized_price": 2375.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 950.0,
+        "normalized_price": 2375.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -35368,6 +37152,11 @@
         "date": "2026-06-18",
         "price": 1490.0,
         "normalized_price": 1490.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 1490.0,
+        "normalized_price": 1490.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -35445,6 +37234,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 550.0,
+        "normalized_price": 3666.6666666666665
+      },
+      {
+        "date": "2026-06-19",
         "price": 550.0,
         "normalized_price": 3666.6666666666665
       }
@@ -35674,6 +37468,11 @@
         "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 4779.411764705882
+      },
+      {
+        "date": "2026-06-19",
+        "price": 650.0,
+        "normalized_price": 4779.411764705882
       }
     ],
     "first_seen": "2026-05-17"
@@ -35751,6 +37550,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 850.0,
+        "normalized_price": 1931.818181818182
+      },
+      {
+        "date": "2026-06-19",
         "price": 850.0,
         "normalized_price": 1931.818181818182
       }
@@ -35832,6 +37636,11 @@
         "date": "2026-06-18",
         "price": 2850.0,
         "normalized_price": 2375.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 2850.0,
+        "normalized_price": 2375.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -35909,6 +37718,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 1350.0,
+        "normalized_price": 1917.6136363636365
+      },
+      {
+        "date": "2026-06-19",
         "price": 1350.0,
         "normalized_price": 1917.6136363636365
       }
@@ -36078,6 +37892,11 @@
         "date": "2026-06-18",
         "price": 750.0,
         "normalized_price": 3787.878787878788
+      },
+      {
+        "date": "2026-06-19",
+        "price": 750.0,
+        "normalized_price": 3787.878787878788
       }
     ],
     "first_seen": "2026-06-14"
@@ -36155,6 +37974,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 850.0,
+        "normalized_price": 35416.666666666664
+      },
+      {
+        "date": "2026-06-19",
         "price": 850.0,
         "normalized_price": 35416.666666666664
       }
@@ -36251,6 +38075,11 @@
         "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 27659.57446808511
+      },
+      {
+        "date": "2026-06-19",
+        "price": 650.0,
+        "normalized_price": 27659.57446808511
       }
     ],
     "first_seen": "2026-05-17"
@@ -36343,6 +38172,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 650.0,
+        "normalized_price": 27083.333333333332
+      },
+      {
+        "date": "2026-06-19",
         "price": 650.0,
         "normalized_price": 27083.333333333332
       }
@@ -36439,6 +38273,11 @@
         "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 650.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 650.0,
+        "normalized_price": 650.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -36516,6 +38355,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 550.0,
+        "normalized_price": 550.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 550.0,
         "normalized_price": 550.0
       }
@@ -36610,6 +38454,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 650.0,
+        "normalized_price": 1444.4444444444443
+      },
+      {
+        "date": "2026-06-19",
         "price": 650.0,
         "normalized_price": 1444.4444444444443
       }
@@ -36711,6 +38560,11 @@
         "date": "2026-06-18",
         "price": 350.0,
         "normalized_price": 1405.6224899598392
+      },
+      {
+        "date": "2026-06-19",
+        "price": 350.0,
+        "normalized_price": 1405.6224899598392
       }
     ],
     "first_seen": "2026-05-17"
@@ -36810,6 +38664,11 @@
         "date": "2026-06-18",
         "price": 350.0,
         "normalized_price": 1405.6224899598392
+      },
+      {
+        "date": "2026-06-19",
+        "price": 350.0,
+        "normalized_price": 1405.6224899598392
       }
     ],
     "first_seen": "2026-05-17"
@@ -36849,6 +38708,11 @@
         "date": "2026-06-18",
         "price": 600.0,
         "normalized_price": 1500.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 600.0,
+        "normalized_price": 1500.0
       }
     ],
     "first_seen": "2026-06-11"
@@ -36886,6 +38750,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 300.0,
+        "normalized_price": 750.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 300.0,
         "normalized_price": 750.0
       }
@@ -36940,6 +38809,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 2850.0,
+        "normalized_price": 2850.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 2850.0,
         "normalized_price": 2850.0
       }
@@ -37041,6 +38915,11 @@
         "date": "2026-06-18",
         "price": 5200.0,
         "normalized_price": 5942.857142857143
+      },
+      {
+        "date": "2026-06-19",
+        "price": 5200.0,
+        "normalized_price": 5942.857142857143
       }
     ],
     "first_seen": "2026-05-17"
@@ -37140,6 +39019,11 @@
         "date": "2026-06-18",
         "price": 2050.0,
         "normalized_price": 1025.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 2050.0,
+        "normalized_price": 1025.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -37232,6 +39116,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 380.0,
+        "normalized_price": 2533.333333333333
+      },
+      {
+        "date": "2026-06-19",
         "price": 380.0,
         "normalized_price": 2533.333333333333
       }
@@ -37328,6 +39217,11 @@
         "date": "2026-06-18",
         "price": 380.0,
         "normalized_price": 3166.6666666666665
+      },
+      {
+        "date": "2026-06-19",
+        "price": 380.0,
+        "normalized_price": 3166.6666666666665
       }
     ],
     "first_seen": "2026-05-21"
@@ -37420,6 +39314,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 380.0,
+        "normalized_price": 3800.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 380.0,
         "normalized_price": 3800.0
       }
@@ -37516,6 +39415,11 @@
         "date": "2026-06-18",
         "price": 380.0,
         "normalized_price": 3166.6666666666665
+      },
+      {
+        "date": "2026-06-19",
+        "price": 380.0,
+        "normalized_price": 3166.6666666666665
       }
     ],
     "first_seen": "2026-05-21"
@@ -37603,6 +39507,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 380.0,
+        "normalized_price": 3166.6666666666665
+      },
+      {
+        "date": "2026-06-19",
         "price": 380.0,
         "normalized_price": 3166.6666666666665
       }
@@ -37699,6 +39608,11 @@
         "date": "2026-06-18",
         "price": 380.0,
         "normalized_price": 3166.6666666666665
+      },
+      {
+        "date": "2026-06-19",
+        "price": 380.0,
+        "normalized_price": 3166.6666666666665
       }
     ],
     "first_seen": "2026-05-21"
@@ -37791,6 +39705,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 380.0,
+        "normalized_price": 3166.6666666666665
+      },
+      {
+        "date": "2026-06-19",
         "price": 380.0,
         "normalized_price": 3166.6666666666665
       }
@@ -37887,6 +39806,11 @@
         "date": "2026-06-18",
         "price": 380.0,
         "normalized_price": 3166.6666666666665
+      },
+      {
+        "date": "2026-06-19",
+        "price": 380.0,
+        "normalized_price": 3166.6666666666665
       }
     ],
     "first_seen": "2026-05-21"
@@ -37979,6 +39903,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 380.0,
+        "normalized_price": 3800.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 380.0,
         "normalized_price": 3800.0
       }
@@ -38075,6 +40004,11 @@
         "date": "2026-06-18",
         "price": 380.0,
         "normalized_price": 3800.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 380.0,
+        "normalized_price": 3800.0
       }
     ],
     "first_seen": "2026-05-21"
@@ -38169,6 +40103,11 @@
         "date": "2026-06-18",
         "price": 380.0,
         "normalized_price": 3166.6666666666665
+      },
+      {
+        "date": "2026-06-19",
+        "price": 380.0,
+        "normalized_price": 3166.6666666666665
       }
     ],
     "first_seen": "2026-05-21"
@@ -38261,6 +40200,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 1450.0,
+        "normalized_price": 7250.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 1450.0,
         "normalized_price": 7250.0
       }
@@ -38424,6 +40368,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 750.0,
+        "normalized_price": 2622.3776223776226
+      },
+      {
+        "date": "2026-06-19",
         "price": 750.0,
         "normalized_price": 2622.3776223776226
       }
@@ -38638,6 +40587,11 @@
         "date": "2026-06-18",
         "price": 800.0,
         "normalized_price": 1600.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 800.0,
+        "normalized_price": 1600.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -38705,6 +40659,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 350.0,
+        "normalized_price": 3500.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 350.0,
         "normalized_price": 3500.0
       }
@@ -38781,6 +40740,11 @@
         "date": "2026-06-18",
         "price": 1850.0,
         "normalized_price": 3083.3333333333335
+      },
+      {
+        "date": "2026-06-19",
+        "price": 1850.0,
+        "normalized_price": 3083.3333333333335
       }
     ],
     "first_seen": "2026-05-17"
@@ -38818,6 +40782,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 350.0,
+        "normalized_price": 3500.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 350.0,
         "normalized_price": 3500.0
       }
@@ -38889,6 +40858,11 @@
         "date": "2026-06-18",
         "price": 6000.0,
         "normalized_price": 60000.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 6000.0,
+        "normalized_price": 60000.0
       }
     ],
     "first_seen": "2026-05-22"
@@ -38926,6 +40900,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 900.0,
+        "normalized_price": 9000.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 900.0,
         "normalized_price": 9000.0
       }
@@ -38997,6 +40976,11 @@
         "date": "2026-06-18",
         "price": 1750.0,
         "normalized_price": 17500.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 1750.0,
+        "normalized_price": 17500.0
       }
     ],
     "first_seen": "2026-05-22"
@@ -39066,6 +41050,11 @@
         "date": "2026-06-18",
         "price": 6000.0,
         "normalized_price": 60000.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 6000.0,
+        "normalized_price": 60000.0
       }
     ],
     "first_seen": "2026-05-22"
@@ -39133,6 +41122,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 1750.0,
+        "normalized_price": 17500.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 1750.0,
         "normalized_price": 17500.0
       }
@@ -39209,6 +41203,11 @@
         "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 3250.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 650.0,
+        "normalized_price": 3250.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -39276,6 +41275,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 350.0,
+        "normalized_price": 3500.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 350.0,
         "normalized_price": 3500.0
       }
@@ -39352,6 +41356,11 @@
         "date": "2026-06-18",
         "price": 6000.0,
         "normalized_price": 3000.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 6000.0,
+        "normalized_price": 3000.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -39389,6 +41398,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 900.0,
+        "normalized_price": 3000.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 900.0,
         "normalized_price": 3000.0
       }
@@ -39465,6 +41479,11 @@
         "date": "2026-06-18",
         "price": 1750.0,
         "normalized_price": 2916.6666666666665
+      },
+      {
+        "date": "2026-06-19",
+        "price": 1750.0,
+        "normalized_price": 2916.6666666666665
       }
     ],
     "first_seen": "2026-05-17"
@@ -39534,6 +41553,11 @@
         "date": "2026-06-18",
         "price": 350.0,
         "normalized_price": 3500.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 350.0,
+        "normalized_price": 3500.0
       }
     ],
     "first_seen": "2026-05-22"
@@ -39573,6 +41597,11 @@
         "date": "2026-06-18",
         "price": 900.0,
         "normalized_price": 450.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 900.0,
+        "normalized_price": 450.0
       }
     ],
     "first_seen": "2026-06-14"
@@ -39610,6 +41639,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 900.0,
+        "normalized_price": 3000.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 900.0,
         "normalized_price": 3000.0
       }
@@ -39684,6 +41718,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 1750.0,
+        "normalized_price": 2916.6666666666665
+      },
+      {
+        "date": "2026-06-19",
         "price": 1750.0,
         "normalized_price": 2916.6666666666665
       }
@@ -39778,6 +41817,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 650.0,
+        "normalized_price": 52000.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 650.0,
         "normalized_price": 52000.0
       }
@@ -40012,6 +42056,11 @@
         "date": "2026-06-18",
         "price": 400.0,
         "normalized_price": 1904.7619047619046
+      },
+      {
+        "date": "2026-06-19",
+        "price": 400.0,
+        "normalized_price": 1904.7619047619046
       }
     ],
     "first_seen": "2026-05-17"
@@ -40106,6 +42155,11 @@
         "date": "2026-06-18",
         "price": 550.0,
         "normalized_price": 2750.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 550.0,
+        "normalized_price": 2750.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -40178,6 +42232,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 550.0,
+        "normalized_price": 1375.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 550.0,
         "normalized_price": 1375.0
       }
@@ -40254,6 +42313,11 @@
         "date": "2026-06-18",
         "price": 1450.0,
         "normalized_price": 1450.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 1450.0,
+        "normalized_price": 1450.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -40326,6 +42390,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 1400.0,
+        "normalized_price": 1400.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 1400.0,
         "normalized_price": 1400.0
       }
@@ -40402,6 +42471,11 @@
         "date": "2026-06-18",
         "price": 1400.0,
         "normalized_price": 1400.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 1400.0,
+        "normalized_price": 1400.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -40474,6 +42548,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 1400.0,
+        "normalized_price": 8333.333333333334
+      },
+      {
+        "date": "2026-06-19",
         "price": 1400.0,
         "normalized_price": 8333.333333333334
       }
@@ -40550,6 +42629,11 @@
         "date": "2026-06-18",
         "price": 1400.0,
         "normalized_price": 1400.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 1400.0,
+        "normalized_price": 1400.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -40622,6 +42706,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 550.0,
+        "normalized_price": 1375.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 550.0,
         "normalized_price": 1375.0
       }
@@ -40718,6 +42807,11 @@
         "date": "2026-06-18",
         "price": 800.0,
         "normalized_price": 800.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 800.0,
+        "normalized_price": 800.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -40812,6 +42906,11 @@
         "date": "2026-06-18",
         "price": 800.0,
         "normalized_price": 800.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 800.0,
+        "normalized_price": 800.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -40886,6 +42985,11 @@
         "date": "2026-06-18",
         "price": 350.0,
         "normalized_price": 1400.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 350.0,
+        "normalized_price": 1400.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -40958,6 +43062,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 550.0,
+        "normalized_price": 1375.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 550.0,
         "normalized_price": 1375.0
       }
@@ -41054,6 +43163,11 @@
         "date": "2026-06-18",
         "price": 450.0,
         "normalized_price": 450.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 450.0,
+        "normalized_price": 450.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -41148,6 +43262,11 @@
         "date": "2026-06-18",
         "price": 450.0,
         "normalized_price": 450.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 450.0,
+        "normalized_price": 450.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -41222,6 +43341,11 @@
         "date": "2026-06-18",
         "price": 3050.0,
         "normalized_price": 2440.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 3050.0,
+        "normalized_price": 2440.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -41294,6 +43418,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 550.0,
+        "normalized_price": 2200.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 550.0,
         "normalized_price": 2200.0
       }
@@ -41439,6 +43568,11 @@
         "date": "2026-06-18",
         "price": 450.0,
         "normalized_price": 450.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 450.0,
+        "normalized_price": 450.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -41511,6 +43645,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 960.0,
+        "normalized_price": 3478.2608695652175
+      },
+      {
+        "date": "2026-06-19",
         "price": 960.0,
         "normalized_price": 3478.2608695652175
       }
@@ -41656,6 +43795,11 @@
         "date": "2026-06-18",
         "price": 350.0,
         "normalized_price": 350.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 350.0,
+        "normalized_price": 350.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -41730,6 +43874,11 @@
         "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 6500.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 650.0,
+        "normalized_price": 6500.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -41767,6 +43916,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 730.0,
+        "normalized_price": 1460.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 730.0,
         "normalized_price": 1460.0
       }
@@ -41866,6 +44020,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 1400.0,
+        "normalized_price": 10370.37037037037
+      },
+      {
+        "date": "2026-06-19",
         "price": 1400.0,
         "normalized_price": 10370.37037037037
       }
@@ -42011,6 +44170,11 @@
         "date": "2026-06-18",
         "price": 650.0,
         "normalized_price": 2166.6666666666665
+      },
+      {
+        "date": "2026-06-19",
+        "price": 650.0,
+        "normalized_price": 2166.6666666666665
       }
     ],
     "first_seen": "2026-05-17"
@@ -42110,6 +44274,11 @@
         "date": "2026-06-18",
         "price": 450.0,
         "normalized_price": 1800.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 450.0,
+        "normalized_price": 1800.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -42182,6 +44351,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 520.0,
+        "normalized_price": 37142.857142857145
+      },
+      {
+        "date": "2026-06-19",
         "price": 520.0,
         "normalized_price": 37142.857142857145
       }
@@ -42258,6 +44432,11 @@
         "date": "2026-06-18",
         "price": 520.0,
         "normalized_price": 37142.857142857145
+      },
+      {
+        "date": "2026-06-19",
+        "price": 520.0,
+        "normalized_price": 37142.857142857145
       }
     ],
     "first_seen": "2026-05-17"
@@ -42330,6 +44509,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 950.0,
+        "normalized_price": 67857.14285714286
+      },
+      {
+        "date": "2026-06-19",
         "price": 950.0,
         "normalized_price": 67857.14285714286
       }
@@ -42406,6 +44590,11 @@
         "date": "2026-06-18",
         "price": 950.0,
         "normalized_price": 67857.14285714286
+      },
+      {
+        "date": "2026-06-19",
+        "price": 950.0,
+        "normalized_price": 67857.14285714286
       }
     ],
     "first_seen": "2026-05-17"
@@ -42478,6 +44667,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 520.0,
+        "normalized_price": 37142.857142857145
+      },
+      {
+        "date": "2026-06-19",
         "price": 520.0,
         "normalized_price": 37142.857142857145
       }
@@ -42579,6 +44773,11 @@
         "date": "2026-06-18",
         "price": 450.0,
         "normalized_price": 2500.0
+      },
+      {
+        "date": "2026-06-19",
+        "price": 450.0,
+        "normalized_price": 2500.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -42651,6 +44850,11 @@
       },
       {
         "date": "2026-06-18",
+        "price": 1200.0,
+        "normalized_price": 1500.0
+      },
+      {
+        "date": "2026-06-19",
         "price": 1200.0,
         "normalized_price": 1500.0
       }

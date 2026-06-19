@@ -1,10 +1,9 @@
-Last Run: 2026-06-19 04:11:36
+Last Run: 2026-06-20 01:45:09
 ------------------------------
-Total Scraped: 4046
+Total Scraped: 3934
 New Items: 0
 ------------------------------
 Categories:
-- Kitchen Accessories: 113
 - Hair Care: 91
 - Spices: 91
 - Popular: 88
@@ -14,4 +13,5 @@ Categories:
 - Women's Soaps: 69
 - Men's Soaps: 64
 - Men's Deodorants: 61
-... and 159 more.
+- Liquid Handwash: 59
+... and 158 more.
