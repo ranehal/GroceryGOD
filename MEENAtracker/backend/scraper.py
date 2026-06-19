@@ -19,6 +19,33 @@ from database import SessionLocal, Category, Product, PriceHistory, init_db
 
 BASE_URL = "https://meenabazaronline.com"
 
+def normalize_unit_price(price, name, unit_text):
+    text = f"{unit_text or ''} {name or ''}".lower()
+    text = re.sub(r'\(?[±\+]\s*\d+\s*(?:gm|g|kg|ml|ltr|l)?\)?', '', text)
+
+    weight_match = re.search(r'(\d+(?:\.\d+)?)\s*(kg|gm|gram|g)\b', text)
+    if weight_match:
+        weight = float(weight_match.group(1))
+        unit = weight_match.group(2)
+        if weight > 0:
+            if unit == 'kg':
+                return round(price / weight, 2), 'kg'
+            return round((price / weight) * 1000, 2), 'kg'
+
+    volume_match = re.search(r'(\d+(?:\.\d+)?)\s*(ltr|liter|l|ml)\b', text)
+    if volume_match:
+        volume = float(volume_match.group(1))
+        unit = volume_match.group(2)
+        if volume > 0:
+            if unit in ['ltr', 'liter', 'l']:
+                return round(price / volume, 2), 'ltr'
+            return round((price / volume) * 1000, 2), 'ltr'
+
+    if any(keyword in text for keyword in ['pc', 'piece', 'hali', 'dozen', 'pkt', 'pack', 'each', 'bottle', 'can', 'box']):
+        return round(price, 2), 'piece'
+
+    return round(price, 2), 'piece'
+
 async def scrape_categories(page):
     """Return hardcoded categories as requested by the user."""
     print("Using hardcoded categories...")
@@ -107,33 +134,7 @@ async def scrape_products_in_category(page, category_url):
             img_el = await element.query_selector('img')
             image_url = await img_el.get_attribute('src') if img_el else ""
             
-            # Unit Price Calculation (per kg / per liter)
-            unit_price = actual_price
-            unit_type = "piece"
-            unit_lower = unit.lower()
-            
-            if 'kg' in unit_lower:
-                match = re.search(r'(\d+\.?\d*)\s*kg', unit_lower)
-                weight = float(match.group(1)) if match else 1.0
-                unit_price = actual_price / weight
-                unit_type = "kg"
-            elif 'gm' in unit_lower or 'g' in unit_lower.split() or bool(re.search(r'\d+g', unit_lower)):
-                match = re.search(r'(\d+\.?\d*)\s*g', unit_lower)
-                weight = float(match.group(1)) if match else 500.0
-                unit_price = (actual_price / weight) * 1000
-                unit_type = "kg"
-            elif 'ltr' in unit_lower or 'l' in unit_lower.split() or bool(re.search(r'\d+l', unit_lower)):
-                match = re.search(r'(\d+\.?\d*)\s*(ltr|l)', unit_lower)
-                volume = float(match.group(1)) if match else 1.0
-                unit_price = actual_price / volume
-                unit_type = "ltr"
-            elif 'ml' in unit_lower:
-                match = re.search(r'(\d+\.?\d*)\s*ml', unit_lower)
-                volume = float(match.group(1)) if match else 500.0
-                unit_price = (actual_price / volume) * 1000
-                unit_type = "ltr"
-            
-            unit_price = round(unit_price, 2)
+            unit_price, unit_type = normalize_unit_price(actual_price, name, unit)
             external_id = f"{name}_{unit}".replace(" ", "_").lower()
 
             products.append({

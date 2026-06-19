@@ -36,7 +36,7 @@ def parse_unit_and_calculate(name, unit_str, price):
             u_type = 'kg' if unit == 'kg' else 'liter'
             return u_type, (price / total_val)
 
-    text = re.sub(r'\(?[±\+\-]\d+\s*(gm|g|kg|ml|ltr|l)?\)?', '', text)
+    text = re.sub(r'\(?[±\+]\s*\d+\s*(gm|g|kg|ml|ltr|l)?\)?', '', text)
     weight_match = re.search(r'(\d+(\.\d+)?)\s*(kg|gm|gram|g)\b', text)
     if weight_match:
         val = float(weight_match.group(1))
