@@ -1,1 +1,1 @@
-window.othobaManifest = {"metadata":{"last_update":"2026-06-19 02:12:47","total":72129,"date_range":"2026-04-17 to 2026-06-18","total_chunks":15,"chunk_size":5000}};
+window.othobaManifest = {"metadata":{"last_update":"2026-06-19 07:05:22","total":72187,"date_range":"2026-04-17 to 2026-06-19","total_chunks":15,"chunk_size":5000}};
