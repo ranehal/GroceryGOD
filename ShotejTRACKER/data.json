@@ -47073,5 +47073,1278 @@
       }
     ],
     "first_seen": "2026-05-17"
+  },
+  "sj_aghadeerdubaikunafachocolate100g": {
+    "id": "sj_aghadeerdubaikunafachocolate100g",
+    "name": "Aghadeer Dubai Kunafa Chocolate \u2013 100g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/0f5e606c-d3af-4dcb-b11b-2e0d5e9e45b9.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 650.0,
+        "normalized_price": 6500.0
+      }
+    ],
+    "current_price": 650.0,
+    "normalized_price": 6500.0,
+    "unit": "100.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/aghadeer-dubai-kunafa-chocolate-100g/"
+  },
+  "sj_altahandateswithbananapremiumegyptiandates100g": {
+    "id": "sj_altahandateswithbananapremiumegyptiandates100g",
+    "name": "Al Tahan Dates with Banana \u2013 Premium Egyptian Dates 100 g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2025/12/04df5cd4-8c10-4c4c-8f77-db07f0866ea5.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 450.0,
+        "normalized_price": 4500.0
+      }
+    ],
+    "current_price": 450.0,
+    "normalized_price": 4500.0,
+    "unit": "100.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/al-tahan-dates-with-banana-premium-egyptian-dates-100-g/"
+  },
+  "sj_altahandateswithberrypremiumegyptiandates100g": {
+    "id": "sj_altahandateswithberrypremiumegyptiandates100g",
+    "name": "Al Tahan Dates with Berry \u2013 Premium Egyptian Dates 100 g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2025/12/8ed684f4-2e32-4bd4-a10b-0c10c97bfcf7.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 450.0,
+        "normalized_price": 4500.0
+      }
+    ],
+    "current_price": 450.0,
+    "normalized_price": 4500.0,
+    "unit": "100.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/al-tahan-dates-with-berry-premium-egyptian-dates-100-g/"
+  },
+  "sj_altahandateswithmangopremiumegyptiandates100g": {
+    "id": "sj_altahandateswithmangopremiumegyptiandates100g",
+    "name": "Al Tahan Dates with Mango \u2013 Premium Egyptian Dates 100 g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2025/12/5fd28316-7d82-4cbc-a317-9f83223c9b7a.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 450.0,
+        "normalized_price": 4500.0
+      }
+    ],
+    "current_price": 450.0,
+    "normalized_price": 4500.0,
+    "unit": "100.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/al-tahan-dates-with-mango-premium-egyptian-dates-100-g/"
+  },
+  "sj_altahandateswithnaturalfruitschocolatewithnuts200g": {
+    "id": "sj_altahandateswithnaturalfruitschocolatewithnuts200g",
+    "name": "Al Tahan Dates with Natural Fruits Chocolate with Nuts \u2013 200 g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2025/12/7c84bc3a-df8a-4811-a1ce-da3054cf9e45.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 750.0,
+        "normalized_price": 3750.0
+      }
+    ],
+    "current_price": 750.0,
+    "normalized_price": 3750.0,
+    "unit": "200.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/al-tahan-dates-with-natural-fruits-chocolate-with-nuts-200-g/"
+  },
+  "sj_altahandateswithstrawberrypremiumegyptiandates100g": {
+    "id": "sj_altahandateswithstrawberrypremiumegyptiandates100g",
+    "name": "Al Tahan Dates with Strawberry \u2013 Premium Egyptian Dates (100 g)",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2025/12/b5ca76d4-c80a-4d37-b95b-8ab6940252d7.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 450.0,
+        "normalized_price": 4500.0
+      }
+    ],
+    "current_price": 450.0,
+    "normalized_price": 4500.0,
+    "unit": "100.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/al-tahan-dates-with-strawberry-premium-egyptian-dates-100-g/"
+  },
+  "sj_altahhandateswithdarkchocolate100g": {
+    "id": "sj_altahhandateswithdarkchocolate100g",
+    "name": "Al Tahhan Dates with Dark Chocolate \u2013 100 g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2025/12/c344a0f8-846f-4cad-a88e-9a1f23b8ba12.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 450.0,
+        "normalized_price": 4500.0
+      }
+    ],
+    "current_price": 450.0,
+    "normalized_price": 4500.0,
+    "unit": "100.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/al-tahhan-dates-with-dark-chocolate-100-g/"
+  },
+  "sj_alpenliebecaramelcandy248gx24pcs": {
+    "id": "sj_alpenliebecaramelcandy248gx24pcs",
+    "name": "Alpenliebe Caramel Candy 24.8g x 24 Pcs",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/951b44b6-e7d0-40ae-a6b4-1e33880f49b0.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 750.0,
+        "normalized_price": 1260.08
+      }
+    ],
+    "current_price": 750.0,
+    "normalized_price": 1260.08,
+    "unit": "24.8g x 24",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/alpenliebe-caramel-candy-24-8g-x-24-pcs/"
+  },
+  "sj_alpenliebestrawberrycandy248gx24pcs": {
+    "id": "sj_alpenliebestrawberrycandy248gx24pcs",
+    "name": "Alpenliebe Strawberry Candy 24.8g x 24 Pcs",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/e33c7390-53c6-4a20-841a-3bce1c55dcfc.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 750.0,
+        "normalized_price": 1260.08
+      }
+    ],
+    "current_price": 750.0,
+    "normalized_price": 1260.08,
+    "unit": "24.8g x 24",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/alpenliebe-strawberry-candy-24-8g-x-24-pcs/"
+  },
+  "sj_americancowcrunchymilkywhitebar1box155gm30pcsindian": {
+    "id": "sj_americancowcrunchymilkywhitebar1box155gm30pcsindian",
+    "name": "American Cow Crunchy Milky White Bar 1 box 15.5 gm 30pcs (Indian)",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2025/10/7.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 450.0,
+        "normalized_price": 29032.26
+      }
+    ],
+    "current_price": 450.0,
+    "normalized_price": 29032.26,
+    "unit": "15.5gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/hugs-american-cow-crunchy-milky-white-bar-1-box-15-5-gm-30pcs-indian/"
+  },
+  "sj_amuldarkchocolate125gmx10pcsbox": {
+    "id": "sj_amuldarkchocolate125gmx10pcsbox",
+    "name": "Amul Dark Chocolate (125gm x 10pcs) Box",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/03/47.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 3450.0,
+        "normalized_price": 2760.0
+      }
+    ],
+    "current_price": 3450.0,
+    "normalized_price": 2760.0,
+    "unit": "125gm x 10",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/amnul-dark-150gm10pcs/"
+  },
+  "sj_amuldarkchocolate35gmx20pcsbox": {
+    "id": "sj_amuldarkchocolate35gmx20pcsbox",
+    "name": "Amul Dark Chocolate (35gm x 20pcs) Box",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/03/5b1823a5-1bc3-4aec-8f40-be067ecdc1b3.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 2050.0,
+        "normalized_price": 2928.57
+      }
+    ],
+    "current_price": 2050.0,
+    "normalized_price": 2928.57,
+    "unit": "35gm x 20",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/amul-dark-40gm/"
+  },
+  "sj_amuldarkchocolate125g3pis": {
+    "id": "sj_amuldarkchocolate125g3pis",
+    "name": "Amul Dark Chocolate 125g *3Pis",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/03/48.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 1050.0,
+        "normalized_price": 2800.0
+      }
+    ],
+    "current_price": 1050.0,
+    "normalized_price": 2800.0,
+    "unit": "125g x 3",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/amul-dark-chocolate-125g/"
+  },
+  "sj_amulfruitnnutdarkchocolate35gmx20pcs": {
+    "id": "sj_amulfruitnnutdarkchocolate35gmx20pcs",
+    "name": "Amul Fruit N Nut Dark Chocolate (35gm x 20pcs)",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2025/11/7a9f5685-389a-41c8-ba98-94723921a43d.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 2150.0,
+        "normalized_price": 3071.43
+      }
+    ],
+    "current_price": 2150.0,
+    "normalized_price": 3071.43,
+    "unit": "35gm x 20",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/amul-fruit-n-nut-dark-chocolate-35gm-x-20pcs/"
+  },
+  "sj_amulmilkchocolate35gmx20pcsbox": {
+    "id": "sj_amulmilkchocolate35gmx20pcsbox",
+    "name": "Amul Milk Chocolate (35gm x 20pcs) Box",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/03/f3659cdf-f678-4812-9a2a-3aa12786fc1e.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 2050.0,
+        "normalized_price": 2928.57
+      }
+    ],
+    "current_price": 2050.0,
+    "normalized_price": 2928.57,
+    "unit": "35gm x 20",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/amul-milk-35gm/"
+  },
+  "sj_balconimixmaxwithtastycocoa1packet35gm10pcs350gm": {
+    "id": "sj_balconimixmaxwithtastycocoa1packet35gm10pcs350gm",
+    "name": "Balconi Mix max with tasty cocoa 1 Packet 35 gm 10 pcs 350 gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/Balconi-Mix-max-with-tasty-cocoa-1-Packet-35-gm-10-pcs-350-gm.png",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 950.0,
+        "normalized_price": 27142.86
+      }
+    ],
+    "current_price": 950.0,
+    "normalized_price": 27142.86,
+    "unit": "35.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/balconi-mix-max-with-tasty-cocoa-1-packet-35-gm-10-pcs-350-gm/"
+  },
+  "sj_benzococoachoclatewithcreamyflavour750gm": {
+    "id": "sj_benzococoachoclatewithcreamyflavour750gm",
+    "name": "Benzo Cocoa choclate with Creamy Flavour 750 gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/71e4d81a-fb7f-4398-a542-075782782447.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 750.0,
+        "normalized_price": 1000.0
+      }
+    ],
+    "current_price": 750.0,
+    "normalized_price": 1000.0,
+    "unit": "750.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/benzo-cocoa-choclate-with-creamy-flavour-750-gm-5/"
+  },
+  "sj_benzococoachoclatewithcreamyflavour750gmblue": {
+    "id": "sj_benzococoachoclatewithcreamyflavour750gmblue",
+    "name": "Benzo Cocoa choclate with Creamy Flavour 750 gm (Blue)",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2025/11/7f0676a1-1459-40b3-a952-a6e4900f9a14.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 750.0,
+        "normalized_price": 1000.0
+      }
+    ],
+    "current_price": 750.0,
+    "normalized_price": 1000.0,
+    "unit": "750.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/benzo-cocoa-choclate-with-creamy-flavour-750-gm-blue/"
+  },
+  "sj_benzococoachoclatewithcreamyflavour750gmgreen": {
+    "id": "sj_benzococoachoclatewithcreamyflavour750gmgreen",
+    "name": "Benzo Cocoa choclate with Creamy Flavour 750 gm (Green)",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2025/11/c7f21834-7458-48de-b4b6-f8ba98b857f7.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 750.0,
+        "normalized_price": 1000.0
+      }
+    ],
+    "current_price": 750.0,
+    "normalized_price": 1000.0,
+    "unit": "750.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/benzo-cocoa-choclate-with-creamy-flavour-750-gm-green/"
+  },
+  "sj_benzococoachoclatewithcreamyflavour750gmorange": {
+    "id": "sj_benzococoachoclatewithcreamyflavour750gmorange",
+    "name": "Benzo Cocoa choclate with Creamy Flavour 750 gm (Orange)",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2025/11/540a4df6-0ca0-4100-b6e7-8506ce4609f0.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 750.0,
+        "normalized_price": 1000.0
+      }
+    ],
+    "current_price": 750.0,
+    "normalized_price": 1000.0,
+    "unit": "750.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/benzo-cocoa-choclate-with-creamy-flavour-750-gm-orange/"
+  },
+  "sj_benzococoachoclatewithcreamyflavour750gmred": {
+    "id": "sj_benzococoachoclatewithcreamyflavour750gmred",
+    "name": "Benzo Cocoa choclate with Creamy Flavour 750 gm (Red)",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2025/11/7a194a6d-d074-49ec-8451-d41b053d70bc.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 750.0,
+        "normalized_price": 1000.0
+      }
+    ],
+    "current_price": 750.0,
+    "normalized_price": 1000.0,
+    "unit": "750.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/benzo-cocoa-choclate-with-creamy-flavour-750-gm-red/"
+  },
+  "sj_bestodubaikunafachocolatehazelnut100gm": {
+    "id": "sj_bestodubaikunafachocolatehazelnut100gm",
+    "name": "BESTO Dubai Kunafa Chocolate Hazelnut 100gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/01/eb5f5f9c-d4e0-4fc2-8651-2c29042e001d.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 650.0,
+        "normalized_price": 6500.0
+      }
+    ],
+    "current_price": 650.0,
+    "normalized_price": 6500.0,
+    "unit": "100.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/besto-dubai-kunafa-chocolate-hazelnut-100gm/"
+  },
+  "sj_bestodubaikunafachocolatekunafapistachio220gm": {
+    "id": "sj_bestodubaikunafachocolatekunafapistachio220gm",
+    "name": "Besto Dubai Kunafa Chocolate Kunafa & Pistachio 220gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2025/12/601b0482-828c-438a-9073-8c8a971d957d.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 1200.0,
+        "normalized_price": 5454.55
+      }
+    ],
+    "current_price": 1200.0,
+    "normalized_price": 5454.55,
+    "unit": "220.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/besto-dubai-kunafa-chocolate-kunafa-pistachio-220gm/"
+  },
+  "sj_almarainaturalwildflowershoney900gm": {
+    "id": "sj_almarainaturalwildflowershoney900gm",
+    "name": "Almarai Natural Wild Flowers Honey 900 gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/01/unnamed-file-1.jpg",
+    "category": "Food",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 2650.0,
+        "normalized_price": 2944.44
+      }
+    ],
+    "current_price": 2650.0,
+    "normalized_price": 2944.44,
+    "unit": "900.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/almarai-natural-wild-flowers-honey-900-gm/"
+  },
+  "sj_applecidervinegar946ml": {
+    "id": "sj_applecidervinegar946ml",
+    "name": "Apple Cider Vinegar 946 ml",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/10/1.png",
+    "category": "Food",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 1450.0,
+        "normalized_price": 1532.77
+      }
+    ],
+    "current_price": 1450.0,
+    "normalized_price": 1532.77,
+    "unit": "946.0ml",
+    "unit_type": "liter",
+    "url": "https://shotejbazar.com/product/apple-cider-vinegar-946-ml/"
+  },
+  "sj_chiaseed1kg": {
+    "id": "sj_chiaseed1kg",
+    "name": "Chia Seed 1 Kg",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/10/6.png",
+    "category": "Food",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 600.0,
+        "normalized_price": 600.0
+      }
+    ],
+    "current_price": 600.0,
+    "normalized_price": 600.0,
+    "unit": "1.0kg",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/chia-seeds/"
+  },
+  "sj_chiaseed500gm": {
+    "id": "sj_chiaseed500gm",
+    "name": "Chia Seed 500gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/01/cd0e9eec-ce5b-4bd4-ba77-15b16e097ebc.jpg",
+    "category": "Food",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 320.0,
+        "normalized_price": 640.0
+      }
+    ],
+    "current_price": 320.0,
+    "normalized_price": 640.0,
+    "unit": "500.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/chia-seed-500gm/"
+  },
+  "sj_dulalchandrabharspalmcandyorganicpalmcandy200gm": {
+    "id": "sj_dulalchandrabharspalmcandyorganicpalmcandy200gm",
+    "name": "Dulal Chandra Bhar\u2019s Palm Candy Organic Palm Candy 200 Gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/01/c2148369-b71d-4251-bb98-a65a6773429b.jpg",
+    "category": "Food",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 150.0,
+        "normalized_price": 750.0
+      }
+    ],
+    "current_price": 150.0,
+    "normalized_price": 750.0,
+    "unit": "200.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/dulal-chandra-bhars-palm-candy-organic-palm-candy-200-gm/"
+  },
+  "sj_dulalchandrabharspalmcandytalmisri1kg": {
+    "id": "sj_dulalchandrabharspalmcandytalmisri1kg",
+    "name": "Dulal Chandra Bhar\u2019s Palm Candy Tal Misri \u2013 1 Kg",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/03/Dulal_Chandra_Bhars_Palm_Candy_Tal_misri-Non_Brand-1cf1e-370557.jpg.webp",
+    "category": "Food",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 350.0,
+        "normalized_price": 350.0
+      }
+    ],
+    "current_price": 350.0,
+    "normalized_price": 350.0,
+    "unit": "1.0kg",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/dulal-chandra-bhars-palm-candy/"
+  },
+  "sj_foodstudiopistachio1kg": {
+    "id": "sj_foodstudiopistachio1kg",
+    "name": "Food Studio Pistachio 1kg",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/e628b646-0301-4446-b9a5-d6dcd74d7903.jpg",
+    "category": "Food",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 2550.0,
+        "normalized_price": 2550.0
+      }
+    ],
+    "current_price": 2550.0,
+    "normalized_price": 2550.0,
+    "unit": "1.0kg",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/food-studio-pistachio-1kg/"
+  },
+  "sj_fortunebiryanispecialbasmatirice1pack1kgindian": {
+    "id": "sj_fortunebiryanispecialbasmatirice1pack1kgindian",
+    "name": "Fortune Biryani Special Basmati Rice 1 Pack 1Kg (Indian)",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2025/10/31.webp",
+    "category": "Food",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 380.0,
+        "normalized_price": 380.0
+      }
+    ],
+    "current_price": 380.0,
+    "normalized_price": 380.0,
+    "unit": "1.0kg",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/fortune-biryani-special-basmati-rice-1-pack-1kg-indian/"
+  },
+  "sj_freshwalnut300gmjar": {
+    "id": "sj_freshwalnut300gmjar",
+    "name": "Fresh Walnut 300gm Jar",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/89f1f87a-b3f7-457a-8ee6-2908551477f5.jpg",
+    "category": "Food",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 500.0,
+        "normalized_price": 1666.67
+      }
+    ],
+    "current_price": 500.0,
+    "normalized_price": 1666.67,
+    "unit": "300.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/fresh-walnut-300gm-jar/"
+  },
+  "sj_hamdardroohafzapakistani800ml": {
+    "id": "sj_hamdardroohafzapakistani800ml",
+    "name": "Hamdard Roohafza Pakistani 800ml",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/10/4.png",
+    "category": "Food",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 750.0,
+        "normalized_price": 937.5
+      }
+    ],
+    "current_price": 750.0,
+    "normalized_price": 937.5,
+    "unit": "800.0ml",
+    "unit_type": "liter",
+    "url": "https://shotejbazar.com/product/hamdard-roohafza-pakistani-800ml/"
+  },
+  "sj_jazaahimalayanpinksalt11kg": {
+    "id": "sj_jazaahimalayanpinksalt11kg",
+    "name": "Jazaa Himalayan Pink Salt 1.1kg",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/9dedd8b9-9ae8-49f4-bb37-f96fb42fd2d4.jpg",
+    "category": "Food",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 950.0,
+        "normalized_price": 863.64
+      }
+    ],
+    "current_price": 950.0,
+    "normalized_price": 863.64,
+    "unit": "1.1kg",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/jazaa-himalayan-pink-salt-1-1kg/"
+  },
+  "sj_linahfarmspremiummejdoollargedates1kgkhejur": {
+    "id": "sj_linahfarmspremiummejdoollargedates1kgkhejur",
+    "name": "Linah Farms Premium Mejdool Large Dates 1 kg (Khejur)",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/10/3.png",
+    "category": "Food",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 1800.0,
+        "normalized_price": 1800.0
+      }
+    ],
+    "current_price": 1800.0,
+    "normalized_price": 1800.0,
+    "unit": "1.0kg",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/linah-farms-premium-mejdool-large-dates-1-kg-khejur/"
+  },
+  "sj_linahfarmspremiummejdoolmediumdates1kgkhejur": {
+    "id": "sj_linahfarmspremiummejdoolmediumdates1kgkhejur",
+    "name": "Linah Farms Premium Mejdool Medium Dates 1 kg ( Khejur )",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/10/3.png",
+    "category": "Food",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 1700.0,
+        "normalized_price": 1700.0
+      }
+    ],
+    "current_price": 1700.0,
+    "normalized_price": 1700.0,
+    "unit": "1.0kg",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/linah-farms-premium-mejdool-medium-dates-1-kg-khejur/"
+  },
+  "sj_mixeddryfruits400gm1jars": {
+    "id": "sj_mixeddryfruits400gm1jars",
+    "name": "Mixed Dry Fruits \u2013 400gm \u00d7 1 Jars",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/75ee34ee-55fc-45ca-8e1e-b118d1ee240a.jpg",
+    "category": "Food",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 510.0,
+        "normalized_price": 1275.0
+      }
+    ],
+    "current_price": 510.0,
+    "normalized_price": 1275.0,
+    "unit": "400.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/mixed-dry-fruits-400gm-x-1-jars/"
+  },
+  "sj_mixeddryfruits400gm2jars": {
+    "id": "sj_mixeddryfruits400gm2jars",
+    "name": "Mixed Dry Fruits \u2013 400gm \u00d7 2 Jars",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/cef8a9e8-3a86-452c-8abd-94f11f045413.jpg",
+    "category": "Food",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 1000.0,
+        "normalized_price": 2500.0
+      }
+    ],
+    "current_price": 1000.0,
+    "normalized_price": 2500.0,
+    "unit": "400.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/mixed-dry-fruits-400gm-x-2-jars/"
+  },
+  "sj_moringapowder500gm": {
+    "id": "sj_moringapowder500gm",
+    "name": "Moringa Powder 500 gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/10/2.png",
+    "category": "Food",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 400.0,
+        "normalized_price": 800.0
+      }
+    ],
+    "current_price": 400.0,
+    "normalized_price": 800.0,
+    "unit": "500.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/moringa-powder/"
+  },
+  "sj_nestopistachio500g": {
+    "id": "sj_nestopistachio500g",
+    "name": "Nesto Pistachio 500g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/777eaa73-c950-4e92-b758-7abcbaaf3e58.jpg",
+    "category": "Food",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 1550.0,
+        "normalized_price": 3100.0
+      }
+    ],
+    "current_price": 1550.0,
+    "normalized_price": 3100.0,
+    "unit": "500.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/nesto-pistachio-500g/"
+  },
+  "sj_nonroastedalmondcashewnuts500gm400gm2jars": {
+    "id": "sj_nonroastedalmondcashewnuts500gm400gm2jars",
+    "name": "Non-Roasted Almond & Cashew Nuts \u2013 500gm+400gm \u00d7 2 Jars",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/8879b4bd-1ba9-49c4-8098-9747207dca42.jpg",
+    "category": "Food",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 1450.0,
+        "normalized_price": 2900.0
+      }
+    ],
+    "current_price": 1450.0,
+    "normalized_price": 2900.0,
+    "unit": "500.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/non-roasted-almond-cashew-nuts-500gm400gm-x-2-jars/"
+  },
+  "sj_nonroastedmixednuts500gm1jar": {
+    "id": "sj_nonroastedmixednuts500gm1jar",
+    "name": "Non-Roasted Mixed Nuts \u2013 500gm \u00d7 1 jar",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/017eda9f-32c7-4f22-8584-ed9cdd8236fb.jpg",
+    "category": "Food",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 650.0,
+        "normalized_price": 1300.0
+      }
+    ],
+    "current_price": 650.0,
+    "normalized_price": 1300.0,
+    "unit": "500.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/non-roasted-mixed-nuts-500gm-x-1-jar/"
+  },
+  "sj_nonroastedmixednuts500gm2jars": {
+    "id": "sj_nonroastedmixednuts500gm2jars",
+    "name": "Non-Roasted Mixed Nuts \u2013 500gm \u00d7 2 Jars",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/238569e5-6a96-44cc-a8c6-81d038b7dcd5.jpg",
+    "category": "Food",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 1250.0,
+        "normalized_price": 2500.0
+      }
+    ],
+    "current_price": 1250.0,
+    "normalized_price": 2500.0,
+    "unit": "500.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/non-roasted-mixed-nuts-500gm-x-2-jars/"
+  },
+  "sj_oilroastedcashewnut400gmjar": {
+    "id": "sj_oilroastedcashewnut400gmjar",
+    "name": "Oil Roasted Cashew Nut 400gm Jar",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/f1f2387a-0f0d-4efa-b38c-96ee359e70a1.jpg",
+    "category": "Food",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 730.0,
+        "normalized_price": 1825.0
+      }
+    ],
+    "current_price": 730.0,
+    "normalized_price": 1825.0,
+    "unit": "400.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/oil-roasted-cashew-nut-400gm-jar/"
+  },
+  "sj_premiumgoldenraisinskismis500gjar": {
+    "id": "sj_premiumgoldenraisinskismis500gjar",
+    "name": "Premium Golden Raisins (Kismis) \u2013 500g Jar",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/02/a162196e-c6f9-496b-b700-675f3461525b.jpg",
+    "category": "Food",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 520.0,
+        "normalized_price": 1040.0
+      }
+    ],
+    "current_price": 520.0,
+    "normalized_price": 1040.0,
+    "unit": "500.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/premium-golden-raisins-kismis-500g-jar/"
+  },
+  "sj_premiumgoldenraisinskismis500gjarx2jar": {
+    "id": "sj_premiumgoldenraisinskismis500gjarx2jar",
+    "name": "Premium Golden Raisins (Kismis) \u2013 500g Jar X 2 Jar",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/02/a162196e-c6f9-496b-b700-675f3461525b.jpg",
+    "category": "Food",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 1000.0,
+        "normalized_price": 2000.0
+      }
+    ],
+    "current_price": 1000.0,
+    "normalized_price": 2000.0,
+    "unit": "500.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/premium-golden-raisins-kismis-500g-jar-x-2-jar/"
+  },
+  "sj_premiummangobaraamsotto500gjar100realfruit": {
+    "id": "sj_premiummangobaraamsotto500gjar100realfruit",
+    "name": "Premium Mango Bar (Aam Sotto) \u2013 500g Jar (100% Real Fruit)",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/02/4da6e18a-420f-47a3-8246-8acdff79fe4f.jpg",
+    "category": "Food",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 450.0,
+        "normalized_price": 900.0
+      }
+    ],
+    "current_price": 450.0,
+    "normalized_price": 900.0,
+    "unit": "500.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/premium-mango-bar-aam-sotto-500g-jar-100-real-fruit/"
+  },
+  "sj_premiumorganictokmadana\u09a4\u0995\u09ae\u09a6\u09a8500gmpack": {
+    "id": "sj_premiumorganictokmadana\u09a4\u0995\u09ae\u09a6\u09a8500gmpack",
+    "name": "Premium Organic Tokma Dana (\u09a4\u09cb\u0995\u09ae\u09be \u09a6\u09be\u09a8\u09be) \u2013 500gm Pack",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/02/8d89b574-05eb-40dd-8175-374a1ab8f59d.jpg",
+    "category": "Food",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 150.0,
+        "normalized_price": 300.0
+      }
+    ],
+    "current_price": 150.0,
+    "normalized_price": 300.0,
+    "unit": "500.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/premium-organic-tokma-dana-%e0%a6%a4%e0%a7%8b%e0%a6%95%e0%a6%ae%e0%a6%be-%e0%a6%a6%e0%a6%be%e0%a6%a8%e0%a6%be-500gm-pack/"
+  },
+  "sj_premiumpsylliumhusk\u0987\u09b8\u09ac\u0997\u09b2\u09b0\u09ad\u09b7100purenatural250gm": {
+    "id": "sj_premiumpsylliumhusk\u0987\u09b8\u09ac\u0997\u09b2\u09b0\u09ad\u09b7100purenatural250gm",
+    "name": "Premium Psyllium Husk (\u0987\u09b8\u09ac\u0997\u09c1\u09b2\u09c7\u09b0 \u09ad\u09c2\u09b7\u09bf) \u2013 100% Pure & Natural (250 gm)",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/02/86dea659-2835-46b5-99b4-7a30484807af.jpg",
+    "category": "Food",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 400.0,
+        "normalized_price": 1600.0
+      }
+    ],
+    "current_price": 400.0,
+    "normalized_price": 1600.0,
+    "unit": "250.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/premium-psyllium-husk-%e0%a6%87%e0%a6%b8%e0%a6%ac%e0%a6%97%e0%a7%81%e0%a6%b2%e0%a7%87%e0%a6%b0-%e0%a6%ad%e0%a7%82%e0%a6%b7%e0%a6%bf-100-pure-natural-250-gm/"
+  },
+  "sj_premiumpsylliumhusk\u0987\u09b8\u09ac\u0997\u09b2\u09b0\u09ad\u09b7100purenatural250gmx2jar": {
+    "id": "sj_premiumpsylliumhusk\u0987\u09b8\u09ac\u0997\u09b2\u09b0\u09ad\u09b7100purenatural250gmx2jar",
+    "name": "Premium Psyllium Husk (\u0987\u09b8\u09ac\u0997\u09c1\u09b2\u09c7\u09b0 \u09ad\u09c2\u09b7\u09bf) \u2013 100% Pure & Natural (250 gm) X 2Jar",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/5577460c-3b37-4d31-a0db-aaa85c443845.jpg",
+    "category": "Food",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 750.0,
+        "normalized_price": 3000.0
+      }
+    ],
+    "current_price": 750.0,
+    "normalized_price": 3000.0,
+    "unit": "250.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/premium-psyllium-husk-%e0%a6%87%e0%a6%b8%e0%a6%ac%e0%a6%97%e0%a7%81%e0%a6%b2%e0%a7%87%e0%a6%b0-%e0%a6%ad%e0%a7%82%e0%a6%b7%e0%a6%bf-100-pure-natural-250-gm-x-2jar/"
+  },
+  "sj_premiumpumpkinseeds500gjar": {
+    "id": "sj_premiumpumpkinseeds500gjar",
+    "name": "Premium Pumpkin Seeds \u2013 500g Jar",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/02/97dd7878-7013-4961-baf5-7ec0c3dc7c50.jpg",
+    "category": "Food",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 500.0,
+        "normalized_price": 1000.0
+      }
+    ],
+    "current_price": 500.0,
+    "normalized_price": 1000.0,
+    "unit": "500.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/premium-pumpkin-seeds-500g-jar/"
+  },
+  "sj_premiumpumpkinseeds500gjarx2jar": {
+    "id": "sj_premiumpumpkinseeds500gjarx2jar",
+    "name": "Premium Pumpkin Seeds \u2013 500g Jar x 2 Jar",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/02/6389b2d5-8898-41c6-b987-019a4d0ff935.jpg",
+    "category": "Food",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 1000.0,
+        "normalized_price": 2000.0
+      }
+    ],
+    "current_price": 1000.0,
+    "normalized_price": 2000.0,
+    "unit": "500.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/premium-pumpkin-seeds-500g-jar-x-2-jar/"
+  },
+  "sj_rawalmond500gmjar": {
+    "id": "sj_rawalmond500gmjar",
+    "name": "Raw Almond 500gm Jar",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/17a2b396-4cc0-4615-8669-e2d125cd1aaf.jpg",
+    "category": "Food",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 700.0,
+        "normalized_price": 1400.0
+      }
+    ],
+    "current_price": 700.0,
+    "normalized_price": 1400.0,
+    "unit": "500.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/raw-almond-500gm-jar/"
+  },
+  "sj_rawcashewnut400gmjar": {
+    "id": "sj_rawcashewnut400gmjar",
+    "name": "Raw Cashew Nut 400gm Jar",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/a30ffc0b-e6ee-4005-9adc-16cc460fcd83.jpg",
+    "category": "Food",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 720.0,
+        "normalized_price": 1800.0
+      }
+    ],
+    "current_price": 720.0,
+    "normalized_price": 1800.0,
+    "unit": "400.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/raw-cashew-nut-400gm-jar/"
+  },
+  "sj_roastedsaltedmixednuts500gm2jars": {
+    "id": "sj_roastedsaltedmixednuts500gm2jars",
+    "name": "Roasted & Salted Mixed Nuts \u2013 500gm \u00d7 2 Jars",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/20194c74-9258-4302-83e9-303de39c1cda.jpg",
+    "category": "Food",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 1250.0,
+        "normalized_price": 2500.0
+      }
+    ],
+    "current_price": 1250.0,
+    "normalized_price": 2500.0,
+    "unit": "500.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/roasted-salted-mixed-nuts-500gm-x-2-jars/"
+  },
+  "sj_roastedsaltedpistachio100gmjar": {
+    "id": "sj_roastedsaltedpistachio100gmjar",
+    "name": "Roasted & Salted Pistachio 100gm Jar",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/5579fda9-86e1-4908-97a9-0451fa7721bb.jpg",
+    "category": "Food",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 280.0,
+        "normalized_price": 2800.0
+      }
+    ],
+    "current_price": 280.0,
+    "normalized_price": 2800.0,
+    "unit": "100.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/roasted-salted-pistachio-100gm-jar/"
+  },
+  "sj_roastedsaltedpistachio400gmjar": {
+    "id": "sj_roastedsaltedpistachio400gmjar",
+    "name": "Roasted & Salted Pistachio 400gm Jar",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/231f3631-cd83-4ffb-87a1-54fce1353f6e.jpg",
+    "category": "Food",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 1050.0,
+        "normalized_price": 2625.0
+      }
+    ],
+    "current_price": 1050.0,
+    "normalized_price": 2625.0,
+    "unit": "400.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/roasted-salted-pistachio-400gm-jar/"
+  },
+  "sj_roastedsaltedthaipeanuts500gm1jar": {
+    "id": "sj_roastedsaltedthaipeanuts500gm1jar",
+    "name": "Roasted & Salted Thai Peanuts \u2013 500gm (1 Jar)",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/919fb23d-e85d-456b-9b9c-7d044493aad7.jpg",
+    "category": "Food",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 280.0,
+        "normalized_price": 560.0
+      }
+    ],
+    "current_price": 280.0,
+    "normalized_price": 560.0,
+    "unit": "500.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/roasted-salted-thai-peanuts-500gm-1-jar/"
+  },
+  "sj_roastedsaltedthaipeanuts500gm2jar": {
+    "id": "sj_roastedsaltedthaipeanuts500gm2jar",
+    "name": "Roasted & Salted Thai Peanuts \u2013 500gm (2 Jar)",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/d2f9c0f6-c032-4ec6-bcb3-dd997abacecf.jpg",
+    "category": "Food",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 550.0,
+        "normalized_price": 1100.0
+      }
+    ],
+    "current_price": 550.0,
+    "normalized_price": 1100.0,
+    "unit": "500.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/roasted-salted-thai-peanuts-500gm-2-jar/"
+  },
+  "sj_roastedcashewnutswithoutoil400gm1jar": {
+    "id": "sj_roastedcashewnutswithoutoil400gm1jar",
+    "name": "Roasted Cashew Nuts (Without Oil) \u2013 400gm (1 Jar)",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/b2182166-83bd-4eeb-8102-bfd94e843276.jpg",
+    "category": "Food",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 800.0,
+        "normalized_price": 2000.0
+      }
+    ],
+    "current_price": 800.0,
+    "normalized_price": 2000.0,
+    "unit": "400.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/roasted-cashew-nuts-without-oil-400gm-1-jar/"
+  },
+  "sj_roasteddeshipeanuts1kg1jar": {
+    "id": "sj_roasteddeshipeanuts1kg1jar",
+    "name": "Roasted Deshi Peanuts \u2013 1kg (1 Jar)",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/5e845057-e8d6-4676-9634-f26101169bdc.jpg",
+    "category": "Food",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 450.0,
+        "normalized_price": 450.0
+      }
+    ],
+    "current_price": 450.0,
+    "normalized_price": 450.0,
+    "unit": "1.0kg",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/roasted-deshi-peanuts-1kg-1-jar/"
+  },
+  "sj_rowseorganichoney340g": {
+    "id": "sj_rowseorganichoney340g",
+    "name": "Rowse Organic Honey (340g)",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/01/7b2d8dc9-7876-420d-876b-ab2a5cd9a41c.jpg",
+    "category": "Food",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 700.0,
+        "normalized_price": 2058.82
+      }
+    ],
+    "current_price": 700.0,
+    "normalized_price": 2058.82,
+    "unit": "340.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/rowse-organic-honey-340g/"
+  },
+  "sj_sarynaturalbeehoneyjar1kg": {
+    "id": "sj_sarynaturalbeehoneyjar1kg",
+    "name": "Sary Natural Bee Honey Jar (1 kg)",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/01/unnamed-file.jpg",
+    "category": "Food",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 1850.0,
+        "normalized_price": 1850.0
+      }
+    ],
+    "current_price": 1850.0,
+    "normalized_price": 1850.0,
+    "unit": "1.0kg",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/sary-natural-bee-honey-jar-1-kg/"
+  },
+  "sj_sarynaturalbeehoneyjar500gm": {
+    "id": "sj_sarynaturalbeehoneyjar500gm",
+    "name": "Sary Natural Bee Honey Jar 500gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/01/unnamed-1.jpg",
+    "category": "Food",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 1050.0,
+        "normalized_price": 2100.0
+      }
+    ],
+    "current_price": 1050.0,
+    "normalized_price": 2100.0,
+    "unit": "500.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/sary-natural-bee-honey-jar-500gm/"
+  },
+  "sj_sunflowerseeds400gm2jars": {
+    "id": "sj_sunflowerseeds400gm2jars",
+    "name": "Sunflower Seeds 400gm \u00d7 2 Jars",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/6ccd5ceb-a1ff-4095-9288-3a71f298003e.jpg",
+    "category": "Food",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 600.0,
+        "normalized_price": 1500.0
+      }
+    ],
+    "current_price": 600.0,
+    "normalized_price": 1500.0,
+    "unit": "400.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/sunflower-seeds-400gm-x-2-jars/"
+  },
+  "sj_sunflowerseeds400gmjar": {
+    "id": "sj_sunflowerseeds400gmjar",
+    "name": "Sunflower Seeds 400gm Jar",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/066c56e7-49e8-4031-81c8-9e8e5d20f0f4.jpg",
+    "category": "Food",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 300.0,
+        "normalized_price": 750.0
+      }
+    ],
+    "current_price": 300.0,
+    "normalized_price": 750.0,
+    "unit": "400.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/sunflower-seeds-400gm-jar/"
+  },
+  "sj_watermelonseeds500gmjar": {
+    "id": "sj_watermelonseeds500gmjar",
+    "name": "Watermelon Seeds 500gm Jar",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/d06c555a-e148-47ee-946b-c7029d81acee.jpg",
+    "category": "Food",
+    "history": [
+      {
+        "date": "2026-06-21",
+        "price": 730.0,
+        "normalized_price": 1460.0
+      }
+    ],
+    "current_price": 730.0,
+    "normalized_price": 1460.0,
+    "unit": "500.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/watermelon-seeds-500gm-jar/"
   }
 }
