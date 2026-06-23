@@ -1,17 +1,17 @@
-Last Run: 2026-06-22 12:58:26
+Last Run: 2026-06-24 00:32:13
 ------------------------------
 Total Scraped: 1700
-New Items: 1083
+New Items: 1188
 ------------------------------
 Categories:
-- Shampoo: 101
-- Socks: 53
-- Toothpaste: 46
-- Men’S Perfume: 40
-- Cookies: 37
-- Jhuri Bhaja: 31
-- Olive Oil: 28
-- Hand Wash: 28
-- Conditioner: 26
-- Body Lotion: 26
-... and 265 more.
+- Shampoo: 103
+- Whole Spice: 47
+- Chips: 46
+- Toothpaste: 44
+- Body Wash: 42
+- Socks: 38
+- Razors & Epilators: 34
+- Local Biscuit: 34
+- Cookies: 33
+- Imported Biscuit: 33
+... and 248 more.
