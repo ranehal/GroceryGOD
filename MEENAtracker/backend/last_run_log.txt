@@ -1,10 +1,10 @@
-Last Run: 2026-06-24 09:34:00
+Last Run: 2026-06-25 02:35:31
 ------------------------------
-Total Scraped: 8843
+Total Scraped: 8263
 New Items: 0
 ------------------------------
 Categories:
-- Grocery: 4020
+- Grocery: 3440
 - Personal Care: 2100
 - House Hold: 985
 - Dairy: 395
