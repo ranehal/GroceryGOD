@@ -1,6 +1,6 @@
-Last Run: 2026-06-24 01:19:37
+Last Run: 2026-06-24 09:34:00
 ------------------------------
-Total Scraped: 9053
+Total Scraped: 8843
 New Items: 0
 ------------------------------
 Categories:
@@ -10,8 +10,8 @@ Categories:
 - Dairy: 395
 - Frozen: 394
 - Kitchen Ware: 305
-- Fish: 210
 - Vegetables: 204
 - Fruits: 190
 - Apparel & Linen: 102
+- Stationery: 99
 ... and 3 more.
