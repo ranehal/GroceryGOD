@@ -1,17 +1,17 @@
-Last Run: 2026-06-29 21:33:02
+Last Run: 2026-06-30 02:31:56
 ------------------------------
-Total Scraped: 12060
+Total Scraped: 11734
 New Items: 0
 ------------------------------
 Categories:
 - Food: 750
-- Personal Care: 600
 - Hot Deals: 528
-- Cooking: 450
 - Snacks: 450
+- Cooking: 400
 - Beverages: 400
 - Home Cleaning: 377
-- Shop Now Think Later: 360
+- Personal Care: 350
+- Shop Now Think Later: 330
 - Skincare: 278
 - Candy & Chocolate: 259
 ... and 181 more.
