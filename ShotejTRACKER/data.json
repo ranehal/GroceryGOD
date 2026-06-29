@@ -33036,7 +33036,7 @@
     "id": "sj_mumsbakecocopie6x25g150g",
     "name": "Mums Bake Cocopie 6 x 25g 150g",
     "store": "shotejbazar",
-    "category": "Cookies",
+    "category": "Snacks",
     "unit": "25.0g",
     "unit_type": "kg",
     "current_price": 350.0,
@@ -33175,7 +33175,7 @@
     "id": "sj_munchysfunmixassortedbiscuits700g",
     "name": "Munchy\u2019s Funmix Assorted Biscuits 700g",
     "store": "shotejbazar",
-    "category": "Cookies",
+    "category": "Snacks",
     "unit": "700.0g",
     "unit_type": "kg",
     "current_price": 1350.0,
@@ -33314,7 +33314,7 @@
     "id": "sj_munchyslexusthesandwichcalciumcrackercheesecreambiscuits225gm",
     "name": "Munchy\u2019s Lexus The Sandwich Calcium Cracker (Cheese Cream) Biscuits 225gm",
     "store": "shotejbazar",
-    "category": "Cookies",
+    "category": "Snacks",
     "unit": "225.0gm",
     "unit_type": "kg",
     "current_price": 420.0,
@@ -33453,7 +33453,7 @@
     "id": "sj_munchyslexusthesandwichcalciumcrackerchocolatecreambiscuits225gm",
     "name": "Munchy\u2019s Lexus The Sandwich Calcium Cracker (Chocolate Cream) Biscuits 225gm",
     "store": "shotejbazar",
-    "category": "Cookies",
+    "category": "Snacks",
     "unit": "225.0gm",
     "unit_type": "kg",
     "current_price": 420.0,
@@ -33592,7 +33592,7 @@
     "id": "sj_munchystopmixassortedbiscuitstin700gm",
     "name": "Munchys Topmix Assorted Biscuits Tin 700gm",
     "store": "shotejbazar",
-    "category": "Cookies",
+    "category": "Snacks",
     "unit": "700.0gm",
     "unit_type": "kg",
     "current_price": 1350.0,
@@ -42478,7 +42478,7 @@
     "id": "sj_pringlespotatochipsoriginal149grams",
     "name": "Pringles Potato Chips Original, 149 Grams",
     "store": "shotejbazar",
-    "category": "Snacks",
+    "category": "Cookies",
     "unit": "1 unit",
     "unit_type": "kg",
     "current_price": 400.0,
@@ -46064,7 +46064,7 @@
     "id": "sj_siamfoodpiedybiscuitwithstrawberryflavouredjam400g",
     "name": "SIAM FOOD PIEDY Biscuit with Strawberry Flavoured Jam \u2013 400 g",
     "store": "shotejbazar",
-    "category": "Snacks",
+    "category": "Cookies",
     "unit": "400.0g",
     "unit_type": "kg",
     "current_price": 950.0,
@@ -46198,7 +46198,7 @@
     "id": "sj_siamfoodsbiscuitscookiesbiscuitwithstrawberryflavouredjam400g",
     "name": "SIAM FOODS Biscuits Cookies Biscuit with Strawberry flavoured Jam 400g",
     "store": "shotejbazar",
-    "category": "Snacks",
+    "category": "Cookies",
     "unit": "400.0g",
     "unit_type": "kg",
     "current_price": 950.0,
@@ -47950,7 +47950,7 @@
     "id": "sj_sunfeastdarkfantasychococremedarkcrunchwithsmoothcreme249g2775g",
     "name": "Sunfeast Dark Fantasy Choco Creme Dark Crunch with Smooth Creme, 249 g/ 277.5 g",
     "store": "shotejbazar",
-    "category": "Snacks",
+    "category": "Cookies",
     "unit": "249.0g",
     "unit_type": "kg",
     "current_price": 350.0,
@@ -48084,7 +48084,7 @@
     "id": "sj_sunfeastdarkfantasyvanillacr\u00e8me249g",
     "name": "Sunfeast Dark Fantasy Vanilla Cr\u00e8me, 249g,",
     "store": "shotejbazar",
-    "category": "Snacks",
+    "category": "Cookies",
     "unit": "249.0g",
     "unit_type": "kg",
     "current_price": 350.0,
@@ -54989,7 +54989,7 @@
     "id": "sj_yingpaicoffeenuts250g",
     "name": "Yingpai Coffee Nuts 250g",
     "store": "shotejbazar",
-    "category": "Snacks",
+    "category": "Cookies",
     "unit": "250.0g",
     "unit_type": "kg",
     "current_price": 450.0,
@@ -55588,7 +55588,7 @@
     "id": "sj_zesslemonsandwichcracker180gm",
     "name": "Zess Lemon Sandwich Cracker-180gm",
     "store": "shotejbazar",
-    "category": "Snacks",
+    "category": "Cookies",
     "unit": "180.0gm",
     "unit_type": "kg",
     "current_price": 450.0,
@@ -58442,12 +58442,12 @@
     "history": [
       {
         "date": "2026-06-29",
-        "price": 950.0,
-        "normalized_price": 9500.0
+        "price": 1050.0,
+        "normalized_price": 10500.0
       }
     ],
-    "current_price": 950.0,
-    "normalized_price": 9500.0,
+    "current_price": 1050.0,
+    "normalized_price": 10500.0,
     "unit": "100.0g",
     "unit_type": "kg",
     "url": "https://shotejbazar.com/product/davidoff-coffee-origins-asia-100g/"
@@ -58499,12 +58499,12 @@
     "history": [
       {
         "date": "2026-06-29",
-        "price": 950.0,
-        "normalized_price": 9500.0
+        "price": 1050.0,
+        "normalized_price": 10500.0
       }
     ],
-    "current_price": 950.0,
-    "normalized_price": 9500.0,
+    "current_price": 1050.0,
+    "normalized_price": 10500.0,
     "unit": "100.0g",
     "unit_type": "kg",
     "url": "https://shotejbazar.com/product/davidoff-origins-brazil-rich-balanced-instant-coffee-100g/"
@@ -58556,12 +58556,12 @@
     "history": [
       {
         "date": "2026-06-29",
-        "price": 1850.0,
-        "normalized_price": 9736.84
+        "price": 2450.0,
+        "normalized_price": 12894.74
       }
     ],
-    "current_price": 1850.0,
-    "normalized_price": 9736.84,
+    "current_price": 2450.0,
+    "normalized_price": 12894.74,
     "unit": "190.0g",
     "unit_type": "kg",
     "url": "https://shotejbazar.com/product/douwe-egberts-pure-gold-coffee-190g/"
@@ -58575,12 +58575,12 @@
     "history": [
       {
         "date": "2026-06-29",
-        "price": 1850.0,
-        "normalized_price": 9736.84
+        "price": 2450.0,
+        "normalized_price": 12894.74
       }
     ],
-    "current_price": 1850.0,
-    "normalized_price": 9736.84,
+    "current_price": 2450.0,
+    "normalized_price": 12894.74,
     "unit": "190.0g",
     "unit_type": "kg",
     "url": "https://shotejbazar.com/product/douwe-egberts-pure-indulgence-dark-roast-instant-coffee-190g/"
@@ -58641,708 +58641,5 @@
     "unit": "1 unit",
     "unit_type": "piece",
     "url": "https://shotejbazar.com/product/green-tea-apple-pear-20-tea-bags/"
-  },
-  "sj_kitkathotchocolatedrinkmalaysia10sachet": {
-    "id": "sj_kitkathotchocolatedrinkmalaysia10sachet",
-    "name": "Kitkat Hot Chocolate Drink Malaysia \u2013 10 sachet",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/76.png",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-06-29",
-        "price": 1050.0,
-        "normalized_price": 1050.0
-      }
-    ],
-    "current_price": 1050.0,
-    "normalized_price": 1050.0,
-    "unit": "1 unit",
-    "unit_type": "piece",
-    "url": "https://shotejbazar.com/product/kitkat-hot-chocolate-drink-malaysia-10-sachet/"
-  },
-  "sj_kojiesanlighteningcream30g": {
-    "id": "sj_kojiesanlighteningcream30g",
-    "name": "Kojie San Lightening Cream 30g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/01/615414161_923311443563214_5650455419861984381_n.jpg",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-06-29",
-        "price": 650.0,
-        "normalized_price": 21666.67
-      }
-    ],
-    "current_price": 650.0,
-    "normalized_price": 21666.67,
-    "unit": "30.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/kojie-san-lightening-cream-30g/"
-  },
-  "sj_msfairtradegolddecafinstantcoffee200g": {
-    "id": "sj_msfairtradegolddecafinstantcoffee200g",
-    "name": "M&S Fairtrade Gold Decaf Instant Coffee 200g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2023/11/21.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-06-29",
-        "price": 2150.0,
-        "normalized_price": 10750.0
-      }
-    ],
-    "current_price": 2150.0,
-    "normalized_price": 10750.0,
-    "unit": "200.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/ms-fairtrade-gold-decaf-instant-coffee-200g/"
-  },
-  "sj_msfairtradegoldinstantcoffee200g": {
-    "id": "sj_msfairtradegoldinstantcoffee200g",
-    "name": "M&S Fairtrade Gold Instant Coffee 200g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2023/11/22.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-06-29",
-        "price": 2150.0,
-        "normalized_price": 10750.0
-      }
-    ],
-    "current_price": 2150.0,
-    "normalized_price": 10750.0,
-    "unit": "200.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/ms-fairtrade-gold-instant-coffee-200g/"
-  },
-  "sj_msfairtradeitalianstyleinstantcoffee200g": {
-    "id": "sj_msfairtradeitalianstyleinstantcoffee200g",
-    "name": "M&S Fairtrade Italian Style Instant Coffee 200g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2023/11/23.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-06-29",
-        "price": 2150.0,
-        "normalized_price": 10750.0
-      }
-    ],
-    "current_price": 2150.0,
-    "normalized_price": 10750.0,
-    "unit": "200.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/ms-fairtrade-italian-style-instant-coffee-200g/"
-  },
-  "sj_maltesershotchocolatedrinkjar350g": {
-    "id": "sj_maltesershotchocolatedrinkjar350g",
-    "name": "Maltesers Hot Chocolate Drink Jar 350 g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2023/11/24.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-06-29",
-        "price": 1450.0,
-        "normalized_price": 4142.86
-      }
-    ],
-    "current_price": 1450.0,
-    "normalized_price": 4142.86,
-    "unit": "350.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/maltesers-hot-chocolate-drink-jar-350-g/"
-  },
-  "sj_maneecoffeeflavoursjuicedietarysupplemen1packet30sachets": {
-    "id": "sj_maneecoffeeflavoursjuicedietarysupplemen1packet30sachets",
-    "name": "Manee Coffee Flavour S Juice Dietary Supplemen 1 packet \u2013 30 sachets",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/b0b04064-7507-4a5d-a724-3c9fe8a5d15d.jpg",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-06-29",
-        "price": 1250.0,
-        "normalized_price": 1250.0
-      }
-    ],
-    "current_price": 1250.0,
-    "normalized_price": 1250.0,
-    "unit": "1 unit",
-    "unit_type": "piece",
-    "url": "https://shotejbazar.com/product/manee-coffee-flavour-s-juice-dietary-supplemen-1-packet-30-sachets/"
-  },
-  "sj_nescafe3in1hazelnutcoffee15sticks": {
-    "id": "sj_nescafe3in1hazelnutcoffee15sticks",
-    "name": "Nescafe 3 In 1 Hazelnut Coffee 15 sticks",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2023/11/nescafe-hezalnut.jpeg",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-06-29",
-        "price": 950.0,
-        "normalized_price": 950.0
-      }
-    ],
-    "current_price": 950.0,
-    "normalized_price": 950.0,
-    "unit": "1 unit",
-    "unit_type": "piece",
-    "url": "https://shotejbazar.com/product/nescafe-3-in-1-hazelnut-coffee-mix-stick-24g-pack-of-20/"
-  },
-  "sj_nescafe3in1lattemocha15sticks": {
-    "id": "sj_nescafe3in1lattemocha15sticks",
-    "name": "Nescafe 3 In 1 Latte Mocha 15 sticks",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2023/11/38.png",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-06-29",
-        "price": 850.0,
-        "normalized_price": 850.0
-      }
-    ],
-    "current_price": 850.0,
-    "normalized_price": 850.0,
-    "unit": "1 unit",
-    "unit_type": "piece",
-    "url": "https://shotejbazar.com/product/nescafe-3-in-1-latte-mocha-15-sticks/"
-  },
-  "sj_nescafecappuccinoinstantcoffee8sachets8perpack124g": {
-    "id": "sj_nescafecappuccinoinstantcoffee8sachets8perpack124g",
-    "name": "Nescafe Cappuccino Instant Coffee 8 Sachets 8 per pack 124g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2023/11/39.png",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-06-29",
-        "price": 650.0,
-        "normalized_price": 5241.94
-      }
-    ],
-    "current_price": 650.0,
-    "normalized_price": 5241.94,
-    "unit": "124.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/nescafe-cappuccino-instant-coffee-8-sachets-8-per-pack-124g/"
-  },
-  "sj_nescaf\u00e9caramellattecoffee8packs": {
-    "id": "sj_nescaf\u00e9caramellattecoffee8packs",
-    "name": "Nescaf\u00e9 Caramel Latte Coffee /8 packs",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2023/11/40.png",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-06-29",
-        "price": 650.0,
-        "normalized_price": 650.0
-      }
-    ],
-    "current_price": 650.0,
-    "normalized_price": 650.0,
-    "unit": "1 unit",
-    "unit_type": "piece",
-    "url": "https://shotejbazar.com/product/nescafe-caramel-latte-coffee-8-packs/"
-  },
-  "sj_nescafeclassicjarjar210gm": {
-    "id": "sj_nescafeclassicjarjar210gm",
-    "name": "Nescafe Classic Jar JAR 210 gm",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2023/11/41.png",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-06-29",
-        "price": 950.0,
-        "normalized_price": 4523.81
-      }
-    ],
-    "current_price": 950.0,
-    "normalized_price": 4523.81,
-    "unit": "210.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/nescafe-classic-jar-jar-210gm/"
-  },
-  "sj_nescafegoldcappuccinounsweetenedinstantcoffee8xsachets": {
-    "id": "sj_nescafegoldcappuccinounsweetenedinstantcoffee8xsachets",
-    "name": "Nescafe Gold Cappuccino Unsweetened Instant Coffee 8 x Sachets",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/25-2.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-06-29",
-        "price": 650.0,
-        "normalized_price": 650.0
-      }
-    ],
-    "current_price": 650.0,
-    "normalized_price": 650.0,
-    "unit": "1 unit",
-    "unit_type": "piece",
-    "url": "https://shotejbazar.com/product/nescafe-gold-cappuccino-unsweetened-instant-coffee-8-x-sachets/"
-  },
-  "sj_nescafegoldcoffee190gm": {
-    "id": "sj_nescafegoldcoffee190gm",
-    "name": "Nescafe Gold Coffee 190gm",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/26-2.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-06-29",
-        "price": 1580.0,
-        "normalized_price": 8315.79
-      }
-    ],
-    "current_price": 1580.0,
-    "normalized_price": 8315.79,
-    "unit": "190.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/gold-cofee-190-gm/"
-  },
-  "sj_nescaf\u00e9instantdoublechocmocha8sachets": {
-    "id": "sj_nescaf\u00e9instantdoublechocmocha8sachets",
-    "name": "Nescaf\u00e9 Instant Double Choc Mocha \u2013 8 sachets",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/27-1.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-06-29",
-        "price": 650.0,
-        "normalized_price": 650.0
-      }
-    ],
-    "current_price": 650.0,
-    "normalized_price": 650.0,
-    "unit": "1 unit",
-    "unit_type": "piece",
-    "url": "https://shotejbazar.com/product/nescafe-instant-double-choc-mocha-8-sachets/"
-  },
-  "sj_nescafelatteinstantcoffee8sachets6x144g": {
-    "id": "sj_nescafelatteinstantcoffee8sachets6x144g",
-    "name": "Nescafe Latte Instant Coffee 8 Sachets 6 x 144g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/Nescafe-Latte-Instant-Coffee-8-Sachets-6-x-144g.png",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-06-29",
-        "price": 650.0,
-        "normalized_price": 4513.89
-      }
-    ],
-    "current_price": 650.0,
-    "normalized_price": 4513.89,
-    "unit": "144.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/nescafe-latte-instant-coffee-8-sachets-6-x-144g/"
-  },
-  "sj_nescafelattevanillacookiedough1365g": {
-    "id": "sj_nescafelattevanillacookiedough1365g",
-    "name": "Nescafe Latte Vanilla Cookie Dough 136.5g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/28-2.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-06-29",
-        "price": 650.0,
-        "normalized_price": 4761.9
-      }
-    ],
-    "current_price": 650.0,
-    "normalized_price": 4761.9,
-    "unit": "136.5g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/nescafe-latte-vanilla-cookie-dough-136-5g/"
-  },
-  "sj_nescafemildsmoothlattecaramelcoffee20sticks": {
-    "id": "sj_nescafemildsmoothlattecaramelcoffee20sticks",
-    "name": "Nescafe Mild & Smooth, Latte Caramel, Coffee, 20 sticks",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/29-2.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-06-29",
-        "price": 950.0,
-        "normalized_price": 950.0
-      }
-    ],
-    "current_price": 950.0,
-    "normalized_price": 950.0,
-    "unit": "1 unit",
-    "unit_type": "piece",
-    "url": "https://shotejbazar.com/product/nescafe-mild-smooth-latte-caramel-coffee-20-sticks/"
-  },
-  "sj_nescafestickytoffeepuddinglatteinstantcoffeesachets7per": {
-    "id": "sj_nescafestickytoffeepuddinglatteinstantcoffeesachets7per",
-    "name": "Nescafe Sticky Toffee Pudding Latte Instant Coffee Sachets 7 Per",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/30-2.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-06-29",
-        "price": 650.0,
-        "normalized_price": 650.0
-      }
-    ],
-    "current_price": 650.0,
-    "normalized_price": 650.0,
-    "unit": "1 unit",
-    "unit_type": "piece",
-    "url": "https://shotejbazar.com/product/nescafe-sticky-toffee-pudding-latte-instant-coffee-sachets-7-per/"
-  },
-  "sj_nescafevanillalattecoffeesachets26pack": {
-    "id": "sj_nescafevanillalattecoffeesachets26pack",
-    "name": "Nescafe Vanilla Latte Coffee Sachets 26 Pack",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/31-2.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-06-29",
-        "price": 650.0,
-        "normalized_price": 650.0
-      }
-    ],
-    "current_price": 650.0,
-    "normalized_price": 650.0,
-    "unit": "1 unit",
-    "unit_type": "piece",
-    "url": "https://shotejbazar.com/product/nescafe-vanilla-latte-coffee-sachets-26-pack/"
-  },
-  "sj_nestlecoffeematecoffeecreamerjar400gm": {
-    "id": "sj_nestlecoffeematecoffeecreamerjar400gm",
-    "name": "Nestle Coffee Mate Coffee Creamer Jar 400gm",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/32-2.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-06-29",
-        "price": 450.0,
-        "normalized_price": 1125.0
-      }
-    ],
-    "current_price": 450.0,
-    "normalized_price": 1125.0,
-    "unit": "400.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/nestle-coffee-mate-coffee-creamer-jar-400gm/"
-  },
-  "sj_nestlenescafe3in1aromaticandbalanced25stick": {
-    "id": "sj_nestlenescafe3in1aromaticandbalanced25stick",
-    "name": "Nestle Nescafe 3 in 1 Aromatic and balanced 25 Stick",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/33.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-06-29",
-        "price": 950.0,
-        "normalized_price": 950.0
-      }
-    ],
-    "current_price": 950.0,
-    "normalized_price": 950.0,
-    "unit": "1 unit",
-    "unit_type": "piece",
-    "url": "https://shotejbazar.com/product/nestle-nescafe-3-in-1-aromatic-and-balanced-25-stick/"
-  },
-  "sj_oldtowninstantwhitecoffeewithnaturalcanesugar1packet38gmar15stick": {
-    "id": "sj_oldtowninstantwhitecoffeewithnaturalcanesugar1packet38gmar15stick",
-    "name": "Old Town Instant White Coffee with Natural Cane Sugar 1 Packet 38 gm ar 15 Stick",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/34.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-06-29",
-        "price": 1050.0,
-        "normalized_price": 27631.58
-      }
-    ],
-    "current_price": 1050.0,
-    "normalized_price": 27631.58,
-    "unit": "38.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/old-town-instant-white-coffee-with-natural-cane-sugar-1-packet-38-gm-ar-15-stick/"
-  },
-  "sj_oldtownwhitecoffeeclassicinstantcoffee1packet25gmar15stick": {
-    "id": "sj_oldtownwhitecoffeeclassicinstantcoffee1packet25gmar15stick",
-    "name": "OLD TOWN WHITE COFFEE Classic INSTANT COFFEE 1 Packet 25 gm ar 15 Stick",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/35.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-06-29",
-        "price": 1050.0,
-        "normalized_price": 42000.0
-      }
-    ],
-    "current_price": 1050.0,
-    "normalized_price": 42000.0,
-    "unit": "25.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/old-town-white-coffee-classic-instant-coffee-1-packet-25-gm-ar-15-stick/"
-  },
-  "sj_oldtownwhitecoffeecoffeecreamer2in1instantpremixwhitecoffeepacket15x25g375g": {
-    "id": "sj_oldtownwhitecoffeecoffeecreamer2in1instantpremixwhitecoffeepacket15x25g375g",
-    "name": "Old Town White Coffee, Coffee & Creamer 2 in 1 Instant Premix White Coffee Packet ( 15 X 25g ), 375g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/36.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-06-29",
-        "price": 1050.0,
-        "normalized_price": 42000.0
-      }
-    ],
-    "current_price": 1050.0,
-    "normalized_price": 42000.0,
-    "unit": "25.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/old-town-white-coffee-coffee-creamer-2-in-1-instant-premix-white-coffee-packet-15-x-25g-375g/"
-  },
-  "sj_oldtownwhitecoffee30lesssugar525g": {
-    "id": "sj_oldtownwhitecoffee30lesssugar525g",
-    "name": "OldTown White Coffee 30% Less Sugar 525g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/37-1.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-06-29",
-        "price": 1050.0,
-        "normalized_price": 2000.0
-      }
-    ],
-    "current_price": 1050.0,
-    "normalized_price": 2000.0,
-    "unit": "525.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/oldtown-white-coffee-30-less-sugar-525g/"
-  },
-  "sj_oldtownwhitecoffee3in1hazelnutinstantcoffee38gx15sticks570gm": {
-    "id": "sj_oldtownwhitecoffee3in1hazelnutinstantcoffee38gx15sticks570gm",
-    "name": "OLDTOWN White Coffee 3in1 Hazelnut Instant Coffee (38g x 15 sticks) \u2013 570gm",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/38-1.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-06-29",
-        "price": 1050.0,
-        "normalized_price": 1842.11
-      }
-    ],
-    "current_price": 1050.0,
-    "normalized_price": 1842.11,
-    "unit": "38g x 15",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/oldtown-white-coffee-3in1-hazelnut-instant-coffee-38g-x-15-sticks-570gm/"
-  },
-  "sj_oldtownwhitemilkteainstantteamix455g": {
-    "id": "sj_oldtownwhitemilkteainstantteamix455g",
-    "name": "OldTown White Milk Tea Instant Tea Mix 455g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/39-1.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-06-29",
-        "price": 900.0,
-        "normalized_price": 1978.02
-      }
-    ],
-    "current_price": 900.0,
-    "normalized_price": 1978.02,
-    "unit": "455.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/oldtown-white-milk-tea-instant-tea-mix-455g/"
-  },
-  "sj_starbuckspremiuminstantcinnamondolcelatte1175gram5235g": {
-    "id": "sj_starbuckspremiuminstantcinnamondolcelatte1175gram5235g",
-    "name": "Starbucks Premium Instant Cinnamon Dolce Latte-117.5 gram (5\u00d723.5g)",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/40-1.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-06-29",
-        "price": 650.0,
-        "normalized_price": 27659.57
-      }
-    ],
-    "current_price": 650.0,
-    "normalized_price": 27659.57,
-    "unit": "23.5g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/starbucks-premium-instant-cinnamon-dolce-latte-117-5-gram-5x23-5g/"
-  },
-  "sj_starbuckspremiuminstantwhitemochaindulgentrich120gram5x24g": {
-    "id": "sj_starbuckspremiuminstantwhitemochaindulgentrich120gram5x24g",
-    "name": "Starbucks Premium Instant White Mocha Indulgent & Rich-120 gram (5x24g)",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/41-1.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-06-29",
-        "price": 650.0,
-        "normalized_price": 27083.33
-      }
-    ],
-    "current_price": 650.0,
-    "normalized_price": 27083.33,
-    "unit": "24.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/starbucks-premium-instant-white-mocha-indulgent-rich-120-gram-5x24g/"
-  },
-  "sj_starbuckstoffeenutlattepremiuminstantcoffee4sticksperbox": {
-    "id": "sj_starbuckstoffeenutlattepremiuminstantcoffee4sticksperbox",
-    "name": "Starbucks\u00ae Toffee Nut Latte Premium Instant Coffee (4 Sticks Per Box)",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/42-1.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-06-29",
-        "price": 650.0,
-        "normalized_price": 650.0
-      }
-    ],
-    "current_price": 650.0,
-    "normalized_price": 650.0,
-    "unit": "1 unit",
-    "unit_type": "piece",
-    "url": "https://shotejbazar.com/product/starbucks-toffee-nut-latte-premium-instant-coffee-4-sticks-per-box/"
-  },
-  "sj_tescogoldinstantcoffee200g": {
-    "id": "sj_tescogoldinstantcoffee200g",
-    "name": "Tesco Gold Instant Coffee 200G",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/43-1.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-06-29",
-        "price": 1450.0,
-        "normalized_price": 7250.0
-      }
-    ],
-    "current_price": 1450.0,
-    "normalized_price": 7250.0,
-    "unit": "200.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/tesco-gold-instant-coffee-200g/"
-  },
-  "sj_torabikacappuccinonoaddedsugarinstantcoffee20x125gpackof1": {
-    "id": "sj_torabikacappuccinonoaddedsugarinstantcoffee20x125gpackof1",
-    "name": "ToraBika Cappuccino No Added Sugar Instant Coffee,20 x12.5 g, Pack of 1",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/44-1.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-06-29",
-        "price": 650.0,
-        "normalized_price": 52000.0
-      }
-    ],
-    "current_price": 650.0,
-    "normalized_price": 52000.0,
-    "unit": "12.5g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/torabika-cappuccino-no-added-sugar-instant-coffee20-x12-5-g-pack-of-1/"
-  },
-  "sj_truslencoffeeplusslimmingcoffee": {
-    "id": "sj_truslencoffeeplusslimmingcoffee",
-    "name": "Truslen Coffee Plus Slimming Coffee",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/45.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-06-29",
-        "price": 800.0,
-        "normalized_price": 800.0
-      }
-    ],
-    "current_price": 800.0,
-    "normalized_price": 800.0,
-    "unit": "1 unit",
-    "unit_type": "piece",
-    "url": "https://shotejbazar.com/product/truslen-coffee-plus/"
-  },
-  "sj_truslencoffeepluscollagenslimmingcoffee": {
-    "id": "sj_truslencoffeepluscollagenslimmingcoffee",
-    "name": "Truslen Coffee Plus Collagen Slimming Coffee",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/46.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-06-29",
-        "price": 800.0,
-        "normalized_price": 800.0
-      }
-    ],
-    "current_price": 800.0,
-    "normalized_price": 800.0,
-    "unit": "1 unit",
-    "unit_type": "piece",
-    "url": "https://shotejbazar.com/product/asda-gold-roast-decaf-rice-smooth-coffee-200g/"
-  },
-  "sj_twiningsmintgreentea20bags": {
-    "id": "sj_twiningsmintgreentea20bags",
-    "name": "Twinings Mint Green Tea 20 Bags",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/44.png",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-06-29",
-        "price": 450.0,
-        "normalized_price": 450.0
-      }
-    ],
-    "current_price": 450.0,
-    "normalized_price": 450.0,
-    "unit": "1 unit",
-    "unit_type": "piece",
-    "url": "https://shotejbazar.com/product/twinings-mint-green-tea-20-bags/"
-  },
-  "sj_twiningspuregreentea20bags": {
-    "id": "sj_twiningspuregreentea20bags",
-    "name": "Twinings Pure Green Tea 20 Bags",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/45.png",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-06-29",
-        "price": 450.0,
-        "normalized_price": 450.0
-      }
-    ],
-    "current_price": 450.0,
-    "normalized_price": 450.0,
-    "unit": "1 unit",
-    "unit_type": "piece",
-    "url": "https://shotejbazar.com/product/twinings-pure-green-tea-20-bags/"
   }
 }
