@@ -1,16 +1,16 @@
-Last Run: 2026-07-01 04:27:10
+Last Run: 2026-07-01 14:49:44
 ------------------------------
-Total Scraped: 846
+Total Scraped: 830
 New Items: 0
 ------------------------------
 Categories:
-- Dairy: 317
-- Snacks: 317
-- Food & Grocery: 93
+- Dairy: 311
+- Snacks: 311
+- Food & Grocery: 92
 - Beverage: 42
 - Electric & Electronics: 31
 - Household & Cleaning: 24
-- Grains & Commodities: 14
+- Grains & Commodities: 11
 - Baby Items & Care: 3
 - Office & Stationary: 3
 - Home & Kitchen: 1

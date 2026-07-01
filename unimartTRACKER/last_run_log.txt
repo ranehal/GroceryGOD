@@ -1,17 +1,17 @@
-Last Run: 2026-07-01 04:18:26
+Last Run: 2026-07-01 14:45:12
 ------------------------------
 Total Scraped: 1700
-New Items: 1123
+New Items: 1192
 ------------------------------
 Categories:
-- Shampoo: 111
-- Toothpaste: 52
-- Socks: 43
-- Body Wash: 42
-- Razors & Epilators: 35
-- Cookies: 35
-- Men’S Perfume: 34
-- Hand Wash: 32
-- Imported Biscuit: 29
-- Chocolate Bar: 29
-... and 259 more.
+- Shampoo: 99
+- Whole Spice: 82
+- Local Biscuit: 41
+- Chips: 38
+- Grinded Spice: 38
+- Imported Biscuit: 35
+- Razors & Epilators: 34
+- Body Wash: 34
+- Feeding Accessories Kit: 33
+- Cookies: 30
+... and 240 more.
