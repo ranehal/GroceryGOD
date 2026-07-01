@@ -1,7 +1,7 @@
-Last Run: 2026-07-01 02:44:35
+Last Run: 2026-07-01 06:07:21
 ------------------------------
-Total Scraped: 85363
-New Items: 532
+Total Scraped: 83976
+New Items: 9
 ------------------------------
 Categories:
 - daily-bazar: 800
@@ -14,4 +14,4 @@ Categories:
 - speaker: 800
 - cable-hub: 800
 - gadgets: 800
-... and 365 more.
+... and 364 more.
