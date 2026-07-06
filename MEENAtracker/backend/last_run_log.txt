@@ -9,6 +9,7 @@ Categories:
 - Dairy: 396
 - Frozen: 394
 - Kitchen Ware: 305
+- Fish: 210
 - Vegetables: 203
 - Fruits: 188
 - Personal Care: 160
