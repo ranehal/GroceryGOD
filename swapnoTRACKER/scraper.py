@@ -85,9 +85,6 @@ DHAKA_TZ = timezone(timedelta(hours=6))
 import os
 from datetime import timezone, timedelta
 DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
 from datetime import datetime, date, timezone, timedelta
 import asyncio
 from collections import Counter
@@ -187,6 +184,94 @@ def normalize_unit(name, price_str):
                 
     return quantity_display, round(norm_price, 2), unit_type
 
+def parse_price_value(text):
+    match = re.search(r'(\d+(?:,\d{3})*(?:\.\d+)?)', str(text or '').replace('৳', ''))
+    return float(match.group(1).replace(',', '')) if match else None
+
+async def extract_price_info(item):
+    """Extract Shwapno current/original prices without treating striked prices as current."""
+    price_info = await item.evaluate("""card => {
+        const normalize = text => {
+            const match = String(text || '').replace(/,/g, '').match(/(\\d+(?:\\.\\d+)?)/);
+            return match ? Number(match[1]) : null;
+        };
+        const textOf = el => (el?.innerText || el?.textContent || '').trim();
+
+        // --- MINIMAL FIX ADDED HERE ---
+        // Explicitly look for the '.active-price' class you provided first. 
+        const exactActiveNode = card.querySelector('.active-price');
+        if (exactActiveNode) {
+            const current = normalize(textOf(exactActiveNode));
+            if (current) {
+                // If we found the active price, look for the old striked price
+                const oldNode = card.querySelector('del, s, strike, [class*="old" i], [class*="line-through" i]');
+                const original = oldNode ? normalize(textOf(oldNode)) : null;
+                
+                // Check for discount badge
+                const discountNode = card.querySelector('[class*="discount" i], [class*="save" i]');
+                const discount = discountNode ? textOf(discountNode) : ((original && original > current) ? `${Math.round(((original - current) / original) * 100)}%` : null);
+                
+                return { current, original: (original > current) ? original : null, discount, candidates: ['exact-active-price'] };
+            }
+        }
+        // ------------------------------
+
+        // Fallback to original fuzzy logic for pages/cards that don't use .active-price
+        const isOldPrice = el => {
+            const text = [
+                el.tagName,
+                el.className || '',
+                el.getAttribute('aria-label') || '',
+                el.getAttribute('data-testid') || '',
+                el.closest('del,s,strike,[class*="old" i],[class*="regular" i],[class*="original" i],[class*="strike" i],[class*="line-through" i]') ? 'old' : ''
+            ].join(' ').toLowerCase();
+            const style = window.getComputedStyle(el);
+            return text.includes('old') || text.includes('regular') || text.includes('original') ||
+                text.includes('strike') || text.includes('line-through') || style.textDecorationLine.includes('line-through');
+        };
+        const isCurrentHint = el => {
+            const text = [
+                el.tagName,
+                el.className || '',
+                el.getAttribute('aria-label') || '',
+                el.getAttribute('data-testid') || '',
+                textOf(el.parentElement),
+                textOf(el.closest('[class*="price" i]'))
+            ].join(' ').toLowerCase();
+            return /current|selling|sale|discount|offer|special|deal|now/.test(text);
+        };
+        const nodes = [...card.querySelectorAll('[class*="price" i], [data-testid*="price" i], del, s, strike')];
+        const candidates = nodes.map(el => ({
+            value: normalize(textOf(el)),
+            text: textOf(el),
+            old: isOldPrice(el),
+            cls: String(el.className || ''),
+            currentHint: isCurrentHint(el)
+        })).filter(x => x.value !== null && x.value > 0);
+        
+        const currentCandidates = candidates.filter(x => !x.old);
+        const oldCandidates = candidates.filter(x => x.old);
+        let current = null;
+        if (currentCandidates.length) {
+            const active = currentCandidates.find(x => x.currentHint || /active|current|discount|sale|special/i.test(x.cls));
+            current = active ? active.value : Math.min(...currentCandidates.map(x => x.value));
+        }
+        if (current === null) {
+            return { current: null, original: null, discount: null, candidates };
+        }
+        const originalPool = oldCandidates.length ? oldCandidates : candidates.filter(x => x.value > current);
+        const original = originalPool.length ? Math.max(...originalPool.map(x => x.value)) : null;
+        const discountNode = card.querySelector('[class*="discount" i], [class*="save" i], [data-testid*="discount" i]');
+        const discountText = discountNode ? textOf(discountNode) : '';
+        const discount = discountText || (original && original > current ? `${Math.round(((original - current) / original) * 100)}%` : null);
+        return { current, original: original && original > current ? original : null, discount, candidates };
+    }""")
+    current = price_info.get('current')
+    if current is None:
+        logger.warning("Price extraction failed. Candidates: %s", price_info.get('candidates'))
+        return None
+    return price_info
+
 async def self_scrape_items(page, container_selector, category, current_data, today_str, summary, is_pinned=False):
     container = await page.query_selector(container_selector) or page
     items = await container.query_selector_all('.product-box, div[class*="product-grid-item"], .product-item-info')
@@ -203,12 +288,15 @@ async def self_scrape_items(page, container_selector, category, current_data, to
             img_el = await item.query_selector('img')
             img_src = await img_el.get_attribute('src') if img_el else ""
             
-            price_el = await item.query_selector('.active-price, .price, span[class*="price"]')
-            if not price_el: continue
-            price_text = await price_el.inner_text()
-            current_price = float(re.sub(r'[^\d.]', '', price_text))
+            price_info = await extract_price_info(item)
+            if not price_info:
+                logger.warning(f"    [!] Missing current price for: {name}")
+                continue
+            current_price = float(price_info['current'])
+            original_price = price_info.get('original')
+            discount = price_info.get('discount')
             
-            qty_disp, norm_price, unit_type = normalize_unit(name, price_text)
+            qty_disp, norm_price, unit_type = normalize_unit(name, str(current_price))
             prod_id = re.sub(r'\W+', '', name).lower()
             
             summary['total'] += 1
@@ -223,16 +311,20 @@ async def self_scrape_items(page, container_selector, category, current_data, to
             
             current_data[prod_id].update({
                 "current_price": current_price, "normalized_price": norm_price,
+                "original_price": original_price, "discount": discount,
                 "unit": qty_disp, "unit_type": unit_type, "image": img_src, "url": product_url
             })
             
             history = current_data[prod_id]["history"]
             if not history or history[-1]['date'] != today_str:
-                 history.append({"date": today_str, "price": current_price, "normalized_price": norm_price})
+                 history.append({"date": today_str, "price": current_price, "normalized_price": norm_price, "original_price": original_price, "discount": discount})
             elif history[-1]['date'] == today_str:
                 history[-1]['price'] = current_price
                 history[-1]['normalized_price'] = norm_price
-        except: pass
+                history[-1]['original_price'] = original_price
+                history[-1]['discount'] = discount
+        except Exception as e:
+            logger.warning(f"    [!] Failed item parse: {e}")
 
 async def scrape_category(sem, browser, category, current_data, summary, pinned_names=[]):
     async with sem:
