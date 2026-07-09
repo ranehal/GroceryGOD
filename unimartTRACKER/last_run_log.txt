@@ -1,17 +1,17 @@
-Last Run: 2026-07-09 04:12:09
+Last Run: 2026-07-10 04:07:56
 ------------------------------
-Total Scraped: 1700
-New Items: 1146
+Total Scraped: 1254
+New Items: 517
 ------------------------------
 Categories:
-- Shampoo: 110
-- Toothpaste: 57
-- Socks: 57
-- Body Wash: 42
-- Cookies: 39
-- Chocolate Bar: 37
-- Hand Wash: 36
-- Razors & Epilators: 35
-- Men’S Perfume: 32
-- Imported Biscuit: 31
-... and 255 more.
+- Shampoo: 61
+- Instant Noodles: 35
+- Whole Spice: 34
+- Malted / Chocolate Drinks: 28
+- Hand Wash: 27
+- Face Cream: 25
+- Local Biscuit: 24
+- Chocolate Bar: 23
+- Jhuri Bhaja: 22
+- Aaa Batteries: 22
+... and 180 more.

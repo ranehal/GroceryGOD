@@ -18521,7 +18521,7 @@
     "id": "sj_dulalchandrabharspalmcandyorganicpalmcandy200gm",
     "name": "Dulal Chandra Bhar\u2019s Palm Candy Organic Palm Candy 200 Gm",
     "store": "shotejbazar",
-    "category": "Chocolate",
+    "category": "Food",
     "unit": "200.0gm",
     "unit_type": "kg",
     "current_price": 150.0,
@@ -28652,7 +28652,7 @@
     "id": "sj_kitkathotchocolatedrinkmalaysia10sachet",
     "name": "Kitkat Hot Chocolate Drink Malaysia \u2013 10 sachet",
     "store": "shotejbazar",
-    "category": "Chocolate",
+    "category": "Coffee",
     "unit": "1 unit",
     "unit_type": "kg",
     "current_price": 1050.0,
@@ -28786,6 +28786,11 @@
       },
       {
         "date": "2026-07-01",
+        "price": 1050.0,
+        "normalized_price": 1050.0
+      },
+      {
+        "date": "2026-07-08",
         "price": 1050.0,
         "normalized_price": 1050.0
       }
@@ -32974,7 +32979,7 @@
     "id": "sj_maltesershotchocolatedrinkjar350g",
     "name": "Maltesers Hot Chocolate Drink Jar 350 g",
     "store": "shotejbazar",
-    "category": "Chocolate",
+    "category": "Coffee",
     "unit": "350.0g",
     "unit_type": "kg",
     "current_price": 1450.0,
@@ -33103,6 +33108,11 @@
       },
       {
         "date": "2026-07-01",
+        "price": 1450.0,
+        "normalized_price": 4142.857142857143
+      },
+      {
+        "date": "2026-07-08",
         "price": 1450.0,
         "normalized_price": 4142.857142857143
       }
@@ -33246,6 +33256,11 @@
       },
       {
         "date": "2026-07-01",
+        "price": 1250.0,
+        "normalized_price": 1250.0
+      },
+      {
+        "date": "2026-07-08",
         "price": 1250.0,
         "normalized_price": 1250.0
       }
@@ -35826,6 +35841,11 @@
         "date": "2026-07-06",
         "price": 350.0,
         "normalized_price": 3500.0
+      },
+      {
+        "date": "2026-07-08",
+        "price": 350.0,
+        "normalized_price": 3500.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -36157,6 +36177,11 @@
       },
       {
         "date": "2026-07-06",
+        "price": 350.0,
+        "normalized_price": 2800.0
+      },
+      {
+        "date": "2026-07-08",
         "price": 350.0,
         "normalized_price": 2800.0
       }
@@ -37200,6 +37225,11 @@
         "date": "2026-07-01",
         "price": 2500.0,
         "normalized_price": 12500.0
+      },
+      {
+        "date": "2026-07-08",
+        "price": 2500.0,
+        "normalized_price": 12500.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -37327,6 +37357,11 @@
       },
       {
         "date": "2026-07-01",
+        "price": 2500.0,
+        "normalized_price": 12500.0
+      },
+      {
+        "date": "2026-07-08",
         "price": 2500.0,
         "normalized_price": 12500.0
       }
@@ -37458,6 +37493,11 @@
         "date": "2026-07-01",
         "price": 2500.0,
         "normalized_price": 12500.0
+      },
+      {
+        "date": "2026-07-08",
+        "price": 2500.0,
+        "normalized_price": 12500.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -37466,7 +37506,7 @@
     "id": "sj_mumsbakecocopie6x25g150g",
     "name": "Mums Bake Cocopie 6 x 25g 150g",
     "store": "shotejbazar",
-    "category": "Cookies",
+    "category": "Snacks",
     "unit": "25.0g",
     "unit_type": "kg",
     "current_price": 350.0,
@@ -37630,7 +37670,7 @@
     "id": "sj_munchysfunmixassortedbiscuits700g",
     "name": "Munchy\u2019s Funmix Assorted Biscuits 700g",
     "store": "shotejbazar",
-    "category": "Cookies",
+    "category": "Snacks",
     "unit": "700.0g",
     "unit_type": "kg",
     "current_price": 1350.0,
@@ -37794,7 +37834,7 @@
     "id": "sj_munchyslexusthesandwichcalciumcrackercheesecreambiscuits225gm",
     "name": "Munchy\u2019s Lexus The Sandwich Calcium Cracker (Cheese Cream) Biscuits 225gm",
     "store": "shotejbazar",
-    "category": "Cookies",
+    "category": "Snacks",
     "unit": "225.0gm",
     "unit_type": "kg",
     "current_price": 420.0,
@@ -37958,7 +37998,7 @@
     "id": "sj_munchyslexusthesandwichcalciumcrackerchocolatecreambiscuits225gm",
     "name": "Munchy\u2019s Lexus The Sandwich Calcium Cracker (Chocolate Cream) Biscuits 225gm",
     "store": "shotejbazar",
-    "category": "Cookies",
+    "category": "Snacks",
     "unit": "225.0gm",
     "unit_type": "kg",
     "current_price": 420.0,
@@ -38122,7 +38162,7 @@
     "id": "sj_munchystopmixassortedbiscuitstin700gm",
     "name": "Munchys Topmix Assorted Biscuits Tin 700gm",
     "store": "shotejbazar",
-    "category": "Cookies",
+    "category": "Snacks",
     "unit": "700.0gm",
     "unit_type": "kg",
     "current_price": 1350.0,
@@ -38566,6 +38606,11 @@
         "date": "2026-07-01",
         "price": 950.0,
         "normalized_price": 950.0
+      },
+      {
+        "date": "2026-07-08",
+        "price": 950.0,
+        "normalized_price": 950.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -38693,6 +38738,11 @@
       },
       {
         "date": "2026-07-01",
+        "price": 850.0,
+        "normalized_price": 850.0
+      },
+      {
+        "date": "2026-07-08",
         "price": 850.0,
         "normalized_price": 850.0
       }
@@ -38824,6 +38874,11 @@
         "date": "2026-07-01",
         "price": 650.0,
         "normalized_price": 5241.935483870968
+      },
+      {
+        "date": "2026-07-08",
+        "price": 650.0,
+        "normalized_price": 5241.935483870968
       }
     ],
     "first_seen": "2026-05-17"
@@ -38951,6 +39006,11 @@
       },
       {
         "date": "2026-07-01",
+        "price": 950.0,
+        "normalized_price": 4523.809523809524
+      },
+      {
+        "date": "2026-07-08",
         "price": 950.0,
         "normalized_price": 4523.809523809524
       }
@@ -39082,6 +39142,11 @@
         "date": "2026-07-01",
         "price": 650.0,
         "normalized_price": 650.0
+      },
+      {
+        "date": "2026-07-08",
+        "price": 650.0,
+        "normalized_price": 650.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -39209,6 +39274,11 @@
       },
       {
         "date": "2026-07-01",
+        "price": 1580.0,
+        "normalized_price": 8315.78947368421
+      },
+      {
+        "date": "2026-07-08",
         "price": 1580.0,
         "normalized_price": 8315.78947368421
       }
@@ -39340,6 +39410,11 @@
         "date": "2026-07-01",
         "price": 650.0,
         "normalized_price": 4513.88888888889
+      },
+      {
+        "date": "2026-07-08",
+        "price": 650.0,
+        "normalized_price": 4513.88888888889
       }
     ],
     "first_seen": "2026-05-17"
@@ -39467,6 +39542,11 @@
       },
       {
         "date": "2026-07-01",
+        "price": 650.0,
+        "normalized_price": 4761.9047619047615
+      },
+      {
+        "date": "2026-07-08",
         "price": 650.0,
         "normalized_price": 4761.9047619047615
       }
@@ -39598,6 +39678,11 @@
         "date": "2026-07-01",
         "price": 950.0,
         "normalized_price": 950.0
+      },
+      {
+        "date": "2026-07-08",
+        "price": 950.0,
+        "normalized_price": 950.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -39725,6 +39810,11 @@
       },
       {
         "date": "2026-07-01",
+        "price": 650.0,
+        "normalized_price": 650.0
+      },
+      {
+        "date": "2026-07-08",
         "price": 650.0,
         "normalized_price": 650.0
       }
@@ -39856,6 +39946,11 @@
         "date": "2026-07-01",
         "price": 650.0,
         "normalized_price": 650.0
+      },
+      {
+        "date": "2026-07-08",
+        "price": 650.0,
+        "normalized_price": 650.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -39983,6 +40078,11 @@
       },
       {
         "date": "2026-07-01",
+        "price": 650.0,
+        "normalized_price": 650.0
+      },
+      {
+        "date": "2026-07-08",
         "price": 650.0,
         "normalized_price": 650.0
       }
@@ -40114,6 +40214,11 @@
         "date": "2026-07-01",
         "price": 650.0,
         "normalized_price": 650.0
+      },
+      {
+        "date": "2026-07-08",
+        "price": 650.0,
+        "normalized_price": 650.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -40241,6 +40346,11 @@
       },
       {
         "date": "2026-07-01",
+        "price": 450.0,
+        "normalized_price": 1125.0
+      },
+      {
+        "date": "2026-07-08",
         "price": 450.0,
         "normalized_price": 1125.0
       }
@@ -40682,6 +40792,11 @@
       },
       {
         "date": "2026-07-01",
+        "price": 950.0,
+        "normalized_price": 950.0
+      },
+      {
+        "date": "2026-07-08",
         "price": 950.0,
         "normalized_price": 950.0
       }
@@ -43155,6 +43270,11 @@
         "date": "2026-07-01",
         "price": 1050.0,
         "normalized_price": 27631.57894736842
+      },
+      {
+        "date": "2026-07-08",
+        "price": 1050.0,
+        "normalized_price": 27631.57894736842
       }
     ],
     "first_seen": "2026-05-17"
@@ -43282,6 +43402,11 @@
       },
       {
         "date": "2026-07-01",
+        "price": 1050.0,
+        "normalized_price": 2000.0
+      },
+      {
+        "date": "2026-07-08",
         "price": 1050.0,
         "normalized_price": 2000.0
       }
@@ -43413,6 +43538,11 @@
         "date": "2026-07-01",
         "price": 1050.0,
         "normalized_price": 1842.1052631578948
+      },
+      {
+        "date": "2026-07-08",
+        "price": 1050.0,
+        "normalized_price": 1842.1052631578948
       }
     ],
     "first_seen": "2026-05-17"
@@ -43540,6 +43670,11 @@
       },
       {
         "date": "2026-07-01",
+        "price": 1050.0,
+        "normalized_price": 42000.0
+      },
+      {
+        "date": "2026-07-08",
         "price": 1050.0,
         "normalized_price": 42000.0
       }
@@ -43671,6 +43806,11 @@
         "date": "2026-07-01",
         "price": 1050.0,
         "normalized_price": 42000.0
+      },
+      {
+        "date": "2026-07-08",
+        "price": 1050.0,
+        "normalized_price": 42000.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -43798,6 +43938,11 @@
       },
       {
         "date": "2026-07-01",
+        "price": 900.0,
+        "normalized_price": 1978.0219780219782
+      },
+      {
+        "date": "2026-07-08",
         "price": 900.0,
         "normalized_price": 1978.0219780219782
       }
@@ -44472,7 +44617,7 @@
     "id": "sj_orionchocopiechocolatecoatedsoftbiscuit180gm",
     "name": "ORION Choco Pie \u2013 Chocolate Coated Soft Biscuit 180 Gm",
     "store": "shotejbazar",
-    "category": "Cookies",
+    "category": "Snacks",
     "unit": "180.0gm",
     "unit_type": "kg",
     "current_price": 350.0,
@@ -44526,6 +44671,11 @@
       },
       {
         "date": "2026-07-06",
+        "price": 350.0,
+        "normalized_price": 1944.4444444444443
+      },
+      {
+        "date": "2026-07-08",
         "price": 350.0,
         "normalized_price": 1944.4444444444443
       }
@@ -44640,7 +44790,7 @@
     "id": "sj_orionchocopiechocolatecoatedsoftbiscuit360gm",
     "name": "ORION Choco Pie \u2013 Chocolate Coated Soft Biscuit 360 Gm",
     "store": "shotejbazar",
-    "category": "Cookies",
+    "category": "Snacks",
     "unit": "360.0gm",
     "unit_type": "kg",
     "current_price": 650.0,
@@ -44694,6 +44844,11 @@
       },
       {
         "date": "2026-07-06",
+        "price": 650.0,
+        "normalized_price": 1805.5555555555557
+      },
+      {
+        "date": "2026-07-08",
         "price": 650.0,
         "normalized_price": 1805.5555555555557
       }
@@ -47616,6 +47771,11 @@
         "date": "2026-07-06",
         "price": 400.0,
         "normalized_price": 2380.9523809523807
+      },
+      {
+        "date": "2026-07-08",
+        "price": 400.0,
+        "normalized_price": 2380.9523809523807
       }
     ],
     "first_seen": "2026-05-17"
@@ -47763,6 +47923,11 @@
       },
       {
         "date": "2026-07-06",
+        "price": 350.0,
+        "normalized_price": 2611.940298507463
+      },
+      {
+        "date": "2026-07-08",
         "price": 350.0,
         "normalized_price": 2611.940298507463
       }
@@ -47914,6 +48079,11 @@
         "date": "2026-07-06",
         "price": 400.0,
         "normalized_price": 2531.6455696202534
+      },
+      {
+        "date": "2026-07-08",
+        "price": 400.0,
+        "normalized_price": 2531.6455696202534
       }
     ],
     "first_seen": "2026-05-17"
@@ -47922,7 +48092,7 @@
     "id": "sj_pringlespotatochipsoriginal149grams",
     "name": "Pringles Potato Chips Original, 149 Grams",
     "store": "shotejbazar",
-    "category": "Cookies",
+    "category": "Snacks",
     "unit": "1 unit",
     "unit_type": "kg",
     "current_price": 400.0,
@@ -48078,6 +48248,11 @@
         "date": "2026-07-06",
         "price": 400.0,
         "normalized_price": 400.0
+      },
+      {
+        "date": "2026-07-08",
+        "price": 400.0,
+        "normalized_price": 400.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -48215,6 +48390,11 @@
       },
       {
         "date": "2026-07-06",
+        "price": 400.0,
+        "normalized_price": 2531.6455696202534
+      },
+      {
+        "date": "2026-07-08",
         "price": 400.0,
         "normalized_price": 2531.6455696202534
       }
@@ -51084,6 +51264,11 @@
         "date": "2026-07-06",
         "price": 750.0,
         "normalized_price": 1071.4285714285713
+      },
+      {
+        "date": "2026-07-08",
+        "price": 750.0,
+        "normalized_price": 1071.4285714285713
       }
     ],
     "first_seen": "2026-05-17"
@@ -51223,6 +51408,11 @@
         "date": "2026-07-06",
         "price": 750.0,
         "normalized_price": 1071.4285714285713
+      },
+      {
+        "date": "2026-07-08",
+        "price": 750.0,
+        "normalized_price": 1071.4285714285713
       }
     ],
     "first_seen": "2026-05-17"
@@ -51360,6 +51550,11 @@
       },
       {
         "date": "2026-07-06",
+        "price": 750.0,
+        "normalized_price": 1071.4285714285713
+      },
+      {
+        "date": "2026-07-08",
         "price": 750.0,
         "normalized_price": 1071.4285714285713
       }
@@ -51960,7 +52155,7 @@
     "id": "sj_siamfoodpiedybiscuitwithstrawberryflavouredjam400g",
     "name": "SIAM FOOD PIEDY Biscuit with Strawberry Flavoured Jam \u2013 400 g",
     "store": "shotejbazar",
-    "category": "Cookies",
+    "category": "Snacks",
     "unit": "400.0g",
     "unit_type": "kg",
     "current_price": 950.0,
@@ -52106,6 +52301,11 @@
         "date": "2026-07-06",
         "price": 950.0,
         "normalized_price": 2375.0
+      },
+      {
+        "date": "2026-07-08",
+        "price": 950.0,
+        "normalized_price": 2375.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -52114,7 +52314,7 @@
     "id": "sj_siamfoodsbiscuitscookiesbiscuitwithstrawberryflavouredjam400g",
     "name": "SIAM FOODS Biscuits Cookies Biscuit with Strawberry flavoured Jam 400g",
     "store": "shotejbazar",
-    "category": "Cookies",
+    "category": "Snacks",
     "unit": "400.0g",
     "unit_type": "kg",
     "current_price": 950.0,
@@ -52258,6 +52458,11 @@
       },
       {
         "date": "2026-07-06",
+        "price": 950.0,
+        "normalized_price": 2375.0
+      },
+      {
+        "date": "2026-07-08",
         "price": 950.0,
         "normalized_price": 2375.0
       }
@@ -53442,6 +53647,11 @@
         "date": "2026-07-01",
         "price": 650.0,
         "normalized_price": 27659.57446808511
+      },
+      {
+        "date": "2026-07-08",
+        "price": 650.0,
+        "normalized_price": 27659.57446808511
       }
     ],
     "first_seen": "2026-05-17"
@@ -53571,6 +53781,11 @@
         "date": "2026-07-01",
         "price": 650.0,
         "normalized_price": 27083.333333333332
+      },
+      {
+        "date": "2026-07-08",
+        "price": 650.0,
+        "normalized_price": 27083.333333333332
       }
     ],
     "first_seen": "2026-05-17"
@@ -53698,6 +53913,11 @@
       },
       {
         "date": "2026-07-01",
+        "price": 650.0,
+        "normalized_price": 650.0
+      },
+      {
+        "date": "2026-07-08",
         "price": 650.0,
         "normalized_price": 650.0
       }
@@ -53956,7 +54176,7 @@
     "id": "sj_sunfeastdarkfantasychococremedarkcrunchwithsmoothcreme249g2775g",
     "name": "Sunfeast Dark Fantasy Choco Creme Dark Crunch with Smooth Creme, 249 g/ 277.5 g",
     "store": "shotejbazar",
-    "category": "Cookies",
+    "category": "Snacks",
     "unit": "249.0g",
     "unit_type": "kg",
     "current_price": 350.0,
@@ -54102,6 +54322,11 @@
         "date": "2026-07-06",
         "price": 350.0,
         "normalized_price": 1405.6224899598392
+      },
+      {
+        "date": "2026-07-08",
+        "price": 350.0,
+        "normalized_price": 1405.6224899598392
       }
     ],
     "first_seen": "2026-05-17"
@@ -54110,7 +54335,7 @@
     "id": "sj_sunfeastdarkfantasyvanillacr\u00e8me249g",
     "name": "Sunfeast Dark Fantasy Vanilla Cr\u00e8me, 249g,",
     "store": "shotejbazar",
-    "category": "Cookies",
+    "category": "Snacks",
     "unit": "249.0g",
     "unit_type": "kg",
     "current_price": 350.0,
@@ -54254,6 +54479,11 @@
       },
       {
         "date": "2026-07-06",
+        "price": 350.0,
+        "normalized_price": 1405.6224899598392
+      },
+      {
+        "date": "2026-07-08",
         "price": 350.0,
         "normalized_price": 1405.6224899598392
       }
@@ -54662,6 +54892,11 @@
         "date": "2026-07-06",
         "price": 5200.0,
         "normalized_price": 5942.857142857143
+      },
+      {
+        "date": "2026-07-08",
+        "price": 5200.0,
+        "normalized_price": 5942.857142857143
       }
     ],
     "first_seen": "2026-05-17"
@@ -54799,6 +55034,11 @@
       },
       {
         "date": "2026-07-06",
+        "price": 2050.0,
+        "normalized_price": 1025.0
+      },
+      {
+        "date": "2026-07-08",
         "price": 2050.0,
         "normalized_price": 1025.0
       }
@@ -56557,6 +56797,11 @@
       },
       {
         "date": "2026-07-01",
+        "price": 1450.0,
+        "normalized_price": 7250.0
+      },
+      {
+        "date": "2026-07-08",
         "price": 1450.0,
         "normalized_price": 7250.0
       }
@@ -58606,6 +58851,11 @@
         "date": "2026-07-01",
         "price": 650.0,
         "normalized_price": 52000.0
+      },
+      {
+        "date": "2026-07-08",
+        "price": 650.0,
+        "normalized_price": 52000.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -59829,6 +60079,11 @@
         "date": "2026-07-01",
         "price": 800.0,
         "normalized_price": 800.0
+      },
+      {
+        "date": "2026-07-08",
+        "price": 800.0,
+        "normalized_price": 800.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -59956,6 +60211,11 @@
       },
       {
         "date": "2026-07-01",
+        "price": 800.0,
+        "normalized_price": 800.0
+      },
+      {
+        "date": "2026-07-08",
         "price": 800.0,
         "normalized_price": 800.0
       }
@@ -60285,6 +60545,11 @@
         "date": "2026-07-01",
         "price": 450.0,
         "normalized_price": 450.0
+      },
+      {
+        "date": "2026-07-08",
+        "price": 450.0,
+        "normalized_price": 450.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -60412,6 +60677,11 @@
       },
       {
         "date": "2026-07-01",
+        "price": 450.0,
+        "normalized_price": 450.0
+      },
+      {
+        "date": "2026-07-08",
         "price": 450.0,
         "normalized_price": 450.0
       }
@@ -61364,6 +61634,11 @@
         "date": "2026-07-06",
         "price": 1400.0,
         "normalized_price": 10370.37037037037
+      },
+      {
+        "date": "2026-07-08",
+        "price": 1400.0,
+        "normalized_price": 10370.37037037037
       }
     ],
     "first_seen": "2026-05-17"
@@ -61540,7 +61815,7 @@
     "id": "sj_yingpaicoffeenuts250g",
     "name": "Yingpai Coffee Nuts 250g",
     "store": "shotejbazar",
-    "category": "Cookies",
+    "category": "Snacks",
     "unit": "250.0g",
     "unit_type": "kg",
     "current_price": 450.0,
@@ -61679,6 +61954,11 @@
       },
       {
         "date": "2026-07-06",
+        "price": 450.0,
+        "normalized_price": 1800.0
+      },
+      {
+        "date": "2026-07-08",
         "price": 450.0,
         "normalized_price": 1800.0
       }
@@ -62184,7 +62464,7 @@
     "id": "sj_zesslemonsandwichcracker180gm",
     "name": "Zess Lemon Sandwich Cracker-180gm",
     "store": "shotejbazar",
-    "category": "Cookies",
+    "category": "Snacks",
     "unit": "180.0gm",
     "unit_type": "kg",
     "current_price": 450.0,
@@ -62325,6 +62605,11 @@
         "date": "2026-07-06",
         "price": 450.0,
         "normalized_price": 2500.0
+      },
+      {
+        "date": "2026-07-08",
+        "price": 450.0,
+        "normalized_price": 2500.0
       }
     ],
     "first_seen": "2026-05-17"
@@ -62416,7 +62701,7 @@
     "category": "Chocolate",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 650.0,
         "normalized_price": 6500.0
       }
@@ -62435,7 +62720,7 @@
     "category": "Chocolate",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 450.0,
         "normalized_price": 4500.0
       }
@@ -62454,7 +62739,7 @@
     "category": "Chocolate",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 450.0,
         "normalized_price": 4500.0
       }
@@ -62473,7 +62758,7 @@
     "category": "Chocolate",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 450.0,
         "normalized_price": 4500.0
       }
@@ -62492,7 +62777,7 @@
     "category": "Chocolate",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 750.0,
         "normalized_price": 3750.0
       }
@@ -62511,7 +62796,7 @@
     "category": "Chocolate",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 450.0,
         "normalized_price": 4500.0
       }
@@ -62530,7 +62815,7 @@
     "category": "Chocolate",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 450.0,
         "normalized_price": 4500.0
       }
@@ -62549,7 +62834,7 @@
     "category": "Chocolate",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 750.0,
         "normalized_price": 1260.08
       }
@@ -62568,7 +62853,7 @@
     "category": "Chocolate",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 750.0,
         "normalized_price": 1260.08
       }
@@ -62587,7 +62872,7 @@
     "category": "Chocolate",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 450.0,
         "normalized_price": 29032.26
       }
@@ -62606,7 +62891,7 @@
     "category": "Chocolate",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 3450.0,
         "normalized_price": 2760.0
       }
@@ -62625,7 +62910,7 @@
     "category": "Chocolate",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 2050.0,
         "normalized_price": 2928.57
       }
@@ -62644,7 +62929,7 @@
     "category": "Chocolate",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 1050.0,
         "normalized_price": 2800.0
       }
@@ -62663,7 +62948,7 @@
     "category": "Chocolate",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 1250.0,
         "normalized_price": 104166.67
       }
@@ -62682,7 +62967,7 @@
     "category": "Chocolate",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 2150.0,
         "normalized_price": 3071.43
       }
@@ -62701,7 +62986,7 @@
     "category": "Chocolate",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 2050.0,
         "normalized_price": 2928.57
       }
@@ -62720,7 +63005,7 @@
     "category": "Chocolate",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 950.0,
         "normalized_price": 27142.86
       }
@@ -62739,7 +63024,7 @@
     "category": "Chocolate",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 750.0,
         "normalized_price": 1000.0
       }
@@ -62758,7 +63043,7 @@
     "category": "Chocolate",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 750.0,
         "normalized_price": 1000.0
       }
@@ -62777,7 +63062,7 @@
     "category": "Chocolate",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 750.0,
         "normalized_price": 1000.0
       }
@@ -62796,7 +63081,7 @@
     "category": "Chocolate",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 750.0,
         "normalized_price": 1000.0
       }
@@ -62815,7 +63100,7 @@
     "category": "Chocolate",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 750.0,
         "normalized_price": 1000.0
       }
@@ -62834,7 +63119,7 @@
     "category": "Chocolate",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 650.0,
         "normalized_price": 6500.0
       }
@@ -62845,842 +63130,6 @@
     "unit_type": "kg",
     "url": "https://shotejbazar.com/product/besto-dubai-kunafa-chocolate-hazelnut-100gm/"
   },
-  "sj_almarainaturalwildflowershoney900gm": {
-    "id": "sj_almarainaturalwildflowershoney900gm",
-    "name": "Almarai Natural Wild Flowers Honey 900 gm",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/01/unnamed-file-1.jpg",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 2650.0,
-        "normalized_price": 2944.44
-      }
-    ],
-    "current_price": 2650.0,
-    "normalized_price": 2944.44,
-    "unit": "900.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/almarai-natural-wild-flowers-honey-900-gm/"
-  },
-  "sj_applecidervinegar946ml": {
-    "id": "sj_applecidervinegar946ml",
-    "name": "Apple Cider Vinegar 946 ml",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2023/10/1.png",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 1450.0,
-        "normalized_price": 1532.77
-      }
-    ],
-    "current_price": 1450.0,
-    "normalized_price": 1532.77,
-    "unit": "946.0ml",
-    "unit_type": "liter",
-    "url": "https://shotejbazar.com/product/apple-cider-vinegar-946-ml/"
-  },
-  "sj_chiaseed1kg": {
-    "id": "sj_chiaseed1kg",
-    "name": "Chia Seed 1 Kg",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2023/10/6.png",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 600.0,
-        "normalized_price": 600.0
-      }
-    ],
-    "current_price": 600.0,
-    "normalized_price": 600.0,
-    "unit": "1.0kg",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/chia-seeds/"
-  },
-  "sj_chiaseed500gm": {
-    "id": "sj_chiaseed500gm",
-    "name": "Chia Seed 500gm",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/01/cd0e9eec-ce5b-4bd4-ba77-15b16e097ebc.jpg",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 320.0,
-        "normalized_price": 640.0
-      }
-    ],
-    "current_price": 320.0,
-    "normalized_price": 640.0,
-    "unit": "500.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/chia-seed-500gm/"
-  },
-  "sj_dulalchandrabharspalmcandyorganicpalmcandy200gm": {
-    "id": "sj_dulalchandrabharspalmcandyorganicpalmcandy200gm",
-    "name": "Dulal Chandra Bhar\u2019s Palm Candy Organic Palm Candy 200 Gm",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/01/c2148369-b71d-4251-bb98-a65a6773429b.jpg",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 150.0,
-        "normalized_price": 750.0
-      }
-    ],
-    "current_price": 150.0,
-    "normalized_price": 750.0,
-    "unit": "200.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/dulal-chandra-bhars-palm-candy-organic-palm-candy-200-gm/"
-  },
-  "sj_dulalchandrabharspalmcandytalmisri1kg": {
-    "id": "sj_dulalchandrabharspalmcandytalmisri1kg",
-    "name": "Dulal Chandra Bhar\u2019s Palm Candy Tal Misri \u2013 1 Kg",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2023/03/Dulal_Chandra_Bhars_Palm_Candy_Tal_misri-Non_Brand-1cf1e-370557.jpg",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 350.0,
-        "normalized_price": 350.0
-      }
-    ],
-    "current_price": 350.0,
-    "normalized_price": 350.0,
-    "unit": "1.0kg",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/dulal-chandra-bhars-palm-candy/"
-  },
-  "sj_foodstudiopistachio1kg": {
-    "id": "sj_foodstudiopistachio1kg",
-    "name": "Food Studio Pistachio 1kg",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/e628b646-0301-4446-b9a5-d6dcd74d7903.jpg",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 2550.0,
-        "normalized_price": 2550.0
-      }
-    ],
-    "current_price": 2550.0,
-    "normalized_price": 2550.0,
-    "unit": "1.0kg",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/food-studio-pistachio-1kg/"
-  },
-  "sj_fortunebiryanispecialbasmatirice1pack1kgindian": {
-    "id": "sj_fortunebiryanispecialbasmatirice1pack1kgindian",
-    "name": "Fortune Biryani Special Basmati Rice 1 Pack 1Kg (Indian)",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2025/10/31.webp",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 380.0,
-        "normalized_price": 380.0
-      }
-    ],
-    "current_price": 380.0,
-    "normalized_price": 380.0,
-    "unit": "1.0kg",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/fortune-biryani-special-basmati-rice-1-pack-1kg-indian/"
-  },
-  "sj_freshwalnut300gmjar": {
-    "id": "sj_freshwalnut300gmjar",
-    "name": "Fresh Walnut 300gm Jar",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/89f1f87a-b3f7-457a-8ee6-2908551477f5.jpg",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 500.0,
-        "normalized_price": 1666.67
-      }
-    ],
-    "current_price": 500.0,
-    "normalized_price": 1666.67,
-    "unit": "300.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/fresh-walnut-300gm-jar/"
-  },
-  "sj_hamdardroohafzapakistani800ml": {
-    "id": "sj_hamdardroohafzapakistani800ml",
-    "name": "Hamdard Roohafza Pakistani 800ml",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2023/10/4.png",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 750.0,
-        "normalized_price": 937.5
-      }
-    ],
-    "current_price": 750.0,
-    "normalized_price": 937.5,
-    "unit": "800.0ml",
-    "unit_type": "liter",
-    "url": "https://shotejbazar.com/product/hamdard-roohafza-pakistani-800ml/"
-  },
-  "sj_jazaahimalayanpinksalt11kg": {
-    "id": "sj_jazaahimalayanpinksalt11kg",
-    "name": "Jazaa Himalayan Pink Salt 1.1kg",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/9dedd8b9-9ae8-49f4-bb37-f96fb42fd2d4.jpg",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 950.0,
-        "normalized_price": 863.64
-      }
-    ],
-    "current_price": 950.0,
-    "normalized_price": 863.64,
-    "unit": "1.1kg",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/jazaa-himalayan-pink-salt-1-1kg/"
-  },
-  "sj_linahfarmspremiummejdoollargedates1kgkhejur": {
-    "id": "sj_linahfarmspremiummejdoollargedates1kgkhejur",
-    "name": "Linah Farms Premium Mejdool Large Dates 1 kg (Khejur)",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2023/10/3.png",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 1800.0,
-        "normalized_price": 1800.0
-      }
-    ],
-    "current_price": 1800.0,
-    "normalized_price": 1800.0,
-    "unit": "1.0kg",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/linah-farms-premium-mejdool-large-dates-1-kg-khejur/"
-  },
-  "sj_linahfarmspremiummejdoolmediumdates1kgkhejur": {
-    "id": "sj_linahfarmspremiummejdoolmediumdates1kgkhejur",
-    "name": "Linah Farms Premium Mejdool Medium Dates 1 kg ( Khejur )",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2023/10/3.png",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 1700.0,
-        "normalized_price": 1700.0
-      }
-    ],
-    "current_price": 1700.0,
-    "normalized_price": 1700.0,
-    "unit": "1.0kg",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/linah-farms-premium-mejdool-medium-dates-1-kg-khejur/"
-  },
-  "sj_mixeddryfruits400gm1jars": {
-    "id": "sj_mixeddryfruits400gm1jars",
-    "name": "Mixed Dry Fruits \u2013 400gm \u00d7 1 Jars",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/75ee34ee-55fc-45ca-8e1e-b118d1ee240a.jpg",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 510.0,
-        "normalized_price": 1275.0
-      }
-    ],
-    "current_price": 510.0,
-    "normalized_price": 1275.0,
-    "unit": "400.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/mixed-dry-fruits-400gm-x-1-jars/"
-  },
-  "sj_mixeddryfruits400gm2jars": {
-    "id": "sj_mixeddryfruits400gm2jars",
-    "name": "Mixed Dry Fruits \u2013 400gm \u00d7 2 Jars",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/cef8a9e8-3a86-452c-8abd-94f11f045413.jpg",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 1000.0,
-        "normalized_price": 2500.0
-      }
-    ],
-    "current_price": 1000.0,
-    "normalized_price": 2500.0,
-    "unit": "400.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/mixed-dry-fruits-400gm-x-2-jars/"
-  },
-  "sj_moringapowder500gm": {
-    "id": "sj_moringapowder500gm",
-    "name": "Moringa Powder 500 gm",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2023/10/2.png",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 400.0,
-        "normalized_price": 800.0
-      }
-    ],
-    "current_price": 400.0,
-    "normalized_price": 800.0,
-    "unit": "500.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/moringa-powder/"
-  },
-  "sj_nestopistachio500g": {
-    "id": "sj_nestopistachio500g",
-    "name": "Nesto Pistachio 500g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/777eaa73-c950-4e92-b758-7abcbaaf3e58.jpg",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 1550.0,
-        "normalized_price": 3100.0
-      }
-    ],
-    "current_price": 1550.0,
-    "normalized_price": 3100.0,
-    "unit": "500.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/nesto-pistachio-500g/"
-  },
-  "sj_nonroastedalmondcashewnuts500gm400gm2jars": {
-    "id": "sj_nonroastedalmondcashewnuts500gm400gm2jars",
-    "name": "Non-Roasted Almond & Cashew Nuts \u2013 500gm+400gm \u00d7 2 Jars",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/8879b4bd-1ba9-49c4-8098-9747207dca42.jpg",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 1450.0,
-        "normalized_price": 2900.0
-      }
-    ],
-    "current_price": 1450.0,
-    "normalized_price": 2900.0,
-    "unit": "500.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/non-roasted-almond-cashew-nuts-500gm400gm-x-2-jars/"
-  },
-  "sj_nonroastedmixednuts500gm1jar": {
-    "id": "sj_nonroastedmixednuts500gm1jar",
-    "name": "Non-Roasted Mixed Nuts \u2013 500gm \u00d7 1 jar",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/017eda9f-32c7-4f22-8584-ed9cdd8236fb.jpg",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 650.0,
-        "normalized_price": 1300.0
-      }
-    ],
-    "current_price": 650.0,
-    "normalized_price": 1300.0,
-    "unit": "500.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/non-roasted-mixed-nuts-500gm-x-1-jar/"
-  },
-  "sj_nonroastedmixednuts500gm2jars": {
-    "id": "sj_nonroastedmixednuts500gm2jars",
-    "name": "Non-Roasted Mixed Nuts \u2013 500gm \u00d7 2 Jars",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/238569e5-6a96-44cc-a8c6-81d038b7dcd5.jpg",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 1250.0,
-        "normalized_price": 2500.0
-      }
-    ],
-    "current_price": 1250.0,
-    "normalized_price": 2500.0,
-    "unit": "500.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/non-roasted-mixed-nuts-500gm-x-2-jars/"
-  },
-  "sj_oilroastedcashewnut400gmjar": {
-    "id": "sj_oilroastedcashewnut400gmjar",
-    "name": "Oil Roasted Cashew Nut 400gm Jar",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/f1f2387a-0f0d-4efa-b38c-96ee359e70a1.jpg",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 730.0,
-        "normalized_price": 1825.0
-      }
-    ],
-    "current_price": 730.0,
-    "normalized_price": 1825.0,
-    "unit": "400.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/oil-roasted-cashew-nut-400gm-jar/"
-  },
-  "sj_premiumgoldenraisinskismis500gjar": {
-    "id": "sj_premiumgoldenraisinskismis500gjar",
-    "name": "Premium Golden Raisins (Kismis) \u2013 500g Jar",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/02/a162196e-c6f9-496b-b700-675f3461525b.jpg",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 520.0,
-        "normalized_price": 1040.0
-      }
-    ],
-    "current_price": 520.0,
-    "normalized_price": 1040.0,
-    "unit": "500.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/premium-golden-raisins-kismis-500g-jar/"
-  },
-  "sj_premiumgoldenraisinskismis500gjarx2jar": {
-    "id": "sj_premiumgoldenraisinskismis500gjarx2jar",
-    "name": "Premium Golden Raisins (Kismis) \u2013 500g Jar X 2 Jar",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/02/a162196e-c6f9-496b-b700-675f3461525b.jpg",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 1000.0,
-        "normalized_price": 2000.0
-      }
-    ],
-    "current_price": 1000.0,
-    "normalized_price": 2000.0,
-    "unit": "500.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/premium-golden-raisins-kismis-500g-jar-x-2-jar/"
-  },
-  "sj_premiummangobaraamsotto500gjar100realfruit": {
-    "id": "sj_premiummangobaraamsotto500gjar100realfruit",
-    "name": "Premium Mango Bar (Aam Sotto) \u2013 500g Jar (100% Real Fruit)",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/02/4da6e18a-420f-47a3-8246-8acdff79fe4f.jpg",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 450.0,
-        "normalized_price": 900.0
-      }
-    ],
-    "current_price": 450.0,
-    "normalized_price": 900.0,
-    "unit": "500.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/premium-mango-bar-aam-sotto-500g-jar-100-real-fruit/"
-  },
-  "sj_premiumorganictokmadana\u09a4\u0995\u09ae\u09a6\u09a8500gmpack": {
-    "id": "sj_premiumorganictokmadana\u09a4\u0995\u09ae\u09a6\u09a8500gmpack",
-    "name": "Premium Organic Tokma Dana (\u09a4\u09cb\u0995\u09ae\u09be \u09a6\u09be\u09a8\u09be) \u2013 500gm Pack",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/02/8d89b574-05eb-40dd-8175-374a1ab8f59d.jpg",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 150.0,
-        "normalized_price": 300.0
-      }
-    ],
-    "current_price": 150.0,
-    "normalized_price": 300.0,
-    "unit": "500.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/premium-organic-tokma-dana-%e0%a6%a4%e0%a7%8b%e0%a6%95%e0%a6%ae%e0%a6%be-%e0%a6%a6%e0%a6%be%e0%a6%a8%e0%a6%be-500gm-pack/"
-  },
-  "sj_premiumpsylliumhusk\u0987\u09b8\u09ac\u0997\u09b2\u09b0\u09ad\u09b7100purenatural250gm": {
-    "id": "sj_premiumpsylliumhusk\u0987\u09b8\u09ac\u0997\u09b2\u09b0\u09ad\u09b7100purenatural250gm",
-    "name": "Premium Psyllium Husk (\u0987\u09b8\u09ac\u0997\u09c1\u09b2\u09c7\u09b0 \u09ad\u09c2\u09b7\u09bf) \u2013 100% Pure & Natural (250 gm)",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/02/86dea659-2835-46b5-99b4-7a30484807af.jpg",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 400.0,
-        "normalized_price": 1600.0
-      }
-    ],
-    "current_price": 400.0,
-    "normalized_price": 1600.0,
-    "unit": "250.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/premium-psyllium-husk-%e0%a6%87%e0%a6%b8%e0%a6%ac%e0%a6%97%e0%a7%81%e0%a6%b2%e0%a7%87%e0%a6%b0-%e0%a6%ad%e0%a7%82%e0%a6%b7%e0%a6%bf-100-pure-natural-250-gm/"
-  },
-  "sj_premiumpsylliumhusk\u0987\u09b8\u09ac\u0997\u09b2\u09b0\u09ad\u09b7100purenatural250gmx2jar": {
-    "id": "sj_premiumpsylliumhusk\u0987\u09b8\u09ac\u0997\u09b2\u09b0\u09ad\u09b7100purenatural250gmx2jar",
-    "name": "Premium Psyllium Husk (\u0987\u09b8\u09ac\u0997\u09c1\u09b2\u09c7\u09b0 \u09ad\u09c2\u09b7\u09bf) \u2013 100% Pure & Natural (250 gm) X 2Jar",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/5577460c-3b37-4d31-a0db-aaa85c443845.jpg",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 750.0,
-        "normalized_price": 3000.0
-      }
-    ],
-    "current_price": 750.0,
-    "normalized_price": 3000.0,
-    "unit": "250.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/premium-psyllium-husk-%e0%a6%87%e0%a6%b8%e0%a6%ac%e0%a6%97%e0%a7%81%e0%a6%b2%e0%a7%87%e0%a6%b0-%e0%a6%ad%e0%a7%82%e0%a6%b7%e0%a6%bf-100-pure-natural-250-gm-x-2jar/"
-  },
-  "sj_premiumpumpkinseeds500gjar": {
-    "id": "sj_premiumpumpkinseeds500gjar",
-    "name": "Premium Pumpkin Seeds \u2013 500g Jar",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/02/97dd7878-7013-4961-baf5-7ec0c3dc7c50.jpg",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 500.0,
-        "normalized_price": 1000.0
-      }
-    ],
-    "current_price": 500.0,
-    "normalized_price": 1000.0,
-    "unit": "500.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/premium-pumpkin-seeds-500g-jar/"
-  },
-  "sj_premiumpumpkinseeds500gjarx2jar": {
-    "id": "sj_premiumpumpkinseeds500gjarx2jar",
-    "name": "Premium Pumpkin Seeds \u2013 500g Jar x 2 Jar",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/02/6389b2d5-8898-41c6-b987-019a4d0ff935.jpg",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 1000.0,
-        "normalized_price": 2000.0
-      }
-    ],
-    "current_price": 1000.0,
-    "normalized_price": 2000.0,
-    "unit": "500.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/premium-pumpkin-seeds-500g-jar-x-2-jar/"
-  },
-  "sj_rawalmond500gmjar": {
-    "id": "sj_rawalmond500gmjar",
-    "name": "Raw Almond 500gm Jar",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/17a2b396-4cc0-4615-8669-e2d125cd1aaf.jpg",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 700.0,
-        "normalized_price": 1400.0
-      }
-    ],
-    "current_price": 700.0,
-    "normalized_price": 1400.0,
-    "unit": "500.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/raw-almond-500gm-jar/"
-  },
-  "sj_rawcashewnut400gmjar": {
-    "id": "sj_rawcashewnut400gmjar",
-    "name": "Raw Cashew Nut 400gm Jar",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/a30ffc0b-e6ee-4005-9adc-16cc460fcd83.jpg",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 720.0,
-        "normalized_price": 1800.0
-      }
-    ],
-    "current_price": 720.0,
-    "normalized_price": 1800.0,
-    "unit": "400.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/raw-cashew-nut-400gm-jar/"
-  },
-  "sj_roastedsaltedmixednuts500gm2jars": {
-    "id": "sj_roastedsaltedmixednuts500gm2jars",
-    "name": "Roasted & Salted Mixed Nuts \u2013 500gm \u00d7 2 Jars",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/20194c74-9258-4302-83e9-303de39c1cda.jpg",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 1250.0,
-        "normalized_price": 2500.0
-      }
-    ],
-    "current_price": 1250.0,
-    "normalized_price": 2500.0,
-    "unit": "500.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/roasted-salted-mixed-nuts-500gm-x-2-jars/"
-  },
-  "sj_roastedsaltedpistachio100gmjar": {
-    "id": "sj_roastedsaltedpistachio100gmjar",
-    "name": "Roasted & Salted Pistachio 100gm Jar",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/5579fda9-86e1-4908-97a9-0451fa7721bb.jpg",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 280.0,
-        "normalized_price": 2800.0
-      }
-    ],
-    "current_price": 280.0,
-    "normalized_price": 2800.0,
-    "unit": "100.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/roasted-salted-pistachio-100gm-jar/"
-  },
-  "sj_roastedsaltedpistachio400gmjar": {
-    "id": "sj_roastedsaltedpistachio400gmjar",
-    "name": "Roasted & Salted Pistachio 400gm Jar",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/231f3631-cd83-4ffb-87a1-54fce1353f6e.jpg",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 1050.0,
-        "normalized_price": 2625.0
-      }
-    ],
-    "current_price": 1050.0,
-    "normalized_price": 2625.0,
-    "unit": "400.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/roasted-salted-pistachio-400gm-jar/"
-  },
-  "sj_roastedsaltedthaipeanuts500gm1jar": {
-    "id": "sj_roastedsaltedthaipeanuts500gm1jar",
-    "name": "Roasted & Salted Thai Peanuts \u2013 500gm (1 Jar)",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/919fb23d-e85d-456b-9b9c-7d044493aad7.jpg",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 280.0,
-        "normalized_price": 560.0
-      }
-    ],
-    "current_price": 280.0,
-    "normalized_price": 560.0,
-    "unit": "500.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/roasted-salted-thai-peanuts-500gm-1-jar/"
-  },
-  "sj_roastedsaltedthaipeanuts500gm2jar": {
-    "id": "sj_roastedsaltedthaipeanuts500gm2jar",
-    "name": "Roasted & Salted Thai Peanuts \u2013 500gm (2 Jar)",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/d2f9c0f6-c032-4ec6-bcb3-dd997abacecf.jpg",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 550.0,
-        "normalized_price": 1100.0
-      }
-    ],
-    "current_price": 550.0,
-    "normalized_price": 1100.0,
-    "unit": "500.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/roasted-salted-thai-peanuts-500gm-2-jar/"
-  },
-  "sj_roastedcashewnutswithoutoil400gm1jar": {
-    "id": "sj_roastedcashewnutswithoutoil400gm1jar",
-    "name": "Roasted Cashew Nuts (Without Oil) \u2013 400gm (1 Jar)",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/b2182166-83bd-4eeb-8102-bfd94e843276.jpg",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 800.0,
-        "normalized_price": 2000.0
-      }
-    ],
-    "current_price": 800.0,
-    "normalized_price": 2000.0,
-    "unit": "400.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/roasted-cashew-nuts-without-oil-400gm-1-jar/"
-  },
-  "sj_roasteddeshipeanuts1kg1jar": {
-    "id": "sj_roasteddeshipeanuts1kg1jar",
-    "name": "Roasted Deshi Peanuts \u2013 1kg (1 Jar)",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/5e845057-e8d6-4676-9634-f26101169bdc.jpg",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 450.0,
-        "normalized_price": 450.0
-      }
-    ],
-    "current_price": 450.0,
-    "normalized_price": 450.0,
-    "unit": "1.0kg",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/roasted-deshi-peanuts-1kg-1-jar/"
-  },
-  "sj_rowseorganichoney340g": {
-    "id": "sj_rowseorganichoney340g",
-    "name": "Rowse Organic Honey (340g)",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/01/7b2d8dc9-7876-420d-876b-ab2a5cd9a41c.jpg",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 700.0,
-        "normalized_price": 2058.82
-      }
-    ],
-    "current_price": 700.0,
-    "normalized_price": 2058.82,
-    "unit": "340.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/rowse-organic-honey-340g/"
-  },
-  "sj_sarynaturalbeehoneyjar1kg": {
-    "id": "sj_sarynaturalbeehoneyjar1kg",
-    "name": "Sary Natural Bee Honey Jar (1 kg)",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/01/unnamed-file.jpg",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 1850.0,
-        "normalized_price": 1850.0
-      }
-    ],
-    "current_price": 1850.0,
-    "normalized_price": 1850.0,
-    "unit": "1.0kg",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/sary-natural-bee-honey-jar-1-kg/"
-  },
-  "sj_sarynaturalbeehoneyjar500gm": {
-    "id": "sj_sarynaturalbeehoneyjar500gm",
-    "name": "Sary Natural Bee Honey Jar 500gm",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/01/unnamed-1.jpg",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 1050.0,
-        "normalized_price": 2100.0
-      }
-    ],
-    "current_price": 1050.0,
-    "normalized_price": 2100.0,
-    "unit": "500.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/sary-natural-bee-honey-jar-500gm/"
-  },
-  "sj_sunflowerseeds400gm2jars": {
-    "id": "sj_sunflowerseeds400gm2jars",
-    "name": "Sunflower Seeds 400gm \u00d7 2 Jars",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/6ccd5ceb-a1ff-4095-9288-3a71f298003e.jpg",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 600.0,
-        "normalized_price": 1500.0
-      }
-    ],
-    "current_price": 600.0,
-    "normalized_price": 1500.0,
-    "unit": "400.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/sunflower-seeds-400gm-x-2-jars/"
-  },
-  "sj_sunflowerseeds400gmjar": {
-    "id": "sj_sunflowerseeds400gmjar",
-    "name": "Sunflower Seeds 400gm Jar",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/066c56e7-49e8-4031-81c8-9e8e5d20f0f4.jpg",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 300.0,
-        "normalized_price": 750.0
-      }
-    ],
-    "current_price": 300.0,
-    "normalized_price": 750.0,
-    "unit": "400.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/sunflower-seeds-400gm-jar/"
-  },
-  "sj_watermelonseeds500gmjar": {
-    "id": "sj_watermelonseeds500gmjar",
-    "name": "Watermelon Seeds 500gm Jar",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/d06c555a-e148-47ee-946b-c7029d81acee.jpg",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 730.0,
-        "normalized_price": 1460.0
-      }
-    ],
-    "current_price": 730.0,
-    "normalized_price": 1460.0,
-    "unit": "500.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/watermelon-seeds-500gm-jar/"
-  },
   "sj_2xspicyhotchickenflavorramennoodles140g5packs": {
     "id": "sj_2xspicyhotchickenflavorramennoodles140g5packs",
     "name": "2x Spicy Hot Chicken Flavor Ramen Noodles (140g*5packs)",
@@ -63689,7 +63138,7 @@
     "category": "Snacks",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 750.0,
         "normalized_price": 1071.43
       }
@@ -63708,7 +63157,7 @@
     "category": "Snacks",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 1150.0,
         "normalized_price": 1150.0
       }
@@ -63727,7 +63176,7 @@
     "category": "Snacks",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 750.0,
         "normalized_price": 1071.43
       }
@@ -63746,7 +63195,7 @@
     "category": "Snacks",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 350.0,
         "normalized_price": 2243.59
       }
@@ -63765,7 +63214,7 @@
     "category": "Snacks",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 950.0,
         "normalized_price": 2533.33
       }
@@ -63784,7 +63233,7 @@
     "category": "Snacks",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 850.0,
         "normalized_price": 42500.0
       }
@@ -63803,7 +63252,7 @@
     "category": "Snacks",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 750.0,
         "normalized_price": 1071.43
       }
@@ -63822,7 +63271,7 @@
     "category": "Snacks",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 300.0,
         "normalized_price": 3846.15
       }
@@ -63841,7 +63290,7 @@
     "category": "Snacks",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 350.0,
         "normalized_price": 2800.0
       }
@@ -63860,7 +63309,7 @@
     "category": "Snacks",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 350.0,
         "normalized_price": 2800.0
       }
@@ -63879,7 +63328,7 @@
     "category": "Snacks",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 350.0,
         "normalized_price": 2800.0
       }
@@ -63898,7 +63347,7 @@
     "category": "Snacks",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 350.0,
         "normalized_price": 2800.0
       }
@@ -63917,7 +63366,7 @@
     "category": "Snacks",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 350.0,
         "normalized_price": 3500.0
       }
@@ -63936,7 +63385,7 @@
     "category": "Snacks",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 350.0,
         "normalized_price": 2800.0
       }
@@ -63955,7 +63404,7 @@
     "category": "Snacks",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 350.0,
         "normalized_price": 14000.0
       }
@@ -63974,7 +63423,7 @@
     "category": "Snacks",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 420.0,
         "normalized_price": 1866.67
       }
@@ -63993,7 +63442,7 @@
     "category": "Snacks",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 420.0,
         "normalized_price": 1866.67
       }
@@ -64012,7 +63461,7 @@
     "category": "Snacks",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 1350.0,
         "normalized_price": 1928.57
       }
@@ -64031,7 +63480,7 @@
     "category": "Snacks",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 1350.0,
         "normalized_price": 1928.57
       }
@@ -64050,7 +63499,7 @@
     "category": "Snacks",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 350.0,
         "normalized_price": 1944.44
       }
@@ -64069,7 +63518,7 @@
     "category": "Snacks",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 650.0,
         "normalized_price": 1805.56
       }
@@ -64088,7 +63537,7 @@
     "category": "Snacks",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 400.0,
         "normalized_price": 2380.95
       }
@@ -64107,7 +63556,7 @@
     "category": "Snacks",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 350.0,
         "normalized_price": 2611.94
       }
@@ -64126,7 +63575,7 @@
     "category": "Snacks",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 400.0,
         "normalized_price": 2531.65
       }
@@ -64137,272 +63586,6 @@
     "unit_type": "kg",
     "url": "https://shotejbazar.com/product/pringles-pizza-potato-crisps158-g/"
   },
-  "sj_pringlespotatochipsoriginal149grams": {
-    "id": "sj_pringlespotatochipsoriginal149grams",
-    "name": "Pringles Potato Chips Original, 149 Grams",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/17-1.webp",
-    "category": "Snacks",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 400.0,
-        "normalized_price": 400.0
-      }
-    ],
-    "current_price": 400.0,
-    "normalized_price": 400.0,
-    "unit": "1 unit",
-    "unit_type": "piece",
-    "url": "https://shotejbazar.com/product/pringles-chips-149gm/"
-  },
-  "sj_pringlessourcreamandonion158gm": {
-    "id": "sj_pringlessourcreamandonion158gm",
-    "name": "Pringles Sour Cream and Onion 158 gm",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/18-3.webp",
-    "category": "Snacks",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 400.0,
-        "normalized_price": 2531.65
-      }
-    ],
-    "current_price": 400.0,
-    "normalized_price": 2531.65,
-    "unit": "158.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/pringles-sour-cream-and-onion-158-gm/"
-  },
-  "sj_samyangbuldakcheeseflavorramen140g5pack": {
-    "id": "sj_samyangbuldakcheeseflavorramen140g5pack",
-    "name": "Samyang Buldak Cheese Flavor Ramen (140g*5pack)",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/19-2.webp",
-    "category": "Snacks",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 750.0,
-        "normalized_price": 1071.43
-      }
-    ],
-    "current_price": 750.0,
-    "normalized_price": 1071.43,
-    "unit": "140g x 5",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/samyang-buldak-cheese-flavor-ramen-140g5pack/"
-  },
-  "sj_samyangbuldakhotchickenflavouredramen140g5pcs": {
-    "id": "sj_samyangbuldakhotchickenflavouredramen140g5pcs",
-    "name": "Samyang Buldak Hot Chicken Flavoured Ramen (140g*5pcs)",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/20-3.webp",
-    "category": "Snacks",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 750.0,
-        "normalized_price": 1071.43
-      }
-    ],
-    "current_price": 750.0,
-    "normalized_price": 1071.43,
-    "unit": "140g x 5",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/samyang-buldak-hot-chicken-flavoured-ramen-140g5pcs/"
-  },
-  "sj_samyanghotchickenramencarbonaraflavour140g5pcs": {
-    "id": "sj_samyanghotchickenramencarbonaraflavour140g5pcs",
-    "name": "Samyang Hot Chicken Ramen Carbonara flavour (140g*5pcs)",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/21-2.webp",
-    "category": "Snacks",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 750.0,
-        "normalized_price": 1071.43
-      }
-    ],
-    "current_price": 750.0,
-    "normalized_price": 1071.43,
-    "unit": "140g x 5",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/samyang-hot-chicken-ramen-carbonara-flavour-140g5pcs/"
-  },
-  "sj_siamfoodpiedybiscuitwithstrawberryflavouredjam400g": {
-    "id": "sj_siamfoodpiedybiscuitwithstrawberryflavouredjam400g",
-    "name": "SIAM FOOD PIEDY Biscuit with Strawberry Flavoured Jam \u2013 400 g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/33-1.webp",
-    "category": "Snacks",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 950.0,
-        "normalized_price": 2375.0
-      }
-    ],
-    "current_price": 950.0,
-    "normalized_price": 2375.0,
-    "unit": "400.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/banh-quy-nhan-mut-dua-siamfoods-hop-thiec-400g/"
-  },
-  "sj_siamfoodsbiscuitscookiesbiscuitwithstrawberryflavouredjam400g": {
-    "id": "sj_siamfoodsbiscuitscookiesbiscuitwithstrawberryflavouredjam400g",
-    "name": "SIAM FOODS Biscuits Cookies Biscuit with Strawberry flavoured Jam 400g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/34-1.webp",
-    "category": "Snacks",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 950.0,
-        "normalized_price": 2375.0
-      }
-    ],
-    "current_price": 950.0,
-    "normalized_price": 2375.0,
-    "unit": "400.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/mini-siam-foods-biscuits-cookies-biscuit-with-strawberry-flavoured-jam-400g/"
-  },
-  "sj_sunfeastdarkfantasychococremedarkcrunchwithsmoothcreme249g2775g": {
-    "id": "sj_sunfeastdarkfantasychococremedarkcrunchwithsmoothcreme249g2775g",
-    "name": "Sunfeast Dark Fantasy Choco Creme Dark Crunch with Smooth Creme, 249 g/ 277.5 g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/36-1.webp",
-    "category": "Snacks",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 350.0,
-        "normalized_price": 1405.62
-      }
-    ],
-    "current_price": 350.0,
-    "normalized_price": 1405.62,
-    "unit": "249.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/sunfeast-dark-fantasy-choco-creme-dark-crunch-with-smooth-creme-249-g-277-5-g/"
-  },
-  "sj_sunfeastdarkfantasyvanillacr\u00e8me249g": {
-    "id": "sj_sunfeastdarkfantasyvanillacr\u00e8me249g",
-    "name": "Sunfeast Dark Fantasy Vanilla Cr\u00e8me, 249g,",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/37-2.webp",
-    "category": "Snacks",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 350.0,
-        "normalized_price": 1405.62
-      }
-    ],
-    "current_price": 350.0,
-    "normalized_price": 1405.62,
-    "unit": "249.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/sunfeast-dark-fantasy-vanilla-creme-249g/"
-  },
-  "sj_takisfuegomini1packet25minipack875gm": {
-    "id": "sj_takisfuegomini1packet25minipack875gm",
-    "name": "Takis Fuego Mini 1 packet 25 mini pack 875 gm",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/22-3.webp",
-    "category": "Snacks",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 5200.0,
-        "normalized_price": 5942.86
-      }
-    ],
-    "current_price": 5200.0,
-    "normalized_price": 5942.86,
-    "unit": "875.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/takis-fuego-mini-1-packet-25-mini-pack-875-gm/"
-  },
-  "sj_tangsoftdrinkspowdermangoflavour2kgproductofbahrain": {
-    "id": "sj_tangsoftdrinkspowdermangoflavour2kgproductofbahrain",
-    "name": "Tang Soft Drinks Powder Mango Flavour 2kg (Product Of Bahrain)",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/23-2.webp",
-    "category": "Snacks",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 2050.0,
-        "normalized_price": 1025.0
-      }
-    ],
-    "current_price": 2050.0,
-    "normalized_price": 1025.0,
-    "unit": "2.0kg",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/tang-soft-drinks-powder-mango-flavour-2kg/"
-  },
-  "sj_wholesalelaysstaxspicylobsterpotatochip135gmar4pcs": {
-    "id": "sj_wholesalelaysstaxspicylobsterpotatochip135gmar4pcs",
-    "name": "Wholesale Lays Stax Spicy Lobster Potato Chip 135 gm ar 4 pcs",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/24-2.webp",
-    "category": "Snacks",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 1400.0,
-        "normalized_price": 10370.37
-      }
-    ],
-    "current_price": 1400.0,
-    "normalized_price": 10370.37,
-    "unit": "135.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/wholesale-lays-stax-spicy-lobster-potato-chip-135-gm-ar-4-pcs/"
-  },
-  "sj_yingpaicoffeenuts250g": {
-    "id": "sj_yingpaicoffeenuts250g",
-    "name": "Yingpai Coffee Nuts 250g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/Yingpai-Coffee-Nuts-250g.png",
-    "category": "Snacks",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 450.0,
-        "normalized_price": 1800.0
-      }
-    ],
-    "current_price": 450.0,
-    "normalized_price": 1800.0,
-    "unit": "250.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/yingpai-coffee-nuts-250g/"
-  },
-  "sj_zesslemonsandwichcracker180gm": {
-    "id": "sj_zesslemonsandwichcracker180gm",
-    "name": "Zess Lemon Sandwich Cracker-180gm",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/07/41.webp",
-    "category": "Snacks",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 450.0,
-        "normalized_price": 2500.0
-      }
-    ],
-    "current_price": 450.0,
-    "normalized_price": 2500.0,
-    "unit": "180.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/sunfeast-dark-fantasy-choco-fills-300g-original-filled-cookies-with-choco-creme/"
-  },
   "sj_cadburychocofilledsandwichbiscuits260g": {
     "id": "sj_cadburychocofilledsandwichbiscuits260g",
     "name": "\u200eCadbury Choco Filled Sandwich Biscuits 260g",
@@ -64411,7 +63594,7 @@
     "category": "Cookies",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 650.0,
         "normalized_price": 2500.0
       }
@@ -64430,7 +63613,7 @@
     "category": "Cookies",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 550.0,
         "normalized_price": 3525.64
       }
@@ -64449,7 +63632,7 @@
     "category": "Cookies",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 400.0,
         "normalized_price": 724.17
       }
@@ -64468,7 +63651,7 @@
     "category": "Cookies",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 600.0,
         "normalized_price": 833.33
       }
@@ -64487,7 +63670,7 @@
     "category": "Cookies",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 600.0,
         "normalized_price": 833.33
       }
@@ -64506,7 +63689,7 @@
     "category": "Cookies",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 400.0,
         "normalized_price": 724.17
       }
@@ -64525,7 +63708,7 @@
     "category": "Cookies",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 350.0,
         "normalized_price": 2333.33
       }
@@ -64544,7 +63727,7 @@
     "category": "Cookies",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 650.0,
         "normalized_price": 2166.67
       }
@@ -64563,7 +63746,7 @@
     "category": "Cookies",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 350.0,
         "normalized_price": 2333.33
       }
@@ -64582,7 +63765,7 @@
     "category": "Cookies",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 720.0,
         "normalized_price": 1600.0
       }
@@ -64601,7 +63784,7 @@
     "category": "Cookies",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 650.0,
         "normalized_price": 24074.07
       }
@@ -64620,7 +63803,7 @@
     "category": "Cookies",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 650.0,
         "normalized_price": 24074.07
       }
@@ -64639,7 +63822,7 @@
     "category": "Coffee",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 1350.0,
         "normalized_price": 6750.0
       }
@@ -64658,7 +63841,7 @@
     "category": "Coffee",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 1350.0,
         "normalized_price": 6750.0
       }
@@ -64677,7 +63860,7 @@
     "category": "Coffee",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 1350.0,
         "normalized_price": 6750.0
       }
@@ -64696,7 +63879,7 @@
     "category": "Coffee",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 500.0,
         "normalized_price": 10000.0
       }
@@ -64715,7 +63898,7 @@
     "category": "Coffee",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 500.0,
         "normalized_price": 10000.0
       }
@@ -64734,7 +63917,7 @@
     "category": "Coffee",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 500.0,
         "normalized_price": 10000.0
       }
@@ -64753,7 +63936,7 @@
     "category": "Coffee",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 500.0,
         "normalized_price": 20833.33
       }
@@ -64772,7 +63955,7 @@
     "category": "Coffee",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 500.0,
         "normalized_price": 10000.0
       }
@@ -64791,7 +63974,7 @@
     "category": "Coffee",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 500.0,
         "normalized_price": 10000.0
       }
@@ -64810,7 +63993,7 @@
     "category": "Coffee",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 500.0,
         "normalized_price": 10000.0
       }
@@ -64829,7 +64012,7 @@
     "category": "Coffee",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 500.0,
         "normalized_price": 10000.0
       }
@@ -64848,7 +64031,7 @@
     "category": "Coffee",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 500.0,
         "normalized_price": 10000.0
       }
@@ -64867,7 +64050,7 @@
     "category": "Coffee",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 750.0,
         "normalized_price": 1666.67
       }
@@ -64886,7 +64069,7 @@
     "category": "Coffee",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 1050.0,
         "normalized_price": 10500.0
       }
@@ -64905,7 +64088,7 @@
     "category": "Coffee",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 850.0,
         "normalized_price": 8500.0
       }
@@ -64924,7 +64107,7 @@
     "category": "Coffee",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 850.0,
         "normalized_price": 8500.0
       }
@@ -64943,7 +64126,7 @@
     "category": "Coffee",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 1050.0,
         "normalized_price": 10500.0
       }
@@ -64962,7 +64145,7 @@
     "category": "Coffee",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 850.0,
         "normalized_price": 8500.0
       }
@@ -64981,7 +64164,7 @@
     "category": "Coffee",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 1850.0,
         "normalized_price": 9736.84
       }
@@ -65000,7 +64183,7 @@
     "category": "Coffee",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 2450.0,
         "normalized_price": 12894.74
       }
@@ -65019,7 +64202,7 @@
     "category": "Coffee",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 2450.0,
         "normalized_price": 12894.74
       }
@@ -65038,7 +64221,7 @@
     "category": "Coffee",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 450.0,
         "normalized_price": 2250.0
       }
@@ -65057,7 +64240,7 @@
     "category": "Coffee",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 450.0,
         "normalized_price": 11250.0
       }
@@ -65076,7 +64259,7 @@
     "category": "Coffee",
     "history": [
       {
-        "date": "2026-07-08",
+        "date": "2026-07-09",
         "price": 450.0,
         "normalized_price": 450.0
       }
@@ -65086,689 +64269,5 @@
     "unit": "1 unit",
     "unit_type": "piece",
     "url": "https://shotejbazar.com/product/green-tea-apple-pear-20-tea-bags/"
-  },
-  "sj_kitkathotchocolatedrinkmalaysia10sachet": {
-    "id": "sj_kitkathotchocolatedrinkmalaysia10sachet",
-    "name": "Kitkat Hot Chocolate Drink Malaysia \u2013 10 sachet",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/76.png",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 1050.0,
-        "normalized_price": 1050.0
-      }
-    ],
-    "current_price": 1050.0,
-    "normalized_price": 1050.0,
-    "unit": "1 unit",
-    "unit_type": "piece",
-    "url": "https://shotejbazar.com/product/kitkat-hot-chocolate-drink-malaysia-10-sachet/"
-  },
-  "sj_msfairtradegolddecafinstantcoffee200g": {
-    "id": "sj_msfairtradegolddecafinstantcoffee200g",
-    "name": "M&S Fairtrade Gold Decaf Instant Coffee 200g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2023/11/21.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 2500.0,
-        "normalized_price": 12500.0
-      }
-    ],
-    "current_price": 2500.0,
-    "normalized_price": 12500.0,
-    "unit": "200.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/ms-fairtrade-gold-decaf-instant-coffee-200g/"
-  },
-  "sj_msfairtradegoldinstantcoffee200g": {
-    "id": "sj_msfairtradegoldinstantcoffee200g",
-    "name": "M&S Fairtrade Gold Instant Coffee 200g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2023/11/22.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 2500.0,
-        "normalized_price": 12500.0
-      }
-    ],
-    "current_price": 2500.0,
-    "normalized_price": 12500.0,
-    "unit": "200.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/ms-fairtrade-gold-instant-coffee-200g/"
-  },
-  "sj_msfairtradeitalianstyleinstantcoffee200g": {
-    "id": "sj_msfairtradeitalianstyleinstantcoffee200g",
-    "name": "M&S Fairtrade Italian Style Instant Coffee 200g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2023/11/23.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 2500.0,
-        "normalized_price": 12500.0
-      }
-    ],
-    "current_price": 2500.0,
-    "normalized_price": 12500.0,
-    "unit": "200.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/ms-fairtrade-italian-style-instant-coffee-200g/"
-  },
-  "sj_maltesershotchocolatedrinkjar350g": {
-    "id": "sj_maltesershotchocolatedrinkjar350g",
-    "name": "Maltesers Hot Chocolate Drink Jar 350 g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2023/11/24.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 1450.0,
-        "normalized_price": 4142.86
-      }
-    ],
-    "current_price": 1450.0,
-    "normalized_price": 4142.86,
-    "unit": "350.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/maltesers-hot-chocolate-drink-jar-350-g/"
-  },
-  "sj_maneecoffeeflavoursjuicedietarysupplemen1packet30sachets": {
-    "id": "sj_maneecoffeeflavoursjuicedietarysupplemen1packet30sachets",
-    "name": "Manee Coffee Flavour S Juice Dietary Supplemen 1 packet \u2013 30 sachets",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/b0b04064-7507-4a5d-a724-3c9fe8a5d15d.jpg",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 1250.0,
-        "normalized_price": 1250.0
-      }
-    ],
-    "current_price": 1250.0,
-    "normalized_price": 1250.0,
-    "unit": "1 unit",
-    "unit_type": "piece",
-    "url": "https://shotejbazar.com/product/manee-coffee-flavour-s-juice-dietary-supplemen-1-packet-30-sachets/"
-  },
-  "sj_nescafe3in1hazelnutcoffee15sticks": {
-    "id": "sj_nescafe3in1hazelnutcoffee15sticks",
-    "name": "Nescafe 3 In 1 Hazelnut Coffee 15 sticks",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2023/11/nescafe-hezalnut.jpeg",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 950.0,
-        "normalized_price": 950.0
-      }
-    ],
-    "current_price": 950.0,
-    "normalized_price": 950.0,
-    "unit": "1 unit",
-    "unit_type": "piece",
-    "url": "https://shotejbazar.com/product/nescafe-3-in-1-hazelnut-coffee-mix-stick-24g-pack-of-20/"
-  },
-  "sj_nescafe3in1lattemocha15sticks": {
-    "id": "sj_nescafe3in1lattemocha15sticks",
-    "name": "Nescafe 3 In 1 Latte Mocha 15 sticks",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2023/11/38.png",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 850.0,
-        "normalized_price": 850.0
-      }
-    ],
-    "current_price": 850.0,
-    "normalized_price": 850.0,
-    "unit": "1 unit",
-    "unit_type": "piece",
-    "url": "https://shotejbazar.com/product/nescafe-3-in-1-latte-mocha-15-sticks/"
-  },
-  "sj_nescafecappuccinoinstantcoffee8sachets8perpack124g": {
-    "id": "sj_nescafecappuccinoinstantcoffee8sachets8perpack124g",
-    "name": "Nescafe Cappuccino Instant Coffee 8 Sachets 8 per pack 124g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2023/11/39.png",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 650.0,
-        "normalized_price": 5241.94
-      }
-    ],
-    "current_price": 650.0,
-    "normalized_price": 5241.94,
-    "unit": "124.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/nescafe-cappuccino-instant-coffee-8-sachets-8-per-pack-124g/"
-  },
-  "sj_nescaf\u00e9caramellattecoffee8packs": {
-    "id": "sj_nescaf\u00e9caramellattecoffee8packs",
-    "name": "Nescaf\u00e9 Caramel Latte Coffee /8 packs",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2023/11/40.png",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 650.0,
-        "normalized_price": 650.0
-      }
-    ],
-    "current_price": 650.0,
-    "normalized_price": 650.0,
-    "unit": "1 unit",
-    "unit_type": "piece",
-    "url": "https://shotejbazar.com/product/nescafe-caramel-latte-coffee-8-packs/"
-  },
-  "sj_nescafeclassicjarjar210gm": {
-    "id": "sj_nescafeclassicjarjar210gm",
-    "name": "Nescafe Classic Jar JAR 210 gm",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2023/11/41.png",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 950.0,
-        "normalized_price": 4523.81
-      }
-    ],
-    "current_price": 950.0,
-    "normalized_price": 4523.81,
-    "unit": "210.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/nescafe-classic-jar-jar-210gm/"
-  },
-  "sj_nescafegoldcappuccinounsweetenedinstantcoffee8xsachets": {
-    "id": "sj_nescafegoldcappuccinounsweetenedinstantcoffee8xsachets",
-    "name": "Nescafe Gold Cappuccino Unsweetened Instant Coffee 8 x Sachets",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/25-2.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 650.0,
-        "normalized_price": 650.0
-      }
-    ],
-    "current_price": 650.0,
-    "normalized_price": 650.0,
-    "unit": "1 unit",
-    "unit_type": "piece",
-    "url": "https://shotejbazar.com/product/nescafe-gold-cappuccino-unsweetened-instant-coffee-8-x-sachets/"
-  },
-  "sj_nescafegoldcoffee190gm": {
-    "id": "sj_nescafegoldcoffee190gm",
-    "name": "Nescafe Gold Coffee 190gm",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/26-2.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 1580.0,
-        "normalized_price": 8315.79
-      }
-    ],
-    "current_price": 1580.0,
-    "normalized_price": 8315.79,
-    "unit": "190.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/gold-cofee-190-gm/"
-  },
-  "sj_nescaf\u00e9instantdoublechocmocha8sachets": {
-    "id": "sj_nescaf\u00e9instantdoublechocmocha8sachets",
-    "name": "Nescaf\u00e9 Instant Double Choc Mocha \u2013 8 sachets",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/27-1.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 650.0,
-        "normalized_price": 650.0
-      }
-    ],
-    "current_price": 650.0,
-    "normalized_price": 650.0,
-    "unit": "1 unit",
-    "unit_type": "piece",
-    "url": "https://shotejbazar.com/product/nescafe-instant-double-choc-mocha-8-sachets/"
-  },
-  "sj_nescafelatteinstantcoffee8sachets6x144g": {
-    "id": "sj_nescafelatteinstantcoffee8sachets6x144g",
-    "name": "Nescafe Latte Instant Coffee 8 Sachets 6 x 144g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/Nescafe-Latte-Instant-Coffee-8-Sachets-6-x-144g.png",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 650.0,
-        "normalized_price": 4513.89
-      }
-    ],
-    "current_price": 650.0,
-    "normalized_price": 4513.89,
-    "unit": "144.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/nescafe-latte-instant-coffee-8-sachets-6-x-144g/"
-  },
-  "sj_nescafelattevanillacookiedough1365g": {
-    "id": "sj_nescafelattevanillacookiedough1365g",
-    "name": "Nescafe Latte Vanilla Cookie Dough 136.5g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/28-2.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 650.0,
-        "normalized_price": 4761.9
-      }
-    ],
-    "current_price": 650.0,
-    "normalized_price": 4761.9,
-    "unit": "136.5g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/nescafe-latte-vanilla-cookie-dough-136-5g/"
-  },
-  "sj_nescafemildsmoothlattecaramelcoffee20sticks": {
-    "id": "sj_nescafemildsmoothlattecaramelcoffee20sticks",
-    "name": "Nescafe Mild & Smooth, Latte Caramel, Coffee, 20 sticks",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/29-2.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 950.0,
-        "normalized_price": 950.0
-      }
-    ],
-    "current_price": 950.0,
-    "normalized_price": 950.0,
-    "unit": "1 unit",
-    "unit_type": "piece",
-    "url": "https://shotejbazar.com/product/nescafe-mild-smooth-latte-caramel-coffee-20-sticks/"
-  },
-  "sj_nescafestickytoffeepuddinglatteinstantcoffeesachets7per": {
-    "id": "sj_nescafestickytoffeepuddinglatteinstantcoffeesachets7per",
-    "name": "Nescafe Sticky Toffee Pudding Latte Instant Coffee Sachets 7 Per",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/30-2.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 650.0,
-        "normalized_price": 650.0
-      }
-    ],
-    "current_price": 650.0,
-    "normalized_price": 650.0,
-    "unit": "1 unit",
-    "unit_type": "piece",
-    "url": "https://shotejbazar.com/product/nescafe-sticky-toffee-pudding-latte-instant-coffee-sachets-7-per/"
-  },
-  "sj_nescafevanillalattecoffeesachets26pack": {
-    "id": "sj_nescafevanillalattecoffeesachets26pack",
-    "name": "Nescafe Vanilla Latte Coffee Sachets 26 Pack",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/31-2.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 650.0,
-        "normalized_price": 650.0
-      }
-    ],
-    "current_price": 650.0,
-    "normalized_price": 650.0,
-    "unit": "1 unit",
-    "unit_type": "piece",
-    "url": "https://shotejbazar.com/product/nescafe-vanilla-latte-coffee-sachets-26-pack/"
-  },
-  "sj_nestlecoffeematecoffeecreamerjar400gm": {
-    "id": "sj_nestlecoffeematecoffeecreamerjar400gm",
-    "name": "Nestle Coffee Mate Coffee Creamer Jar 400gm",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/32-2.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 450.0,
-        "normalized_price": 1125.0
-      }
-    ],
-    "current_price": 450.0,
-    "normalized_price": 1125.0,
-    "unit": "400.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/nestle-coffee-mate-coffee-creamer-jar-400gm/"
-  },
-  "sj_nestlenescafe3in1aromaticandbalanced25stick": {
-    "id": "sj_nestlenescafe3in1aromaticandbalanced25stick",
-    "name": "Nestle Nescafe 3 in 1 Aromatic and balanced 25 Stick",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/33.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 950.0,
-        "normalized_price": 950.0
-      }
-    ],
-    "current_price": 950.0,
-    "normalized_price": 950.0,
-    "unit": "1 unit",
-    "unit_type": "piece",
-    "url": "https://shotejbazar.com/product/nestle-nescafe-3-in-1-aromatic-and-balanced-25-stick/"
-  },
-  "sj_oldtowninstantwhitecoffeewithnaturalcanesugar1packet38gmar15stick": {
-    "id": "sj_oldtowninstantwhitecoffeewithnaturalcanesugar1packet38gmar15stick",
-    "name": "Old Town Instant White Coffee with Natural Cane Sugar 1 Packet 38 gm ar 15 Stick",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/34.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 1050.0,
-        "normalized_price": 27631.58
-      }
-    ],
-    "current_price": 1050.0,
-    "normalized_price": 27631.58,
-    "unit": "38.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/old-town-instant-white-coffee-with-natural-cane-sugar-1-packet-38-gm-ar-15-stick/"
-  },
-  "sj_oldtownwhitecoffeeclassicinstantcoffee1packet25gmar15stick": {
-    "id": "sj_oldtownwhitecoffeeclassicinstantcoffee1packet25gmar15stick",
-    "name": "OLD TOWN WHITE COFFEE Classic INSTANT COFFEE 1 Packet 25 gm ar 15 Stick",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/35.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 1050.0,
-        "normalized_price": 42000.0
-      }
-    ],
-    "current_price": 1050.0,
-    "normalized_price": 42000.0,
-    "unit": "25.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/old-town-white-coffee-classic-instant-coffee-1-packet-25-gm-ar-15-stick/"
-  },
-  "sj_oldtownwhitecoffeecoffeecreamer2in1instantpremixwhitecoffeepacket15x25g375g": {
-    "id": "sj_oldtownwhitecoffeecoffeecreamer2in1instantpremixwhitecoffeepacket15x25g375g",
-    "name": "Old Town White Coffee, Coffee & Creamer 2 in 1 Instant Premix White Coffee Packet ( 15 X 25g ), 375g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/36.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 1050.0,
-        "normalized_price": 42000.0
-      }
-    ],
-    "current_price": 1050.0,
-    "normalized_price": 42000.0,
-    "unit": "25.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/old-town-white-coffee-coffee-creamer-2-in-1-instant-premix-white-coffee-packet-15-x-25g-375g/"
-  },
-  "sj_oldtownwhitecoffee30lesssugar525g": {
-    "id": "sj_oldtownwhitecoffee30lesssugar525g",
-    "name": "OldTown White Coffee 30% Less Sugar 525g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/37-1.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 1050.0,
-        "normalized_price": 2000.0
-      }
-    ],
-    "current_price": 1050.0,
-    "normalized_price": 2000.0,
-    "unit": "525.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/oldtown-white-coffee-30-less-sugar-525g/"
-  },
-  "sj_oldtownwhitecoffee3in1hazelnutinstantcoffee38gx15sticks570gm": {
-    "id": "sj_oldtownwhitecoffee3in1hazelnutinstantcoffee38gx15sticks570gm",
-    "name": "OLDTOWN White Coffee 3in1 Hazelnut Instant Coffee (38g x 15 sticks) \u2013 570gm",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/38-1.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 1050.0,
-        "normalized_price": 1842.11
-      }
-    ],
-    "current_price": 1050.0,
-    "normalized_price": 1842.11,
-    "unit": "38g x 15",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/oldtown-white-coffee-3in1-hazelnut-instant-coffee-38g-x-15-sticks-570gm/"
-  },
-  "sj_oldtownwhitemilkteainstantteamix455g": {
-    "id": "sj_oldtownwhitemilkteainstantteamix455g",
-    "name": "OldTown White Milk Tea Instant Tea Mix 455g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/39-1.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 900.0,
-        "normalized_price": 1978.02
-      }
-    ],
-    "current_price": 900.0,
-    "normalized_price": 1978.02,
-    "unit": "455.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/oldtown-white-milk-tea-instant-tea-mix-455g/"
-  },
-  "sj_starbuckspremiuminstantcinnamondolcelatte1175gram5235g": {
-    "id": "sj_starbuckspremiuminstantcinnamondolcelatte1175gram5235g",
-    "name": "Starbucks Premium Instant Cinnamon Dolce Latte-117.5 gram (5\u00d723.5g)",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/40-1.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 650.0,
-        "normalized_price": 27659.57
-      }
-    ],
-    "current_price": 650.0,
-    "normalized_price": 27659.57,
-    "unit": "23.5g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/starbucks-premium-instant-cinnamon-dolce-latte-117-5-gram-5x23-5g/"
-  },
-  "sj_starbuckspremiuminstantwhitemochaindulgentrich120gram5x24g": {
-    "id": "sj_starbuckspremiuminstantwhitemochaindulgentrich120gram5x24g",
-    "name": "Starbucks Premium Instant White Mocha Indulgent & Rich-120 gram (5x24g)",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/41-1.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 650.0,
-        "normalized_price": 27083.33
-      }
-    ],
-    "current_price": 650.0,
-    "normalized_price": 27083.33,
-    "unit": "24.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/starbucks-premium-instant-white-mocha-indulgent-rich-120-gram-5x24g/"
-  },
-  "sj_starbuckstoffeenutlattepremiuminstantcoffee4sticksperbox": {
-    "id": "sj_starbuckstoffeenutlattepremiuminstantcoffee4sticksperbox",
-    "name": "Starbucks\u00ae Toffee Nut Latte Premium Instant Coffee (4 Sticks Per Box)",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/42-1.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 650.0,
-        "normalized_price": 650.0
-      }
-    ],
-    "current_price": 650.0,
-    "normalized_price": 650.0,
-    "unit": "1 unit",
-    "unit_type": "piece",
-    "url": "https://shotejbazar.com/product/starbucks-toffee-nut-latte-premium-instant-coffee-4-sticks-per-box/"
-  },
-  "sj_tescogoldinstantcoffee200g": {
-    "id": "sj_tescogoldinstantcoffee200g",
-    "name": "Tesco Gold Instant Coffee 200G",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/43-1.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 1450.0,
-        "normalized_price": 7250.0
-      }
-    ],
-    "current_price": 1450.0,
-    "normalized_price": 7250.0,
-    "unit": "200.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/tesco-gold-instant-coffee-200g/"
-  },
-  "sj_torabikacappuccinonoaddedsugarinstantcoffee20x125gpackof1": {
-    "id": "sj_torabikacappuccinonoaddedsugarinstantcoffee20x125gpackof1",
-    "name": "ToraBika Cappuccino No Added Sugar Instant Coffee,20 x12.5 g, Pack of 1",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/44-1.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 650.0,
-        "normalized_price": 52000.0
-      }
-    ],
-    "current_price": 650.0,
-    "normalized_price": 52000.0,
-    "unit": "12.5g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/torabika-cappuccino-no-added-sugar-instant-coffee20-x12-5-g-pack-of-1/"
-  },
-  "sj_truslencoffeeplusslimmingcoffee": {
-    "id": "sj_truslencoffeeplusslimmingcoffee",
-    "name": "Truslen Coffee Plus Slimming Coffee",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/45.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 800.0,
-        "normalized_price": 800.0
-      }
-    ],
-    "current_price": 800.0,
-    "normalized_price": 800.0,
-    "unit": "1 unit",
-    "unit_type": "piece",
-    "url": "https://shotejbazar.com/product/truslen-coffee-plus/"
-  },
-  "sj_truslencoffeepluscollagenslimmingcoffee": {
-    "id": "sj_truslencoffeepluscollagenslimmingcoffee",
-    "name": "Truslen Coffee Plus Collagen Slimming Coffee",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/46.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 800.0,
-        "normalized_price": 800.0
-      }
-    ],
-    "current_price": 800.0,
-    "normalized_price": 800.0,
-    "unit": "1 unit",
-    "unit_type": "piece",
-    "url": "https://shotejbazar.com/product/asda-gold-roast-decaf-rice-smooth-coffee-200g/"
-  },
-  "sj_twiningsmintgreentea20bags": {
-    "id": "sj_twiningsmintgreentea20bags",
-    "name": "Twinings Mint Green Tea 20 Bags",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/44.png",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 450.0,
-        "normalized_price": 450.0
-      }
-    ],
-    "current_price": 450.0,
-    "normalized_price": 450.0,
-    "unit": "1 unit",
-    "unit_type": "piece",
-    "url": "https://shotejbazar.com/product/twinings-mint-green-tea-20-bags/"
-  },
-  "sj_twiningspuregreentea20bags": {
-    "id": "sj_twiningspuregreentea20bags",
-    "name": "Twinings Pure Green Tea 20 Bags",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/45.png",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-07-08",
-        "price": 450.0,
-        "normalized_price": 450.0
-      }
-    ],
-    "current_price": 450.0,
-    "normalized_price": 450.0,
-    "unit": "1 unit",
-    "unit_type": "piece",
-    "url": "https://shotejbazar.com/product/twinings-pure-green-tea-20-bags/"
   }
 }
