@@ -1,1 +1,1 @@
-window.metromartManifest = {"metadata":{"last_update":"2026-07-11 05:58:24","total":2410,"date_range":"2026-05-03 to 2026-07-11","total_chunks":1,"chunk_size":5000}};
+window.metromartManifest = {"metadata":{"last_update":"2026-07-12 01:44:37","total":2410,"date_range":"2026-05-03 to 2026-07-12","total_chunks":1,"chunk_size":5000}};
