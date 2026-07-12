@@ -20216,7 +20216,7 @@
     "id": "sj_dulalchandrabharspalmcandyorganicpalmcandy200gm",
     "name": "Dulal Chandra Bhar\u2019s Palm Candy Organic Palm Candy 200 Gm",
     "store": "shotejbazar",
-    "category": "Chocolate",
+    "category": "Food",
     "unit": "200.0gm",
     "unit_type": "kg",
     "current_price": 150.0,
@@ -35491,7 +35491,7 @@
     "id": "sj_lottechocopiewithrichmarshmallow18x23gm",
     "name": "Lotte Choco Pie With Rich Marshmallow 18 x 23Gm",
     "store": "shotejbazar",
-    "category": "Chocolate",
+    "category": "Cookies",
     "unit": "23.0gm",
     "unit_type": "kg",
     "current_price": 650.0,
@@ -46050,7 +46050,7 @@
     "id": "sj_nutellabreadychocolate22gm6pcsitaly",
     "name": "Nutella B-Ready Chocolate 22gm 6pcs (Italy)",
     "store": "shotejbazar",
-    "category": "Chocolate",
+    "category": "Cookies",
     "unit": "22.0gm",
     "unit_type": "kg",
     "current_price": 650.0,
@@ -48367,7 +48367,7 @@
     "id": "sj_orionchocopiechocolatecoatedsoftbiscuit180gm",
     "name": "ORION Choco Pie \u2013 Chocolate Coated Soft Biscuit 180 Gm",
     "store": "shotejbazar",
-    "category": "Chocolate",
+    "category": "Snacks",
     "unit": "180.0gm",
     "unit_type": "kg",
     "current_price": 350.0,
@@ -48560,7 +48560,7 @@
     "id": "sj_orionchocopiechocolatecoatedsoftbiscuit360gm",
     "name": "ORION Choco Pie \u2013 Chocolate Coated Soft Biscuit 360 Gm",
     "store": "shotejbazar",
-    "category": "Chocolate",
+    "category": "Snacks",
     "unit": "360.0gm",
     "unit_type": "kg",
     "current_price": 650.0,
@@ -49443,7 +49443,7 @@
     "id": "sj_pockybiscuitstickdoublechocolateflavor47gm",
     "name": "Pocky Biscuit Stick Double Chocolate Flavor 47gm",
     "store": "shotejbazar",
-    "category": "Chocolate",
+    "category": "Cookies",
     "unit": "47.0gm",
     "unit_type": "kg",
     "current_price": 200.0,
@@ -52157,7 +52157,7 @@
     "id": "sj_pringlespotatochipsoriginal149grams",
     "name": "Pringles Potato Chips Original, 149 Grams",
     "store": "shotejbazar",
-    "category": "Chocolate",
+    "category": "Cookies",
     "unit": "1 unit",
     "unit_type": "kg",
     "current_price": 400.0,
@@ -59519,7 +59519,7 @@
     "id": "sj_tatawaalmondroastcookies150g",
     "name": "Tatawa Almond Roast Cookies \u2013 150g",
     "store": "shotejbazar",
-    "category": "Chocolate",
+    "category": "Cookies",
     "unit": "150.0g",
     "unit_type": "kg",
     "current_price": 380.0,
@@ -59678,7 +59678,7 @@
     "id": "sj_tatawablueberryjamfilledcookies120g",
     "name": "Tatawa Blueberry Jam Filled Cookies \u2013 120g",
     "store": "shotejbazar",
-    "category": "Chocolate",
+    "category": "Cookies",
     "unit": "120.0g",
     "unit_type": "kg",
     "current_price": 380.0,
@@ -59837,7 +59837,7 @@
     "id": "sj_tatawabrowniesmatchacreamfilledbrownies100g",
     "name": "Tatawa Brownies Matcha Cream Filled Brownies \u2013 100g",
     "store": "shotejbazar",
-    "category": "Chocolate",
+    "category": "Cookies",
     "unit": "100.0g",
     "unit_type": "kg",
     "current_price": 380.0,
@@ -59996,7 +59996,7 @@
     "id": "sj_tatawacappuccinochocolateflavourfillingcookies120gm",
     "name": "Tatawa Cappuccino Chocolate Flavour Filling Cookies \u2013 120gm",
     "store": "shotejbazar",
-    "category": "Chocolate",
+    "category": "Cookies",
     "unit": "120.0gm",
     "unit_type": "kg",
     "current_price": 380.0,
@@ -60299,7 +60299,7 @@
     "id": "sj_tatawachipspluschocolateflavourchipsraisinsoftcookies120g",
     "name": "Tatawa Chips Plus \u2013 Chocolate Flavour Chips & Raisin Soft Cookies (120g)",
     "store": "shotejbazar",
-    "category": "Chocolate",
+    "category": "Cookies",
     "unit": "120.0g",
     "unit_type": "kg",
     "current_price": 380.0,
@@ -60458,7 +60458,7 @@
     "id": "sj_tatawachocdelitechocolateflavourfillingcookies120gm",
     "name": "Tatawa Choc Delite Chocolate Flavour Filling Cookies \u2013 120gm",
     "store": "shotejbazar",
-    "category": "Chocolate",
+    "category": "Cookies",
     "unit": "120.0gm",
     "unit_type": "kg",
     "current_price": 380.0,
@@ -60617,7 +60617,7 @@
     "id": "sj_tatawachocolatecakecookies120g",
     "name": "Tatawa Chocolate Cake Cookies \u2013 120g",
     "store": "shotejbazar",
-    "category": "Chocolate",
+    "category": "Cookies",
     "unit": "120.0g",
     "unit_type": "kg",
     "current_price": 380.0,
@@ -60776,7 +60776,7 @@
     "id": "sj_tatawamilkydelitedarkchocolateflavourcookieswithmilkcreamfilling100g",
     "name": "Tatawa Milky Delite Dark Chocolate Flavour Cookies With Milk Cream Filling \u2013 100g",
     "store": "shotejbazar",
-    "category": "Chocolate",
+    "category": "Cookies",
     "unit": "100.0g",
     "unit_type": "kg",
     "current_price": 380.0,
@@ -60935,7 +60935,7 @@
     "id": "sj_tatawastrawberryflavourcreamfilledbrownies100g",
     "name": "Tatawa Strawberry Flavour Cream Filled Brownies \u2013 100g",
     "store": "shotejbazar",
-    "category": "Chocolate",
+    "category": "Cookies",
     "unit": "100.0g",
     "unit_type": "kg",
     "current_price": 380.0,
@@ -61094,7 +61094,7 @@
     "id": "sj_tatawatiramisutwisttiramisucookieswithsoftcoffeechocolatecream120g",
     "name": "Tatawa Tiramisu Twist Tiramisu Cookies with Soft Coffee Chocolate Cream \u2013 120g",
     "store": "shotejbazar",
-    "category": "Chocolate",
+    "category": "Cookies",
     "unit": "120.0g",
     "unit_type": "kg",
     "current_price": 380.0,
@@ -68848,234 +68848,6 @@
     "unit_type": "kg",
     "url": "https://shotejbazar.com/product/mister-potato-crisps-original-125g/"
   },
-  "sj_misterpotatocrispsoriginal100gm": {
-    "id": "sj_misterpotatocrispsoriginal100gm",
-    "name": "Mister Potato Crisps Original 100gm",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/11-3.webp",
-    "category": "Snacks",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 350.0,
-        "normalized_price": 3500.0
-      }
-    ],
-    "current_price": 350.0,
-    "normalized_price": 3500.0,
-    "unit": "100.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/mister-potato-crisps-original-100gm/"
-  },
-  "sj_misterpotatocrispstomato125g": {
-    "id": "sj_misterpotatocrispstomato125g",
-    "name": "Mister Potato Crisps Tomato \u2013 125g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/12-3.webp",
-    "category": "Snacks",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 350.0,
-        "normalized_price": 2800.0
-      }
-    ],
-    "current_price": 350.0,
-    "normalized_price": 2800.0,
-    "unit": "125.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/mister-potato-crisps-tomato-125g/"
-  },
-  "sj_mumsbakecocopie6x25g150g": {
-    "id": "sj_mumsbakecocopie6x25g150g",
-    "name": "Mums Bake Cocopie 6 x 25g 150g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/18-2.webp",
-    "category": "Snacks",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 350.0,
-        "normalized_price": 14000.0
-      }
-    ],
-    "current_price": 350.0,
-    "normalized_price": 14000.0,
-    "unit": "25.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/mums-bake-cocopie-6-x-25g-150g/"
-  },
-  "sj_munchyslexusthesandwichcalciumcrackercheesecreambiscuits225gm": {
-    "id": "sj_munchyslexusthesandwichcalciumcrackercheesecreambiscuits225gm",
-    "name": "Munchy\u2019s Lexus The Sandwich Calcium Cracker (Cheese Cream) Biscuits 225gm",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/07/19.webp",
-    "category": "Snacks",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 420.0,
-        "normalized_price": 1866.67
-      }
-    ],
-    "current_price": 420.0,
-    "normalized_price": 1866.67,
-    "unit": "225.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/munchys-lexus-the-sandwich-calcium-cracker-cheese-cream-biscuits-225gm-2/"
-  },
-  "sj_munchyslexusthesandwichcalciumcrackerchocolatecreambiscuits225gm": {
-    "id": "sj_munchyslexusthesandwichcalciumcrackerchocolatecreambiscuits225gm",
-    "name": "Munchy\u2019s Lexus The Sandwich Calcium Cracker (Chocolate Cream) Biscuits 225gm",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/07/20.webp",
-    "category": "Snacks",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 420.0,
-        "normalized_price": 1866.67
-      }
-    ],
-    "current_price": 420.0,
-    "normalized_price": 1866.67,
-    "unit": "225.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/munchys-lexus-the-sandwich-calcium-cracker-cheese-cream-biscuits-225gm/"
-  },
-  "sj_munchysfunmixassortedbiscuits700g": {
-    "id": "sj_munchysfunmixassortedbiscuits700g",
-    "name": "Munchy\u2019s Funmix Assorted Biscuits 700g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/21-1.webp",
-    "category": "Snacks",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 1350.0,
-        "normalized_price": 1928.57
-      }
-    ],
-    "current_price": 1350.0,
-    "normalized_price": 1928.57,
-    "unit": "700.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/munchys-funmix-assorted-biscuits-700g/"
-  },
-  "sj_munchystopmixassortedbiscuitstin700gm": {
-    "id": "sj_munchystopmixassortedbiscuitstin700gm",
-    "name": "Munchys Topmix Assorted Biscuits Tin 700gm",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/22-2.webp",
-    "category": "Snacks",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 1350.0,
-        "normalized_price": 1928.57
-      }
-    ],
-    "current_price": 1350.0,
-    "normalized_price": 1928.57,
-    "unit": "700.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/munchys-topmix-assorted-biscuits-tin-700gm/"
-  },
-  "sj_orionchocopiechocolatecoatedsoftbiscuit180gm": {
-    "id": "sj_orionchocopiechocolatecoatedsoftbiscuit180gm",
-    "name": "ORION Choco Pie \u2013 Chocolate Coated Soft Biscuit 180 Gm",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/c702208d-c3f1-4845-b008-33283f341ef4.jpg",
-    "category": "Snacks",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 350.0,
-        "normalized_price": 1944.44
-      }
-    ],
-    "current_price": 350.0,
-    "normalized_price": 1944.44,
-    "unit": "180.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/orion-choco-pie-chocolate-coated-soft-biscuit-180-gm/"
-  },
-  "sj_orionchocopiechocolatecoatedsoftbiscuit360gm": {
-    "id": "sj_orionchocopiechocolatecoatedsoftbiscuit360gm",
-    "name": "ORION Choco Pie \u2013 Chocolate Coated Soft Biscuit 360 Gm",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/52ec4ea2-c88e-4d9e-9214-76f6c8c8a55a.jpg",
-    "category": "Snacks",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 650.0,
-        "normalized_price": 1805.56
-      }
-    ],
-    "current_price": 650.0,
-    "normalized_price": 1805.56,
-    "unit": "360.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/orion-choco-pie-chocolate-coated-soft-biscuit-360-gm/"
-  },
-  "sj_pringlesbaconflavorpotatochipseuropeansnacks168g": {
-    "id": "sj_pringlesbaconflavorpotatochipseuropeansnacks168g",
-    "name": "PRINGLES Bacon Flavor Potato Chips European Snacks 168g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/14-2.webp",
-    "category": "Snacks",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 400.0,
-        "normalized_price": 2380.95
-      }
-    ],
-    "current_price": 400.0,
-    "normalized_price": 2380.95,
-    "unit": "168.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/pringles-bacon-flavor-potato-chips-european-snacks-168g/"
-  },
-  "sj_pringlesoriginalpotatochips134gm": {
-    "id": "sj_pringlesoriginalpotatochips134gm",
-    "name": "Pringles Original Potato Chips 134 gm",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/15-1.webp",
-    "category": "Snacks",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 350.0,
-        "normalized_price": 2611.94
-      }
-    ],
-    "current_price": 350.0,
-    "normalized_price": 2611.94,
-    "unit": "134.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/pringles-original-potato-chips-134-gm/"
-  },
-  "sj_pringlespizzapotatocrisps158g": {
-    "id": "sj_pringlespizzapotatocrisps158g",
-    "name": "Pringles Pizza Potato Crisps,158 g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/16-1.webp",
-    "category": "Snacks",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 400.0,
-        "normalized_price": 2531.65
-      }
-    ],
-    "current_price": 400.0,
-    "normalized_price": 2531.65,
-    "unit": "158.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/pringles-pizza-potato-crisps158-g/"
-  },
   "sj_cadburychocofilledsandwichbiscuits260g": {
     "id": "sj_cadburychocofilledsandwichbiscuits260g",
     "name": "\u200eCadbury Choco Filled Sandwich Biscuits 260g",
@@ -69361,6 +69133,101 @@
     "unit_type": "kg",
     "url": "https://shotejbazar.com/product/milka-choco-wafer-chocolate-coated-waffles-150g/"
   },
+  "sj_mumsbakecocopie6x25g150g": {
+    "id": "sj_mumsbakecocopie6x25g150g",
+    "name": "Mums Bake Cocopie 6 x 25g 150g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/18-2.webp",
+    "category": "Cookies",
+    "history": [
+      {
+        "date": "2026-07-12",
+        "price": 350.0,
+        "normalized_price": 14000.0
+      }
+    ],
+    "current_price": 350.0,
+    "normalized_price": 14000.0,
+    "unit": "25.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/mums-bake-cocopie-6-x-25g-150g/"
+  },
+  "sj_munchyslexusthesandwichcalciumcrackercheesecreambiscuits225gm": {
+    "id": "sj_munchyslexusthesandwichcalciumcrackercheesecreambiscuits225gm",
+    "name": "Munchy\u2019s Lexus The Sandwich Calcium Cracker (Cheese Cream) Biscuits 225gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/07/19.webp",
+    "category": "Cookies",
+    "history": [
+      {
+        "date": "2026-07-12",
+        "price": 420.0,
+        "normalized_price": 1866.67
+      }
+    ],
+    "current_price": 420.0,
+    "normalized_price": 1866.67,
+    "unit": "225.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/munchys-lexus-the-sandwich-calcium-cracker-cheese-cream-biscuits-225gm-2/"
+  },
+  "sj_munchyslexusthesandwichcalciumcrackerchocolatecreambiscuits225gm": {
+    "id": "sj_munchyslexusthesandwichcalciumcrackerchocolatecreambiscuits225gm",
+    "name": "Munchy\u2019s Lexus The Sandwich Calcium Cracker (Chocolate Cream) Biscuits 225gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/07/20.webp",
+    "category": "Cookies",
+    "history": [
+      {
+        "date": "2026-07-12",
+        "price": 420.0,
+        "normalized_price": 1866.67
+      }
+    ],
+    "current_price": 420.0,
+    "normalized_price": 1866.67,
+    "unit": "225.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/munchys-lexus-the-sandwich-calcium-cracker-cheese-cream-biscuits-225gm/"
+  },
+  "sj_munchysfunmixassortedbiscuits700g": {
+    "id": "sj_munchysfunmixassortedbiscuits700g",
+    "name": "Munchy\u2019s Funmix Assorted Biscuits 700g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/21-1.webp",
+    "category": "Cookies",
+    "history": [
+      {
+        "date": "2026-07-12",
+        "price": 1350.0,
+        "normalized_price": 1928.57
+      }
+    ],
+    "current_price": 1350.0,
+    "normalized_price": 1928.57,
+    "unit": "700.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/munchys-funmix-assorted-biscuits-700g/"
+  },
+  "sj_munchystopmixassortedbiscuitstin700gm": {
+    "id": "sj_munchystopmixassortedbiscuitstin700gm",
+    "name": "Munchys Topmix Assorted Biscuits Tin 700gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/22-2.webp",
+    "category": "Cookies",
+    "history": [
+      {
+        "date": "2026-07-12",
+        "price": 1350.0,
+        "normalized_price": 1928.57
+      }
+    ],
+    "current_price": 1350.0,
+    "normalized_price": 1928.57,
+    "unit": "700.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/munchys-topmix-assorted-biscuits-tin-700gm/"
+  },
   "sj_mybizcuitelegantstrawberrycreambiscuits100g": {
     "id": "sj_mybizcuitelegantstrawberrycreambiscuits100g",
     "name": "MyBizcuit Elegant Strawberry Cream Biscuits \u2013 100g",
@@ -69436,538 +69303,6 @@
     "unit": "166.0gm",
     "unit_type": "kg",
     "url": "https://shotejbazar.com/product/nutella-biscuits-tube-filed-inside-with-nutella-chocolate-166gm/"
-  },
-  "sj_oreowhitechocolatecookies246g": {
-    "id": "sj_oreowhitechocolatecookies246g",
-    "name": "Oreo White Chocolate Cookies 246g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/SB_Cookies.png",
-    "category": "Cookies",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 650.0,
-        "normalized_price": 2642.28
-      }
-    ],
-    "current_price": 650.0,
-    "normalized_price": 2642.28,
-    "unit": "246.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/oreo-white-chocolate-cookies-246g/"
-  },
-  "sj_parlehideseekblackbourbonchococremebiscuit100gmx6pack": {
-    "id": "sj_parlehideseekblackbourbonchococremebiscuit100gmx6pack",
-    "name": "Parle Hide & Seek Black Bourbon Choco Creme Biscuit, (100gm x 6pack)",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/26-3.webp",
-    "category": "Cookies",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 700.0,
-        "normalized_price": 1166.67
-      }
-    ],
-    "current_price": 700.0,
-    "normalized_price": 1166.67,
-    "unit": "100gm x 6",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/parle-hide-seek-black-bourbon-choco-creme-biscuit-100gm-x-6pack/"
-  },
-  "sj_parlehideseekblackbourbonvanilacremebiscuit100gmx6pack": {
-    "id": "sj_parlehideseekblackbourbonvanilacremebiscuit100gmx6pack",
-    "name": "Parle Hide & Seek Black Bourbon Vanila Creme Biscuit, (100gm x 6pack)",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/27-2.webp",
-    "category": "Cookies",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 700.0,
-        "normalized_price": 1166.67
-      }
-    ],
-    "current_price": 700.0,
-    "normalized_price": 1166.67,
-    "unit": "100gm x 6",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/parle-black-bourbon-biscuits/"
-  },
-  "sj_parlehideseekchocochipcookies120gmx6pcs": {
-    "id": "sj_parlehideseekchocochipcookies120gmx6pcs",
-    "name": "Parle Hide & Seek Choco Chip Cookies (120gm X 6pcs)",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/07/28.webp",
-    "category": "Cookies",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 650.0,
-        "normalized_price": 902.78
-      }
-    ],
-    "current_price": 650.0,
-    "normalized_price": 902.78,
-    "unit": "120gm x 6",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/parle-hide-seek-choco-chip-cookies-120gm-x-6pcs/"
-  },
-  "sj_pockybiscuitstickdoublechocolateflavor47gm": {
-    "id": "sj_pockybiscuitstickdoublechocolateflavor47gm",
-    "name": "Pocky Biscuit Stick Double Chocolate Flavor 47gm",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/11-4.webp",
-    "category": "Cookies",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 200.0,
-        "normalized_price": 4255.32
-      }
-    ],
-    "current_price": 200.0,
-    "normalized_price": 4255.32,
-    "unit": "47.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/glico-pocky-biscuit-stick-double-chocolate-flavor-47gm/"
-  },
-  "sj_pringlespotatochipsoriginal149grams": {
-    "id": "sj_pringlespotatochipsoriginal149grams",
-    "name": "Pringles Potato Chips Original, 149 Grams",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/17-1.webp",
-    "category": "Cookies",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 400.0,
-        "normalized_price": 400.0
-      }
-    ],
-    "current_price": 400.0,
-    "normalized_price": 400.0,
-    "unit": "1 unit",
-    "unit_type": "piece",
-    "url": "https://shotejbazar.com/product/pringles-chips-149gm/"
-  },
-  "sj_sandwichvanillacookieswithcocoacreamsugarsfree4x44g176gdiablo": {
-    "id": "sj_sandwichvanillacookieswithcocoacreamsugarsfree4x44g176gdiablo",
-    "name": "Sandwich Vanilla Cookies with Cocoa Cream sugars-free (4x44g) 176g Diablo",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/07/32.webp",
-    "category": "Cookies",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 650.0,
-        "normalized_price": 14772.73
-      }
-    ],
-    "current_price": 650.0,
-    "normalized_price": 14772.73,
-    "unit": "44.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/sandwich-vanilla-cookies-with-cocoa-cream-sugars-free-4x44g-176g-diablo/"
-  },
-  "sj_siamfoodpiedybiscuitwithstrawberryflavouredjam400g": {
-    "id": "sj_siamfoodpiedybiscuitwithstrawberryflavouredjam400g",
-    "name": "SIAM FOOD PIEDY Biscuit with Strawberry Flavoured Jam \u2013 400 g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/33-1.webp",
-    "category": "Cookies",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 950.0,
-        "normalized_price": 2375.0
-      }
-    ],
-    "current_price": 950.0,
-    "normalized_price": 2375.0,
-    "unit": "400.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/banh-quy-nhan-mut-dua-siamfoods-hop-thiec-400g/"
-  },
-  "sj_siamfoodsbiscuitscookiesbiscuitwithstrawberryflavouredjam400g": {
-    "id": "sj_siamfoodsbiscuitscookiesbiscuitwithstrawberryflavouredjam400g",
-    "name": "SIAM FOODS Biscuits Cookies Biscuit with Strawberry flavoured Jam 400g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/34-1.webp",
-    "category": "Cookies",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 950.0,
-        "normalized_price": 2375.0
-      }
-    ],
-    "current_price": 950.0,
-    "normalized_price": 2375.0,
-    "unit": "400.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/mini-siam-foods-biscuits-cookies-biscuit-with-strawberry-flavoured-jam-400g/"
-  },
-  "sj_sunfeastdarkfantasybiscuits75gmx6pcs": {
-    "id": "sj_sunfeastdarkfantasybiscuits75gmx6pcs",
-    "name": "Sunfeast Dark Fantasy Biscuits (75gm X 6 pcs)",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/07/35.webp",
-    "category": "Cookies",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 650.0,
-        "normalized_price": 1444.44
-      }
-    ],
-    "current_price": 650.0,
-    "normalized_price": 1444.44,
-    "unit": "75gm x 6",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/dark-fantasy-biscuits/"
-  },
-  "sj_sunfeastdarkfantasychococremedarkcrunchwithsmoothcreme249g2775g": {
-    "id": "sj_sunfeastdarkfantasychococremedarkcrunchwithsmoothcreme249g2775g",
-    "name": "Sunfeast Dark Fantasy Choco Creme Dark Crunch with Smooth Creme, 249 g/ 277.5 g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/36-1.webp",
-    "category": "Cookies",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 350.0,
-        "normalized_price": 1405.62
-      }
-    ],
-    "current_price": 350.0,
-    "normalized_price": 1405.62,
-    "unit": "249.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/sunfeast-dark-fantasy-choco-creme-dark-crunch-with-smooth-creme-249-g-277-5-g/"
-  },
-  "sj_sunfeastdarkfantasyvanillacr\u00e8me249g": {
-    "id": "sj_sunfeastdarkfantasyvanillacr\u00e8me249g",
-    "name": "Sunfeast Dark Fantasy Vanilla Cr\u00e8me, 249g,",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/37-2.webp",
-    "category": "Cookies",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 350.0,
-        "normalized_price": 1405.62
-      }
-    ],
-    "current_price": 350.0,
-    "normalized_price": 1405.62,
-    "unit": "249.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/sunfeast-dark-fantasy-vanilla-creme-249g/"
-  },
-  "sj_tatawaalmondroastcookies150g": {
-    "id": "sj_tatawaalmondroastcookies150g",
-    "name": "Tatawa Almond Roast Cookies \u2013 150g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/05/370fbff8-8bc4-47db-9c5a-092116f7dea1.jpg",
-    "category": "Cookies",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 380.0,
-        "normalized_price": 2533.33
-      }
-    ],
-    "current_price": 380.0,
-    "normalized_price": 2533.33,
-    "unit": "150.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/tatawa-almond-roast-cookies-150g/"
-  },
-  "sj_tatawablueberryjamfilledcookies120g": {
-    "id": "sj_tatawablueberryjamfilledcookies120g",
-    "name": "Tatawa Blueberry Jam Filled Cookies \u2013 120g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/05/ChatGPT-Image-May-20-2026-06_03_46-PM.png",
-    "category": "Cookies",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 380.0,
-        "normalized_price": 3166.67
-      }
-    ],
-    "current_price": 380.0,
-    "normalized_price": 3166.67,
-    "unit": "120.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/tatawa-blueberry-jam-filled-cookies-120g/"
-  },
-  "sj_tatawabrowniesmatchacreamfilledbrownies100g": {
-    "id": "sj_tatawabrowniesmatchacreamfilledbrownies100g",
-    "name": "Tatawa Brownies Matcha Cream Filled Brownies \u2013 100g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/05/ChatGPT-Image-May-20-2026-05_51_30-PM.png",
-    "category": "Cookies",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 380.0,
-        "normalized_price": 3800.0
-      }
-    ],
-    "current_price": 380.0,
-    "normalized_price": 3800.0,
-    "unit": "100.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/tatawa-brownies-matcha-cream-filled-brownies-100g/"
-  },
-  "sj_tatawacappuccinochocolateflavourfillingcookies120gm": {
-    "id": "sj_tatawacappuccinochocolateflavourfillingcookies120gm",
-    "name": "Tatawa Cappuccino Chocolate Flavour Filling Cookies \u2013 120gm",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/05/7e7f94a2-300a-479a-a7d7-8d6c7d12dda0.jpg",
-    "category": "Cookies",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 380.0,
-        "normalized_price": 3166.67
-      }
-    ],
-    "current_price": 380.0,
-    "normalized_price": 3166.67,
-    "unit": "120.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/tatawa-cappuccino-chocolate-flavour-filling-cookies-120gm/"
-  },
-  "sj_tatawachipsdelitechocolatechipscookies120g": {
-    "id": "sj_tatawachipsdelitechocolatechipscookies120g",
-    "name": "Tatawa Chips Delite Chocolate Chips Cookies \u2013 120g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/05/b166025d-a449-4a8b-b79a-fd54de911779.jpg",
-    "category": "Cookies",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 380.0,
-        "normalized_price": 3166.67
-      }
-    ],
-    "current_price": 380.0,
-    "normalized_price": 3166.67,
-    "unit": "120.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/tatawa-chips-delite-chocolate-chips-cookies-120g/"
-  },
-  "sj_tatawachipspluschocolateflavourchipsraisinsoftcookies120g": {
-    "id": "sj_tatawachipspluschocolateflavourchipsraisinsoftcookies120g",
-    "name": "Tatawa Chips Plus \u2013 Chocolate Flavour Chips & Raisin Soft Cookies (120g)",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/05/6567bee8-9779-4821-873d-8a138327c537.jpg",
-    "category": "Cookies",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 380.0,
-        "normalized_price": 3166.67
-      }
-    ],
-    "current_price": 380.0,
-    "normalized_price": 3166.67,
-    "unit": "120.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/tatawa-chips-plus-chocolate-flavour-chips-raisin-soft-cookies-120g/"
-  },
-  "sj_tatawachocdelitechocolateflavourfillingcookies120gm": {
-    "id": "sj_tatawachocdelitechocolateflavourfillingcookies120gm",
-    "name": "Tatawa Choc Delite Chocolate Flavour Filling Cookies \u2013 120gm",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/05/27c11ef6-49c3-4374-ad8d-5b239e83a5a5.jpg",
-    "category": "Cookies",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 380.0,
-        "normalized_price": 3166.67
-      }
-    ],
-    "current_price": 380.0,
-    "normalized_price": 3166.67,
-    "unit": "120.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/tatawa-choc-delite-chocolate-flavour-filling-cookies-120gm/"
-  },
-  "sj_tatawachocolatecakecookies120g": {
-    "id": "sj_tatawachocolatecakecookies120g",
-    "name": "Tatawa Chocolate Cake Cookies \u2013 120g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/05/f66f2098-4ab3-44af-9a6c-0ab072ca54db.jpg",
-    "category": "Cookies",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 380.0,
-        "normalized_price": 3166.67
-      }
-    ],
-    "current_price": 380.0,
-    "normalized_price": 3166.67,
-    "unit": "120.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/tatawa-chocolate-cake-cookies-120g/"
-  },
-  "sj_tatawamilkydelitedarkchocolateflavourcookieswithmilkcreamfilling100g": {
-    "id": "sj_tatawamilkydelitedarkchocolateflavourcookieswithmilkcreamfilling100g",
-    "name": "Tatawa Milky Delite Dark Chocolate Flavour Cookies With Milk Cream Filling \u2013 100g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/05/fd408f7f-748e-4a2f-b65b-396f6fd75bb5.jpg",
-    "category": "Cookies",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 380.0,
-        "normalized_price": 3800.0
-      }
-    ],
-    "current_price": 380.0,
-    "normalized_price": 3800.0,
-    "unit": "100.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/tatawa-milky-delite-dark-chocolate-flavour-cookies-with-milk-cream-filling-100g/"
-  },
-  "sj_tatawastrawberryflavourcreamfilledbrownies100g": {
-    "id": "sj_tatawastrawberryflavourcreamfilledbrownies100g",
-    "name": "Tatawa Strawberry Flavour Cream Filled Brownies \u2013 100g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/05/06c8d687-9ef5-4544-a96f-fbfd07aef823.jpg",
-    "category": "Cookies",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 380.0,
-        "normalized_price": 3800.0
-      }
-    ],
-    "current_price": 380.0,
-    "normalized_price": 3800.0,
-    "unit": "100.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/tatawa-strawberry-flavour-cream-filled-brownies-100g/"
-  },
-  "sj_tatawatiramisutwisttiramisucookieswithsoftcoffeechocolatecream120g": {
-    "id": "sj_tatawatiramisutwisttiramisucookieswithsoftcoffeechocolatecream120g",
-    "name": "Tatawa Tiramisu Twist Tiramisu Cookies with Soft Coffee Chocolate Cream \u2013 120g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/05/ff947832-9263-4424-946d-060c0e9ca69a.jpg",
-    "category": "Cookies",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 380.0,
-        "normalized_price": 3166.67
-      }
-    ],
-    "current_price": 380.0,
-    "normalized_price": 3166.67,
-    "unit": "120.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/tatawa-tiramisu-twist-tiramisu-cookies-with-soft-coffee-chocolate-cream-120g/"
-  },
-  "sj_tiffanybreakdoubletreatschocolatecoatedcrunchywafersanytime22pieces286g": {
-    "id": "sj_tiffanybreakdoubletreatschocolatecoatedcrunchywafersanytime22pieces286g",
-    "name": "Tiffany Break Double Treats Chocolate Coated Crunchy Wafers Anytime 22 Pieces 286g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/38-2.webp",
-    "category": "Cookies",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 750.0,
-        "normalized_price": 2622.38
-      }
-    ],
-    "current_price": 750.0,
-    "normalized_price": 2622.38,
-    "unit": "286.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/tiffany-break-double-treats-chocolate-coated-crunchy-wafers-anytime-22-pieces-286g/"
-  },
-  "sj_towergateallbuttershortbreadfingers210g": {
-    "id": "sj_towergateallbuttershortbreadfingers210g",
-    "name": "Tower Gate All Butter Shortbread Fingers 210g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/07/39.webp",
-    "category": "Cookies",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 400.0,
-        "normalized_price": 1904.76
-      }
-    ],
-    "current_price": 400.0,
-    "normalized_price": 1904.76,
-    "unit": "210.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/tower-gate-all-butter-shortbread-fingers-210g/"
-  },
-  "sj_towergatehazelnutheartcookies200g": {
-    "id": "sj_towergatehazelnutheartcookies200g",
-    "name": "Tower Gate Hazelnut Heart Cookies 200g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/07/40.webp",
-    "category": "Cookies",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 550.0,
-        "normalized_price": 2750.0
-      }
-    ],
-    "current_price": 550.0,
-    "normalized_price": 2750.0,
-    "unit": "200.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/tower-gate-hazelnut-heart-cookies-200g/"
-  },
-  "sj_yingpaicoffeenuts250g": {
-    "id": "sj_yingpaicoffeenuts250g",
-    "name": "Yingpai Coffee Nuts 250g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/Yingpai-Coffee-Nuts-250g.png",
-    "category": "Cookies",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 450.0,
-        "normalized_price": 1800.0
-      }
-    ],
-    "current_price": 450.0,
-    "normalized_price": 1800.0,
-    "unit": "250.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/yingpai-coffee-nuts-250g/"
-  },
-  "sj_zesslemonsandwichcracker180gm": {
-    "id": "sj_zesslemonsandwichcracker180gm",
-    "name": "Zess Lemon Sandwich Cracker-180gm",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/07/41.webp",
-    "category": "Cookies",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 450.0,
-        "normalized_price": 2500.0
-      }
-    ],
-    "current_price": 450.0,
-    "normalized_price": 2500.0,
-    "unit": "180.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/sunfeast-dark-fantasy-choco-fills-300g-original-filled-cookies-with-choco-creme/"
   },
   "sj_alcaferichroastinstantcoffee200g": {
     "id": "sj_alcaferichroastinstantcoffee200g",
@@ -70196,233 +69531,5 @@
     "unit": "50.0g",
     "unit_type": "kg",
     "url": "https://shotejbazar.com/product/beanies-very-vanilla-flavour-instant-coffee-50g/"
-  },
-  "sj_brookebondredlabeltea450gm": {
-    "id": "sj_brookebondredlabeltea450gm",
-    "name": "Brooke Bond Red Label Tea 450gm",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/9.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 750.0,
-        "normalized_price": 1666.67
-      }
-    ],
-    "current_price": 750.0,
-    "normalized_price": 1666.67,
-    "unit": "450.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/brooke-bond-red-label-tea-450gm/"
-  },
-  "sj_davidoffcoffeeoriginsasia100g": {
-    "id": "sj_davidoffcoffeeoriginsasia100g",
-    "name": "DAVIDOFF COFFEE ORIGINS ASIA 100G",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/10-2.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 1050.0,
-        "normalized_price": 10500.0
-      }
-    ],
-    "current_price": 1050.0,
-    "normalized_price": 10500.0,
-    "unit": "100.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/davidoff-coffee-origins-asia-100g/"
-  },
-  "sj_davidoffespresso57coffee100gm": {
-    "id": "sj_davidoffespresso57coffee100gm",
-    "name": "Davidoff Espresso 57 Coffee 100gm",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/11-2.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 850.0,
-        "normalized_price": 8500.0
-      }
-    ],
-    "current_price": 850.0,
-    "normalized_price": 8500.0,
-    "unit": "100.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/davidoff-espresso-57-coffee-100gm/"
-  },
-  "sj_davidofffinearomacoffee100gm": {
-    "id": "sj_davidofffinearomacoffee100gm",
-    "name": "Davidoff Fine Aroma Coffee 100gm",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/12-2.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 850.0,
-        "normalized_price": 8500.0
-      }
-    ],
-    "current_price": 850.0,
-    "normalized_price": 8500.0,
-    "unit": "100.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/davidoff-fine-aroma-coffee-100gm/"
-  },
-  "sj_davidofforiginsbrazilrichbalancedinstantcoffee100g": {
-    "id": "sj_davidofforiginsbrazilrichbalancedinstantcoffee100g",
-    "name": "Davidoff Origins Brazil Rich & Balanced Instant Coffee 100g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/13-2.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 1050.0,
-        "normalized_price": 10500.0
-      }
-    ],
-    "current_price": 1050.0,
-    "normalized_price": 10500.0,
-    "unit": "100.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/davidoff-origins-brazil-rich-balanced-instant-coffee-100g/"
-  },
-  "sj_davidoffricharomacoffee100gm": {
-    "id": "sj_davidoffricharomacoffee100gm",
-    "name": "Davidoff Rich Aroma Coffee 100gm",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/14-1.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 850.0,
-        "normalized_price": 8500.0
-      }
-    ],
-    "current_price": 850.0,
-    "normalized_price": 8500.0,
-    "unit": "100.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/davidoff-rich-aroma-coffee-100gm/"
-  },
-  "sj_douweegbertspuredecafmediumroastinstantcoffee190g": {
-    "id": "sj_douweegbertspuredecafmediumroastinstantcoffee190g",
-    "name": "Douwe Egberts Pure Decaf Medium Roast Instant Coffee 190g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2023/11/15.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 1850.0,
-        "normalized_price": 9736.84
-      }
-    ],
-    "current_price": 1850.0,
-    "normalized_price": 9736.84,
-    "unit": "190.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/douwe-egberts-pure-decaf-medium-roast-instant-coffee-190g/"
-  },
-  "sj_douweegbertspuregoldcoffee190g": {
-    "id": "sj_douweegbertspuregoldcoffee190g",
-    "name": "Douwe Egberts Pure Gold Coffee 190g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2023/11/16.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 2450.0,
-        "normalized_price": 12894.74
-      }
-    ],
-    "current_price": 2450.0,
-    "normalized_price": 12894.74,
-    "unit": "190.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/douwe-egberts-pure-gold-coffee-190g/"
-  },
-  "sj_douweegbertspureindulgencedarkroastinstantcoffee190g": {
-    "id": "sj_douweegbertspureindulgencedarkroastinstantcoffee190g",
-    "name": "Douwe Egberts Pure Indulgence Dark Roast Instant Coffee 190g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2023/11/17.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 2450.0,
-        "normalized_price": 12894.74
-      }
-    ],
-    "current_price": 2450.0,
-    "normalized_price": 12894.74,
-    "unit": "190.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/douwe-egberts-pure-indulgence-dark-roast-instant-coffee-190g/"
-  },
-  "sj_greenteajasmine200gm": {
-    "id": "sj_greenteajasmine200gm",
-    "name": "Green Tea & Jasmine 200gm",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2023/11/18.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 450.0,
-        "normalized_price": 2250.0
-      }
-    ],
-    "current_price": 450.0,
-    "normalized_price": 2250.0,
-    "unit": "200.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/green-tea-jasmine-200gm/"
-  },
-  "sj_greentealemon40gm": {
-    "id": "sj_greentealemon40gm",
-    "name": "Green Tea & Lemon 40gm",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2023/11/19.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 450.0,
-        "normalized_price": 11250.0
-      }
-    ],
-    "current_price": 450.0,
-    "normalized_price": 11250.0,
-    "unit": "40.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/green-tea-lemon-40gm/"
-  },
-  "sj_greenteaapplepear20teabags": {
-    "id": "sj_greenteaapplepear20teabags",
-    "name": "Green Tea, Apple & Pear 20 Tea Bags",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2023/11/20.webp",
-    "category": "Coffee",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 450.0,
-        "normalized_price": 450.0
-      }
-    ],
-    "current_price": 450.0,
-    "normalized_price": 450.0,
-    "unit": "1 unit",
-    "unit_type": "piece",
-    "url": "https://shotejbazar.com/product/green-tea-apple-pear-20-tea-bags/"
   }
 }
