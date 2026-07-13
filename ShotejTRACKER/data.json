@@ -40721,7 +40721,7 @@
     "id": "sj_mumsbakecocopie6x25g150g",
     "name": "Mums Bake Cocopie 6 x 25g 150g",
     "store": "shotejbazar",
-    "category": "Snacks",
+    "category": "Cookies",
     "unit": "25.0g",
     "unit_type": "kg",
     "current_price": 350.0,
@@ -40905,7 +40905,7 @@
     "id": "sj_munchysfunmixassortedbiscuits700g",
     "name": "Munchy\u2019s Funmix Assorted Biscuits 700g",
     "store": "shotejbazar",
-    "category": "Snacks",
+    "category": "Cookies",
     "unit": "700.0g",
     "unit_type": "kg",
     "current_price": 1350.0,
@@ -41089,7 +41089,7 @@
     "id": "sj_munchyslexusthesandwichcalciumcrackercheesecreambiscuits225gm",
     "name": "Munchy\u2019s Lexus The Sandwich Calcium Cracker (Cheese Cream) Biscuits 225gm",
     "store": "shotejbazar",
-    "category": "Snacks",
+    "category": "Cookies",
     "unit": "225.0gm",
     "unit_type": "kg",
     "current_price": 420.0,
@@ -41273,7 +41273,7 @@
     "id": "sj_munchyslexusthesandwichcalciumcrackerchocolatecreambiscuits225gm",
     "name": "Munchy\u2019s Lexus The Sandwich Calcium Cracker (Chocolate Cream) Biscuits 225gm",
     "store": "shotejbazar",
-    "category": "Snacks",
+    "category": "Cookies",
     "unit": "225.0gm",
     "unit_type": "kg",
     "current_price": 420.0,
@@ -41457,7 +41457,7 @@
     "id": "sj_munchystopmixassortedbiscuitstin700gm",
     "name": "Munchys Topmix Assorted Biscuits Tin 700gm",
     "store": "shotejbazar",
-    "category": "Snacks",
+    "category": "Cookies",
     "unit": "700.0gm",
     "unit_type": "kg",
     "current_price": 1350.0,
@@ -67735,7 +67735,7 @@
     "category": "Chocolate",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 650.0,
         "normalized_price": 6500.0
       }
@@ -67754,7 +67754,7 @@
     "category": "Chocolate",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 450.0,
         "normalized_price": 4500.0
       }
@@ -67773,7 +67773,7 @@
     "category": "Chocolate",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 450.0,
         "normalized_price": 4500.0
       }
@@ -67792,7 +67792,7 @@
     "category": "Chocolate",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 450.0,
         "normalized_price": 4500.0
       }
@@ -67811,7 +67811,7 @@
     "category": "Chocolate",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 750.0,
         "normalized_price": 3750.0
       }
@@ -67830,7 +67830,7 @@
     "category": "Chocolate",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 450.0,
         "normalized_price": 4500.0
       }
@@ -67849,7 +67849,7 @@
     "category": "Chocolate",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 450.0,
         "normalized_price": 4500.0
       }
@@ -67868,7 +67868,7 @@
     "category": "Chocolate",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 750.0,
         "normalized_price": 1260.08
       }
@@ -67887,7 +67887,7 @@
     "category": "Chocolate",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 750.0,
         "normalized_price": 1260.08
       }
@@ -67906,7 +67906,7 @@
     "category": "Chocolate",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 450.0,
         "normalized_price": 29032.26
       }
@@ -67925,7 +67925,7 @@
     "category": "Chocolate",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 3450.0,
         "normalized_price": 2760.0
       }
@@ -67944,7 +67944,7 @@
     "category": "Chocolate",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 2050.0,
         "normalized_price": 2928.57
       }
@@ -67963,7 +67963,7 @@
     "category": "Chocolate",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 1050.0,
         "normalized_price": 2800.0
       }
@@ -67982,7 +67982,7 @@
     "category": "Chocolate",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 1250.0,
         "normalized_price": 104166.67
       }
@@ -68001,7 +68001,7 @@
     "category": "Chocolate",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 2150.0,
         "normalized_price": 3071.43
       }
@@ -68020,7 +68020,7 @@
     "category": "Chocolate",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 2050.0,
         "normalized_price": 2928.57
       }
@@ -68039,7 +68039,7 @@
     "category": "Chocolate",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 950.0,
         "normalized_price": 27142.86
       }
@@ -68058,7 +68058,7 @@
     "category": "Chocolate",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 750.0,
         "normalized_price": 1000.0
       }
@@ -68077,7 +68077,7 @@
     "category": "Chocolate",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 750.0,
         "normalized_price": 1000.0
       }
@@ -68096,7 +68096,7 @@
     "category": "Chocolate",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 750.0,
         "normalized_price": 1000.0
       }
@@ -68115,7 +68115,7 @@
     "category": "Chocolate",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 750.0,
         "normalized_price": 1000.0
       }
@@ -68134,7 +68134,7 @@
     "category": "Chocolate",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 750.0,
         "normalized_price": 1000.0
       }
@@ -68153,7 +68153,7 @@
     "category": "Chocolate",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 650.0,
         "normalized_price": 6500.0
       }
@@ -68164,6 +68164,2058 @@
     "unit_type": "kg",
     "url": "https://shotejbazar.com/product/besto-dubai-kunafa-chocolate-hazelnut-100gm/"
   },
+  "sj_bestodubaikunafachocolatekunafapistachio220gm": {
+    "id": "sj_bestodubaikunafachocolatekunafapistachio220gm",
+    "name": "Besto Dubai Kunafa Chocolate Kunafa & Pistachio 220gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2025/12/601b0482-828c-438a-9073-8c8a971d957d.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 1200.0,
+        "normalized_price": 5454.55
+      }
+    ],
+    "current_price": 1200.0,
+    "normalized_price": 5454.55,
+    "unit": "220.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/besto-dubai-kunafa-chocolate-kunafa-pistachio-220gm/"
+  },
+  "sj_bomboneslexusdubaistylechocolatepistachio180g": {
+    "id": "sj_bomboneslexusdubaistylechocolatepistachio180g",
+    "name": "Bombones Lexus Dubai Style Chocolate Pistachio \u2013 180g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/5b700bc1-c1f8-4fed-b10e-a71ccd594960.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 850.0,
+        "normalized_price": 4722.22
+      }
+    ],
+    "current_price": 850.0,
+    "normalized_price": 4722.22,
+    "unit": "180.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/bombones-lexus-dubai-style-chocolate-pistachio-180g/"
+  },
+  "sj_bonfirejuicydropsfruitflavorsdeliciouscandyblueberrychewies525gm": {
+    "id": "sj_bonfirejuicydropsfruitflavorsdeliciouscandyblueberrychewies525gm",
+    "name": "Bonfire Juicy Drops Fruit Flavors delicious Candy Blueberry Chewies 525gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/14.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 750.0,
+        "normalized_price": 1428.57
+      }
+    ],
+    "current_price": 750.0,
+    "normalized_price": 1428.57,
+    "unit": "525.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/bonfire-juicy-drops-fruit-flavors-delicious-candy-chewies-525gm-3/"
+  },
+  "sj_bonfirejuicydropsfruitflavorsdeliciouscandychewies525gmstrawberrychewy": {
+    "id": "sj_bonfirejuicydropsfruitflavorsdeliciouscandychewies525gmstrawberrychewy",
+    "name": "Bonfire Juicy Drops Fruit Flavors delicious Candy Chewies 525gm (Strawberry Chewy)",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/15.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 750.0,
+        "normalized_price": 1428.57
+      }
+    ],
+    "current_price": 750.0,
+    "normalized_price": 1428.57,
+    "unit": "525.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/bonfire-juicy-drops-fruit-flavors-delicious-candy-chewies-525gm-strawberry-chewy/"
+  },
+  "sj_bonfirejuicydropsfruitflavorsdeliciouscandygrapechewies525gm": {
+    "id": "sj_bonfirejuicydropsfruitflavorsdeliciouscandygrapechewies525gm",
+    "name": "Bonfire Juicy Drops Fruit Flavors delicious Candy Grape Chewies 525gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/16.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 750.0,
+        "normalized_price": 1428.57
+      }
+    ],
+    "current_price": 750.0,
+    "normalized_price": 1428.57,
+    "unit": "525.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/bonfire-juicy-drops-fruit-flavors-delicious-candy-chewies-525gm-2/"
+  },
+  "sj_bonfirejuicydropsfruitflavorsdeliciouscandypeachchewies525gm": {
+    "id": "sj_bonfirejuicydropsfruitflavorsdeliciouscandypeachchewies525gm",
+    "name": "Bonfire Juicy Drops Fruit Flavors delicious Candy Peach Chewies 525gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/17.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 750.0,
+        "normalized_price": 1428.57
+      }
+    ],
+    "current_price": 750.0,
+    "normalized_price": 1428.57,
+    "unit": "525.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/bonfire-juicy-drops-fruit-flavors-delicious-candy-chewies-525gm/"
+  },
+  "sj_bonfirejuicydropsfruit525gram": {
+    "id": "sj_bonfirejuicydropsfruit525gram",
+    "name": "Bonfire Juicy Drops Fruit, 525 Gram",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/18.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 750.0,
+        "normalized_price": 750.0
+      }
+    ],
+    "current_price": 750.0,
+    "normalized_price": 750.0,
+    "unit": "1 unit",
+    "unit_type": "piece",
+    "url": "https://shotejbazar.com/product/bonfire-juicy-drops-fruit-525-gram/"
+  },
+  "sj_bountychocolatebar57gmx24pcsbox": {
+    "id": "sj_bountychocolatebar57gmx24pcsbox",
+    "name": "Bounty Chocolate Bar (57gm x 24pcs) Box",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/09/7215819a-7e15-4bcc-b4e8-b8b5ea9c2659.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 3050.0,
+        "normalized_price": 2229.53
+      }
+    ],
+    "current_price": 3050.0,
+    "normalized_price": 2229.53,
+    "unit": "57gm x 24",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/bounty-chocolate-bar-57-gm/"
+  },
+  "sj_cadbruydairymilkblackforest130g": {
+    "id": "sj_cadbruydairymilkblackforest130g",
+    "name": "Cadbruy Dairy Milk Black Forest 130g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/20-1.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 400.0,
+        "normalized_price": 3076.92
+      }
+    ],
+    "current_price": 400.0,
+    "normalized_price": 3076.92,
+    "unit": "130.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/cadbruy-dairy-milk-black-forest-130g/"
+  },
+  "sj_cadbury5starchocolate202gm": {
+    "id": "sj_cadbury5starchocolate202gm",
+    "name": "Cadbury 5 Star Chocolate 20.2gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/03/4649bf1e-162f-472e-bc0e-a1362bc7adc2.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 1050.0,
+        "normalized_price": 51980.2
+      }
+    ],
+    "current_price": 1050.0,
+    "normalized_price": 51980.2,
+    "unit": "20.2gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/cadbury-5-star-chocolate-20-2gm/"
+  },
+  "sj_cadburychoclairspacket120pcs": {
+    "id": "sj_cadburychoclairspacket120pcs",
+    "name": "Cadbury Choclairs packet (120pcs)",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/03/21.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 380.0,
+        "normalized_price": 380.0
+      }
+    ],
+    "current_price": 380.0,
+    "normalized_price": 380.0,
+    "unit": "1 unit",
+    "unit_type": "piece",
+    "url": "https://shotejbazar.com/product/cadbury-choclairs-packet-120pcs/"
+  },
+  "sj_cadburycholairs336gm240pcsindian2pack": {
+    "id": "sj_cadburycholairs336gm240pcsindian2pack",
+    "name": "Cadbury Cholairs 336gm 240pcs (Indian) 2 Pack",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2025/10/Cadbury-Cholairs-336gm-240pcs-Indian-2-Pack.png",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 700.0,
+        "normalized_price": 2083.33
+      }
+    ],
+    "current_price": 700.0,
+    "normalized_price": 2083.33,
+    "unit": "336.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/cadbury-cholairs-336gm-240pcs-indian-2-pack/"
+  },
+  "sj_cadburycocoapowder125g": {
+    "id": "sj_cadburycocoapowder125g",
+    "name": "Cadbury Cocoa Powder \u2013 125g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/22.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 550.0,
+        "normalized_price": 4400.0
+      }
+    ],
+    "current_price": 550.0,
+    "normalized_price": 4400.0,
+    "unit": "125.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/cadbury-cocoa-powder-125g/"
+  },
+  "sj_cadburydairymilkchocolate130g": {
+    "id": "sj_cadburydairymilkchocolate130g",
+    "name": "Cadbury Dairy Milk Chocolate \u2013 130g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/23.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 400.0,
+        "normalized_price": 3076.92
+      }
+    ],
+    "current_price": 400.0,
+    "normalized_price": 3076.92,
+    "unit": "130.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/cadbury-dairy-milk-chocolate-130g/"
+  },
+  "sj_cadburydairymilkbubblyminischocolate168gm": {
+    "id": "sj_cadburydairymilkbubblyminischocolate168gm",
+    "name": "Cadbury Dairy Milk Bubbly Minis Chocolate 168 Gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/24.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 750.0,
+        "normalized_price": 4464.29
+      }
+    ],
+    "current_price": 750.0,
+    "normalized_price": 4464.29,
+    "unit": "168.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/cadbury-dairy-milk-bubbly-minis-chocolate-168-gm/"
+  },
+  "sj_cadburydairymilkchocolatemini168g": {
+    "id": "sj_cadburydairymilkchocolatemini168g",
+    "name": "Cadbury Dairy Milk Chocolate Mini 168 g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/Cadbury-Dairy-Milk-Chocolate-Mini-168-g.png",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 750.0,
+        "normalized_price": 4464.29
+      }
+    ],
+    "current_price": 750.0,
+    "normalized_price": 4464.29,
+    "unit": "168.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/cadbury-dairy-milk-chocolate-mini-168-g/"
+  },
+  "sj_cadburydairymilkhazelnutchocolate130g": {
+    "id": "sj_cadburydairymilkhazelnutchocolate130g",
+    "name": "Cadbury Dairy Milk Hazelnut Chocolate \u2013 130g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/29-1.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 400.0,
+        "normalized_price": 3076.92
+      }
+    ],
+    "current_price": 400.0,
+    "normalized_price": 3076.92,
+    "unit": "130.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/cadbury-dairy-milk-hazelnut-chocolate-130g/"
+  },
+  "sj_cadburydairymilkhazelnutminichocolate168gm": {
+    "id": "sj_cadburydairymilkhazelnutminichocolate168gm",
+    "name": "Cadbury Dairy Milk Hazelnut, Mini Chocolate 168gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/30-1.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 750.0,
+        "normalized_price": 4464.29
+      }
+    ],
+    "current_price": 750.0,
+    "normalized_price": 4464.29,
+    "unit": "168.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/cadbury-dairy-milk-hazelnut-mini-chocolate-168gm/"
+  },
+  "sj_cadburydairymilkjar382gm": {
+    "id": "sj_cadburydairymilkjar382gm",
+    "name": "Cadbury Dairy Milk Jar 382 gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/1670b54a-8012-49e8-a060-c873e4568c3a.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 1350.0,
+        "normalized_price": 3534.03
+      }
+    ],
+    "current_price": 1350.0,
+    "normalized_price": 3534.03,
+    "unit": "382.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/cadbury-dairy-milk-jar-405g/"
+  },
+  "sj_cadburydairymilkoreochocolatesharingpack1595g": {
+    "id": "sj_cadburydairymilkoreochocolatesharingpack1595g",
+    "name": "Cadbury Dairy Milk Oreo Chocolate Sharing Pack 159.5g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/32-1.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 750.0,
+        "normalized_price": 4702.19
+      }
+    ],
+    "current_price": 750.0,
+    "normalized_price": 4702.19,
+    "unit": "159.5g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/cadbury-dairy-milk-oreo-chocolate-sharing-pack-159-5g/"
+  },
+  "sj_cadburydairymilkroastalmondchocolate130g": {
+    "id": "sj_cadburydairymilkroastalmondchocolate130g",
+    "name": "Cadbury Dairy Milk Roast Almond Chocolate \u2013 130g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/20.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 400.0,
+        "normalized_price": 3076.92
+      }
+    ],
+    "current_price": 400.0,
+    "normalized_price": 3076.92,
+    "unit": "130.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/cadbury-dairy-milk-roast-almond-chocolate-130g/"
+  },
+  "sj_cadburydairymilksilkheart250gmpriceinbd": {
+    "id": "sj_cadburydairymilksilkheart250gmpriceinbd",
+    "name": "Cadbury Dairy Milk Silk Heart 250 gm price in bd",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/01/Silk-250gm.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 1250.0,
+        "normalized_price": 5000.0
+      }
+    ],
+    "current_price": 1250.0,
+    "normalized_price": 5000.0,
+    "unit": "250.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/cadbury-dairy-milk-silk-heart-blush-250-gm-price-in-bd/"
+  },
+  "sj_cadburydairymilkbubbly46gmx10pcs": {
+    "id": "sj_cadburydairymilkbubbly46gmx10pcs",
+    "name": "Cadbury Dairymilk Bubbly (46gm X 10pcs)",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/03/4985f97a-43b7-4e42-8afa-19447d1bf9c3.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 2150.0,
+        "normalized_price": 4673.91
+      }
+    ],
+    "current_price": 2150.0,
+    "normalized_price": 4673.91,
+    "unit": "46gm x 10",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/cadbury-dairy-milk-bubbly-50gm/"
+  },
+  "sj_cadburydairymilkbubbly46gm": {
+    "id": "sj_cadburydairymilkbubbly46gm",
+    "name": "Cadbury Dairymilk Bubbly 46Gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/03/28.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 220.0,
+        "normalized_price": 4782.61
+      }
+    ],
+    "current_price": 220.0,
+    "normalized_price": 4782.61,
+    "unit": "46.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/cadbury-dairymilk-bubbly-46gm/"
+  },
+  "sj_cadburydairymilkbubbly46gmx5piece": {
+    "id": "sj_cadburydairymilkbubbly46gmx5piece",
+    "name": "Cadbury Dairymilk Bubbly 46Gm x 5 piece",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/91176ab1-ca20-4fe9-8463-0164a06ea7ab.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 1050.0,
+        "normalized_price": 4565.22
+      }
+    ],
+    "current_price": 1050.0,
+    "normalized_price": 4565.22,
+    "unit": "46gm x 5",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/cadbury-dairymilk-bubbly-46gm-x-5-piece/"
+  },
+  "sj_cadburydairymilkchocolate201gmx40pcsbox": {
+    "id": "sj_cadburydairymilkchocolate201gmx40pcsbox",
+    "name": "Cadbury DairyMilk Chocolate (20.1gm x 40pcs) Box",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/03/a575824e-1d2e-463b-b2f1-a49b00189cab.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 1600.0,
+        "normalized_price": 1990.05
+      }
+    ],
+    "current_price": 1600.0,
+    "normalized_price": 1990.05,
+    "unit": "20.1gm x 40",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/cadbury-dairy-milk-18gm/"
+  },
+  "sj_cadburydairymilkfruitnut137gmx3pcs": {
+    "id": "sj_cadburydairymilkfruitnut137gmx3pcs",
+    "name": "Cadbury Dairymilk Fruit & Nut (137gm X 3pcs)",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/03/32.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 1530.0,
+        "normalized_price": 3722.63
+      }
+    ],
+    "current_price": 1530.0,
+    "normalized_price": 3722.63,
+    "unit": "137gm x 3",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/cadbury-dairy-milk-fruit-nut-137gm/"
+  },
+  "sj_cadburydairymilkfruitnut50gmx10pcs": {
+    "id": "sj_cadburydairymilkfruitnut50gmx10pcs",
+    "name": "Cadbury Dairymilk Fruit & Nut (50gm X 10pcs)",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/03/d695e8df-3238-4ddf-895d-07b4905f6b3c.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 2150.0,
+        "normalized_price": 4300.0
+      }
+    ],
+    "current_price": 2150.0,
+    "normalized_price": 4300.0,
+    "unit": "50gm x 10",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/cadbury-dairymilk-fruit-nut-50gm-x-10pcs/"
+  },
+  "sj_cadburydairymilkfruitnut50gmx5pcs": {
+    "id": "sj_cadburydairymilkfruitnut50gmx5pcs",
+    "name": "Cadbury Dairymilk Fruit & Nut (50gm X 5pcs)",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/11ec8140-4cbb-4273-bc5c-2bc14eca216f.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 1050.0,
+        "normalized_price": 4200.0
+      }
+    ],
+    "current_price": 1050.0,
+    "normalized_price": 4200.0,
+    "unit": "50gm x 5",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/cadbury-dairymilk-fruit-nut-50gm-x-5pcs/"
+  },
+  "sj_cadburydairymilkfruitnut50gm": {
+    "id": "sj_cadburydairymilkfruitnut50gm",
+    "name": "Cadbury Dairymilk Fruit & Nut 50gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/c7e58685-e685-48b8-b258-7737310f08da.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 220.0,
+        "normalized_price": 4400.0
+      }
+    ],
+    "current_price": 220.0,
+    "normalized_price": 4400.0,
+    "unit": "50.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/cadbury-dairymilk-fruit-nut-50gm/"
+  },
+  "sj_cadburydairymilkrostedalmond143gmpackof3": {
+    "id": "sj_cadburydairymilkrostedalmond143gmpackof3",
+    "name": "Cadbury Dairymilk Rosted Almond 143gm (Pack of 3)",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/09/36.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 1530.0,
+        "normalized_price": 10699.3
+      }
+    ],
+    "current_price": 1530.0,
+    "normalized_price": 10699.3,
+    "unit": "143.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/cadbury-dairymilk-rosted-almond-143gm3pcs/"
+  },
+  "sj_cadburydairymilkrostedalmond50gm": {
+    "id": "sj_cadburydairymilkrostedalmond50gm",
+    "name": "Cadbury Dairymilk Rosted Almond 50gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/2c81b3bd-b540-4b7b-a11f-a38088dac965.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 220.0,
+        "normalized_price": 4400.0
+      }
+    ],
+    "current_price": 220.0,
+    "normalized_price": 4400.0,
+    "unit": "50.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/cadbury-dairymilk-rosted-almond-50gm/"
+  },
+  "sj_cadburydairymilkrostedalmond50gmpackof5": {
+    "id": "sj_cadburydairymilkrostedalmond50gmpackof5",
+    "name": "Cadbury Dairymilk Rosted Almond 50gm (pack of 5)",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/24147a8f-4579-4f77-bd8d-5dde69964a78.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 1150.0,
+        "normalized_price": 23000.0
+      }
+    ],
+    "current_price": 1150.0,
+    "normalized_price": 23000.0,
+    "unit": "50.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/cadbury-dairymilk-rosted-almond-5gm-pack-of-5/"
+  },
+  "sj_cadburydairymilkrostedalmond58gmpackof10": {
+    "id": "sj_cadburydairymilkrostedalmond58gmpackof10",
+    "name": "Cadbury Dairymilk Rosted Almond 58gm (pack of 10)",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/09/1198eaca-8a17-4133-9bf0-6160c9691042.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 2190.0,
+        "normalized_price": 37758.62
+      }
+    ],
+    "current_price": 2190.0,
+    "normalized_price": 37758.62,
+    "unit": "58.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/cadbury-dairymilk-rosted-almond-58gm-pack-of-10/"
+  },
+  "sj_cadburydairymilksilk150gmx3pcs": {
+    "id": "sj_cadburydairymilksilk150gmx3pcs",
+    "name": "Cadbury Dairymilk Silk (150gm X 3pcs)",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/03/26.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 1530.0,
+        "normalized_price": 3400.0
+      }
+    ],
+    "current_price": 1530.0,
+    "normalized_price": 3400.0,
+    "unit": "150gm x 3",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/cadbury-dairy-milk-silk-150gm/"
+  },
+  "sj_cadburydairymilksilk55gmx10pcs": {
+    "id": "sj_cadburydairymilksilk55gmx10pcs",
+    "name": "Cadbury Dairymilk Silk (55gm X 10pcs)",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/03/38a5fa6f-26ef-40d3-a7a2-6511d3120e97.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 2150.0,
+        "normalized_price": 3909.09
+      }
+    ],
+    "current_price": 2150.0,
+    "normalized_price": 3909.09,
+    "unit": "55gm x 10",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/cadbury-dairymilk-silk-55gm-x-10pcs/"
+  },
+  "sj_cadburydairymilksilk55gmx5pcs": {
+    "id": "sj_cadburydairymilksilk55gmx5pcs",
+    "name": "Cadbury Dairymilk Silk (55gm X 5pcs)",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/03/1b073fbc-1c0a-4f69-b466-aede53f9245a.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 1050.0,
+        "normalized_price": 3818.18
+      }
+    ],
+    "current_price": 1050.0,
+    "normalized_price": 3818.18,
+    "unit": "55gm x 5",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/cadbury-dairymilk-silk-55gm-x-5pcs/"
+  },
+  "sj_cadburydairymilksilk55gm": {
+    "id": "sj_cadburydairymilksilk55gm",
+    "name": "Cadbury Dairymilk Silk 55gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/9ce3dff4-5ff1-40c7-a49c-a9c0581976a4.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 220.0,
+        "normalized_price": 4000.0
+      }
+    ],
+    "current_price": 220.0,
+    "normalized_price": 4000.0,
+    "unit": "55.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/cadbury-dairymilk-silk-55gm/"
+  },
+  "sj_cadburydairymilksilkbubbly120gmx3pcs": {
+    "id": "sj_cadburydairymilksilkbubbly120gmx3pcs",
+    "name": "Cadbury Dairymilk Silk Bubbly (120gm X 3pcs)",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/03/29.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 1530.0,
+        "normalized_price": 4250.0
+      }
+    ],
+    "current_price": 1530.0,
+    "normalized_price": 4250.0,
+    "unit": "120gm x 3",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/cadbury-dairy-milk-silk-120gm/"
+  },
+  "sj_cadburydairymilksilkoreo130gmx3pcs": {
+    "id": "sj_cadburydairymilksilkoreo130gmx3pcs",
+    "name": "Cadbury Dairymilk Silk Oreo (130gm X 3pcs)",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/03/30.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 1530.0,
+        "normalized_price": 3923.08
+      }
+    ],
+    "current_price": 1530.0,
+    "normalized_price": 3923.08,
+    "unit": "130gm x 3",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/cadbury-dairy-milk-oreo-130gm/"
+  },
+  "sj_cadburydairymilksilkoreo58gmx10pcs": {
+    "id": "sj_cadburydairymilksilkoreo58gmx10pcs",
+    "name": "Cadbury Dairymilk Silk Oreo (58gm X 10pcs)",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/03/7283f987-95e4-474f-9ab4-47daaf1080fd.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 2150.0,
+        "normalized_price": 3706.9
+      }
+    ],
+    "current_price": 2150.0,
+    "normalized_price": 3706.9,
+    "unit": "58gm x 10",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/cadbury-dairymilk-silk-oreo-58gm-x-10pcs/"
+  },
+  "sj_cadburydairymilksilkoreo58gmx5pcs": {
+    "id": "sj_cadburydairymilksilkoreo58gmx5pcs",
+    "name": "Cadbury Dairymilk Silk Oreo (58gm X 5pcs)",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/6e3cabb7-48cd-4c46-bba8-3bc7211dcbdc.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 1050.0,
+        "normalized_price": 3620.69
+      }
+    ],
+    "current_price": 1050.0,
+    "normalized_price": 3620.69,
+    "unit": "58gm x 5",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/cadbury-dairymilk-silk-oreo-58gm-x-5pcs/"
+  },
+  "sj_cadburydairymilksilkoreo58gm": {
+    "id": "sj_cadburydairymilksilkoreo58gm",
+    "name": "Cadbury Dairymilk Silk Oreo 58gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/5d66e09e-5b65-4a9b-9051-1dbd1257c652.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 220.0,
+        "normalized_price": 3793.1
+      }
+    ],
+    "current_price": 220.0,
+    "normalized_price": 3793.1,
+    "unit": "58.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/cadbury-dairymilk-silk-oreo-58gm/"
+  },
+  "sj_cadburydrinkinghotchocolate1jar500gm": {
+    "id": "sj_cadburydrinkinghotchocolate1jar500gm",
+    "name": "Cadbury Drinking Hot Chocolate 1 Jar 500 gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/75e0cbd2-bfc9-43e5-80f0-ef85495af6f4.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 1250.0,
+        "normalized_price": 2500.0
+      }
+    ],
+    "current_price": 1250.0,
+    "normalized_price": 2500.0,
+    "unit": "500.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/authentic-british-cadbury-drinking-hot-chocolate-1-jar-500-gm/"
+  },
+  "sj_cadburygemsminischocolatehometreatspack1264g": {
+    "id": "sj_cadburygemsminischocolatehometreatspack1264g",
+    "name": "Cadbury Gems Minis Chocolate Home Treats Pack, 126.4 g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/09/37.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 450.0,
+        "normalized_price": 3560.13
+      }
+    ],
+    "current_price": 450.0,
+    "normalized_price": 3560.13,
+    "unit": "126.4g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/cadbury-gems-minis-chocolate-home-treats-pack-126-4-g/"
+  },
+  "sj_cadburyperkchocolate30pcsbox": {
+    "id": "sj_cadburyperkchocolate30pcsbox",
+    "name": "Cadbury Perk Chocolate 30pcs box",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/03/19affdb0-5ba2-40d3-8e8b-7b49a0b587d0.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 450.0,
+        "normalized_price": 450.0
+      }
+    ],
+    "current_price": 450.0,
+    "normalized_price": 450.0,
+    "unit": "1 unit",
+    "unit_type": "piece",
+    "url": "https://shotejbazar.com/product/cadbury-perk/"
+  },
+  "sj_celebrationschocolatetub500gmmadeinuk": {
+    "id": "sj_celebrationschocolatetub500gmmadeinuk",
+    "name": "Celebrations Chocolate Tub 500gm \u2013 Made In UK",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/07/118f2ddf-27fc-45bc-9868-b28cbf6fc973.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 2250.0,
+        "normalized_price": 4500.0
+      }
+    ],
+    "current_price": 2250.0,
+    "normalized_price": 4500.0,
+    "unit": "500.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/celebrations-chocolate-tub-550gm-uk/"
+  },
+  "sj_celebrationschocolatetub600gmmadeinuk": {
+    "id": "sj_celebrationschocolatetub600gmmadeinuk",
+    "name": "Celebrations Chocolate Tub 600gm \u2013 Made In UK",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/07/118f2ddf-27fc-45bc-9868-b28cbf6fc973.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 2550.0,
+        "normalized_price": 4250.0
+      }
+    ],
+    "current_price": 2550.0,
+    "normalized_price": 4250.0,
+    "unit": "600.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/celebrations-chocolate-tub-600gm-made-in-uk/"
+  },
+  "sj_celebrationsmixpouchpack196gm": {
+    "id": "sj_celebrationsmixpouchpack196gm",
+    "name": "Celebrations Mix Pouch Pack- 196 gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2025/12/58f5b4ec-1124-4fe9-9773-298d0e4a81e3.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 900.0,
+        "normalized_price": 4591.84
+      }
+    ],
+    "current_price": 900.0,
+    "normalized_price": 4591.84,
+    "unit": "196.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/celebrations-mix-pouch-pack-196-gm/"
+  },
+  "sj_celebrationsmixpouchpack325g": {
+    "id": "sj_celebrationsmixpouchpack325g",
+    "name": "Celebrations Mix Pouch Pack- 325g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/07/43.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 1350.0,
+        "normalized_price": 4153.85
+      }
+    ],
+    "current_price": 1350.0,
+    "normalized_price": 4153.85,
+    "unit": "325.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/mars-celebrations-mix-pouch-370g/"
+  },
+  "sj_centerfruitfruitsflavourbubblegumstick20gmx24pisbox": {
+    "id": "sj_centerfruitfruitsflavourbubblegumstick20gmx24pisbox",
+    "name": "Center Fruit, Fruits Flavour, Bubble Gum Stick (20gm x 24pis) Box",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/842ad46b-21e1-4d2b-8429-3421d59a03fc.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 650.0,
+        "normalized_price": 1354.17
+      }
+    ],
+    "current_price": 650.0,
+    "normalized_price": 1354.17,
+    "unit": "20gm x 24",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/center-fruit-fruits-flavour-bubble-gum-stick-20gm-x-24pis-box/"
+  },
+  "sj_chupachupslollipopvitaminc1packet60pcs": {
+    "id": "sj_chupachupslollipopvitaminc1packet60pcs",
+    "name": "Chupa Chups Lollipop Vitamin C 1 packet 60 pcs",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/07/50.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 950.0,
+        "normalized_price": 950.0
+      }
+    ],
+    "current_price": 950.0,
+    "normalized_price": 950.0,
+    "unit": "1 unit",
+    "unit_type": "piece",
+    "url": "https://shotejbazar.com/product/chupa-chups-lollipop-vitamin-c-1-packet-60-pcs/"
+  },
+  "sj_chupachupssourbelt": {
+    "id": "sj_chupachupssourbelt",
+    "name": "Chupa Chups Sour Belt",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/58ff4860-123d-4d35-971f-d1bdcd9733a6.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 650.0,
+        "normalized_price": 650.0
+      }
+    ],
+    "current_price": 650.0,
+    "normalized_price": 650.0,
+    "unit": "1 unit",
+    "unit_type": "piece",
+    "url": "https://shotejbazar.com/product/chupa-chups-sour-belt/"
+  },
+  "sj_cintubreaktimeroseflavouredchocowafer14gx30pecs": {
+    "id": "sj_cintubreaktimeroseflavouredchocowafer14gx30pecs",
+    "name": "CINTU Break Time Rose Flavoured Choco Wafer 14gx30 pecs",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/9840f188-9897-4911-b85a-8bf1751675ab.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 450.0,
+        "normalized_price": 1071.43
+      }
+    ],
+    "current_price": 450.0,
+    "normalized_price": 1071.43,
+    "unit": "14g x 30",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/cintu-break-time-rose-flavoured-choco-wafer-14gx30-pecs/"
+  },
+  "sj_crownpeanutbutt\u00e8rchunkyspread510g": {
+    "id": "sj_crownpeanutbutt\u00e8rchunkyspread510g",
+    "name": "Crown Peanut Butt\u00e8r Chunky Spread 510g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/09/56.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 850.0,
+        "normalized_price": 1666.67
+      }
+    ],
+    "current_price": 850.0,
+    "normalized_price": 1666.67,
+    "unit": "510.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/crown-peanut-butter-chunky-spread-340-g/"
+  },
+  "sj_daimchocolateminis200g": {
+    "id": "sj_daimchocolateminis200g",
+    "name": "Daim Chocolate Minis 200g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/09/57.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 850.0,
+        "normalized_price": 4250.0
+      }
+    ],
+    "current_price": 850.0,
+    "normalized_price": 4250.0,
+    "unit": "200.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/daim-chocolate-minis-200g/"
+  },
+  "sj_dairymilkchocolatebar105gmx3pc": {
+    "id": "sj_dairymilkchocolatebar105gmx3pc",
+    "name": "Dairy milk chocolate bar 105 gm X 3pc",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/09/36-1.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 700.0,
+        "normalized_price": 2222.22
+      }
+    ],
+    "current_price": 700.0,
+    "normalized_price": 2222.22,
+    "unit": "105gm x 3",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/dairy-milk-chocolate-bar-105-gm-x-3pc/"
+  },
+  "sj_dairymilkchocolate55gpackof72": {
+    "id": "sj_dairymilkchocolate55gpackof72",
+    "name": "Dairy Milk Chocolate, 5.5g (Pack of 72)",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/09/63e2ae9f-b5dd-4256-8ca0-0387cc2a8901.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 850.0,
+        "normalized_price": 154545.45
+      }
+    ],
+    "current_price": 850.0,
+    "normalized_price": 154545.45,
+    "unit": "5.5g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/cadbury-dairy-milk-chocolate-5-5g-pack-of-72/"
+  },
+  "sj_dairymilksilkheart140gm": {
+    "id": "sj_dairymilksilkheart140gm",
+    "name": "Dairy Milk Silk Heart 140 gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/01/Cadbury-Heart-Blush-Price-600x600-1.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 500.0,
+        "normalized_price": 3571.43
+      }
+    ],
+    "current_price": 500.0,
+    "normalized_price": 3571.43,
+    "unit": "140.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/cadbury-dairy-milk-silk-heart-blush-150-gm-price-in-bd/"
+  },
+  "sj_dairymilkchocolatebar11gx56pcsbox": {
+    "id": "sj_dairymilkchocolatebar11gx56pcsbox",
+    "name": "Dairymilk Chocolate bar (11 g x 56 pcs ) Box",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/03/eb344b56-dc98-4683-81f2-59b9c73e4c52.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 1250.0,
+        "normalized_price": 2029.22
+      }
+    ],
+    "current_price": 1250.0,
+    "normalized_price": 2029.22,
+    "unit": "11g x 56",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/dairy-milk-chocolate-bar-11-g-x-56-pcs-box/"
+  },
+  "sj_dulalchandrabharspalmcandyorganicpalmcandy200gm": {
+    "id": "sj_dulalchandrabharspalmcandyorganicpalmcandy200gm",
+    "name": "Dulal Chandra Bhar\u2019s Palm Candy Organic Palm Candy 200 Gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/01/c2148369-b71d-4251-bb98-a65a6773429b.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 150.0,
+        "normalized_price": 750.0
+      }
+    ],
+    "current_price": 150.0,
+    "normalized_price": 750.0,
+    "unit": "200.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/dulal-chandra-bhars-palm-candy-organic-palm-candy-200-gm/"
+  },
+  "sj_emrodubaichocolatepistachiokunafa1020g": {
+    "id": "sj_emrodubaichocolatepistachiokunafa1020g",
+    "name": "Emro Dubai Chocolate \u2013 Pistachio Kunafa (10 \u00d7 20g)",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/9febcaae-1825-4296-9874-4cad39e21361.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 1200.0,
+        "normalized_price": 60000.0
+      }
+    ],
+    "current_price": 1200.0,
+    "normalized_price": 60000.0,
+    "unit": "20.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/emro-dubai-chocolate-pistachio-kunafa-10-x-20g/"
+  },
+  "sj_eyeballgummycandy9gmx30pcs": {
+    "id": "sj_eyeballgummycandy9gmx30pcs",
+    "name": "Eye ball gummy candy 9 gm X 30 pcs",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/09/41.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 350.0,
+        "normalized_price": 1296.3
+      }
+    ],
+    "current_price": 350.0,
+    "normalized_price": 1296.3,
+    "unit": "9gm x 30",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/eye-ball-gummy-candy-9-gm-x-30-pcs/"
+  },
+  "sj_feastablesmrbeastmilkchocolate60g": {
+    "id": "sj_feastablesmrbeastmilkchocolate60g",
+    "name": "Feastables MrBeast Milk Chocolate 60g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/58.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 550.0,
+        "normalized_price": 9166.67
+      }
+    ],
+    "current_price": 550.0,
+    "normalized_price": 9166.67,
+    "unit": "60.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/feastables-by-mrbeast-milk-chocolate-king-size-chocolate-bar-2-1oz-60g/"
+  },
+  "sj_feastablesmrbeastalmondchocolatebar60g": {
+    "id": "sj_feastablesmrbeastalmondchocolatebar60g",
+    "name": "Feastables MrBeast Almond Chocolate Bar \u2013 60g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/Feastables-MrBeast-Almond-Chocolate-Bar-\u2013-60g.png",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 550.0,
+        "normalized_price": 9166.67
+      }
+    ],
+    "current_price": 550.0,
+    "normalized_price": 9166.67,
+    "unit": "60.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/feastables-mrbeast-almond-chocolate-bar-60g/"
+  },
+  "sj_feastablesmrbeastmilkchocolatecrunch60g": {
+    "id": "sj_feastablesmrbeastmilkchocolatecrunch60g",
+    "name": "Feastables MrBeast Milk Chocolate Crunch 60 g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2025/12/8cff75ef-7bf4-4bff-9844-6dec555e98e5.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 550.0,
+        "normalized_price": 9166.67
+      }
+    ],
+    "current_price": 550.0,
+    "normalized_price": 9166.67,
+    "unit": "60.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/feastables-mrbeast-milk-chocolate-crunch-60-g/"
+  },
+  "sj_feastablesmrbeastpeanutbutterchocolatecrunch60g": {
+    "id": "sj_feastablesmrbeastpeanutbutterchocolatecrunch60g",
+    "name": "Feastables MrBeast Peanut Butter Chocolate Crunch 60g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/59.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 550.0,
+        "normalized_price": 9166.67
+      }
+    ],
+    "current_price": 550.0,
+    "normalized_price": 9166.67,
+    "unit": "60.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/feastables-mrbeast-peanut-butter-chocolate-crunch-bar-2-1-oz-60g/"
+  },
+  "sj_fererocollectiongiftboxofchocolates24pieces268gm": {
+    "id": "sj_fererocollectiongiftboxofchocolates24pieces268gm",
+    "name": "Ferero Collection Gift Box of Chocolates 24 Pieces 268gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/60.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 2250.0,
+        "normalized_price": 8395.52
+      }
+    ],
+    "current_price": 2250.0,
+    "normalized_price": 8395.52,
+    "unit": "268.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/ferero-collection-gift-box-of-chocolates-24-pieces-268gm/"
+  },
+  "sj_ferrerocollectionchocolatebox15pieces172g": {
+    "id": "sj_ferrerocollectionchocolatebox15pieces172g",
+    "name": "Ferrero Collection Chocolate Box \u2013 15 Pieces (172g)",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/F373AB05-7FA8-49D2-9627-237E05A3FBB2.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 1450.0,
+        "normalized_price": 8430.23
+      }
+    ],
+    "current_price": 1450.0,
+    "normalized_price": 8430.23,
+    "unit": "172.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/ferrero-collection-chocolate-box-15-pieces-172g/"
+  },
+  "sj_ferrerorocherchocolateboxt3x16stick": {
+    "id": "sj_ferrerorocherchocolateboxt3x16stick",
+    "name": "Ferrero Rocher Chocolate Box (T3 X 16stick)",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/03/62.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 2850.0,
+        "normalized_price": 2850.0
+      }
+    ],
+    "current_price": 2850.0,
+    "normalized_price": 2850.0,
+    "unit": "1 unit",
+    "unit_type": "piece",
+    "url": "https://shotejbazar.com/product/ferrero-rocher-chocolate-box-t3-x-16stick/"
+  },
+  "sj_ferrerorocheroriginalmilkchocolatebar90g": {
+    "id": "sj_ferrerorocheroriginalmilkchocolatebar90g",
+    "name": "Ferrero Rocher Original Milk Chocolate Bar 90G",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2025/01/64.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 650.0,
+        "normalized_price": 7222.22
+      }
+    ],
+    "current_price": 650.0,
+    "normalized_price": 7222.22,
+    "unit": "90.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/ferrero-rocher-original-milk-chocolate-bar-90g/"
+  },
+  "sj_ferrerorocherpremiumchocolatebardarkchocolatehazelnut31oz90gm": {
+    "id": "sj_ferrerorocherpremiumchocolatebardarkchocolatehazelnut31oz90gm",
+    "name": "Ferrero Rocher Premium Chocolate Bar, Dark Chocolate Hazelnut, \u200b3.1 oz 90gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2025/01/65.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 650.0,
+        "normalized_price": 7222.22
+      }
+    ],
+    "current_price": 650.0,
+    "normalized_price": 7222.22,
+    "unit": "90.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/ferrero-rocher-premium-chocolate-bar-dark-chocolate-hazelnut-3-1-oz-90gm/"
+  },
+  "sj_ferrerorochert16": {
+    "id": "sj_ferrerorochert16",
+    "name": "Ferrero Rocher T16",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2025/01/66.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 950.0,
+        "normalized_price": 950.0
+      }
+    ],
+    "current_price": 950.0,
+    "normalized_price": 950.0,
+    "unit": "1 unit",
+    "unit_type": "piece",
+    "url": "https://shotejbazar.com/product/ferrero-rocher-t16/"
+  },
+  "sj_ferrerorocherpremiumchocolatebarwhitehazelnutbar90g": {
+    "id": "sj_ferrerorocherpremiumchocolatebarwhitehazelnutbar90g",
+    "name": "FERRERO ROCHER\u00ae Premium Chocolate Bar, White Hazelnut Bar, 90g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2025/01/67.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 650.0,
+        "normalized_price": 7222.22
+      }
+    ],
+    "current_price": 650.0,
+    "normalized_price": 7222.22,
+    "unit": "90.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/ferrero-rocher-premium-chocolate-bar-white-hazelnut-bar-90g/"
+  },
+  "sj_fondalochocolatebar11gmx24units": {
+    "id": "sj_fondalochocolatebar11gmx24units",
+    "name": "Fondalo Chocolate Bar 11gm x 24units",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/01/7947b698-9f81-4178-b7ef-13fb71311f4e.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 240.0,
+        "normalized_price": 909.09
+      }
+    ],
+    "current_price": 240.0,
+    "normalized_price": 909.09,
+    "unit": "11gm x 24",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/fondalo-chocolate-bar-11gm-x-24units/"
+  },
+  "sj_fondalochocolatebar22gmx20units": {
+    "id": "sj_fondalochocolatebar22gmx20units",
+    "name": "Fondalo Chocolate Bar 22gm x 20units",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/01/74ce76f4-41e6-40d8-9f96-caa81783ab86.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 400.0,
+        "normalized_price": 909.09
+      }
+    ],
+    "current_price": 400.0,
+    "normalized_price": 909.09,
+    "unit": "22gm x 20",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/fondalo-chocolate-bar-22gm-x-20units/"
+  },
+  "sj_foxscandycrystalclearberriesflavoredcandytin180gm": {
+    "id": "sj_foxscandycrystalclearberriesflavoredcandytin180gm",
+    "name": "Foxs candy (Crystal Clear Berries Flavored Candy Tin180 gm)",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/07/69.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 320.0,
+        "normalized_price": 1777.78
+      }
+    ],
+    "current_price": 320.0,
+    "normalized_price": 1777.78,
+    "unit": "180.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/foxs-candy-crystal-clear-berries-flavored-candy-tin180-gm/"
+  },
+  "sj_foxscandycrystalclearfruitsflavoredcandytin180gm": {
+    "id": "sj_foxscandycrystalclearfruitsflavoredcandytin180gm",
+    "name": "Foxs candy (Crystal Clear Fruits Flavored Candy Tin180 gm)",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/07/70.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 350.0,
+        "normalized_price": 1944.44
+      }
+    ],
+    "current_price": 350.0,
+    "normalized_price": 1944.44,
+    "unit": "180.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/foxs-candy-crystal-clear-fruits-flavored-candy-tin180-gm/"
+  },
+  "sj_funnyballgummycandy2jar8gmeachchina": {
+    "id": "sj_funnyballgummycandy2jar8gmeachchina",
+    "name": "Funny Ball Gummy Candy 2 Jar 8gm Each (China)",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2025/10/40.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 700.0,
+        "normalized_price": 87500.0
+      }
+    ],
+    "current_price": 700.0,
+    "normalized_price": 87500.0,
+    "unit": "8.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/funny-ball-gummy-candy-2-jar-8gm-each-china/"
+  },
+  "sj_funnyballgummycandyr2jar8gmeachchina": {
+    "id": "sj_funnyballgummycandyr2jar8gmeachchina",
+    "name": "Funny Ball Gummy Candy R 2 Jar 8gm Each (China)",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2025/10/42.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 700.0,
+        "normalized_price": 87500.0
+      }
+    ],
+    "current_price": 700.0,
+    "normalized_price": 87500.0,
+    "unit": "8.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/funny-ball-gummy-candy-r-2-jar-8gm-each-china/"
+  },
+  "sj_funnyballgummycandyw2jar8gmeachchina": {
+    "id": "sj_funnyballgummycandyw2jar8gmeachchina",
+    "name": "Funny Ball Gummy Candy W 2 Jar 8gm Each (China)",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2025/10/43.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 700.0,
+        "normalized_price": 87500.0
+      }
+    ],
+    "current_price": 700.0,
+    "normalized_price": 87500.0,
+    "unit": "8.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/funny-ball-gummy-candy-w-2-jar-8gm-each-china/"
+  },
+  "sj_funnyballgummycandyy2jar8gmeachchina": {
+    "id": "sj_funnyballgummycandyy2jar8gmeachchina",
+    "name": "Funny Ball Gummy Candy Y 2 Jar 8gm Each (China)",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2025/10/41.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 700.0,
+        "normalized_price": 87500.0
+      }
+    ],
+    "current_price": 700.0,
+    "normalized_price": 87500.0,
+    "unit": "8.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/funny-ball-gummy-candy-y-2-jar-8gm-each-china/"
+  },
+  "sj_galatinebiscottocandy115g": {
+    "id": "sj_galatinebiscottocandy115g",
+    "name": "Galatine Biscotto Candy \u2013 115g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/3dca915a-2918-4f40-a1c8-1fe46e6c999a.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 650.0,
+        "normalized_price": 5652.17
+      }
+    ],
+    "current_price": 650.0,
+    "normalized_price": 5652.17,
+    "unit": "115.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/galatine-biscotto-candy-115g/"
+  },
+  "sj_galatinechocolateflavorcandy115g": {
+    "id": "sj_galatinechocolateflavorcandy115g",
+    "name": "Galatine Chocolate Flavor Candy \u2013 115g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/f34cc914-71cd-4391-b09a-3591bd1e5614.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 650.0,
+        "normalized_price": 5652.17
+      }
+    ],
+    "current_price": 650.0,
+    "normalized_price": 5652.17,
+    "unit": "115.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/galatine-chocolate-flavor-candy-115g/"
+  },
+  "sj_galatinemilkcandyoriginal125gm": {
+    "id": "sj_galatinemilkcandyoriginal125gm",
+    "name": "Galatine Milk Candy Original 125gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/07/72.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 650.0,
+        "normalized_price": 5200.0
+      }
+    ],
+    "current_price": 650.0,
+    "normalized_price": 5200.0,
+    "unit": "125.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/galatine-milk-candy-original-125gm/"
+  },
+  "sj_galatinestrawberrymilkcandy115g": {
+    "id": "sj_galatinestrawberrymilkcandy115g",
+    "name": "Galatine Strawberry Milk Candy \u2013 115g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/watermarked_img_72075235313837107.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 650.0,
+        "normalized_price": 5652.17
+      }
+    ],
+    "current_price": 650.0,
+    "normalized_price": 5652.17,
+    "unit": "115.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/galatine-strawberry-milk-candy-115g/"
+  },
+  "sj_galaxyminissmoothmilkchocolatebar1pcs156g": {
+    "id": "sj_galaxyminissmoothmilkchocolatebar1pcs156g",
+    "name": "Galaxy Minis Smooth Milk Chocolate Bar 1 pcs 156 g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/07/73.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 750.0,
+        "normalized_price": 4807.69
+      }
+    ],
+    "current_price": 750.0,
+    "normalized_price": 4807.69,
+    "unit": "156.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/galaxy-minis-smooth-milk-chocolate-bar-12-pcs-150-g/"
+  },
+  "sj_galaxysmoothcaramel135g": {
+    "id": "sj_galaxysmoothcaramel135g",
+    "name": "Galaxy Smooth Caramel 135g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/01/877d9856-0850-45ad-a444-5427775ddb86.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 650.0,
+        "normalized_price": 4814.81
+      }
+    ],
+    "current_price": 650.0,
+    "normalized_price": 4814.81,
+    "unit": "135.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/galaxy-smooth-caramel-135g/"
+  },
+  "sj_haribosupermix1packet160gm": {
+    "id": "sj_haribosupermix1packet160gm",
+    "name": "Haribo Supermix 1 packet 160 gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/78.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 450.0,
+        "normalized_price": 2812.5
+      }
+    ],
+    "current_price": 450.0,
+    "normalized_price": 2812.5,
+    "unit": "160.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/haribo-supermix-1-packet-160-gm/"
+  },
+  "sj_hersheyskissescookiesncremechocolatemeltinmouthdelightsindividuallywrapped100gram": {
+    "id": "sj_hersheyskissescookiesncremechocolatemeltinmouthdelightsindividuallywrapped100gram",
+    "name": "HERSHEY\u2019S Kisses Cookies \u2018N\u2019 Creme Chocolate Melt-In-Mouth Delights Individually Wrapped 100Gram",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/80.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 450.0,
+        "normalized_price": 450.0
+      }
+    ],
+    "current_price": 450.0,
+    "normalized_price": 450.0,
+    "unit": "1 unit",
+    "unit_type": "piece",
+    "url": "https://shotejbazar.com/product/hersheys-kisses-cookies-n-creme-chocolate-melt-in-mouth-delights-individually-wrapped-100-8gram/"
+  },
+  "sj_hersheyskissescookiesncream146g": {
+    "id": "sj_hersheyskissescookiesncream146g",
+    "name": "Hershey\u2019s Kisses Cookies N Cream 146g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/81.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 650.0,
+        "normalized_price": 4452.05
+      }
+    ],
+    "current_price": 650.0,
+    "normalized_price": 4452.05,
+    "unit": "146.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/hersheys-kisses-cookies-n-cream-146g/"
+  },
+  "sj_hersheyskissescreamymilkchocolate146gm": {
+    "id": "sj_hersheyskissescreamymilkchocolate146gm",
+    "name": "Hershey\u2019s Kisses Creamy Milk Chocolate 146 gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/82.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 650.0,
+        "normalized_price": 4452.05
+      }
+    ],
+    "current_price": 650.0,
+    "normalized_price": 4452.05,
+    "unit": "146.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/hersheys-kisses-creamy-milk-chocolate-146-gm/"
+  },
+  "sj_hersheyskissesmilkchocolate100g": {
+    "id": "sj_hersheyskissesmilkchocolate100g",
+    "name": "Hershey\u2019s Kisses Milk Chocolate 100g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/865d7ae5-d939-463b-974c-8c6c477e0597.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 450.0,
+        "normalized_price": 4500.0
+      }
+    ],
+    "current_price": 450.0,
+    "normalized_price": 4500.0,
+    "unit": "100.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/hersheys-kisses-milk-chocolate-100g/"
+  },
+  "sj_hersheyskissesmilkchocolatewithalmonds146gm": {
+    "id": "sj_hersheyskissesmilkchocolatewithalmonds146gm",
+    "name": "Hersheys Kisses Milk Chocolate With Almonds \u2013 146 gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/7add8ccd-9be0-4d66-b7ba-058d0a7befae.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 650.0,
+        "normalized_price": 4452.05
+      }
+    ],
+    "current_price": 650.0,
+    "normalized_price": 4452.05,
+    "unit": "146.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/hersheys-kisses-milk-chocolate-with-almonds-82g/"
+  },
+  "sj_hersheyskissesspecialselection100gm": {
+    "id": "sj_hersheyskissesspecialselection100gm",
+    "name": "Hersheys Kisses special selection 100 gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/03/feef465b-9822-42a1-aa62-2c0919201d65.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 450.0,
+        "normalized_price": 4500.0
+      }
+    ],
+    "current_price": 450.0,
+    "normalized_price": 4500.0,
+    "unit": "100.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/hersheys-kisses/"
+  },
+  "sj_hersheysmilkchocolateextracreamy50g": {
+    "id": "sj_hersheysmilkchocolateextracreamy50g",
+    "name": "Hersheys Milk Chocolate Extra Creamy 50 g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/a7092c38-4a77-4147-9a7d-17547c6d168d.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 550.0,
+        "normalized_price": 11000.0
+      }
+    ],
+    "current_price": 550.0,
+    "normalized_price": 11000.0,
+    "unit": "50.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/hersheys-milk-chocolate-extra-creamy-50-g/"
+  },
+  "sj_kinderbuenominiwithmilkhazelnutchocolate108g": {
+    "id": "sj_kinderbuenominiwithmilkhazelnutchocolate108g",
+    "name": "Kinder Bueno Mini with Milk & Hazelnut Chocolate \u2013 108g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/bueno-mini.png",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 600.0,
+        "normalized_price": 5555.56
+      }
+    ],
+    "current_price": 600.0,
+    "normalized_price": 5555.56,
+    "unit": "108.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/kinder-bueno-mini-with-milk-hazelnut-chocolate-108g/"
+  },
+  "sj_kinderbuenowhite39gm10pc": {
+    "id": "sj_kinderbuenowhite39gm10pc",
+    "name": "Kinder\u202fBueno\u202fWhite\u202f39\u202fgm \u00d7\u202f10\u202fpc",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2025/12/23a946aa-8a5e-40d0-a5af-caee74113720.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 1600.0,
+        "normalized_price": 41025.64
+      }
+    ],
+    "current_price": 1600.0,
+    "normalized_price": 41025.64,
+    "unit": "39.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/kinder-bueno-white-39-gm-x-10-pc/"
+  },
+  "sj_kinderbuenowhite39gm30pc": {
+    "id": "sj_kinderbuenowhite39gm30pc",
+    "name": "Kinder\u202fBueno\u202fWhite\u202f39\u202fgm \u00d7\u202f30\u202fpc",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2025/12/c593055c-ba15-4dbe-83eb-1fe9ac0dd439.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 4550.0,
+        "normalized_price": 116666.67
+      }
+    ],
+    "current_price": 4550.0,
+    "normalized_price": 116666.67,
+    "unit": "39.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/kinder-bueno-white-39-gm-x-30-pc/"
+  },
+  "sj_kinderbuenuchocolate15pcsx43gmbox": {
+    "id": "sj_kinderbuenuchocolate15pcsx43gmbox",
+    "name": "Kinder Buenu Chocolate (15pcs X 43gm) Box",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/1bf25622-0c43-4a1b-a98b-46ecf76bcb41.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 1950.0,
+        "normalized_price": 3.02
+      }
+    ],
+    "current_price": 1950.0,
+    "normalized_price": 3.02,
+    "unit": "15pcs x 43",
+    "unit_type": "piece",
+    "url": "https://shotejbazar.com/product/kinder-buenu-chocolate-15pcs-x-43gm-box/"
+  },
+  "sj_kinderbuenuchocolate30pcsx43gm": {
+    "id": "sj_kinderbuenuchocolate30pcsx43gm",
+    "name": "Kinder Buenu Chocolate (30pcs X 43gm)",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/03/95a60071-5601-4621-a0d5-fc83b20d97b8.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 3900.0,
+        "normalized_price": 3.02
+      }
+    ],
+    "current_price": 3900.0,
+    "normalized_price": 3.02,
+    "unit": "30pcs x 43",
+    "unit_type": "piece",
+    "url": "https://shotejbazar.com/product/kinder-buenu/"
+  },
+  "sj_kindercards10xfamilypack256g": {
+    "id": "sj_kindercards10xfamilypack256g",
+    "name": "Kinder Cards 10x Family Pack- 256g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2025/12/bda522c8-4531-4ac9-9efd-c0cb8fdede34.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 1200.0,
+        "normalized_price": 4687.5
+      }
+    ],
+    "current_price": 1200.0,
+    "normalized_price": 4687.5,
+    "unit": "256.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/kinder-cards-10x-family-pack-256g/"
+  },
+  "sj_kindercardschocolate5x255g": {
+    "id": "sj_kindercardschocolate5x255g",
+    "name": "kinder cards chocolate 5 X 25.5g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/5666f6d0-a6d0-4dfb-96f2-fd9916038d5c.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 650.0,
+        "normalized_price": 25490.2
+      }
+    ],
+    "current_price": 650.0,
+    "normalized_price": 25490.2,
+    "unit": "25.5g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/kinder-cards-chocolate-5-x-25-5g/"
+  },
+  "sj_kinderchocolate4xbar50gmx6pc": {
+    "id": "sj_kinderchocolate4xbar50gmx6pc",
+    "name": "Kinder Chocolate 4x bar 50gm X 6pc",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2025/12/ef2258d0-b84a-4655-ba28-f06a1e9a539f.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 1200.0,
+        "normalized_price": 4000.0
+      }
+    ],
+    "current_price": 1200.0,
+    "normalized_price": 4000.0,
+    "unit": "50gm x 6",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/kinder-chocolate-4x-bar-50gm-x-6pc/"
+  },
+  "sj_kinderchocolate8xbar100gmx3pc": {
+    "id": "sj_kinderchocolate8xbar100gmx3pc",
+    "name": "Kinder Chocolate 8x bar 100gm X 3pc",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/2e250a27-17cb-4480-8dd8-58c9d11c017c.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 1200.0,
+        "normalized_price": 4000.0
+      }
+    ],
+    "current_price": 1200.0,
+    "normalized_price": 4000.0,
+    "unit": "100gm x 3",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/kinder-chocolate-8x-bar-100gm-x-3pc/"
+  },
+  "sj_kindercreamy1box19gm24pcs": {
+    "id": "sj_kindercreamy1box19gm24pcs",
+    "name": "Kinder Creamy 1box 19gm 24 pcs",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/8735d958-7301-495b-a889-008bb56e9383.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 1350.0,
+        "normalized_price": 71052.63
+      }
+    ],
+    "current_price": 1350.0,
+    "normalized_price": 71052.63,
+    "unit": "19.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/kinder-creamy-1box-19gm-24-pcs/"
+  },
+  "sj_kinderdelicechocolate10pieces390g": {
+    "id": "sj_kinderdelicechocolate10pieces390g",
+    "name": "kinder delice chocolate 10 Pieces (390g)",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/83e4eb9d-ec5c-4928-99d8-4c07c107aaf9.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 1080.0,
+        "normalized_price": 2769.23
+      }
+    ],
+    "current_price": 1080.0,
+    "normalized_price": 2769.23,
+    "unit": "390.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/kinder-delice-x-10-snacks-390-gr/"
+  },
+  "sj_kinderhappyhippococoa5pack105g": {
+    "id": "sj_kinderhappyhippococoa5pack105g",
+    "name": "Kinder Happy Hippo Cocoa 5-Pack 105g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/88ca9e90-9352-4e66-bce0-a7c5a12f16d9.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 650.0,
+        "normalized_price": 6190.48
+      }
+    ],
+    "current_price": 650.0,
+    "normalized_price": 6190.48,
+    "unit": "105.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/kinder-happy-hippo-cocoa-5-pack-105g/"
+  },
   "sj_almarainaturalwildflowershoney900gm": {
     "id": "sj_almarainaturalwildflowershoney900gm",
     "name": "Almarai Natural Wild Flowers Honey 900 gm",
@@ -68172,7 +70224,7 @@
     "category": "Food",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 2650.0,
         "normalized_price": 2944.44
       }
@@ -68191,7 +70243,7 @@
     "category": "Food",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 1450.0,
         "normalized_price": 1532.77
       }
@@ -68210,7 +70262,7 @@
     "category": "Food",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 600.0,
         "normalized_price": 600.0
       }
@@ -68229,7 +70281,7 @@
     "category": "Food",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 320.0,
         "normalized_price": 640.0
       }
@@ -68240,25 +70292,6 @@
     "unit_type": "kg",
     "url": "https://shotejbazar.com/product/chia-seed-500gm/"
   },
-  "sj_dulalchandrabharspalmcandyorganicpalmcandy200gm": {
-    "id": "sj_dulalchandrabharspalmcandyorganicpalmcandy200gm",
-    "name": "Dulal Chandra Bhar\u2019s Palm Candy Organic Palm Candy 200 Gm",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/01/c2148369-b71d-4251-bb98-a65a6773429b.jpg",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 150.0,
-        "normalized_price": 750.0
-      }
-    ],
-    "current_price": 150.0,
-    "normalized_price": 750.0,
-    "unit": "200.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/dulal-chandra-bhars-palm-candy-organic-palm-candy-200-gm/"
-  },
   "sj_dulalchandrabharspalmcandytalmisri1kg": {
     "id": "sj_dulalchandrabharspalmcandytalmisri1kg",
     "name": "Dulal Chandra Bhar\u2019s Palm Candy Tal Misri \u2013 1 Kg",
@@ -68267,7 +70300,7 @@
     "category": "Food",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 350.0,
         "normalized_price": 350.0
       }
@@ -68286,7 +70319,7 @@
     "category": "Food",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 2550.0,
         "normalized_price": 2550.0
       }
@@ -68305,7 +70338,7 @@
     "category": "Food",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 380.0,
         "normalized_price": 380.0
       }
@@ -68324,7 +70357,7 @@
     "category": "Food",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 500.0,
         "normalized_price": 1666.67
       }
@@ -68343,7 +70376,7 @@
     "category": "Food",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 750.0,
         "normalized_price": 937.5
       }
@@ -68362,7 +70395,7 @@
     "category": "Food",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 950.0,
         "normalized_price": 863.64
       }
@@ -68381,7 +70414,7 @@
     "category": "Food",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 1800.0,
         "normalized_price": 1800.0
       }
@@ -68392,234 +70425,6 @@
     "unit_type": "kg",
     "url": "https://shotejbazar.com/product/linah-farms-premium-mejdool-large-dates-1-kg-khejur/"
   },
-  "sj_linahfarmspremiummejdoolmediumdates1kgkhejur": {
-    "id": "sj_linahfarmspremiummejdoolmediumdates1kgkhejur",
-    "name": "Linah Farms Premium Mejdool Medium Dates 1 kg ( Khejur )",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2023/10/3.png",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 1700.0,
-        "normalized_price": 1700.0
-      }
-    ],
-    "current_price": 1700.0,
-    "normalized_price": 1700.0,
-    "unit": "1.0kg",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/linah-farms-premium-mejdool-medium-dates-1-kg-khejur/"
-  },
-  "sj_mixeddryfruits400gm1jars": {
-    "id": "sj_mixeddryfruits400gm1jars",
-    "name": "Mixed Dry Fruits \u2013 400gm \u00d7 1 Jars",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/75ee34ee-55fc-45ca-8e1e-b118d1ee240a.jpg",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 510.0,
-        "normalized_price": 1275.0
-      }
-    ],
-    "current_price": 510.0,
-    "normalized_price": 1275.0,
-    "unit": "400.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/mixed-dry-fruits-400gm-x-1-jars/"
-  },
-  "sj_mixeddryfruits400gm2jars": {
-    "id": "sj_mixeddryfruits400gm2jars",
-    "name": "Mixed Dry Fruits \u2013 400gm \u00d7 2 Jars",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/cef8a9e8-3a86-452c-8abd-94f11f045413.jpg",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 1000.0,
-        "normalized_price": 2500.0
-      }
-    ],
-    "current_price": 1000.0,
-    "normalized_price": 2500.0,
-    "unit": "400.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/mixed-dry-fruits-400gm-x-2-jars/"
-  },
-  "sj_moringapowder500gm": {
-    "id": "sj_moringapowder500gm",
-    "name": "Moringa Powder 500 gm",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2023/10/2.png",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 400.0,
-        "normalized_price": 800.0
-      }
-    ],
-    "current_price": 400.0,
-    "normalized_price": 800.0,
-    "unit": "500.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/moringa-powder/"
-  },
-  "sj_nestopistachio500g": {
-    "id": "sj_nestopistachio500g",
-    "name": "Nesto Pistachio 500g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/777eaa73-c950-4e92-b758-7abcbaaf3e58.jpg",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 1550.0,
-        "normalized_price": 3100.0
-      }
-    ],
-    "current_price": 1550.0,
-    "normalized_price": 3100.0,
-    "unit": "500.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/nesto-pistachio-500g/"
-  },
-  "sj_nonroastedalmondcashewnuts500gm400gm2jars": {
-    "id": "sj_nonroastedalmondcashewnuts500gm400gm2jars",
-    "name": "Non-Roasted Almond & Cashew Nuts \u2013 500gm+400gm \u00d7 2 Jars",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/8879b4bd-1ba9-49c4-8098-9747207dca42.jpg",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 1450.0,
-        "normalized_price": 2900.0
-      }
-    ],
-    "current_price": 1450.0,
-    "normalized_price": 2900.0,
-    "unit": "500.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/non-roasted-almond-cashew-nuts-500gm400gm-x-2-jars/"
-  },
-  "sj_nonroastedmixednuts500gm1jar": {
-    "id": "sj_nonroastedmixednuts500gm1jar",
-    "name": "Non-Roasted Mixed Nuts \u2013 500gm \u00d7 1 jar",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/017eda9f-32c7-4f22-8584-ed9cdd8236fb.jpg",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 650.0,
-        "normalized_price": 1300.0
-      }
-    ],
-    "current_price": 650.0,
-    "normalized_price": 1300.0,
-    "unit": "500.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/non-roasted-mixed-nuts-500gm-x-1-jar/"
-  },
-  "sj_nonroastedmixednuts500gm2jars": {
-    "id": "sj_nonroastedmixednuts500gm2jars",
-    "name": "Non-Roasted Mixed Nuts \u2013 500gm \u00d7 2 Jars",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/238569e5-6a96-44cc-a8c6-81d038b7dcd5.jpg",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 1250.0,
-        "normalized_price": 2500.0
-      }
-    ],
-    "current_price": 1250.0,
-    "normalized_price": 2500.0,
-    "unit": "500.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/non-roasted-mixed-nuts-500gm-x-2-jars/"
-  },
-  "sj_oilroastedcashewnut400gmjar": {
-    "id": "sj_oilroastedcashewnut400gmjar",
-    "name": "Oil Roasted Cashew Nut 400gm Jar",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/f1f2387a-0f0d-4efa-b38c-96ee359e70a1.jpg",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 730.0,
-        "normalized_price": 1825.0
-      }
-    ],
-    "current_price": 730.0,
-    "normalized_price": 1825.0,
-    "unit": "400.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/oil-roasted-cashew-nut-400gm-jar/"
-  },
-  "sj_premiumgoldenraisinskismis500gjar": {
-    "id": "sj_premiumgoldenraisinskismis500gjar",
-    "name": "Premium Golden Raisins (Kismis) \u2013 500g Jar",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/02/a162196e-c6f9-496b-b700-675f3461525b.jpg",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 520.0,
-        "normalized_price": 1040.0
-      }
-    ],
-    "current_price": 520.0,
-    "normalized_price": 1040.0,
-    "unit": "500.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/premium-golden-raisins-kismis-500g-jar/"
-  },
-  "sj_premiumgoldenraisinskismis500gjarx2jar": {
-    "id": "sj_premiumgoldenraisinskismis500gjarx2jar",
-    "name": "Premium Golden Raisins (Kismis) \u2013 500g Jar X 2 Jar",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/02/a162196e-c6f9-496b-b700-675f3461525b.jpg",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 1000.0,
-        "normalized_price": 2000.0
-      }
-    ],
-    "current_price": 1000.0,
-    "normalized_price": 2000.0,
-    "unit": "500.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/premium-golden-raisins-kismis-500g-jar-x-2-jar/"
-  },
-  "sj_premiummangobaraamsotto500gjar100realfruit": {
-    "id": "sj_premiummangobaraamsotto500gjar100realfruit",
-    "name": "Premium Mango Bar (Aam Sotto) \u2013 500g Jar (100% Real Fruit)",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/02/4da6e18a-420f-47a3-8246-8acdff79fe4f.jpg",
-    "category": "Food",
-    "history": [
-      {
-        "date": "2026-07-12",
-        "price": 450.0,
-        "normalized_price": 900.0
-      }
-    ],
-    "current_price": 450.0,
-    "normalized_price": 900.0,
-    "unit": "500.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/premium-mango-bar-aam-sotto-500g-jar-100-real-fruit/"
-  },
   "sj_2xspicyhotchickenflavorramennoodles140g5packs": {
     "id": "sj_2xspicyhotchickenflavorramennoodles140g5packs",
     "name": "2x Spicy Hot Chicken Flavor Ramen Noodles (140g*5packs)",
@@ -68628,7 +70433,7 @@
     "category": "Snacks",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 750.0,
         "normalized_price": 1071.43
       }
@@ -68647,7 +70452,7 @@
     "category": "Snacks",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 1150.0,
         "normalized_price": 1150.0
       }
@@ -68666,7 +70471,7 @@
     "category": "Snacks",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 750.0,
         "normalized_price": 1071.43
       }
@@ -68685,7 +70490,7 @@
     "category": "Snacks",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 350.0,
         "normalized_price": 2243.59
       }
@@ -68704,7 +70509,7 @@
     "category": "Snacks",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 950.0,
         "normalized_price": 2533.33
       }
@@ -68723,7 +70528,7 @@
     "category": "Snacks",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 850.0,
         "normalized_price": 42500.0
       }
@@ -68742,7 +70547,7 @@
     "category": "Snacks",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 750.0,
         "normalized_price": 1071.43
       }
@@ -68761,7 +70566,7 @@
     "category": "Snacks",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 300.0,
         "normalized_price": 3846.15
       }
@@ -68780,7 +70585,7 @@
     "category": "Snacks",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 350.0,
         "normalized_price": 2800.0
       }
@@ -68799,7 +70604,7 @@
     "category": "Snacks",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 350.0,
         "normalized_price": 2800.0
       }
@@ -68818,7 +70623,7 @@
     "category": "Snacks",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 350.0,
         "normalized_price": 2800.0
       }
@@ -68837,7 +70642,7 @@
     "category": "Snacks",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 350.0,
         "normalized_price": 2800.0
       }
@@ -68856,7 +70661,7 @@
     "category": "Cookies",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 650.0,
         "normalized_price": 2500.0
       }
@@ -68875,7 +70680,7 @@
     "category": "Cookies",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 550.0,
         "normalized_price": 3525.64
       }
@@ -68894,7 +70699,7 @@
     "category": "Cookies",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 400.0,
         "normalized_price": 724.17
       }
@@ -68913,7 +70718,7 @@
     "category": "Cookies",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 600.0,
         "normalized_price": 833.33
       }
@@ -68932,7 +70737,7 @@
     "category": "Cookies",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 600.0,
         "normalized_price": 833.33
       }
@@ -68951,7 +70756,7 @@
     "category": "Cookies",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 400.0,
         "normalized_price": 724.17
       }
@@ -68970,7 +70775,7 @@
     "category": "Cookies",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 350.0,
         "normalized_price": 2333.33
       }
@@ -68989,7 +70794,7 @@
     "category": "Cookies",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 650.0,
         "normalized_price": 2166.67
       }
@@ -69008,7 +70813,7 @@
     "category": "Cookies",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 350.0,
         "normalized_price": 2333.33
       }
@@ -69027,7 +70832,7 @@
     "category": "Cookies",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 720.0,
         "normalized_price": 1600.0
       }
@@ -69046,7 +70851,7 @@
     "category": "Cookies",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 650.0,
         "normalized_price": 24074.07
       }
@@ -69065,7 +70870,7 @@
     "category": "Cookies",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 650.0,
         "normalized_price": 24074.07
       }
@@ -69084,7 +70889,7 @@
     "category": "Cookies",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 650.0,
         "normalized_price": 28260.87
       }
@@ -69103,7 +70908,7 @@
     "category": "Cookies",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 750.0,
         "normalized_price": 2884.62
       }
@@ -69122,7 +70927,7 @@
     "category": "Cookies",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 650.0,
         "normalized_price": 4333.33
       }
@@ -69141,7 +70946,7 @@
     "category": "Cookies",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 350.0,
         "normalized_price": 14000.0
       }
@@ -69160,7 +70965,7 @@
     "category": "Cookies",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 420.0,
         "normalized_price": 1866.67
       }
@@ -69179,7 +70984,7 @@
     "category": "Cookies",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 420.0,
         "normalized_price": 1866.67
       }
@@ -69198,7 +71003,7 @@
     "category": "Cookies",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 1350.0,
         "normalized_price": 1928.57
       }
@@ -69217,7 +71022,7 @@
     "category": "Cookies",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 1350.0,
         "normalized_price": 1928.57
       }
@@ -69236,7 +71041,7 @@
     "category": "Cookies",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 450.0,
         "normalized_price": 4500.0
       }
@@ -69255,7 +71060,7 @@
     "category": "Cookies",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 650.0,
         "normalized_price": 29545.45
       }
@@ -69274,7 +71079,7 @@
     "category": "Cookies",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 950.0,
         "normalized_price": 950.0
       }
@@ -69293,7 +71098,7 @@
     "category": "Cookies",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 650.0,
         "normalized_price": 3915.66
       }
@@ -69312,7 +71117,7 @@
     "category": "Coffee",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 1350.0,
         "normalized_price": 6750.0
       }
@@ -69331,7 +71136,7 @@
     "category": "Coffee",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 1350.0,
         "normalized_price": 6750.0
       }
@@ -69350,7 +71155,7 @@
     "category": "Coffee",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 1350.0,
         "normalized_price": 6750.0
       }
@@ -69369,7 +71174,7 @@
     "category": "Coffee",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 500.0,
         "normalized_price": 10000.0
       }
@@ -69388,7 +71193,7 @@
     "category": "Coffee",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 500.0,
         "normalized_price": 10000.0
       }
@@ -69407,7 +71212,7 @@
     "category": "Coffee",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 500.0,
         "normalized_price": 10000.0
       }
@@ -69426,7 +71231,7 @@
     "category": "Coffee",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 500.0,
         "normalized_price": 20833.33
       }
@@ -69445,7 +71250,7 @@
     "category": "Coffee",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 500.0,
         "normalized_price": 10000.0
       }
@@ -69464,7 +71269,7 @@
     "category": "Coffee",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 500.0,
         "normalized_price": 10000.0
       }
@@ -69483,7 +71288,7 @@
     "category": "Coffee",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 500.0,
         "normalized_price": 10000.0
       }
@@ -69502,7 +71307,7 @@
     "category": "Coffee",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 500.0,
         "normalized_price": 10000.0
       }
@@ -69521,7 +71326,7 @@
     "category": "Coffee",
     "history": [
       {
-        "date": "2026-07-12",
+        "date": "2026-07-13",
         "price": 500.0,
         "normalized_price": 10000.0
       }
@@ -69531,5 +71336,233 @@
     "unit": "50.0g",
     "unit_type": "kg",
     "url": "https://shotejbazar.com/product/beanies-very-vanilla-flavour-instant-coffee-50g/"
+  },
+  "sj_brookebondredlabeltea450gm": {
+    "id": "sj_brookebondredlabeltea450gm",
+    "name": "Brooke Bond Red Label Tea 450gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/9.webp",
+    "category": "Coffee",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 750.0,
+        "normalized_price": 1666.67
+      }
+    ],
+    "current_price": 750.0,
+    "normalized_price": 1666.67,
+    "unit": "450.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/brooke-bond-red-label-tea-450gm/"
+  },
+  "sj_davidoffcoffeeoriginsasia100g": {
+    "id": "sj_davidoffcoffeeoriginsasia100g",
+    "name": "DAVIDOFF COFFEE ORIGINS ASIA 100G",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/10-2.webp",
+    "category": "Coffee",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 1050.0,
+        "normalized_price": 10500.0
+      }
+    ],
+    "current_price": 1050.0,
+    "normalized_price": 10500.0,
+    "unit": "100.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/davidoff-coffee-origins-asia-100g/"
+  },
+  "sj_davidoffespresso57coffee100gm": {
+    "id": "sj_davidoffespresso57coffee100gm",
+    "name": "Davidoff Espresso 57 Coffee 100gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/11-2.webp",
+    "category": "Coffee",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 850.0,
+        "normalized_price": 8500.0
+      }
+    ],
+    "current_price": 850.0,
+    "normalized_price": 8500.0,
+    "unit": "100.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/davidoff-espresso-57-coffee-100gm/"
+  },
+  "sj_davidofffinearomacoffee100gm": {
+    "id": "sj_davidofffinearomacoffee100gm",
+    "name": "Davidoff Fine Aroma Coffee 100gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/12-2.webp",
+    "category": "Coffee",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 850.0,
+        "normalized_price": 8500.0
+      }
+    ],
+    "current_price": 850.0,
+    "normalized_price": 8500.0,
+    "unit": "100.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/davidoff-fine-aroma-coffee-100gm/"
+  },
+  "sj_davidofforiginsbrazilrichbalancedinstantcoffee100g": {
+    "id": "sj_davidofforiginsbrazilrichbalancedinstantcoffee100g",
+    "name": "Davidoff Origins Brazil Rich & Balanced Instant Coffee 100g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/13-2.webp",
+    "category": "Coffee",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 1050.0,
+        "normalized_price": 10500.0
+      }
+    ],
+    "current_price": 1050.0,
+    "normalized_price": 10500.0,
+    "unit": "100.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/davidoff-origins-brazil-rich-balanced-instant-coffee-100g/"
+  },
+  "sj_davidoffricharomacoffee100gm": {
+    "id": "sj_davidoffricharomacoffee100gm",
+    "name": "Davidoff Rich Aroma Coffee 100gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/14-1.webp",
+    "category": "Coffee",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 850.0,
+        "normalized_price": 8500.0
+      }
+    ],
+    "current_price": 850.0,
+    "normalized_price": 8500.0,
+    "unit": "100.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/davidoff-rich-aroma-coffee-100gm/"
+  },
+  "sj_douweegbertspuredecafmediumroastinstantcoffee190g": {
+    "id": "sj_douweegbertspuredecafmediumroastinstantcoffee190g",
+    "name": "Douwe Egberts Pure Decaf Medium Roast Instant Coffee 190g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/11/15.webp",
+    "category": "Coffee",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 1850.0,
+        "normalized_price": 9736.84
+      }
+    ],
+    "current_price": 1850.0,
+    "normalized_price": 9736.84,
+    "unit": "190.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/douwe-egberts-pure-decaf-medium-roast-instant-coffee-190g/"
+  },
+  "sj_douweegbertspuregoldcoffee190g": {
+    "id": "sj_douweegbertspuregoldcoffee190g",
+    "name": "Douwe Egberts Pure Gold Coffee 190g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/11/16.webp",
+    "category": "Coffee",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 2450.0,
+        "normalized_price": 12894.74
+      }
+    ],
+    "current_price": 2450.0,
+    "normalized_price": 12894.74,
+    "unit": "190.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/douwe-egberts-pure-gold-coffee-190g/"
+  },
+  "sj_douweegbertspureindulgencedarkroastinstantcoffee190g": {
+    "id": "sj_douweegbertspureindulgencedarkroastinstantcoffee190g",
+    "name": "Douwe Egberts Pure Indulgence Dark Roast Instant Coffee 190g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/11/17.webp",
+    "category": "Coffee",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 2450.0,
+        "normalized_price": 12894.74
+      }
+    ],
+    "current_price": 2450.0,
+    "normalized_price": 12894.74,
+    "unit": "190.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/douwe-egberts-pure-indulgence-dark-roast-instant-coffee-190g/"
+  },
+  "sj_greenteajasmine200gm": {
+    "id": "sj_greenteajasmine200gm",
+    "name": "Green Tea & Jasmine 200gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/11/18.webp",
+    "category": "Coffee",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 450.0,
+        "normalized_price": 2250.0
+      }
+    ],
+    "current_price": 450.0,
+    "normalized_price": 2250.0,
+    "unit": "200.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/green-tea-jasmine-200gm/"
+  },
+  "sj_greentealemon40gm": {
+    "id": "sj_greentealemon40gm",
+    "name": "Green Tea & Lemon 40gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/11/19.webp",
+    "category": "Coffee",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 450.0,
+        "normalized_price": 11250.0
+      }
+    ],
+    "current_price": 450.0,
+    "normalized_price": 11250.0,
+    "unit": "40.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/green-tea-lemon-40gm/"
+  },
+  "sj_greenteaapplepear20teabags": {
+    "id": "sj_greenteaapplepear20teabags",
+    "name": "Green Tea, Apple & Pear 20 Tea Bags",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/11/20.webp",
+    "category": "Coffee",
+    "history": [
+      {
+        "date": "2026-07-13",
+        "price": 450.0,
+        "normalized_price": 450.0
+      }
+    ],
+    "current_price": 450.0,
+    "normalized_price": 450.0,
+    "unit": "1 unit",
+    "unit_type": "piece",
+    "url": "https://shotejbazar.com/product/green-tea-apple-pear-20-tea-bags/"
   }
 }
