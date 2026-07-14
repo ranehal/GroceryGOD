@@ -1,17 +1,17 @@
-Last Run: 2026-07-14 03:55:01
+Last Run: 2026-07-14 13:40:07
 ------------------------------
 Total Scraped: 1700
-New Items: 1191
+New Items: 1204
 ------------------------------
 Categories:
 - Shampoo: 102
-- Whole Spice: 86
-- Grinded Spice: 55
-- Local Biscuit: 38
-- Toothpaste: 35
-- Cookies: 34
-- Jhuri Bhaja: 31
-- Razors & Epilators: 30
-- Body Wash: 29
-- Olive Oil: 27
+- Whole Spice: 98
+- Grinded Spice: 77
+- Cookies: 43
+- Feeding Accessories Kit: 34
+- Razors & Epilators: 29
+- Toothpaste: 25
+- Hand Wash: 25
+- Jhuri Bhaja: 25
+- Conditioner: 24
 ... and 238 more.
