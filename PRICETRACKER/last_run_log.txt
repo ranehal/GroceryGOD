@@ -1,17 +1,17 @@
-Last Run: 2026-07-16 05:10:07
+Last Run: 2026-07-17 04:38:19
 ------------------------------
-Total Scraped: 2559
+Total Scraped: 2069
 New Items: 0
 ------------------------------
 Categories:
-- Hair Care: 91
-- Popular: 86
-- Fresh Vegetables: 77
-- Women's Soaps: 69
+- Spices: 91
 - Men's Soaps: 63
-- Men's Perfume: 58
+- Liquid Handwash: 59
 - Frozen Fish: 58
 - Laundry: 57
-- Nuts & Dried Fruits: 57
-- Soft Drinks: 57
-... and 99 more.
+- Juice: 56
+- Ready Mix: 55
+- Air Fresheners: 52
+- Toothpastes: 48
+- Oil: 48
+... and 89 more.
