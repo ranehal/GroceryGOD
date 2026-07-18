@@ -1,17 +1,17 @@
-Last Run: 2026-07-18 04:36:53
+Last Run: 2026-07-18 13:47:06
 ------------------------------
-Total Scraped: 2474
+Total Scraped: 2280
 New Items: 0
 ------------------------------
 Categories:
-- Kitchen Accessories: 113
 - Hair Care: 91
 - Spices: 91
-- Tea & Coffee: 85
 - Fresh Vegetables: 77
-- Women's Soaps: 69
 - Men's Soaps: 63
-- Liquid Handwash: 59
+- Men's Perfume: 58
+- Frozen Fish: 58
+- Soft Drinks: 57
 - Juice: 56
 - Ready Mix: 55
-... and 97 more.
+- Air Fresheners: 52
+... and 87 more.
