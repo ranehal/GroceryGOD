@@ -1,1 +1,1 @@
-window.unimartManifest = {"metadata":{"last_update":"2026-07-20 05:34:14","total":6233,"date_range":"2026-05-18 to 2026-07-19","total_chunks":2,"chunk_size":5000}};
+window.unimartManifest = {"metadata":{"last_update":"2026-07-20 15:27:01","total":6250,"date_range":"2026-05-18 to 2026-07-20","total_chunks":2,"chunk_size":5000}};
