@@ -79590,12 +79590,12 @@
     "history": [
       {
         "date": "2026-07-21",
-        "price": 2050.0,
-        "normalized_price": 2928.57
+        "price": 1850.0,
+        "normalized_price": 2642.86
       }
     ],
-    "current_price": 2050.0,
-    "normalized_price": 2928.57,
+    "current_price": 1850.0,
+    "normalized_price": 2642.86,
     "unit": "35gm x 20",
     "unit_type": "kg",
     "url": "https://shotejbazar.com/product/amul-dark-40gm/"
@@ -79808,6 +79808,234 @@
     "unit": "100.0gm",
     "unit_type": "kg",
     "url": "https://shotejbazar.com/product/besto-dubai-kunafa-chocolate-hazelnut-100gm/"
+  },
+  "sj_bestodubaikunafachocolatekunafapistachio220gm": {
+    "id": "sj_bestodubaikunafachocolatekunafapistachio220gm",
+    "name": "Besto Dubai Kunafa Chocolate Kunafa & Pistachio 220gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2025/12/601b0482-828c-438a-9073-8c8a971d957d.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-21",
+        "price": 1200.0,
+        "normalized_price": 5454.55
+      }
+    ],
+    "current_price": 1200.0,
+    "normalized_price": 5454.55,
+    "unit": "220.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/besto-dubai-kunafa-chocolate-kunafa-pistachio-220gm/"
+  },
+  "sj_bomboneslexusdubaistylechocolatepistachio180g": {
+    "id": "sj_bomboneslexusdubaistylechocolatepistachio180g",
+    "name": "Bombones Lexus Dubai Style Chocolate Pistachio \u2013 180g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/06/5b700bc1-c1f8-4fed-b10e-a71ccd594960.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-21",
+        "price": 850.0,
+        "normalized_price": 4722.22
+      }
+    ],
+    "current_price": 850.0,
+    "normalized_price": 4722.22,
+    "unit": "180.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/bombones-lexus-dubai-style-chocolate-pistachio-180g/"
+  },
+  "sj_bonfirejuicydropsfruitflavorsdeliciouscandyblueberrychewies525gm": {
+    "id": "sj_bonfirejuicydropsfruitflavorsdeliciouscandyblueberrychewies525gm",
+    "name": "Bonfire Juicy Drops Fruit Flavors delicious Candy Blueberry Chewies 525gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/14.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-21",
+        "price": 750.0,
+        "normalized_price": 1428.57
+      }
+    ],
+    "current_price": 750.0,
+    "normalized_price": 1428.57,
+    "unit": "525.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/bonfire-juicy-drops-fruit-flavors-delicious-candy-chewies-525gm-3/"
+  },
+  "sj_bonfirejuicydropsfruitflavorsdeliciouscandychewies525gmstrawberrychewy": {
+    "id": "sj_bonfirejuicydropsfruitflavorsdeliciouscandychewies525gmstrawberrychewy",
+    "name": "Bonfire Juicy Drops Fruit Flavors delicious Candy Chewies 525gm (Strawberry Chewy)",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/15.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-21",
+        "price": 750.0,
+        "normalized_price": 1428.57
+      }
+    ],
+    "current_price": 750.0,
+    "normalized_price": 1428.57,
+    "unit": "525.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/bonfire-juicy-drops-fruit-flavors-delicious-candy-chewies-525gm-strawberry-chewy/"
+  },
+  "sj_bonfirejuicydropsfruitflavorsdeliciouscandygrapechewies525gm": {
+    "id": "sj_bonfirejuicydropsfruitflavorsdeliciouscandygrapechewies525gm",
+    "name": "Bonfire Juicy Drops Fruit Flavors delicious Candy Grape Chewies 525gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/16.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-21",
+        "price": 750.0,
+        "normalized_price": 1428.57
+      }
+    ],
+    "current_price": 750.0,
+    "normalized_price": 1428.57,
+    "unit": "525.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/bonfire-juicy-drops-fruit-flavors-delicious-candy-chewies-525gm-2/"
+  },
+  "sj_bonfirejuicydropsfruitflavorsdeliciouscandypeachchewies525gm": {
+    "id": "sj_bonfirejuicydropsfruitflavorsdeliciouscandypeachchewies525gm",
+    "name": "Bonfire Juicy Drops Fruit Flavors delicious Candy Peach Chewies 525gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/17.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-21",
+        "price": 750.0,
+        "normalized_price": 1428.57
+      }
+    ],
+    "current_price": 750.0,
+    "normalized_price": 1428.57,
+    "unit": "525.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/bonfire-juicy-drops-fruit-flavors-delicious-candy-chewies-525gm/"
+  },
+  "sj_bonfirejuicydropsfruit525gram": {
+    "id": "sj_bonfirejuicydropsfruit525gram",
+    "name": "Bonfire Juicy Drops Fruit, 525 Gram",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/18.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-21",
+        "price": 750.0,
+        "normalized_price": 750.0
+      }
+    ],
+    "current_price": 750.0,
+    "normalized_price": 750.0,
+    "unit": "1 unit",
+    "unit_type": "piece",
+    "url": "https://shotejbazar.com/product/bonfire-juicy-drops-fruit-525-gram/"
+  },
+  "sj_bountychocolatebar57gmx24pcsbox": {
+    "id": "sj_bountychocolatebar57gmx24pcsbox",
+    "name": "Bounty Chocolate Bar (57gm x 24pcs) Box",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/09/7215819a-7e15-4bcc-b4e8-b8b5ea9c2659.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-21",
+        "price": 3050.0,
+        "normalized_price": 2229.53
+      }
+    ],
+    "current_price": 3050.0,
+    "normalized_price": 2229.53,
+    "unit": "57gm x 24",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/bounty-chocolate-bar-57-gm/"
+  },
+  "sj_bountywaferrolls225gx24pcs": {
+    "id": "sj_bountywaferrolls225gx24pcs",
+    "name": "Bounty Wafer Rolls 22.5g x 24 pcs",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/07/de936b9f-b0df-44f3-b73f-3710b2b34f74.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-21",
+        "price": 850.0,
+        "normalized_price": 1574.07
+      }
+    ],
+    "current_price": 850.0,
+    "normalized_price": 1574.07,
+    "unit": "22.5g x 24",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/bounty-wafer-rolls-22-5g-x-24-pcs/"
+  },
+  "sj_bountywaferrollsvaluepack5225g": {
+    "id": "sj_bountywaferrollsvaluepack5225g",
+    "name": "Bounty Wafer Rolls Value Pack (5 \u00d7 22.5g)",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/07/01b328ef-238f-4edf-b1fe-a938cb3b974d.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-21",
+        "price": 550.0,
+        "normalized_price": 24444.44
+      }
+    ],
+    "current_price": 550.0,
+    "normalized_price": 24444.44,
+    "unit": "22.5g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/bounty-wafer-rolls-value-pack-5-x-22-5g/"
+  },
+  "sj_cadbruydairymilkblackforest130g": {
+    "id": "sj_cadbruydairymilkblackforest130g",
+    "name": "Cadbruy Dairy Milk Black Forest 130g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/20-1.webp",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-21",
+        "price": 400.0,
+        "normalized_price": 3076.92
+      }
+    ],
+    "current_price": 400.0,
+    "normalized_price": 3076.92,
+    "unit": "130.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/cadbruy-dairy-milk-black-forest-130g/"
+  },
+  "sj_cadbury5starchocolate202gm": {
+    "id": "sj_cadbury5starchocolate202gm",
+    "name": "Cadbury 5 Star Chocolate 20.2gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/03/4649bf1e-162f-472e-bc0e-a1362bc7adc2.jpg",
+    "category": "Chocolate",
+    "history": [
+      {
+        "date": "2026-07-21",
+        "price": 1050.0,
+        "normalized_price": 51980.2
+      }
+    ],
+    "current_price": 1050.0,
+    "normalized_price": 51980.2,
+    "unit": "20.2gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/cadbury-5-star-chocolate-20-2gm/"
   },
   "sj_almarainaturalwildflowershoney900gm": {
     "id": "sj_almarainaturalwildflowershoney900gm",
@@ -80721,158 +80949,6 @@
     "unit_type": "kg",
     "url": "https://shotejbazar.com/product/tatawa-cappuccino-chocolate-flavour-filling-cookies-120gm/"
   },
-  "sj_tatawachipsdelitechocolatechipscookies120g": {
-    "id": "sj_tatawachipsdelitechocolatechipscookies120g",
-    "name": "Tatawa Chips Delite Chocolate Chips Cookies \u2013 120g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/05/f09e1dc7-8677-48a5-841f-fbfa0ba1cb11.jpg",
-    "category": "Snacks",
-    "history": [
-      {
-        "date": "2026-07-21",
-        "price": 380.0,
-        "normalized_price": 3166.67
-      }
-    ],
-    "current_price": 380.0,
-    "normalized_price": 3166.67,
-    "unit": "120.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/tatawa-chips-delite-chocolate-chips-cookies-120g/"
-  },
-  "sj_tatawachipspluschocolateflavourchipsraisinsoftcookies120g": {
-    "id": "sj_tatawachipspluschocolateflavourchipsraisinsoftcookies120g",
-    "name": "Tatawa Chips Plus \u2013 Chocolate Flavour Chips & Raisin Soft Cookies (120g)",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/05/aa9cc014-efe9-4861-8ef6-bf92066c6dfe.jpg",
-    "category": "Snacks",
-    "history": [
-      {
-        "date": "2026-07-21",
-        "price": 380.0,
-        "normalized_price": 3166.67
-      }
-    ],
-    "current_price": 380.0,
-    "normalized_price": 3166.67,
-    "unit": "120.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/tatawa-chips-plus-chocolate-flavour-chips-raisin-soft-cookies-120g/"
-  },
-  "sj_tatawachocdelitechocolateflavourfillingcookies120gm": {
-    "id": "sj_tatawachocdelitechocolateflavourfillingcookies120gm",
-    "name": "Tatawa Choc Delite Chocolate Flavour Filling Cookies \u2013 120gm",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/05/ec156bae-8d8c-466b-9d09-bb6fa9815c91.jpg",
-    "category": "Snacks",
-    "history": [
-      {
-        "date": "2026-07-21",
-        "price": 380.0,
-        "normalized_price": 3166.67
-      }
-    ],
-    "current_price": 380.0,
-    "normalized_price": 3166.67,
-    "unit": "120.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/tatawa-choc-delite-chocolate-flavour-filling-cookies-120gm/"
-  },
-  "sj_tatawachocolatecakecookies120g": {
-    "id": "sj_tatawachocolatecakecookies120g",
-    "name": "Tatawa Chocolate Cake Cookies \u2013 120g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/05/3c82781a-5576-4446-bffc-56c85fe66784.jpg",
-    "category": "Snacks",
-    "history": [
-      {
-        "date": "2026-07-21",
-        "price": 380.0,
-        "normalized_price": 3166.67
-      }
-    ],
-    "current_price": 380.0,
-    "normalized_price": 3166.67,
-    "unit": "120.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/tatawa-chocolate-cake-cookies-120g/"
-  },
-  "sj_tatawamilkydelitedarkchocolateflavourcookieswithmilkcreamfilling100g": {
-    "id": "sj_tatawamilkydelitedarkchocolateflavourcookieswithmilkcreamfilling100g",
-    "name": "Tatawa Milky Delite Dark Chocolate Flavour Cookies With Milk Cream Filling \u2013 100g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/05/75382276-39f7-49ee-a283-b603cd84efe5.jpg",
-    "category": "Snacks",
-    "history": [
-      {
-        "date": "2026-07-21",
-        "price": 380.0,
-        "normalized_price": 3800.0
-      }
-    ],
-    "current_price": 380.0,
-    "normalized_price": 3800.0,
-    "unit": "100.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/tatawa-milky-delite-dark-chocolate-flavour-cookies-with-milk-cream-filling-100g/"
-  },
-  "sj_tatawastrawberryflavourcreamfilledbrownies100g": {
-    "id": "sj_tatawastrawberryflavourcreamfilledbrownies100g",
-    "name": "Tatawa Strawberry Flavour Cream Filled Brownies \u2013 100g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/05/5fa8e157-4e01-43ad-9f9a-c09ed5402d26.jpg",
-    "category": "Snacks",
-    "history": [
-      {
-        "date": "2026-07-21",
-        "price": 380.0,
-        "normalized_price": 3800.0
-      }
-    ],
-    "current_price": 380.0,
-    "normalized_price": 3800.0,
-    "unit": "100.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/tatawa-strawberry-flavour-cream-filled-brownies-100g/"
-  },
-  "sj_tatawatiramisutwisttiramisucookieswithsoftcoffeechocolatecream120g": {
-    "id": "sj_tatawatiramisutwisttiramisucookieswithsoftcoffeechocolatecream120g",
-    "name": "Tatawa Tiramisu Twist Tiramisu Cookies with Soft Coffee Chocolate Cream \u2013 120g",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2026/05/54fc118d-480b-4034-bb57-cf7175e235d5.jpg",
-    "category": "Snacks",
-    "history": [
-      {
-        "date": "2026-07-21",
-        "price": 380.0,
-        "normalized_price": 3166.67
-      }
-    ],
-    "current_price": 380.0,
-    "normalized_price": 3166.67,
-    "unit": "120.0g",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/tatawa-tiramisu-twist-tiramisu-cookies-with-soft-coffee-chocolate-cream-120g/"
-  },
-  "sj_wholesalelaysstaxspicylobsterpotatochip135gmar4pcs": {
-    "id": "sj_wholesalelaysstaxspicylobsterpotatochip135gmar4pcs",
-    "name": "Wholesale Lays Stax Spicy Lobster Potato Chip 135 gm ar 4 pcs",
-    "store": "shotejbazar",
-    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/24-2.webp",
-    "category": "Snacks",
-    "history": [
-      {
-        "date": "2026-07-21",
-        "price": 1400.0,
-        "normalized_price": 10370.37
-      }
-    ],
-    "current_price": 1400.0,
-    "normalized_price": 10370.37,
-    "unit": "135.0gm",
-    "unit_type": "kg",
-    "url": "https://shotejbazar.com/product/wholesale-lays-stax-spicy-lobster-potato-chip-135-gm-ar-4-pcs/"
-  },
   "sj_cadburychocofilledsandwichbiscuits260g": {
     "id": "sj_cadburychocofilledsandwichbiscuits260g",
     "name": "\u200eCadbury Choco Filled Sandwich Biscuits 260g",
@@ -81328,5 +81404,233 @@
     "unit": "50.0g",
     "unit_type": "kg",
     "url": "https://shotejbazar.com/product/beanies-very-vanilla-flavour-instant-coffee-50g/"
+  },
+  "sj_brookebondredlabeltea450gm": {
+    "id": "sj_brookebondredlabeltea450gm",
+    "name": "Brooke Bond Red Label Tea 450gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/9.webp",
+    "category": "Coffee",
+    "history": [
+      {
+        "date": "2026-07-21",
+        "price": 750.0,
+        "normalized_price": 1666.67
+      }
+    ],
+    "current_price": 750.0,
+    "normalized_price": 1666.67,
+    "unit": "450.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/brooke-bond-red-label-tea-450gm/"
+  },
+  "sj_davidoffcoffeeoriginsasia100g": {
+    "id": "sj_davidoffcoffeeoriginsasia100g",
+    "name": "DAVIDOFF COFFEE ORIGINS ASIA 100G",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/10-2.webp",
+    "category": "Coffee",
+    "history": [
+      {
+        "date": "2026-07-21",
+        "price": 1050.0,
+        "normalized_price": 10500.0
+      }
+    ],
+    "current_price": 1050.0,
+    "normalized_price": 10500.0,
+    "unit": "100.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/davidoff-coffee-origins-asia-100g/"
+  },
+  "sj_davidoffespresso57coffee100gm": {
+    "id": "sj_davidoffespresso57coffee100gm",
+    "name": "Davidoff Espresso 57 Coffee 100gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/11-2.webp",
+    "category": "Coffee",
+    "history": [
+      {
+        "date": "2026-07-21",
+        "price": 850.0,
+        "normalized_price": 8500.0
+      }
+    ],
+    "current_price": 850.0,
+    "normalized_price": 8500.0,
+    "unit": "100.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/davidoff-espresso-57-coffee-100gm/"
+  },
+  "sj_davidofffinearomacoffee100gm": {
+    "id": "sj_davidofffinearomacoffee100gm",
+    "name": "Davidoff Fine Aroma Coffee 100gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/12-2.webp",
+    "category": "Coffee",
+    "history": [
+      {
+        "date": "2026-07-21",
+        "price": 850.0,
+        "normalized_price": 8500.0
+      }
+    ],
+    "current_price": 850.0,
+    "normalized_price": 8500.0,
+    "unit": "100.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/davidoff-fine-aroma-coffee-100gm/"
+  },
+  "sj_davidofforiginsbrazilrichbalancedinstantcoffee100g": {
+    "id": "sj_davidofforiginsbrazilrichbalancedinstantcoffee100g",
+    "name": "Davidoff Origins Brazil Rich & Balanced Instant Coffee 100g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/13-2.webp",
+    "category": "Coffee",
+    "history": [
+      {
+        "date": "2026-07-21",
+        "price": 1050.0,
+        "normalized_price": 10500.0
+      }
+    ],
+    "current_price": 1050.0,
+    "normalized_price": 10500.0,
+    "unit": "100.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/davidoff-origins-brazil-rich-balanced-instant-coffee-100g/"
+  },
+  "sj_davidoffricharomacoffee100gm": {
+    "id": "sj_davidoffricharomacoffee100gm",
+    "name": "Davidoff Rich Aroma Coffee 100gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/14-1.webp",
+    "category": "Coffee",
+    "history": [
+      {
+        "date": "2026-07-21",
+        "price": 850.0,
+        "normalized_price": 8500.0
+      }
+    ],
+    "current_price": 850.0,
+    "normalized_price": 8500.0,
+    "unit": "100.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/davidoff-rich-aroma-coffee-100gm/"
+  },
+  "sj_douweegbertspuredecafmediumroastinstantcoffee190g": {
+    "id": "sj_douweegbertspuredecafmediumroastinstantcoffee190g",
+    "name": "Douwe Egberts Pure Decaf Medium Roast Instant Coffee 190g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/11/15.webp",
+    "category": "Coffee",
+    "history": [
+      {
+        "date": "2026-07-21",
+        "price": 2450.0,
+        "normalized_price": 12894.74
+      }
+    ],
+    "current_price": 2450.0,
+    "normalized_price": 12894.74,
+    "unit": "190.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/douwe-egberts-pure-decaf-medium-roast-instant-coffee-190g/"
+  },
+  "sj_douweegbertspuregoldcoffee190g": {
+    "id": "sj_douweegbertspuregoldcoffee190g",
+    "name": "Douwe Egberts Pure Gold Coffee 190g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/11/16.webp",
+    "category": "Coffee",
+    "history": [
+      {
+        "date": "2026-07-21",
+        "price": 2450.0,
+        "normalized_price": 12894.74
+      }
+    ],
+    "current_price": 2450.0,
+    "normalized_price": 12894.74,
+    "unit": "190.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/douwe-egberts-pure-gold-coffee-190g/"
+  },
+  "sj_douweegbertspureindulgencedarkroastinstantcoffee190g": {
+    "id": "sj_douweegbertspureindulgencedarkroastinstantcoffee190g",
+    "name": "Douwe Egberts Pure Indulgence Dark Roast Instant Coffee 190g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/11/17.webp",
+    "category": "Coffee",
+    "history": [
+      {
+        "date": "2026-07-21",
+        "price": 2450.0,
+        "normalized_price": 12894.74
+      }
+    ],
+    "current_price": 2450.0,
+    "normalized_price": 12894.74,
+    "unit": "190.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/douwe-egberts-pure-indulgence-dark-roast-instant-coffee-190g/"
+  },
+  "sj_kitkathotchocolatedrinkmalaysia10sachet": {
+    "id": "sj_kitkathotchocolatedrinkmalaysia10sachet",
+    "name": "Kitkat Hot Chocolate Drink Malaysia \u2013 10 sachet",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2024/12/76.png",
+    "category": "Coffee",
+    "history": [
+      {
+        "date": "2026-07-21",
+        "price": 1050.0,
+        "normalized_price": 1050.0
+      }
+    ],
+    "current_price": 1050.0,
+    "normalized_price": 1050.0,
+    "unit": "1 unit",
+    "unit_type": "piece",
+    "url": "https://shotejbazar.com/product/kitkat-hot-chocolate-drink-malaysia-10-sachet/"
+  },
+  "sj_msfairtradegolddecafinstantcoffee200g": {
+    "id": "sj_msfairtradegolddecafinstantcoffee200g",
+    "name": "M&S Fairtrade Gold Decaf Instant Coffee 200g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/11/21.webp",
+    "category": "Coffee",
+    "history": [
+      {
+        "date": "2026-07-21",
+        "price": 2500.0,
+        "normalized_price": 12500.0
+      }
+    ],
+    "current_price": 2500.0,
+    "normalized_price": 12500.0,
+    "unit": "200.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/ms-fairtrade-gold-decaf-instant-coffee-200g/"
+  },
+  "sj_msfairtradegoldinstantcoffee200g": {
+    "id": "sj_msfairtradegoldinstantcoffee200g",
+    "name": "M&S Fairtrade Gold Instant Coffee 200g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/11/22.webp",
+    "category": "Coffee",
+    "history": [
+      {
+        "date": "2026-07-21",
+        "price": 2500.0,
+        "normalized_price": 12500.0
+      }
+    ],
+    "current_price": 2500.0,
+    "normalized_price": 12500.0,
+    "unit": "200.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/ms-fairtrade-gold-instant-coffee-200g/"
   }
 }
