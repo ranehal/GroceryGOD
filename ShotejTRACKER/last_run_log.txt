@@ -1,11 +1,11 @@
-Last Run: 2026-07-21 13:40:04
+Last Run: 2026-07-21 17:11:32
 ------------------------------
-Total Scraped: 163
+Total Scraped: 116
 New Items: 0
 ------------------------------
 Categories:
-- Cookies: 47
-- Food: 36
+- Chocolate: 36
 - Snacks: 32
-- Chocolate: 24
-- Coffee: 24
+- Food: 24
+- Cookies: 12
+- Coffee: 12
