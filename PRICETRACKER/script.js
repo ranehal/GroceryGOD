@@ -536,8 +536,45 @@ function updateStats() {
         return p.history[p.history.length-1].price < p.history[p.history.length-2].price;
     }).length;
     if (dom.priceDrops) dom.priceDrops.innerText = drops;
+    
+    // Fix: Always show current date and check for missing products for today
+    const today = new Date().toISOString().split('T')[0];
     const allDates = products.flatMap(p => (p.history || []).map(h => h.date)).sort();
     if (dom.lastUpdate) dom.lastUpdate.innerText = allDates.pop() || '--';
+    
+    // Check for missing products for today
+    const missingToday = products.filter(p => {
+        if (!p.history || p.history.length === 0) return true; // No history at all
+        const lastDate = p.history[p.history.length - 1].date;
+        return lastDate !== today;
+    });
+    
+    // Add CSS styles for missing products
+    if (missingToday.length > 0) {
+        const style = document.createElement('style');
+        style.id = 'missing-today-style';
+        style.textContent = `
+            .missing-today {
+                font-style: italic;
+                color: #ff9999;
+                opacity: 0.7;
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Add missing class to products when rendered
+        document.querySelectorAll('.product-card').forEach(card => {
+            const productId = card.dataset.productId;
+            const product = products.find(p => p.id === productId);
+            if (product) {
+                const lastDate = product.history && product.history.length > 0 ? product.history[product.history.length - 1].date : null;
+                const today = new Date().toISOString().split('T')[0];
+                if (lastDate !== today) {
+                    card.classList.add('missing-today');
+                }
+            }
+        });
+    }
 }
 
 function clearCompare() {
