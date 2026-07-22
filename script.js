@@ -690,7 +690,7 @@ function openCartModal() {
 function openDetailedChart(product) {
     currentDetailProductIndex = currentFilteredProducts.findIndex(p => p.id === product.id);
     const modal = document.getElementById('chart-modal');
-    modal.style.display = 'flex';
+    modal.classList.remove('hidden');
     modal.querySelector('.modal-content').style.setProperty('--modal-bg-img', "url('" + product.image + "')");
     
     document.getElementById('chart-product-name').innerText = product.name;
@@ -700,6 +700,20 @@ function openDetailedChart(product) {
     document.getElementById('chart-actual').innerText = fmt(product.current_price);
     document.getElementById('chart-unit').innerText = fmt(product.normalized_price);
     document.getElementById('chart-avg').innerText = fmt(product.avgPrice);
+    
+    // Fix: Show correct unit type based on unit_type not current_unit
+    let unitDisplay = '/pc';
+    if (product.unit_type === 'piece' || product.unit_type === 'pcs' || product.unit_type === 'each') {
+        unitDisplay = '/pc';
+    } else if (product.unit_type === 'liter' || product.unit_type === 'ltr') {
+        unitDisplay = '/L';
+    } else if (product.unit_type === 'kg' || product.unit_type === 'g') {
+        unitDisplay = '/kg';
+    }
+    
+    if (document.getElementById('chart-product-unit')) {
+        document.getElementById('chart-product-unit').innerText = unitDisplay;
+    }
     
     const isAllTimeLow = product.normalized_price <= (product.minPrice + 0.01);
     const minDisplay = isAllTimeLow 
@@ -716,11 +730,15 @@ function openDetailedChart(product) {
         footer.style.borderTop = '1px solid #222';
         footer.style.display = 'flex';
         footer.style.gap = '10px';
+        footer.style.justifyContent = 'space-between';
         modal.querySelector('.modal-content').appendChild(footer);
     }
     footer.innerHTML = `
-        <button class="btn-icon" onclick="customizeItem('${product.id}')"><i class="fas fa-edit"></i> Customize Details</button>
-        <button class="btn-icon" onclick="setNewThreshold()"><i class="fas fa-calendar-alt"></i> Set "New" Days (${newDaysThreshold})</button>
+        <button class="btn-icon" onclick="closeModal()"><i class="fas fa-arrow-left"></i> Back</button>
+        <div style="display:flex; gap:10px;">
+            <button class="btn-icon" onclick="customizeItem('${product.id}')"><i class="fas fa-edit"></i> Customize Details</button>
+            <button class="btn-icon" onclick="setNewThreshold()"><i class="fas fa-calendar-alt"></i> Set "New" Days (${newDaysThreshold})</button>
+        </div>
     `;
     
     const ctx = document.getElementById('price-history-chart').getContext('2d');
