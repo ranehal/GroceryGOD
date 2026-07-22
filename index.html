@@ -15,7 +15,7 @@
     <script>window.GOD_ASSET_VERSION = '20260619';</script>
     <div id="loading-spinner" class="spinner-container">
         <div class="spinner"></div>
-        <span style="color:var(--accent-color)">Synchronizing Market Data...</span>
+        <span style="color:var(--accent-color); font-weight:800;">Loading: <span id="loading-percent">0</span>%</span>
     </div>
 
     <div class="app-container">
@@ -179,13 +179,13 @@
 
     <!-- Detailed Chart Modal -->
     <div id="chart-modal" class="modal">
-        <div class="modal-content full-screen-modal sci-fi-modal">
-            <div class="modal-header">
-                <h2 id="chart-product-name"></h2>
+        <div class="modal-content full-screen-modal sci-fi-modal" style="max-height: 95vh; max-width: 95vw;">
+            <div class="modal-header" style="background: linear-gradient(135deg, var(--bg-dark), #2a2a3a); padding: 20px;">
+                <h2 id="chart-product-name" style="font-size: 1.8rem; color: var(--gold);"></h2>
                 <div style="display:flex; gap:15px; align-items:center;">
-                    <span id="chart-store-tag" class="store-tag"></span>
-                    <span id="chart-product-unit" style="color:#888; font-size:0.9rem;"></span>
-                    <span class="close-modal" data-modal="chart-modal">&times;</span>
+                    <span id="chart-store-tag" class="store-tag" style="font-size: 1rem; padding: 8px 15px;"></span>
+                    <span id="chart-product-unit" style="color:#888; font-size:1.1rem;"></span>
+                    <button onclick="window.history.back()" style="background: var(--danger); color: white; border: none; border-radius: 50%; width: 40px; height: 40px; font-size: 1.5rem; cursor: pointer; display: flex; align-items: center; justify-content: center;">←</button>
                 </div>
             </div>
             <div class="chart-analytics full-width-analytics">

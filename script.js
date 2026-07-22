@@ -109,12 +109,24 @@ async function loadStoreData(storeKey) {
     console.log(`[GOD_UPLINK] ${storeKey.toUpperCase()} Synchronized: ${productsArray.length} units.`);
 }
 
-function showLoading(show, message = 'Loading...') {
+function showLoading(show, message = 'Loading...', percent = 0) {
     const loader = document.getElementById('loading-spinner');
     if (loader) {
         loader.classList.toggle('active', show);
         const text = loader.querySelector('span');
-        if (text) text.textContent = message;
+        if (text) {
+            if (percent > 0) {
+                const percentSpan = loader.querySelector('#loading-percent');
+                if (percentSpan) percentSpan.textContent = percent;
+                text.textContent = message + `: ${percent}%`;
+            } else {
+                text.textContent = message;
+            }
+        }
+        if (show) {
+            const percentSpan = loader.querySelector('#loading-percent');
+            if (percentSpan) percentSpan.textContent = percent;
+        }
     }
 }
 
@@ -459,12 +471,15 @@ function setupEventListeners() {
 
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
-            document.querySelectorAll('.modal').forEach(m => m.style.display = 'none');
+            document.querySelectorAll('.modal').forEach(m => m.classList.add('hidden'));
             document.getElementById('search-suggestions').style.display = 'none';
         }
-        if (document.getElementById('chart-modal').style.display === 'flex') {
+        if (document.getElementById('chart-modal').classList.contains('hidden') === false) {
             if (e.key === 'ArrowRight') cycleProduct(1);
             if (e.key === 'ArrowLeft') cycleProduct(-1);
+            if (e.key === 'Escape') {
+                closeModal();
+            }
         }
     });
 
