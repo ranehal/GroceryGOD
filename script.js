@@ -86,8 +86,8 @@ async function loadAllFromParquet() {
     await db.registerFileBuffer('history.parquet', new Uint8Array(hBuf));
 
     showLoading(true, 'Building product matrix...', 50);
-    const pResult = await conn.query(`SELECT * FROM products`);
-    const hResult = await conn.query(`SELECT * FROM history ORDER BY product_id, date`);
+    const pResult = await conn.query(`SELECT * FROM read_parquet('products.parquet')`);
+    const hResult = await conn.query(`SELECT * FROM read_parquet('history.parquet') ORDER BY product_id, date`);
 
     showLoading(true, 'Syncing to engine...', 80);
     const historyMap = {};
