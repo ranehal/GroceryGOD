@@ -58,48 +58,72 @@ document.addEventListener('DOMContentLoaded', async () => {
         updateStatsBar();
     } catch (err) {
         console.error("[GOD_CRITICAL] Core Engine Failure:", err);
+        const detail = document.getElementById('loading-text');
+        if (detail) detail.textContent = `ERROR: ${err.message}`;
+        console.error(err.stack);
     } finally {
         showLoading(false);
     }
 });
 
 async function loadAllFromParquet() {
+    const t0 = performance.now();
+    const log = (msg) => console.log(`%c[GOD_PARQUET] ${msg}`, 'color: #0ff; font-weight: bold');
+    log('Waiting for DuckDB-WASM module...');
+
     if (!window.duckdb) await new Promise(r => { window.__duckdb_ready = r; });
     const duckdb = window.duckdb;
+    log(`DuckDB module ready (${((performance.now()-t0)/1000).toFixed(1)}s)`);
 
     showLoading(true, 'Spinning up DuckDB-WASM...', 10);
     const JSDELIVR_BUNDLES = duckdb.getJsDelivrBundles();
+    log(`Bundles found: ${Object.keys(JSDELIVR_BUNDLES).join(', ')}`);
     const bundle = await duckdb.selectBundle(JSDELIVR_BUNDLES);
+    log(`Selected bundle: ${bundle.mainWorker}`);
     const worker_url = URL.createObjectURL(new Blob([`importScripts("${bundle.mainWorker}");`], {type: 'text/javascript'}));
     const worker = new Worker(worker_url);
     const db = new duckdb.AsyncDuckDB(new duckdb.ConsoleLogger(), worker);
+    log('Instantiating WASM module...');
     await db.instantiate(bundle.mainModule, bundle.pthreadWorker);
     URL.revokeObjectURL(worker_url);
     const conn = await db.connect();
+    log(`DB instantiated & connected (${((performance.now()-t0)/1000).toFixed(1)}s)`);
 
     showLoading(true, 'Loading Parquet files...', 30);
+    const t1 = performance.now();
     const [pBuf, hBuf] = await Promise.all([
-        fetch('products.parquet').then(r => r.arrayBuffer()),
-        fetch('history.parquet').then(r => r.arrayBuffer())
+        fetch('products.parquet').then(r => { log(`products.parquet: ${r.status} ${(r.headers.get('content-length')||'?')} bytes`); return r.arrayBuffer(); }),
+        fetch('history.parquet').then(r => { log(`history.parquet: ${r.status} ${(r.headers.get('content-length')||'?')} bytes`); return r.arrayBuffer(); })
     ]);
+    log(`Fetched parquet in ${((performance.now()-t1)/1000).toFixed(1)}s — products: ${(pBuf.byteLength/1024/1024).toFixed(1)}MB, history: ${(hBuf.byteLength/1024/1024).toFixed(1)}MB`);
     await db.registerFileBuffer('products.parquet', new Uint8Array(pBuf));
     await db.registerFileBuffer('history.parquet', new Uint8Array(hBuf));
+    log('Files registered in virtual FS');
 
     showLoading(true, 'Building product matrix...', 50);
+    const t2 = performance.now();
     const pResult = await conn.query(`SELECT * FROM read_parquet('products.parquet')`);
+    log(`Products query: ${pResult.numRows} rows in ${((performance.now()-t2)/1000).toFixed(1)}s`);
+    const t3 = performance.now();
     const hResult = await conn.query(`SELECT * FROM read_parquet('history.parquet') ORDER BY product_id, date`);
+    log(`History query: ${hResult.numRows} rows in ${((performance.now()-t3)/1000).toFixed(1)}s`);
 
     showLoading(true, 'Syncing to engine...', 80);
+    const t4 = performance.now();
     const historyMap = {};
     for (const row of hResult.toArray()) {
         const h = row.toJSON();
         (historyMap[h.product_id] || (historyMap[h.product_id] = [])).push({date: h.date, price: h.price, normalized_price: h.normalized_price});
     }
+    const historyKeys = Object.keys(historyMap).length;
+    log(`History map: ${historyKeys} products with history in ${((performance.now()-t4)/1000).toFixed(1)}s`);
+    const t5 = performance.now();
     for (const row of pResult.toArray()) {
         const p = row.toJSON();
         p.history = historyMap[p.id] || [];
         allProducts.push(p);
     }
+    log(`Products loaded: ${allProducts.length} (${allProducts.filter(p=>p.history.length>0).length} with history) in ${((performance.now()-t5)/1000).toFixed(1)}s`);
 
     metadata.stores = {};
     const stores = ['shwapno','chaldal','meenabazar','othoba','metromart','unimart','shotejbazar'];
@@ -110,7 +134,8 @@ async function loadAllFromParquet() {
 
     await conn.close();
     await db.terminate();
-    console.log(`[GOD_UPLINK] Parquet loaded: ${allProducts.length} products.`);
+    const elapsed = ((performance.now()-t0)/1000).toFixed(1);
+    log(`DONE — ${allProducts.length} products loaded in ${elapsed}s`);
 }
 
 function showLoading(show, message = 'Loading...', percent = 0) {
