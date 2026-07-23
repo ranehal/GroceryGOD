@@ -91,7 +91,15 @@
                 <button class="intel-btn" data-filter="wait" title="Price is above average">Wait</button>
                 <button class="intel-btn" data-filter="low" title="Current price is the lowest recorded">All Time Low</button>
                 <button class="intel-btn" data-filter="new" title="Items first seen recently">New Items</button>
+                <button class="intel-btn" data-filter="pricechange" title="Show price change from custom days ago">Price Change</button>
                 
+                <div class="date-range-intel" id="price-change-controls" style="display:none;">
+                    <span>From:</span>
+                    <input type="number" id="pc-days-input" value="7" min="1" max="365" style="width:45px; background:var(--bg-card); color:white; border:1px solid #444; border-radius:4px; padding:2px 5px;">
+                    <span>days ago</span>
+                    <button id="pc-mode-toggle" class="intel-btn" style="padding:2px 8px; font-size:0.6rem; margin-left:4px;">%</button>
+                </div>
+
                 <div class="date-range-intel">
                     <span>New in:</span>
                     <input type="number" id="new-days-input" value="7" min="1" max="90" style="width:45px; background:var(--bg-card); color:white; border:1px solid #444; border-radius:4px; padding:2px 5px;">

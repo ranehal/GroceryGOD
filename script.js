@@ -28,6 +28,9 @@ let greatDealThreshold = 0.85;
 let goodBuyThreshold = 0.95;
 let newDaysThreshold = parseInt(localStorage.getItem('god_new_days') || '7');
 let customOverrides = JSON.parse(localStorage.getItem('god_custom_overrides') || '{}');
+let priceChangeDays = 7;
+let priceChangeMode = 'pct';
+let todayStr = new Date().toISOString().slice(0, 10);
 
 const STORE_CONFIG = {
     shwapno: { color: '#ff4081', name: 'Shwapno' },
@@ -178,6 +181,39 @@ async function loadProductHistory(productId) {
     });
 }
 
+async function computePriceChanges(days) {
+    if (!godDB) return;
+    const cutoff = new Date(todayStr);
+    cutoff.setDate(cutoff.getDate() - days);
+    const cutoffStr = cutoff.toISOString().slice(0, 10);
+    const result = await godDB.conn.query(`
+        WITH ranked AS (
+            SELECT product_id, normalized_price, price, date,
+                   ROW_NUMBER() OVER (PARTITION BY product_id ORDER BY date DESC) as rn
+            FROM read_parquet('history.parquet')
+            WHERE date <= '${cutoffStr}'
+        )
+        SELECT product_id, normalized_price, price FROM ranked WHERE rn = 1
+    `);
+    const oldPrices = {};
+    for (const row of result.toArray()) {
+        const r = row.toJSON();
+        oldPrices[r.product_id] = { normalized_price: Number(r.normalized_price), price: Number(r.price) };
+    }
+    allProducts.forEach(p => {
+        const old = oldPrices[p.id];
+        if (old && old.normalized_price > 0) {
+            p._pcDiff = p.normalized_price - old.normalized_price;
+            p._pcDiffPct = (p._pcDiff / old.normalized_price) * 100;
+            p._oldPrice = old.normalized_price;
+        } else {
+            p._pcDiff = undefined;
+            p._pcDiffPct = undefined;
+            p._oldPrice = undefined;
+        }
+    });
+}
+
 function showLoading(show, message = 'Loading...', percent = 0) {
     const loader = document.getElementById('loading-spinner');
     if (loader) {
@@ -200,16 +236,12 @@ function showLoading(show, message = 'Loading...', percent = 0) {
 }
 
 function processData() {
-    let latestDate = new Date();
-    if (metadata.stores) {
-        Object.values(metadata.stores).forEach(s => {
-            if (s.date_range && s.date_range.includes(' to ')) {
-                const d = new Date(s.date_range.split(' to ')[1]);
-                if (isNaN(latestDate.getTime()) || d > latestDate) latestDate = d;
-            }
-        });
-    }
-    const today = latestDate;
+    let latestDataDate = null;
+    allProducts.forEach(p => {
+        if (p.newest_date && (!latestDataDate || p.newest_date > latestDataDate)) latestDataDate = p.newest_date;
+    });
+    todayStr = latestDataDate || new Date().toISOString().slice(0, 10);
+    const today = new Date(todayStr + 'T12:00:00');
 
     allProducts.forEach(p => {
         if (customOverrides[p.id]) {
@@ -217,7 +249,6 @@ function processData() {
         }
 
         p.hasPriceHistory = p.hist_count > 1 && (p.maxPrice > p.minPrice);
-        const todayStr = today.toISOString().slice(0, 10);
         p.hasPriceToday = p.newest_date != null && p.newest_date >= todayStr;
         p.isFavorite = favorites.includes(p.id);
         p.priceChangePercent = 0;
@@ -400,8 +431,15 @@ function renderProducts() {
         if (activeIntelFilter === 'great') return p.normalized_price < (p.avgPrice * greatDealThreshold);
         if (activeIntelFilter === 'good') return p.normalized_price < (p.avgPrice * goodBuyThreshold);
         if (activeIntelFilter === 'wait') return p.normalized_price > (p.avgPrice * 1.05);
-        if (activeIntelFilter === 'low') return p.hasPriceHistory && p.hasPriceToday && p.normalized_price <= (p.minPrice + 0.01);
+        if (activeIntelFilter === 'low') return p.hist_count >= 1 && p.normalized_price <= (p.minPrice + 0.01);
         if (activeIntelFilter === 'new') return p.isNew;
+        if (activeIntelFilter === 'pricechange') {
+            if (p._pcDiff === undefined) return false;
+            if (priceChangeMode === 'pct') {
+                return Math.abs(p._pcDiffPct) >= 1;
+            }
+            return Math.abs(p._pcDiff) >= 1;
+        }
         return true;
     });
 
@@ -437,6 +475,18 @@ function createProductCard(p) {
         </div>
     ` : '';
 
+    const pcBadge = (activeIntelFilter === 'pricechange' && p._pcDiff !== undefined) ? (() => {
+        const diff = p._pcDiff;
+        const diffPct = p._pcDiffPct;
+        const isDown = diff < 0;
+        const color = isDown ? 'var(--accent-secondary)' : 'var(--danger)';
+        const arrow = isDown ? '▼' : '▲';
+        const label = priceChangeMode === 'pct' 
+            ? `${arrow}${Math.abs(diffPct).toFixed(1)}%`
+            : `${arrow}${Math.abs(Math.round(diff))}Tk`;
+        return `<div style="position:absolute; top:55px; left:8px; font-size:0.55rem; font-weight:900; background:rgba(0,0,0,0.85); padding:1px 5px; border-radius:3px; color:${color}; z-index:11;">${priceChangeDays}d ${label}</div>`;
+    })() : '';
+
     card.innerHTML = `
         <div class="store-badge" style="background:${storeColor}">${p.store}</div>
         <div class="fav-btn ${p.isFavorite ? 'active' : ''}" onclick="toggleFavorite(event, '${p.id}')">
@@ -444,7 +494,8 @@ function createProductCard(p) {
         </div>
         ${trend}
         ${newBadge}
-        ${!p.hasPriceToday ? '<div style="position:absolute; bottom:8px; right:8px; font-size:0.5rem; font-weight:900; background:var(--danger); padding:1px 5px; border-radius:3px; color:#fff; z-index:11;">OUT OF STOCK</div>' : ''}
+        ${pcBadge}
+        ${!p.hasPriceToday ? '<div style="position:absolute; bottom:8px; left:8px; font-size:0.5rem; font-weight:900; background:var(--danger); padding:1px 5px; border-radius:3px; color:#fff; z-index:11;">OS</div>' : ''}
         <div class="p-img-box">
             <img src="${p.image}" class="product-image" loading="lazy" onerror="this.src='https://placehold.co/200x200/000/fff?text=NO_SIGNAL'">
             <div class="price-tag">${Math.round(p.current_price)}</div>
@@ -570,13 +621,33 @@ function setupEventListeners() {
         };
     });
 
-    document.querySelectorAll('.intel-btn').forEach(btn => {
-        btn.onclick = () => {
+    document.querySelectorAll('.intel-btn[data-filter]').forEach(btn => {
+        btn.onclick = async () => {
             activeIntelFilter = activeIntelFilter === btn.dataset.filter ? 'all' : btn.dataset.filter;
-            document.querySelectorAll('.intel-btn').forEach(b => b.classList.toggle('active', b.dataset.filter === activeIntelFilter));
+            document.querySelectorAll('.intel-btn[data-filter]').forEach(b => b.classList.toggle('active', b.dataset.filter === activeIntelFilter));
+            const pcControls = document.getElementById('price-change-controls');
+            if (pcControls) pcControls.style.display = activeIntelFilter === 'pricechange' ? 'flex' : 'none';
+            if (activeIntelFilter === 'pricechange') await computePriceChanges(priceChangeDays);
             renderProducts();
         };
     });
+
+    const pcDaysInput = document.getElementById('pc-days-input');
+    if (pcDaysInput) {
+        pcDaysInput.oninput = async () => { 
+            priceChangeDays = parseInt(pcDaysInput.value) || 7; 
+            if (activeIntelFilter === 'pricechange') await computePriceChanges(priceChangeDays);
+            renderProducts(); 
+        };
+    }
+    const pcModeToggle = document.getElementById('pc-mode-toggle');
+    if (pcModeToggle) {
+        pcModeToggle.onclick = () => {
+            priceChangeMode = priceChangeMode === 'pct' ? 'tk' : 'pct';
+            pcModeToggle.textContent = priceChangeMode === 'pct' ? '%' : 'Tk';
+            renderProducts();
+        };
+    }
 
     document.getElementById('compare-btn').onclick = () => {
         if (compareModeActive && selectedForComparison.length > 0) openCompareModal();
