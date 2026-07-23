@@ -30,7 +30,7 @@ let newDaysThreshold = parseInt(localStorage.getItem('god_new_days') || '7');
 let customOverrides = JSON.parse(localStorage.getItem('god_custom_overrides') || '{}');
 let priceChangeDays = 7;
 let priceChangeMode = 'pct';
-let todayStr = new Date().toISOString().slice(0, 10);
+let todayStr = dhakaTodayStr();
 
 const STORE_CONFIG = {
     shwapno: { color: '#ff4081', name: 'Shwapno' },
@@ -41,6 +41,16 @@ const STORE_CONFIG = {
     unimart: { color: '#00d084', name: 'Unimart' },
     shotejbazar: { color: '#9c27b0', name: 'ShotejBazar' }
 };
+
+function toDhaka(date) {
+    if (!date) date = new Date();
+    return new Date(date.toLocaleString('en-US', { timeZone: 'Asia/Dhaka' }));
+}
+
+function dhakaTodayStr() {
+    const d = toDhaka();
+    return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+}
 
 function fmt(num) {
     if (num === null || num === undefined) return '0';
@@ -183,9 +193,9 @@ async function loadProductHistory(productId) {
 
 async function computePriceChanges(days) {
     if (!godDB) return;
-    const cutoff = new Date(todayStr);
+    const cutoff = toDhaka(new Date(todayStr + 'T12:00:00'));
     cutoff.setDate(cutoff.getDate() - days);
-    const cutoffStr = cutoff.toISOString().slice(0, 10);
+    const cutoffStr = cutoff.getFullYear() + '-' + String(cutoff.getMonth() + 1).padStart(2, '0') + '-' + String(cutoff.getDate()).padStart(2, '0');
     const result = await godDB.conn.query(`
         WITH ranked AS (
             SELECT product_id, normalized_price, price, date,
@@ -240,7 +250,7 @@ function processData() {
     allProducts.forEach(p => {
         if (p.newest_date && (!latestDataDate || p.newest_date > latestDataDate)) latestDataDate = p.newest_date;
     });
-    todayStr = latestDataDate || new Date().toISOString().slice(0, 10);
+    todayStr = latestDataDate || dhakaTodayStr();
     const today = new Date(todayStr + 'T12:00:00');
 
     allProducts.forEach(p => {
@@ -255,7 +265,7 @@ function processData() {
 
         const firstSeenStr = p.first_seen || p.oldest_date;
         if (firstSeenStr) {
-            const firstSeen = new Date(firstSeenStr);
+            const firstSeen = toDhaka(new Date(firstSeenStr + 'T12:00:00'));
             const diffTime = Math.abs(today - firstSeen);
             p.ageDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
         } else {
@@ -265,7 +275,7 @@ function processData() {
         p.isNew = true;
         if (firstSeenStr) {
             const thresholdMs = newDaysThreshold * 24 * 60 * 60 * 1000;
-            const oldestDate = new Date(p.oldest_date || p.first_seen);
+            const oldestDate = toDhaka(new Date(p.oldest_date || p.first_seen));
             const ageOfOldest = today - oldestDate;
             if (ageOfOldest > thresholdMs) {
                 p.isNew = false;
@@ -691,6 +701,21 @@ function setupEventListeners() {
     }
 
     document.querySelectorAll('.close-modal').forEach(btn => btn.onclick = () => btn.closest('.modal').style.display = 'none');
+
+    let touchStartX = 0;
+    let touchStartY = 0;
+    const chartModal = document.getElementById('chart-modal');
+    chartModal.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+        touchStartY = e.changedTouches[0].screenY;
+    }, { passive: true });
+    chartModal.addEventListener('touchend', (e) => {
+        const dx = e.changedTouches[0].screenX - touchStartX;
+        const dy = e.changedTouches[0].screenY - touchStartY;
+        if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
+            cycleProduct(dx < 0 ? 1 : -1);
+        }
+    }, { passive: true });
 }
 
 function cycleProduct(dir) {

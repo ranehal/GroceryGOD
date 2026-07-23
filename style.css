@@ -566,3 +566,63 @@ body.pitch-black {
 #price-history-chart {
     z-index: 1;
 }
+
+/* Mobile Landscape Chart Rotation */
+@media (max-width: 768px) and (orientation: portrait) {
+    /* Detail chart - hide chrome, rotate canvas */
+    #chart-modal .modal-content.sci-fi-modal {
+        overflow: hidden;
+    }
+    #chart-modal .modal-header,
+    #chart-modal .chart-analytics,
+    #chart-modal .modal-footer-custom {
+        display: none !important;
+    }
+    #chart-modal .chart-container.full-height-container {
+        flex: none;
+        width: 100vh;
+        height: 100vw;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(90deg);
+        z-index: 10001;
+        border: none;
+        padding: 10px;
+    }
+
+    /* Comparison chart - hide controls, rotate canvas */
+    #compare-modal .modal-content.full-screen-modal {
+        overflow: hidden;
+    }
+    #compare-modal .modal-header,
+    #compare-modal .compare-controls,
+    #compare-modal .compare-details-grid {
+        display: none !important;
+    }
+    #compare-modal #compare-chart-container {
+        flex: none;
+        width: 100vh;
+        height: 100vw;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(90deg);
+        z-index: 10001;
+        border: none;
+        padding: 10px;
+    }
+
+    /* Swipe hint */
+    #chart-modal::after {
+        content: '◀ Swipe to cycle items ▶';
+        position: fixed;
+        bottom: 12px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: rgba(255,255,255,0.3);
+        font-size: 0.65rem;
+        z-index: 10002;
+        pointer-events: none;
+    }
+}
