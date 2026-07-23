@@ -1,7 +1,7 @@
 // GroceryGOD Core Engine - Unified Market Intelligence
 let allProducts = [];
 let metadata = {};
-const ASSET_VERSION = window.GOD_ASSET_VERSION || '20260619';
+const ASSET_VERSION = window.GOD_ASSET_VERSION || '20260723a';
 let favorites = JSON.parse(localStorage.getItem('god_favorites') || '[]');
 let selectedForComparison = JSON.parse(localStorage.getItem('god_comparison') || '[]');
 let customGroups = JSON.parse(localStorage.getItem('god_custom_groups') || '{}');
