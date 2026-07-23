@@ -291,7 +291,7 @@ async def scrape_category(sem, browser, category, current_data, summary):
             cards = await page.query_selector_all('.wd-product')
             logger.info(f"  [+] Found {len(cards)} items in grid. Starting extraction...")
 
-            today_str = date.today().isoformat()
+            today_str = datetime.now(DHAKA_TZ).date().isoformat()
             
             for card in cards:
                 try:

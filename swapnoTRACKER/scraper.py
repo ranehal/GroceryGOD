@@ -421,7 +421,7 @@ async def scrape_category(sem, browser, category, current_data, summary, pinned_
             await page.goto(category['url'], wait_until="load", timeout=120000)
             await asyncio.sleep(5) 
             
-            today_str = date.today().isoformat()
+            today_str = datetime.now(DHAKA_TZ).date().isoformat()
             container_selector = f"xpath={category['xpath']}" if category.get('xpath') else "body"
             
             tabs = await page.query_selector_all('.category-tab-list div, .category-tab-list a, .nav-tabs li a, .category-item-title')

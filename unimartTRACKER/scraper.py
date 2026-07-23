@@ -265,7 +265,7 @@ def normalize_unimart_unit(name, price):
 
 def scrape_unimart():
     data = load_data()
-    today_str = datetime.date.today().isoformat()
+    today_str = datetime.datetime.now(DHAKA_TZ).date().isoformat()
     
     summary = {
         'total': 0,
