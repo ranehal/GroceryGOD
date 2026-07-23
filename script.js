@@ -44,6 +44,16 @@ function fmt(num) {
     return Number.isInteger(num) ? num.toString() : num.toFixed(1).replace(/\.0$/, '');
 }
 
+function formatChartDates(dates) {
+    if (!dates.length) return dates;
+    const years = new Set(dates.map(d => d.slice(0, 4)));
+    const months = new Set(dates.map(d => d.slice(0, 7)));
+    if (years.size === 1 && months.size === 1) return dates.map(d => d.slice(8, 10));
+    if (months.size <= 3 && years.size === 1) return dates.map(d => { const dd = d.slice(8, 10); return dd === '01' ? d.slice(5) : dd; });
+    if (years.size === 1) return dates.map(d => d.slice(5));
+    return dates.map(d => d.slice(2));
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
     try {
         document.title = "GroceryGOD";
@@ -207,7 +217,8 @@ function processData() {
         }
 
         p.hasPriceHistory = p.hist_count > 1 && (p.maxPrice > p.minPrice);
-        p.hasPriceToday = p.newest_date != null;
+        const todayStr = today.toISOString().slice(0, 10);
+        p.hasPriceToday = p.newest_date != null && p.newest_date >= todayStr;
         p.isFavorite = favorites.includes(p.id);
         p.priceChangePercent = 0;
 
@@ -433,12 +444,13 @@ function createProductCard(p) {
         </div>
         ${trend}
         ${newBadge}
+        ${!p.hasPriceToday ? '<div style="position:absolute; bottom:8px; right:8px; font-size:0.5rem; font-weight:900; background:var(--danger); padding:1px 5px; border-radius:3px; color:#fff; z-index:11;">OUT OF STOCK</div>' : ''}
         <div class="p-img-box">
             <img src="${p.image}" class="product-image" loading="lazy" onerror="this.src='https://placehold.co/200x200/000/fff?text=NO_SIGNAL'">
             <div class="price-tag">${Math.round(p.current_price)}</div>
         </div>
         <div class="p-detail-sh">
-            <div class="product-name" title="${p.name}">${p.name}</div>
+            <div class="product-name" title="${p.name}" style="${!p.hasPriceToday ? 'font-style:italic; opacity:0.6;' : ''}">${p.name}</div>
             <div class="product-meta">
                 <div class="meta-row">
                     <span class="price-main" style="color:${storeColor}">${fmt(p.normalized_price)} <span class="unit-label">/${p.unit_type}</span></span>
@@ -690,20 +702,21 @@ async function openCompareModal() {
     const ctx = document.getElementById('compare-chart').getContext('2d');
     if (compareChart) compareChart.destroy();
     const allDates = [...new Set(products.flatMap(p => p.history.map(h => h.date)))].sort();
+    const cmpLabels = formatChartDates(allDates);
     compareChart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: allDates,
+            labels: cmpLabels,
             datasets: products.map(p => ({
                 label: p.name + ' [' + p.store + ']',
                 data: allDates.map(d => { const h = p.history.find(hx => hx.date === d); return h ? h.normalized_price : null; }),
-                borderColor: STORE_CONFIG[p.store].color, borderWidth: 3, tension: 0.3, fill: false
+                borderColor: STORE_CONFIG[p.store].color, borderWidth: 3, tension: 0.3, fill: false, pointRadius: 2, pointHoverRadius: 5
             }))
         },
         options: {
             responsive: true, maintainAspectRatio: false,
-            scales: { y: { grid: { color: '#222' }, ticks: { color: '#888' } }, x: { grid: { display: false }, ticks: { color: '#888' } } },
-            plugins: { legend: { labels: { color: '#fff', boxWidth: 10, font: { size: 9 } } } }
+            scales: { y: { grid: { color: '#222' }, ticks: { color: '#ccc', font: { size: 11, weight: 'bold' } } }, x: { grid: { color: '#1a1a1a' }, ticks: { color: '#ccc', font: { size: 11, weight: 'bold' }, maxRotation: 45 } } },
+            plugins: { legend: { labels: { color: '#fff', boxWidth: 10, font: { size: 10, weight: 'bold' } } } }
         }
     });
 }
@@ -819,23 +832,26 @@ async function openDetailedChart(product) {
     
     const ctx = document.getElementById('price-history-chart').getContext('2d');
     const history = product.history || [];
+    const rawDates = history.map(h => h.date);
+    const labels = formatChartDates(rawDates);
     if (detailChart) detailChart.destroy();
     detailChart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: history.map(h => h.date),
+            labels: labels,
             datasets: [
-                { label: 'Unit Price', data: history.map(h => h.normalized_price), borderColor: store.color, backgroundColor: store.color + '22', fill: true, tension: 0.3, yAxisID: 'y' },
-                { label: 'Actual Price', data: history.map(h => h.price), borderColor: '#ffffff', borderDash: [5, 5], fill: false, tension: 0, yAxisID: 'y1' }
+                { label: 'Unit Price', data: history.map(h => h.normalized_price), borderColor: store.color, backgroundColor: store.color + '22', fill: true, tension: 0.3, yAxisID: 'y', pointRadius: 2, pointHoverRadius: 5 },
+                { label: 'Actual Price', data: history.map(h => h.price), borderColor: '#ffffff', borderDash: [5, 5], fill: false, tension: 0, yAxisID: 'y1', pointRadius: 1, pointHoverRadius: 4 }
             ]
         },
         options: { 
             responsive: true, maintainAspectRatio: false,
             scales: {
-                y: { position: 'left', title: { display: true, text: 'Unit Price', color: store.color }, grid: { color: '#222' }, ticks: { color: store.color } },
-                y1: { position: 'right', title: { display: true, text: 'Actual Price', color: '#fff' }, grid: { display: false }, ticks: { color: '#fff' } }
+                y: { position: 'left', title: { display: true, text: 'Unit Price', color: store.color, font: { weight: 'bold' } }, grid: { color: '#222' }, ticks: { color: store.color, font: { size: 11, weight: 'bold' } } },
+                y1: { position: 'right', title: { display: true, text: 'Actual Price', color: '#fff', font: { weight: 'bold' } }, grid: { display: false }, ticks: { color: '#fff', font: { size: 11, weight: 'bold' } } },
+                x: { ticks: { color: '#ccc', font: { size: 11, weight: 'bold' }, maxRotation: 45 }, grid: { color: '#1a1a1a' } }
             },
-            plugins: { legend: { labels: { color: '#fff' } } }
+            plugins: { legend: { labels: { color: '#fff', font: { size: 12, weight: 'bold' } } } }
         }
     });
 }
