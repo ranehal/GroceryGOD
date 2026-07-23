@@ -1,4 +1,4 @@
-"""Convert JS data files to Parquet. Weekly-aggregated history to keep WASM memory under control."""
+"""Convert JS data files to Parquet. Daily granularity, last 60 days only."""
 import json, os, re, glob
 from datetime import datetime, timedelta
 import pyarrow as pa
@@ -6,15 +6,11 @@ import pyarrow.parquet as pq
 
 STORES = ['shwapno','chaldal','meenabazar','othoba','metromart','unimart','shotejbazar']
 BASE = os.path.dirname(os.path.abspath(__file__))
-WEEKS_TO_KEEP = 24
-
-def iso_week_key(date_str):
-    d = datetime.strptime(date_str[:10], '%Y-%m-%d')
-    Monday = d - timedelta(days=d.weekday())
-    return Monday.strftime('%Y-%m-%d')
+DAYS_TO_KEEP = 60
 
 product_rows = []
 history_rows = []
+cutoff = (datetime.now() - timedelta(days=DAYS_TO_KEEP)).strftime('%Y-%m-%d')
 
 for store in STORES:
     for f in sorted(glob.glob(os.path.join(BASE, f'{store}_data_part*.js'))):
@@ -32,25 +28,18 @@ for store in STORES:
                 'normalized_price': p.get('normalized_price', 0), 'image': p.get('image', ''),
                 'url': p.get('url', ''), 'first_seen': p.get('first_seen', '')
             })
-            weekly = {}
+            seen_dates = set()
             for h in p.get('history', []):
-                wk = iso_week_key(h['date'])
-                if wk not in weekly:
-                    weekly[wk] = {'prices': [], 'normalized_prices': [], 'date': wk}
-                weekly[wk]['prices'].append(h['price'])
-                weekly[wk]['normalized_prices'].append(h['normalized_price'])
-            cutoff = (datetime.now() - timedelta(weeks=WEEKS_TO_KEEP)).strftime('%Y-%m-%d')
-            for wk in sorted(weekly):
-                if wk >= cutoff:
-                    w = weekly[wk]
+                d = h['date'][:10]
+                if d >= cutoff and d not in seen_dates:
+                    seen_dates.add(d)
                     history_rows.append({
-                        'product_id': pid, 'date': wk,
-                        'price': round(sum(w['prices']) / len(w['prices']), 2),
-                        'normalized_price': round(sum(w['normalized_prices']) / len(w['normalized_prices']), 2)
+                        'product_id': pid, 'date': d,
+                        'price': h['price'], 'normalized_price': h['normalized_price']
                     })
         print(f"  {os.path.basename(f)}: {len(data)} products")
 
-print(f"\nTotal: {len(product_rows)} products, {len(history_rows)} history rows (weekly, {WEEKS_TO_KEEP} weeks)")
+print(f"\nTotal: {len(product_rows)} products, {len(history_rows)} history rows (daily, last {DAYS_TO_KEEP} days)")
 
 schema = pa.schema([
     ('product_id', pa.string()),
