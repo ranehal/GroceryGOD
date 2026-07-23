@@ -1,17 +1,17 @@
-Last Run: 2026-07-22 04:43:46
+Last Run: 2026-07-23 20:38:56
 ------------------------------
-Total Scraped: 2622
+Total Scraped: 2765
 New Items: 0
 ------------------------------
 Categories:
-- Hair Care: 91
-- Tea & Coffee: 86
+- Kitchen Accessories: 106
+- Spices: 90
+- Hair Care: 87
 - Popular: 86
-- Tea: 76
-- Men's Deodorants: 61
-- Liquid Handwash: 59
+- Tea & Coffee: 84
+- Fresh Vegetables: 77
+- Tea: 75
+- Men's Soaps: 60
+- Men's Deodorants: 59
 - Frozen Fish: 58
-- Laundry: 57
-- Nuts & Dried Fruits: 57
-- Air Fresheners: 51
-... and 104 more.
+... and 110 more.
