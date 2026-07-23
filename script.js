@@ -49,10 +49,15 @@ document.addEventListener('DOMContentLoaded', async () => {
         showLoading(true, 'Initializing GODdata Matrix...');
         
         await loadAllFromParquet();
+        console.log(`%c[GOD_DEBUG] allProducts.length=${allProducts.length}, sample=`, 'color:#ff0', allProducts[0]);
 
+        console.log(`%c[GOD_DEBUG] Running processData...`, 'color:#ff0');
         processData();
+        console.log(`%c[GOD_DEBUG] processData done. Running renderSidebar...`, 'color:#ff0');
         renderSidebar();
+        console.log(`%c[GOD_DEBUG] renderSidebar done. Running renderProducts...`, 'color:#ff0');
         renderProducts();
+        console.log(`%c[GOD_DEBUG] renderProducts done. currentFilteredProducts=${currentFilteredProducts.length}`, 'color:#ff0');
         setupEventListeners();
         updateStoreStats();
         updateStatsBar();
