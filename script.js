@@ -179,11 +179,35 @@ function processData() {
             const firstSeen = new Date(firstSeenStr);
             const diffTime = Math.abs(today - firstSeen);
             const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-            p.isNew = diffDays <= newDaysThreshold;
             p.ageDays = diffDays;
         } else {
-            p.isNew = true;
             p.ageDays = 0;
+        }
+
+        // "New" = no history older than threshold OR gap/discontinuity in history past threshold
+        p.isNew = true;
+        if (history.length > 0) {
+            const thresholdMs = newDaysThreshold * 24 * 60 * 60 * 1000;
+            const oldestDate = new Date(history[0].date);
+            const ageOfOldest = today - oldestDate;
+
+            // Case 1: oldest history entry is within threshold → new product
+            if (ageOfOldest > thresholdMs) {
+                // Case 2: check for gaps larger than threshold between consecutive dates
+                let hasGap = false;
+                for (let i = 1; i < history.length; i++) {
+                    const prev = new Date(history[i - 1].date);
+                    const curr = new Date(history[i].date);
+                    const gap = Math.abs(curr - prev);
+                    if (gap > thresholdMs) {
+                        hasGap = true;
+                        break;
+                    }
+                }
+                p.isNew = hasGap;
+            }
+        } else {
+            p.isNew = true;
         }
     });
 }
