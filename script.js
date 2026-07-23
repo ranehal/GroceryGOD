@@ -51,16 +51,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         await loadAllFromParquet();
         console.log(`%c[GOD_DEBUG] allProducts.length=${allProducts.length}, sample=`, 'color:#ff0', allProducts[0]);
 
-        console.log(`%c[GOD_DEBUG] Running processData...`, 'color:#ff0');
-        processData();
-        console.log(`%c[GOD_DEBUG] processData done. Running renderSidebar...`, 'color:#ff0');
-        renderSidebar();
-        console.log(`%c[GOD_DEBUG] renderSidebar done. Running renderProducts...`, 'color:#ff0');
-        renderProducts();
-        console.log(`%c[GOD_DEBUG] renderProducts done. currentFilteredProducts=${currentFilteredProducts.length}`, 'color:#ff0');
-        setupEventListeners();
-        updateStoreStats();
-        updateStatsBar();
+        try { console.log('%c[GOD_DEBUG] Running processData...', 'color:#ff0'); processData(); console.log('%c[GOD_DEBUG] processData OK', 'color:#0f0'); } catch(e) { console.error('[GOD_DEBUG] processData FAILED:', e); }
+        try { console.log('%c[GOD_DEBUG] Running renderSidebar...', 'color:#ff0'); renderSidebar(); console.log('%c[GOD_DEBUG] renderSidebar OK', 'color:#0f0'); } catch(e) { console.error('[GOD_DEBUG] renderSidebar FAILED:', e); }
+        try { console.log('%c[GOD_DEBUG] Running renderProducts...', 'color:#ff0'); renderProducts(); console.log('%c[GOD_DEBUG] renderProducts OK', 'color:#0f0'); } catch(e) { console.error('[GOD_DEBUG] renderProducts FAILED:', e); }
+        try { console.log('%c[GOD_DEBUG] Running setupEventListeners...', 'color:#ff0'); setupEventListeners(); console.log('%c[GOD_DEBUG] setupEventListeners OK', 'color:#0f0'); } catch(e) { console.error('[GOD_DEBUG] setupEventListeners FAILED:', e); }
+        try { console.log('%c[GOD_DEBUG] Running updateStoreStats...', 'color:#ff0'); updateStoreStats(); console.log('%c[GOD_DEBUG] updateStoreStats OK', 'color:#0f0'); } catch(e) { console.error('[GOD_DEBUG] updateStoreStats FAILED:', e); }
+        try { console.log('%c[GOD_DEBUG] Running updateStatsBar...', 'color:#ff0'); updateStatsBar(); console.log('%c[GOD_DEBUG] updateStatsBar OK', 'color:#0f0'); } catch(e) { console.error('[GOD_DEBUG] updateStatsBar FAILED:', e); }
     } catch (err) {
         console.error("[GOD_CRITICAL] Core Engine Failure:", err);
         const detail = document.getElementById('loading-text');
