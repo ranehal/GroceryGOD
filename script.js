@@ -471,7 +471,10 @@ function setupEventListeners() {
 
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
-            document.querySelectorAll('.modal').forEach(m => m.classList.add('hidden'));
+            document.querySelectorAll('.modal').forEach(m => {
+                m.classList.add('hidden');
+                m.style.display = 'none';
+            });
             document.getElementById('search-suggestions').style.display = 'none';
         }
         if (document.getElementById('chart-modal').classList.contains('hidden') === false) {
@@ -687,10 +690,19 @@ function openCartModal() {
     container.innerHTML = html + '</div>';
 }
 
+function closeModal() {
+    const modal = document.getElementById('chart-modal');
+    if (modal) {
+        modal.classList.add('hidden');
+        modal.style.display = 'none';
+    }
+}
+
 function openDetailedChart(product) {
     currentDetailProductIndex = currentFilteredProducts.findIndex(p => p.id === product.id);
     const modal = document.getElementById('chart-modal');
     modal.classList.remove('hidden');
+    modal.style.display = 'flex';
     modal.querySelector('.modal-content').style.setProperty('--modal-bg-img', "url('" + product.image + "')");
     
     document.getElementById('chart-product-name').innerText = product.name;
