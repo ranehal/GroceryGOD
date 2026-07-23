@@ -1,16 +1,13 @@
-"""Convert JS data files to Parquet. Daily granularity, last 60 days only."""
+"""Convert JS data files to Parquet. All historical dates, no cutoff."""
 import json, os, re, glob
-from datetime import datetime, timedelta
 import pyarrow as pa
 import pyarrow.parquet as pq
 
 STORES = ['shwapno','chaldal','meenabazar','othoba','metromart','unimart','shotejbazar']
 BASE = os.path.dirname(os.path.abspath(__file__))
-DAYS_TO_KEEP = 60
 
 product_rows = []
 history_rows = []
-cutoff = (datetime.now() - timedelta(days=DAYS_TO_KEEP)).strftime('%Y-%m-%d')
 
 for store in STORES:
     for f in sorted(glob.glob(os.path.join(BASE, f'{store}_data_part*.js'))):
@@ -28,18 +25,18 @@ for store in STORES:
                 'normalized_price': p.get('normalized_price', 0), 'image': p.get('image', ''),
                 'url': p.get('url', ''), 'first_seen': p.get('first_seen', '')
             })
-            seen_dates = set()
+            seen = set()
             for h in p.get('history', []):
                 d = h['date'][:10]
-                if d >= cutoff and d not in seen_dates:
-                    seen_dates.add(d)
+                if d not in seen:
+                    seen.add(d)
                     history_rows.append({
                         'product_id': pid, 'date': d,
                         'price': h['price'], 'normalized_price': h['normalized_price']
                     })
         print(f"  {os.path.basename(f)}: {len(data)} products")
 
-print(f"\nTotal: {len(product_rows)} products, {len(history_rows)} history rows (daily, last {DAYS_TO_KEEP} days)")
+print(f"\nTotal: {len(product_rows)} products, {len(history_rows)} history rows")
 
 schema = pa.schema([
     ('product_id', pa.string()),

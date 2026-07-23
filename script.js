@@ -1,7 +1,8 @@
 // GroceryGOD Core Engine - Unified Market Intelligence
 let allProducts = [];
 let metadata = {};
-const ASSET_VERSION = window.GOD_ASSET_VERSION || '20260723a';
+let godDB = null; // persistent DuckDB connection for on-demand queries
+const ASSET_VERSION = window.GOD_ASSET_VERSION || '20260723b';
 let favorites = JSON.parse(localStorage.getItem('god_favorites') || '[]');
 let selectedForComparison = JSON.parse(localStorage.getItem('god_comparison') || '[]');
 let customGroups = JSON.parse(localStorage.getItem('god_custom_groups') || '{}');
@@ -101,31 +102,47 @@ async function loadAllFromParquet() {
     await db.registerFileBuffer('history.parquet', new Uint8Array(hBuf));
     log('Files registered in virtual FS');
 
-    showLoading(true, 'Building product matrix...', 50);
+    showLoading(true, 'Computing product stats in SQL...', 50);
     const t2 = performance.now();
-    const pResult = await conn.query(`SELECT * FROM read_parquet('products.parquet')`);
-    log(`Products query: ${pResult.numRows} rows in ${((performance.now()-t2)/1000).toFixed(1)}s`);
+    const result = await conn.query(`
+        SELECT 
+            p.id, p.name, p.store, p.category, p.unit, p.unit_type,
+            p.current_price, p.normalized_price, p.image, p.url, p.first_seen,
+            COUNT(h.date) as hist_count,
+            MIN(h.normalized_price) as min_price,
+            MAX(h.normalized_price) as max_price,
+            AVG(h.normalized_price) as avg_price,
+            MIN(h.date) as oldest_date,
+            MAX(h.date) as newest_date
+        FROM read_parquet('products.parquet') p
+        LEFT JOIN read_parquet('history.parquet') h ON p.id = h.product_id
+        GROUP BY p.id, p.name, p.store, p.category, p.unit, p.unit_type,
+                 p.current_price, p.normalized_price, p.image, p.url, p.first_seen
+    `);
+    log(`SQL aggregation done: ${result.numRows} products in ${((performance.now()-t2)/1000).toFixed(1)}s`);
+
+    showLoading(true, 'Building product matrix...', 80);
     const t3 = performance.now();
-    const hResult = await conn.query(`SELECT * FROM read_parquet('history.parquet') ORDER BY product_id, date`);
-    log(`History query: ${hResult.numRows} rows in ${((performance.now()-t3)/1000).toFixed(1)}s`);
-
-    showLoading(true, 'Syncing to engine...', 80);
-    const t4 = performance.now();
-    const historyMap = {};
-    for (const row of hResult.toArray()) {
-        const h = row.toJSON();
-        (historyMap[h.product_id] || (historyMap[h.product_id] = [])).push({date: h.date, price: h.price, normalized_price: h.normalized_price});
+    for (const row of result.toArray()) {
+        const r = row.toJSON();
+        allProducts.push({
+            id: r.id, name: r.name, store: r.store, category: r.category,
+            unit: r.unit, unit_type: r.unit_type, current_price: r.current_price,
+            normalized_price: r.normalized_price, image: r.image, url: r.url,
+            first_seen: r.first_seen,
+            history: [],
+            hist_count: Number(r.hist_count) || 0,
+            minPrice: r.min_price != null ? Number(r.min_price) : r.normalized_price,
+            maxPrice: r.max_price != null ? Number(r.max_price) : r.normalized_price,
+            avgPrice: r.avg_price != null ? Number(r.avg_price) : r.normalized_price,
+            oldest_date: r.oldest_date || null,
+            newest_date: r.newest_date || null,
+            _historyLoaded: false
+        });
     }
-    const historyKeys = Object.keys(historyMap).length;
-    log(`History map: ${historyKeys} products with history in ${((performance.now()-t4)/1000).toFixed(1)}s`);
-    const t5 = performance.now();
-    for (const row of pResult.toArray()) {
-        const p = row.toJSON();
-        p.history = historyMap[p.id] || [];
-        allProducts.push(p);
-    }
-    log(`Products loaded: ${allProducts.length} (${allProducts.filter(p=>p.history.length>0).length} with history) in ${((performance.now()-t5)/1000).toFixed(1)}s`);
+    log(`Products mapped: ${allProducts.length} in ${((performance.now()-t3)/1000).toFixed(1)}s`);
 
+    godDB = { db, conn };
     metadata.stores = {};
     const stores = ['shwapno','chaldal','meenabazar','othoba','metromart','unimart','shotejbazar'];
     stores.forEach(s => {
@@ -133,10 +150,22 @@ async function loadAllFromParquet() {
         if (manifest && manifest.metadata) metadata.stores[s] = manifest.metadata;
     });
 
-    await conn.close();
-    await db.terminate();
     const elapsed = ((performance.now()-t0)/1000).toFixed(1);
     log(`DONE — ${allProducts.length} products loaded in ${elapsed}s`);
+}
+
+async function loadProductHistory(productId) {
+    if (!godDB) return [];
+    const result = await godDB.conn.query(`
+        SELECT date, price, normalized_price 
+        FROM read_parquet('history.parquet') 
+        WHERE product_id = '${productId.replace(/'/g, "''")}'
+        ORDER BY date ASC
+    `);
+    return result.toArray().map(r => {
+        const h = r.toJSON();
+        return { date: h.date, price: Number(h.price), normalized_price: Number(h.normalized_price) };
+    });
 }
 
 function showLoading(show, message = 'Loading...', percent = 0) {
@@ -172,69 +201,32 @@ function processData() {
     }
     const today = latestDate;
 
-    const storeLatestDates = {};
-    if (metadata.stores) {
-        Object.entries(metadata.stores).forEach(([store, data]) => {
-            if (data.date_range && data.date_range.includes(' to ')) {
-                storeLatestDates[store] = data.date_range.split(' to ')[1];
-            }
-        });
-    }
-
     allProducts.forEach(p => {
         if (customOverrides[p.id]) {
             Object.assign(p, customOverrides[p.id]);
         }
 
-        const history = p.history || [];
-        const prices = history.map(h => h.normalized_price || h.price);
-        p.avgPrice = prices.length > 0 ? prices.reduce((a, b) => a + b, 0) / prices.length : p.normalized_price;
-        p.minPrice = prices.length > 0 ? Math.min(...prices) : p.normalized_price;
-        p.maxPrice = prices.length > 0 ? Math.max(...prices) : p.normalized_price;
-        p.hasPriceHistory = prices.length > 1 && (p.maxPrice > p.minPrice);
-        
-        const lastDate = history.length > 0 ? history[history.length - 1].date : null;
-        p.hasPriceToday = lastDate && storeLatestDates[p.store] && lastDate === storeLatestDates[p.store];
-
-        p.priceChangePercent = 0;
-        if (history.length >= 2) {
-            const curr = history[history.length - 1].normalized_price || history[history.length - 1].price;
-            const prev = history[history.length - 2].normalized_price || history[history.length - 2].price;
-            p.priceChangePercent = prev > 0 ? ((curr - prev) / prev * 100) : 0;
-        }
+        p.hasPriceHistory = p.hist_count > 1 && (p.maxPrice > p.minPrice);
+        p.hasPriceToday = p.newest_date != null;
         p.isFavorite = favorites.includes(p.id);
+        p.priceChangePercent = 0;
 
-        const firstSeenStr = p.first_seen || (history.length > 0 ? history[0].date : null);
+        const firstSeenStr = p.first_seen || p.oldest_date;
         if (firstSeenStr) {
             const firstSeen = new Date(firstSeenStr);
             const diffTime = Math.abs(today - firstSeen);
-            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-            p.ageDays = diffDays;
+            p.ageDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
         } else {
             p.ageDays = 0;
         }
 
-        // "New" = no history older than threshold OR gap/discontinuity in history past threshold
         p.isNew = true;
-        if (history.length > 0) {
+        if (firstSeenStr) {
             const thresholdMs = newDaysThreshold * 24 * 60 * 60 * 1000;
-            const oldestDate = new Date(history[0].date);
+            const oldestDate = new Date(p.oldest_date || p.first_seen);
             const ageOfOldest = today - oldestDate;
-
-            // Case 1: oldest history entry is within threshold → new product
             if (ageOfOldest > thresholdMs) {
-                // Case 2: check for gaps larger than threshold between consecutive dates
-                let hasGap = false;
-                for (let i = 1; i < history.length; i++) {
-                    const prev = new Date(history[i - 1].date);
-                    const curr = new Date(history[i].date);
-                    const gap = Math.abs(curr - prev);
-                    if (gap > thresholdMs) {
-                        hasGap = true;
-                        break;
-                    }
-                }
-                p.isNew = hasGap;
+                p.isNew = false;
             }
         } else {
             p.isNew = true;
@@ -676,7 +668,7 @@ window.selectSuggestion = (name) => {
     renderProducts();
 };
 
-function openCompareModal() {
+async function openCompareModal() {
     document.getElementById('compare-modal').style.display = 'flex';
     const products = allProducts.filter(p => selectedForComparison.includes(p.id));
     document.getElementById('selected-count').innerText = products.length + ' units staged';
@@ -687,6 +679,14 @@ function openCompareModal() {
         localStorage.setItem('god_favorites', JSON.stringify(favorites));
         processData(); alert("Items added to Cart!"); renderProducts();
     };
+
+    for (const p of products) {
+        if (!p._historyLoaded && godDB) {
+            p.history = await loadProductHistory(p.id);
+            p._historyLoaded = true;
+        }
+    }
+
     const ctx = document.getElementById('compare-chart').getContext('2d');
     if (compareChart) compareChart.destroy();
     const allDates = [...new Set(products.flatMap(p => p.history.map(h => h.date)))].sort();
@@ -752,7 +752,7 @@ function closeModal() {
     }
 }
 
-function openDetailedChart(product) {
+async function openDetailedChart(product) {
     currentDetailProductIndex = currentFilteredProducts.findIndex(p => p.id === product.id);
     const modal = document.getElementById('chart-modal');
     modal.classList.remove('hidden');
@@ -767,7 +767,6 @@ function openDetailedChart(product) {
     document.getElementById('chart-unit').innerText = fmt(product.normalized_price);
     document.getElementById('chart-avg').innerText = fmt(product.avgPrice);
     
-    // Fix: Show correct unit type based on unit_type not current_unit
     let unitDisplay = '/pc';
     if (product.unit_type === 'piece' || product.unit_type === 'pcs' || product.unit_type === 'each') {
         unitDisplay = '/pc';
@@ -806,6 +805,17 @@ function openDetailedChart(product) {
             <button class="btn-icon" onclick="setNewThreshold()"><i class="fas fa-calendar-alt"></i> Set "New" Days (${newDaysThreshold})</button>
         </div>
     `;
+
+    if (!product._historyLoaded && godDB) {
+        const h = await loadProductHistory(product.id);
+        product.history = h;
+        product._historyLoaded = true;
+        if (h.length >= 2) {
+            const curr = h[h.length - 1].normalized_price || h[h.length - 1].price;
+            const prev = h[h.length - 2].normalized_price || h[h.length - 2].price;
+            product.priceChangePercent = prev > 0 ? ((curr - prev) / prev * 100) : 0;
+        }
+    }
     
     const ctx = document.getElementById('price-history-chart').getContext('2d');
     const history = product.history || [];
