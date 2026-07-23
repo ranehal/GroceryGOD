@@ -212,6 +212,14 @@
         </div>
     </div>
 
+    <script type="importmap">
+    { "imports": { "@duckdb/duckdb-wasm": "https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm@1.29.0/+esm" } }
+    </script>
+    <script type="module">
+    import * as duckdb from '@duckdb/duckdb-wasm';
+    window.duckdb = duckdb;
+    window.__duckdb_ready?.();
+    </script>
     <script src="shwapno_manifest.js?v=20260619"></script>
     <script src="chaldal_manifest.js?v=20260619"></script>
     <script src="meenabazar_manifest.js?v=20260619"></script>

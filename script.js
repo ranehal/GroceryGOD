@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.title = "GroceryGOD";
         showLoading(true, 'Initializing GODdata Matrix...');
         
-        await loadStoreData('shwapno');
+        await loadAllFromParquet();
 
         processData();
         renderSidebar();
@@ -63,50 +63,54 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 });
 
-async function loadStoreData(storeKey) {
-    const manifest = window[storeKey + 'Manifest'];
-    if (!manifest || !manifest.metadata) {
-        console.warn(`[GOD_UPLINK] No manifest found for ${storeKey}. Skipping store.`);
-        return;
+async function loadAllFromParquet() {
+    if (!window.duckdb) await new Promise(r => { window.__duckdb_ready = r; });
+    const duckdb = window.duckdb;
+
+    showLoading(true, 'Spinning up DuckDB-WASM...', 10);
+    const JSDELIVR_BUNDLES = duckdb.getJsDelivrBundles();
+    const bundle = await duckdb.selectBundle(JSDELIVR_BUNDLES);
+    const worker_url = URL.createObjectURL(new Blob([`importScripts("${bundle.mainWorker}");`], {type: 'text/javascript'}));
+    const worker = new Worker(worker_url);
+    const db = new duckdb.AsyncDuckDB(new duckdb.ConsoleLogger(), worker);
+    await db.instantiate(bundle.mainModule, bundle.pthreadWorker);
+    URL.revokeObjectURL(worker_url);
+    const conn = await db.connect();
+
+    showLoading(true, 'Loading Parquet files...', 30);
+    const [pBuf, hBuf] = await Promise.all([
+        fetch('products.parquet').then(r => r.arrayBuffer()),
+        fetch('history.parquet').then(r => r.arrayBuffer())
+    ]);
+    await db.registerFileBuffer('products.parquet', new Uint8Array(pBuf));
+    await db.registerFileBuffer('history.parquet', new Uint8Array(hBuf));
+
+    showLoading(true, 'Building product matrix...', 50);
+    const pResult = await conn.query(`SELECT * FROM products`);
+    const hResult = await conn.query(`SELECT * FROM history ORDER BY product_id, date`);
+
+    showLoading(true, 'Syncing to engine...', 80);
+    const historyMap = {};
+    for (const row of hResult.toArray()) {
+        const h = row.toJSON();
+        (historyMap[h.product_id] || (historyMap[h.product_id] = [])).push({date: h.date, price: h.price, normalized_price: h.normalized_price});
     }
-
-    const { total_chunks } = manifest.metadata;
-    const masterProducts = {};
-
-    for (let i = 1; i <= total_chunks; i++) {
-        showLoading(true, `Uplinking ${storeKey.toUpperCase()} Part ${i}/${total_chunks}...`);
-        
-        await new Promise((resolve) => {
-            const script = document.createElement('script');
-            script.src = `${storeKey}_data_part${i}.js?v=${ASSET_VERSION}`;
-            script.async = true;
-            script.onload = () => {
-                const partVarName = `${storeKey}_part${i}`;
-                const partData = window[partVarName];
-                if (partData) {
-                    Object.assign(masterProducts, partData);
-                    delete window[partVarName];
-                }
-                script.remove();
-                resolve();
-            };
-            script.onerror = () => {
-                console.error(`[GOD_UPLINK] Failed to load ${storeKey} part ${i}`);
-                resolve();
-            };
-            document.head.appendChild(script);
-        });
-    }
-
-    const productsArray = Object.values(masterProducts);
-    for (let p of productsArray) {
+    for (const row of pResult.toArray()) {
+        const p = row.toJSON();
+        p.history = historyMap[p.id] || [];
         allProducts.push(p);
     }
-    
-    metadata.stores = metadata.stores || {};
-    metadata.stores[storeKey] = manifest.metadata;
-    
-    console.log(`[GOD_UPLINK] ${storeKey.toUpperCase()} Synchronized: ${productsArray.length} units.`);
+
+    metadata.stores = {};
+    const stores = ['shwapno','chaldal','meenabazar','othoba','metromart','unimart','shotejbazar'];
+    stores.forEach(s => {
+        const manifest = window[s + 'Manifest'];
+        if (manifest && manifest.metadata) metadata.stores[s] = manifest.metadata;
+    });
+
+    await conn.close();
+    await db.terminate();
+    console.log(`[GOD_UPLINK] Parquet loaded: ${allProducts.length} products.`);
 }
 
 function showLoading(show, message = 'Loading...', percent = 0) {
