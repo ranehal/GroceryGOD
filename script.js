@@ -139,6 +139,7 @@ async function loadAllFromParquet() {
             MAX(h.date) as newest_date
         FROM read_parquet('products.parquet') p
         LEFT JOIN read_parquet('history.parquet') h ON p.id = h.product_id
+        WHERE p.store = 'shwapno'
         GROUP BY p.id, p.name, p.store, p.category, p.unit, p.unit_type,
                  p.current_price, p.normalized_price, p.image, p.url, p.first_seen
     `);
@@ -175,6 +176,43 @@ async function loadAllFromParquet() {
 
     const elapsed = ((performance.now()-t0)/1000).toFixed(1);
     log(`DONE — ${allProducts.length} products loaded in ${elapsed}s`);
+}
+
+async function loadStoreData(sid) {
+    if (!godDB) return;
+    const result = await godDB.conn.query(`
+        SELECT 
+            p.id, p.name, p.store, p.category, p.unit, p.unit_type,
+            p.current_price, p.normalized_price, p.image, p.url, p.first_seen,
+            COUNT(h.date) as hist_count,
+            MIN(h.normalized_price) as min_price,
+            MAX(h.normalized_price) as max_price,
+            AVG(h.normalized_price) as avg_price,
+            MIN(h.date) as oldest_date,
+            MAX(h.date) as newest_date
+        FROM read_parquet('products.parquet') p
+        LEFT JOIN read_parquet('history.parquet') h ON p.id = h.product_id
+        WHERE p.store = '${sid}'
+        GROUP BY p.id, p.name, p.store, p.category, p.unit, p.unit_type,
+                 p.current_price, p.normalized_price, p.image, p.url, p.first_seen
+    `);
+    for (const row of result.toArray()) {
+        const r = row.toJSON();
+        allProducts.push({
+            id: r.id, name: r.name, store: r.store, category: r.category,
+            unit: r.unit, unit_type: r.unit_type, current_price: r.current_price,
+            normalized_price: r.normalized_price, image: r.image, url: r.url,
+            first_seen: r.first_seen,
+            history: [],
+            hist_count: Number(r.hist_count) || 0,
+            minPrice: r.min_price != null ? Number(r.min_price) : r.normalized_price,
+            maxPrice: r.max_price != null ? Number(r.max_price) : r.normalized_price,
+            avgPrice: r.avg_price != null ? Number(r.avg_price) : r.normalized_price,
+            oldest_date: r.oldest_date || null,
+            newest_date: r.newest_date || null,
+            _historyLoaded: false
+        });
+    }
 }
 
 async function loadProductHistory(productId) {
