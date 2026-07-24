@@ -1,17 +1,17 @@
-Last Run: 2026-07-24 03:46:15
+Last Run: 2026-07-24 13:19:42
 ------------------------------
 Total Scraped: 1700
-New Items: 1262
+New Items: 1283
 ------------------------------
 Categories:
-- Shampoo: 128
-- Whole Spice: 38
-- Feeding Accessories Kit: 36
-- Cookies: 31
-- Imported Wafers: 30
-- Toothpaste: 30
-- Imported Biscuit: 30
-- Grinded Spice: 28
-- Chocolate Bar: 26
-- Instant Noodles: 26
-... and 277 more.
+- Shampoo: 116
+- Whole Spice: 49
+- Feeding Accessories Kit: 45
+- Grinded Spice: 41
+- Toothpaste: 34
+- Imported Wafers: 33
+- Jhuri Bhaja: 31
+- Cookies: 29
+- Hand Wash: 22
+- Instant Noodles: 22
+... and 274 more.
