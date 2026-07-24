@@ -9,7 +9,7 @@ import sys
 from playwright.async_api import async_playwright
 from datetime import datetime
 from database import SessionLocal, Category, Product, PriceHistory, init_db
-from sqlalchemy import func, Date
+from sqlalchemy import Date
 
 BASE_URL = "https://meenabazaronline.com"
 
@@ -171,7 +171,7 @@ async def save_to_db(category_data, products_data):
             scraped_date = scraped_dt.date()
             existing = db.query(PriceHistory).filter(
                 PriceHistory.product_id == db_product.id,
-                func(PriceHistory.scraped_at).cast(Date) == scraped_date
+                PriceHistory.scraped_at.cast(Date) == scraped_date
             ).first()
             if existing:
                 existing.actual_price = p_data['actual_price']

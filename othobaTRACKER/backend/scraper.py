@@ -93,12 +93,12 @@ async def sector_worker(context, url, idx, total, summary):
                     db.add(p)
                     summary['new'] += 1
                 if d['price'] > 0:
-                    from sqlalchemy import func, Date as SaDate
+                    from sqlalchemy import Date as SaDate
                     now = datetime.datetime.now(DHAKA_TZ).replace(tzinfo=None)
                     today_date = now.date()
                     existing = db.query(PriceHistory).filter(
                         PriceHistory.product_id == d['id'],
-                        func(PriceHistory.timestamp).cast(SaDate) == today_date
+                        PriceHistory.timestamp.cast(SaDate) == today_date
                     ).first()
                     if existing:
                         existing.price_amount = d['price']

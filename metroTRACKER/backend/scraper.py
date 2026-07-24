@@ -7,7 +7,7 @@ import aiohttp
 from datetime import datetime
 from collections import Counter
 from database import SessionLocal, Category, Product, PriceHistory, init_db
-from sqlalchemy import func, Date
+from sqlalchemy import Date
 
 API_BASE = "https://api.metromartonline.com/api/v1"
 OUTLET_ID = 9
@@ -147,7 +147,7 @@ async def save_to_db(category_name, products, summary):
             scraped_date = scraped_dt.date()
             existing = db.query(PriceHistory).filter(
                 PriceHistory.product_id == db_p.id,
-                func(PriceHistory.scraped_at).cast(Date) == scraped_date
+                PriceHistory.scraped_at.cast(Date) == scraped_date
             ).first()
             if existing:
                 existing.actual_price = p['actual_price']
