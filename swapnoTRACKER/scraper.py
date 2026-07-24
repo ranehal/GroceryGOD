@@ -1,193 +1,15 @@
 import os
 from datetime import timezone, timedelta
 DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-from datetime import datetime, date, timezone, timedelta
+from datetime import datetime, date
 import asyncio
 from collections import Counter
 import json
 import re
-import os
 import random
 import logging
 from playwright.async_api import async_playwright
 
-DHAKA_TZ = timezone(timedelta(hours=6))
-
-# Setup logging
 logging.basicConfig(
     level=logging.INFO,
     format='[%(asctime)s] %(levelname)s: %(message)s',
@@ -279,7 +101,6 @@ def parse_price_value(text):
     return float(match.group(1).replace(',', '')) if match else None
 
 async def extract_price_info(item):
-    """Extract Shwapno current/original prices without treating striked prices as current."""
     price_info = await item.evaluate("""card => {
         const normalize = text => {
             const match = String(text || '').replace(/,/g, '').match(/(\\d+(?:\\.\\d+)?)/);
@@ -287,26 +108,18 @@ async def extract_price_info(item):
         };
         const textOf = el => (el?.innerText || el?.textContent || '').trim();
 
-        // --- MINIMAL FIX ADDED HERE ---
-        // Explicitly look for the '.active-price' class you provided first. 
         const exactActiveNode = card.querySelector('.active-price');
         if (exactActiveNode) {
             const current = normalize(textOf(exactActiveNode));
             if (current) {
-                // If we found the active price, look for the old striked price
                 const oldNode = card.querySelector('del, s, strike, [class*="old" i], [class*="line-through" i]');
                 const original = oldNode ? normalize(textOf(oldNode)) : null;
-                
-                // Check for discount badge
                 const discountNode = card.querySelector('[class*="discount" i], [class*="save" i]');
                 const discount = discountNode ? textOf(discountNode) : ((original && original > current) ? `${Math.round(((original - current) / original) * 100)}%` : null);
-                
                 return { current, original: (original > current) ? original : null, discount, candidates: ['exact-active-price'] };
             }
         }
-        // ------------------------------
 
-        // Fallback to original fuzzy logic for pages/cards that don't use .active-price
         const isOldPrice = el => {
             const text = [
                 el.tagName,
@@ -419,7 +232,10 @@ async def self_scrape_items(page, container_selector, category, current_data, to
 async def scrape_category(sem, browser, category, current_data, summary, pinned_names=[]):
     async with sem:
         is_pinned = category['name'] in pinned_names
-        context = await browser.new_context(user_agent=random.choice(USER_AGENTS))
+        context = await browser.new_context(
+            user_agent=random.choice(USER_AGENTS),
+            extra_http_headers={'Accept-Language': 'en-US,en;q=0.9'}
+        )
         page = await context.new_page()
         
         logger.info(f"Scraping: {category['name']} ({category['url']})")

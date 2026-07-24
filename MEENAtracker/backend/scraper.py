@@ -1,197 +1,13 @@
 import os
 from datetime import timezone, timedelta
 DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
 import asyncio
 from collections import Counter
 import json
 import re
 import sys
 from playwright.async_api import async_playwright
-from datetime import datetime, timedelta, timezone
-DHAKA_TZ = timezone(timedelta(hours=6))
+from datetime import datetime
 from database import SessionLocal, Category, Product, PriceHistory, init_db
 
 BASE_URL = "https://meenabazaronline.com"
@@ -224,7 +40,6 @@ def normalize_unit_price(price, name, unit_text):
     return round(price, 2), 'piece'
 
 async def scrape_categories(page):
-    """Return hardcoded categories as requested by the user."""
     print("Using hardcoded categories...")
     return [
         {"name": "Fish", "url": "https://meenabazaronline.com/category/fish"},
@@ -247,9 +62,7 @@ async def scrape_products_in_category(page, category_url):
     try:
         await page.goto(category_url, wait_until="networkidle", timeout=60000)
         
-        # Handle Delivery Area Modal if it appears
         try:
-            # Check if the modal input exists
             location_input = await page.wait_for_selector('.ant-select-selection-search-input', timeout=5000)
             if location_input:
                 print(" -> Delivery Area Modal detected. Selecting location...")
@@ -258,35 +71,34 @@ async def scrape_products_in_category(page, category_url):
                 await asyncio.sleep(2)
                 await page.keyboard.press('Enter')
                 await asyncio.sleep(2)
-                # Click the first dropdown item if Enter didn't work
                 options = await page.query_selector_all('.ant-select-item-option')
                 if options:
                     await options[0].click()
                 await asyncio.sleep(3)
         except Exception:
-            pass # No modal appeared
+            pass
             
-        await page.wait_for_selector('app-thumb', timeout=30000) # Increased timeout for slow APIs
+        await page.wait_for_selector('app-thumb', timeout=30000)
     except Exception as e:
         print(f"No products found or timeout in {category_url}: {e}")
         return []
     
     last_height = await page.evaluate("document.body.scrollHeight")
     scroll_attempts = 0
-    max_scrolls = 200 # Up to 200 scrolls for very large categories (5k+ items)
+    max_scrolls = 200
     empty_scrolls = 0
 
     while scroll_attempts < max_scrolls:
         await page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
-        await asyncio.sleep(2.5) # Wait for API response and DOM render
+        await asyncio.sleep(2.5)
         
         new_height = await page.evaluate("document.body.scrollHeight")
         if new_height == last_height:
             empty_scrolls += 1
-            if empty_scrolls >= 3: # If height didn't change for 3 consecutive attempts, assume end of list
+            if empty_scrolls >= 3:
                 break
         else:
-            empty_scrolls = 0 # Reset if we successfully loaded more
+            empty_scrolls = 0
             
         last_height = new_height
         scroll_attempts += 1
@@ -312,7 +124,7 @@ async def scrape_products_in_category(page, category_url):
             image_url = await img_el.get_attribute('src') if img_el else ""
             
             unit_price, unit_type = normalize_unit_price(actual_price, name, unit)
-            external_id = f"{name}_{unit}".replace(" ", "_").lower()
+            external_id = f"meena_{name}_{unit}".replace(" ", "_").lower()
 
             products.append({
                 "external_id": external_id,
@@ -330,7 +142,6 @@ async def scrape_products_in_category(page, category_url):
     return products
 
 async def save_to_db(category_data, products_data):
-    """Save scraped data to the database using synchronous session."""
     db = SessionLocal()
     try:
         db_category = db.query(Category).filter(Category.name == category_data['name']).first()
@@ -373,11 +184,12 @@ async def save_to_db(category_data, products_data):
 
 async def main():
     summary = {'total': 0, 'new': 0, 'categories': Counter()}
-    summary = {'total': 0, 'new': 0, 'categories': Counter()}
     init_db()
     async with async_playwright() as p:
         browser = await p.chromium.launch(headless=True)
-        page = await browser.new_page()
+        page = await browser.new_page(
+            extra_http_headers={'Accept-Language': 'en-US,en;q=0.9'}
+        )
         
         categories = await scrape_categories(page)
         
@@ -392,7 +204,6 @@ async def main():
         await browser.close()
 
 def save_last_run_log(summary):
-    import os
     base_dir = os.path.dirname(os.path.abspath(__file__))
     log_path = os.path.join(base_dir, "last_run_log.txt")
     with open(log_path, "w", encoding='utf-8') as f:
@@ -409,4 +220,3 @@ def save_last_run_log(summary):
 
 if __name__ == "__main__":
     asyncio.run(main())
-

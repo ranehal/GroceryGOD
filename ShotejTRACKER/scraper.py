@@ -1,196 +1,15 @@
 import os
 from datetime import timezone, timedelta
 DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-from datetime import datetime, date, timezone, timedelta
+from datetime import datetime, date
 import asyncio
 from collections import Counter
 import json
 import re
-import os
 import random
 import logging
 from playwright.async_api import async_playwright
 
-DHAKA_TZ = timezone(timedelta(hours=6))
-
-# Setup logging
 logging.basicConfig(
     level=logging.INFO,
     format='[%(asctime)s] %(levelname)s: %(message)s',
@@ -233,11 +52,8 @@ def flatten_categories(category_data):
     return all_categories
 
 def parse_box_weight(description, name):
-    # Match patterns like "40gm X 20pcs" or "500g * 10"
     text = (description + " " + name).lower()
     
-    # Try to find multiplier pattern: VALUE UNIT x COUNT
-    # Matches: 40gm x 20pcs, 35gm X 20pcs, 500g * 10, etc.
     multiplier_match = re.search(r'(\d+(?:\.\d+)?)\s*(gm|g|kg|ml|l|ltr|pcs?)\s*[xX*]\s*(\d+)', text)
     
     if multiplier_match:
@@ -247,7 +63,6 @@ def parse_box_weight(description, name):
         
         total_val = val * count
         
-        # Standardize units
         if unit in ['gm', 'g', 'ml']:
             total_val /= 1000.0
             std_unit = 'kg' if unit in ['gm', 'g'] else 'liter'
@@ -258,8 +73,6 @@ def parse_box_weight(description, name):
             
         return total_val, std_unit, f"{int(val) if val.is_integer() else val}{unit} x {int(count)}"
 
-    # Fallback to standard normalization if no multiplier found
-    # (Simplified version of the one in aggregator.py)
     kg_match = re.search(r'(\d+(?:\.\d+)?)\s*(kg|gm|g)\b', text)
     l_match = re.search(r'(\d+(?:\.\d+)?)\s*(l|ml|ltr)\b', text)
     
@@ -276,24 +89,25 @@ def parse_box_weight(description, name):
 
 async def scrape_category(sem, browser, category, current_data, summary):
     async with sem:
-        context = await browser.new_context(user_agent=random.choice(USER_AGENTS))
+        context = await browser.new_context(
+            user_agent=random.choice(USER_AGENTS),
+            extra_http_headers={'Accept-Language': 'en-US,en;q=0.9'}
+        )
         page = await context.new_page()
         
         logger.info(f"Scraping: {category['name']} ({category['url']})")
         try:
             await page.goto(category['url'], wait_until="networkidle", timeout=60000)
             
-            # Infinite Scroll Implementation
             last_height = await page.evaluate("document.body.scrollHeight")
             while True:
                 await page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
-                await asyncio.sleep(3) # Wait for JS to load more items
+                await asyncio.sleep(3)
                 new_height = await page.evaluate("document.body.scrollHeight")
                 if new_height == last_height:
                     break
                 last_height = new_height
             
-            # Extract basic info from list
             cards = await page.query_selector_all('.wd-product')
             logger.info(f"  [+] Found {len(cards)} items in grid. Starting extraction...")
 
@@ -306,7 +120,6 @@ async def scrape_category(sem, browser, category, current_data, summary):
                     name = await title_el.inner_text()
                     product_url = await title_el.get_attribute('href')
                     
-                    # Price Extraction: Prioritize Sale Price (ins) over Original Price (del)
                     price_el = await card.query_selector('.price ins .woocommerce-Price-amount')
                     if not price_el:
                         price_el = await card.query_selector('.price .woocommerce-Price-amount')
@@ -365,7 +178,7 @@ async def main():
         sem = asyncio.Semaphore(1) 
         for cat in enabled_categories:
             await scrape_category(sem, browser, cat, data, summary)
-            save_data(data) # Save after each category
+            save_data(data)
             
         await browser.close()
     

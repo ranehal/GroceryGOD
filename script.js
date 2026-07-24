@@ -284,11 +284,7 @@ function showLoading(show, message = 'Loading...', percent = 0) {
 }
 
 function processData() {
-    let latestDataDate = null;
-    allProducts.forEach(p => {
-        if (p.newest_date && (!latestDataDate || p.newest_date > latestDataDate)) latestDataDate = p.newest_date;
-    });
-    todayStr = latestDataDate || dhakaTodayStr();
+    todayStr = dhakaTodayStr();
     const today = new Date(todayStr + 'T12:00:00');
 
     allProducts.forEach(p => {
@@ -501,7 +497,7 @@ function renderProducts() {
     });
 
     const frag = document.createDocumentFragment();
-    currentFilteredProducts.slice(0, 250).forEach(p => frag.appendChild(createProductCard(p)));
+    currentFilteredProducts.forEach(p => frag.appendChild(createProductCard(p)));
     grid.appendChild(frag);
 }
 

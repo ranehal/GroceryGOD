@@ -1,32 +1,16 @@
 import os
 from datetime import timezone, timedelta
 DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 import re
 import json
 import asyncio
 import logging
-
-DHAKA_TZ = timezone(timedelta(hours=6))
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import re
-import json
-import asyncio
 from collections import Counter
 import datetime
 from playwright.async_api import async_playwright
 
-# Configuration
 DATA_FILE = "data.js"
 CAT_FILE = "categories.json"
 CAT_JS_FILE = "categories.js"
@@ -34,36 +18,25 @@ USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTM
 CONCURRENCY_LIMIT = 3
 
 def normalize_price(price_text, unit_text):
-    """
-    Converts price to 'per 1kg' or 'per 1L' if applicable.
-    Returns: (normalized_price, normalized_unit_label)
-    """
     try:
-        # Clean inputs
         price = float(re.sub(r'[^\d.]', '', str(price_text)))
         unit_text = unit_text.lower().strip()
         
-        # Regex to find quantity and unit
         match = re.search(r'(\d+(\.\d+)?)\s*(kg|gm|g|ltr|liter|l|ml|pcs|piece|each|dzn|dozen)', unit_text)
         if not match:
-            return price, unit_text # Cannot normalize
+            return price, unit_text
 
         qty = float(match.group(1))
         unit = match.group(3)
 
-        # Weight Normalization
         if unit in ['gm', 'g']:
             return (price / qty) * 1000, "1 kg"
         elif unit == 'kg':
             return price / qty, "1 kg"
-        
-        # Volume Normalization
         elif unit == 'ml':
             return (price / qty) * 1000, "1 L"
         elif unit in ['ltr', 'liter', 'l']:
             return price / qty, "1 L"
-
-        # Count Normalization (Keep as is usually, or normalize to 1 pc if needed)
         elif unit in ['dzn', 'dozen']:
             return price / (qty * 12), "1 pc"
         elif unit in ['pcs', 'piece', 'each']:
@@ -139,11 +112,13 @@ async def scrape_category(browser, cat_entry, products_data, summary, semaphore,
         cat_name = cat_entry['name']
         print(f"Scraping: {cat_name}...")
         
-        context = await browser.new_context(user_agent=USER_AGENT)
+        context = await browser.new_context(
+            user_agent=USER_AGENT,
+            extra_http_headers={'Accept-Language': 'en-US,en;q=0.9'}
+        )
         page = await context.new_page()
         
         try:
-            # Robust load for category pages
             for attempt in range(2):
                 try:
                     await page.goto(url, timeout=60000, wait_until="domcontentloaded")
@@ -152,9 +127,8 @@ async def scrape_category(browser, cat_entry, products_data, summary, semaphore,
                     if attempt == 1: raise
                     await asyncio.sleep(5)
 
-            # Scroll to load all items
             last_height = await page.evaluate("document.body.scrollHeight")
-            for _ in range(15): # Max 15 scrolls to prevent infinite loops
+            for _ in range(15):
                 await page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
                 await asyncio.sleep(1.5)
                 new_height = await page.evaluate("document.body.scrollHeight")
@@ -165,7 +139,6 @@ async def scrape_category(browser, cat_entry, products_data, summary, semaphore,
             
             product_cards = await page.query_selector_all('.product, .productV2')
             if not product_cards:
-                 # Fallback extraction if class names changed
                  names = await page.query_selector_all('.nameTextWithEllipsis')
                  product_cards = []
                  for n in names:
@@ -197,7 +170,6 @@ async def scrape_category(browser, cat_entry, products_data, summary, semaphore,
                     norm_price, norm_unit = normalize_price(price_val, unit_text)
                     prod_id = re.sub(r'\W+', '_', name + "_" + unit_text).lower()
 
-                    # Shared dict update (Async safe)
                     summary['total'] += 1
                     summary['categories'][cat_name] += 1
                     if prod_id not in products_data:
@@ -238,21 +210,21 @@ async def scrape_category(browser, cat_entry, products_data, summary, semaphore,
 async def main():
     summary = {'total': 0, 'new': 0, 'categories': Counter()}
     async with async_playwright() as p:
-        # 1. Headless Mode
         browser = await p.chromium.launch(headless=True)
         
-        # --- Discovery Phase ---
         print("Running Category Discovery...")
-        discovery_context = await browser.new_context(user_agent=USER_AGENT)
+        discovery_context = await browser.new_context(
+            user_agent=USER_AGENT,
+            extra_http_headers={'Accept-Language': 'en-US,en;q=0.9'}
+        )
         discovery_page = await discovery_context.new_page()
         
-        # Robust load for main page
         discovery_success = False
         for attempt in range(3):
             try:
                 print(f"  Attempt {attempt+1} to reach Chaldal...")
                 await discovery_page.goto("https://chaldal.com/", timeout=90000, wait_until="load")
-                await asyncio.sleep(5) # Wait for JS rendering
+                await asyncio.sleep(5)
                 discovery_success = True
                 break
             except Exception as e:
@@ -267,7 +239,6 @@ async def main():
 
         await discovery_context.close()
 
-        # Merge Categories
         existing_cats = []
         try:
             with open(CAT_FILE, 'r') as f:
@@ -289,7 +260,6 @@ async def main():
             f.write(f"window.CATEGORY_DATA = {json.dumps(final_cats, indent=2)};")
         print(f"Discovery complete. {new_count} new categories found.")
 
-        # --- Scraping Phase ---
         products_data = {}
         try:
             with open(DATA_FILE, 'r', encoding='utf-8') as f:
@@ -301,7 +271,6 @@ async def main():
         timestamp = datetime.datetime.now(DHAKA_TZ).isoformat()
         today_date = datetime.datetime.now(DHAKA_TZ).strftime("%Y-%m-%d")
         
-        # Concurrency & Semaphore Control
         semaphore = asyncio.Semaphore(CONCURRENCY_LIMIT)
         tasks = []
         
@@ -314,7 +283,6 @@ async def main():
         await asyncio.gather(*tasks)
         await browser.close()
 
-        # Final Save
         with open(DATA_FILE, 'w', encoding='utf-8') as f:
             f.write(f"window.PRODUCT_DATA = {json.dumps(products_data, indent=2)};")
         

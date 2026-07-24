@@ -1,22 +1,20 @@
 import os
 from datetime import timezone, timedelta
 DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
 import asyncio
 import re
 import aiohttp
-from datetime import datetime, timedelta, timezone
+from datetime import datetime
 from collections import Counter
 from database import SessionLocal, Category, Product, PriceHistory, init_db
 
-DHAKA_TZ = timezone(timedelta(hours=6))
 API_BASE = "https://api.metromartonline.com/api/v1"
 OUTLET_ID = 9
+
+HEADERS = {
+    "Accept-Language": "en-US,en;q=0.9",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36"
+}
 
 CATEGORIES = [
     {"name": "Beverage", "code": "old_cat_129"},
@@ -160,7 +158,7 @@ async def save_to_db(category_name, products, summary):
 async def main():
     summary = {'total': 0, 'new': 0, 'categories': Counter()}
     init_db()
-    async with aiohttp.ClientSession() as session:
+    async with aiohttp.ClientSession(headers=HEADERS) as session:
         for cat in CATEGORIES:
             print(f"\n[Scraping] {cat['name']} ({cat['code']})")
             products = await fetch_products(session, cat['code'])
@@ -170,7 +168,6 @@ async def main():
     save_last_run_log(summary)
 
 def save_last_run_log(summary):
-    import os
     base_dir = os.path.dirname(os.path.abspath(__file__))
     log_path = os.path.join(base_dir, "last_run_log.txt")
     with open(log_path, "w", encoding='utf-8') as f:
