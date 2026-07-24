@@ -1,6 +1,9 @@
 import os
 from datetime import timezone, timedelta
 DHAKA_TZ = timezone(timedelta(hours=6))
+import os
+from datetime import timezone, timedelta
+DHAKA_TZ = timezone(timedelta(hours=6))
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 import re
