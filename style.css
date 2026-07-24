@@ -568,6 +568,9 @@ body.pitch-black {
 }
 
 /* Mobile Landscape Chart Rotation */
+#mobile-close-chart {
+    display: none;
+}
 @media (max-width: 768px) and (orientation: portrait) {
     /* Detail chart - hide chrome, rotate canvas */
     #chart-modal .modal-content.sci-fi-modal {
@@ -591,6 +594,17 @@ body.pitch-black {
         padding: 10px;
     }
 
+    /* Rotate background image 90deg clockwise */
+    #chart-modal .sci-fi-modal::before {
+        transform: rotate(90deg);
+        width: 100vh;
+        height: 100vw;
+        top: 50%;
+        left: 50%;
+        margin-left: calc(-100vh / 2);
+        margin-top: calc(-100vw / 2);
+    }
+
     /* Comparison chart - hide controls, rotate canvas */
     #compare-modal .modal-content.full-screen-modal {
         overflow: hidden;
@@ -611,6 +625,34 @@ body.pitch-black {
         z-index: 10001;
         border: none;
         padding: 10px;
+    }
+
+    /* Mobile close button */
+    #mobile-close-chart {
+        display: flex;
+        position: fixed;
+        top: 12px;
+        right: 12px;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: var(--danger);
+        color: #fff;
+        border: 2px solid #fff;
+        font-size: 1.3rem;
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
+        z-index: 10003;
+        box-shadow: 0 0 15px rgba(239, 68, 68, 0.7), 0 2px 8px rgba(0,0,0,0.5);
+        animation: pulse-close 2s infinite;
+    }
+    #mobile-close-chart:active {
+        transform: scale(0.9);
+    }
+    @keyframes pulse-close {
+        0%, 100% { box-shadow: 0 0 15px rgba(239, 68, 68, 0.7), 0 2px 8px rgba(0,0,0,0.5); }
+        50% { box-shadow: 0 0 25px rgba(239, 68, 68, 1), 0 2px 12px rgba(0,0,0,0.5); }
     }
 
     /* Swipe hint */

@@ -441,7 +441,7 @@ function renderProducts() {
         if (activeIntelFilter === 'great') return p.normalized_price < (p.avgPrice * greatDealThreshold);
         if (activeIntelFilter === 'good') return p.normalized_price < (p.avgPrice * goodBuyThreshold);
         if (activeIntelFilter === 'wait') return p.normalized_price > (p.avgPrice * 1.05);
-        if (activeIntelFilter === 'low') return p.hist_count >= 1 && p.normalized_price <= (p.minPrice + 0.01);
+        if (activeIntelFilter === 'low') return p.hist_count >= 1 && p.maxPrice > p.minPrice && p.normalized_price <= (p.minPrice + 0.01);
         if (activeIntelFilter === 'new') return p.isNew;
         if (activeIntelFilter === 'pricechange') {
             if (p._pcDiff === undefined) return false;
