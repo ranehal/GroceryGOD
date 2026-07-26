@@ -70,7 +70,7 @@
 <label class="check-pill"><input checked="" type="checkbox" value="kg"/> KG</label>
 <label class="check-pill"><input checked="" type="checkbox" value="liter"/> LTR</label>
 <label class="check-pill"><input checked="" type="checkbox" value="piece"/> PCS</label>
-<label class="check-pill" style="margin-left:10px; border-left:1px solid #333; padding-left:10px;"><input id="new-only-checkbox" type="checkbox"/> New Only</label>
+<label class="check-pill" style="margin-left:10px; border-left:1px solid #333; padding-left:10px; display:flex; align-items:center; gap:4px;"><i class="fas fa-clock" style="font-size:0.7rem; color:#f59e0b;"></i><input id="new-days-header" type="number" min="1" max="90" value="7" style="width:38px; background:transparent; color:#f59e0b; border:none; font-weight:700; font-size:0.75rem; text-align:center;"/> <span style="font-size:0.7rem; color:#999;">days</span></label>
 </div>
 <select class="search-input" id="sort-options">
 <option value="name_asc">Name A-Z</option>
@@ -86,6 +86,7 @@
 <button aria-label="Toggle interface density" class="btn-icon btn-variant-minimal icon-only-desktop" id="density-btn" title="Toggle interface density"><i class="fas fa-compress-alt"></i></button>
 <button aria-pressed="false" class="btn-icon btn-variant-compare" id="compare-btn" title="Select products to compare"><i class="fas fa-code-compare"></i> <span class="compare-button-label">Compare</span><span class="button-count" hidden="" id="compare-header-count">0</span></button>
 <button class="btn-icon btn-variant-soft" id="cart-comp-btn" title="Cart Analysis"><i class="fas fa-cart-shopping"></i> <span>Cart</span></button>
+<button class="btn-icon btn-variant-soft" id="show-all-toggle" title="Toggle: show all products without pagination"><i class="fas fa-list"></i> <span>Show All</span></button>
 <button class="btn-icon primary-action btn-variant-gradient premium-gated" id="analytics-btn" title="Premium analytics dashboard"><i class="fas fa-chart-line"></i> <span>Analytics</span><i class="fas fa-lock premium-mini-lock" id="analytics-lock-icon"></i></button>
 </div>
 </header>
