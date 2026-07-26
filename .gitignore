@@ -6,3 +6,7 @@ node_modules/
 .vscode/
 *.db
 *.log
+encrypt_repo.py
+decrypt_repo.py
+update_premium_key.py
+decrypt_premium.py
