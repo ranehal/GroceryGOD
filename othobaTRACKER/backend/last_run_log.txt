@@ -1,17 +1,17 @@
-Last Run: 2026-07-24 14:43:17
+Last Run: 2026-07-27 18:57:13
 ------------------------------
-Total Scraped: 86145
-New Items: 7
+Total Scraped: 19033
+New Items: 14
 ------------------------------
 Categories:
 - daily-bazar: 800
 - grocery-staples: 800
-- household-essentials-2: 800
-- electronics-store: 800
-- mobile-accessories: 800
-- computers-components-accessories: 800
-- mouse: 800
-- speaker: 800
-- cable-hub: 800
-- gadgets: 800
-... and 363 more.
+- food-grocery: 800
+- groceries: 800
+- garden-pet-care: 784
+- gardening-tools: 730
+- household-essentials-2: 720
+- chocolate-candy: 640
+- plants-seeds-trees: 560
+- toys-trending-offer: 440
+... and 135 more.

@@ -1,17 +1,17 @@
-Last Run: 2026-07-27 04:18:04
+Last Run: 2026-07-27 14:23:37
 ------------------------------
-Total Scraped: 3702
+Total Scraped: 4056
 New Items: 0
 ------------------------------
 Categories:
-- Hot Deals: 479
-- Cooking: 414
-- Shop Now Think Later: 272
-- Great Savings 3: 240
-- Dairy: 177
+- Hot Deals: 477
+- Cooking: 412
+- Shop Now Think Later: 268
+- Great Savings 3: 220
+- Snacks: 220
+- Biscuits: 197
+- Dairy: 172
 - Spices: 150
 - Deals On Unilever: 120
 - Meat & Fish Combo: 101
-- Buy Save More 2: 97
-- Fruits & Vegetables: 92
-... and 66 more.
+... and 67 more.

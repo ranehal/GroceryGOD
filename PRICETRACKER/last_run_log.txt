@@ -1,17 +1,17 @@
-Last Run: 2026-07-27 04:18:37
+Last Run: 2026-07-27 14:24:29
 ------------------------------
-Total Scraped: 1192
-New Items: 1
+Total Scraped: 987
+New Items: 0
 ------------------------------
 Categories:
-- Kitchen Accessories: 106
 - Hair Care: 87
-- Women's Soaps: 67
-- Laundry: 55
+- Men's Soaps: 60
+- Men's Perfume: 56
 - Air Fresheners: 47
 - Keto Food: 46
 - Women's Shampoos & Conditioners: 46
-- Floor & Glass Cleaners: 40
+- Toothpastes: 45
+- Women's Perfume: 39
 - Face Wash & Scrub: 39
-- Female Deo: 35
-... and 51 more.
+- Feminine Care: 32
+... and 39 more.
