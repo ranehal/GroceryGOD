@@ -5,11 +5,12 @@ New Items: 1
 ------------------------------
 Categories:
 - Food & Grocery: 446
-- Electric & Electronics: 157
+- Electric & Electronics: 156
 - Beverage: 99
+- Household & Cleaning: 59
 - Baby Items & Care: 54
 - Household & Cleaning: 53
 - Grains & Commodities: 49
 - Frozen Food: 28
-- Home & Kitchen: 13
+- Home & Kitchen: 12
 - Office & Stationary: 6

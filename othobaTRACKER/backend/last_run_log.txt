@@ -4,7 +4,6 @@ Total Scraped: 19033
 New Items: 14
 ------------------------------
 Categories:
-- daily-bazar: 800
 - grocery-staples: 800
 - food-grocery: 800
 - groceries: 800
