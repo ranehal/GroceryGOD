@@ -27,6 +27,8 @@ class ThreadingTCPServer(socketserver.ThreadingMixIn, socketserver.TCPServer):
     allow_reuse_address = True
 
 def main():
+    if hasattr(sys.stdout, 'reconfigure'):
+        sys.stdout.reconfigure(encoding='utf-8')
     os.chdir(DIRECTORY)
     try:
         with ThreadingTCPServer(("", PORT), RobustHTTPRequestHandler) as httpd:

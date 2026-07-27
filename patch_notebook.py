@@ -126,6 +126,30 @@ while i < len(old_source):
         i += 1
         continue
 
+    # --- PATCH SCRAPER RUNNER TIMEOUT & ERROR HANDLING ---
+    if "res = subprocess.run([sys.executable, 'scraper.py']" in line and "except subprocess.TimeoutExpired" not in "".join(old_source[max(0, i-2):min(len(old_source), i+3)]):
+        print(f'  Patching scraper runner at line {i}')
+        new_source.extend([
+            "                my_env = os.environ.copy()\n",
+            "                try:\n",
+            "                    res = subprocess.run([sys.executable, 'scraper.py'], cwd=full_path, capture_output=True, text=True, timeout=18000, env=my_env)\n",
+            "                except subprocess.TimeoutExpired:\n",
+            "                    elapsed = time.time() - t0\n",
+            "                    log.error(f\"🚨 {label} TIMED OUT after {_fmt_dur(elapsed)}!\")\n",
+            "                    tg_send(f'❌ <b>{label}</b> TIMED OUT after {_fmt_dur(elapsed)}!', silent=True)\n",
+            "                    return label, False\n",
+            "                except Exception as run_err:\n",
+            "                    elapsed = time.time() - t0\n",
+            "                    log.error(f\"🚨 {label} EXCEPTION: {run_err}\")\n",
+            "                    tg_send(f'❌ <b>{label}</b> FAILED after {_fmt_dur(elapsed)}!\\n<pre>{html.escape(str(run_err))}</pre>', silent=True)\n",
+            "                    return label, False\n",
+            "                elapsed = time.time() - t0\n",
+        ])
+        if i + 1 < len(old_source) and "elapsed = time.time() - t0" in old_source[i+1]:
+            i += 1
+        i += 1
+        continue
+
     # Fix CalledProcessError handler: e.stderr[:500] -> str(e)[:500]
     if 'CalledProcessError as e' in line:
         new_source.append(line.replace('e.stderr[:500]', 'str(e)[:500]'))

@@ -88,6 +88,13 @@ function initEvents() {
         };
     });
 
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' || e.key === 'Esc') {
+            dom.modal?.classList.add('hidden');
+            dom.recentModal?.classList.add('hidden');
+        }
+    });
+
     // Date Range Analysis Logic
     if (dom.recentUpdatesBtn) {
         dom.recentUpdatesBtn.onclick = () => {

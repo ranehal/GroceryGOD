@@ -20,6 +20,22 @@
 <div class="spinner"></div>
 <span style="color:var(--accent-color); font-weight:800;">Loading: <span id="loading-percent">0</span>%</span>
 </div>
+<div class="shop-loading-overlay" id="shop-loading-modal">
+<div class="shop-loading-card glass-panel">
+<div class="shop-loading-pulse-ring" id="shop-loading-ring"></div>
+<div class="shop-loading-icon-wrapper" id="shop-loading-icon-bg">
+<i class="fas fa-store shop-loading-icon" id="shop-loading-icon"></i>
+</div>
+<h3 class="shop-loading-title" id="shop-loading-title">SHWAPNO MATRIX</h3>
+<span class="shop-loading-subtitle" id="shop-loading-subtitle">Filtering catalog products & price history...</span>
+<div class="shop-loading-bar-container">
+<div class="shop-loading-bar" id="shop-loading-bar"></div>
+</div>
+<div class="shop-loading-status-log" id="shop-loading-log">
+<span>[0.0s] Initializing shop filter...</span>
+</div>
+</div>
+</div>
 <div class="app-container">
 <div class="sidebar-overlay" id="sidebar-overlay"></div>
 <!-- Sidebar -->
@@ -117,6 +133,7 @@
 <span>Mean Analysis:</span>
 <input id="intel-date-start" type="date"/> to <input id="intel-date-end" type="date"/>
 </div>
+<div class="filtered-items-badge" id="filtered-items-badge"><i class="fas fa-filter"></i> <span id="filter-count-text">Showing <strong>0</strong> items</span></div>
 </div>
 <!-- Stats Bar -->
 <div class="stats-bar">

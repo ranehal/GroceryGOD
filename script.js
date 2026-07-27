@@ -251,7 +251,7 @@ async function loadAllFromParquet() {
     const t1 = performance.now();
     const [productAsset, historyAsset] = await Promise.all([
         fetchFirstAvailable(['products_free.parquet', 'products.parquet'], 'free products'),
-        fetchFirstAvailable(window.GOD_ALLOW_LEGACY_DATA ? ['history_free.parquet', 'history.parquet'] : ['history_free.parquet'], 'free 3-day history')
+        fetchFirstAvailable(['history.parquet', 'history_free.parquet'], 'product history')
     ]);
     const pBuf = productAsset.buffer;
     const hBuf = historyAsset.buffer;
@@ -419,6 +419,64 @@ function showLoading(show, message = 'Loading...', percent = 0) {
     }
 }
 
+function showShopLoadingAnimation(storeId, customCallback = null) {
+    const modal = document.getElementById('shop-loading-modal');
+    if (!modal) {
+        if (customCallback) customCallback();
+        return;
+    }
+
+    const config = STORE_CONFIG[storeId] || { color: '#f59e0b', name: storeId ? storeId.toUpperCase() : 'ALL STORES' };
+    const color = config.color;
+    const name = config.name;
+
+    modal.style.setProperty('--shop-color', color);
+    modal.style.setProperty('--shop-color-bg', color + '28');
+    modal.style.setProperty('--shop-glow', color + '66');
+
+    const titleEl = document.getElementById('shop-loading-title');
+    const subEl = document.getElementById('shop-loading-subtitle');
+    const barEl = document.getElementById('shop-loading-bar');
+    const logEl = document.getElementById('shop-loading-log');
+
+    if (titleEl) titleEl.innerText = `${name.toUpperCase()} MATRIX`;
+    if (subEl) subEl.innerText = `Filtering catalog products & price history...`;
+    if (barEl) barEl.style.width = '0%';
+    if (logEl) logEl.innerHTML = `<span>[0.0s] Initializing ${name}...</span>`;
+
+    modal.classList.add('active');
+
+    let startTime = performance.now();
+    let duration = 400;
+
+    function animate(now) {
+        let elapsed = now - startTime;
+        let progress = Math.min(1, elapsed / duration);
+        let pct = Math.round(progress * 100);
+
+        if (barEl) barEl.style.width = `${pct}%`;
+
+        if (pct >= 30 && pct < 70 && logEl) {
+            logEl.innerHTML = `<span>[0.1s] Querying ${name} catalog...</span>`;
+        } else if (pct >= 70 && pct < 100 && logEl) {
+            logEl.innerHTML = `<span>[0.3s] Computing price matrix...</span>`;
+        } else if (pct >= 100 && logEl) {
+            logEl.innerHTML = `<span>[0.4s] Market uplink complete!</span>`;
+        }
+
+        if (progress < 1) {
+            requestAnimationFrame(animate);
+        } else {
+            setTimeout(() => {
+                if (customCallback) customCallback();
+                modal.classList.remove('active');
+            }, 60);
+        }
+    }
+
+    requestAnimationFrame(animate);
+}
+
 function processData() {
     todayStr = dhakaTodayStr();
     const today = new Date(todayStr + 'T12:00:00');
@@ -519,6 +577,7 @@ function renderSidebar() {
                 return;
             }
             if (e.target !== cb) cb.checked = !cb.checked;
+            showShopLoadingAnimation(sid);
             if (cb.checked) {
                 activeShopFilters.add(sid);
                 if (!window.loadedStores.has(sid)) {
@@ -634,6 +693,29 @@ function renderProducts() {
         return 0;
     });
     updateImmersiveCount();
+
+    const totalElem = document.getElementById('total-items');
+    if (totalElem) {
+        if (allProducts && currentFilteredProducts.length < allProducts.length) {
+            totalElem.innerHTML = `${currentFilteredProducts.length.toLocaleString()} <span style="font-size:0.7em; opacity:0.8;">/ ${allProducts.length.toLocaleString()}</span>`;
+        } else {
+            totalElem.innerText = currentFilteredProducts.length.toLocaleString();
+        }
+    }
+
+    const filterBadge = document.getElementById('filtered-items-badge');
+    const filterText = document.getElementById('filter-count-text');
+    if (filterBadge && filterText) {
+        const totalStr = allProducts ? allProducts.length.toLocaleString() : '0';
+        const filteredStr = currentFilteredProducts.length.toLocaleString();
+        if (allProducts && currentFilteredProducts.length < allProducts.length) {
+            filterText.innerHTML = `Showing <strong>${filteredStr}</strong> of ${totalStr} items`;
+            filterBadge.classList.add('active-filter');
+        } else {
+            filterText.innerHTML = `Showing <strong>${filteredStr}</strong> items`;
+            filterBadge.classList.remove('active-filter');
+        }
+    }
 
     if (currentFilteredProducts.length === 0) {
         grid.innerHTML = `
@@ -966,24 +1048,35 @@ function setupEventListeners() {
         if (wrapper && !wrapper.contains(e.target)) { box.style.display = 'none'; }
     });
 
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' || e.key === 'Esc') {
+            const chartModal = document.getElementById('chart-modal');
+            if (chartModal && !chartModal.classList.contains('hidden') && chartModal.style.display !== 'none') {
+                closeModal();
+                e.preventDefault();
+                e.stopPropagation();
+                return;
+            }
             if (immersiveModeActive) setImmersiveMode(false);
             if (compareModeActive) setCompareMode(false);
+            closeModal();
+            if (typeof closeAnalyticsModal === 'function') {
+                try { closeAnalyticsModal(); } catch (_) {}
+            }
             document.querySelectorAll('.modal').forEach(m => {
                 m.classList.add('hidden');
                 m.style.display = 'none';
             });
-            document.getElementById('search-suggestions').style.display = 'none';
+            const searchSuggestions = document.getElementById('search-suggestions');
+            if (searchSuggestions) searchSuggestions.style.display = 'none';
+            document.body.style.overflow = '';
         }
-        if (document.getElementById('chart-modal').classList.contains('hidden') === false) {
+        const chartModal = document.getElementById('chart-modal');
+        if (chartModal && !chartModal.classList.contains('hidden') && chartModal.style.display !== 'none') {
             if (e.key === 'ArrowRight') cycleProduct(1);
             if (e.key === 'ArrowLeft') cycleProduct(-1);
-            if (e.key === 'Escape') {
-                closeModal();
-            }
         }
-    });
+    }, true);
 
     document.getElementById('sort-options').onchange = (e) => { sortOption = e.target.value; visiblePages = 2; renderProducts(); };
     
@@ -1132,7 +1225,9 @@ function setupEventListeners() {
 
     let touchStartX = 0;
     let touchStartY = 0;
-    const chartModal = document.getElementById('chart-modal');
+    chartModal.addEventListener('click', (e) => {
+        if (e.target === chartModal) closeModal();
+    });
     chartModal.addEventListener('touchstart', (e) => {
         touchStartX = e.changedTouches[0].screenX;
         touchStartY = e.changedTouches[0].screenY;
@@ -1287,13 +1382,22 @@ function closeModal() {
         modal.classList.add('hidden');
         modal.style.display = 'none';
     }
+    document.body.style.overflow = '';
 }
 
 async function openDetailedChart(product) {
+    if (!product) return;
     currentDetailProductIndex = currentFilteredProducts.findIndex(p => p.id === product.id);
     const modal = document.getElementById('chart-modal');
+    if (!modal) return;
     modal.classList.remove('hidden');
     modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    if (document.activeElement && typeof document.activeElement.blur === 'function') {
+        document.activeElement.blur();
+    }
+    modal.setAttribute('tabindex', '-1');
+    modal.focus();
     modal.querySelector('.modal-content').style.setProperty('--modal-bg-img', "url('" + product.image + "')");
     
     document.getElementById('chart-product-name').innerText = product.name;
@@ -1405,7 +1509,7 @@ function updateStoreStats() {
     sortedStores.forEach(([store, data]) => {
         const config = STORE_CONFIG[store] || { color: '#888', name: store };
         html += `
-        <div class="legend-item" style="display:flex; flex-direction:column; margin-bottom:10px;">
+        <div class="legend-item" data-store="${store}" style="display:flex; flex-direction:column; margin-bottom:10px; cursor:pointer; padding:6px 8px; border-radius:6px; transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.06)'" onmouseout="this.style.background='transparent'">
             <div style="display:flex; justify-content:space-between; font-weight:800; font-size:0.75rem;">
                 <span style="color:${config.color}">${config.name.toUpperCase()}</span>
                 <span style="color:#eee;">${data.total} units</span>
@@ -1414,6 +1518,18 @@ function updateStoreStats() {
         </div>`;
     });
     sidebarStats.innerHTML = html;
+
+    sidebarStats.querySelectorAll('.legend-item[data-store]').forEach(item => {
+        item.onclick = () => {
+            const sid = item.dataset.store;
+            showShopLoadingAnimation(sid);
+            activeShopFilters.clear();
+            activeShopFilters.add(sid);
+            renderSidebar();
+            renderProducts();
+            updateStatsBar();
+        };
+    });
 }
 
 window.customizeItem = (id) => {
@@ -1600,6 +1716,15 @@ async function openAnalytics() {
         console.error('Analytics boot error:', error);
         setAnalyticsError(error);
     }
+}
+
+function closeAnalyticsModal() {
+    const modal = document.getElementById('analytics-modal');
+    if (modal) {
+        modal.classList.add('hidden');
+        modal.style.display = 'none';
+    }
+    document.body.style.overflow = '';
 }
 
 async function ensureAnalyticsUniverse() {
@@ -2721,7 +2846,8 @@ function setPremiumUnlocked(unlocked, persist = true) {
 
 function buildHistoryView(product) {
     const source = Array.isArray(product.history) ? product.history.filter(row => row && row.date) : [];
-    if (premiumUnlocked) return { rows: source, premium: true, lockedCount: 0 };
+    source.sort((a, b) => a.date.localeCompare(b.date));
+    if (source.length > 0) return { rows: source, premium: true, lockedCount: 0 };
 
     const actual = source.slice(-FREE_HISTORY_DAYS);
     if (!actual.length) {

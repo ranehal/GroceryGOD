@@ -881,6 +881,13 @@ function setupEventListeners() {
         }
     }
 
+    // Close modal on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            document.querySelectorAll('.modal').forEach(m => m.style.display = 'none');
+        }
+    });
+
     // New Price Changes Filters
     const changesCat = document.getElementById('changes-cat-filter');
     if (changesCat) {
