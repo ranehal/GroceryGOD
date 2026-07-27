@@ -132,7 +132,7 @@ while i < len(old_source):
         new_source.extend([
             "                my_env = os.environ.copy()\n",
             "                try:\n",
-            "                    res = subprocess.run([sys.executable, 'scraper.py'], cwd=full_path, capture_output=True, text=True, timeout=18000, env=my_env)\n",
+            "                    res = subprocess.run([sys.executable, 'scraper.py'], cwd=full_path, capture_output=True, text=True, timeout=1800, env=my_env)\n",
             "                except subprocess.TimeoutExpired:\n",
             "                    elapsed = time.time() - t0\n",
             "                    log.error(f\"🚨 {label} TIMED OUT after {_fmt_dur(elapsed)}!\")\n",
