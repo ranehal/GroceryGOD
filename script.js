@@ -1223,6 +1223,8 @@ function setupEventListeners() {
 
     document.querySelectorAll('.close-modal').forEach(btn => btn.onclick = () => btn.closest('.modal').style.display = 'none');
 
+    const chartModal = document.getElementById('chart-modal');
+    if (!chartModal) return;
     let touchStartX = 0;
     let touchStartY = 0;
     chartModal.addEventListener('click', (e) => {
