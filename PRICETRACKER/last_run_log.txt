@@ -1,6 +1,6 @@
-Last Run: 2026-07-28 13:20:02
+Last Run: 2026-07-28 19:34:17
 ------------------------------
-Total Scraped: 2109
+Total Scraped: 1880
 New Items: 0
 ------------------------------
 Categories:
@@ -8,10 +8,10 @@ Categories:
 - Hair Care: 87
 - Tea & Coffee: 84
 - Tea: 75
-- Women's Soaps: 67
 - Men's Soaps: 60
 - Men's Deodorants: 59
 - Soft Drinks: 57
 - Liquid Handwash: 56
 - Men's Perfume: 56
-... and 81 more.
+- Laundry: 55
+... and 80 more.
