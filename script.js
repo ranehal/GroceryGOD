@@ -2763,11 +2763,14 @@ async function unlockPremiumArchive(passphrase) {
     }
     if (!godDB) throw new Error('DuckDB is not ready.');
 
-    const encrypted = await fetchFirstAvailable([
+    const fetched = await fetchFirstAvailable([
         'premium/history_archive.parquet.enc',
-        'history_archive.parquet.enc'
-    ], 'premium encrypted history');
-    const decrypted = await decryptGGE1(encrypted.buffer, passphrase);
+        'history_archive.parquet.enc',
+        'premium/history_archive.parquet'
+    ], 'premium history');
+    const raw = new Uint8Array(fetched.buffer);
+    const isEncrypted = raw.byteLength >= 4 && new TextDecoder().decode(raw.slice(0, 4)) === 'GGE1';
+    const decrypted = isEncrypted ? await decryptGGE1(fetched.buffer, passphrase) : fetched.buffer;
     await godDB.db.registerFileBuffer('history_archive.parquet', decrypted);
     await godDB.conn.query(`
         CREATE OR REPLACE VIEW history_access AS
