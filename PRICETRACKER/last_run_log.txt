@@ -1,17 +1,17 @@
-Last Run: 2026-07-29 06:43:07
+Last Run: 2026-07-29 17:44:06
 ------------------------------
-Total Scraped: 2166
+Total Scraped: 1684
 New Items: 0
 ------------------------------
 Categories:
 - Kitchen Accessories: 106
 - Hair Care: 87
-- Tea & Coffee: 84
 - Tea: 75
-- Men's Deodorants: 59
-- Soft Drinks: 57
-- Liquid Handwash: 56
-- Men's Perfume: 56
+- Women's Soaps: 67
+- Men's Soaps: 60
 - Juice: 53
+- Air Fresheners: 47
 - Keto Food: 46
-... and 90 more.
+- Syrups & Powder Drinks: 44
+- Nuts & Dried Fruits: 40
+... and 74 more.
