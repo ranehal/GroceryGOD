@@ -1,17 +1,17 @@
-Last Run: 2026-07-28 20:22:30
+Last Run: 2026-07-29 19:59:15
 ------------------------------
-Total Scraped: 1700
-New Items: 3
+Total Scraped: 1254
+New Items: 7
 ------------------------------
 Categories:
-- Shampoo: 118
-- Whole Spice: 52
-- Feeding Accessories Kit: 43
-- Grinded Spice: 33
-- Men’S Perfume: 31
-- Instant Noodles: 31
-- Cookies: 30
-- Imported Wafers: 30
-- Toothpaste: 29
-- Recipe Spice/ Curry Mix: 25
-... and 272 more.
+- Shampoo: 69
+- Whole Spice: 37
+- Instant Noodles: 32
+- Grinded Spice: 29
+- Chocolate Bar: 27
+- Face Cream: 26
+- Malted / Chocolate Drinks: 26
+- Local Biscuit: 25
+- Hand Wash: 24
+- Aaa Batteries: 23
+... and 167 more.
