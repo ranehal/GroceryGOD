@@ -1,17 +1,17 @@
-Last Run: 2026-07-29 06:26:55
+Last Run: 2026-07-29 17:27:32
 ------------------------------
-Total Scraped: 5548
+Total Scraped: 5501
 New Items: 0
 ------------------------------
 Categories:
-- Snacks: 555
-- Hot Deals: 482
-- Cooking: 404
-- Great Savings 3: 400
-- Beverages: 305
-- Shop Now Think Later: 285
-- Biscuits: 193
-- Dairy: 191
+- Snacks: 550
+- Hot Deals: 489
+- Cooking: 414
+- Great Savings 3: 340
+- Beverages: 300
+- Shop Now Think Later: 279
+- Biscuits: 189
+- Dairy: 187
 - Spices: 148
-- Biscuits Others: 131
+- Biscuits Others: 129
 ... and 88 more.
