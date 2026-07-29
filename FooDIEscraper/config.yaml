@@ -1,0 +1,92 @@
+# FoodiBD Scraper Configuration
+# Run daily via cron: python scraper.py
+
+# Target shop
+shop:
+  id: 11617
+  name: "Foodimart - Banasree"
+  latitude: 23.7518923
+  longitude: 90.4340251
+
+# API settings
+api:
+  base_url: "https://imrs.foodibd.com"
+  image_resize_url: "https://imrs.foodibd.com/api/v1/image-resize"
+  user_agent: "ktor-client"
+  origin: "foodi-prod-android 8.0.3 16 1b5a4567bbcb95d4"
+  content_type: "application/json"
+  auth_header: "x-requested-with"
+  guest_mode: true
+
+# Scraping behavior
+scraping:
+  page_size: 20
+  max_concurrent_requests: 3
+  rate_limit_per_second: 2.0
+  max_retries: 3
+  retry_delay_seconds: 2.0
+  timeout_seconds: 30
+  delivery_time: "2026-07-23T10:35:00.000Z"
+
+# Category IDs (discovered from shop homepage)
+categories:
+  - id: 6203
+    name: "Fruits"
+  - id: 6208
+    name: "Vegetables"
+  - id: 6214
+    name: "Meat"
+  - id: 6220
+    name: "Fish"
+  - id: 6225
+    name: "Dairy & Eggs"
+  - id: 6244
+    name: "Snacks"
+  - id: 6256
+    name: "Beverages"
+  - id: 6300
+    name: "Tea & Coffee"
+  - id: 6264
+    name: "Chocolates & Candies"
+  - id: 6241
+    name: "Ice Cream"
+  - id: 6233
+    name: "Frozen Meals"
+  - id: 6270
+    name: "Bakery & Breakfast"
+  - id: 6276
+    name: "Daily Cooking"
+  - id: 6285
+    name: "Spice & Herb"
+  - id: 6291
+    name: "Baking"
+  - id: 6366
+    name: "Beauty & Personal Care"
+  - id: 6301
+    name: "Cleaning & Laundry"
+  - id: 6311
+    name: "Home & Kitchen"
+  - id: 6312
+    name: "Health & Wellness"
+  - id: 6310
+    name: "Mom & Baby"
+  - id: 6315
+    name: "Diapers & Wipes"
+  - id: 6316
+    name: "Pet Care"
+  - id: 6313
+    name: "Stationeries"
+  - id: 6314
+    name: "Tong Dokan"
+
+# Output paths
+output:
+  parquet_dir: "data/parquet"
+  sqlite_path: "data/scraper.db"
+  resume_state_path: "data/resume_state.json"
+  logs_dir: "data/logs"
+
+# Frontend
+frontend:
+  host: "0.0.0.0"
+  port: 8800

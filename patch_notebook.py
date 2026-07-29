@@ -89,10 +89,11 @@ while i < len(old_source):
             "                    _targets = []\n",
             "                    for pat in ['*_data_part*.js', '*_manifest.js']:\n",
             "                        _targets.extend(_glob.glob(os.path.join(_cwd, pat)))\n",
-            "                    for tf in ['PRICETRACKER/data.js', 'swapnoTRACKER/data.json', 'unimartTRACKER/data.json', 'ShotejTRACKER/data.json', 'data.json', 'data.js']:\n",
+            "                    for tf in ['PRICETRACKER/data.js', 'swapnoTRACKER/data.json', 'unimartTRACKER/data.json', 'ShotejTRACKER/data.json', 'FooDIEscraper/data/products_export.json', 'data.json', 'data.js']:\n",
             "                        p = os.path.join(_cwd, tf)\n",
             "                        if os.path.exists(p): _targets.append(p)\n",
-            "                    for d in ['swapnoTRACKER', 'PRICETRACKER', 'MEENAtracker/backend', 'othobaTRACKER/backend', 'metroTRACKER/backend', 'unimartTRACKER', 'ShotejTRACKER']:\n",
+            "                    for d in ['swapnoTRACKER', 'PRICETRACKER', 'MEENAtracker/backend', 'othobaTRACKER/backend', 'metroTRACKER/backend', 'unimartTRACKER', 'ShotejTRACKER', 'FooDIEscraper']:\n",
+
             "                        p = os.path.join(_cwd, d, 'scraper.py')\n",
             "                        if os.path.exists(p): _targets.append(p)\n",
             "                    for dbf in _glob.glob(os.path.join(_cwd, '**', '*.db'), recursive=True):\n",

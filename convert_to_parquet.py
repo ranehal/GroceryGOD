@@ -4,7 +4,7 @@ from datetime import datetime, timedelta, timezone
 import pyarrow as pa
 import pyarrow.parquet as pq
 
-STORES = ['shwapno','chaldal','meenabazar','othoba','metromart','unimart','shotejbazar']
+STORES = ['shwapno','chaldal','meenabazar','othoba','metromart','unimart','shotejbazar','foodi']
 BASE = os.path.dirname(os.path.abspath(__file__))
 DHAKA_TZ = timezone(timedelta(hours=6))
 FREE_HISTORY_DAYS = 3

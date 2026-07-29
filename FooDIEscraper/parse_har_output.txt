@@ -1,0 +1,1202 @@
+================================================================================
+TOTAL HAR ENTRIES: 374
+ENTRIES MATCHING 'reviews-api-bd.fd-api.com': 18
+================================================================================
+
+LISTING/Discovery entries: 15
+GraphQL entries: 2
+Other entries: 3
+================================================================================
+
+ALL UNIQUE ENDPOINT PATTERNS:
+  CONNECT 
+  GET /api/v5/cms/restaurant-description-n8xk
+  GET /api/v5/cms/restaurant-description-wqr5
+  GET /graphql
+  GET /vendor-snippets/t86i
+  GET /vendor-snippets/wqr5
+  POST /api/v5/oauth2/token
+  POST /api/v5/payment/intent
+  POST /offers-zone/api/v2/offers-zone
+================================================================================
+
+
+================================================================================
+RESTAURANT LISTING / DISCOVERY ENDPOINTS (DETAILED)
+================================================================================
+
+
+--- LISTING ENTRY #1 ---
+URL: https://reviews-api-bd.fd-api.com/api/v5/payment/intent?language_id=1
+PATH: /api/v5/payment/intent
+METHOD: POST
+STATUS: 401
+POST MIME: application/json
+REQUEST BODY (JSON):
+{
+  "payment": {
+    "version": 1,
+    "amount": 0.0,
+    "filterPaymentMethods": [
+      "no_payment",
+      "hsbc_payme",
+      "atome",
+      "payu_twisto",
+      "adyen_hpp_vipps",
+      "adyen_hpp_molpay",
+      "adyen_hpp_swish",
+      "adyen_hpp_paymaya",
+      "adyen_hpp_boost",
+      "bigfish_szep_mkb",
+      "bigfish_szep_otp",
+      "bigfish_szep_kh",
+      "checkout_psp_online_banking",
+      "checkout_psp_mobilepay",
+      "adyen_hpp_sofort",
+      "razer_online_banking",
+      "wavepay",
+      "adyen_mobilepay",
+      "adyen_wechatpay",
+      "ssl_online_payment",
+      "ssl_standalone_payment",
+      "viabill",
+      "antfinancial_jkopay",
+      "iyzico_yemeksepetipay",
+      "xendit_promptpay",
+      "vippsdirect",
+      "payment_on_delivery",
+      "voucher_chequedejeuner",
+      "voucher_ticketrestaurant",
+      "voucher_gastropass",
+      "voucher_gurmanpass",
+      "voucher_sodexo",
+      "voucher_doxx",
+      "voucher_cardpaymenttorider",
+      "voucher_sodexoschecks",
+      "voucher_oamtcgutscheine",
+      "voucher_edenredticketrestaurant",
+      "voucher_magistrat",
+      "yemekpay_cardpayment",
+      "yemekpay_cardondelivery",
+      "cash",
+      "sodexo_restaurant_pass",
+      "cio_card",
+      "metropol_card",
+      "multinet",
+      "voucher_tokenflex",
+      "paye_card",
+      "set_card",
+      "sodexo_restaurant_pass_mobile",
+      "ticket_restaurant_meal_card",
+      "ticket_restaurant_food_voucher",
+      "yemekmatik_meal_card",
+      "winwin_mobile",
+      "riderqr",
+      "credit_card",
+      "cybersource_creditcard",
+      "yemekpay_creditcard",
+      "generic_creditcard",
+      "simple_creditcard",
+      "antfinancial_gcash",
+      "antfinancial_bkash",
+      "antfinancial_truemoney",
+      "antfinancial_alipay",
+      "paypal",
+      "reddot_paylah",
+      "paypay",
+      "rpay",
+      "line_pay",
+      "epassi",
+      "antfinancial_tng",
+      "jazzcash_wallet",
+      "antfinancial_easypaisa",
+      "antfinancial_alipaycn",
+      "xendit_directdebit",
+      "klarna",
+      "maybankcasa",
+      "aba_pay",
+      "craftgate_edenred",
+      "trustly_online_banking",
+      "meal_card",
+      "globalpayments_pxpay",
+      "antfinancial_mayawallet",
+      "balance",
+      "dh_wallet",
+      "gift_card",
+      "tng_wallet",
+      "postpaid"
+    ]
+  },
+  "paymentContext": "Subscription"
+}
+QUERY PARAMS: {
+  "language_id": [
+    "1"
+  ]
+}
+
+KEY REQUEST HEADERS:
+{
+  "authorization": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6ImtleW1ha2VyLWFuZHJvaWQtZnAtYmQiLCJ0eXAiOiJKV1QifQ.eyJpZCI6ImVrM3hmZ3c0aTdyZmwybmNxYnpuMzQxMzRxOWtxeHR4ZGdjMTh2YmMiLCJjbGllbnRfaWQiOiJhbmRyb2lkIiwidXNlcl9pZCI6Im51bGwiLCJleHBpcmVzIjoxNzg0OTIyMzc2LCJ0b2tlbl90eXBlIjoiYmVhcmVyIiwic2NvcGUiOiJBUElfQ1VTVE9NRVIifQ.CZLVzbCF6LJJCUU5iDPatM1wPqKUJnZoJAt0wa4j4nfCGxX-KpRrd7ASJCuVj16fMALKROYNCjrweCYah9M_XeSnDZK4I29MvfKgEAia0AV-rp8wf_IDYsNdGjn1OV0VxseDpz0Ii05hdfJjRoW0AMu9grbL4yYNMxpNuWB5z45pPascjfkTIi6DLxb664zh77G-Ot802hncIb-L3onQQhkzyZL-KjK3k6sGbByER806VpSvSnjnWyQQa4YK_XiUd2BdsOjN6Tgmnnt1Tl6U4QZTluHge6tIxFQqn9xSsOLyD-tPum7YWRh0-RDb4i0aWUpIRv7ErMUImo5pAIfCGQ",
+  "r-sig": "njMX9pyBfAE9J3zm1EOFe4cik9N/puDld1yO1mHt7Xw=",
+  "eks": "aq3aq3",
+  "rts": "2026-07-25T00:46:16+0600",
+  "app-version": "26.28.0",
+  "device-id": "24de6ba6fb091a6d4a82735d73e61a05",
+  "user-agent": "Android-app-26.28.0(262800214)",
+  "x-fp-api-key": "android",
+  "content-type": "application/json; charset=UTF-8"
+}
+
+RESPONSE BODY (first 5000 chars):
+{"status_code":401,"data":{"exception_type":"ApiOAuthFailedException","message":"Client access token provided is not accepted in this endpoint","developer_message":"","more_information":""}}
+
+
+
+--- LISTING ENTRY #2 ---
+URL: https://reviews-api-bd.fd-api.com/api/v5/payment/intent?language_id=1
+PATH: /api/v5/payment/intent
+METHOD: POST
+STATUS: 401
+POST MIME: application/json
+REQUEST BODY (JSON):
+{
+  "payment": {
+    "version": 1,
+    "amount": 0.0,
+    "filterPaymentMethods": [
+      "no_payment",
+      "hsbc_payme",
+      "atome",
+      "payu_twisto",
+      "adyen_hpp_vipps",
+      "adyen_hpp_molpay",
+      "adyen_hpp_swish",
+      "adyen_hpp_paymaya",
+      "adyen_hpp_boost",
+      "bigfish_szep_mkb",
+      "bigfish_szep_otp",
+      "bigfish_szep_kh",
+      "checkout_psp_online_banking",
+      "checkout_psp_mobilepay",
+      "adyen_hpp_sofort",
+      "razer_online_banking",
+      "wavepay",
+      "adyen_mobilepay",
+      "adyen_wechatpay",
+      "ssl_online_payment",
+      "ssl_standalone_payment",
+      "viabill",
+      "antfinancial_jkopay",
+      "iyzico_yemeksepetipay",
+      "xendit_promptpay",
+      "vippsdirect",
+      "payment_on_delivery",
+      "voucher_chequedejeuner",
+      "voucher_ticketrestaurant",
+      "voucher_gastropass",
+      "voucher_gurmanpass",
+      "voucher_sodexo",
+      "voucher_doxx",
+      "voucher_cardpaymenttorider",
+      "voucher_sodexoschecks",
+      "voucher_oamtcgutscheine",
+      "voucher_edenredticketrestaurant",
+      "voucher_magistrat",
+      "yemekpay_cardpayment",
+      "yemekpay_cardondelivery",
+      "cash",
+      "sodexo_restaurant_pass",
+      "cio_card",
+      "metropol_card",
+      "multinet",
+      "voucher_tokenflex",
+      "paye_card",
+      "set_card",
+      "sodexo_restaurant_pass_mobile",
+      "ticket_restaurant_meal_card",
+      "ticket_restaurant_food_voucher",
+      "yemekmatik_meal_card",
+      "winwin_mobile",
+      "riderqr",
+      "credit_card",
+      "cybersource_creditcard",
+      "yemekpay_creditcard",
+      "generic_creditcard",
+      "simple_creditcard",
+      "antfinancial_gcash",
+      "antfinancial_bkash",
+      "antfinancial_truemoney",
+      "antfinancial_alipay",
+      "paypal",
+      "reddot_paylah",
+      "paypay",
+      "rpay",
+      "line_pay",
+      "epassi",
+      "antfinancial_tng",
+      "jazzcash_wallet",
+      "antfinancial_easypaisa",
+      "antfinancial_alipaycn",
+      "xendit_directdebit",
+      "klarna",
+      "maybankcasa",
+      "aba_pay",
+      "craftgate_edenred",
+      "trustly_online_banking",
+      "meal_card",
+      "globalpayments_pxpay",
+      "antfinancial_mayawallet",
+      "balance",
+      "dh_wallet",
+      "gift_card",
+      "tng_wallet",
+      "postpaid"
+    ]
+  },
+  "paymentContext": "Subscription"
+}
+QUERY PARAMS: {
+  "language_id": [
+    "1"
+  ]
+}
+
+KEY REQUEST HEADERS:
+{
+  "authorization": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6ImtleW1ha2VyLWFuZHJvaWQtZnAtYmQiLCJ0eXAiOiJKV1QifQ.eyJpZCI6ImVrM3hmZ3c0aTdyZmwybmNxYnpuMzQxMzRxOWtxeHR4ZGdjMTh2YmMiLCJjbGllbnRfaWQiOiJhbmRyb2lkIiwidXNlcl9pZCI6Im51bGwiLCJleHBpcmVzIjoxNzg0OTIyMzc2LCJ0b2tlbl90eXBlIjoiYmVhcmVyIiwic2NvcGUiOiJBUElfQ1VTVE9NRVIifQ.CZLVzbCF6LJJCUU5iDPatM1wPqKUJnZoJAt0wa4j4nfCGxX-KpRrd7ASJCuVj16fMALKROYNCjrweCYah9M_XeSnDZK4I29MvfKgEAia0AV-rp8wf_IDYsNdGjn1OV0VxseDpz0Ii05hdfJjRoW0AMu9grbL4yYNMxpNuWB5z45pPascjfkTIi6DLxb664zh77G-Ot802hncIb-L3onQQhkzyZL-KjK3k6sGbByER806VpSvSnjnWyQQa4YK_XiUd2BdsOjN6Tgmnnt1Tl6U4QZTluHge6tIxFQqn9xSsOLyD-tPum7YWRh0-RDb4i0aWUpIRv7ErMUImo5pAIfCGQ",
+  "r-sig": "Nd3OgqvMytRupzkEu8cmSje2WHr/lRj9seRA20SneSw=",
+  "eks": "amggig",
+  "rts": "2026-07-25T00:46:16+0600",
+  "app-version": "26.28.0",
+  "device-id": "24de6ba6fb091a6d4a82735d73e61a05",
+  "user-agent": "Android-app-26.28.0(262800214)",
+  "x-fp-api-key": "android",
+  "content-type": "application/json; charset=UTF-8"
+}
+
+RESPONSE BODY (first 5000 chars):
+{"status_code":401,"data":{"exception_type":"ApiOAuthFailedException","message":"Client access token provided is not accepted in this endpoint","developer_message":"","more_information":""}}
+
+
+
+--- LISTING ENTRY #3 ---
+URL: https://reviews-api-bd.fd-api.com/api/v5/cms/restaurant-description-n8xk?language_id=1
+PATH: /api/v5/cms/restaurant-description-n8xk
+METHOD: GET
+STATUS: 404
+QUERY PARAMS: {
+  "language_id": [
+    "1"
+  ]
+}
+
+KEY REQUEST HEADERS:
+{
+  "authorization": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6ImtleW1ha2VyLWFuZHJvaWQtZnAtYmQiLCJ0eXAiOiJKV1QifQ.eyJpZCI6ImVrM3hmZ3c0aTdyZmwybmNxYnpuMzQxMzRxOWtxeHR4ZGdjMTh2YmMiLCJjbGllbnRfaWQiOiJhbmRyb2lkIiwidXNlcl9pZCI6Im51bGwiLCJleHBpcmVzIjoxNzg0OTIyMzc2LCJ0b2tlbl90eXBlIjoiYmVhcmVyIiwic2NvcGUiOiJBUElfQ1VTVE9NRVIifQ.CZLVzbCF6LJJCUU5iDPatM1wPqKUJnZoJAt0wa4j4nfCGxX-KpRrd7ASJCuVj16fMALKROYNCjrweCYah9M_XeSnDZK4I29MvfKgEAia0AV-rp8wf_IDYsNdGjn1OV0VxseDpz0Ii05hdfJjRoW0AMu9grbL4yYNMxpNuWB5z45pPascjfkTIi6DLxb664zh77G-Ot802hncIb-L3onQQhkzyZL-KjK3k6sGbByER806VpSvSnjnWyQQa4YK_XiUd2BdsOjN6Tgmnnt1Tl6U4QZTluHge6tIxFQqn9xSsOLyD-tPum7YWRh0-RDb4i0aWUpIRv7ErMUImo5pAIfCGQ",
+  "r-sig": "K9cpxXtFgO57Yjw9XLeGRMx7qNxTJW7GND2LSOuzvc4=",
+  "eks": "aaagig",
+  "rts": "2026-07-25T00:46:16+0600",
+  "app-version": "26.28.0",
+  "device-id": "24de6ba6fb091a6d4a82735d73e61a05",
+  "user-agent": "Android-app-26.28.0(262800214)",
+  "x-fp-api-key": "android"
+}
+
+RESPONSE BODY (first 5000 chars):
+{"status_code":404,"data":{"exception_type":"NotFoundException","message":"Cms page restaurant-description-n8xk not found","developer_message":"","more_information":null}}
+
+
+
+--- LISTING ENTRY #4 ---
+URL: https://reviews-api-bd.fd-api.com/api/v5/payment/intent?language_id=1
+PATH: /api/v5/payment/intent
+METHOD: POST
+STATUS: 401
+POST MIME: application/json
+REQUEST BODY (JSON):
+{
+  "payment": {
+    "version": 1,
+    "amount": 0.0,
+    "filterPaymentMethods": [
+      "no_payment",
+      "hsbc_payme",
+      "atome",
+      "payu_twisto",
+      "adyen_hpp_vipps",
+      "adyen_hpp_molpay",
+      "adyen_hpp_swish",
+      "adyen_hpp_paymaya",
+      "adyen_hpp_boost",
+      "bigfish_szep_mkb",
+      "bigfish_szep_otp",
+      "bigfish_szep_kh",
+      "checkout_psp_online_banking",
+      "checkout_psp_mobilepay",
+      "adyen_hpp_sofort",
+      "razer_online_banking",
+      "wavepay",
+      "adyen_mobilepay",
+      "adyen_wechatpay",
+      "ssl_online_payment",
+      "ssl_standalone_payment",
+      "viabill",
+      "antfinancial_jkopay",
+      "iyzico_yemeksepetipay",
+      "xendit_promptpay",
+      "vippsdirect",
+      "payment_on_delivery",
+      "voucher_chequedejeuner",
+      "voucher_ticketrestaurant",
+      "voucher_gastropass",
+      "voucher_gurmanpass",
+      "voucher_sodexo",
+      "voucher_doxx",
+      "voucher_cardpaymenttorider",
+      "voucher_sodexoschecks",
+      "voucher_oamtcgutscheine",
+      "voucher_edenredticketrestaurant",
+      "voucher_magistrat",
+      "yemekpay_cardpayment",
+      "yemekpay_cardondelivery",
+      "cash",
+      "sodexo_restaurant_pass",
+      "cio_card",
+      "metropol_card",
+      "multinet",
+      "voucher_tokenflex",
+      "paye_card",
+      "set_card",
+      "sodexo_restaurant_pass_mobile",
+      "ticket_restaurant_meal_card",
+      "ticket_restaurant_food_voucher",
+      "yemekmatik_meal_card",
+      "winwin_mobile",
+      "riderqr",
+      "credit_card",
+      "cybersource_creditcard",
+      "yemekpay_creditcard",
+      "generic_creditcard",
+      "simple_creditcard",
+      "antfinancial_gcash",
+      "antfinancial_bkash",
+      "antfinancial_truemoney",
+      "antfinancial_alipay",
+      "paypal",
+      "reddot_paylah",
+      "paypay",
+      "rpay",
+      "line_pay",
+      "epassi",
+      "antfinancial_tng",
+      "jazzcash_wallet",
+      "antfinancial_easypaisa",
+      "antfinancial_alipaycn",
+      "xendit_directdebit",
+      "klarna",
+      "maybankcasa",
+      "aba_pay",
+      "craftgate_edenred",
+      "trustly_online_banking",
+      "meal_card",
+      "globalpayments_pxpay",
+      "antfinancial_mayawallet",
+      "balance",
+      "dh_wallet",
+      "gift_card",
+      "tng_wallet",
+      "postpaid"
+    ]
+  },
+  "paymentContext": "Subscription"
+}
+QUERY PARAMS: {
+  "language_id": [
+    "1"
+  ]
+}
+
+KEY REQUEST HEADERS:
+{
+  "authorization": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6ImtleW1ha2VyLWFuZHJvaWQtZnAtYmQiLCJ0eXAiOiJKV1QifQ.eyJpZCI6IjA3M3M4MXdvdWJxa2VqbzlzaHZzM3J0cHN0cGJ1MzJ1dHg3dDdhZ24iLCJjbGllbnRfaWQiOiJhbmRyb2lkIiwidXNlcl9pZCI6Im51bGwiLCJleHBpcmVzIjoxNzg0OTIyMzQ2LCJ0b2tlbl90eXBlIjoiYmVhcmVyIiwic2NvcGUiOiJBUElfQ1VTVE9NRVIifQ.kpJQ8XIyQ3OpcjHI8V2yahyS76jxFRt0stVDx5OVGHm0pSqryKEYytxYkb64EJXPrzm2tXtDal6myx0eakBFlCElE4bUuxA-BRpQL025PYyTf1tVLcDPDPHCdraKoCZAv60o7gCAu-qA3s9npOxrIaMbuoELelBLu5m1KQZYH0C60R0PBlWWuZ8uxG35suFywwn-N7x6JEOdVi_fUWx6W761OgIX9xiF9zqFCWQ3wZAwXVpSfulD3EScUIFZxi1OGJe9VdIvHTCbvS8KfVmEdu0KKUtO99HW50qSDI66bmRUWjhh7WBDnMTtrcYxvHjXAK56pEXJXpDxL5-McrBHgA",
+  "r-sig": "qCj+Daca53fl6Ci76jjvap+XWM9TPflXvbaRP44XhkQ=",
+  "eks": "csccbc",
+  "rts": "2026-07-25T00:46:15+0600",
+  "app-version": "26.28.0",
+  "device-id": "24de6ba6fb091a6d4a82735d73e61a05",
+  "user-agent": "Android-app-26.28.0(262800214)",
+  "x-fp-api-key": "android",
+  "content-type": "application/json; charset=UTF-8"
+}
+
+RESPONSE BODY (first 5000 chars):
+{"status_code":401,"data":{"exception_type":"ApiOAuthFailedException","message":"Client access token provided is not accepted in this endpoint","developer_message":"","more_information":""}}
+
+
+
+--- LISTING ENTRY #5 ---
+URL: https://reviews-api-bd.fd-api.com/graphql?operationName=RestaurantDetailsPage&variables=%7B%22input%22%3A%7B%22code%22%3A%22n8xk%22%2C%22expeditionType%22%3A%22DELIVERY%22%2C%22filters%22%3A%7B%22productRecommendationLimit%22%3A-1%7D%2C%22isPandaboost%22%3Afalse%2C%22ignoreShrinkage%22%3Afalse%7D%2C%22isRetrieveIdOnly%22%3Atrue%2C%22isVendorMiscEnabled%22%3Atrue%2C%22menuInput%22%3A%7B%22expeditionType%22%3A%22DELIVERY%22%7D%2C%22isPickup%22%3Afalse%2C%22mfoFederationEnabled%22%3Afalse%2C%22isShrinkageUseCase%22%3Afalse%2C%22recommendationInput%22%3A%7B%22expeditionType%22%3A%22DELIVERY%22%2C%22isMealForOne%22%3Afalse%7D%2C%22discountedPriceInput%22%3A%7B%22expeditionType%22%3A%22DELIVERY%22%7D%2C%22surveyInput%22%3A%7B%22limit%22%3A1%7D%7D&extensions=%7B%22persistedQuery%22%3A%7B%22version%22%3A1%2C%22sha256Hash%22%3A%22e54e2da1664dea317275ce6c580b6a38b06b6a2bdf446fa1be878652a4883063%22%7D%7D&language_id=1
+PATH: /graphql
+METHOD: GET
+STATUS: 200
+QUERY PARAMS: {
+  "operationName": [
+    "RestaurantDetailsPage"
+  ],
+  "variables": [
+    "{\"input\":{\"code\":\"n8xk\",\"expeditionType\":\"DELIVERY\",\"filters\":{\"productRecommendationLimit\":-1},\"isPandaboost\":false,\"ignoreShrinkage\":false},\"isRetrieveIdOnly\":true,\"isVendorMiscEnabled\":true,\"menuInput\":{\"expeditionType\":\"DELIVERY\"},\"isPickup\":false,\"mfoFederationEnabled\":false,\"isShrinkageUseCase\":false,\"recommendationInput\":{\"expeditionType\":\"DELIVERY\",\"isMealForOne\":false},\"discountedPriceInput\":{\"expeditionType\":\"DELIVERY\"},\"surveyInput\":{\"limit\":1}}"
+  ],
+  "extensions": [
+    "{\"persistedQuery\":{\"version\":1,\"sha256Hash\":\"e54e2da1664dea317275ce6c580b6a38b06b6a2bdf446fa1be878652a4883063\"}}"
+  ],
+  "language_id": [
+    "1"
+  ]
+}
+
+KEY REQUEST HEADERS:
+{
+  "authorization": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6ImtleW1ha2VyLWFuZHJvaWQtZnAtYmQiLCJ0eXAiOiJKV1QifQ.eyJpZCI6IjA3M3M4MXdvdWJxa2VqbzlzaHZzM3J0cHN0cGJ1MzJ1dHg3dDdhZ24iLCJjbGllbnRfaWQiOiJhbmRyb2lkIiwidXNlcl9pZCI6Im51bGwiLCJleHBpcmVzIjoxNzg0OTIyMzQ2LCJ0b2tlbl90eXBlIjoiYmVhcmVyIiwic2NvcGUiOiJBUElfQ1VTVE9NRVIifQ.kpJQ8XIyQ3OpcjHI8V2yahyS76jxFRt0stVDx5OVGHm0pSqryKEYytxYkb64EJXPrzm2tXtDal6myx0eakBFlCElE4bUuxA-BRpQL025PYyTf1tVLcDPDPHCdraKoCZAv60o7gCAu-qA3s9npOxrIaMbuoELelBLu5m1KQZYH0C60R0PBlWWuZ8uxG35suFywwn-N7x6JEOdVi_fUWx6W761OgIX9xiF9zqFCWQ3wZAwXVpSfulD3EScUIFZxi1OGJe9VdIvHTCbvS8KfVmEdu0KKUtO99HW50qSDI66bmRUWjhh7WBDnMTtrcYxvHjXAK56pEXJXpDxL5-McrBHgA",
+  "r-sig": "N2QLiUUDka2GGCu5m1E1XpL3jPd3SwY7nZWVgqYDG5s=",
+  "eks": "amgaaa",
+  "rts": "2026-07-25T00:46:15+0600",
+  "app-version": "26.28.0",
+  "device-id": "24de6ba6fb091a6d4a82735d73e61a05",
+  "user-agent": "Android-app-26.28.0(262800214)",
+  "x-fp-api-key": "android",
+  "accept": "multipart/mixed;deferSpec=20220824, application/graphql-response+json, application/json"
+}
+
+RESPONSE BODY (first 5000 chars):
+{"data":{"restaurantDetailsPage":{"swimlanes":null,"components":[{"__typename":"ExpeditionToggle","pickupPromoLabel":"15% off","pickupPromoIncentiveId":"614594"}],"vendorData":{"__typename":"VendorData","code":"n8xk","name":"Fresh & Hot Live Bakery- Banasree Kazibari","images":{"logo":"https://images.deliveryhero.io/image/fd-bd/bd-logos/n8xk-logo.jpg","listing":"https://images.deliveryhero.io/image/fd-bd/LH/n8xk-listing.jpg"},"rating":{"value":4.9,"count":32,"aggregationAlgorithm":"refre"},"location":{"addressLine1":"House -02 ,Road 03, Block - N Banasree,khilgaon,Dhaka-1219","latitude":23.755589,"longitude":90.443828,"addressLine2":null},"availability":{"distanceInMeters":1267,"nextAvailableAt":null,"status":"TEMPORARILY_CLOSED","isAffectedByShrinkage":false},"isDeliveryEnabled":true,"isPickupEnabled":true,"hasDeliveryProvider":true,"isFavorite":false,"isSuperVendor":false,"timezone":"Asia/Dhaka","contactNumber":null,"webPath":"https://www.foodpanda.com.bd/restaurant/n8xk/fresh-and-hot-live-bakery-banasree-kazibari","timeEstimations":{"delivery":{"__typename":"TimeEstimation","minimumTime":null,"duration":{"lowerLimitInMinutes":35,"upperLimitInMinutes":55}},"pickup":null},"dynamicPricing":{"highValueActionLabel":"NEXTGEN_HVA_ACQUISITION_FD","serviceFee":{"maximumValue":29,"minimumValue":5,"serviceFeeType":"SERVICE_FEE_TYPE_PERCENTAGE","setUpValue":3,"total":5},"deliveryFee":{"original":52,"total":0,"saverFee":{"total":0}},"minimumOrderValue":{"total":50}},"saverDeliveryTimeEstimations":{"__typename":"TimeEstimation","minimumTime":null,"duration":{"lowerLimitInMinutes":45,"upperLimitInMinutes":65}},"calculatedDynamicPricing":{"discountedDeliveryFee":0,"discountMinimumOrderValue":null},"menu":{"__typename":"RestaurantMenu","id":"247453","title":"Delivery Menu","startTime":"00:00:00","endTime":"23:59:00","expeditionType":"DELIVERY","recommendedProducts":[{"products":[{"id":"9105736"},{"id":"9105738"},{"id":"9105742"},{"id":"9105737"},{"id":"9105735"}],"layout":["TILE","LABEL"],"recommendationStrategy":"PERSONALIZED","title":[{"__typename":"RichTextElement","textType":"TRANSLATION_KEY","value":"NEXTGEN_POPULAR_DISH_TAG","styling":null,"placeholders":null}],"description":[{"__typename":"RichTextElement","textType":"TRANSLATION_KEY","value":"NEXTGEN_POPULAR_CATEGORY_DESCRIPTION","styling":null,"placeholders":null}]}],"categories":[{"__typename":"RestaurantMenuCategory","id":"2432410","code":"ef88ecb4-c145-4f35-8e3c-0bf5afd377f0","title":"Snacks","description":"","containerPrice":null,"partner":null,"products":[{"__typename":"RestaurantProductData","id":"9105736","code":"6fbbcb26-1ab6-494c-828e-ce66d1b64d29","title":"Burger","description":"1 pc - A classic burger with a juicy patty, fresh lettuce & special sauce","image":{"url":"https://images.deliveryhero.io/image/fd-bd/Products/9105736.jpg"},"variations":[{"id":"9934770","discountedPrice":null,"unitPricingInfo":null}],"isSoldOut":false,"isBundle":false,"isAlcoholicItem":false,"tags":null,"isCustomizable":false,"dietaryAttributes":null,"rating":{"percentage":100,"totalCount":4},"vat":null,"priceAttributes":{"discountedPrice":null,"displayFromTag":false,"originalPrice":75,"containerPrice":null}},{"__typename":"RestaurantProductData","id":"9105737","code":"91d3bed0-8100-4f6e-9866-1d11e49d132f","title":"Shawrma","description":"1 pc - A tasty wrap filled with marinated chicken, fresh vegetable & garlic sauce in a pita bread","image":{"url":"https://images.deliveryhero.io/image/fd-bd/Products/9105737.jpg"},"variations":[{"id":"9934771","discountedPrice":null,"unitPricingInfo":null}],"isSoldOut":false,"isBundle":false,"isAlcoholicItem":false,"tags":null,"isCustomizable":false,"dietaryAttributes":null,"rating":{"percentage":60,"totalCount":5},"vat":null,"priceAttributes":{"discountedPrice":null,"displayFromTag":false,"originalPrice":90,"containerPrice":null}},{"__typename":"RestaurantProductData","id":"9105738","code":"6848875d-8653-4fd9-ab67-bbaeb901ab7a","title":"Mini Chicken Pizza","description":"1 pc - A personal-sized pizza with a classic topping of seasoned chicken & cheese","image":{"url":"https://images.deliveryhero.io/image/fd-bd/Products/9105738.jpg"},"variations":[{"id":"9934772","discountedPrice":null,"unitPricingInfo":null}],"isSoldOut":false,"isBundle":false,"isAlcoholicItem":false,"tags":null,"isCustomizable":false,"dietaryAttributes":null,"rating":{"percentage":100,"totalCount":8},"vat":null,"priceAttributes":{"discountedPrice":null,"displayFromTag":false,"originalPrice":90,"containerPrice":null}},{"__typename":"RestaurantProductData","id":"9105739","code":"b500c6ee-6f4b-4d6e-a791-2da1010621b4","title":"Roll Patties","description":"1 pc - A savory roll-shaped pastry with a delicious flaky crust & filling","image":{"url":"https://images.deliveryhero.io/image/fd-bd/Products/9105739.jpg"},"variations":[{"id":"9934773","discountedPrice":null,"unitPricingInfo":null}],"isSoldOut":false,"isBundle":false,"isAlcoholicItem":false,"tags":null,"isCustomizable":fals
+
+
+--- LISTING ENTRY #6 ---
+URL: https://reviews-api-bd.fd-api.com/offers-zone/api/v2/offers-zone?language_id=1
+PATH: /offers-zone/api/v2/offers-zone
+METHOD: POST
+STATUS: 200
+POST MIME: application/json
+REQUEST BODY (JSON):
+{
+  "vertical": "restaurants",
+  "expedition": "delivery",
+  "latitude": "23.748212",
+  "longitude": "90.434342",
+  "offset": "80",
+  "limit": "40",
+  "language_code": "en_BD",
+  "include": "vendor_list",
+  "customer_type": "b2c",
+  "tag_label_metadata": "false",
+  "use_free_delivery_label": "true",
+  "device_type": "android",
+  "client_version": "26.28.0"
+}
+QUERY PARAMS: {
+  "language_id": [
+    "1"
+  ]
+}
+
+KEY REQUEST HEADERS:
+{
+  "authorization": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6ImtleW1ha2VyLWFuZHJvaWQtZnAtYmQiLCJ0eXAiOiJKV1QifQ.eyJpZCI6IjA3M3M4MXdvdWJxa2VqbzlzaHZzM3J0cHN0cGJ1MzJ1dHg3dDdhZ24iLCJjbGllbnRfaWQiOiJhbmRyb2lkIiwidXNlcl9pZCI6Im51bGwiLCJleHBpcmVzIjoxNzg0OTIyMzQ2LCJ0b2tlbl90eXBlIjoiYmVhcmVyIiwic2NvcGUiOiJBUElfQ1VTVE9NRVIifQ.kpJQ8XIyQ3OpcjHI8V2yahyS76jxFRt0stVDx5OVGHm0pSqryKEYytxYkb64EJXPrzm2tXtDal6myx0eakBFlCElE4bUuxA-BRpQL025PYyTf1tVLcDPDPHCdraKoCZAv60o7gCAu-qA3s9npOxrIaMbuoELelBLu5m1KQZYH0C60R0PBlWWuZ8uxG35suFywwn-N7x6JEOdVi_fUWx6W761OgIX9xiF9zqFCWQ3wZAwXVpSfulD3EScUIFZxi1OGJe9VdIvHTCbvS8KfVmEdu0KKUtO99HW50qSDI66bmRUWjhh7WBDnMTtrcYxvHjXAK56pEXJXpDxL5-McrBHgA",
+  "r-sig": "9RLiVXnlDTNOXrAqbfwpXhyZWJZsb8z/FE4qBtYDucc=",
+  "eks": "aq3mnp",
+  "rts": "2026-07-25T00:46:12+0600",
+  "app-version": "26.28.0",
+  "device-id": "24de6ba6fb091a6d4a82735d73e61a05",
+  "user-agent": "Android-app-26.28.0(262800214)",
+  "x-fp-api-key": "android",
+  "content-type": "application/json; charset=utf-8"
+}
+
+RESPONSE BODY (first 5000 chars):
+{"status_code":200,"data":{"vendor_list":{"returned_count":40,"available_count":206,"items":[{"id":78507,"code":"zbwn","accepts_instructions":true,"address":"J. N. Garden, Taltola Rd 1219, 1218 Khilgaon, Dhaka, Bangladesh","address_line2":"","budget":1,"chain":{"code":"","name":"","main_vendor_code":"","url_key":""},"characteristics":{"cuisines":[{"id":243,"name":"Curry","url_key":"","main":false},{"id":123,"name":"Rice Dishes","url_key":"","main":false},{"id":195,"name":"Bangladeshi","url_key":"","main":true},{"id":75,"name":"Asian","url_key":"","main":false}],"food_characteristics":[],"primary_cuisine":{"id":0,"name":"","url_key":"","main":false}},"city":{"name":"Dhaka"},"cuisines":[{"id":243,"name":"Curry","url_key":"","main":false},{"id":123,"name":"Rice Dishes","url_key":"","main":false},{"id":195,"name":"Bangladeshi","url_key":"","main":true},{"id":75,"name":"Asian","url_key":"","main":false}],"customer_phone":"+8801319831813","customer_type":"all","delivery_fee_delta":0,"delivery_fee_type":"amount","delivery_provider":"platform_delivery","delivery_time":{"text":"NEXTGEN_VENDOR_TILES_CLOSED_FOR_NOW","text_accessibility_text":"","icon_type":"Alert","first_date":null,"second_date":null},"description":"","disclaimers":[],"discounts":[],"discounts_info":[{"id":"8308798745101002_178281225400","value":60}],"distance":1.361,"food_characteristics":[],"free_delivery_label":"NEXTGEN_HVA_ACQUISITION_FD","has_delivery_provider":true,"has_online_payment":true,"hero_image":"https://images.deliveryhero.io/image/fd-bd/LH/zbwn-listing.jpg","hero_listing_image":"https://images.deliveryhero.io/image/fd-bd/LH/zbwn-listing.jpg","is_active":true,"is_best_in_city":false,"is_checkout_comment_enabled":false,"is_delivery_enabled":true,"is_new":false,"is_new_until":"2025-09-22T10:31:56Z","is_pickup_enabled":false,"is_premium":false,"is_preorder_enabled":true,"is_promoted":false,"is_replacement_dish_enabled":false,"is_service_fee_enabled":false,"is_service_tax_enabled":false,"is_service_tax_visible":false,"is_test":false,"is_vat_disabled":false,"is_vat_included_in_product_price":true,"is_vat_visible":false,"is_voucher_enabled":true,"latitude":23.7525874,"longitude":90.421852,"logo":"","loyalty_percentage_amount":0,"loyalty_program_enabled":false,"maximum_express_order_amount":0,"metadata":{"timezone":"Asia/Dhaka","close_reasons":["event"],"available_in":"","events":[{"id":"bd_49","messages":[""],"actions":[{"type":"message","message":""},{"type":"close","message":""}]}],"has_discount":true,"is_delivery_available":false,"is_pickup_available":false,"is_dine_in_available":false,"is_temporary_closed":true,"is_flood_feature_closed":true},"minimum_delivery_fee":0,"minimum_delivery_time":35,"minimum_order_amount":50,"minimum_order_amount_text":"NEXTGEN_MIN_ORDER_VALUE 50 ","minimum_pickup_time":15,"name":"Cholo Kichu Khai From Tasmim'S Cuisine","original_delivery_fee":43,"post_code":"1218","premium_position":0,"primary_cuisine_id":195,"primary_tags":[{"text":"60% off Tk. 249: bkashnc200","icon_type":"NoIcon","priority":null}],"rating":0,"redirection_url":"https://foodpanda.com.bd/restaurant/zbwn/cholo-kichu-khai-from-tasmims-cuisine","review_number":0,"tag_ids":[],"tags":[{"code":"VOUCHER","text":"60% off Tk. 249: bkashnc200"}],"url_key":"cholo-kichu-khai-from-tasmims-cuisine","vendor_legal_information":{"legal_name":"","trade_register_number":""},"vendor_points":0,"vertical":"restaurants","vertical_parent":"Restaurant","vertical_segment":"home_based_kitchen","vertical_type_ids":["home_based_kitchen"],"web_path":"https://foodpanda.com.bd/restaurant/zbwn/cholo-kichu-khai-from-tasmims-cuisine","delivery_fee_discount_mov":0,"has_delivery_pro_discount":false,"ncr_pricing_model":"","ncr_token":"","delivery_fee":{"primary_text":null,"primary_icon_type":"Rider","is_primary_text_strike_through":true,"secondary_text":"NEXTGEN_HVA_ACQUISITION_FD","secondary_icon_type":"NoIcon","text_accessibility_text":null,"delivery_fee_visibility":false},"recommendation_strategy":""},{"id":76353,"code":"lbqv","accepts_instructions":true,"address":"434, 1219 Taltola Rd, Dhaka","address_line2":"","budget":2,"chain":{"code":"","name":"","main_vendor_code":"","url_key":""},"characteristics":{"cuisines":[{"id":99,"name":"Turkish","url_key":"","main":false},{"id":132,"name":"Kebab","url_key":"","main":true},{"id":113,"name":"Middle Eastern","url_key":"","main":false}],"food_characteristics":[],"primary_cuisine":{"id":0,"name":"","url_key":"","main":false}},"city":{"name":"Dhaka"},"cuisines":[{"id":99,"name":"Turkish","url_key":"","main":false},{"id":132,"name":"Kebab","url_key":"","main":true},{"id":113,"name":"Middle Eastern","url_key":"","main":false}],"customer_phone":"+8801747294514","customer_type":"all","delivery_fee_delta":0,"delivery_fee_type":"amount","delivery_provider":"platform_delivery","delivery_time":{"text":"NEXTGEN_VENDOR_TILES_CLOSED_FOR_NOW","text_accessibility_text":"","icon_type":"Alert","first_date":null,"second_date":null},"description":"","di
+
+
+--- LISTING ENTRY #7 ---
+URL: https://reviews-api-bd.fd-api.com/offers-zone/api/v2/offers-zone?language_id=1
+PATH: /offers-zone/api/v2/offers-zone
+METHOD: POST
+STATUS: 200
+POST MIME: application/json
+REQUEST BODY (JSON):
+{
+  "vertical": "restaurants",
+  "expedition": "delivery",
+  "latitude": "23.748212",
+  "longitude": "90.434342",
+  "offset": "40",
+  "limit": "40",
+  "language_code": "en_BD",
+  "include": "vendor_list",
+  "customer_type": "b2c",
+  "tag_label_metadata": "false",
+  "use_free_delivery_label": "true",
+  "device_type": "android",
+  "client_version": "26.28.0"
+}
+QUERY PARAMS: {
+  "language_id": [
+    "1"
+  ]
+}
+
+KEY REQUEST HEADERS:
+{
+  "authorization": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6ImtleW1ha2VyLWFuZHJvaWQtZnAtYmQiLCJ0eXAiOiJKV1QifQ.eyJpZCI6IjA3M3M4MXdvdWJxa2VqbzlzaHZzM3J0cHN0cGJ1MzJ1dHg3dDdhZ24iLCJjbGllbnRfaWQiOiJhbmRyb2lkIiwidXNlcl9pZCI6Im51bGwiLCJleHBpcmVzIjoxNzg0OTIyMzQ2LCJ0b2tlbl90eXBlIjoiYmVhcmVyIiwic2NvcGUiOiJBUElfQ1VTVE9NRVIifQ.kpJQ8XIyQ3OpcjHI8V2yahyS76jxFRt0stVDx5OVGHm0pSqryKEYytxYkb64EJXPrzm2tXtDal6myx0eakBFlCElE4bUuxA-BRpQL025PYyTf1tVLcDPDPHCdraKoCZAv60o7gCAu-qA3s9npOxrIaMbuoELelBLu5m1KQZYH0C60R0PBlWWuZ8uxG35suFywwn-N7x6JEOdVi_fUWx6W761OgIX9xiF9zqFCWQ3wZAwXVpSfulD3EScUIFZxi1OGJe9VdIvHTCbvS8KfVmEdu0KKUtO99HW50qSDI66bmRUWjhh7WBDnMTtrcYxvHjXAK56pEXJXpDxL5-McrBHgA",
+  "r-sig": "1O/No5CrKe7RGT3SZkQ1JLRuzDp9sD2nlgs70z4rZTg=",
+  "eks": "aaaaq3",
+  "rts": "2026-07-25T00:46:10+0600",
+  "app-version": "26.28.0",
+  "device-id": "24de6ba6fb091a6d4a82735d73e61a05",
+  "user-agent": "Android-app-26.28.0(262800214)",
+  "x-fp-api-key": "android",
+  "content-type": "application/json; charset=utf-8"
+}
+
+RESPONSE BODY (first 5000 chars):
+{"status_code":200,"data":{"vendor_list":{"returned_count":40,"available_count":206,"items":[{"id":73477,"code":"k47m","accepts_instructions":true,"address":"290/3/A, Khilgaon Railgate, Nahar Tower, (Under Ground), Dhaka-1219","address_line2":"","budget":2,"chain":{"code":"","name":"","main_vendor_code":"","url_key":""},"characteristics":{"cuisines":[{"id":243,"name":"Curry","url_key":"","main":true},{"id":251,"name":"Faluda","url_key":"","main":false}],"food_characteristics":[],"primary_cuisine":{"id":0,"name":"","url_key":"","main":false}},"city":{"name":"Dhaka"},"cuisines":[{"id":243,"name":"Curry","url_key":"","main":true},{"id":251,"name":"Faluda","url_key":"","main":false}],"customer_phone":"+8801779029949","customer_type":"all","delivery_fee_delta":0,"delivery_fee_type":"amount","delivery_provider":"platform_delivery","delivery_time":{"text":"NEXTGEN_VENDOR_TILES_CLOSED_FOR_NOW","text_accessibility_text":"","icon_type":"Alert","first_date":null,"second_date":null},"description":"","disclaimers":[],"discounts":[],"discounts_info":[{"id":"8308798745101002_178281225400","value":60},{"id":"615274","value":15}],"distance":0.855,"food_characteristics":[],"free_delivery_label":"NEXTGEN_HVA_ACQUISITION_FD","has_delivery_provider":true,"has_online_payment":true,"hero_image":"https://images.deliveryhero.io/image/fd-bd/LH/k47m-listing.jpg","hero_listing_image":"https://images.deliveryhero.io/image/fd-bd/LH/k47m-listing.jpg","is_active":true,"is_best_in_city":false,"is_checkout_comment_enabled":false,"is_delivery_enabled":true,"is_new":false,"is_new_until":"2024-12-25T18:18:24Z","is_pickup_enabled":true,"is_premium":false,"is_preorder_enabled":true,"is_promoted":false,"is_replacement_dish_enabled":false,"is_service_fee_enabled":false,"is_service_tax_enabled":false,"is_service_tax_visible":false,"is_test":false,"is_vat_disabled":false,"is_vat_included_in_product_price":false,"is_vat_visible":false,"is_voucher_enabled":true,"latitude":23.7445422,"longitude":90.42695808,"logo":"","loyalty_percentage_amount":0,"loyalty_program_enabled":false,"maximum_express_order_amount":0,"metadata":{"timezone":"Asia/Dhaka","close_reasons":["event"],"available_in":"","events":[{"id":"bd_49","messages":[""],"actions":[{"type":"message","message":""},{"type":"close","message":""}]}],"has_discount":true,"is_delivery_available":false,"is_pickup_available":true,"is_dine_in_available":false,"is_temporary_closed":true,"is_flood_feature_closed":true},"minimum_delivery_fee":0,"minimum_delivery_time":0,"minimum_order_amount":50,"minimum_order_amount_text":"NEXTGEN_MIN_ORDER_VALUE 50 ","minimum_pickup_time":15,"name":"Prince Restora - Khilgaon","original_delivery_fee":42,"post_code":"1219","premium_position":0,"primary_cuisine_id":243,"primary_tags":[{"text":"15% off Tk. 50","icon_type":"Discount","priority":null},{"text":"NEXTGEN_VENDOR_TILES_PLUS_MORE","icon_type":"NoIcon","priority":null}],"rating":4.2,"redirection_url":"https://foodpanda.com.bd/restaurant/k47m/prince-restora-khilgaon-k47m","review_number":1571,"tag_ids":[],"tags":[{"code":"DEAL","text":"15% off Tk. 50"},{"code":"VOUCHER","text":"60% off Tk. 249: bkashnc200"}],"url_key":"prince-restora-khilgaon-k47m","vendor_legal_information":{"legal_name":"","trade_register_number":""},"vendor_points":6796,"vertical":"restaurants","vertical_parent":"Restaurant","vertical_segment":"restaurants","vertical_type_ids":["restaurants"],"web_path":"https://foodpanda.com.bd/restaurant/k47m/prince-restora-khilgaon-k47m","delivery_fee_discount_mov":0,"has_delivery_pro_discount":false,"ncr_pricing_model":"","ncr_token":"","delivery_fee":{"primary_text":null,"primary_icon_type":"Rider","is_primary_text_strike_through":true,"secondary_text":"NEXTGEN_HVA_ACQUISITION_FD","secondary_icon_type":"NoIcon","text_accessibility_text":null,"delivery_fee_visibility":false},"recommendation_strategy":""},{"id":72748,"code":"sava","accepts_instructions":true,"address":"90/4 A, niloy plaza, Atish Deepankar Rd, Dhaka 1219","address_line2":"","budget":2,"chain":{"code":"cw8qt","name":"Sara Pizza","main_vendor_code":"","url_key":""},"characteristics":{"cuisines":[{"id":69,"name":"Italian","url_key":"","main":true},{"id":105,"name":"Mediterranean","url_key":"","main":false},{"id":151,"name":"Western","url_key":"","main":false}],"food_characteristics":[],"primary_cuisine":{"id":0,"name":"","url_key":"","main":false}},"city":{"name":"Dhaka"},"cuisines":[{"id":69,"name":"Italian","url_key":"","main":true},{"id":105,"name":"Mediterranean","url_key":"","main":false},{"id":151,"name":"Western","url_key":"","main":false}],"customer_phone":"+8801704151993","customer_type":"all","delivery_fee_delta":0,"delivery_fee_type":"amount","delivery_provider":"platform_delivery","delivery_time":{"text":"NEXTGEN_VENDOR_TILES_CLOSED_FOR_NOW","text_accessibility_text":"","icon_type":"Alert","first_date":null,"second_date":null},"description":"","disclaimers":[],"discounts":[],"discounts_info":[{"id":"8308798745101002_178281225400","value":6
+
+
+--- LISTING ENTRY #8 ---
+URL: https://reviews-api-bd.fd-api.com/offers-zone/api/v2/offers-zone?language_id=1
+PATH: /offers-zone/api/v2/offers-zone
+METHOD: POST
+STATUS: 200
+POST MIME: application/json
+REQUEST BODY (JSON):
+{
+  "vertical": "restaurants",
+  "expedition": "delivery",
+  "latitude": "23.748212",
+  "longitude": "90.434342",
+  "offset": "0",
+  "limit": "40",
+  "language_code": "en_BD",
+  "include": "ui_config,vendor_list,personalized_swimlane,seasonal_carousel",
+  "customer_type": "b2c",
+  "tag_label_metadata": "false",
+  "use_free_delivery_label": "true",
+  "device_type": "android",
+  "client_version": "26.28.0"
+}
+QUERY PARAMS: {
+  "language_id": [
+    "1"
+  ]
+}
+
+KEY REQUEST HEADERS:
+{
+  "authorization": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6ImtleW1ha2VyLWFuZHJvaWQtZnAtYmQiLCJ0eXAiOiJKV1QifQ.eyJpZCI6IjA3M3M4MXdvdWJxa2VqbzlzaHZzM3J0cHN0cGJ1MzJ1dHg3dDdhZ24iLCJjbGllbnRfaWQiOiJhbmRyb2lkIiwidXNlcl9pZCI6Im51bGwiLCJleHBpcmVzIjoxNzg0OTIyMzQ2LCJ0b2tlbl90eXBlIjoiYmVhcmVyIiwic2NvcGUiOiJBUElfQ1VTVE9NRVIifQ.kpJQ8XIyQ3OpcjHI8V2yahyS76jxFRt0stVDx5OVGHm0pSqryKEYytxYkb64EJXPrzm2tXtDal6myx0eakBFlCElE4bUuxA-BRpQL025PYyTf1tVLcDPDPHCdraKoCZAv60o7gCAu-qA3s9npOxrIaMbuoELelBLu5m1KQZYH0C60R0PBlWWuZ8uxG35suFywwn-N7x6JEOdVi_fUWx6W761OgIX9xiF9zqFCWQ3wZAwXVpSfulD3EScUIFZxi1OGJe9VdIvHTCbvS8KfVmEdu0KKUtO99HW50qSDI66bmRUWjhh7WBDnMTtrcYxvHjXAK56pEXJXpDxL5-McrBHgA",
+  "r-sig": "gi6xMKDAINPlRSScD65FipaqenbCAdQynEZnS6AfXZg=",
+  "eks": "abcaq3",
+  "rts": "2026-07-25T00:46:04+0600",
+  "app-version": "26.28.0",
+  "device-id": "24de6ba6fb091a6d4a82735d73e61a05",
+  "user-agent": "Android-app-26.28.0(262800214)",
+  "x-fp-api-key": "android",
+  "content-type": "application/json; charset=utf-8"
+}
+
+RESPONSE BODY (first 5000 chars):
+{"status_code":200,"data":{"ui_config":{"screen_config":{"ui_order":["personalized_swimlane","seasonal_carousel"]},"header_config":{"title_translation_key":"NEXTGEN_OFFERS_ZONE_HEADER_TITLE","image_url":"https://images.deliveryhero.io/image/fd-bd/offers-zone-assets/OffersZone_Header_200x112_4x.png"},"tab_configs":[{"ranking":0,"display_text":"NEXTGEN_RESTAURANTS","tracking_key":"Restaurants","params":{"vertical_type":"restaurants","expedition_type":"delivery"}},{"ranking":1,"display_text":"NEXTGEN_SHOPS_ENTRY_TAB","tracking_key":"Shops","params":{"vertical_type":"shop","expedition_type":"delivery"}}]},"vendor_list":{"returned_count":40,"available_count":206,"items":[{"id":133082,"code":"t4x0","accepts_instructions":true,"address":"αº¿αº»αºº/αºº αª¡αºéαªçαª»αª╝αª╛αª¬αª╛αªíαª╝αª╛, αª«αª┐αª¿αª╛αª░αª╛ αª«αª╕αª£αª┐αªªαºçαª░ αª¬αª╛αª╢αºçαª░ αªùαª▓αª┐, αªûαª┐αª▓αªùαª╛αªüαªô, αªóαª╛αªòαª╛ - αººαº¿αººαº»","address_line2":"","budget":1,"chain":{"code":"","name":"","main_vendor_code":"","url_key":""},"characteristics":{"cuisines":[{"id":243,"name":"Curry","url_key":"","main":false},{"id":123,"name":"Rice Dishes","url_key":"","main":false},{"id":195,"name":"Bangladeshi","url_key":"","main":true},{"id":75,"name":"Asian","url_key":"","main":false}],"food_characteristics":[],"primary_cuisine":{"id":0,"name":"","url_key":"","main":false}},"city":{"name":"Dhaka"},"cuisines":[{"id":243,"name":"Curry","url_key":"","main":false},{"id":123,"name":"Rice Dishes","url_key":"","main":false},{"id":195,"name":"Bangladeshi","url_key":"","main":true},{"id":75,"name":"Asian","url_key":"","main":false}],"customer_phone":"+8801703239602","customer_type":"all","delivery_duration_range":{"lower_limit_in_minutes":55,"upper_limit_in_minutes":80},"delivery_fee_delta":0,"delivery_fee_type":"amount","delivery_provider":"platform_delivery","delivery_time":{"text":"55-80 MINS","text_accessibility_text":"","icon_type":"Clock","first_date":null,"second_date":null},"description":"","disclaimers":[],"discounts":[],"discounts_info":[{"id":"8308798745101002_178281225400","value":60},{"id":"619775","value":10}],"distance":0.72,"food_characteristics":[],"free_delivery_label":"NEXTGEN_HVA_ACQUISITION_FD","has_delivery_provider":true,"has_online_payment":false,"hero_image":"https://foodpanda.dhmedia.io/image/fd-bd/LH/t4x0-listing.jpg","hero_listing_image":"https://foodpanda.dhmedia.io/image/fd-bd/LH/t4x0-listing.jpg","is_active":true,"is_best_in_city":false,"is_checkout_comment_enabled":false,"is_delivery_enabled":true,"is_new":true,"is_new_until":"2026-08-12T17:56:23Z","is_pickup_enabled":true,"is_premium":false,"is_preorder_enabled":false,"is_promoted":false,"is_replacement_dish_enabled":false,"is_service_fee_enabled":false,"is_service_tax_enabled":false,"is_service_tax_visible":false,"is_test":false,"is_vat_disabled":false,"is_vat_included_in_product_price":true,"is_vat_visible":false,"is_voucher_enabled":true,"latitude":23.7542415,"longitude":90.4317518,"logo":"","loyalty_percentage_amount":0,"loyalty_program_enabled":false,"maximum_express_order_amount":0,"metadata":{"timezone":"Asia/Dhaka","close_reasons":[],"available_in":"","events":[],"has_discount":true,"is_delivery_available":true,"is_pickup_available":true,"is_dine_in_available":false,"is_temporary_closed":false,"is_flood_feature_closed":false},"minimum_delivery_fee":0,"minimum_delivery_time":65,"minimum_order_amount":50,"minimum_order_amount_text":"NEXTGEN_MIN_ORDER_VALUE 50 ","minimum_pickup_time":15,"name":"Can Buy","original_delivery_fee":19,"post_code":"1219","premium_position":0,"primary_cuisine_id":195,"primary_tags":[{"text":"10% off","icon_type":"Discount","priority":null},{"text":"NEXTGEN_VENDOR_TILES_PLUS_MORE","icon_type":"NoIcon","priority":null}],"rating":4.4,"redirection_url":"https://foodpanda.com.bd/restaurant/t4x0/can-buy-t4x0","review_number":13,"secondary_tag":{"code":"NEW","text":"NEXTGEN_NEW_TAG"},"tag_ids":[],"tags":[{"code":"DEAL","text":"10% off"},{"code":"NEW","text":"NEXTGEN_NEW_TAG"},{"code":"VOUCHER","text":"60% off Tk. 249: bkashnc200"}],"url_key":"can-buy-t4x0","vendor_legal_information":{"legal_name":"","trade_register_number":""},"vendor_points":4108,"vertical":"restaurants","vertical_parent":"Restaurant","vertical_segment":"home_based_kitchen","vertical_type_ids":["home_based_kitchen"],"web_path":"https://foodpanda.com.bd/restaurant/t4x0/can-buy-t4x0","delivery_fee_discount_mov":0,"has_delivery_pro_discount":false,"ncr_pricing_model":"","ncr_token":"","delivery_fee":{"primary_text":null,"primary_icon_type":"Rider","is_primary_text_strike_through":true,"secondary_text":"NEXTGEN_HVA_ACQUISITION_FD","secondary_icon_type":"NoIcon","text_accessibility_text":null,"delivery_fee_visibility":false},"recommendation_strategy":""},{"id":78248,"code":"bb2p","accepts_instructions":true,"address":"Goran Tempo Stand, Goran Rd 215/1 south goran, 1219 Khilgaon, Dhaka, Bangladesh","address_line2":"","budget":1,"chain":{"code":"","name":"","main_vendor_code":"","url_key":""},"characteristics":{"cuisines":[{"id":243,"name":"Curry","url_key":"","main":false},{"id":123,"name":"Rice Di
+
+
+--- LISTING ENTRY #9 ---
+URL: https://reviews-api-bd.fd-api.com/api/v5/payment/intent?language_id=1
+PATH: /api/v5/payment/intent
+METHOD: POST
+STATUS: 401
+POST MIME: application/json
+REQUEST BODY (JSON):
+{
+  "payment": {
+    "version": 1,
+    "amount": 0.0,
+    "filterPaymentMethods": [
+      "no_payment",
+      "hsbc_payme",
+      "atome",
+      "payu_twisto",
+      "adyen_hpp_vipps",
+      "adyen_hpp_molpay",
+      "adyen_hpp_swish",
+      "adyen_hpp_paymaya",
+      "adyen_hpp_boost",
+      "bigfish_szep_mkb",
+      "bigfish_szep_otp",
+      "bigfish_szep_kh",
+      "checkout_psp_online_banking",
+      "checkout_psp_mobilepay",
+      "adyen_hpp_sofort",
+      "razer_online_banking",
+      "wavepay",
+      "adyen_mobilepay",
+      "adyen_wechatpay",
+      "ssl_online_payment",
+      "ssl_standalone_payment",
+      "viabill",
+      "antfinancial_jkopay",
+      "iyzico_yemeksepetipay",
+      "xendit_promptpay",
+      "vippsdirect",
+      "payment_on_delivery",
+      "voucher_chequedejeuner",
+      "voucher_ticketrestaurant",
+      "voucher_gastropass",
+      "voucher_gurmanpass",
+      "voucher_sodexo",
+      "voucher_doxx",
+      "voucher_cardpaymenttorider",
+      "voucher_sodexoschecks",
+      "voucher_oamtcgutscheine",
+      "voucher_edenredticketrestaurant",
+      "voucher_magistrat",
+      "yemekpay_cardpayment",
+      "yemekpay_cardondelivery",
+      "cash",
+      "sodexo_restaurant_pass",
+      "cio_card",
+      "metropol_card",
+      "multinet",
+      "voucher_tokenflex",
+      "paye_card",
+      "set_card",
+      "sodexo_restaurant_pass_mobile",
+      "ticket_restaurant_meal_card",
+      "ticket_restaurant_food_voucher",
+      "yemekmatik_meal_card",
+      "winwin_mobile",
+      "riderqr",
+      "credit_card",
+      "cybersource_creditcard",
+      "yemekpay_creditcard",
+      "generic_creditcard",
+      "simple_creditcard",
+      "antfinancial_gcash",
+      "antfinancial_bkash",
+      "antfinancial_truemoney",
+      "antfinancial_alipay",
+      "paypal",
+      "reddot_paylah",
+      "paypay",
+      "rpay",
+      "line_pay",
+      "epassi",
+      "antfinancial_tng",
+      "jazzcash_wallet",
+      "antfinancial_easypaisa",
+      "antfinancial_alipaycn",
+      "xendit_directdebit",
+      "klarna",
+      "maybankcasa",
+      "aba_pay",
+      "craftgate_edenred",
+      "trustly_online_banking",
+      "meal_card",
+      "globalpayments_pxpay",
+      "antfinancial_mayawallet",
+      "balance",
+      "dh_wallet",
+      "gift_card",
+      "tng_wallet",
+      "postpaid"
+    ]
+  },
+  "paymentContext": "Subscription"
+}
+QUERY PARAMS: {
+  "language_id": [
+    "1"
+  ]
+}
+
+KEY REQUEST HEADERS:
+{
+  "authorization": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6ImtleW1ha2VyLWFuZHJvaWQtZnAtYmQiLCJ0eXAiOiJKV1QifQ.eyJpZCI6IjA3M3M4MXdvdWJxa2VqbzlzaHZzM3J0cHN0cGJ1MzJ1dHg3dDdhZ24iLCJjbGllbnRfaWQiOiJhbmRyb2lkIiwidXNlcl9pZCI6Im51bGwiLCJleHBpcmVzIjoxNzg0OTIyMzQ2LCJ0b2tlbl90eXBlIjoiYmVhcmVyIiwic2NvcGUiOiJBUElfQ1VTVE9NRVIifQ.kpJQ8XIyQ3OpcjHI8V2yahyS76jxFRt0stVDx5OVGHm0pSqryKEYytxYkb64EJXPrzm2tXtDal6myx0eakBFlCElE4bUuxA-BRpQL025PYyTf1tVLcDPDPHCdraKoCZAv60o7gCAu-qA3s9npOxrIaMbuoELelBLu5m1KQZYH0C60R0PBlWWuZ8uxG35suFywwn-N7x6JEOdVi_fUWx6W761OgIX9xiF9zqFCWQ3wZAwXVpSfulD3EScUIFZxi1OGJe9VdIvHTCbvS8KfVmEdu0KKUtO99HW50qSDI66bmRUWjhh7WBDnMTtrcYxvHjXAK56pEXJXpDxL5-McrBHgA",
+  "r-sig": "0q48eUczPIpY+bF28Ks3oS2x3KZLgEIiZfG7LG3tcVM=",
+  "eks": "aaaaq3",
+  "rts": "2026-07-25T00:45:45+0600",
+  "app-version": "26.28.0",
+  "device-id": "24de6ba6fb091a6d4a82735d73e61a05",
+  "user-agent": "Android-app-26.28.0(262800214)",
+  "x-fp-api-key": "android",
+  "content-type": "application/json; charset=UTF-8"
+}
+
+RESPONSE BODY (first 5000 chars):
+{"status_code":401,"data":{"exception_type":"ApiOAuthFailedException","message":"Client access token provided is not accepted in this endpoint","developer_message":"","more_information":""}}
+
+
+
+--- LISTING ENTRY #10 ---
+URL: https://reviews-api-bd.fd-api.com/api/v5/cms/restaurant-description-wqr5?language_id=1
+PATH: /api/v5/cms/restaurant-description-wqr5
+METHOD: GET
+STATUS: 404
+QUERY PARAMS: {
+  "language_id": [
+    "1"
+  ]
+}
+
+KEY REQUEST HEADERS:
+{
+  "authorization": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6ImtleW1ha2VyLWFuZHJvaWQtZnAtYmQiLCJ0eXAiOiJKV1QifQ.eyJpZCI6IjA3M3M4MXdvdWJxa2VqbzlzaHZzM3J0cHN0cGJ1MzJ1dHg3dDdhZ24iLCJjbGllbnRfaWQiOiJhbmRyb2lkIiwidXNlcl9pZCI6Im51bGwiLCJleHBpcmVzIjoxNzg0OTIyMzQ2LCJ0b2tlbl90eXBlIjoiYmVhcmVyIiwic2NvcGUiOiJBUElfQ1VTVE9NRVIifQ.kpJQ8XIyQ3OpcjHI8V2yahyS76jxFRt0stVDx5OVGHm0pSqryKEYytxYkb64EJXPrzm2tXtDal6myx0eakBFlCElE4bUuxA-BRpQL025PYyTf1tVLcDPDPHCdraKoCZAv60o7gCAu-qA3s9npOxrIaMbuoELelBLu5m1KQZYH0C60R0PBlWWuZ8uxG35suFywwn-N7x6JEOdVi_fUWx6W761OgIX9xiF9zqFCWQ3wZAwXVpSfulD3EScUIFZxi1OGJe9VdIvHTCbvS8KfVmEdu0KKUtO99HW50qSDI66bmRUWjhh7WBDnMTtrcYxvHjXAK56pEXJXpDxL5-McrBHgA",
+  "r-sig": "mwwHcCE+v0CXwUREhpq5jAUdUbrHAVo4wKtoWpgRwTE=",
+  "eks": "cbcgig",
+  "rts": "2026-07-25T00:45:45+0600",
+  "app-version": "26.28.0",
+  "device-id": "24de6ba6fb091a6d4a82735d73e61a05",
+  "user-agent": "Android-app-26.28.0(262800214)",
+  "x-fp-api-key": "android"
+}
+
+RESPONSE BODY (first 5000 chars):
+{"status_code":404,"data":{"exception_type":"NotFoundException","message":"Cms page restaurant-description-wqr5 not found","developer_message":"","more_information":null}}
+
+
+
+--- LISTING ENTRY #11 ---
+URL: https://reviews-api-bd.fd-api.com/vendor-snippets/wqr5?globalEntityId=FP_BD&language_id=1&language_code=en_BD
+PATH: /vendor-snippets/wqr5
+METHOD: GET
+STATUS: 200
+QUERY PARAMS: {
+  "globalEntityId": [
+    "FP_BD"
+  ],
+  "language_id": [
+    "1"
+  ],
+  "language_code": [
+    "en_BD"
+  ]
+}
+
+KEY REQUEST HEADERS:
+{
+  "authorization": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6ImtleW1ha2VyLWFuZHJvaWQtZnAtYmQiLCJ0eXAiOiJKV1QifQ.eyJpZCI6IjA3M3M4MXdvdWJxa2VqbzlzaHZzM3J0cHN0cGJ1MzJ1dHg3dDdhZ24iLCJjbGllbnRfaWQiOiJhbmRyb2lkIiwidXNlcl9pZCI6Im51bGwiLCJleHBpcmVzIjoxNzg0OTIyMzQ2LCJ0b2tlbl90eXBlIjoiYmVhcmVyIiwic2NvcGUiOiJBUElfQ1VTVE9NRVIifQ.kpJQ8XIyQ3OpcjHI8V2yahyS76jxFRt0stVDx5OVGHm0pSqryKEYytxYkb64EJXPrzm2tXtDal6myx0eakBFlCElE4bUuxA-BRpQL025PYyTf1tVLcDPDPHCdraKoCZAv60o7gCAu-qA3s9npOxrIaMbuoELelBLu5m1KQZYH0C60R0PBlWWuZ8uxG35suFywwn-N7x6JEOdVi_fUWx6W761OgIX9xiF9zqFCWQ3wZAwXVpSfulD3EScUIFZxi1OGJe9VdIvHTCbvS8KfVmEdu0KKUtO99HW50qSDI66bmRUWjhh7WBDnMTtrcYxvHjXAK56pEXJXpDxL5-McrBHgA",
+  "r-sig": "bqD/lrXMKDQUBv8IlsGngtGcpy6TKqWltyQNKJ4be6U=",
+  "eks": "aaaamg",
+  "rts": "2026-07-25T00:45:45+0600",
+  "app-version": "26.28.0",
+  "device-id": "24de6ba6fb091a6d4a82735d73e61a05",
+  "user-agent": "android",
+  "x-fp-api-key": "android"
+}
+
+RESPONSE BODY (first 5000 chars):
+{"data":{"reviews":[{"uuid":"0d1d87c7-e544-49c7-ac0f-449c2bc8cca5","createdAt":"2026-04-16T13:40:03Z","updatedAt":"2026-04-16T13:40:03Z","text":"yammy fresh and tasty food 100% recommended  THIS resturent ","reviewerName":"Afzal","reviewerId":"bdcb74nj","overallRating":5,"commentPrettyDate":{"translationKey":"NEXTGEN_REVIEWS_X_MONTHS_AGO","timeDuration":"3"}},{"uuid":"c13bac75-4d70-47b9-8242-e3cce02b5488","createdAt":"2025-10-19T19:16:17Z","updatedAt":"2025-10-19T19:16:17Z","text":"Good taste, appreciated ≡ƒæì≡ƒÅ╝","reviewerName":"Ishrat","reviewerId":"bdpeo0no","overallRating":5,"commentPrettyDate":{"translationKey":"NEXTGEN_REVIEWS_X_MONTHS_AGO","timeDuration":"9"}},{"uuid":"d9c65340-f9bf-47c8-b5f5-552b5c9aa8aa","createdAt":"2025-09-04T12:10:28Z","updatedAt":"2025-09-04T12:10:28Z","text":"yammy and testy food fresh and gorom chilo","reviewerName":"Ridhva","reviewerId":"bdcb74nj","overallRating":5,"commentPrettyDate":{"translationKey":"NEXTGEN_REVIEWS_X_MONTHS_AGO","timeDuration":"10"}},{"uuid":"9ca8259f-8eb1-4d5b-8fd4-c933f32acd58","createdAt":"2025-08-28T13:25:22Z","updatedAt":"2025-08-28T13:25:22Z","text":"He is very helpful person.","reviewerName":"Tamim","reviewerId":"bdrtm0bo","overallRating":5,"commentPrettyDate":{"translationKey":"NEXTGEN_REVIEWS_X_MONTHS_AGO","timeDuration":"11"}}]}}
+
+
+
+--- LISTING ENTRY #12 ---
+URL: https://reviews-api-bd.fd-api.com/api/v5/payment/intent?language_id=1
+PATH: /api/v5/payment/intent
+METHOD: POST
+STATUS: 401
+POST MIME: application/json
+REQUEST BODY (JSON):
+{
+  "payment": {
+    "version": 1,
+    "amount": 0.0,
+    "filterPaymentMethods": [
+      "no_payment",
+      "hsbc_payme",
+      "atome",
+      "payu_twisto",
+      "adyen_hpp_vipps",
+      "adyen_hpp_molpay",
+      "adyen_hpp_swish",
+      "adyen_hpp_paymaya",
+      "adyen_hpp_boost",
+      "bigfish_szep_mkb",
+      "bigfish_szep_otp",
+      "bigfish_szep_kh",
+      "checkout_psp_online_banking",
+      "checkout_psp_mobilepay",
+      "adyen_hpp_sofort",
+      "razer_online_banking",
+      "wavepay",
+      "adyen_mobilepay",
+      "adyen_wechatpay",
+      "ssl_online_payment",
+      "ssl_standalone_payment",
+      "viabill",
+      "antfinancial_jkopay",
+      "iyzico_yemeksepetipay",
+      "xendit_promptpay",
+      "vippsdirect",
+      "payment_on_delivery",
+      "voucher_chequedejeuner",
+      "voucher_ticketrestaurant",
+      "voucher_gastropass",
+      "voucher_gurmanpass",
+      "voucher_sodexo",
+      "voucher_doxx",
+      "voucher_cardpaymenttorider",
+      "voucher_sodexoschecks",
+      "voucher_oamtcgutscheine",
+      "voucher_edenredticketrestaurant",
+      "voucher_magistrat",
+      "yemekpay_cardpayment",
+      "yemekpay_cardondelivery",
+      "cash",
+      "sodexo_restaurant_pass",
+      "cio_card",
+      "metropol_card",
+      "multinet",
+      "voucher_tokenflex",
+      "paye_card",
+      "set_card",
+      "sodexo_restaurant_pass_mobile",
+      "ticket_restaurant_meal_card",
+      "ticket_restaurant_food_voucher",
+      "yemekmatik_meal_card",
+      "winwin_mobile",
+      "riderqr",
+      "credit_card",
+      "cybersource_creditcard",
+      "yemekpay_creditcard",
+      "generic_creditcard",
+      "simple_creditcard",
+      "antfinancial_gcash",
+      "antfinancial_bkash",
+      "antfinancial_truemoney",
+      "antfinancial_alipay",
+      "paypal",
+      "reddot_paylah",
+      "paypay",
+      "rpay",
+      "line_pay",
+      "epassi",
+      "antfinancial_tng",
+      "jazzcash_wallet",
+      "antfinancial_easypaisa",
+      "antfinancial_alipaycn",
+      "xendit_directdebit",
+      "klarna",
+      "maybankcasa",
+      "aba_pay",
+      "craftgate_edenred",
+      "trustly_online_banking",
+      "meal_card",
+      "globalpayments_pxpay",
+      "antfinancial_mayawallet",
+      "balance",
+      "dh_wallet",
+      "gift_card",
+      "tng_wallet",
+      "postpaid"
+    ]
+  },
+  "paymentContext": "Subscription"
+}
+QUERY PARAMS: {
+  "language_id": [
+    "1"
+  ]
+}
+
+KEY REQUEST HEADERS:
+{
+  "authorization": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6ImtleW1ha2VyLWFuZHJvaWQtZnAtYmQiLCJ0eXAiOiJKV1QifQ.eyJpZCI6IjA3M3M4MXdvdWJxa2VqbzlzaHZzM3J0cHN0cGJ1MzJ1dHg3dDdhZ24iLCJjbGllbnRfaWQiOiJhbmRyb2lkIiwidXNlcl9pZCI6Im51bGwiLCJleHBpcmVzIjoxNzg0OTIyMzQ2LCJ0b2tlbl90eXBlIjoiYmVhcmVyIiwic2NvcGUiOiJBUElfQ1VTVE9NRVIifQ.kpJQ8XIyQ3OpcjHI8V2yahyS76jxFRt0stVDx5OVGHm0pSqryKEYytxYkb64EJXPrzm2tXtDal6myx0eakBFlCElE4bUuxA-BRpQL025PYyTf1tVLcDPDPHCdraKoCZAv60o7gCAu-qA3s9npOxrIaMbuoELelBLu5m1KQZYH0C60R0PBlWWuZ8uxG35suFywwn-N7x6JEOdVi_fUWx6W761OgIX9xiF9zqFCWQ3wZAwXVpSfulD3EScUIFZxi1OGJe9VdIvHTCbvS8KfVmEdu0KKUtO99HW50qSDI66bmRUWjhh7WBDnMTtrcYxvHjXAK56pEXJXpDxL5-McrBHgA",
+  "r-sig": "5FxOcpSX3WIHksxxy4Kk7hrv4EKn6K+yjh8OGzAd60A=",
+  "eks": "cscaq3",
+  "rts": "2026-07-25T00:45:45+0600",
+  "app-version": "26.28.0",
+  "device-id": "24de6ba6fb091a6d4a82735d73e61a05",
+  "user-agent": "Android-app-26.28.0(262800214)",
+  "x-fp-api-key": "android",
+  "content-type": "application/json; charset=UTF-8"
+}
+
+RESPONSE BODY (first 5000 chars):
+{"status_code":401,"data":{"exception_type":"ApiOAuthFailedException","message":"Client access token provided is not accepted in this endpoint","developer_message":"","more_information":""}}
+
+
+
+--- LISTING ENTRY #13 ---
+URL: https://reviews-api-bd.fd-api.com/api/v5/payment/intent?language_id=1
+PATH: /api/v5/payment/intent
+METHOD: POST
+STATUS: 401
+POST MIME: application/json
+REQUEST BODY (JSON):
+{
+  "payment": {
+    "version": 1,
+    "amount": 0.0,
+    "filterPaymentMethods": [
+      "no_payment",
+      "hsbc_payme",
+      "atome",
+      "payu_twisto",
+      "adyen_hpp_vipps",
+      "adyen_hpp_molpay",
+      "adyen_hpp_swish",
+      "adyen_hpp_paymaya",
+      "adyen_hpp_boost",
+      "bigfish_szep_mkb",
+      "bigfish_szep_otp",
+      "bigfish_szep_kh",
+      "checkout_psp_online_banking",
+      "checkout_psp_mobilepay",
+      "adyen_hpp_sofort",
+      "razer_online_banking",
+      "wavepay",
+      "adyen_mobilepay",
+      "adyen_wechatpay",
+      "ssl_online_payment",
+      "ssl_standalone_payment",
+      "viabill",
+      "antfinancial_jkopay",
+      "iyzico_yemeksepetipay",
+      "xendit_promptpay",
+      "vippsdirect",
+      "payment_on_delivery",
+      "voucher_chequedejeuner",
+      "voucher_ticketrestaurant",
+      "voucher_gastropass",
+      "voucher_gurmanpass",
+      "voucher_sodexo",
+      "voucher_doxx",
+      "voucher_cardpaymenttorider",
+      "voucher_sodexoschecks",
+      "voucher_oamtcgutscheine",
+      "voucher_edenredticketrestaurant",
+      "voucher_magistrat",
+      "yemekpay_cardpayment",
+      "yemekpay_cardondelivery",
+      "cash",
+      "sodexo_restaurant_pass",
+      "cio_card",
+      "metropol_card",
+      "multinet",
+      "voucher_tokenflex",
+      "paye_card",
+      "set_card",
+      "sodexo_restaurant_pass_mobile",
+      "ticket_restaurant_meal_card",
+      "ticket_restaurant_food_voucher",
+      "yemekmatik_meal_card",
+      "winwin_mobile",
+      "riderqr",
+      "credit_card",
+      "cybersource_creditcard",
+      "yemekpay_creditcard",
+      "generic_creditcard",
+      "simple_creditcard",
+      "antfinancial_gcash",
+      "antfinancial_bkash",
+      "antfinancial_truemoney",
+      "antfinancial_alipay",
+      "paypal",
+      "reddot_paylah",
+      "paypay",
+      "rpay",
+      "line_pay",
+      "epassi",
+      "antfinancial_tng",
+      "jazzcash_wallet",
+      "antfinancial_easypaisa",
+      "antfinancial_alipaycn",
+      "xendit_directdebit",
+      "klarna",
+      "maybankcasa",
+      "aba_pay",
+      "craftgate_edenred",
+      "trustly_online_banking",
+      "meal_card",
+      "globalpayments_pxpay",
+      "antfinancial_mayawallet",
+      "balance",
+      "dh_wallet",
+      "gift_card",
+      "tng_wallet",
+      "postpaid"
+    ]
+  },
+  "paymentContext": "Subscription"
+}
+QUERY PARAMS: {
+  "language_id": [
+    "1"
+  ]
+}
+
+KEY REQUEST HEADERS:
+{
+  "authorization": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6ImtleW1ha2VyLWFuZHJvaWQtZnAtYmQiLCJ0eXAiOiJKV1QifQ.eyJpZCI6ImVuNmtzZXIybHUwNGFxOTdndmxxNDBrMWJ0cWJvbDJsaWRod2tlYzAiLCJjbGllbnRfaWQiOiJhbmRyb2lkIiwidXNlcl9pZCI6Im51bGwiLCJleHBpcmVzIjoxNzg0OTIyMzIyLCJ0b2tlbl90eXBlIjoiYmVhcmVyIiwic2NvcGUiOiJBUElfQ1VTVE9NRVIifQ.FWwlGH1eJ8zaFCgHdEF7bVcV9oSrNx-03qQ2Rg7SQ2reJDZWEj5O6HwfAQYm5wykCSn3bEgsV9Oo8dgL9ZUNda83_4ol9rcnr3r4Ertov-q9sK359y6x70ciULf3qAtn8WaQtCXNEZe602hJ2NwXO6op53RKjQvkOtzNLr2YNxGehS9jNkF-_cylqmfr_RvPTXz1k4MK17typ3Rdeq8fUHoMAT3KpLREAdjq2stxlCpFa1XX84uQnuQsF9mKiVEqsaoUOdrueEGOszW_tvocrmgfrp39yG_FfMfG0cvVCI_vtJBBqayVpKqpxYlHwnFoOcjGbfCnoiXaI5Ujyud9Wg",
+  "r-sig": "+RLmZAV+aR3o0Fs72PzMgjcExQgRZlySpWBTydjrTcI=",
+  "eks": "aaaaaa",
+  "rts": "2026-07-25T00:45:38+0600",
+  "app-version": "26.28.0",
+  "device-id": "24de6ba6fb091a6d4a82735d73e61a05",
+  "user-agent": "Android-app-26.28.0(262800214)",
+  "x-fp-api-key": "android",
+  "content-type": "application/json; charset=UTF-8"
+}
+
+RESPONSE BODY (first 5000 chars):
+{"status_code":401,"data":{"exception_type":"ApiOAuthFailedException","message":"Client access token provided is not accepted in this endpoint","developer_message":"","more_information":""}}
+
+
+
+--- LISTING ENTRY #14 ---
+URL: https://reviews-api-bd.fd-api.com/graphql?operationName=RestaurantDetailsPage&variables=%7B%22input%22%3A%7B%22code%22%3A%22wqr5%22%2C%22expeditionType%22%3A%22DELIVERY%22%2C%22filters%22%3A%7B%22productRecommendationLimit%22%3A-1%7D%2C%22isPandaboost%22%3Afalse%2C%22ignoreShrinkage%22%3Afalse%7D%2C%22isRetrieveIdOnly%22%3Atrue%2C%22isVendorMiscEnabled%22%3Atrue%2C%22menuInput%22%3A%7B%22expeditionType%22%3A%22DELIVERY%22%7D%2C%22isPickup%22%3Afalse%2C%22mfoFederationEnabled%22%3Afalse%2C%22isShrinkageUseCase%22%3Afalse%2C%22recommendationInput%22%3A%7B%22expeditionType%22%3A%22DELIVERY%22%2C%22isMealForOne%22%3Afalse%7D%2C%22discountedPriceInput%22%3A%7B%22expeditionType%22%3A%22DELIVERY%22%7D%2C%22surveyInput%22%3A%7B%22limit%22%3A1%7D%7D&extensions=%7B%22persistedQuery%22%3A%7B%22version%22%3A1%2C%22sha256Hash%22%3A%22e54e2da1664dea317275ce6c580b6a38b06b6a2bdf446fa1be878652a4883063%22%7D%7D&language_id=1
+PATH: /graphql
+METHOD: GET
+STATUS: 200
+QUERY PARAMS: {
+  "operationName": [
+    "RestaurantDetailsPage"
+  ],
+  "variables": [
+    "{\"input\":{\"code\":\"wqr5\",\"expeditionType\":\"DELIVERY\",\"filters\":{\"productRecommendationLimit\":-1},\"isPandaboost\":false,\"ignoreShrinkage\":false},\"isRetrieveIdOnly\":true,\"isVendorMiscEnabled\":true,\"menuInput\":{\"expeditionType\":\"DELIVERY\"},\"isPickup\":false,\"mfoFederationEnabled\":false,\"isShrinkageUseCase\":false,\"recommendationInput\":{\"expeditionType\":\"DELIVERY\",\"isMealForOne\":false},\"discountedPriceInput\":{\"expeditionType\":\"DELIVERY\"},\"surveyInput\":{\"limit\":1}}"
+  ],
+  "extensions": [
+    "{\"persistedQuery\":{\"version\":1,\"sha256Hash\":\"e54e2da1664dea317275ce6c580b6a38b06b6a2bdf446fa1be878652a4883063\"}}"
+  ],
+  "language_id": [
+    "1"
+  ]
+}
+
+KEY REQUEST HEADERS:
+{
+  "authorization": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6ImtleW1ha2VyLWFuZHJvaWQtZnAtYmQiLCJ0eXAiOiJKV1QifQ.eyJpZCI6ImVuNmtzZXIybHUwNGFxOTdndmxxNDBrMWJ0cWJvbDJsaWRod2tlYzAiLCJjbGllbnRfaWQiOiJhbmRyb2lkIiwidXNlcl9pZCI6Im51bGwiLCJleHBpcmVzIjoxNzg0OTIyMzIyLCJ0b2tlbl90eXBlIjoiYmVhcmVyIiwic2NvcGUiOiJBUElfQ1VTVE9NRVIifQ.FWwlGH1eJ8zaFCgHdEF7bVcV9oSrNx-03qQ2Rg7SQ2reJDZWEj5O6HwfAQYm5wykCSn3bEgsV9Oo8dgL9ZUNda83_4ol9rcnr3r4Ertov-q9sK359y6x70ciULf3qAtn8WaQtCXNEZe602hJ2NwXO6op53RKjQvkOtzNLr2YNxGehS9jNkF-_cylqmfr_RvPTXz1k4MK17typ3Rdeq8fUHoMAT3KpLREAdjq2stxlCpFa1XX84uQnuQsF9mKiVEqsaoUOdrueEGOszW_tvocrmgfrp39yG_FfMfG0cvVCI_vtJBBqayVpKqpxYlHwnFoOcjGbfCnoiXaI5Ujyud9Wg",
+  "r-sig": "e2jPShKVGDMDuAZOfGEotF2CXbSmTvT/5PndJI279As=",
+  "eks": "giggig",
+  "rts": "2026-07-25T00:45:38+0600",
+  "app-version": "26.28.0",
+  "device-id": "24de6ba6fb091a6d4a82735d73e61a05",
+  "user-agent": "Android-app-26.28.0(262800214)",
+  "x-fp-api-key": "android",
+  "accept": "multipart/mixed;deferSpec=20220824, application/graphql-response+json, application/json"
+}
+
+RESPONSE BODY (first 5000 chars):
+{"data":{"restaurantDetailsPage":{"swimlanes":null,"components":[{"__typename":"ExpeditionToggle","pickupPromoLabel":"25% off","pickupPromoIncentiveId":"600539"}],"vendorData":{"__typename":"VendorData","code":"wqr5","name":"Marsal Aquarium Restaurant","images":{"logo":"https://images.deliveryhero.io/image/fd-bd/LH/wqr5-hero.jpg","listing":"https://images.deliveryhero.io/image/fd-bd/LH/wqr5-listing.jpg"},"rating":{"value":4.6,"count":41,"aggregationAlgorithm":"refre"},"location":{"addressLine1":"Goran,  Khilgaw goran nobabi mor  198/b 2nd floor, 1219 Khilgaon, Dhaka, Bangladesh","latitude":23.7499592,"longitude":90.43280915,"addressLine2":null},"availability":{"distanceInMeters":249,"nextAvailableAt":null,"status":"TEMPORARILY_CLOSED","isAffectedByShrinkage":false},"isDeliveryEnabled":true,"isPickupEnabled":true,"hasDeliveryProvider":true,"isFavorite":false,"isSuperVendor":false,"timezone":"Asia/Dhaka","contactNumber":null,"webPath":"https://www.foodpanda.com.bd/restaurant/wqr5/marsal-aquarium-restaurant","timeEstimations":{"delivery":{"__typename":"TimeEstimation","minimumTime":null,"duration":{"lowerLimitInMinutes":40,"upperLimitInMinutes":65}},"pickup":null},"dynamicPricing":{"highValueActionLabel":"NEXTGEN_HVA_ACQUISITION_FD","serviceFee":{"maximumValue":29,"minimumValue":5,"serviceFeeType":"SERVICE_FEE_TYPE_PERCENTAGE","setUpValue":3,"total":5},"deliveryFee":{"original":9,"total":0,"saverFee":{"total":0}},"minimumOrderValue":{"total":50}},"saverDeliveryTimeEstimations":{"__typename":"TimeEstimation","minimumTime":null,"duration":{"lowerLimitInMinutes":50,"upperLimitInMinutes":75}},"calculatedDynamicPricing":{"discountedDeliveryFee":0,"discountMinimumOrderValue":null},"menu":{"__typename":"RestaurantMenu","id":"244795","title":"Delivery Menu","startTime":"00:00:00","endTime":"23:59:00","expeditionType":"DELIVERY","recommendedProducts":[{"products":null,"layout":["TILE","LABEL"],"recommendationStrategy":"PERSONALIZED","title":[{"__typename":"RichTextElement","textType":"TRANSLATION_KEY","value":"NEXTGEN_POPULAR_DISH_TAG","styling":null,"placeholders":null}],"description":[{"__typename":"RichTextElement","textType":"TRANSLATION_KEY","value":"NEXTGEN_POPULAR_CATEGORY_DESCRIPTION","styling":null,"placeholders":null}]}],"categories":[{"__typename":"RestaurantMenuCategory","id":"2513366","code":"ade3ee17-f4d1-4971-8ef7-c766ab34e4ed","title":"Appetizers","description":"","containerPrice":null,"partner":null,"products":[{"__typename":"RestaurantProductData","id":"9663585","code":"87f4dfec-b207-4598-836b-33cbc25b994a","title":"BBQ Lollipop","description":"1:1 - Prepared with chicken, secret spice & bbq sauce","image":{"url":"https://images.deliveryhero.io/image/fd-bd/Products/9663585.jpg"},"variations":[{"id":"10589334","discountedPrice":187,"unitPricingInfo":null}],"isSoldOut":false,"isBundle":false,"isAlcoholicItem":false,"tags":["system:image-updated-at=1776076093"],"isCustomizable":false,"dietaryAttributes":null,"rating":null,"vat":null,"priceAttributes":{"discountedPrice":187,"displayFromTag":false,"originalPrice":220,"containerPrice":null}},{"__typename":"RestaurantProductData","id":"9663586","code":"0c5ed37c-97c8-4022-8d80-ee613a8cb614","title":"Thai Fried Chicken","description":"6 pc - Well-seasoned & deep-fried chicken with a thick bread crumb coating","image":{"url":"https://images.deliveryhero.io/image/fd-bd/Products/9663586.jpg"},"variations":[{"id":"10589335","discountedPrice":306,"unitPricingInfo":null}],"isSoldOut":false,"isBundle":false,"isAlcoholicItem":false,"tags":["system:image-updated-at=1776076091"],"isCustomizable":false,"dietaryAttributes":null,"rating":null,"vat":null,"priceAttributes":{"discountedPrice":306,"displayFromTag":false,"originalPrice":360,"containerPrice":null}},{"__typename":"RestaurantProductData","id":"9663587","code":"b337a45d-ff3f-49dd-b18d-1aed73f6e616","title":"Crispy Fried Chicken","description":"1:1 - Juicy chicken coated in a crunchy & seasoned batter, delivering irresistible flavor with every bite","image":{"url":"https://images.deliveryhero.io/image/fd-bd/Products/9663587.jpg"},"variations":[{"id":"10589336","discountedPrice":102,"unitPricingInfo":null}],"isSoldOut":false,"isBundle":false,"isAlcoholicItem":false,"tags":["system:image-updated-at=1776076093"],"isCustomizable":false,"dietaryAttributes":null,"rating":null,"vat":null,"priceAttributes":{"discountedPrice":102,"displayFromTag":false,"originalPrice":120,"containerPrice":null}}],"masterCategory":{"id":"2"}},{"__typename":"RestaurantMenuCategory","id":"2412805","code":"5905cfb4-5085-4f78-ae9c-36f1d8a4cd95","title":"Soup","description":"Sea food  soup 1:3","containerPrice":null,"partner":null,"products":[{"__typename":"RestaurantProductData","id":"8986032","code":"f3439401-1de2-4175-9191-942c8ac11a3f","title":"Thai Soup Thick","description":"Incredibly flavorsome thai soup prepared with chicken, prawn & spices","image":{"url":"https://images.deliveryhero.io/image/fd-bd/Products/8986032.jpg"},"variations":[{"i
+
+
+--- LISTING ENTRY #15 ---
+URL: https://reviews-api-bd.fd-api.com/vendor-snippets/t86i?globalEntityId=FP_BD&language_id=1&language_code=en_BD
+PATH: /vendor-snippets/t86i
+METHOD: GET
+STATUS: 200
+QUERY PARAMS: {
+  "globalEntityId": [
+    "FP_BD"
+  ],
+  "language_id": [
+    "1"
+  ],
+  "language_code": [
+    "en_BD"
+  ]
+}
+
+KEY REQUEST HEADERS:
+{
+  "authorization": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6ImtleW1ha2VyLWFuZHJvaWQtZnAtYmQiLCJ0eXAiOiJKV1QifQ.eyJpZCI6IjExYnJwZzAwYnBmNzQzeDY3ejg0bGk1d29qYmlrZGVxdmd6Zjc0amwiLCJjbGllbnRfaWQiOiJhbmRyb2lkIiwidXNlcl9pZCI6Im51bGwiLCJleHBpcmVzIjoxNzg0OTIyMjkzLCJ0b2tlbl90eXBlIjoiYmVhcmVyIiwic2NvcGUiOiJBUElfQ1VTVE9NRVIifQ.CYL-UGoFAPTwPpsizRUbGVYgD7CFUC4YNWRaFXce4IMHVc52nu2LDSMO0PmdATzFpdaHmE8KNaEsuIHNZ0nVz7cwowDs15BBM27SeA4Re7SEEls53hTl1RLWs2lFHz9iJY7cM_HyJ4sfJULtNxJQNhkyyEuT1T8Bfc6OBCFp4FLzlkAsje70ms8JqE-JVI8EiMhb5z1LWwv8KGD9iwB8cZ9V5ewcim8iD87cJbTK9eK60ouxv02rPG9GxNwgxkKCzrYKn7Mtbdo7irmPK24uOo1krfcKINyA9v4f6bCmcdZTeUZ6euGAQNKHqCPDuqF4jW3MBJIZ0ohoDKScgmErVg",
+  "r-sig": "24e1Zq5R1/Q/zOG4pYQ8yiY51ya4Ovvg0MmKgsM8NR0=",
+  "eks": "cvcmnp",
+  "rts": "2026-07-25T00:45:16+0600",
+  "app-version": "26.28.0",
+  "device-id": "24de6ba6fb091a6d4a82735d73e61a05",
+  "user-agent": "android",
+  "x-fp-api-key": "android"
+}
+
+RESPONSE BODY (first 5000 chars):
+{"data":{"reviews":[{"uuid":"45ebfac9-695a-4628-a9c5-3c9838781152","createdAt":"2026-06-27T07:09:42Z","updatedAt":"2026-06-27T07:09:42Z","text":"αªòαª░αª▓αª╛ αª¡αª╛αª£αª┐ αª¼αª╛αª╕αª┐ αª¢αª┐αª▓ αÑñ αªàαª¿αºìαª» αªåαªçαªƒαºçαª« αªùαºüαª▓αª┐ αª¡αª╛αª▓αºï αª¢αª┐αª▓ αÑñ","reviewerName":"Taposh","reviewerId":"bd71wvoo","overallRating":4,"commentPrettyDate":{"translationKey":"NEXTGEN_REVIEWS_X_WEEKS_AGO","timeDuration":"3"}},{"uuid":"9ec1dec6-ae0b-40d3-b29b-744e01ac2800","createdAt":"2026-06-26T03:56:30Z","updatedAt":"2026-06-26T03:56:30Z","text":"needs better packaging, the delivery bag was soaked with oil!!!.","reviewerName":"Al","reviewerId":"bdqagi0e","overallRating":4,"commentPrettyDate":{"translationKey":"NEXTGEN_REVIEWS_X_WEEKS_AGO","timeDuration":"4"}},{"uuid":"436c5f34-27b1-470e-9537-7614ab276cdc","createdAt":"2026-06-18T10:34:26Z","updatedAt":"2026-06-18T10:34:26Z","text":"αª£αª╛αª▓αª┐ αªòαºüαª«αº£αª╛ αª¡αª╛αª£αª┐ αªƒαªò αªƒαªò αª▓αª╛αªùαª¢αª┐αª▓αºïαÑñ αª«αª¿αºç αª╣αªÜαºìαª¢αª┐αª▓αºï αª¿αª╖αºìαªƒ αª╣αºƒαºç αªùαºçαª¢αºçαÑñ αªûαª╛αªôαºƒαª╛ αª»αª╛αºƒ αª¿αª┐","reviewerName":"Tas","reviewerId":"bdrnr5pi","overallRating":4,"commentPrettyDate":{"translationKey":"NEXTGEN_REVIEWS_1_MONTH_AGO","timeDuration":"1"}},{"uuid":"7d557e81-7da3-41fb-8d72-a8eb7c5d0bc5","createdAt":"2026-06-16T16:18:32Z","updatedAt":"2026-06-16T16:18:32Z","text":"αªòαª╛αªÜαªòαª┐ αª«αª╛αª¢ - αª▓αª¼αª¿ αª¼αºçαª╢αª┐ αª╣αºƒαºç αªùαºçαª¢αºçαÑñ  αª▓αªçαªƒαºìαªƒαºìαª» αª╢αºüαªƒαªòαª┐ αª¡αºüαª¿αª╛ - αªûαºüαª¼ αª¡αª╛αª▓αºïαÑñ αªòαª╛αª▓αª┐ αª£αª┐αª░αª╛ αª¡αª░αºìαªñαª╛ - αª░αª╕αºüαª¿ αªûαºüαª¼ αª¼αºçαª╢αª┐ αª╣αºƒαºç αªùαºçαª¢αºçαÑñ ","reviewerName":"zahid","reviewerId":"s7eiq0cu","overallRating":4,"commentPrettyDate":{"translationKey":"NEXTGEN_REVIEWS_1_MONTH_AGO","timeDuration":"1"}},{"uuid":"74041840-a746-4a35-8331-9a5ca3b2259f","createdAt":"2026-06-14T13:21:08Z","updatedAt":"2026-06-14T13:21:08Z","text":"αª▓αª╛αªë αªÜαª┐αªéαº£αª┐ αªƒαª╛ αªùαª¿αºìαªº αª╣αºƒαºç αªùαª┐αºƒαºçαª¢αª┐αª▓ αªåαª░ αª░αºüαªç αª«αª╛αª¢αºçαª░ αª░αª╛αª¿αºìαª¿αª╛ αª«αª£αª╛ αª¢αª┐αª▓ αªòαª┐αª¿αºìαªñαºü αª«αª╛αª¢ αªƒαª╛ αªÅαªòαªªαª« αª½αºìαª░αºçαª╢ αª▓αª╛αªùαºçαª¿αª┐,αªàαª¿αºçαªòαªªαª┐αª¿ αªåαªùαºçαª░ αª½αºìαª░αºïαª£αºçαª¿ αª«αª¿αºç αª╣αºƒαºçαª¢αºç","reviewerName":"Moon","reviewerId":"bdcaa3k0","overallRating":4,"commentPrettyDate":{"translationKey":"NEXTGEN_REVIEWS_1_MONTH_AGO","timeDuration":"1"}},{"uuid":"f4195512-47da-4181-ba44-e1148eff2dd3","createdAt":"2026-06-11T14:16:01Z","updatedAt":"2026-06-11T14:16:01Z","text":"badam vorta & lau chingri both were very tasty....bt puishak chingri was foul smelling like pocha smell..... ","reviewerName":"Dr","reviewerId":"bdqml6nr","overallRating":4,"commentPrettyDate":{"translationKey":"NEXTGEN_REVIEWS_1_MONTH_AGO","timeDuration":"1"}},{"uuid":"fb307df0-14dc-4083-b966-a79fc6cfe5ac","createdAt":"2026-06-09T15:54:39Z","updatedAt":"2026-06-09T15:54:39Z","text":"αªûαª╛αª¼αª╛αª░ αªùαª░αª« αªô αª½αºìαª░αºçαª╢ αª¢αª┐αª▓αºï, αªòαª┐αª¿αºìαªñαºü αªûαª╛αª¼αª╛αª░αºç αª▓αª¼αªúαºçαª░ αª¬αª░αª┐αª«αª╛αª¿ αªàαª¿αºçαªò αª¼αºçαª╢αª┐ αª¢αª┐αª▓αÑñ αª▓αª¼αªú αªåαª░αºï αªòαª« αª╣αª▓αºç αª¡αª╛αª▓αºï αª╣αªñαºï αÑñ αªàαª░αºìαªíαª╛αª░ αªòαª░αºçαª¢αª┐αª▓αª╛αª« αª¬αª╛αªÖαª╛αª╢ αª«αª╛αª¢ αª¡αª╛αª£αª╛ , αªòαª┐αª¿αºìαªñαºü αªªαºçαªôαºƒαª╛ αª╣αºƒαºçαª¢αºç αª¬αª╛αª¼αªªαª╛ αª«αª╛αª¢αºçαª░ αª¥αºïαª▓αÑñ αª¬αª╛αª¼αªªαª╛ αª«αª╛αª¢ αªåαª«αª┐ αª¬αª¢αª¿αºìαªª αªòαª░αª┐ αª¿αª╛ αÑñ ","reviewerName":"Sagar","reviewerId":"bdsvy6pu","overallRating":4,"commentPrettyDate":{"translationKey":"NEXTGEN_REVIEWS_1_MONTH_AGO","timeDuration":"1"}},{"uuid":"96bdaff0-f729-4824-8786-81d6b5e787da","createdAt":"2026-06-04T17:28:10Z","updatedAt":"2026-06-04T17:28:10Z","text":"αªíαª┐αª« αª¡αºüαª¿αª╛αºƒ αª╕αª«αºìαª¡αª¼αªñ αªåαªªαª╛ αª¼αª╛αªƒαª╛ αªÅαªòαªƒαºü αª¼αºçαª╢αª┐ αª¬αº£αºçαª¢αºç, αªåαªªαª╛αª░ αª╕αºìαª«αºçαª▓ αªÅαª¼αªé αªƒαºçαª╕αºìαªƒαªƒαª╛ αª¼αºçαª╢αª┐ αªåαª╕αª¢αª┐αª▓αºïαÑñ αªåαª░ αªíαª╛αª▓αºç αª╕αª«αºìαª¡αª¼αªñ αª¬αª╛αªÜαª½αºïαº£αª¿ αªªαºçαªôαºƒαª╛ αª╣αºƒαºçαª¢αºç, αªñαª╛αªô αªåαª╕αºìαªñαª╛αÑñ αª¼αª╛αª░αª¼αª╛αª░ αªªαª╛αªüαªñαºç αªòαª╛αª«αº£ αª▓αª╛αªùαª¢αª┐αª▓αºï","reviewerName":"Tas","reviewerId":"bdrnr5pi","overallRating":4,"commentPrettyDate":{"translationKey":"NEXTGEN_REVIEWS_1_MONTH_AGO","timeDuration":"1"}},{"uuid":"884a0bf1-7e3a-4d02-9ff6-fc19b6ca0531","createdAt":"2026-05-17T10:33:36Z","updatedAt":"2026-05-17T10:33:36Z","text":"Apu er ranna khub bhalo. ","reviewerName":"Nusrat","reviewerId":"g5zbu3rf","overallRating":4,"commentPrettyDate":{"translationKey":"NEXTGEN_REVIEWS_X_MONTHS_AGO","timeDuration":"2"}},{"uuid":"45b2e131-7c1e-4f8e-87ed-46870196707c","createdAt":"2026-05-11T10:30:15Z","updatedAt":"2026-05-11T10:30:15Z","text":"valo chilo.. kintu lal shak ta kmn jno smell lagtechilo.. apnara shak fresh den na kno? Allahr nam niye olpo khaichi. ","reviewerName":"Farjana","reviewerId":"bdhtdi82","overallRating":4,"commentPrettyDate":{"translationKey":"NEXTGEN_REVIEWS_X_MONTHS_AGO","timeDuration":"2"}}]}}
+
+
+
+================================================================================
+GRAPHQL ENTRIES
+================================================================================
+
+
+--- GRAPHQL ENTRY #1 ---
+URL: https://reviews-api-bd.fd-api.com/graphql?operationName=RestaurantDetailsPage&variables=%7B%22input%22%3A%7B%22code%22%3A%22n8xk%22%2C%22expeditionType%22%3A%22DELIVERY%22%2C%22filters%22%3A%7B%22productRecommendationLimit%22%3A-1%7D%2C%22isPandaboost%22%3Afalse%2C%22ignoreShrinkage%22%3Afalse%7D%2C%22isRetrieveIdOnly%22%3Atrue%2C%22isVendorMiscEnabled%22%3Atrue%2C%22menuInput%22%3A%7B%22expeditionType%22%3A%22DELIVERY%22%7D%2C%22isPickup%22%3Afalse%2C%22mfoFederationEnabled%22%3Afalse%2C%22isShrinkageUseCase%22%3Afalse%2C%22recommendationInput%22%3A%7B%22expeditionType%22%3A%22DELIVERY%22%2C%22isMealForOne%22%3Afalse%7D%2C%22discountedPriceInput%22%3A%7B%22expeditionType%22%3A%22DELIVERY%22%7D%2C%22surveyInput%22%3A%7B%22limit%22%3A1%7D%7D&extensions=%7B%22persistedQuery%22%3A%7B%22version%22%3A1%2C%22sha256Hash%22%3A%22e54e2da1664dea317275ce6c580b6a38b06b6a2bdf446fa1be878652a4883063%22%7D%7D&language_id=1
+METHOD: GET
+STATUS: 200
+KEY REQUEST HEADERS:
+{
+  "authorization": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6ImtleW1ha2VyLWFuZHJvaWQtZnAtYmQiLCJ0eXAiOiJKV1QifQ.eyJpZCI6IjA3M3M4MXdvdWJxa2VqbzlzaHZzM3J0cHN0cGJ1MzJ1dHg3dDdhZ24iLCJjbGllbnRfaWQiOiJhbmRyb2lkIiwidXNlcl9pZCI6Im51bGwiLCJleHBpcmVzIjoxNzg0OTIyMzQ2LCJ0b2tlbl90eXBlIjoiYmVhcmVyIiwic2NvcGUiOiJBUElfQ1VTVE9NRVIifQ.kpJQ8XIyQ3OpcjHI8V2yahyS76jxFRt0stVDx5OVGHm0pSqryKEYytxYkb64EJXPrzm2tXtDal6myx0eakBFlCElE4bUuxA-BRpQL025PYyTf1tVLcDPDPHCdraKoCZAv60o7gCAu-qA3s9npOxrIaMbuoELelBLu5m1KQZYH0C60R0PBlWWuZ8uxG35suFywwn-N7x6JEOdVi_fUWx6W761OgIX9xiF9zqFCWQ3wZAwXVpSfulD3EScUIFZxi1OGJe9VdIvHTCbvS8KfVmEdu0KKUtO99HW50qSDI66bmRUWjhh7WBDnMTtrcYxvHjXAK56pEXJXpDxL5-McrBHgA",
+  "r-sig": "N2QLiUUDka2GGCu5m1E1XpL3jPd3SwY7nZWVgqYDG5s=",
+  "eks": "amgaaa",
+  "rts": "2026-07-25T00:46:15+0600",
+  "app-version": "26.28.0",
+  "device-id": "24de6ba6fb091a6d4a82735d73e61a05",
+  "user-agent": "Android-app-26.28.0(262800214)",
+  "x-fp-api-key": "android",
+  "accept": "multipart/mixed;deferSpec=20220824, application/graphql-response+json, application/json"
+}
+
+FULL RESPONSE (first 5000 chars):
+{"data":{"restaurantDetailsPage":{"swimlanes":null,"components":[{"__typename":"ExpeditionToggle","pickupPromoLabel":"15% off","pickupPromoIncentiveId":"614594"}],"vendorData":{"__typename":"VendorData","code":"n8xk","name":"Fresh & Hot Live Bakery- Banasree Kazibari","images":{"logo":"https://images.deliveryhero.io/image/fd-bd/bd-logos/n8xk-logo.jpg","listing":"https://images.deliveryhero.io/image/fd-bd/LH/n8xk-listing.jpg"},"rating":{"value":4.9,"count":32,"aggregationAlgorithm":"refre"},"location":{"addressLine1":"House -02 ,Road 03, Block - N Banasree,khilgaon,Dhaka-1219","latitude":23.755589,"longitude":90.443828,"addressLine2":null},"availability":{"distanceInMeters":1267,"nextAvailableAt":null,"status":"TEMPORARILY_CLOSED","isAffectedByShrinkage":false},"isDeliveryEnabled":true,"isPickupEnabled":true,"hasDeliveryProvider":true,"isFavorite":false,"isSuperVendor":false,"timezone":"Asia/Dhaka","contactNumber":null,"webPath":"https://www.foodpanda.com.bd/restaurant/n8xk/fresh-and-hot-live-bakery-banasree-kazibari","timeEstimations":{"delivery":{"__typename":"TimeEstimation","minimumTime":null,"duration":{"lowerLimitInMinutes":35,"upperLimitInMinutes":55}},"pickup":null},"dynamicPricing":{"highValueActionLabel":"NEXTGEN_HVA_ACQUISITION_FD","serviceFee":{"maximumValue":29,"minimumValue":5,"serviceFeeType":"SERVICE_FEE_TYPE_PERCENTAGE","setUpValue":3,"total":5},"deliveryFee":{"original":52,"total":0,"saverFee":{"total":0}},"minimumOrderValue":{"total":50}},"saverDeliveryTimeEstimations":{"__typename":"TimeEstimation","minimumTime":null,"duration":{"lowerLimitInMinutes":45,"upperLimitInMinutes":65}},"calculatedDynamicPricing":{"discountedDeliveryFee":0,"discountMinimumOrderValue":null},"menu":{"__typename":"RestaurantMenu","id":"247453","title":"Delivery Menu","startTime":"00:00:00","endTime":"23:59:00","expeditionType":"DELIVERY","recommendedProducts":[{"products":[{"id":"9105736"},{"id":"9105738"},{"id":"9105742"},{"id":"9105737"},{"id":"9105735"}],"layout":["TILE","LABEL"],"recommendationStrategy":"PERSONALIZED","title":[{"__typename":"RichTextElement","textType":"TRANSLATION_KEY","value":"NEXTGEN_POPULAR_DISH_TAG","styling":null,"placeholders":null}],"description":[{"__typename":"RichTextElement","textType":"TRANSLATION_KEY","value":"NEXTGEN_POPULAR_CATEGORY_DESCRIPTION","styling":null,"placeholders":null}]}],"categories":[{"__typename":"RestaurantMenuCategory","id":"2432410","code":"ef88ecb4-c145-4f35-8e3c-0bf5afd377f0","title":"Snacks","description":"","containerPrice":null,"partner":null,"products":[{"__typename":"RestaurantProductData","id":"9105736","code":"6fbbcb26-1ab6-494c-828e-ce66d1b64d29","title":"Burger","description":"1 pc - A classic burger with a juicy patty, fresh lettuce & special sauce","image":{"url":"https://images.deliveryhero.io/image/fd-bd/Products/9105736.jpg"},"variations":[{"id":"9934770","discountedPrice":null,"unitPricingInfo":null}],"isSoldOut":false,"isBundle":false,"isAlcoholicItem":false,"tags":null,"isCustomizable":false,"dietaryAttributes":null,"rating":{"percentage":100,"totalCount":4},"vat":null,"priceAttributes":{"discountedPrice":null,"displayFromTag":false,"originalPrice":75,"containerPrice":null}},{"__typename":"RestaurantProductData","id":"9105737","code":"91d3bed0-8100-4f6e-9866-1d11e49d132f","title":"Shawrma","description":"1 pc - A tasty wrap filled with marinated chicken, fresh vegetable & garlic sauce in a pita bread","image":{"url":"https://images.deliveryhero.io/image/fd-bd/Products/9105737.jpg"},"variations":[{"id":"9934771","discountedPrice":null,"unitPricingInfo":null}],"isSoldOut":false,"isBundle":false,"isAlcoholicItem":false,"tags":null,"isCustomizable":false,"dietaryAttributes":null,"rating":{"percentage":60,"totalCount":5},"vat":null,"priceAttributes":{"discountedPrice":null,"displayFromTag":false,"originalPrice":90,"containerPrice":null}},{"__typename":"RestaurantProductData","id":"9105738","code":"6848875d-8653-4fd9-ab67-bbaeb901ab7a","title":"Mini Chicken Pizza","description":"1 pc - A personal-sized pizza with a classic topping of seasoned chicken & cheese","image":{"url":"https://images.deliveryhero.io/image/fd-bd/Products/9105738.jpg"},"variations":[{"id":"9934772","discountedPrice":null,"unitPricingInfo":null}],"isSoldOut":false,"isBundle":false,"isAlcoholicItem":false,"tags":null,"isCustomizable":false,"dietaryAttributes":null,"rating":{"percentage":100,"totalCount":8},"vat":null,"priceAttributes":{"discountedPrice":null,"displayFromTag":false,"originalPrice":90,"containerPrice":null}},{"__typename":"RestaurantProductData","id":"9105739","code":"b500c6ee-6f4b-4d6e-a791-2da1010621b4","title":"Roll Patties","description":"1 pc - A savory roll-shaped pastry with a delicious flaky crust & filling","image":{"url":"https://images.deliveryhero.io/image/fd-bd/Products/9105739.jpg"},"variations":[{"id":"9934773","discountedPrice":null,"unitPricingInfo":null}],"isSoldOut":false,"isBundle":false,"isAlcoholicItem":false,"tags":null,"isCustomizable":fals
+
+
+--- GRAPHQL ENTRY #2 ---
+URL: https://reviews-api-bd.fd-api.com/graphql?operationName=RestaurantDetailsPage&variables=%7B%22input%22%3A%7B%22code%22%3A%22wqr5%22%2C%22expeditionType%22%3A%22DELIVERY%22%2C%22filters%22%3A%7B%22productRecommendationLimit%22%3A-1%7D%2C%22isPandaboost%22%3Afalse%2C%22ignoreShrinkage%22%3Afalse%7D%2C%22isRetrieveIdOnly%22%3Atrue%2C%22isVendorMiscEnabled%22%3Atrue%2C%22menuInput%22%3A%7B%22expeditionType%22%3A%22DELIVERY%22%7D%2C%22isPickup%22%3Afalse%2C%22mfoFederationEnabled%22%3Afalse%2C%22isShrinkageUseCase%22%3Afalse%2C%22recommendationInput%22%3A%7B%22expeditionType%22%3A%22DELIVERY%22%2C%22isMealForOne%22%3Afalse%7D%2C%22discountedPriceInput%22%3A%7B%22expeditionType%22%3A%22DELIVERY%22%7D%2C%22surveyInput%22%3A%7B%22limit%22%3A1%7D%7D&extensions=%7B%22persistedQuery%22%3A%7B%22version%22%3A1%2C%22sha256Hash%22%3A%22e54e2da1664dea317275ce6c580b6a38b06b6a2bdf446fa1be878652a4883063%22%7D%7D&language_id=1
+METHOD: GET
+STATUS: 200
+KEY REQUEST HEADERS:
+{
+  "authorization": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6ImtleW1ha2VyLWFuZHJvaWQtZnAtYmQiLCJ0eXAiOiJKV1QifQ.eyJpZCI6ImVuNmtzZXIybHUwNGFxOTdndmxxNDBrMWJ0cWJvbDJsaWRod2tlYzAiLCJjbGllbnRfaWQiOiJhbmRyb2lkIiwidXNlcl9pZCI6Im51bGwiLCJleHBpcmVzIjoxNzg0OTIyMzIyLCJ0b2tlbl90eXBlIjoiYmVhcmVyIiwic2NvcGUiOiJBUElfQ1VTVE9NRVIifQ.FWwlGH1eJ8zaFCgHdEF7bVcV9oSrNx-03qQ2Rg7SQ2reJDZWEj5O6HwfAQYm5wykCSn3bEgsV9Oo8dgL9ZUNda83_4ol9rcnr3r4Ertov-q9sK359y6x70ciULf3qAtn8WaQtCXNEZe602hJ2NwXO6op53RKjQvkOtzNLr2YNxGehS9jNkF-_cylqmfr_RvPTXz1k4MK17typ3Rdeq8fUHoMAT3KpLREAdjq2stxlCpFa1XX84uQnuQsF9mKiVEqsaoUOdrueEGOszW_tvocrmgfrp39yG_FfMfG0cvVCI_vtJBBqayVpKqpxYlHwnFoOcjGbfCnoiXaI5Ujyud9Wg",
+  "r-sig": "e2jPShKVGDMDuAZOfGEotF2CXbSmTvT/5PndJI279As=",
+  "eks": "giggig",
+  "rts": "2026-07-25T00:45:38+0600",
+  "app-version": "26.28.0",
+  "device-id": "24de6ba6fb091a6d4a82735d73e61a05",
+  "user-agent": "Android-app-26.28.0(262800214)",
+  "x-fp-api-key": "android",
+  "accept": "multipart/mixed;deferSpec=20220824, application/graphql-response+json, application/json"
+}
+
+FULL RESPONSE (first 5000 chars):
+{"data":{"restaurantDetailsPage":{"swimlanes":null,"components":[{"__typename":"ExpeditionToggle","pickupPromoLabel":"25% off","pickupPromoIncentiveId":"600539"}],"vendorData":{"__typename":"VendorData","code":"wqr5","name":"Marsal Aquarium Restaurant","images":{"logo":"https://images.deliveryhero.io/image/fd-bd/LH/wqr5-hero.jpg","listing":"https://images.deliveryhero.io/image/fd-bd/LH/wqr5-listing.jpg"},"rating":{"value":4.6,"count":41,"aggregationAlgorithm":"refre"},"location":{"addressLine1":"Goran,  Khilgaw goran nobabi mor  198/b 2nd floor, 1219 Khilgaon, Dhaka, Bangladesh","latitude":23.7499592,"longitude":90.43280915,"addressLine2":null},"availability":{"distanceInMeters":249,"nextAvailableAt":null,"status":"TEMPORARILY_CLOSED","isAffectedByShrinkage":false},"isDeliveryEnabled":true,"isPickupEnabled":true,"hasDeliveryProvider":true,"isFavorite":false,"isSuperVendor":false,"timezone":"Asia/Dhaka","contactNumber":null,"webPath":"https://www.foodpanda.com.bd/restaurant/wqr5/marsal-aquarium-restaurant","timeEstimations":{"delivery":{"__typename":"TimeEstimation","minimumTime":null,"duration":{"lowerLimitInMinutes":40,"upperLimitInMinutes":65}},"pickup":null},"dynamicPricing":{"highValueActionLabel":"NEXTGEN_HVA_ACQUISITION_FD","serviceFee":{"maximumValue":29,"minimumValue":5,"serviceFeeType":"SERVICE_FEE_TYPE_PERCENTAGE","setUpValue":3,"total":5},"deliveryFee":{"original":9,"total":0,"saverFee":{"total":0}},"minimumOrderValue":{"total":50}},"saverDeliveryTimeEstimations":{"__typename":"TimeEstimation","minimumTime":null,"duration":{"lowerLimitInMinutes":50,"upperLimitInMinutes":75}},"calculatedDynamicPricing":{"discountedDeliveryFee":0,"discountMinimumOrderValue":null},"menu":{"__typename":"RestaurantMenu","id":"244795","title":"Delivery Menu","startTime":"00:00:00","endTime":"23:59:00","expeditionType":"DELIVERY","recommendedProducts":[{"products":null,"layout":["TILE","LABEL"],"recommendationStrategy":"PERSONALIZED","title":[{"__typename":"RichTextElement","textType":"TRANSLATION_KEY","value":"NEXTGEN_POPULAR_DISH_TAG","styling":null,"placeholders":null}],"description":[{"__typename":"RichTextElement","textType":"TRANSLATION_KEY","value":"NEXTGEN_POPULAR_CATEGORY_DESCRIPTION","styling":null,"placeholders":null}]}],"categories":[{"__typename":"RestaurantMenuCategory","id":"2513366","code":"ade3ee17-f4d1-4971-8ef7-c766ab34e4ed","title":"Appetizers","description":"","containerPrice":null,"partner":null,"products":[{"__typename":"RestaurantProductData","id":"9663585","code":"87f4dfec-b207-4598-836b-33cbc25b994a","title":"BBQ Lollipop","description":"1:1 - Prepared with chicken, secret spice & bbq sauce","image":{"url":"https://images.deliveryhero.io/image/fd-bd/Products/9663585.jpg"},"variations":[{"id":"10589334","discountedPrice":187,"unitPricingInfo":null}],"isSoldOut":false,"isBundle":false,"isAlcoholicItem":false,"tags":["system:image-updated-at=1776076093"],"isCustomizable":false,"dietaryAttributes":null,"rating":null,"vat":null,"priceAttributes":{"discountedPrice":187,"displayFromTag":false,"originalPrice":220,"containerPrice":null}},{"__typename":"RestaurantProductData","id":"9663586","code":"0c5ed37c-97c8-4022-8d80-ee613a8cb614","title":"Thai Fried Chicken","description":"6 pc - Well-seasoned & deep-fried chicken with a thick bread crumb coating","image":{"url":"https://images.deliveryhero.io/image/fd-bd/Products/9663586.jpg"},"variations":[{"id":"10589335","discountedPrice":306,"unitPricingInfo":null}],"isSoldOut":false,"isBundle":false,"isAlcoholicItem":false,"tags":["system:image-updated-at=1776076091"],"isCustomizable":false,"dietaryAttributes":null,"rating":null,"vat":null,"priceAttributes":{"discountedPrice":306,"displayFromTag":false,"originalPrice":360,"containerPrice":null}},{"__typename":"RestaurantProductData","id":"9663587","code":"b337a45d-ff3f-49dd-b18d-1aed73f6e616","title":"Crispy Fried Chicken","description":"1:1 - Juicy chicken coated in a crunchy & seasoned batter, delivering irresistible flavor with every bite","image":{"url":"https://images.deliveryhero.io/image/fd-bd/Products/9663587.jpg"},"variations":[{"id":"10589336","discountedPrice":102,"unitPricingInfo":null}],"isSoldOut":false,"isBundle":false,"isAlcoholicItem":false,"tags":["system:image-updated-at=1776076093"],"isCustomizable":false,"dietaryAttributes":null,"rating":null,"vat":null,"priceAttributes":{"discountedPrice":102,"displayFromTag":false,"originalPrice":120,"containerPrice":null}}],"masterCategory":{"id":"2"}},{"__typename":"RestaurantMenuCategory","id":"2412805","code":"5905cfb4-5085-4f78-ae9c-36f1d8a4cd95","title":"Soup","description":"Sea food  soup 1:3","containerPrice":null,"partner":null,"products":[{"__typename":"RestaurantProductData","id":"8986032","code":"f3439401-1de2-4175-9191-942c8ac11a3f","title":"Thai Soup Thick","description":"Incredibly flavorsome thai soup prepared with chicken, prawn & spices","image":{"url":"https://images.deliveryhero.io/image/fd-bd/Products/8986032.jpg"},"variations":[{"i
+
+
+================================================================================
+OTHER (non-listing, non-graphql) ENTRIES (summary)
+================================================================================
+
+  #1 POST /api/v5/oauth2/token  status=200  params=['language_id']
+  #2 POST /api/v5/oauth2/token  status=200  params=['language_id']
+  #3 CONNECT   status=0  params=[]
+
+================================================================================
+PAGINATION PARAMETERS ANALYSIS
+================================================================================
+
+  POST /offers-zone/api/v2/offers-zone
+    Body:  {
+    "offset": "80",
+    "limit": "40"
+}
+  POST /offers-zone/api/v2/offers-zone
+    Body:  {
+    "offset": "40",
+    "limit": "40"
+}
+  POST /offers-zone/api/v2/offers-zone
+    Body:  {
+    "offset": "0",
+    "limit": "40"
+}
+
+================================================================================
+SUMMARY: ALL GRAPHQL OPERATION NAMES AND SHA256 HASHES
+================================================================================
+

@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FooDIE-mart Analytics | FoodiBD API Scraper & Intelligence Suite</title>
+  <meta name="description" content="Reverse-engineered API scraper, data pipeline, and interactive price analytics dashboard for FoodiBD Mart Banasree.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    :root {
+      --bg-primary: #0b0f19;
+      --bg-secondary: #111827;
+      --bg-card: #1f2937;
+      --bg-hover: #374151;
+      --accent-green: #10b981;
+      --accent-blue: #3b82f6;
+      --accent-purple: #8b5cf6;
+      --accent-amber: #f59e0b;
+      --accent-rose: #f43f5e;
+      --text-main: #f9fafb;
+      --text-dim: #9ca3af;
+      --border-color: #374151;
+      --glass-bg: rgba(17, 24, 39, 0.75);
+      --glass-border: rgba(255, 255, 255, 0.08);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      line-height: 1.5;
+      min-height: 100vh;
+    }
+    code, pre { font-family: 'JetBrains Mono', monospace; }
+    a { color: var(--accent-blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Header & Navigation */
+    header {
+      background: var(--glass-bg);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--glass-border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand-logo {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: bold;
+      box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
+    }
+    .brand-text h1 { font-size: 1.25rem; font-weight: 700; background: linear-gradient(to right, #60a5fa, #c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .brand-text p { font-size: 0.75rem; color: var(--text-dim); }
+
+    .nav-tabs {
+      display: flex;
+      gap: 8px;
+      background: rgba(31, 41, 55, 0.5);
+      padding: 4px;
+      border-radius: 10px;
+      border: 1px solid var(--border-color);
+    }
+    .nav-tab {
+      padding: 8px 16px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border-radius: 6px;
+      cursor: pointer;
+      color: var(--text-dim);
+      transition: all 0.2s ease;
+    }
+    .nav-tab.active {
+      background: var(--accent-blue);
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(59, 130, 246, 0.4);
+    }
+    .nav-tab:hover:not(.active) { color: var(--text-main); background: rgba(255,255,255,0.05); }
+
+    /* Layout Containers */
+    .container { max-width: 1400px; margin: 0 auto; padding: 2rem; }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; animation: fadeIn 0.3s ease; }
+
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* Cards & Grids */
+    .grid { display: grid; gap: 1.5rem; }
+    .grid-4 { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    .grid-2 { grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); }
+
+    .card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--text-main);
+    }
+
+    /* KPI Stat Box */
+    .stat-box {
+      background: linear-gradient(145deg, rgba(31, 41, 55, 0.7), rgba(17, 24, 39, 0.9));
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.25rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .stat-box::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(to right, var(--accent-blue), var(--accent-purple));
+    }
+    .stat-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-dim); }
+    .stat-val { font-size: 2rem; font-weight: 800; margin: 0.25rem 0; color: #fff; }
+    .stat-desc { font-size: 0.75rem; color: var(--accent-green); }
+
+    /* Controls & Toolbars */
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      background: var(--bg-secondary);
+      padding: 1rem;
+      border-radius: 10px;
+      border: 1px solid var(--border-color);
+      margin-bottom: 1.5rem;
+    }
+    input[type="text"], input[type="number"], select {
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    input:focus, select:focus { border-color: var(--accent-blue); }
+    .btn {
+      background: var(--accent-blue);
+      color: white;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: opacity 0.2s;
+    }
+    .btn:hover { opacity: 0.9; }
+
+    /* Product Grid */
+    .product-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .product-card:hover { transform: translateY(-4px); border-color: var(--accent-blue); }
+    .product-img {
+      width: 100%;
+      height: 140px;
+      object-fit: contain;
+      background: rgba(255,255,255,0.03);
+      border-radius: 6px;
+      margin-bottom: 0.75rem;
+    }
+    .product-title { font-size: 0.9rem; font-weight: 600; color: #fff; line-height: 1.3; margin-bottom: 0.5rem; height: 2.6em; overflow: hidden; }
+    .product-meta { font-size: 0.75rem; color: var(--text-dim); margin-bottom: 0.5rem; }
+    .price-row { display: flex; align-items: baseline; gap: 8px; margin-top: auto; }
+    .curr-price { font-size: 1.1rem; font-weight: 700; color: var(--accent-green); }
+    .orig-price { font-size: 0.85rem; text-decoration: line-through; color: var(--text-dim); }
+    .discount-badge {
+      background: rgba(244, 63, 94, 0.15);
+      color: var(--accent-rose);
+      border: 1px solid rgba(244, 63, 94, 0.3);
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    /* Architecture & Reverse Engineering Diagram Boxes */
+    .arch-box {
+      background: #0d1117;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 1rem;
+      font-size: 0.85rem;
+    }
+    .arch-title { font-weight: 600; color: var(--accent-blue); margin-bottom: 0.5rem; font-size: 0.95rem; }
+
+    /* Code Blocks */
+    .code-block {
+      background: #0d1117;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 1rem;
+      overflow-x: auto;
+      font-size: 0.82rem;
+      color: #e6edf3;
+      margin: 0.75rem 0;
+    }
+
+    /* Badges */
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    .badge-blue { background: rgba(59,130,246,0.15); color: #60a5fa; border: 1px solid rgba(59,130,246,0.3); }
+    .badge-purple { background: rgba(139,92,246,0.15); color: #c084fc; border: 1px solid rgba(139,92,246,0.3); }
+    .badge-green { background: rgba(16,185,129,0.15); color: #34d399; border: 1px solid rgba(16,185,129,0.3); }
+
+    /* Tables */
+    table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+    th, td { padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid var(--border-color); }
+    th { background: rgba(31, 41, 55, 0.6); color: var(--text-dim); font-weight: 600; }
+    tr:hover { background: rgba(255,255,255,0.02); }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px solid var(--border-color);
+      color: var(--text-dim);
+      font-size: 0.85rem;
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Navigation -->
+  <header>
+    <div class="brand">
+      <div class="brand-logo">🍜</div>
+      <div class="brand-text">
+        <h1>FooDIE-mart Analytics</h1>
+        <p>FoodiBD Reverse-Engineered Scraper & Intelligence Dashboard</p>
+      </div>
+    </div>
+    <div class="nav-tabs">
+      <div class="nav-tab active" onclick="switchTab('overview')">📊 Overview</div>
+      <div class="nav-tab" onclick="switchTab('explorer')">🛒 Product Explorer</div>
+      <div class="nav-tab" onclick="switchTab('tech')">🔐 Reverse Engineering</div>
+      <div class="nav-tab" onclick="switchTab('api')">⚡ API Docs</div>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <!-- OVERVIEW TAB -->
+    <div id="overview" class="tab-content active">
+      <!-- KPI Stats -->
+      <div class="grid grid-4" style="margin-bottom: 1.5rem;">
+        <div class="stat-box">
+          <div class="stat-label">Total Products Scraped</div>
+          <div class="stat-val" id="statProducts">5,159</div>
+          <div class="stat-desc">Across 24 Categories</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Price Snapshots</div>
+          <div class="stat-val" id="statHistory">20,288</div>
+          <div class="stat-desc">Historical Price Logs</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">In-Stock Rate</div>
+          <div class="stat-val" id="statStock">98.4%</div>
+          <div class="stat-desc">Active Availability</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-label">Target Store</div>
+          <div class="stat-val" style="font-size: 1.25rem; margin-top: 0.5rem;">Foodimart Banasree</div>
+          <div class="stat-desc">Shop #11617 | Dhaka</div>
+        </div>
+      </div>
+
+      <!-- Charts Row -->
+      <div class="grid grid-2" style="margin-bottom: 1.5rem;">
+        <div class="card">
+          <div class="card-title">Category Distribution</div>
+          <div style="height: 300px;"><canvas id="categoryChart"></canvas></div>
+        </div>
+        <div class="card">
+          <div class="card-title">Price Range Distribution (BDT)</div>
+          <div style="height: 300px;"><canvas id="priceRangeChart"></canvas></div>
+        </div>
+      </div>
+
+      <!-- Top Lists -->
+      <div class="grid grid-2">
+        <div class="card">
+          <div class="card-title">Top 10 Discounted Items</div>
+          <table id="topDiscountTable">
+            <thead>
+              <tr><th>Product</th><th>Category</th><th>Price</th><th>Discount</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="card">
+          <div class="card-title">Top 10 Most Expensive Items</div>
+          <table id="topExpensiveTable">
+            <thead>
+              <tr><th>Product</th><th>Category</th><th>Price</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRODUCT EXPLORER TAB -->
+    <div id="explorer" class="tab-content">
+      <div class="toolbar">
+        <input type="text" id="searchInput" placeholder="Search products or SKU..." style="flex: 2;" onkeyup="filterProducts()">
+        <select id="categorySelect" style="flex: 1;" onchange="filterProducts()">
+          <option value="">All Categories</option>
+        </select>
+        <select id="sortSelect" style="flex: 1;" onchange="filterProducts()">
+          <option value="name_asc">Name (A-Z)</option>
+          <option value="price_asc">Price (Low to High)</option>
+          <option value="price_desc">Price (High to Low)</option>
+          <option value="discount_desc">Highest Discount</option>
+        </select>
+        <input type="number" id="minPriceInput" placeholder="Min ৳" style="width: 100px;" onchange="filterProducts()">
+        <input type="number" id="maxPriceInput" placeholder="Max ৳" style="width: 100px;" onchange="filterProducts()">
+      </div>
+
+      <div style="margin-bottom: 1rem; color: var(--text-dim); font-size: 0.85rem;" id="filterCount">
+        Showing 0 products
+      </div>
+
+      <div class="grid grid-4" id="productGrid">
+        <!-- Dynamically rendered -->
+      </div>
+    </div>
+
+    <!-- REVERSE ENGINEERING TECH TAB -->
+    <div id="tech" class="tab-content">
+      <div class="card" style="margin-bottom: 1.5rem;">
+        <div class="card-title">🔐 Reverse Engineering & Authentication Mechanism</div>
+        <p style="color: var(--text-dim); margin-bottom: 1rem;">
+          The FoodiBD Android application (v8.0.3) uses Cloudflare protection and a custom dynamic cryptographic handshake header called <code>sxsrf</code>. Standard HTTP requests receive HTTP 401 Unauthorized unless signed correctly.
+        </p>
+
+        <div class="grid grid-3" style="margin-bottom: 1.5rem;">
+          <div class="arch-box">
+            <div class="arch-title">1. APK Smali & JADX Analysis</div>
+            <p style="color: var(--text-dim);">Decompiled <code>Foodi_8.0.3.apk</code> using JADX. Discovered internal security helper class <code>xg.b.c()</code> responsible for header generation.</p>
+          </div>
+          <div class="arch-box">
+            <div class="arch-title">2. Double-Base64 Encoding</div>
+            <p style="color: var(--text-dim);">The <code>sxsrf</code> header is calculated as <code>Base64(Base64(raw_token))</code> where <code>raw_token</code> is extracted from response header <code>cf-ray-status-id-tn</code>.</p>
+          </div>
+          <div class="arch-box">
+            <div class="arch-title">3. Host Routing Workaround</div>
+            <p style="color: var(--text-dim);">The API server IP maps to <code>imrs.foodibd.com</code>, but Cloudflare & Spring Boot backends strictly require header <code>Host: api.foodibd.com</code>.</p>
+          </div>
+        </div>
+
+        <h4 style="color: var(--accent-blue); margin-bottom: 0.5rem;">Cryptographic Token Pipeline Code (Python Implementation)</h4>
+        <div class="code-block">
+<pre>def double_base64_encode(value: str) -> str:
+    """Double-base64 encode string (matches APK class xg.b.c)."""
+    step1 = base64.b64encode(value.encode("utf-8")).decode("utf-8")
+    return base64.b64encode(step1.encode("utf-8")).decode("utf-8")
+
+def extract_cf_ray_from_response(resp) -> Optional[str]:
+    """Extract cf-ray-status-id-tn header from response to refresh sxsrf token."""
+    cf_raw = resp.headers.get("cf-ray-status-id-tn", "")
+    if cf_raw:
+        return double_base64_encode(cf_raw)
+    return None</pre>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🏗 System Architecture</div>
+        <div class="code-block" style="font-size: 0.8rem; line-height: 1.4;">
+<pre>
+┌────────────────────────┐      ┌─────────────────────────┐      ┌────────────────────────┐
+│  FoodiBD API Endpoint  │◄────►│  httpx Async Engine     │─────►│ SQLite & Parquet Store │
+│  (api.foodibd.com)     │      │ (Token Auth & Retries) │      │ (scraper.db & parquet) │
+└────────────────────────┘      └─────────────────────────┘      └───────────┬────────────┘
+                                                                             │
+                                                                             ▼
+┌────────────────────────┐      ┌─────────────────────────┐      ┌────────────────────────┐
+│ GitHub Pages Web Portal│◄────►│ Static JSON & FastAPI   │◄─────┤ Intelligence & Deals   │
+│ (index.html Dashboard) │      │ Analytics API Engine    │      │ (ATL / Deal Evaluator) │
+└────────────────────────┘      └─────────────────────────┘      └────────────────────────┘
+</pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- API DOCS TAB -->
+    <div id="api" class="tab-content">
+      <div class="card">
+        <div class="card-title">⚡ REST API Specification</div>
+        <p style="color: var(--text-dim); margin-bottom: 1.5rem;">
+          When running locally via <code>python dashboard.py</code>, the system exposes a high-performance FastAPI server at <code>http://localhost:8800</code>.
+        </p>
+
+        <table>
+          <thead>
+            <tr><th>Endpoint</th><th>Method</th><th>Description</th><th>Parameters</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>/api/products</code></td>
+              <td><span class="badge badge-blue">GET</span></td>
+              <td>Retrieve paginated product catalog with filtering & sorting</td>
+              <td><code>q</code>, <code>category</code>, <code>sort</code>, <code>order</code>, <code>min_price</code>, <code>max_price</code>, <code>page</code></td>
+            </tr>
+            <tr>
+              <td><code>/api/stats/overview</code></td>
+              <td><span class="badge badge-blue">GET</span></td>
+              <td>Get overall dataset metrics, counts, and category distribution</td>
+              <td>None</td>
+            </tr>
+            <tr>
+              <td><code>/api/price-history/{product_id}</code></td>
+              <td><span class="badge badge-blue">GET</span></td>
+              <td>Retrieve historical price changes for a specific product</td>
+              <td><code>product_id</code></td>
+            </tr>
+            <tr>
+              <td><code>/api/deals/intel</code></td>
+              <td><span class="badge badge-purple">GET</span></td>
+              <td>Get deal classification (Great Deal, Good Buy, Wait, All-Time Low)</td>
+              <td><code>new_days</code></td>
+            </tr>
+            <tr>
+              <td><code>/api/scrape/trigger</code></td>
+              <td><span class="badge badge-green">POST</span></td>
+              <td>Trigger on-demand asynchronous scrape run</td>
+              <td>None</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>FooDIE-mart Analytics &copy; 2026 | Engineered by <strong>ranehal</strong> (<a href="mailto:ran.ragibahnafnehal2@gmail.com">ran.ragibahnafnehal2@gmail.com</a>)</p>
+  </footer>
+
+  <script>
+    let dataset = { stats: {}, categories: [], products: [] };
+    let filteredProducts = [];
+
+    // Switch Tabs
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.nav-tab').forEach(el => el.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+      event.target.classList.add('active');
+    }
+
+    // Load Data
+    async function loadData() {
+      try {
+        const resp = await fetch('data/products_export.json');
+        dataset = await resp.json();
+        initOverview();
+        initCategoryFilter();
+        filterProducts();
+      } catch (err) {
+        console.error("Error loading static dataset:", err);
+      }
+    }
+
+    function initOverview() {
+      document.getElementById('statProducts').textContent = dataset.stats.total_products?.toLocaleString() || '5,159';
+      document.getElementById('statHistory').textContent = dataset.stats.total_price_records?.toLocaleString() || '20,288';
+      
+      // Top Discounts Table
+      const topDiscounts = [...dataset.products]
+        .filter(p => p.discount > 0)
+        .sort((a, b) => (b.discount || 0) - (a.discount || 0))
+        .slice(0, 10);
+
+      const discBody = document.querySelector('#topDiscountTable tbody');
+      discBody.innerHTML = topDiscounts.map(p => `
+        <tr>
+          <td><strong>${p.name}</strong></td>
+          <td>${p.category_name || '-'}</td>
+          <td>৳${p.discounted_price}</td>
+          <td><span class="discount-badge">-${p.discount}${p.is_discount_in_perc ? '%' : ' ৳'}</span></td>
+        </tr>
+      `).join('');
+
+      // Top Expensive Table
+      const topExpensive = [...dataset.products]
+        .sort((a, b) => (b.discounted_price || 0) - (a.discounted_price || 0))
+        .slice(0, 10);
+
+      const expBody = document.querySelector('#topExpensiveTable tbody');
+      expBody.innerHTML = topExpensive.map(p => `
+        <tr>
+          <td><strong>${p.name}</strong></td>
+          <td>${p.category_name || '-'}</td>
+          <td>৳${p.discounted_price}</td>
+        </tr>
+      `).join('');
+
+      // Render Category Chart
+      const catLabels = dataset.categories.slice(0, 10).map(c => c.category_name);
+      const catData = dataset.categories.slice(0, 10).map(c => c.product_count);
+      
+      new Chart(document.getElementById('categoryChart'), {
+        type: 'doughnut',
+        data: {
+          labels: catLabels,
+          datasets: [{
+            data: catData,
+            backgroundColor: ['#3b82f6','#8b5cf6','#10b981','#f59e0b','#ef4444','#ec4899','#06b6d4','#84cc16','#f97316','#a855f7']
+          }]
+        },
+        options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'right', labels: { color: '#9ca3af' } } } }
+      });
+
+      // Render Price Histogram
+      const ranges = {'0-100': 0, '100-300': 0, '300-500': 0, '500-1000': 0, '1000+': 0};
+      dataset.products.forEach(p => {
+        const pr = p.discounted_price || 0;
+        if (pr <= 100) ranges['0-100']++;
+        else if (pr <= 300) ranges['100-300']++;
+        else if (pr <= 500) ranges['300-500']++;
+        else if (pr <= 1000) ranges['500-1000']++;
+        else ranges['1000+']++;
+      });
+
+      new Chart(document.getElementById('priceRangeChart'), {
+        type: 'bar',
+        data: {
+          labels: Object.keys(ranges),
+          datasets: [{
+            label: 'Products Count',
+            data: Object.values(ranges),
+            backgroundColor: '#3b82f6'
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            x: { ticks: { color: '#9ca3af' } },
+            y: { ticks: { color: '#9ca3af' } }
+          },
+          plugins: { legend: { display: false } }
+        }
+      });
+    }
+
+    function initCategoryFilter() {
+      const select = document.getElementById('categorySelect');
+      dataset.categories.forEach(c => {
+        const opt = document.createElement('option');
+        opt.value = c.category_id;
+        opt.textContent = `${c.category_name} (${c.product_count})`;
+        select.appendChild(opt);
+      });
+    }
+
+    function filterProducts() {
+      const q = document.getElementById('searchInput').value.toLowerCase();
+      const catId = document.getElementById('categorySelect').value;
+      const sort = document.getElementById('sortSelect').value;
+      const minP = parseFloat(document.getElementById('minPriceInput').value) || 0;
+      const maxP = parseFloat(document.getElementById('maxPriceInput').value) || Infinity;
+
+      filteredProducts = dataset.products.filter(p => {
+        const matchQ = !q || p.name.toLowerCase().includes(q) || (p.sku && p.sku.toLowerCase().includes(q));
+        const matchCat = !catId || String(p.category_id) === String(catId);
+        const matchPrice = (p.discounted_price >= minP) && (p.discounted_price <= maxP);
+        return matchQ && matchCat && matchPrice;
+      });
+
+      // Sort
+      if (sort === 'name_asc') filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
+      else if (sort === 'price_asc') filteredProducts.sort((a, b) => a.discounted_price - b.discounted_price);
+      else if (sort === 'price_desc') filteredProducts.sort((a, b) => b.discounted_price - a.discounted_price);
+      else if (sort === 'discount_desc') filteredProducts.sort((a, b) => (b.discount || 0) - (a.discount || 0));
+
+      renderGrid();
+    }
+
+    function renderGrid() {
+      document.getElementById('filterCount').textContent = `Showing ${filteredProducts.length.toLocaleString()} products`;
+      const grid = document.getElementById('productGrid');
+      const pageSlice = filteredProducts.slice(0, 48); // Render first 48 for speed
+
+      grid.innerHTML = pageSlice.map(p => {
+        const imgUrl = p.image_path ? `https://imrs.foodibd.com/api/v1/image-resize?imageUrl=https://s3.ap-southeast-1.amazonaws.com/cdn.foodibd.com${p.image_path}&width=150` : '';
+        return `
+          <div class="product-card">
+            ${imgUrl ? `<img src="${imgUrl}" class="product-img" alt="${p.name}" loading="lazy" onerror="this.style.display='none'">` : '<div class="product-img"></div>'}
+            <div class="product-title" title="${p.name}">${p.name}</div>
+            <div class="product-meta">${p.category_name || ''} | ${p.uom || ''}</div>
+            <div class="price-row">
+              <div class="curr-price">৳${p.discounted_price}</div>
+              ${p.base_price > p.discounted_price ? `<div class="orig-price">৳${p.base_price}</div>` : ''}
+              ${p.discount > 0 ? `<div class="discount-badge">-${p.discount}${p.is_discount_in_perc ? '%' : ' ৳'}</div>` : ''}
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    window.addEventListener('DOMContentLoaded', loadData);
+  </script>
+</body>
+</html>

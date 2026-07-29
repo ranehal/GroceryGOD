@@ -59,8 +59,10 @@ const STORE_CONFIG = {
     othoba: { color: '#ff9f0a', name: 'Othoba' },
     metromart: { color: '#00bcd4', name: 'Metro Mart' },
     unimart: { color: '#00d084', name: 'Unimart' },
-    shotejbazar: { color: '#9c27b0', name: 'ShotejBazar' }
+    shotejbazar: { color: '#9c27b0', name: 'ShotejBazar' },
+    foodi: { color: '#ff6b00', name: 'Foodi' }
 };
+
 
 
 // Demo mode creates a deterministic, browser-only dataset so the enhanced UI can
@@ -94,7 +96,8 @@ function loadDemoData() {
         'Beverages': 90, 'Snacks': 110, 'Household': 240,
         'Personal Care': 290, 'Meat & Frozen': 420
     };
-    const storeFactor = { shwapno: 1.00, chaldal: 1.035, meenabazar: .985, othoba: 1.06, metromart: 1.015, unimart: 1.08, shotejbazar: .97 };
+    const storeFactor = { shwapno: 1.00, chaldal: 1.035, meenabazar: .985, othoba: 1.06, metromart: 1.015, unimart: 1.08, shotejbazar: .97, foodi: 1.02 };
+
     const unitByCategory = {
         'Fresh Produce': ['kg', 'piece'], 'Dairy & Eggs': ['liter', 'piece'], 'Rice & Staples': ['kg'],
         'Beverages': ['liter', 'piece'], 'Snacks': ['piece'], 'Household': ['piece', 'liter'],
@@ -304,7 +307,8 @@ async function loadAllFromParquet() {
 
     godDB = { db, conn };
     metadata.stores = {};
-    const stores = ['shwapno','chaldal','meenabazar','othoba','metromart','unimart','shotejbazar'];
+    const stores = ['shwapno','chaldal','meenabazar','othoba','metromart','unimart','shotejbazar','foodi'];
+
     stores.forEach(s => {
         const manifest = window[s + 'Manifest'];
         if (manifest && manifest.metadata) metadata.stores[s] = manifest.metadata;
@@ -1493,7 +1497,8 @@ function updateStoreStats() {
     const sidebarStats = document.getElementById('store-stats-sidebar');
     if (!sidebarStats) return;
     
-    const stores = ['shwapno', 'chaldal', 'meenabazar', 'othoba', 'metromart', 'unimart', 'shotejbazar'];
+    const stores = ['shwapno', 'chaldal', 'meenabazar', 'othoba', 'metromart', 'unimart', 'shotejbazar', 'foodi'];
+
     stores.forEach(s => {
         if (!metadata.stores) metadata.stores = {};
         if (!metadata.stores[s]) {

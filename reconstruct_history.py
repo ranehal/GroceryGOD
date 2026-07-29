@@ -145,10 +145,48 @@ def reconstruct_metromart():
     conn.commit()
     conn.close()
 
+def reconstruct_foodi():
+    print("Reconstructing Foodi...")
+    data = load_chunked_js("foodi")
+    if not data: return
+    db_path = 'FooDIEscraper/data/scraper.db'
+    os.makedirs(os.path.dirname(db_path), exist_ok=True)
+    conn = sqlite3.connect(db_path)
+    cur = conn.cursor()
+    cur.execute("""
+        CREATE TABLE IF NOT EXISTS products (
+            product_id INTEGER PRIMARY KEY,
+            name TEXT, sku TEXT, category_id INTEGER, category_name TEXT,
+            uom TEXT, base_price REAL, discount REAL, is_discount_in_perc INTEGER,
+            discounted_price REAL, has_stock INTEGER, max_qty_per_order INTEGER,
+            image_path TEXT, branch_id INTEGER, variations_json TEXT, policy_json TEXT,
+            last_updated TEXT
+        )
+    """)
+    cur.execute("""
+        CREATE TABLE IF NOT EXISTS price_history (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            product_id INTEGER, name TEXT, sku TEXT, category_id INTEGER,
+            category_name TEXT, uom TEXT, base_price REAL, discount REAL,
+            is_discount_in_perc INTEGER, discounted_price REAL, has_stock INTEGER,
+            image_path TEXT, branch_id INTEGER, scraped_at TEXT, delivery_time TEXT
+        )
+    """)
+    for pid, p in data.items():
+        base_id = int(pid[3:]) if pid.startswith('fd_') else int(pid)
+        cur.execute("INSERT OR IGNORE INTO products (product_id, name, uom, category_name, discounted_price, image_path) VALUES (?, ?, ?, ?, ?, ?)",
+                    (base_id, p['name'], p.get('unit'), p.get('category'), p.get('current_price', 0), p.get('image', '')))
+        for h in p.get('history', []):
+            cur.execute("INSERT OR IGNORE INTO price_history (product_id, name, uom, category_name, discounted_price, scraped_at) VALUES (?, ?, ?, ?, ?, ?)",
+                        (base_id, p['name'], p.get('unit'), p.get('category'), h['price'], h['date'] + "T00:00:00.000000+00:00"))
+    conn.commit()
+    conn.close()
+
 if __name__ == "__main__":
     reconstruct_meena()
     reconstruct_othoba()
     reconstruct_metromart()
+    reconstruct_foodi()
     reconstruct_json("swapnoTRACKER/data.json", "shwapno", "sh_")
     reconstruct_json("unimartTRACKER/data.json", "unimart", "uni_")
     reconstruct_json("ShotejTRACKER/data.json", "shotejbazar", "sj_")
@@ -160,3 +198,4 @@ if __name__ == "__main__":
         os.makedirs("PRICETRACKER", exist_ok=True)
         with open("PRICETRACKER/data.js", "w", encoding='utf-8') as f:
             f.write(f"window.PRODUCT_DATA = {json.dumps(clean_ch, separators=(',', ':'))};")
+

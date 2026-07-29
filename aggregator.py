@@ -13,6 +13,8 @@ OTHOBA_DB = 'othobaTRACKER/backend/othoba_tracker.db'
 METRO_DB = 'metroTRACKER/backend/metro_tracker.db'
 UNIMART_DATA = 'unimartTRACKER/data.json'
 SHOTEJ_DATA = 'ShotejTRACKER/data.json'
+FOODI_DB = 'FooDIEscraper/data/scraper.db'
+
 
 DHAKA_TZ = timezone(timedelta(hours=6))
 
@@ -336,6 +338,48 @@ def load_shotejbazar():
     except Exception as e:
         print(f"Error ShotejBazar: {e}"); return None, None
 
+def load_foodi():
+    print("Processing Foodi...")
+    if not os.path.exists(FOODI_DB): return None, None
+    try:
+        conn = sqlite3.connect(FOODI_DB); conn.row_factory = sqlite3.Row; cursor = conn.cursor()
+        cursor.execute("SELECT product_id, name, uom, category_name, discounted_price, image_path FROM products")
+        db_p = cursor.fetchall()
+        cursor.execute("SELECT product_id, discounted_price, scraped_at FROM price_history ORDER BY scraped_at ASC")
+        all_history = {}
+        for row in cursor.fetchall():
+            pid = row['product_id']
+            if pid not in all_history: all_history[pid] = []
+            all_history[pid].append(row)
+        products = {}
+        all_dates = []
+        for p in db_p:
+            db_h = all_history.get(p['product_id'], [])
+            if not db_h: continue
+            new_history = []
+            unit_str = p['uom'] or ''
+            for h in db_h:
+                raw_date = h['scraped_at']
+                date_str = raw_date.split('T')[0].split(' ')[0] if isinstance(raw_date, str) else raw_date.strftime("%Y-%m-%d")
+                _, h_norm = parse_unit_and_calculate(p['name'], unit_str, h['discounted_price'])
+                new_history.append({"date": date_str, "price": h['discounted_price'], "normalized_price": h_norm})
+                all_dates.append(date_str)
+            curr_p = new_history[-1]['price']
+            u_type, norm_p = parse_unit_and_calculate(p['name'], unit_str, curr_p)
+            img = p['image_path']
+            if img and img.startswith('/'): img = "https://imrs.foodibd.com" + img
+            p_id = f"fd_{p['product_id']}"
+            first_seen = new_history[0]['date'] if new_history else datetime.now(DHAKA_TZ).strftime("%Y-%m-%d")
+            products[p_id] = {
+                "id": p_id, "name": p['name'], "store": "foodi",
+                "category": p['category_name'] or 'General', "unit": unit_str, "unit_type": u_type,
+                "current_price": curr_p, "normalized_price": norm_p, "image": img, "history": new_history, "first_seen": first_seen
+            }
+        conn.close()
+        return products, f"{min(all_dates)} to {max(all_dates)}" if all_dates else "N/A"
+    except Exception as e:
+        print(f"Error Foodi: {e}"); return None, None
+
 # --- ATOMIC CHUNKING ENGINE ---
 def save_store_data(name, data_tuple):
     if not data_tuple: return
@@ -404,6 +448,8 @@ def main():
     save_store_data("metromart", load_metromart())
     save_store_data("unimart", load_unimart())
     save_store_data("shotejbazar", load_shotejbazar())
+    save_store_data("foodi", load_foodi())
     print("="*70 + "\n")
 
 if __name__ == "__main__": main()
+

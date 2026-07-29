@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FoodiBD Scraper Dashboard</title>
+<link rel="stylesheet" href="/static/styles.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
+</head>
+<body>
+<header>
+  <div>
+    <h1>FoodiBD Scraper Dashboard</h1>
+    <div class="meta">Foodimart - Banasree | Shop #11617</div>
+  </div>
+  <div class="flex">
+    <span id="lastRun" class="text-sm text-dim"></span>
+    <div class="scraper-status" id="scraperStatus">
+      <span class="dot idle" id="scraperDot"></span>
+      <span id="scraperText">Idle</span>
+    </div>
+    <button onclick="triggerScrape()" class="secondary" id="scrapeBtn">Run Scraper</button>
+    <button onclick="refreshAll()" class="secondary">Refresh</button>
+  </div>
+</header>
+
+<div class="tabs">
+  <div class="tab active" data-panel="overview">Overview</div>
+  <div class="tab" data-panel="products">Products</div>
+  <div class="tab" data-panel="analytics">Analytics</div>
+  <div class="tab" data-panel="price-history">Price History</div>
+  <div class="tab" data-panel="categories">Categories</div>
+  <div class="tab" data-panel="debug">Debug Console</div>
+</div>
+
+<!-- OVERVIEW -->
+<div class="panel active" id="overview">
+  <div class="grid grid-4 mb-16" id="overviewStats"></div>
+  <div class="grid grid-2 gap-16">
+    <div class="card">
+      <h3>Category Distribution</h3>
+      <div class="chart-container"><canvas id="catChart"></canvas></div>
+    </div>
+    <div class="card">
+      <h3>Price Distribution</h3>
+      <div class="chart-container"><canvas id="priceDistChart"></canvas></div>
+    </div>
+  </div>
+  <div class="grid grid-2 gap-16 mt-16">
+    <div class="card">
+      <h3>Top 10 Most Expensive</h3>
+      <div class="sidebar-list" id="topExpensive"></div>
+    </div>
+    <div class="card">
+      <h3>Top 10 Biggest Discounts</h3>
+      <div class="sidebar-list" id="topDiscounts"></div>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<div class="panel" id="products">
+  <div class="intel-bar" id="intelBar">
+    <button class="intel-btn" data-filter="all" onclick="setDealFilter('all')">All</button>
+    <button class="intel-btn" data-filter="great_deal" onclick="setDealFilter('great_deal')">Great Deal <span class="count-badge" id="cntGreat">0</span></button>
+    <button class="intel-btn" data-filter="good_buy" onclick="setDealFilter('good_buy')">Good Buy <span class="count-badge" id="cntGood">0</span></button>
+    <button class="intel-btn" data-filter="wait" onclick="setDealFilter('wait')">Wait <span class="count-badge" id="cntWait">0</span></button>
+    <button class="intel-btn" data-filter="all_time_low" onclick="setDealFilter('all_time_low')">All Time Low <span class="count-badge" id="cntATL">0</span></button>
+    <button class="intel-btn" data-filter="new_items" onclick="setDealFilter('new_items')">New <span class="count-badge" id="cntNew">0</span></button>
+    <button class="intel-btn" data-filter="price_change" onclick="setDealFilter('price_change')">Price Change <span class="count-badge" id="cntPC">0</span></button>
+    <span style="margin-left:8px;font-size:.7rem;color:var(--dim)">New in</span>
+    <input type="number" id="newDaysInput" value="7" min="1" max="90" style="width:50px;padding:3px 6px;font-size:.75rem" onchange="reloadDealData()">
+    <span style="font-size:.7rem;color:var(--dim)">days</span>
+  </div>
+  <div class="compare-bar" id="compareBar">
+    <button class="compare-btn" id="compareModeBtn" onclick="toggleCompareMode()">Compare</button>
+    <button class="compare-btn cart" id="cartBtn" onclick="openCompareCart()">Cart <span class="compare-count" id="cartCount">0</span></button>
+    <span style="font-size:.7rem;color:var(--dim);margin-left:8px">|</span>
+    <label style="font-size:.7rem;color:var(--dim);margin-left:8px">Mean Analysis:</label>
+    <input type="date" id="meanStartDate" style="padding:3px 6px;font-size:.75rem">
+    <span style="font-size:.7rem;color:var(--dim)">to</span>
+    <input type="date" id="meanEndDate" style="padding:3px 6px;font-size:.75rem">
+    <button onclick="runMeanAnalysis()" style="font-size:.7rem;padding:3px 8px">Analyze</button>
+    <div id="meanResult" style="font-size:.7rem;color:var(--accent);margin-left:8px"></div>
+  </div>
+  <div class="toolbar">
+    <input type="search" id="searchInput" placeholder="Search products or SKU...">
+    <select id="catFilter"><option value="">All Categories</option></select>
+    <select id="sortSelect">
+      <option value="name">Name</option>
+      <option value="discounted_price">Price</option>
+      <option value="base_price">Base Price</option>
+      <option value="discount">Discount</option>
+    </select>
+    <select id="orderSelect">
+      <option value="asc">Ascending</option>
+      <option value="desc">Descending</option>
+    </select>
+    <input type="number" id="minPrice" placeholder="Min" style="width:100px">
+    <input type="number" id="maxPrice" placeholder="Max" style="width:100px">
+    <select id="stockFilter">
+      <option value="">All Stock</option>
+      <option value="1">In Stock</option>
+      <option value="0">Out of Stock</option>
+    </select>
+    <button onclick="loadProducts(1)">Search</button>
+    <div style="margin-left:auto;display:flex;align-items:center;gap:12px">
+      <div class="view-toggle">
+        <button id="viewGrid" class="active" onclick="setView('grid')" title="Grid view">&#9638;</button>
+        <button id="viewTable" onclick="setView('table')" title="Table view">&#9776;</button>
+      </div>
+      <div class="slider-wrap" id="gridSliderWrap">
+        <span class="grid-size-label" id="gridSizeLabel">4</span>
+        <input type="range" id="gridSize" min="2" max="8" value="4" oninput="setGridSize(this.value)">
+      </div>
+    </div>
+  </div>
+  <div class="text-sm text-dim mb-16" id="resultCount"></div>
+  <div id="productGridView" class="product-grid"></div>
+  <div id="productTableView" style="overflow-x:auto;display:none">
+    <table id="productTable">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th onclick="sortTable('name')">Name</th>
+          <th>SKU</th>
+          <th onclick="sortTable('category_name')">Category</th>
+          <th onclick="sortTable('base_price')">Base Price</th>
+          <th onclick="sortTable('discounted_price')">Sale Price</th>
+          <th onclick="sortTable('discount')">Discount</th>
+          <th>Stock</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="productBody"></tbody>
+    </table>
+  </div>
+  <div class="pagination" id="pagination"></div>
+</div>
+
+<!-- ANALYTICS -->
+<div class="panel" id="analytics">
+  <div class="analytics-kpi" id="kpiRow"></div>
+  <div class="grid grid-2 gap-16 mb-16">
+    <div class="card">
+      <h3>Revenue Estimate by Category</h3>
+      <div class="chart-container tall"><canvas id="catRevenueChart"></canvas></div>
+    </div>
+    <div class="card">
+      <h3>Stock Availability Distribution</h3>
+      <div class="chart-container tall"><canvas id="stockPie"></canvas></div>
+    </div>
+  </div>
+  <div class="grid grid-2 gap-16 mb-16">
+    <div class="card">
+      <h3>Category Price Comparison (Min / Avg / Max)</h3>
+      <div class="chart-container tall"><canvas id="catCompareChart"></canvas></div>
+    </div>
+    <div class="card">
+      <h3>Discount Depth Analysis</h3>
+      <div class="chart-container tall"><canvas id="discountDepthChart"></canvas></div>
+    </div>
+  </div>
+  <div class="grid grid-2 gap-16 mb-16">
+    <div class="card">
+      <h3>Discounted vs Full Price Items</h3>
+      <div class="chart-container tall"><canvas id="discountPie"></canvas></div>
+    </div>
+    <div class="card">
+      <h3>Price Buckets Distribution</h3>
+      <div class="chart-container tall"><canvas id="bucketChart"></canvas></div>
+    </div>
+  </div>
+  <div class="grid grid-2 gap-16 mb-16">
+    <div class="card">
+      <h3>Daily Product Count History</h3>
+      <div class="chart-container tall"><canvas id="dailyChart"></canvas></div>
+    </div>
+    <div class="card">
+      <h3>Average Price by Category</h3>
+      <div class="chart-container tall"><canvas id="catAvgChart"></canvas></div>
+    </div>
+  </div>
+  <div class="grid grid-2 gap-16 mb-16">
+    <div class="card">
+      <h3>Top Expensive Products</h3>
+      <div class="leaderboard" id="leaderExpensive"></div>
+    </div>
+    <div class="card">
+      <h3>Biggest Discounts</h3>
+      <div class="leaderboard" id="leaderDiscounts"></div>
+    </div>
+  </div>
+  <div class="grid grid-2 gap-16 mb-16">
+    <div class="card">
+      <h3>Price Spread Heatmap (Category x Percentile)</h3>
+      <div id="priceHeatmap"></div>
+    </div>
+    <div class="card">
+      <h3>Key Metrics</h3>
+      <div class="correlation-grid" id="correlationGrid"></div>
+    </div>
+  </div>
+  <div class="card mb-16">
+    <h3>Category Statistics</h3>
+    <div style="overflow-x:auto">
+      <table>
+        <thead>
+          <tr><th>Category</th><th>Products</th><th>Avg Price</th><th>Min</th><th>Max</th><th>Spread</th><th>Total Value</th><th>Discounted %</th><th>In Stock %</th></tr>
+        </thead>
+        <tbody id="catStatsBody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- PRICE HISTORY -->
+<div class="panel" id="price-history">
+  <div class="toolbar">
+    <input type="search" id="phSearch" placeholder="Search product for price history..." style="width:400px">
+    <button onclick="searchForHistory()">Search</button>
+    <span class="data-source">Parquet-backed</span>
+  </div>
+  <div id="phResults" class="mb-16"></div>
+  <div id="phChart" class="card" style="display:none">
+    <h3 id="phTitle">Price History</h3>
+    <div class="chart-container tall"><canvas id="phCanvas"></canvas></div>
+  </div>
+  <div id="phChanges" class="card mt-16" style="display:none">
+    <h3>Recent Price Changes</h3>
+    <div style="overflow-x:auto">
+      <table>
+        <thead><tr><th>Product</th><th>Category</th><th>Old Price</th><th>New Price</th><th>Change</th><th>Since</th></tr></thead>
+        <tbody id="phChangesBody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- CATEGORIES -->
+<div class="panel" id="categories">
+  <div class="grid grid-3 gap-16" id="catCards"></div>
+</div>
+
+<!-- DEBUG -->
+<div class="panel" id="debug">
+  <div class="toolbar">
+    <button onclick="clearConsole()">Clear</button>
+    <button onclick="pollLogs()" class="secondary">Poll Logs</button>
+    <select id="logLevel">
+      <option value="all">All Levels</option>
+      <option value="info">Info+</option>
+      <option value="warn">Warn+</option>
+      <option value="error">Error Only</option>
+    </select>
+  </div>
+  <div class="console" id="consoleOutput">
+    <div class="line"><span class="time">--:--:--</span><span class="level info">INFO</span><span>Dashboard initialized. Awaiting events...</span></div>
+  </div>
+  <div class="card mt-16">
+    <h3>Scrape Runs</h3>
+    <div style="overflow-x:auto">
+      <table>
+        <thead><tr><th>ID</th><th>Started</th><th>Finished</th><th>Products</th><th>Categories</th><th>Status</th></tr></thead>
+        <tbody id="runsBody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

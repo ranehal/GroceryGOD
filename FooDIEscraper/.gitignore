@@ -1,0 +1,23 @@
+# Ignore large decompilation files & zips (> 100MB)
+jadx.zip
+jadx/
+decompiled/
+decompiled_smali/
+PowerShell 7.6.1/
+null/
+.deps_installed
+
+# Python artifacts
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Logs & temp files
+*.log
+data/logs/
+scratch/
+
+# IDE files
+.vscode/
+.idea/
