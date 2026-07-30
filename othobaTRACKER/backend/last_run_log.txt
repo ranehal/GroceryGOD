@@ -1,12 +1,12 @@
-Last Run: 2026-07-30 15:45:17
+Last Run: 2026-07-31 03:51:23
 ------------------------------
-Total Scraped: 61633
-New Items: 46261
+Total Scraped: 61227
+New Items: 12
 ------------------------------
 Categories:
 - toys-trending-offer: 400
-- grocery-staples: 400
 - daily-bazar: 400
+- grocery-staples: 400
 - household-essentials-2: 400
 - laundry-cleaning: 400
 - kitchen-supplies-tool: 400
