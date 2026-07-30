@@ -1,17 +1,17 @@
-Last Run: 2026-07-31 03:47:27
+Last Run: 2026-07-31 05:37:07
 ------------------------------
-Total Scraped: 1061
+Total Scraped: 939
 New Items: 0
 ------------------------------
 Categories:
-- Hair Care: 87
 - Men's Soaps: 60
 - Men's Deodorants: 59
 - Liquid Handwash: 56
 - Men's Perfume: 56
-- Floor & Glass Cleaners: 40
+- Keto Food: 46
+- Air Fresheners: 46
 - Women's Perfume: 39
-- Face Wash & Scrub: 39
-- Female Deo: 35
 - Cleaning Accessories: 34
-... and 50 more.
+- Lotions: 27
+- Toothbrushes: 27
+... and 43 more.
