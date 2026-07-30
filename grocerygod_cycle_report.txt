@@ -1,0 +1,419 @@
+=== GroceryGOD CYCLE REPORT (Cycle 1) ===
+Date: 2026-07-30 08:19:29 DHAKA
+Kaggle IP: 34.182.104.241
+
+[Shwapno] last_run_log.txt:
+Last Run: 2026-07-30 05:19:39
+------------------------------
+Total Scraped: 3001
+New Items: 0
+------------------------------
+Categories:
+- Hot Deals: 483
+- Cooking: 412
+- Shop Now Think Later: 270
+- Great Savings 3: 220
+- Dairy: 183
+- Deals On Unilever: 119
+- Meat & Fish Combo: 101
+- Buy Save More 2: 94
+- Fruits & Vegetables: 91
+- Cream & Lotion: 70
+... and 45 more.
+---
+[Chaldal] last_run_log.txt:
+Last Run: 2026-07-30 05:20:37
+------------------------------
+Total Scraped: 951
+New Items: 0
+------------------------------
+Categories:
+- Hair Care: 87
+- Liquid Handwash: 56
+- Men's Perfume: 56
+- Women's Shampoos & Conditioners: 46
+- Toothpastes: 45
+- Floor & Glass Cleaners: 40
+- Women's Perfume: 39
+- Female Deo: 35
+- Cleaning Accessories: 33
+- Feminine Care: 32
+... and 41 more.
+---
+[Meena Bazar] last_run_log.txt:
+Last Run: 2026-07-30 05:45:46
+------------------------------
+Total Scraped: 4929
+New Items: 0
+------------------------------
+Categories:
+- Personal Care: 1020
+- Grocery: 1000
+- House Hold: 984
+- Dairy: 396
+- Frozen: 394
+- Kitchen Ware: 305
+- Vegetables: 201
+- Fish: 194
+- Fruits: 185
+- Apparel & Linen: 102
+... and 3 more.
+---
+[Othoba] last_run_log.txt:
+Last Run: 2026-07-28 20:20:07
+------------------------------
+Total Scraped: 0
+New Items: 0
+------------------------------
+Categories:
+---
+[Unimart] last_run_log.txt:
+Last Run: 2026-07-30 05:07:44
+------------------------------
+Total Scraped: 1254
+New Items: 0
+------------------------------
+Categories:
+- Shampoo: 69
+- Whole Spice: 37
+- Instant Noodles: 32
+- Grinded Spice: 29
+- Chocolate Bar: 27
+- Face Cream: 26
+- Malted / Chocolate Drinks: 26
+- Local Biscuit: 25
+- Hand Wash: 24
+- Aaa Batteries: 23
+... and 167 more.
+---
+[Metro Mart] last_run_log.txt:
+Last Run: 2026-07-30 05:05:19
+------------------------------
+Total Scraped: 908
+New Items: 0
+------------------------------
+Categories:
+- Food & Grocery: 444
+- Electric & Electronics: 157
+- Beverage: 95
+- Household & Cleaning: 59
+- Baby Items & Care: 54
+- Grains & Commodities: 52
+- Frozen Food: 29
+- Home & Kitchen: 12
+- Office & Stationary: 6
+---
+[ShotejBazar] last_run_log.txt:
+Last Run: 2026-07-30 05:08:55
+------------------------------
+Total Scraped: 285
+New Items: 0
+------------------------------
+Categories:
+- Chocolate: 84
+- Coffee: 59
+- Food: 50
+- Cookies: 48
+- Snacks: 44
+---
+=== MAIN LOG (last 300 lines) ===
+2026-07-30 01:43:23,349 | INFO     | [GroceryGOD] [Othoba] [07:02:11] [S 36/382] [P 2] Scanning sector...
+2026-07-30 01:43:23,353 | INFO     | [GroceryGOD] [Othoba] [07:03:35] [S 26/382] [P 5] Scanning sector...
+2026-07-30 01:43:23,361 | INFO     | [GroceryGOD] [Othoba] [07:03:35] [S 39/382] [P 1] Scanning sector...
+2026-07-30 01:43:23,370 | INFO     | [GroceryGOD] [Othoba] [07:03:35] [OK] Sector 37 Finished. 72 items.
+2026-07-30 01:43:23,373 | INFO     | [GroceryGOD] [Othoba] [07:03:35] [S 40/382] [P 1] Scanning sector...
+2026-07-30 01:43:23,378 | INFO     | [GroceryGOD] [Othoba] [07:05:02] [S 33/382] [P 3] Scanning sector...
+2026-07-30 01:43:23,384 | INFO     | [GroceryGOD] [Othoba] [07:06:45] [S 34/382] [P 3] Scanning sector...
+2026-07-30 01:43:23,387 | INFO     | [GroceryGOD] [Othoba] [07:06:45] [OK] Sector 38 Finished. 18 items.
+2026-07-30 01:43:23,389 | INFO     | [GroceryGOD] [Othoba] [07:06:45] [S 41/382] [P 1] Scanning sector...
+2026-07-30 01:43:23,391 | INFO     | [GroceryGOD] [Othoba] [07:08:10] [S 27/382] [P 5] Scanning sector...
+2026-07-30 01:43:23,394 | INFO     | [GroceryGOD] [Othoba] [07:09:34] [S 36/382] [P 3] Scanning sector...
+2026-07-30 01:43:23,398 | INFO     | [GroceryGOD] [Othoba] [07:10:58] [OK] Sector 40 Finished. 0 items.
+2026-07-30 01:43:23,399 | INFO     | [GroceryGOD] [Othoba] [07:12:18] [S 39/382] [P 2] Scanning sector...
+2026-07-30 01:43:23,401 | INFO     | [GroceryGOD] [Othoba] [07:13:40] [S 33/382] [P 4] Scanning sector...
+2026-07-30 01:43:23,403 | INFO     | [GroceryGOD] [Othoba] [07:13:40] [OK] Sector 26 Finished. 400 items.
+2026-07-30 01:43:23,406 | INFO     | [GroceryGOD] [Othoba] [07:13:40] [S 42/382] [P 1] Scanning sector...
+2026-07-30 01:43:23,408 | INFO     | [GroceryGOD] [Othoba] [07:13:40] [S 43/382] [P 1] Scanning sector...
+2026-07-30 01:43:23,413 | INFO     | [GroceryGOD] [Othoba] [07:15:45] [S 34/382] [P 4] Scanning sector...
+2026-07-30 01:43:23,417 | INFO     | [GroceryGOD] [Othoba] [07:15:45] [OK] Sector 41 Finished. 35 items.
+2026-07-30 01:43:23,419 | INFO     | [GroceryGOD] [Othoba] [07:15:45] [S 44/382] [P 1] Scanning sector...
+2026-07-30 01:43:23,422 | INFO     | [GroceryGOD] [Othoba] [07:17:08] [OK] Sector 27 Finished. 400 items.
+2026-07-30 01:43:23,426 | INFO     | [GroceryGOD] [Othoba] [07:17:09] [S 45/382] [P 1] Scanning sector...
+2026-07-30 01:43:23,430 | INFO     | [GroceryGOD] [Othoba] [07:17:30] [OK] Sector 39 Finished. 98 items.
+2026-07-30 01:43:23,434 | INFO     | [GroceryGOD] [Othoba] [07:18:52] [S 42/382] [P 2] Scanning sector...
+2026-07-30 01:43:23,438 | INFO     | [GroceryGOD] [Othoba] [07:20:17] [S 36/382] [P 4] Scanning sector...
+2026-07-30 01:43:23,441 | INFO     | [GroceryGOD] [Othoba] [07:21:40] [S 43/382] [P 2] Scanning sector...
+2026-07-30 01:43:23,444 | INFO     | [GroceryGOD] [Othoba] [07:23:03] [S 33/382] [P 5] Scanning sector...
+2026-07-30 01:43:23,449 | INFO     | [GroceryGOD] [Othoba] [07:23:03] [S 46/382] [P 1] Scanning sector...
+2026-07-30 01:43:23,451 | INFO     | [GroceryGOD] [Othoba] [07:24:32] [S 44/382] [P 2] Scanning sector...
+2026-07-30 01:43:23,457 | INFO     | [GroceryGOD] [Othoba] [07:25:49] [OK] Sector 34 Finished. 312 items.
+2026-07-30 01:43:23,462 | INFO     | [GroceryGOD] [Othoba] [07:27:13] [S 45/382] [P 2] Scanning sector...
+2026-07-30 01:43:23,471 | INFO     | [GroceryGOD] [Othoba] [07:27:13] [S 47/382] [P 1] Scanning sector...
+2026-07-30 01:43:23,477 | INFO     | [GroceryGOD] [Othoba] [07:29:16] [S 43/382] [P 3] Scanning sector...
+2026-07-30 01:43:23,483 | INFO     | [GroceryGOD] [Othoba] [07:30:41] [S 42/382] [P 3] Scanning sector...
+2026-07-30 01:43:23,492 | INFO     | [GroceryGOD] [Othoba] [07:30:41] [OK] Sector 36 Finished. 276 items.
+2026-07-30 01:43:23,502 | INFO     | [GroceryGOD] [Othoba] [07:34:00] [S 46/382] [P 2] Scanning sector...
+2026-07-30 01:43:23,505 | INFO     | [GroceryGOD] [Othoba] [07:34:00] [S 48/382] [P 1] Scanning sector...
+2026-07-30 01:43:23,508 | INFO     | [GroceryGOD] [Othoba] [07:34:00] [OK] Sector 44 Finished. 112 items.
+2026-07-30 01:43:23,518 | INFO     | [GroceryGOD] [Othoba] [07:34:00] [OK] Sector 33 Finished. 400 items.
+2026-07-30 01:43:23,525 | INFO     | [GroceryGOD] [Othoba] [07:34:00] [S 49/382] [P 1] Scanning sector...
+2026-07-30 01:43:23,534 | INFO     | [GroceryGOD] [Othoba] [07:34:00] [S 50/382] [P 1] Scanning sector...
+2026-07-30 01:43:23,542 | INFO     | [GroceryGOD] [Othoba] [07:35:35] [S 47/382] [P 2] Scanning sector...
+2026-07-30 01:43:23,552 | INFO     | [GroceryGOD] [Othoba] [07:35:35] [OK] Sector 45 Finished. 83 items.
+2026-07-30 01:43:23,556 | INFO     | [GroceryGOD] [Othoba] [07:35:35] [S 51/382] [P 1] Scanning sector...
+2026-07-30 01:43:23,564 | INFO     | [GroceryGOD] [Othoba] [07:37:37] [S 42/382] [P 4] Scanning sector...
+2026-07-30 01:43:23,573 | INFO     | [GroceryGOD] [Othoba] [07:37:37] [OK] Sector 43 Finished. 193 items.
+2026-07-30 01:43:23,582 | INFO     | [GroceryGOD] [Othoba] [07:37:37] [S 52/382] [P 1] Scanning sector...
+2026-07-30 01:43:23,588 | INFO     | [GroceryGOD] [Othoba] [07:39:07] [S 49/382] [P 2] Scanning sector...
+2026-07-30 01:43:23,592 | INFO     | [GroceryGOD] [Othoba] [07:40:33] [S 48/382] [P 2] Scanning sector...
+2026-07-30 01:43:23,599 | INFO     | [GroceryGOD] [Othoba] [07:41:58] [S 46/382] [P 3] Scanning sector...
+2026-07-30 01:43:25,652 | DEBUG    | [GroceryGOD] Starting new HTTPS connection (1): api.telegram.org:443
+2026-07-30 01:43:26,309 | DEBUG    | [GroceryGOD] https://api.telegram.org:443 "POST /bot7563243860:AAG91WlEnGnplDSSpxYUuZ9YbTytE6ydCJw/sendMessage HTTP/1.1" 200 335
+2026-07-30 01:53:26,353 | DEBUG    | [GroceryGOD] Starting new HTTPS connection (1): api.telegram.org:443
+2026-07-30 01:53:27,023 | DEBUG    | [GroceryGOD] https://api.telegram.org:443 "POST /bot7563243860:AAG91WlEnGnplDSSpxYUuZ9YbTytE6ydCJw/sendMessage HTTP/1.1" 200 360
+2026-07-30 02:03:27,057 | DEBUG    | [GroceryGOD] Starting new HTTPS connection (1): api.telegram.org:443
+2026-07-30 02:03:27,797 | DEBUG    | [GroceryGOD] https://api.telegram.org:443 "POST /bot7563243860:AAG91WlEnGnplDSSpxYUuZ9YbTytE6ydCJw/sendMessage HTTP/1.1" 200 360
+2026-07-30 02:04:12,829 | INFO     | [GroceryGOD] [Othoba] [07:43:22] [S 50/382] [P 2] Scanning sector...
+2026-07-30 02:04:12,834 | ERROR    | [GroceryGOD] Othoba TIMED OUT after 3:00:03!
+2026-07-30 02:04:12,839 | DEBUG    | [GroceryGOD] Starting new HTTPS connection (1): api.telegram.org:443
+2026-07-30 02:04:13,478 | DEBUG    | [GroceryGOD] https://api.telegram.org:443 "POST /bot7563243860:AAG91WlEnGnplDSSpxYUuZ9YbTytE6ydCJw/sendMessage HTTP/1.1" 200 365
+2026-07-30 02:04:13,488 | INFO     | [GroceryGOD] === SCRAPER RESULTS SUMMARY ===
+------------------------------------------------------------
+2026-07-30 02:04:13,492 | INFO     | [GroceryGOD]   OK Shwapno - lines=0 status=ok
+2026-07-30 02:04:13,494 | INFO     | [GroceryGOD]   OK Chaldal - lines=325 status=ok
+2026-07-30 02:04:13,496 | INFO     | [GroceryGOD]   OK Meena Bazar - lines=45 status=ok
+2026-07-30 02:04:13,498 | INFO     | [GroceryGOD]   TIMEOUT Othoba - lines=176 status=timeout
+2026-07-30 02:04:13,500 | INFO     | [GroceryGOD]   OK Unimart - lines=0 status=ok
+2026-07-30 02:04:13,501 | INFO     | [GroceryGOD]   OK Metro Mart - lines=51 status=ok
+2026-07-30 02:04:13,504 | INFO     | [GroceryGOD]   OK ShotejBazar - lines=0 status=ok
+2026-07-30 02:04:13,506 | INFO     | [GroceryGOD] ------------------------------------------------------------
+2026-07-30 02:04:13,508 | INFO     | [GroceryGOD] Result: 6/7 scrapers OK
+2026-07-30 02:04:13,510 | INFO     | [GroceryGOD] Failed: [('Othoba', 'timeout')]
+2026-07-30 02:04:13,512 | DEBUG    | [GroceryGOD] Starting new HTTPS connection (1): api.telegram.org:443
+2026-07-30 02:04:14,131 | DEBUG    | [GroceryGOD] https://api.telegram.org:443 "POST /bot7563243860:AAG91WlEnGnplDSSpxYUuZ9YbTytE6ydCJw/sendMessage HTTP/1.1" 200 289
+2026-07-30 02:04:14,135 | DEBUG    | [GroceryGOD] Starting new HTTPS connection (1): api.telegram.org:443
+2026-07-30 02:04:14,816 | DEBUG    | [GroceryGOD] https://api.telegram.org:443 "POST /bot7563243860:AAG91WlEnGnplDSSpxYUuZ9YbTytE6ydCJw/sendMessage HTTP/1.1" 200 291
+2026-07-30 02:04:14,820 | DEBUG    | [GroceryGOD] Starting new HTTPS connection (1): api.telegram.org:443
+2026-07-30 02:04:15,456 | DEBUG    | [GroceryGOD] https://api.telegram.org:443 "POST /bot7563243860:AAG91WlEnGnplDSSpxYUuZ9YbTytE6ydCJw/sendMessage HTTP/1.1" 200 293
+2026-07-30 02:04:15,460 | DEBUG    | [GroceryGOD] Starting new HTTPS connection (1): api.telegram.org:443
+2026-07-30 02:04:16,132 | DEBUG    | [GroceryGOD] https://api.telegram.org:443 "POST /bot7563243860:AAG91WlEnGnplDSSpxYUuZ9YbTytE6ydCJw/sendMessage HTTP/1.1" 200 296
+2026-07-30 02:04:16,136 | DEBUG    | [GroceryGOD] Starting new HTTPS connection (1): api.telegram.org:443
+2026-07-30 02:04:16,758 | DEBUG    | [GroceryGOD] https://api.telegram.org:443 "POST /bot7563243860:AAG91WlEnGnplDSSpxYUuZ9YbTytE6ydCJw/sendMessage HTTP/1.1" 200 302
+2026-07-30 02:04:16,764 | DEBUG    | [GroceryGOD] Starting new HTTPS connection (1): api.telegram.org:443
+2026-07-30 02:04:17,547 | DEBUG    | [GroceryGOD] https://api.telegram.org:443 "POST /bot7563243860:AAG91WlEnGnplDSSpxYUuZ9YbTytE6ydCJw/sendMessage HTTP/1.1" 200 291
+2026-07-30 02:04:17,551 | DEBUG    | [GroceryGOD] Starting new HTTPS connection (1): api.telegram.org:443
+2026-07-30 02:04:18,258 | DEBUG    | [GroceryGOD] https://api.telegram.org:443 "POST /bot7563243860:AAG91WlEnGnplDSSpxYUuZ9YbTytE6ydCJw/sendMessage HTTP/1.1" 200 295
+2026-07-30 02:04:18,262 | DEBUG    | [GroceryGOD] Starting new HTTPS connection (1): api.telegram.org:443
+2026-07-30 02:04:18,951 | DEBUG    | [GroceryGOD] https://api.telegram.org:443 "POST /bot7563243860:AAG91WlEnGnplDSSpxYUuZ9YbTytE6ydCJw/sendMessage HTTP/1.1" 200 295
+2026-07-30 02:04:18,955 | INFO     | [GroceryGOD] Pushing all scraper data to GitHub...
+2026-07-30 02:04:18,958 | DEBUG    | [GroceryGOD] Starting new HTTPS connection (1): api.telegram.org:443
+2026-07-30 02:04:19,583 | DEBUG    | [GroceryGOD] https://api.telegram.org:443 "POST /bot7563243860:AAG91WlEnGnplDSSpxYUuZ9YbTytE6ydCJw/sendMessage HTTP/1.1" 200 308
+2026-07-30 02:06:58,385 | INFO     | [GroceryGOD] Combined scraper data pushed to GitHub successfully
+2026-07-30 02:06:58,390 | DEBUG    | [GroceryGOD] Starting new HTTPS connection (1): api.telegram.org:443
+2026-07-30 02:06:59,003 | DEBUG    | [GroceryGOD] https://api.telegram.org:443 "POST /bot7563243860:AAG91WlEnGnplDSSpxYUuZ9YbTytE6ydCJw/sendMessage HTTP/1.1" 200 304
+2026-07-30 02:06:59,006 | INFO     | [GroceryGOD] ✅  [Market Scrapers (Parallel)] — OK (3:02:50)
+2026-07-30 02:06:59,010 | DEBUG    | [GroceryGOD] Starting new HTTPS connection (1): api.telegram.org:443
+2026-07-30 02:06:59,626 | DEBUG    | [GroceryGOD] https://api.telegram.org:443 "POST /bot7563243860:AAG91WlEnGnplDSSpxYUuZ9YbTytE6ydCJw/sendMessage HTTP/1.1" 200 377
+2026-07-30 02:06:59,630 | INFO     | [GroceryGOD] 🧬  [GODdata Aggregator] — STARTED
+2026-07-30 02:06:59,634 | DEBUG    | [GroceryGOD] Starting new HTTPS connection (1): api.telegram.org:443
+2026-07-30 02:07:00,302 | DEBUG    | [GroceryGOD] https://api.telegram.org:443 "POST /bot7563243860:AAG91WlEnGnplDSSpxYUuZ9YbTytE6ydCJw/sendMessage HTTP/1.1" 200 364
+2026-07-30 02:11:50,984 | INFO     | [GroceryGOD] [aggregator]
+2026-07-30 02:11:51,005 | INFO     | [GroceryGOD] [aggregator] ======================================================================
+2026-07-30 02:11:51,014 | INFO     | [GroceryGOD] [aggregator] GODDATA AGGREGATOR // Atomic Zero-Fail Engine
+2026-07-30 02:11:51,023 | INFO     | [GroceryGOD] [aggregator] ======================================================================
+2026-07-30 02:11:51,031 | INFO     | [GroceryGOD] [aggregator] Processing Shwapno...
+2026-07-30 02:11:51,040 | INFO     | [GroceryGOD] [aggregator] Saved shwapno         | Items:  8183 | Chunks:  2 | Safe Under 45MB
+2026-07-30 02:11:51,049 | INFO     | [GroceryGOD] [aggregator] Processing Chaldal...
+2026-07-30 02:11:51,057 | INFO     | [GroceryGOD] [aggregator] Saved chaldal         | Items:  4402 | Chunks:  1 | Safe Under 45MB
+2026-07-30 02:11:51,068 | INFO     | [GroceryGOD] [aggregator] Processing Meena Bazar...
+2026-07-30 02:11:51,079 | INFO     | [GroceryGOD] [aggregator]   [!] Chunk 1 too large (57.16MB). Shrinking size...
+2026-07-30 02:11:51,090 | INFO     | [GroceryGOD] [aggregator] Saved meenabazar      | Items: 14304 | Chunks:  6 | Safe Under 45MB
+2026-07-30 02:11:51,103 | INFO     | [GroceryGOD] [aggregator] Processing Othoba...
+2026-07-30 02:11:51,114 | INFO     | [GroceryGOD] [aggregator]   [!] Chunk 1 too large (52.07MB). Shrinking size...
+2026-07-30 02:11:51,122 | INFO     | [GroceryGOD] [aggregator] Saved othoba          | Items: 80485 | Chunks: 33 | Safe Under 45MB
+2026-07-30 02:11:51,131 | INFO     | [GroceryGOD] [aggregator] Processing Metro Mart...
+2026-07-30 02:11:51,141 | INFO     | [GroceryGOD] [aggregator] Saved metromart       | Items:   912 | Chunks:  1 | Safe Under 45MB
+2026-07-30 02:11:51,149 | INFO     | [GroceryGOD] [aggregator] Processing Unimart...
+2026-07-30 02:11:51,155 | INFO     | [GroceryGOD] [aggregator] Saved unimart         | Items:  4094 | Chunks:  1 | Safe Under 45MB
+2026-07-30 02:11:51,163 | INFO     | [GroceryGOD] [aggregator] Processing ShotejBazar...
+2026-07-30 02:11:51,169 | INFO     | [GroceryGOD] [aggregator] Saved shotejbazar     | Items:   625 | Chunks:  1 | Safe Under 45MB
+2026-07-30 02:11:51,178 | INFO     | [GroceryGOD] [aggregator] Processing Foodi...
+2026-07-30 02:11:51,186 | INFO     | [GroceryGOD] [aggregator] Saved foodi           | Items:  5359 | Chunks:  2 | Safe Under 45MB
+2026-07-30 02:11:51,193 | INFO     | [GroceryGOD] [aggregator] ======================================================================
+2026-07-30 02:11:51,203 | INFO     | [GroceryGOD] [aggregator]
+2026-07-30 02:11:51,208 | INFO     | [GroceryGOD] Aggregator completed successfully
+2026-07-30 02:11:51,218 | INFO     | [GroceryGOD] 🔄 Persistent Run count updated to 92
+2026-07-30 02:11:51,224 | INFO     | [GroceryGOD] ✅  [GODdata Aggregator] — OK (0:04:51)
+2026-07-30 02:11:51,235 | DEBUG    | [GroceryGOD] Starting new HTTPS connection (1): api.telegram.org:443
+2026-07-30 02:11:51,911 | DEBUG    | [GroceryGOD] https://api.telegram.org:443 "POST /bot7563243860:AAG91WlEnGnplDSSpxYUuZ9YbTytE6ydCJw/sendMessage HTTP/1.1" 200 369
+2026-07-30 02:11:51,918 | INFO     | [GroceryGOD] 📊  [Parquet Conversion] — STARTED
+2026-07-30 02:11:51,929 | DEBUG    | [GroceryGOD] Starting new HTTPS connection (1): api.telegram.org:443
+2026-07-30 02:11:52,570 | DEBUG    | [GroceryGOD] https://api.telegram.org:443 "POST /bot7563243860:AAG91WlEnGnplDSSpxYUuZ9YbTytE6ydCJw/sendMessage HTTP/1.1" 200 364
+2026-07-30 02:13:05,055 | INFO     | [GroceryGOD] [parquet]   shwapno_data_part1.js: 5000 products
+2026-07-30 02:13:05,058 | INFO     | [GroceryGOD] [parquet]   shwapno_data_part2.js: 3183 products
+2026-07-30 02:13:05,061 | INFO     | [GroceryGOD] [parquet]   chaldal_data_part1.js: 4402 products
+2026-07-30 02:13:05,064 | INFO     | [GroceryGOD] [parquet]   meenabazar_data_part1.js: 2500 products
+2026-07-30 02:13:05,067 | INFO     | [GroceryGOD] [parquet]   meenabazar_data_part2.js: 2500 products
+2026-07-30 02:13:05,069 | INFO     | [GroceryGOD] [parquet]   meenabazar_data_part3.js: 2500 products
+2026-07-30 02:13:05,072 | INFO     | [GroceryGOD] [parquet]   meenabazar_data_part4.js: 2500 products
+2026-07-30 02:13:05,075 | INFO     | [GroceryGOD] [parquet]   meenabazar_data_part5.js: 2500 products
+2026-07-30 02:13:05,078 | INFO     | [GroceryGOD] [parquet]   meenabazar_data_part6.js: 1804 products
+2026-07-30 02:13:05,081 | INFO     | [GroceryGOD] [parquet]   othoba_data_part1.js: 2500 products
+2026-07-30 02:13:05,083 | INFO     | [GroceryGOD] [parquet]   othoba_data_part10.js: 2500 products
+2026-07-30 02:13:05,086 | INFO     | [GroceryGOD] [parquet]   othoba_data_part11.js: 2500 products
+2026-07-30 02:13:05,089 | INFO     | [GroceryGOD] [parquet]   othoba_data_part12.js: 2500 products
+2026-07-30 02:13:05,091 | INFO     | [GroceryGOD] [parquet]   othoba_data_part13.js: 2500 products
+2026-07-30 02:13:05,093 | INFO     | [GroceryGOD] [parquet]   othoba_data_part14.js: 2500 products
+2026-07-30 02:13:05,096 | INFO     | [GroceryGOD] [parquet]   othoba_data_part15.js: 2500 products
+2026-07-30 02:13:05,101 | INFO     | [GroceryGOD] [parquet]   othoba_data_part16.js: 2500 products
+2026-07-30 02:13:05,103 | INFO     | [GroceryGOD] [parquet]   othoba_data_part17.js: 2500 products
+2026-07-30 02:13:05,105 | INFO     | [GroceryGOD] [parquet]   othoba_data_part18.js: 2500 products
+2026-07-30 02:13:05,108 | INFO     | [GroceryGOD] [parquet]   othoba_data_part19.js: 2500 products
+2026-07-30 02:13:05,110 | INFO     | [GroceryGOD] [parquet]   othoba_data_part2.js: 2500 products
+2026-07-30 02:13:05,113 | INFO     | [GroceryGOD] [parquet]   othoba_data_part20.js: 2500 products
+2026-07-30 02:13:05,115 | INFO     | [GroceryGOD] [parquet]   othoba_data_part21.js: 2500 products
+2026-07-30 02:13:05,118 | INFO     | [GroceryGOD] [parquet]   othoba_data_part22.js: 2500 products
+2026-07-30 02:13:05,120 | INFO     | [GroceryGOD] [parquet]   othoba_data_part23.js: 2500 products
+2026-07-30 02:13:05,123 | INFO     | [GroceryGOD] [parquet]   othoba_data_part24.js: 2500 products
+2026-07-30 02:13:05,126 | INFO     | [GroceryGOD] [parquet]   othoba_data_part25.js: 2500 products
+2026-07-30 02:13:05,132 | INFO     | [GroceryGOD] [parquet]   othoba_data_part26.js: 2500 products
+2026-07-30 02:13:05,134 | INFO     | [GroceryGOD] [parquet]   othoba_data_part27.js: 2500 products
+2026-07-30 02:13:05,137 | INFO     | [GroceryGOD] [parquet]   othoba_data_part28.js: 2500 products
+2026-07-30 02:13:05,139 | INFO     | [GroceryGOD] [parquet]   othoba_data_part29.js: 2500 products
+2026-07-30 02:13:05,142 | INFO     | [GroceryGOD] [parquet]   othoba_data_part3.js: 2500 products
+2026-07-30 02:13:05,144 | INFO     | [GroceryGOD] [parquet]   othoba_data_part30.js: 2500 products
+2026-07-30 02:13:05,148 | INFO     | [GroceryGOD] [parquet]   othoba_data_part31.js: 2500 products
+2026-07-30 02:13:05,158 | INFO     | [GroceryGOD] [parquet]   othoba_data_part32.js: 2500 products
+2026-07-30 02:13:05,161 | INFO     | [GroceryGOD] [parquet]   othoba_data_part33.js: 485 products
+2026-07-30 02:13:05,163 | INFO     | [GroceryGOD] [parquet]   othoba_data_part4.js: 2500 products
+2026-07-30 02:13:05,165 | INFO     | [GroceryGOD] [parquet]   othoba_data_part5.js: 2500 products
+2026-07-30 02:13:05,168 | INFO     | [GroceryGOD] [parquet]   othoba_data_part6.js: 2500 products
+2026-07-30 02:13:05,173 | INFO     | [GroceryGOD] [parquet]   othoba_data_part7.js: 2500 products
+2026-07-30 02:13:05,175 | INFO     | [GroceryGOD] [parquet]   othoba_data_part8.js: 2500 products
+2026-07-30 02:13:05,179 | INFO     | [GroceryGOD] [parquet]   othoba_data_part9.js: 2500 products
+2026-07-30 02:13:05,184 | INFO     | [GroceryGOD] [parquet]   metromart_data_part1.js: 912 products
+2026-07-30 02:13:05,186 | INFO     | [GroceryGOD] [parquet]   unimart_data_part1.js: 4094 products
+2026-07-30 02:13:05,191 | INFO     | [GroceryGOD] [parquet]   shotejbazar_data_part1.js: 625 products
+2026-07-30 02:13:05,193 | INFO     | [GroceryGOD] [parquet]   foodi_data_part1.js: 5000 products
+2026-07-30 02:13:05,197 | INFO     | [GroceryGOD] [parquet]   foodi_data_part2.js: 359 products
+2026-07-30 02:13:05,199 | INFO     | [GroceryGOD] [parquet]
+2026-07-30 02:13:05,202 | INFO     | [GroceryGOD] [parquet] Total: 118364 products, 7607699 history rows
+2026-07-30 02:13:05,205 | INFO     | [GroceryGOD] [parquet] Free tier: 68309 history rows (cutoff=2026-07-27)
+2026-07-30 02:13:05,207 | INFO     | [GroceryGOD] [parquet] Premium archive: 7539390 rows encrypted (2.9 MB)
+2026-07-30 02:13:05,210 | INFO     | [GroceryGOD] [parquet]
+2026-07-30 02:13:05,212 | INFO     | [GroceryGOD] [parquet] products.parquet:      5.0 MB
+2026-07-30 02:13:05,215 | INFO     | [GroceryGOD] [parquet] history.parquet:       3.1 MB
+2026-07-30 02:13:05,218 | INFO     | [GroceryGOD] [parquet] products_free.parquet: 5.0 MB
+2026-07-30 02:13:05,222 | INFO     | [GroceryGOD] [parquet] history_free.parquet:  0.5 MB
+2026-07-30 02:13:05,228 | INFO     | [GroceryGOD] [parquet] Total: 13.6 MB
+2026-07-30 02:13:07,830 | INFO     | [GroceryGOD]   products.parquet: 5.0 MB
+2026-07-30 02:13:07,832 | INFO     | [GroceryGOD]   history.parquet: 3.1 MB
+2026-07-30 02:13:07,834 | INFO     | [GroceryGOD]   products_free.parquet: 5.0 MB
+2026-07-30 02:13:07,838 | INFO     | [GroceryGOD]   history_free.parquet: 0.5 MB
+2026-07-30 02:13:07,840 | INFO     | [GroceryGOD]   premium/history_archive.parquet.enc: 2.9 MB
+2026-07-30 02:13:07,842 | INFO     | [GroceryGOD] ✅  [Parquet Conversion] — OK (0:01:15)
+2026-07-30 02:13:07,844 | DEBUG    | [GroceryGOD] Starting new HTTPS connection (1): api.telegram.org:443
+2026-07-30 02:13:08,512 | DEBUG    | [GroceryGOD] https://api.telegram.org:443 "POST /bot7563243860:AAG91WlEnGnplDSSpxYUuZ9YbTytE6ydCJw/sendMessage HTTP/1.1" 200 369
+2026-07-30 02:13:08,515 | INFO     | [GroceryGOD] 🔐  [Premium Key Rotation] — STARTED
+2026-07-30 02:13:08,518 | DEBUG    | [GroceryGOD] Starting new HTTPS connection (1): api.telegram.org:443
+2026-07-30 02:13:09,198 | DEBUG    | [GroceryGOD] https://api.telegram.org:443 "POST /bot7563243860:AAG91WlEnGnplDSSpxYUuZ9YbTytE6ydCJw/sendMessage HTTP/1.1" 200 366
+2026-07-30 02:13:09,299 | INFO     | [GroceryGOD] No GOD_PREMIUM_KEY_UPDATE set — skipping key rotation.
+2026-07-30 02:13:09,301 | INFO     | [GroceryGOD] ✅  [Premium Key Rotation] — OK (0:00:00)
+2026-07-30 02:13:09,304 | DEBUG    | [GroceryGOD] Starting new HTTPS connection (1): api.telegram.org:443
+2026-07-30 02:13:09,972 | DEBUG    | [GroceryGOD] https://api.telegram.org:443 "POST /bot7563243860:AAG91WlEnGnplDSSpxYUuZ9YbTytE6ydCJw/sendMessage HTTP/1.1" 200 371
+2026-07-30 02:13:09,975 | INFO     | [GroceryGOD] 🔒  [Repo Encryption] — STARTED
+2026-07-30 02:13:09,978 | DEBUG    | [GroceryGOD] Starting new HTTPS connection (1): api.telegram.org:443
+2026-07-30 02:13:10,607 | DEBUG    | [GroceryGOD] https://api.telegram.org:443 "POST /bot7563243860:AAG91WlEnGnplDSSpxYUuZ9YbTytE6ydCJw/sendMessage HTTP/1.1" 200 361
+2026-07-30 02:13:10,618 | INFO     | [GroceryGOD]   Encrypting 76 files
+2026-07-30 02:13:10,943 | INFO     | [GroceryGOD]   othoba_data_part26.js -> .enc (15245KB)
+2026-07-30 02:13:11,247 | INFO     | [GroceryGOD]   othoba_data_part6.js -> .enc (24313KB)
+2026-07-30 02:13:11,506 | INFO     | [GroceryGOD]   othoba_data_part23.js -> .enc (16532KB)
+2026-07-30 02:13:11,736 | INFO     | [GroceryGOD]   othoba_data_part33.js -> .enc (4405KB)
+2026-07-30 02:13:11,949 | INFO     | [GroceryGOD]   foodi_data_part2.js -> .enc (307KB)
+2026-07-30 02:13:12,256 | INFO     | [GroceryGOD]   othoba_data_part2.js -> .enc (27320KB)
+2026-07-30 02:13:12,480 | INFO     | [GroceryGOD]   shotejbazar_data_part1.js -> .enc (2420KB)
+2026-07-30 02:13:12,828 | INFO     | [GroceryGOD]   chaldal_data_part1.js -> .enc (35371KB)
+2026-07-30 02:13:13,136 | INFO     | [GroceryGOD]   othoba_data_part22.js -> .enc (17190KB)
+2026-07-30 02:13:13,405 | INFO     | [GroceryGOD]   unimart_data_part1.js -> .enc (11562KB)
+2026-07-30 02:13:13,697 | INFO     | [GroceryGOD]   othoba_data_part7.js -> .enc (21784KB)
+2026-07-30 02:13:13,970 | INFO     | [GroceryGOD]   othoba_data_part12.js -> .enc (20384KB)
+2026-07-30 02:13:14,223 | INFO     | [GroceryGOD]   meenabazar_data_part3.js -> .enc (3994KB)
+2026-07-30 02:13:14,578 | INFO     | [GroceryGOD]   shwapno_data_part1.js -> .enc (36975KB)
+2026-07-30 02:13:14,891 | INFO     | [GroceryGOD]   othoba_data_part9.js -> .enc (25208KB)
+2026-07-30 02:13:15,171 | INFO     | [GroceryGOD]   meenabazar_data_part5.js -> .enc (14823KB)
+2026-07-30 02:13:15,442 | INFO     | [GroceryGOD]   meenabazar_data_part4.js -> .enc (1936KB)
+2026-07-30 02:13:15,801 | INFO     | [GroceryGOD]   othoba_data_part5.js -> .enc (24795KB)
+2026-07-30 02:13:16,075 | INFO     | [GroceryGOD]   othoba_data_part18.js -> .enc (15248KB)
+2026-07-30 02:13:16,362 | INFO     | [GroceryGOD]   othoba_data_part27.js -> .enc (14680KB)
+2026-07-30 02:13:16,669 | INFO     | [GroceryGOD]   othoba_data_part19.js -> .enc (17279KB)
+2026-07-30 02:13:16,950 | INFO     | [GroceryGOD]   othoba_data_part15.js -> .enc (14353KB)
+2026-07-30 02:13:17,212 | INFO     | [GroceryGOD]   shwapno_data_part2.js -> .enc (23475KB)
+2026-07-30 02:13:17,516 | INFO     | [GroceryGOD]   meenabazar_data_part2.js -> .enc (29128KB)
+2026-07-30 02:13:17,775 | INFO     | [GroceryGOD]   othoba_data_part30.js -> .enc (10270KB)
+2026-07-30 02:13:18,007 | INFO     | [GroceryGOD]   foodi_data_part1.js -> .enc (4553KB)
+2026-07-30 02:13:18,266 | INFO     | [GroceryGOD]   othoba_data_part28.js -> .enc (13404KB)
+2026-07-30 02:13:18,550 | INFO     | [GroceryGOD]   othoba_data_part16.js -> .enc (16791KB)
+2026-07-30 02:13:18,840 | INFO     | [GroceryGOD]   othoba_data_part20.js -> .enc (17974KB)
+2026-07-30 02:13:19,136 | INFO     | [GroceryGOD]   othoba_data_part4.js -> .enc (24078KB)
+2026-07-30 02:13:19,426 | INFO     | [GroceryGOD]   othoba_data_part10.js -> .enc (22608KB)
+2026-07-30 02:13:19,683 | INFO     | [GroceryGOD]   othoba_data_part25.js -> .enc (16063KB)
+2026-07-30 02:13:19,937 | INFO     | [GroceryGOD]   othoba_data_part8.js -> .enc (22925KB)
+2026-07-30 02:13:20,188 | INFO     | [GroceryGOD]   othoba_data_part21.js -> .enc (17645KB)
+2026-07-30 02:13:20,437 | INFO     | [GroceryGOD]   othoba_data_part11.js -> .enc (19979KB)
+2026-07-30 02:13:20,702 | INFO     | [GroceryGOD]   meenabazar_data_part6.js -> .enc (12321KB)
+2026-07-30 02:13:21,048 | INFO     | [GroceryGOD]   meenabazar_data_part1.js -> .enc (29406KB)
+2026-07-30 02:13:21,315 | INFO     | [GroceryGOD]   othoba_data_part17.js -> .enc (17580KB)
+2026-07-30 02:13:21,561 | INFO     | [GroceryGOD]   othoba_data_part32.js -> .enc (7220KB)
+2026-07-30 02:13:21,843 | INFO     | [GroceryGOD]   othoba_data_part13.js -> .enc (19164KB)
+2026-07-30 02:13:22,087 | INFO     | [GroceryGOD]   othoba_data_part29.js -> .enc (12870KB)
+2026-07-30 02:13:22,357 | INFO     | [GroceryGOD]   othoba_data_part1.js -> .enc (25998KB)
+2026-07-30 02:13:22,661 | INFO     | [GroceryGOD]   othoba_data_part3.js -> .enc (27089KB)
+2026-07-30 02:13:22,932 | INFO     | [GroceryGOD]   othoba_data_part24.js -> .enc (16191KB)
+2026-07-30 02:13:23,173 | INFO     | [GroceryGOD]   othoba_data_part31.js -> .enc (6974KB)
+2026-07-30 02:13:23,416 | INFO     | [GroceryGOD]   metromart_data_part1.js -> .enc (1848KB)
+2026-07-30 02:13:23,683 | INFO     | [GroceryGOD]   othoba_data_part14.js -> .enc (15320KB)
+2026-07-30 02:13:23,952 | INFO     | [GroceryGOD]   metromart_manifest.js -> .enc (0KB)
+2026-07-30 02:13:24,243 | INFO     | [GroceryGOD]   foodi_manifest.js -> .enc (0KB)
+2026-07-30 02:13:24,480 | INFO     | [GroceryGOD]   shwapno_manifest.js -> .enc (0KB)
+2026-07-30 02:13:24,691 | INFO     | [GroceryGOD]   chaldal_manifest.js -> .enc (0KB)
+2026-07-30 02:13:24,901 | INFO     | [GroceryGOD]   shotejbazar_manifest.js -> .enc (0KB)
+2026-07-30 02:13:25,134 | INFO     | [GroceryGOD]   meenabazar_manifest.js -> .enc (0KB)
+2026-07-30 02:13:25,390 | INFO     | [GroceryGOD]   othoba_manifest.js -> .enc (0KB)
+2026-07-30 02:13:25,638 | INFO     | [GroceryGOD]   unimart_manifest.js -> .enc (0KB)
+2026-07-30 02:13:26,253 | INFO     | [GroceryGOD]   PRICETRACKER/data.js -> .enc (59675KB, 2 chunks)
+2026-07-30 02:13:27,089 | INFO     | [GroceryGOD]   swapnoTRACKER/data.json -> .enc (99689KB, 3 chunks)
+2026-07-30 02:13:27,429 | INFO     | [GroceryGOD]   unimartTRACKER/data.json -> .enc (11547KB)
+2026-07-30 02:13:27,672 | INFO     | [GroceryGOD]   ShotejTRACKER/data.json -> .enc (4001KB)
+2026-07-30 02:13:27,979 | INFO     | [GroceryGOD]   data.json -> .enc (100KB)
+2026-07-30 02:13:28,393 | INFO     | [GroceryGOD]   data.js -> .enc (127KB)
+2026-07-30 02:13:28,698 | INFO     | [GroceryGOD]   swapnoTRACKER/scraper.py -> .enc (15KB)
+2026-07-30 02:13:28,919 | INFO     | [GroceryGOD]   PRICETRACKER/scraper.py -> .enc (13KB)
+2026-07-30 02:13:29,136 | INFO     | [GroceryGOD]   MEENAtracker/backend/scraper.py -> .enc (9KB)
+2026-07-30 02:13:29,364 | INFO     | [GroceryGOD]   othobaTRACKER/backend/scraper.py -> .enc (7KB)
+2026-07-30 02:13:29,583 | INFO     | [GroceryGOD]   metroTRACKER/backend/scraper.py -> .enc (8KB)
+2026-07-30 02:13:29,799 | INFO     | [GroceryGOD]   unimartTRACKER/scraper.py -> .enc (6KB)
+2026-07-30 02:13:30,016 | INFO     | [GroceryGOD]   ShotejTRACKER/scraper.py -> .enc (8KB)
+2026-07-30 02:13:30,229 | INFO     | [GroceryGOD]   othoba_tracker.db -> .enc (28KB)
+2026-07-30 02:13:30,444 | INFO     | [GroceryGOD]   metroTRACKER/backend/metro_tracker.db -> .enc (1148KB)
+2026-07-30 02:13:30,780 | INFO     | [GroceryGOD]   FooDIEscraper/data/scraper.db -> .enc (12396KB)
+2026-07-30 02:13:31,614 | INFO     | [GroceryGOD]   MEENAtracker/backend/meenatracker.db -> .enc (55784KB, 2 chunks)
+2026-07-30 02:13:33,676 | INFO     | [GroceryGOD]   othobaTRACKER/backend/othoba_tracker.db -> .enc (374024KB, 10 chunks)
+2026-07-30 02:13:34,113 | INFO     | [GroceryGOD]   products.parquet -> .enc (5130KB)
+2026-07-30 02:13:34,362 | INFO     | [GroceryGOD]   history.parquet -> .enc (3141KB)
+2026-07-30 02:13:34,588 | INFO     | [GroceryGOD]   premium/history_archive.parquet -> .enc (103KB)
+2026-07-30 02:13:34,590 | INFO     | [GroceryGOD]   Encrypted 76/76 files
+2026-07-30 02:13:34,592 | INFO     | [GroceryGOD] ✅  [Repo Encryption] — OK (0:00:24)
+2026-07-30 02:13:34,595 | DEBUG    | [GroceryGOD] Starting new HTTPS connection (1): api.telegram.org:443
+2026-07-30 02:13:35,223 | DEBUG    | [GroceryGOD] https://api.telegram.org:443 "POST /bot7563243860:AAG91WlEnGnplDSSpxYUuZ9YbTytE6ydCJw/sendMessage HTTP/1.1" 200 366
+2026-07-30 02:13:35,225 | INFO     | [GroceryGOD] 🛡️  [GitHub Push Guard] — STARTED
+2026-07-30 02:13:35,229 | DEBUG    | [GroceryGOD] Starting new HTTPS connection (1): api.telegram.org:443
+2026-07-30 02:13:35,870 | DEBUG    | [GroceryGOD] https://api.telegram.org:443 "POST /bot7563243860:AAG91WlEnGnplDSSpxYUuZ9YbTytE6ydCJw/sendMessage HTTP/1.1" 200 369
+2026-07-30 02:13:36,054 | INFO     | [GroceryGOD] 🛡️ Deactivating local Git LFS configurations to bypass account budget lock...
+2026-07-30 02:15:10,862 | INFO     | [GroceryGOD] Push attempt 1...
+2026-07-30 02:19:27,746 | DEBUG    | [GroceryGOD] Starting new HTTPS connection (1): api.telegram.org:443
+2026-07-30 02:19:28,388 | DEBUG    | [GroceryGOD] https://api.telegram.org:443 "POST /bot7563243860:AAG91WlEnGnplDSSpxYUuZ9YbTytE6ydCJw/sendMessage HTTP/1.1" 200 530
+2026-07-30 02:19:28,393 | INFO     | [GroceryGOD] ✅  [GitHub Push Guard] — OK (0:05:53)
+2026-07-30 02:19:28,399 | DEBUG    | [GroceryGOD] Starting new HTTPS connection (1): api.telegram.org:443
+2026-07-30 02:19:29,007 | DEBUG    | [GroceryGOD] https://api.telegram.org:443 "POST /bot7563243860:AAG91WlEnGnplDSSpxYUuZ9YbTytE6ydCJw/sendMessage HTTP/1.1" 200 368
+2026-07-30 02:19:29,012 | DEBUG    | [GroceryGOD] Starting new HTTPS connection (1): api.ipify.org:443
+2026-07-30 02:19:29,114 | DEBUG    | [GroceryGOD] https://api.ipify.org:443 "GET / HTTP/1.1" 200 14

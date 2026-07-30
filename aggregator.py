@@ -367,7 +367,10 @@ def load_foodi():
             curr_p = new_history[-1]['price']
             u_type, norm_p = parse_unit_and_calculate(p['name'], unit_str, curr_p)
             img = p['image_path']
-            if img and img.startswith('/'): img = "https://imrs.foodibd.com" + img
+            if img:
+                if not img.startswith('http'):
+                    img = "https://s3.ap-southeast-1.amazonaws.com/cdn.foodibd.com" + (img if img.startswith('/') else '/' + img)
+
             p_id = f"fd_{p['product_id']}"
             first_seen = new_history[0]['date'] if new_history else datetime.now(DHAKA_TZ).strftime("%Y-%m-%d")
             products[p_id] = {

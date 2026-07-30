@@ -138,13 +138,23 @@ while i < len(old_source):
             "                    elapsed = time.time() - t0\n",
             "                    log.error(f\"🚨 {label} TIMED OUT after {_fmt_dur(elapsed)}!\")\n",
             "                    tg_send(f'❌ <b>{label}</b> TIMED OUT after {_fmt_dur(elapsed)}!', silent=True)\n",
+            "                    for _ss in _glob.glob(os.path.join(full_path, '*.png')):\n",
+            "                        try: tg_send_file(_ss, f'📸 {label} Stuck Screenshot ({os.path.basename(_ss)})')\n",
+            "                        except Exception: pass\n",
             "                    return label, False\n",
             "                except Exception as run_err:\n",
             "                    elapsed = time.time() - t0\n",
             "                    log.error(f\"🚨 {label} EXCEPTION: {run_err}\")\n",
             "                    tg_send(f'❌ <b>{label}</b> FAILED after {_fmt_dur(elapsed)}!\\n<pre>{html.escape(str(run_err))}</pre>', silent=True)\n",
+            "                    for _ss in _glob.glob(os.path.join(full_path, '*.png')):\n",
+            "                        try: tg_send_file(_ss, f'📸 {label} Error Screenshot ({os.path.basename(_ss)})')\n",
+            "                        except Exception: pass\n",
             "                    return label, False\n",
             "                elapsed = time.time() - t0\n",
+            "                for _ss in _glob.glob(os.path.join(full_path, '*.png')):\n",
+            "                    try: tg_send_file(_ss, f'📸 {label} Issue Screenshot ({os.path.basename(_ss)})')\n",
+            "                    except Exception: pass\n",
+
         ])
         if i + 1 < len(old_source) and "elapsed = time.time() - t0" in old_source[i+1]:
             i += 1

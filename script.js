@@ -557,6 +557,15 @@ function renderSidebar() {
             if (!aPinned && bPinned) return 1;
             return a.localeCompare(b);
         });
+
+        // Ensure active stores have subcategories populated in activeCategories
+        if (activeShopFilters.has(sid)) {
+            const hasAny = categories.some(c => activeCategories.has(sid + '_' + c));
+            if (!hasAny && categories.length > 0) {
+                categories.forEach(c => activeCategories.add(sid + '_' + c));
+            }
+        }
+
         const group = document.createElement('div'); group.className = 'shop-group';
         const header = document.createElement('div');
         header.dataset.sid = sid;
@@ -584,6 +593,7 @@ function renderSidebar() {
             showShopLoadingAnimation(sid);
             if (cb.checked) {
                 activeShopFilters.add(sid);
+                categories.forEach(cat => activeCategories.add(sid + '_' + cat));
                 if (!window.loadedStores.has(sid)) {
                     await loadStoreData(sid);
                     window.loadedStores.add(sid);
@@ -595,7 +605,9 @@ function renderSidebar() {
                 }
             } else {
                 activeShopFilters.delete(sid);
+                categories.forEach(cat => activeCategories.delete(sid + '_' + cat));
             }
+            renderSidebar();
             renderProducts(); updateStatsBar();
         };
         cb.onclick = (e) => e.stopPropagation(); 
@@ -610,11 +622,12 @@ function renderSidebar() {
 
             const li = document.createElement('li');
             const isPinned = cat.includes('📌');
-            li.className = `shop-cat-item ${activeCategories.has(sid + '_' + cat) ? 'active' : ''} ${isPinned ? 'pinned' : ''}`;
             const catId = sid + '_' + cat;
+            const isCatActive = activeCategories.has(catId);
+            li.className = `shop-cat-item ${isCatActive ? 'active' : ''} ${isPinned ? 'pinned' : ''}`;
             li.innerHTML = `
                 <div class="cat-row-content" style="display:flex; align-items:center; gap:12px; flex:1;">
-                    <input type="checkbox" class="cat-checkbox" ${activeCategories.has(catId) ? 'checked' : ''}>
+                    <input type="checkbox" class="cat-checkbox" ${isCatActive ? 'checked' : ''}>
                     <span class="cat-name">${cat}</span> 
                 </div>
                 <div style="display:flex; align-items:center; gap:6px;">
@@ -625,9 +638,19 @@ function renderSidebar() {
             const catCb = li.querySelector('.cat-checkbox');
             li.onclick = (e) => {
                 if (e.target !== catCb) catCb.checked = !catCb.checked;
-                if (catCb.checked) { activeCategories.add(catId); li.classList.add('active'); }
-                else { activeCategories.delete(catId); li.classList.remove('active'); }
+                if (catCb.checked) {
+                    activeCategories.add(catId);
+                    activeShopFilters.add(sid);
+                } else {
+                    activeCategories.delete(catId);
+                    const anyLeft = categories.some(c => activeCategories.has(sid + '_' + c));
+                    if (!anyLeft) {
+                        activeShopFilters.delete(sid);
+                    }
+                }
+                renderSidebar();
                 renderProducts();
+                updateStatsBar();
             };
             catCb.onclick = (e) => e.stopPropagation();
             catList.appendChild(li);
@@ -635,6 +658,7 @@ function renderSidebar() {
         group.appendChild(header); group.appendChild(catList);
         list.appendChild(group);
     });
+
 
     document.getElementById('add-group-btn').onclick = () => {
         if (selectedForComparison.length === 0) return alert("Stage items in Matrix first!");
