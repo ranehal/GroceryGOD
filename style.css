@@ -1021,49 +1021,54 @@ button:focus-visible, input:focus-visible, select:focus-visible, [tabindex]:focu
     position: sticky;
     top: 0;
     z-index: 80;
-    padding: 10px 14px;
-    gap: 10px;
+    padding: 6px 12px;
+    gap: 8px;
     background: rgba(5, 6, 7, 0.94);
     border-color: var(--line-soft);
     backdrop-filter: blur(18px) saturate(140%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
-.header-left, .header-right { display: flex; align-items: center; gap: 9px; min-width: 0; }
-.header-left { flex: 1 1 520px; }
-.header-right { flex: 0 1 auto; flex-wrap: wrap; justify-content: flex-end; }
-.brand-lockup { display: flex; align-items: center; gap: 9px; flex: 0 0 auto; }
+.header-left { display: flex; align-items: center; gap: 6px; flex: 1 1 auto; min-width: 0; }
+.header-right { display: flex; align-items: center; gap: 6px; flex: 0 0 auto; flex-wrap: nowrap; }
+.brand-lockup { display: flex; align-items: center; gap: 6px; flex: 0 0 auto; }
 .brand-mark {
-    width: 31px; height: 31px; border-radius: 9px;
+    width: 28px; height: 28px; border-radius: 7px;
     display: grid; place-items: center;
     background: linear-gradient(135deg, var(--accent-color), var(--accent-secondary));
-    color: #050505; box-shadow: 0 0 22px rgba(3, 218, 198, 0.18);
+    color: #050505; box-shadow: 0 0 16px rgba(3, 218, 198, 0.18);
 }
-.brand-subtitle { display: block; margin-top: 1px; color: #64748b; font-size: 0.56rem; letter-spacing: .08em; text-transform: uppercase; }
-.search-wrapper { min-width: 190px; max-width: 460px; }
+.brand-subtitle { display: block; margin-top: 1px; color: #64748b; font-size: 0.52rem; letter-spacing: .08em; text-transform: uppercase; }
+.search-wrapper { flex: 1 1 240px; min-width: 140px; max-width: 360px; }
 .search-input {
-    min-height: 38px;
+    min-height: 30px;
+    height: 30px;
     background: var(--surface-3);
     border-color: var(--line-strong);
     border-radius: var(--radius-sm);
-    padding: 8px 12px;
+    padding: 4px 10px;
+    font-size: 0.8rem;
 }
 .search-input:hover { border-color: #475569; }
-#sort-options { width: min(270px, 18vw); min-width: 190px; }
+#sort-options { width: auto; min-width: 140px; max-width: 190px; font-size: 0.78rem; min-height: 30px; height: 30px; padding: 2px 8px; }
 .suggestions-box { width: min(440px, 80vw); border-color: rgba(187, 134, 252, .55); }
 
 .btn-icon {
-    min-height: 48px;
+    min-height: 30px;
+    height: 30px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 9px;
-    padding: 10px 16px;
+    gap: 5px;
+    padding: 4px 10px;
     border: 1px solid var(--line-strong);
-    border-radius: var(--radius-sm);
+    border-radius: 6px;
     background: var(--surface-3);
     color: #dce4ee;
     cursor: pointer;
-    font-size: 1.02rem;
-    font-weight: 800;
+    font-size: 0.78rem;
+    font-weight: 700;
     white-space: nowrap;
 }
 .btn-icon:hover { background: var(--surface-4); border-color: #64748b; transform: translateY(-1px); }
@@ -1072,22 +1077,22 @@ button:focus-visible, input:focus-visible, select:focus-visible, [tabindex]:focu
     color: #00110f;
     background: linear-gradient(135deg, var(--accent-secondary), #6ee7d8);
     border-color: transparent;
-    box-shadow: 0 8px 24px rgba(3, 218, 198, .12);
+    box-shadow: 0 6px 18px rgba(3, 218, 198, .12);
 }
 .btn-icon.primary-action:hover { filter: brightness(1.08); }
-.icon-only-desktop { width: 48px; padding-inline: 0; }
+.icon-only-desktop { width: 30px; padding-inline: 0; }
 
-.multi-filter-group { min-height: 48px; padding: 6px 12px; border-color: var(--line-soft); background: var(--surface-2); font-size: 1.02rem; }
-.check-pill { min-height: 36px; padding: 4px 8px; font-size: 0.95rem; }
-.check-pill input { accent-color: var(--accent-secondary); width: 16px; height: 16px; }
+.multi-filter-group { min-height: 30px; height: 30px; padding: 2px 6px; gap: 4px; border-color: var(--line-soft); background: var(--surface-2); font-size: 0.78rem; align-items: center; }
+.check-pill { min-height: 22px; padding: 1px 5px; font-size: 0.74rem; gap: 2px; }
+.check-pill input { accent-color: var(--accent-secondary); width: 13px; height: 13px; }
 
 /* Compact command bars */
 .intelligence-bar {
     position: sticky;
     top: var(--header-height);
     z-index: 65;
-    padding: 10px 18px;
-    gap: 10px;
+    padding: 4px 10px;
+    gap: 5px;
     background: rgba(3, 4, 5, .94);
     border-color: var(--line-soft);
     backdrop-filter: blur(14px);
@@ -1096,17 +1101,17 @@ button:focus-visible, input:focus-visible, select:focus-visible, [tabindex]:focu
     scrollbar-width: thin;
     align-items: center;
 }
-.intel-btn { flex: 0 0 auto; min-height: 41px; padding: 7px 16px; border-radius: 999px; font-size: 1.02rem; }
-.date-range-intel { flex: 0 0 auto; display: flex; align-items: center; gap: 7px; font-size: 0.92rem; color: #94a3b8; }
-.date-range-intel input { min-height: 35px; font-size: 0.92rem; padding: 4px 8px; }
+.intel-btn { flex: 0 0 auto; min-height: 26px; height: 26px; padding: 3px 10px; border-radius: 999px; font-size: 0.76rem; font-weight: 700; }
+.date-range-intel { flex: 0 0 auto; display: flex; align-items: center; gap: 5px; font-size: 0.76rem; color: #94a3b8; }
+.date-range-intel input { min-height: 24px; height: 24px; font-size: 0.76rem; padding: 2px 5px; }
 .stats-bar {
-    gap: 28px;
-    padding: 10px 14px;
+    gap: 18px;
+    padding: 4px 10px;
     background: linear-gradient(90deg, rgba(3,218,198,.035), transparent 35%);
     border-color: var(--line-soft);
 }
-.stat-item { min-width: 74px; }
-.stat-value { font-size: 1.12rem; }
+.stat-item { min-width: 58px; }
+.stat-value { font-size: 0.92rem; }
 
 /* Product cards */
 .p-view-sh {
@@ -1391,49 +1396,6 @@ body.density-ultra .p-img-box { padding: 8px; }
    COMPACT HEADER + FOCUS VIEW + BUTTON STYLE LAB
    Final overrides requested for the compact interaction pass.
    ============================================================ */
-:root { --header-height: 44px; }
-
-/* No sticky toolbars anywhere in the application. */
-.dashboard-header,
-.intelligence-bar,
-.analytics-modal-header,
-.analytics-toolbar,
-.analytics-tabs { position: static !important; top: auto !important; }
-
-/* 40% tighter command header. */
-.dashboard-header {
-    min-height: 44px;
-    padding: 4px 8px;
-    gap: 6px;
-    flex-wrap: nowrap;
-    backdrop-filter: none;
-}
-.header-left, .header-right { gap: 6px; }
-.header-left { flex-basis: auto; }
-.header-right { flex-wrap: nowrap; }
-.brand-lockup { gap: 6px; }
-.brand-mark { width: 26px; height: 26px; border-radius: 7px; font-size: .72rem; }
-.brand-lockup h2 { font-size: .84rem !important; line-height: 1; white-space: nowrap; }
-.brand-subtitle { display: none !important; }
-.search-wrapper { max-width: 390px; min-width: 150px; }
-.search-input { min-height: 30px; height: 30px; padding: 4px 9px; font-size: .72rem; }
-#sort-options { width: 180px; min-width: 155px; padding-right: 24px; }
-.multi-filter-group { min-height: 30px; height: 30px; padding: 2px 6px; gap: 5px; }
-.check-pill { min-height: 22px; font-size: .61rem; gap: 2px; }
-.filter-label { font-size: .56rem; }
-.btn-icon { min-height: 30px; height: 30px; padding: 4px 9px; font-size: .66rem; border-radius: 7px; }
-.icon-only-desktop { width: 30px; }
-.sidebar-toggle-btn { display: inline-flex !important; width: 30px; height: 30px; flex: 0 0 30px; border-radius: 7px; }
-.immersive-header-btn span { display: inline; }
-
-.intelligence-bar { padding: 5px 8px; gap: 5px; min-height: 37px; backdrop-filter: none; }
-.intel-btn { min-height: 25px; height: 25px; padding: 3px 8px; font-size: .64rem; gap: 4px; display: inline-flex; align-items: center; }
-.date-range-intel { font-size: .61rem; gap: 3px; }
-.date-range-intel input { min-height: 23px; height: 23px; }
-.stats-bar { padding: 5px 9px; gap: 22px; min-height: 38px; }
-.stat-label { font-size: .5rem; letter-spacing: 1px; }
-.stat-value { font-size: .92rem; line-height: 1; }
-
 /* Desktop left panel can collapse without reserving width. */
 .sidebar { transition: width .24s ease, transform .24s ease, opacity .18s ease; }
 body.sidebar-collapsed .sidebar {
@@ -1577,17 +1539,14 @@ body.immersive-mode .product-name { -webkit-line-clamp: 3; height: 3.6em; font-s
 }
 
 @media (max-width: 1024px) {
-    :root { --header-height: 42px; }
-    .dashboard-header { flex-wrap: nowrap; padding: 4px 6px; }
-    .header-left { gap: 5px; }
-    .header-right { display: none; }
-    .brand-lockup { display: none; }
-    .sidebar-toggle-btn { width: 30px; height: 30px; flex-basis: 30px; }
-    .immersive-header-btn { width: 30px; flex: 0 0 30px; padding: 0; }
-    .immersive-header-btn span { display: none; }
-    .search-input { min-height: 30px; height: 30px; }
-    .intelligence-bar { padding: 4px 6px; min-height: 33px; }
-    .stats-bar { padding: 4px 7px; min-height: 34px; }
+    :root { --header-height: 48px; }
+    .dashboard-header { flex-wrap: nowrap; padding: 6px 10px; gap: 8px; }
+    .header-left { gap: 8px; }
+    .sidebar-toggle-btn { width: 32px; height: 32px; flex-basis: 32px; }
+    .immersive-header-btn { width: 32px; flex: 0 0 32px; padding: 0; }
+    .search-input { min-height: 32px; height: 32px; font-size: 0.82rem; }
+    .intelligence-bar { padding: 5px 10px; min-height: 34px; gap: 6px; }
+    .stats-bar { padding: 6px 10px; min-height: 34px; }
     .sidebar { width: 85%; max-width: 320px; opacity: 1 !important; pointer-events: auto !important; }
     body.sidebar-collapsed .sidebar { width: 85%; max-width: 320px; border-right-width: 1px; opacity: 1; pointer-events: auto; }
     .mobile-dock { grid-template-columns: repeat(5, 1fr); }

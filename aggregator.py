@@ -59,10 +59,7 @@ def parse_unit_and_calculate(name, unit_str, price):
 
 def load_shwapno():
     print("Processing Shwapno...")
-    if not os.path.exists(SHWAPNO_DATA): return None, None
     try:
-        with open(SHWAPNO_DATA, 'r', encoding='utf-8') as f:
-            data = json.load(f)
         pinned_names = []
         cats_file = 'swapnoTRACKER/categories.json'
         if os.path.exists(cats_file):
@@ -84,37 +81,95 @@ def load_shwapno():
                 if s_pn in s_raw or s_raw in s_pn: return f"\ud83d\udccc {pn}"
             return raw_cat
 
-        products = {}
+        products_by_name = {}
+        stats = {"web": 0, "app": 0, "combined": 0}
         all_dates = []
-        for pid, p in data.items():
-            if pid in ['metadata', 'products']: continue
-            final_pid = pid if pid.startswith("sh_") else f"sh_{pid}"
-            hist = p.get('history', [])
-            curr_p = hist[-1].get('price', 0) if hist else 0
-            u_type, norm_p = parse_unit_and_calculate(p.get('name', ''), "", curr_p)
-            
-            # Deduplicate and merge history
-            unique_hist = {}
-            if final_pid in products:
-                for h in products[final_pid]['history']:
-                    unique_hist[h['date']] = h
 
-            for h in hist:
-                if h.get('date'):
-                    _, h_norm = parse_unit_and_calculate(p.get('name', ''), "", h.get('price', 0))
-                    unique_hist[h['date']] = {"date": h['date'], "price": h.get('price', 0), "normalized_price": h_norm}
-            
-            new_history = sorted(unique_hist.values(), key=lambda x: x['date'])
-            for h in new_history: all_dates.append(h['date'])
-            first_seen = new_history[0]['date'] if new_history else datetime.now(DHAKA_TZ).strftime("%Y-%m-%d")
-                
-            products[final_pid] = {
-                "id": final_pid, "name": p.get('name'), "store": "shwapno",
-                "category": get_display_cat(p.get('category', 'General')), "unit": p.get('unit', 'N/A'), "unit_type": u_type,
-                "current_price": curr_p, "normalized_price": norm_p,
-                "image": p.get('image'), "url": p.get('url'), "history": new_history, "first_seen": first_seen
-            }
-        return products, f"{min(all_dates)} to {max(all_dates)}" if all_dates else "N/A"
+        # 1. Load Web Data
+        if os.path.exists(SHWAPNO_DATA):
+            try:
+                with open(SHWAPNO_DATA, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+                for pid, p in data.items():
+                    if pid in ['metadata', 'products']: continue
+                    name_key = re.sub(r'\W+', '', p.get('name', '')).lower()
+                    if not name_key: continue
+                    
+                    final_pid = pid if pid.startswith("sh_") else f"sh_{pid}"
+                    hist = p.get('history', [])
+                    curr_p = hist[-1].get('price', 0) if hist else 0
+                    u_type, norm_p = parse_unit_and_calculate(p.get('name', ''), "", curr_p)
+                    
+                    unique_hist = {}
+                    for h in hist:
+                        if h.get('date'):
+                            _, h_norm = parse_unit_and_calculate(p.get('name', ''), "", h.get('price', 0))
+                            unique_hist[h['date']] = {"date": h['date'], "price": h.get('price', 0), "normalized_price": h_norm}
+                    
+                    new_history = sorted(unique_hist.values(), key=lambda x: x['date'])
+                    for h in new_history: all_dates.append(h['date'])
+                    first_seen = new_history[0]['date'] if new_history else datetime.now(DHAKA_TZ).strftime("%Y-%m-%d")
+                        
+                    products_by_name[name_key] = {
+                        "id": final_pid, "name": p.get('name'), "store": "shwapno",
+                        "category": get_display_cat(p.get('category', 'General')), "unit": p.get('unit', 'N/A'), "unit_type": u_type,
+                        "current_price": curr_p, "normalized_price": norm_p,
+                        "image": p.get('image'), "url": p.get('url'), "history": new_history, "first_seen": first_seen
+                    }
+                    stats["web"] += 1
+            except Exception as e:
+                print(f"Error loading Shwapno web data: {e}")
+
+        # 2. Load App Data
+        app_data_path = 'swapnoTRACKER/shopno/frontend/shwapno_products.json'
+        if os.path.exists(app_data_path):
+            try:
+                with open(app_data_path, 'r', encoding='utf-8') as f:
+                    app_data = json.load(f)
+                for p in app_data:
+                    name_key = re.sub(r'\W+', '', p.get('name', '')).lower()
+                    if not name_key: continue
+                    
+                    curr_p = p.get('current_price', 0)
+                    u_type, norm_p = parse_unit_and_calculate(p.get('name', ''), p.get('unit', ''), curr_p)
+                    
+                    # Check for collision
+                    if name_key in products_by_name:
+                        existing = products_by_name[name_key]
+                        if curr_p >= existing['current_price']:
+                            continue
+                            
+                    final_pid = f"sh_{p.get('id')}"
+                    
+                    hist_dict = p.get('price_history', {})
+                    unique_hist = {}
+                    for d_str, price_val in hist_dict.items():
+                        _, h_norm = parse_unit_and_calculate(p.get('name', ''), p.get('unit', ''), price_val)
+                        unique_hist[d_str] = {"date": d_str, "price": price_val, "normalized_price": h_norm}
+                        
+                    new_history = sorted(unique_hist.values(), key=lambda x: x['date'])
+                    for h in new_history: all_dates.append(h['date'])
+                    first_seen = new_history[0]['date'] if new_history else datetime.now(DHAKA_TZ).strftime("%Y-%m-%d")
+                    
+                    url = p.get('url', '')
+                    if url and not url.startswith('http'):
+                        url = f"https://www.shwapno.com/{url}"
+
+                    products_by_name[name_key] = {
+                        "id": final_pid, "name": p.get('name'), "store": "shwapno",
+                        "category": get_display_cat(p.get('category', 'General')), "unit": p.get('unit', 'N/A'), "unit_type": u_type,
+                        "current_price": curr_p, "normalized_price": norm_p,
+                        "image": p.get('image'), "url": url, "history": new_history, "first_seen": first_seen
+                    }
+                    stats["app"] += 1
+            except Exception as e:
+                print(f"Error loading Shwapno App data: {e}")
+
+        products = {v["id"]: v for v in products_by_name.values()}
+        stats["combined"] = len(products)
+        print(f"Shwapno Stats -> Web: {stats['web']}, App: {stats['app']}, Combined Unique: {stats['combined']}")
+
+        return products, (f"{min(all_dates)} to {max(all_dates)}" if all_dates else "N/A"), stats
     except Exception as e:
         print(f"Error processing Shwapno: {e}")
         return None, None
@@ -194,40 +249,101 @@ def load_meenabazar():
 
 def load_othoba():
     print("Processing Othoba...")
-    if not os.path.exists(OTHOBA_DB): return None, None
     try:
-        conn = sqlite3.connect(OTHOBA_DB); conn.row_factory = sqlite3.Row; cursor = conn.cursor()
-        cursor.execute("SELECT id, name, category_name, image_url, extracted_unit_type, extracted_unit_value FROM products")
-        db_p = cursor.fetchall()
-        cursor.execute("SELECT product_id, price_amount, timestamp FROM price_history ORDER BY timestamp ASC")
-        all_history = {}
-        for row in cursor.fetchall():
-            pid = row['product_id']
-            if pid not in all_history: all_history[pid] = []
-            all_history[pid].append(row)
-        products = {}
+        products_by_name = {}
+        stats = {"web": 0, "app": 0, "combined": 0}
         all_dates = []
-        for p in db_p:
-            db_h = all_history.get(p['id'], [])
-            if not db_h: continue
-            new_history = []
-            unit_str = f"{p['extracted_unit_value']} {p['extracted_unit_type']}"
-            for h in db_h:
-                raw_date = h['timestamp']
-                date_str = raw_date.split('T')[0].split(' ')[0] if isinstance(raw_date, str) else raw_date.strftime("%Y-%m-%d")
-                _, h_norm = parse_unit_and_calculate(p['name'], unit_str, h['price_amount'])
-                new_history.append({"date": date_str, "price": h['price_amount'], "normalized_price": h_norm})
-                all_dates.append(date_str)
-            curr_p = new_history[-1]['price']
-            u_type, norm_p = parse_unit_and_calculate(p['name'], unit_str, curr_p)
-            products[f"ot_{p['id']}"] = {
-                "id": f"ot_{p['id']}", "name": p['name'], "store": "othoba",
-                "category": p['category_name'] or 'General', "unit": unit_str, "unit_type": u_type,
-                "current_price": curr_p, "normalized_price": norm_p,
-                "image": p['image_url'], "history": new_history
-            }
-        conn.close()
-        return products, f"{min(all_dates)} to {max(all_dates)}" if all_dates else "N/A"
+
+        # 1. Load Backend/API DB Data (App)
+        if os.path.exists(OTHOBA_DB):
+            try:
+                conn = sqlite3.connect(OTHOBA_DB); conn.row_factory = sqlite3.Row; cursor = conn.cursor()
+                cursor.execute("SELECT id, name, category_name, image_url, extracted_unit_type, extracted_unit_value FROM products")
+                db_p = cursor.fetchall()
+                cursor.execute("SELECT product_id, price_amount, timestamp FROM price_history ORDER BY timestamp ASC")
+                all_history = {}
+                for row in cursor.fetchall():
+                    pid = row['product_id']
+                    if pid not in all_history: all_history[pid] = []
+                    all_history[pid].append(row)
+                    
+                for p in db_p:
+                    name_key = re.sub(r'\W+', '', p['name']).lower()
+                    if not name_key: continue
+                    
+                    db_h = all_history.get(p['id'], [])
+                    if not db_h: continue
+                    
+                    new_history = []
+                    for h in db_h:
+                        raw_date = h['timestamp']
+                        date_str = raw_date.split('T')[0].split(' ')[0] if isinstance(raw_date, str) else raw_date.strftime("%Y-%m-%d")
+                        unit_str = f"{p['extracted_unit_value']} {p['extracted_unit_type']}" if p['extracted_unit_value'] else ""
+                        _, h_norm = parse_unit_and_calculate(p['name'], unit_str, h['price_amount'])
+                        new_history.append({"date": date_str, "price": h['price_amount'], "normalized_price": h_norm})
+                        all_dates.append(date_str)
+                        
+                    curr_p = new_history[-1]['price']
+                    unit_str = f"{p['extracted_unit_value']} {p['extracted_unit_type']}" if p['extracted_unit_value'] else ""
+                    u_type, norm_p = parse_unit_and_calculate(p['name'], unit_str, curr_p)
+                    
+                    products_by_name[name_key] = {
+                        "id": f"ot_{p['id']}", "name": p['name'], "store": "othoba",
+                        "category": p['category_name'] or 'General', "unit": unit_str, "unit_type": u_type,
+                        "current_price": curr_p, "normalized_price": norm_p,
+                        "image": p['image_url'], "history": new_history
+                    }
+                    stats["app"] += 1
+                conn.close()
+            except Exception as e:
+                print(f"Error Othoba App DB: {e}")
+
+        # 2. Load Web Data
+        OTHOBA_WEB_DATA = 'othobaTRACKER/othoba/frontend/othoba_products.json'
+        if os.path.exists(OTHOBA_WEB_DATA):
+            try:
+                with open(OTHOBA_WEB_DATA, 'r', encoding='utf-8') as f:
+                    web_data = json.load(f)
+                for p in web_data:
+                    name_key = re.sub(r'\W+', '', p.get('name', '')).lower()
+                    if not name_key: continue
+                    
+                    curr_p = p.get('current_price', 0)
+                    u_type, norm_p = parse_unit_and_calculate(p.get('name', ''), p.get('unit', ''), curr_p)
+                    
+                    if name_key in products_by_name:
+                        existing = products_by_name[name_key]
+                        if curr_p >= existing['current_price']:
+                            continue
+                            
+                    final_pid = p.get('id')
+                    if not final_pid.startswith('ot_'): final_pid = f"ot_{final_pid}"
+                    
+                    hist_dict = p.get('price_history', {})
+                    unique_hist = {}
+                    for d_str, price_val in hist_dict.items():
+                        _, h_norm = parse_unit_and_calculate(p.get('name', ''), p.get('unit', ''), price_val)
+                        unique_hist[d_str] = {"date": d_str, "price": price_val, "normalized_price": h_norm}
+                        
+                    new_history = sorted(unique_hist.values(), key=lambda x: x['date'])
+                    for h in new_history: all_dates.append(h['date'])
+                    first_seen = new_history[0]['date'] if new_history else datetime.now(DHAKA_TZ).strftime("%Y-%m-%d")
+
+                    products_by_name[name_key] = {
+                        "id": final_pid, "name": p.get('name'), "store": "othoba",
+                        "category": p.get('category', 'General'), "unit": p.get('unit', 'N/A'), "unit_type": u_type,
+                        "current_price": curr_p, "normalized_price": norm_p,
+                        "image": p.get('image'), "history": new_history, "first_seen": first_seen
+                    }
+                    stats["web"] += 1
+            except Exception as e:
+                print(f"Error loading Othoba Web data: {e}")
+
+        products = {v["id"]: v for v in products_by_name.values()}
+        stats["combined"] = len(products)
+        print(f"Othoba Stats -> Web: {stats['web']}, App: {stats['app']}, Combined Unique: {stats['combined']}")
+
+        return products, (f"{min(all_dates)} to {max(all_dates)}" if all_dates else "N/A"), stats
     except Exception as e:
         print(f"Error Othoba: {e}")
         return None, None
@@ -386,7 +502,13 @@ def load_foodi():
 # --- ATOMIC CHUNKING ENGINE ---
 def save_store_data(name, data_tuple):
     if not data_tuple: return
-    products, date_range = data_tuple
+    
+    scraper_stats = None
+    if len(data_tuple) == 3:
+        products, date_range, scraper_stats = data_tuple
+    else:
+        products, date_range = data_tuple
+        
     if not products: return
     
     total_items = len(products)
@@ -426,11 +548,15 @@ def save_store_data(name, data_tuple):
     total_chunks = len(temp_chunks)
     
     # 2. Save Manifest
+    manifest_meta = {
+        "last_update": last_update, "total": total_items,
+        "date_range": date_range, "total_chunks": total_chunks, "chunk_size": current_chunk_size
+    }
+    if scraper_stats:
+        manifest_meta["scraper_stats"] = scraper_stats
+        
     manifest = {
-        "metadata": {
-            "last_update": last_update, "total": total_items,
-            "date_range": date_range, "total_chunks": total_chunks, "chunk_size": current_chunk_size
-        }
+        "metadata": manifest_meta
     }
     with open(f"{name}_manifest.js", 'w', encoding='utf-8') as f:
         f.write(f"window.{name}Manifest = {json.dumps(manifest, separators=(',', ':'))};")
