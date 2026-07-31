@@ -132,7 +132,10 @@ while i < len(old_source):
         print(f'  Patching scraper runner at line {i}')
         new_source.extend([
             "                my_env = os.environ.copy()\n",
+            "                my_env['TELEGRAM_BOT_TOKEN'] = TELEGRAM_BOT_TOKEN or ''\n",
+            "                my_env['TELEGRAM_CHAT_ID'] = TELEGRAM_CHAT_ID or ''\n",
             "                try:\n",
+
             "                    res = subprocess.run([sys.executable, 'scraper.py'], cwd=full_path, capture_output=True, text=True, timeout=1800, env=my_env)\n",
             "                except subprocess.TimeoutExpired:\n",
             "                    elapsed = time.time() - t0\n",
