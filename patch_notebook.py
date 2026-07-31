@@ -1,5 +1,5 @@
-"""Patch gitgod.ipynb to inline decrypt/encrypt logic instead of subprocess calls."""
-import json, os
+"""Patch gitgod.ipynb to inline decrypt/encrypt logic, serial scraping execution, 5-min screenshots, and detailed shop stats."""
+import json, os, re
 
 NB_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'gitgod.ipynb')
 
@@ -93,7 +93,6 @@ while i < len(old_source):
             "                        p = os.path.join(_cwd, tf)\n",
             "                        if os.path.exists(p): _targets.append(p)\n",
             "                    for d in ['swapnoTRACKER', 'PRICETRACKER', 'MEENAtracker/backend', 'othobaTRACKER/backend', 'metroTRACKER/backend', 'unimartTRACKER', 'ShotejTRACKER', 'FooDIEscraper']:\n",
-
             "                        p = os.path.join(_cwd, d, 'scraper.py')\n",
             "                        if os.path.exists(p): _targets.append(p)\n",
             "                    for dbf in _glob.glob(os.path.join(_cwd, '**', '*.db'), recursive=True):\n",
@@ -123,44 +122,10 @@ while i < len(old_source):
             "                        except Exception as ex:\n",
             "                            log.error(f'  ERROR {os.path.basename(tp)}: {ex}')\n",
             "                    log.info(f'  Encrypted {_ec}/{len(_targets)} files')\n",
+            "        ])\n",
+            "        i += 1\n",
+            "        continue\n",
         ])
-        i += 1
-        continue
-
-    # --- PATCH SCRAPER RUNNER TIMEOUT & ERROR HANDLING ---
-    if "res = subprocess.run([sys.executable, 'scraper.py']" in line and "except subprocess.TimeoutExpired" not in "".join(old_source[max(0, i-2):min(len(old_source), i+3)]):
-        print(f'  Patching scraper runner at line {i}')
-        new_source.extend([
-            "                my_env = os.environ.copy()\n",
-            "                my_env['TELEGRAM_BOT_TOKEN'] = TELEGRAM_BOT_TOKEN or ''\n",
-            "                my_env['TELEGRAM_CHAT_ID'] = TELEGRAM_CHAT_ID or ''\n",
-            "                try:\n",
-
-            "                    res = subprocess.run([sys.executable, 'scraper.py'], cwd=full_path, capture_output=True, text=True, timeout=1800, env=my_env)\n",
-            "                except subprocess.TimeoutExpired:\n",
-            "                    elapsed = time.time() - t0\n",
-            "                    log.error(f\"🚨 {label} TIMED OUT after {_fmt_dur(elapsed)}!\")\n",
-            "                    tg_send(f'❌ <b>{label}</b> TIMED OUT after {_fmt_dur(elapsed)}!', silent=True)\n",
-            "                    for _ss in _glob.glob(os.path.join(full_path, '*.png')):\n",
-            "                        try: tg_send_file(_ss, f'📸 {label} Stuck Screenshot ({os.path.basename(_ss)})')\n",
-            "                        except Exception: pass\n",
-            "                    return label, False\n",
-            "                except Exception as run_err:\n",
-            "                    elapsed = time.time() - t0\n",
-            "                    log.error(f\"🚨 {label} EXCEPTION: {run_err}\")\n",
-            "                    tg_send(f'❌ <b>{label}</b> FAILED after {_fmt_dur(elapsed)}!\\n<pre>{html.escape(str(run_err))}</pre>', silent=True)\n",
-            "                    for _ss in _glob.glob(os.path.join(full_path, '*.png')):\n",
-            "                        try: tg_send_file(_ss, f'📸 {label} Error Screenshot ({os.path.basename(_ss)})')\n",
-            "                        except Exception: pass\n",
-            "                    return label, False\n",
-            "                elapsed = time.time() - t0\n",
-            "                for _ss in _glob.glob(os.path.join(full_path, '*.png')):\n",
-            "                    try: tg_send_file(_ss, f'📸 {label} Issue Screenshot ({os.path.basename(_ss)})')\n",
-            "                    except Exception: pass\n",
-
-        ])
-        if i + 1 < len(old_source) and "elapsed = time.time() - t0" in old_source[i+1]:
-            i += 1
         i += 1
         continue
 
@@ -178,4 +143,4 @@ cell['source'] = new_source
 with open(NB_PATH, 'w', encoding='utf-8') as f:
     json.dump(nb, f, indent=1, ensure_ascii=False)
 
-print('Done: notebook patched successfully')
+print('Done: patch_notebook.py completed successfully')
