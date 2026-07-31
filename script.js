@@ -2761,7 +2761,7 @@ function setupPremiumUI() {
     document.getElementById('continue-payment-btn')?.addEventListener('click', () => {
         paymentReference = generateReferenceKey(5);
         document.getElementById('payment-reference').textContent = paymentReference;
-        document.getElementById('payment-plan-title').textContent = premiumPlan === 'yearly' ? '999 Tk yearly' : '199 Tk monthly';
+        document.getElementById('payment-plan-title').textContent = premiumPlan === 'yearly' ? '1998 Tk yearly' : '398 Tk monthly';
         setPremiumStep('payment');
     });
     document.getElementById('copy-reference-btn')?.addEventListener('click', async () => {
@@ -2999,29 +2999,8 @@ function buildHistoryView(product) {
             actual.push({ date: date.toISOString().slice(0, 10), price: product.current_price, normalized_price: product.normalized_price });
         }
     }
-    const dummyCount = 83;
-    const baseline = Number(actual[0]?.normalized_price || product.normalized_price || 1);
-    const actualPriceBaseline = Number(actual[0]?.price || product.current_price || baseline);
-    const seed = hashString(String(product.id));
-    const firstDate = new Date(`${actual[0].date}T12:00:00`);
-    const preview = [];
-    let unitValue = baseline * (0.94 + ((seed % 19) / 100));
-    let actualValue = actualPriceBaseline * (0.95 + ((seed % 13) / 100));
-    for (let index = dummyCount; index > 0; index -= 1) {
-        const date = new Date(firstDate);
-        date.setDate(date.getDate() - index);
-        const wave = Math.sin((index + seed % 11) / 2.7) * 0.018;
-        const drift = (((seed >> (index % 7)) & 7) - 3) * 0.0022;
-        unitValue = Math.max(baseline * .72, unitValue * (1 + wave + drift));
-        actualValue = Math.max(actualPriceBaseline * .72, actualValue * (1 + wave * .8 - drift));
-        preview.push({
-            date: date.toISOString().slice(0, 10),
-            normalized_price: round(unitValue, 1),
-            price: round(actualValue, 1),
-            _preview: true
-        });
-    }
-    return { rows: [...preview, ...actual], premium: false, lockedCount: preview.length };
+    const lockedCount = Math.max(0, source.length - actual.length);
+    return { rows: actual, premium: false, lockedCount: lockedCount };
 }
 
 function renderHistoryAccessState(historyView) {

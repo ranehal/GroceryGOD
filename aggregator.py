@@ -1,3 +1,4 @@
+import platform
 import json
 # High-Performance, Atomic Chunking Aggregator
 import sqlite3
@@ -6,10 +7,20 @@ import re
 from datetime import datetime, timedelta, timezone
 
 # Paths to data sources (Relative to GroceryGOD root)
-SHWAPNO_DATA = 'swapnoTRACKER/data.json'
+if platform.system() == 'Windows':
+    SHWAPNO_DATA = r'C:\PROJECTS\shopno\data.json'
+else:
+    SHWAPNO_DATA = '/kaggle/working/shopno/data.json'
+if not os.path.exists(SHWAPNO_DATA):
+    SHWAPNO_DATA = 'swapnoTRACKER/data.json'
 CHALDAL_DATA = 'PRICETRACKER/data.js'
 MEENA_DB = 'MEENAtracker/backend/meenatracker.db'
-OTHOBA_DB = 'othobaTRACKER/backend/othoba_tracker.db'
+if platform.system() == 'Windows':
+    OTHOBA_DB = r'C:\PROJECTS\othoba\backend\othoba_tracker.db'
+else:
+    OTHOBA_DB = '/kaggle/working/othoba/backend/othoba_tracker.db'
+if not os.path.exists(OTHOBA_DB):
+    OTHOBA_DB = 'othobaTRACKER/backend/othoba_tracker.db'
 METRO_DB = 'metroTRACKER/backend/metro_tracker.db'
 UNIMART_DATA = 'unimartTRACKER/data.json'
 SHOTEJ_DATA = 'ShotejTRACKER/data.json'
@@ -121,7 +132,12 @@ def load_shwapno():
                 print(f"Error loading Shwapno web data: {e}")
 
         # 2. Load App Data
-        app_data_path = 'swapnoTRACKER/shopno/frontend/shwapno_products.json'
+        if platform.system() == 'Windows':
+            app_data_path = r'C:\PROJECTS\shopno\frontend\shwapno_products.json'
+        else:
+            app_data_path = '/kaggle/working/shopno/frontend/shwapno_products.json'
+        if not os.path.exists(app_data_path):
+            app_data_path = 'swapnoTRACKER/shopno/frontend/shwapno_products.json'
         if os.path.exists(app_data_path):
             try:
                 with open(app_data_path, 'r', encoding='utf-8') as f:
@@ -254,60 +270,18 @@ def load_othoba():
         stats = {"web": 0, "app": 0, "combined": 0}
         all_dates = []
 
-        # 1. Load Backend/API DB Data (App)
-        if os.path.exists(OTHOBA_DB):
+        def process_json_file(filepath, source_type):
+            if not os.path.exists(filepath): return
             try:
-                conn = sqlite3.connect(OTHOBA_DB); conn.row_factory = sqlite3.Row; cursor = conn.cursor()
-                cursor.execute("SELECT id, name, category_name, image_url, extracted_unit_type, extracted_unit_value FROM products")
-                db_p = cursor.fetchall()
-                cursor.execute("SELECT product_id, price_amount, timestamp FROM price_history ORDER BY timestamp ASC")
-                all_history = {}
-                for row in cursor.fetchall():
-                    pid = row['product_id']
-                    if pid not in all_history: all_history[pid] = []
-                    all_history[pid].append(row)
-                    
-                for p in db_p:
-                    name_key = re.sub(r'\W+', '', p['name']).lower()
-                    if not name_key: continue
-                    
-                    db_h = all_history.get(p['id'], [])
-                    if not db_h: continue
-                    
-                    new_history = []
-                    for h in db_h:
-                        raw_date = h['timestamp']
-                        date_str = raw_date.split('T')[0].split(' ')[0] if isinstance(raw_date, str) else raw_date.strftime("%Y-%m-%d")
-                        unit_str = f"{p['extracted_unit_value']} {p['extracted_unit_type']}" if p['extracted_unit_value'] else ""
-                        _, h_norm = parse_unit_and_calculate(p['name'], unit_str, h['price_amount'])
-                        new_history.append({"date": date_str, "price": h['price_amount'], "normalized_price": h_norm})
-                        all_dates.append(date_str)
-                        
-                    curr_p = new_history[-1]['price']
-                    unit_str = f"{p['extracted_unit_value']} {p['extracted_unit_type']}" if p['extracted_unit_value'] else ""
-                    u_type, norm_p = parse_unit_and_calculate(p['name'], unit_str, curr_p)
-                    
-                    products_by_name[name_key] = {
-                        "id": f"ot_{p['id']}", "name": p['name'], "store": "othoba",
-                        "category": p['category_name'] or 'General', "unit": unit_str, "unit_type": u_type,
-                        "current_price": curr_p, "normalized_price": norm_p,
-                        "image": p['image_url'], "history": new_history
-                    }
-                    stats["app"] += 1
-                conn.close()
-            except Exception as e:
-                print(f"Error Othoba App DB: {e}")
-
-        # 2. Load Web Data
-        OTHOBA_WEB_DATA = 'othobaTRACKER/othoba/frontend/othoba_products.json'
-        if os.path.exists(OTHOBA_WEB_DATA):
-            try:
-                with open(OTHOBA_WEB_DATA, 'r', encoding='utf-8') as f:
-                    web_data = json.load(f)
-                for p in web_data:
+                import json, re, platform
+                from datetime import datetime
+                with open(filepath, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+                for p in data:
                     name_key = re.sub(r'\W+', '', p.get('name', '')).lower()
                     if not name_key: continue
                     
+                    stats[source_type] += 1
                     curr_p = p.get('current_price', 0)
                     u_type, norm_p = parse_unit_and_calculate(p.get('name', ''), p.get('unit', ''), curr_p)
                     
@@ -321,13 +295,26 @@ def load_othoba():
                     
                     hist_dict = p.get('price_history', {})
                     unique_hist = {}
-                    for d_str, price_val in hist_dict.items():
-                        _, h_norm = parse_unit_and_calculate(p.get('name', ''), p.get('unit', ''), price_val)
-                        unique_hist[d_str] = {"date": d_str, "price": price_val, "normalized_price": h_norm}
+                    
+                    # Some json versions might have history as array
+                    raw_history = p.get('history', [])
+                    if isinstance(raw_history, list) and len(raw_history) > 0:
+                        for h in raw_history:
+                            d_str = h.get('date')
+                            price_val = h.get('price')
+                            _, h_norm = parse_unit_and_calculate(p.get('name', ''), p.get('unit', ''), price_val)
+                            unique_hist[d_str] = {"date": d_str, "price": price_val, "normalized_price": h_norm}
+                    else:
+                        for d_str, price_val in hist_dict.items():
+                            _, h_norm = parse_unit_and_calculate(p.get('name', ''), p.get('unit', ''), price_val)
+                            unique_hist[d_str] = {"date": d_str, "price": price_val, "normalized_price": h_norm}
                         
                     new_history = sorted(unique_hist.values(), key=lambda x: x['date'])
                     for h in new_history: all_dates.append(h['date'])
-                    first_seen = new_history[0]['date'] if new_history else datetime.now(DHAKA_TZ).strftime("%Y-%m-%d")
+                    
+                    first_seen = p.get('first_seen')
+                    if not first_seen:
+                        first_seen = new_history[0]['date'] if new_history else datetime.now(DHAKA_TZ).strftime("%Y-%m-%d")
 
                     products_by_name[name_key] = {
                         "id": final_pid, "name": p.get('name'), "store": "othoba",
@@ -335,9 +322,18 @@ def load_othoba():
                         "current_price": curr_p, "normalized_price": norm_p,
                         "image": p.get('image'), "history": new_history, "first_seen": first_seen
                     }
-                    stats["web"] += 1
             except Exception as e:
-                print(f"Error loading Othoba Web data: {e}")
+                print(f"Error loading Othoba {source_type} data from {filepath}: {e}")
+
+        # 1. Load Web Data
+        web_path = 'othobaTRACKER/othoba/frontend/othoba_products.json'
+        process_json_file(web_path, 'web')
+
+        # 2. Load App Data
+        app_path = r'C:\PROJECTS\othoba\frontend\othoba_products.json' if platform.system() == 'Windows' else '/kaggle/working/othoba/frontend/othoba_products.json'
+        if not os.path.exists(app_path):
+            app_path = 'othobaTRACKER/backend/othoba_products.json'
+        process_json_file(app_path, 'app')
 
         products = {v["id"]: v for v in products_by_name.values()}
         stats["combined"] = len(products)
