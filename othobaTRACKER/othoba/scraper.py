@@ -1,5 +1,16 @@
 """Othoba API Scraper v2 — reverse-engineered from HAR capture"""
 import json, re, os, sys, time, urllib.request, urllib.error, gzip, ssl
+
+import random
+USER_AGENTS = [
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36",
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:123.0) Gecko/20100101 Firefox/123.0",
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:122.0) Gecko/20100101 Firefox/122.0",
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Edge/122.0.0.0 Safari/537.36",
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.3 Safari/605.1.15"
+]
+
 from datetime import datetime
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from threading import Lock
@@ -25,7 +36,7 @@ def parse_price(pp, key):
     return float(m.group()) if m else None
 
 def req(path, data=None):
-    h = {**HEADERS, 'user-agent': 'okhttp/4.9.3'}
+    h = {**HEADERS, 'user-agent': random.choice(USER_AGENTS)}
     body = json.dumps(data).encode() if data else None
     r = urllib.request.Request(API + path, data=body, headers=h, method='POST' if data else 'GET')
     with urllib.request.urlopen(r, timeout=20, context=SSL_CTX) as resp:
