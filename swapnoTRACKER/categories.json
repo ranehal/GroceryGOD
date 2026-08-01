@@ -78,22 +78,26 @@
         {
           "name": "Fresh Fruits",
           "url": "https://www.shwapno.com/fresh-fruits",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e2e429af37f903ae07"
         },
         {
           "name": "Fresh Vegetables",
           "url": "https://www.shwapno.com/fresh-vegetables",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e2e429af37f903ae08"
         },
         {
           "name": "Dry Vegetables",
           "url": "https://www.shwapno.com/dry-vegetables",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e2e429af37f903ae0a"
         },
         {
           "name": "Fruits & Vegetables",
           "url": "https://www.shwapno.com/fruits-and-vegetables",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e0e429af37f903adf1"
         }
       ]
     },
@@ -106,27 +110,32 @@
         {
           "name": "Chicken",
           "url": "https://www.shwapno.com/chicken",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e3e429af37f903ae12"
         },
         {
           "name": "Beef",
           "url": "https://www.shwapno.com/beef",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e2e429af37f903ae10"
         },
         {
           "name": "Mutton",
           "url": "https://www.shwapno.com/mutton",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e3e429af37f903ae11"
         },
         {
           "name": "Meat Variety",
           "url": "https://www.shwapno.com/meat",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e2e429af37f903ae0f"
         },
         {
           "name": "Meat & Fish Combo",
           "url": "https://www.shwapno.com/meat-and-fish",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e0e429af37f903adef"
         },
         {
           "name": "Meat & Poultry",
@@ -136,37 +145,44 @@
         {
           "name": "Fish",
           "url": "https://www.shwapno.com/fish",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e2e429af37f903ae0b"
         },
         {
           "name": "Sea Fish",
           "url": "https://www.shwapno.com/sea-fish",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e2e429af37f903ae0d"
         },
         {
           "name": "Fresh Water Fish",
           "url": "https://www.shwapno.com/fresh-water-fish",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e2e429af37f903ae0c"
         },
         {
           "name": "Canned Fish",
           "url": "https://www.shwapno.com/Canned-Fish",
-          "enabled": true
+          "enabled": true,
+          "id": "66d3eddb2d1d5639fbd89528"
         },
         {
           "name": "Canned Meat",
           "url": "https://www.shwapno.com/Canned-Meat-2",
-          "enabled": true
+          "enabled": true,
+          "id": "6718a1907b57a6eae9cfb272"
         },
         {
           "name": "Sausage",
           "url": "https://www.shwapno.com/Sausage",
-          "enabled": true
+          "enabled": true,
+          "id": "66a8561ce058eb2613ac6bb8"
         },
         {
           "name": "Nuggets",
           "url": "https://www.shwapno.com/Nuggets",
-          "enabled": true
+          "enabled": true,
+          "id": "66a85606b553767cca9f11dc"
         }
       ]
     },
@@ -179,7 +195,8 @@
         {
           "name": "Eggs",
           "url": "https://www.shwapno.com/eggs",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e6e429af37f903ae3e"
         },
         {
           "name": "Single Egg",
@@ -189,92 +206,110 @@
         {
           "name": "Dairy",
           "url": "https://www.shwapno.com/dairy",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e0e429af37f903adf4"
         },
         {
           "name": "Liquid & UHT Milk",
           "url": "https://www.shwapno.com/liquid-and-uht-milk",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e6e429af37f903ae40"
         },
         {
           "name": "Full Cream Milk",
           "url": "https://www.shwapno.com/Full-Cream-Milk",
-          "enabled": true
+          "enabled": true,
+          "id": "66a852e2e058eb2613a0b3d5"
         },
         {
           "name": "Low Fat Milk",
           "url": "https://www.shwapno.com/Low-Fat-Milk",
-          "enabled": true
+          "enabled": true,
+          "id": "66a85303e058eb2613a0e085"
         },
         {
           "name": "Low Fat Milk 2",
           "url": "https://www.shwapno.com/Low-Fat-Milk-2",
-          "enabled": true
+          "enabled": true,
+          "id": "66a8539eb553767cca971a19"
         },
         {
           "name": "Non Fat Milk",
           "url": "https://www.shwapno.com/Non-Fat-Milk",
-          "enabled": true
+          "enabled": true,
+          "id": "66a85313b553767cca9458e5"
         },
         {
           "name": "Diabetic Milk",
           "url": "https://www.shwapno.com/Diabetic-Milk",
-          "enabled": true
+          "enabled": true,
+          "id": "66a852f3b553767cca93c416"
         },
         {
           "name": "Powder Milk",
           "url": "https://www.shwapno.com/powder-milk",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e7e429af37f903ae41"
         },
         {
           "name": "Powder Milk Others",
           "url": "https://www.shwapno.com/Powder-Milk-Others",
-          "enabled": true
+          "enabled": true,
+          "id": "66a8536ab553767cca96caab"
         },
         {
           "name": "Milk Others",
           "url": "https://www.shwapno.com/Milk-Others",
-          "enabled": true
+          "enabled": true,
+          "id": "66a853b7b553767cca97a876"
         },
         {
           "name": "Butter",
           "url": "https://www.shwapno.com/butter",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e6e429af37f903ae3c"
         },
         {
           "name": "Ghee",
           "url": "https://www.shwapno.com/ghee",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e6e429af37f903ae3b"
         },
         {
           "name": "Cheese",
           "url": "https://www.shwapno.com/Cheese",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e6e429af37f903ae3d"
         },
         {
           "name": "Yogurt",
           "url": "https://www.shwapno.com/Yogurt",
-          "enabled": true
+          "enabled": true,
+          "id": "66a852a4b553767cca926cb7"
         },
         {
           "name": "Laban",
           "url": "https://www.shwapno.com/Laban",
-          "enabled": true
+          "enabled": true,
+          "id": "66a852b6b553767cca9293d4"
         },
         {
           "name": "Lacchi",
           "url": "https://www.shwapno.com/Lacchi",
-          "enabled": true
+          "enabled": true,
+          "id": "66a852c6b553767cca92b69e"
         },
         {
           "name": "Condensed Milk & Cream",
           "url": "https://www.shwapno.com/condensed-milk-and-cream",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e6e429af37f903ae3f"
         },
         {
           "name": "Cream & Lotion",
           "url": "https://www.shwapno.com/cream-and-lotion",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e9e429af37f903ae5e"
         }
       ]
     },
@@ -287,147 +322,176 @@
         {
           "name": "Cooking",
           "url": "https://www.shwapno.com/cooking",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45dfe429af37f903adee"
         },
         {
           "name": "Rice",
           "url": "https://www.shwapno.com/rice",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e3e429af37f903ae15"
         },
         {
           "name": "Packed Rice",
           "url": "https://www.shwapno.com/packed-rice",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e3e429af37f903ae17"
         },
         {
           "name": "Loose Rice",
           "url": "https://www.shwapno.com/loose-rice",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e3e429af37f903ae16"
         },
         {
           "name": "Daal or Lentil",
           "url": "https://www.shwapno.com/daal-or-lentil",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e3e429af37f903ae18"
         },
         {
           "name": "Packed Daal",
           "url": "https://www.shwapno.com/packed-daal",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e3e429af37f903ae1a"
         },
         {
           "name": "Loose Daal",
           "url": "https://www.shwapno.com/loose-daal",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e3e429af37f903ae19"
         },
         {
           "name": "Oil",
           "url": "https://www.shwapno.com/oil",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45dfe429af37f903aded"
         },
         {
           "name": "Soybean Oil",
           "url": "https://www.shwapno.com/soybean-oil",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e3e429af37f903ae1b"
         },
         {
           "name": "Sunflower Oil",
           "url": "https://www.shwapno.com/sunflower-oil",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e4e429af37f903ae1f"
         },
         {
           "name": "Olive Oil",
           "url": "https://www.shwapno.com/olive-oil",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e4e429af37f903ae1d"
         },
         {
           "name": "Mustard Oil",
           "url": "https://www.shwapno.com/mustard-oil",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e4e429af37f903ae1c"
         },
         {
           "name": "Rice Bran Oil",
           "url": "https://www.shwapno.com/rice-bran-oil",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e4e429af37f903ae1e"
         },
         {
           "name": "Flavored Oil",
           "url": "https://www.shwapno.com/flavored-oil",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e4e429af37f903ae20"
         },
         {
           "name": "Spices",
           "url": "https://www.shwapno.com/spices",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e4e429af37f903ae22"
         },
         {
           "name": "Mixed Spice",
           "url": "https://www.shwapno.com/Mixed-Spice",
-          "enabled": true
+          "enabled": true,
+          "id": "66a85253b553767cca914474"
         },
         {
           "name": "Regular Spice",
           "url": "https://www.shwapno.com/Regular-Spice",
-          "enabled": true
+          "enabled": true,
+          "id": "66a85272b553767cca916949"
         },
         {
           "name": "Whole Spice",
           "url": "https://www.shwapno.com/Wholespice",
-          "enabled": true
+          "enabled": true,
+          "id": "66a85283e058eb2613a01b40"
         },
         {
           "name": "Colours",
           "url": "https://www.shwapno.com/colours",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45ede429af37f903ae8b"
         },
         {
           "name": "Colours & Flavors",
           "url": "https://www.shwapno.com/colours-and-flavors",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e4e429af37f903ae28"
         },
         {
           "name": "Salt",
           "url": "https://www.shwapno.com/salt",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e4e429af37f903ae24"
         },
         {
           "name": "Salt & Sugar",
           "url": "https://www.shwapno.com/salt-and-sugar",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e4e429af37f903ae23"
         },
         {
           "name": "Salted",
           "url": "https://www.shwapno.com/Salted",
-          "enabled": true
+          "enabled": true,
+          "id": "66a85434b553767cca99120d"
         },
         {
           "name": "Sugar",
           "url": "https://www.shwapno.com/sugar",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e4e429af37f903ae25"
         },
         {
           "name": "Diabetic Sugar",
           "url": "https://www.shwapno.com/diabetic-sugar",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45ebe429af37f903ae72"
         },
         {
           "name": "Flours",
           "url": "https://www.shwapno.com/flours",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e4e429af37f903ae27"
         },
         {
           "name": "Shemai & Suji",
           "url": "https://www.shwapno.com/shemai-and-suji",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e6e429af37f903ae39"
         },
         {
           "name": "Baking Ingredients",
           "url": "https://www.shwapno.com/baking-ingredients",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e4e429af37f903ae26"
         },
         {
           "name": "Baking Needs",
           "url": "https://www.shwapno.com/baking-needs",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e0e429af37f903adf9"
         }
       ]
     },
@@ -440,187 +504,224 @@
         {
           "name": "Snacks",
           "url": "https://www.shwapno.com/snacks",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e0e429af37f903adf6"
         },
         {
           "name": "Biscuits",
           "url": "https://www.shwapno.com/biscuits",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e5e429af37f903ae33"
         },
         {
           "name": "Biscuits Others",
           "url": "https://www.shwapno.com/Biscuits-Others",
-          "enabled": true
+          "enabled": true,
+          "id": "66a854c5b553767cca9ad395"
         },
         {
           "name": "Cream Sandwich Biscuits",
           "url": "https://www.shwapno.com/Cream-Sandwich-Biscuits",
-          "enabled": true
+          "enabled": true,
+          "id": "66a854b6e058eb2613a78f6c"
         },
         {
           "name": "Energy Biscuit",
           "url": "https://www.shwapno.com/Energy-Biscuit",
-          "enabled": true
+          "enabled": true,
+          "id": "66a85425b553767cca98eef3"
         },
         {
           "name": "Milk Biscuits",
           "url": "https://www.shwapno.com/Milk-Biscuits",
-          "enabled": true
+          "enabled": true,
+          "id": "66a85488e058eb2613a683ee"
         },
         {
           "name": "Sugar Free Biscuits",
           "url": "https://www.shwapno.com/Sugar-Free-Biscuits",
-          "enabled": true
+          "enabled": true,
+          "id": "66a85474e058eb2613a656f0"
         },
         {
           "name": "Toast Biscuit",
           "url": "https://www.shwapno.com/Toast-Biscuit",
-          "enabled": true
+          "enabled": true,
+          "id": "66a853feb553767cca98cc38"
         },
         {
           "name": "Chips & Pretzels",
           "url": "https://www.shwapno.com/chips-and-pretzels",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e6e429af37f903ae36"
         },
         {
           "name": "Noodles",
           "url": "https://www.shwapno.com/Noodles",
-          "enabled": true
+          "enabled": true,
+          "id": "66a853ceb553767cca97ce86"
         },
         {
           "name": "Pasta",
           "url": "https://www.shwapno.com/Pasta",
-          "enabled": true
+          "enabled": true,
+          "id": "66a853dce058eb2613a4b782"
         },
         {
           "name": "Macaroni",
           "url": "https://www.shwapno.com/Macaroni",
-          "enabled": true
+          "enabled": true,
+          "id": "66a853ede058eb2613a4da8b"
         },
         {
           "name": "Soup",
           "url": "https://www.shwapno.com/soup",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e5e429af37f903ae31"
         },
         {
           "name": "Beverages",
           "url": "https://www.shwapno.com/beverages",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e0e429af37f903adf7"
         },
         {
           "name": "Tea",
           "url": "https://www.shwapno.com/tea",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e5e429af37f903ae29"
         },
         {
           "name": "Black Tea",
           "url": "https://www.shwapno.com/Black-Tea-2",
-          "enabled": true
+          "enabled": true,
+          "id": "66a854f5e058eb2613a8a3f8"
         },
         {
           "name": "Green Tea",
           "url": "https://www.shwapno.com/Green-Tea-2",
-          "enabled": true
+          "enabled": true,
+          "id": "66a854e7b553767cca9b6b8e"
         },
         {
           "name": "Flavored Tea",
           "url": "https://www.shwapno.com/Flavored-Tea",
-          "enabled": true
+          "enabled": true,
+          "id": "66a85505e058eb2613a8c838"
         },
         {
           "name": "Tea Others",
           "url": "https://www.shwapno.com/Tea-Others",
-          "enabled": true
+          "enabled": true,
+          "id": "66a85513b553767cca9c0ca1"
         },
         {
           "name": "Coffee",
           "url": "https://www.shwapno.com/coffee",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e5e429af37f903ae2a"
         },
         {
           "name": "Instant Coffee",
           "url": "https://www.shwapno.com/Instant-Coffee",
-          "enabled": true
+          "enabled": true,
+          "id": "66a8553cb553767cca9ca614"
         },
         {
           "name": "Coffee Mate",
           "url": "https://www.shwapno.com/Coffee-Mate",
-          "enabled": true
+          "enabled": true,
+          "id": "66a8554ce058eb2613a9d8e7"
         },
         {
           "name": "Coffee Others",
           "url": "https://www.shwapno.com/Coffee-Others",
-          "enabled": true
+          "enabled": true,
+          "id": "66a85584e058eb2613aae208"
         },
         {
           "name": "Soft Drinks",
           "url": "https://www.shwapno.com/soft-drinks",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e5e429af37f903ae2c"
         },
         {
           "name": "Juice",
           "url": "https://www.shwapno.com/juice",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e5e429af37f903ae2b"
         },
         {
           "name": "Syrups & Powder Drinks",
           "url": "https://www.shwapno.com/syrups-and-powder-drinks",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e5e429af37f903ae2e"
         },
         {
           "name": "Energy & Malted Drinks",
           "url": "https://www.shwapno.com/energy-and-malted-drinks",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e5e429af37f903ae2d"
         },
         {
           "name": "Drinking Water",
           "url": "https://www.shwapno.com/drinking-water",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e5e429af37f903ae2f"
         },
         {
           "name": "Candy & Chocolate",
           "url": "https://www.shwapno.com/candy-chocolate",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e0e429af37f903adf8"
         },
         {
           "name": "Cakes",
           "url": "https://www.shwapno.com/cakes",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e5e429af37f903ae32"
         },
         {
           "name": "Dry Cake",
           "url": "https://www.shwapno.com/Dry-Cake",
-          "enabled": true
+          "enabled": true,
+          "id": "66a85442b553767cca9935a2"
         },
         {
           "name": "Local Snacks",
           "url": "https://www.shwapno.com/local-snacks",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e5e429af37f903ae34"
         },
         {
           "name": "Samosa",
           "url": "https://www.shwapno.com/Samosa",
-          "enabled": true
+          "enabled": true,
+          "id": "66d3e718d02eafd6b351f077"
         },
         {
           "name": "Singara",
           "url": "https://www.shwapno.com/Singara",
-          "enabled": true
+          "enabled": true,
+          "id": "66a855f3b553767cca9edc91"
         },
         {
           "name": "Popcorn & Nuts",
           "url": "https://www.shwapno.com/popcorn-and-nuts",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e6e429af37f903ae35"
         },
         {
           "name": "Dried Fruits (Snack)",
           "url": "https://www.shwapno.com/dried-fruits",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e6e429af37f903ae37"
         },
         {
           "name": "Dry Fruits",
           "url": "https://www.shwapno.com/dry-fruits",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e2e429af37f903ae09"
         }
       ]
     },
@@ -633,37 +734,44 @@
         {
           "name": "Breakfast",
           "url": "https://www.shwapno.com/breakfast",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e0e429af37f903adf2"
         },
         {
           "name": "Breads",
           "url": "https://www.shwapno.com/breads",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e7e429af37f903ae47"
         },
         {
           "name": "Cereals",
           "url": "https://www.shwapno.com/cereals",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e7e429af37f903ae4b"
         },
         {
           "name": "Jam & Jelly",
           "url": "https://www.shwapno.com/jam-and-jelly",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e7e429af37f903ae48"
         },
         {
           "name": "Honey",
           "url": "https://www.shwapno.com/honey",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e7e429af37f903ae4a"
         },
         {
           "name": "Dips & Spreads",
           "url": "https://www.shwapno.com/dips-and-spreads",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e7e429af37f903ae49"
         },
         {
           "name": "Mayonnaise",
           "url": "https://www.shwapno.com/mayonnaise",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e6e429af37f903ae38"
         }
       ]
     },
@@ -676,62 +784,74 @@
         {
           "name": "Frozen",
           "url": "https://www.shwapno.com/Frozen",
-          "enabled": true
+          "enabled": true,
+          "id": "66d3e6c92d1d5639fbac948c"
         },
         {
           "name": "Frozen Snacks Others",
           "url": "https://www.shwapno.com/Frozen-Snacks-Others",
-          "enabled": true
+          "enabled": true,
+          "id": "66b1d043c2302149d1e856c2"
         },
         {
           "name": "French Fries",
           "url": "https://www.shwapno.com/French-Fries",
-          "enabled": true
+          "enabled": true,
+          "id": "66a8562ab553767cca9f3aa2"
         },
         {
           "name": "Paratha",
           "url": "https://www.shwapno.com/Paratha",
-          "enabled": true
+          "enabled": true,
+          "id": "66a85599b553767cca9e30bb"
         },
         {
           "name": "Ice Cream",
           "url": "https://www.shwapno.com/ice-cream",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e7e429af37f903ae46"
         },
         {
           "name": "Canned Food",
           "url": "https://www.shwapno.com/canned-food",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e7e429af37f903ae45"
         },
         {
           "name": "Canned Vegetables",
           "url": "https://www.shwapno.com/Canned-Vegetables",
-          "enabled": true
+          "enabled": true,
+          "id": "66d3ed862d1d5639fbd67981"
         },
         {
           "name": "Canned Fruits",
           "url": "https://www.shwapno.com/Canned-Fruits",
-          "enabled": true
+          "enabled": true,
+          "id": "66d3edef2d1d5639fbd8dee2"
         },
         {
           "name": "Pickle & Condiments",
           "url": "https://www.shwapno.com/pickle-and-condiments",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e7e429af37f903ae4c"
         },
         {
           "name": "Sauces & Pickles",
           "url": "https://www.shwapno.com/sauces-and-pickles",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e0e429af37f903adf3"
         },
         {
           "name": "Dipping Sauce",
           "url": "https://www.shwapno.com/dipping-sauce",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e8e429af37f903ae4e"
         },
         {
           "name": "Cooking Sauce",
           "url": "https://www.shwapno.com/cooking-sauce",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e8e429af37f903ae4f"
         }
       ]
     },
@@ -744,17 +864,20 @@
         {
           "name": "Personal Care",
           "url": "https://www.shwapno.com/personal-care",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e9e429af37f903ae5c"
         },
         {
           "name": "Cosmetics",
           "url": "https://www.shwapno.com/cosmetics",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45eae429af37f903ae6a"
         },
         {
           "name": "Skincare",
           "url": "https://www.shwapno.com/skincare",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45eae429af37f903ae65"
         },
         {
           "name": "Women's Care",
@@ -764,72 +887,86 @@
         {
           "name": "Hair Care",
           "url": "https://www.shwapno.com/hair-care",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e9e429af37f903ae61"
         },
         {
           "name": "Shampoo",
           "url": "https://www.shwapno.com/Shampoo",
-          "enabled": true
+          "enabled": true,
+          "id": "66a8563cb553767cca9f5e28"
         },
         {
           "name": "Conditioners",
           "url": "https://www.shwapno.com/Conditioners",
-          "enabled": true
+          "enabled": true,
+          "id": "66a85659e058eb2613ac9001"
         },
         {
           "name": "Oral Care",
           "url": "https://www.shwapno.com/oral-care",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e9e429af37f903ae62"
         },
         {
           "name": "Handwash & Handrub",
           "url": "https://www.shwapno.com/handwash-and-handrub",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45eae429af37f903ae66"
         },
         {
           "name": "Feminine Care",
           "url": "https://www.shwapno.com/feminine-care",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45eae429af37f903ae64"
         },
         {
           "name": "Shaving & Facial Care",
           "url": "https://www.shwapno.com/shaving-and-facial-care",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e9e429af37f903ae63"
         },
         {
           "name": "Deodorant",
           "url": "https://www.shwapno.com/deodorant",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e9e429af37f903ae5f"
         },
         {
           "name": "Talcum Powder",
           "url": "https://www.shwapno.com/talcum-powder",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45eae429af37f903ae68"
         },
         {
           "name": "Personal Grooming",
           "url": "https://www.shwapno.com/personal-grooming",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45eae429af37f903ae69"
         },
         {
           "name": "Health Care",
           "url": "https://www.shwapno.com/health-care",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45eae429af37f903ae6b"
         },
         {
           "name": "Herbal & Digestive",
           "url": "https://www.shwapno.com/herbal-and-digestive-aids",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45eae429af37f903ae6d"
         },
         {
           "name": "Medical Devices",
           "url": "https://www.shwapno.com/Medical-Devices",
-          "enabled": true
+          "enabled": true,
+          "id": "668390d1b3480cf5acac36b7"
         },
         {
           "name": "First Aid & Antiseptics",
           "url": "https://www.shwapno.com/first-aid-and-antiseptics",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45ebe429af37f903ae70"
         },
         {
           "name": "Winter Care",
@@ -847,32 +984,38 @@
         {
           "name": "Baby Food",
           "url": "https://www.shwapno.com/baby-food",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e1e429af37f903adff"
         },
         {
           "name": "Baby Food & Care",
           "url": "https://www.shwapno.com/baby-food-and-care",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e1e429af37f903adfa"
         },
         {
           "name": "Baby Wipes",
           "url": "https://www.shwapno.com/baby-wipes",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e1e429af37f903adfd"
         },
         {
           "name": "Baby Bath & Skincare",
           "url": "https://www.shwapno.com/baby-bath-and-skincare",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e1e429af37f903adfb"
         },
         {
           "name": "Baby Accessories",
           "url": "https://www.shwapno.com/baby-accessories",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e1e429af37f903adfe"
         },
         {
           "name": "Baby Oral Care",
           "url": "https://www.shwapno.com/baby-oral-care",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e1e429af37f903ae00"
         }
       ]
     },
@@ -885,47 +1028,56 @@
         {
           "name": "Home Cleaning",
           "url": "https://www.shwapno.com/home-cleaning",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e0e429af37f903adf5"
         },
         {
           "name": "Laundry",
           "url": "https://www.shwapno.com/laundry",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e8e429af37f903ae52"
         },
         {
           "name": "Dish Cleaner",
           "url": "https://www.shwapno.com/dish-cleaner",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e8e429af37f903ae51"
         },
         {
           "name": "Floor Glass Cleaner",
           "url": "https://www.shwapno.com/floor-glass-and-wood-cleaners",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e8e429af37f903ae55"
         },
         {
           "name": "Toilet Cleaners",
           "url": "https://www.shwapno.com/toilet-cleaners",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e8e429af37f903ae56"
         },
         {
           "name": "Tissue & Wipes",
           "url": "https://www.shwapno.com/tissue-and-wipes",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45eae429af37f903ae67"
         },
         {
           "name": "Air Fresheners",
           "url": "https://www.shwapno.com/air-fresheners",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e8e429af37f903ae53"
         },
         {
           "name": "Pest Control",
           "url": "https://www.shwapno.com/pest-control",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e8e429af37f903ae57"
         },
         {
           "name": "Trash Supplies",
           "url": "https://www.shwapno.com/trash-supplies",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e9e429af37f903ae5a"
         }
       ]
     },
@@ -938,102 +1090,122 @@
         {
           "name": "Home & Kitchen",
           "url": "https://www.shwapno.com/home-and-kitchen",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45ebe429af37f903ae73"
         },
         {
           "name": "Kitchen Appliances",
           "url": "https://www.shwapno.com/kitchen-appliances",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45ebe429af37f903ae77"
         },
         {
           "name": "Home Appliance",
           "url": "https://www.shwapno.com/Home-Appliance-2",
-          "enabled": true
+          "enabled": true,
+          "id": "668e0a5b70414361928a0cff"
         },
         {
           "name": "Kitchen Accessories",
           "url": "https://www.shwapno.com/kitchen-accessories",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45ebe429af37f903ae76"
         },
         {
           "name": "Cookware",
           "url": "https://www.shwapno.com/cookware",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45ece429af37f903ae7c"
         },
         {
           "name": "Crockeries",
           "url": "https://www.shwapno.com/crockeries",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45ebe429af37f903ae79"
         },
         {
           "name": "Spoons Forks Others",
           "url": "https://www.shwapno.com/spoons-forks-and-others",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45ebe429af37f903ae78"
         },
         {
           "name": "Living Items",
           "url": "https://www.shwapno.com/living-items",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45ece429af37f903ae7f"
         },
         {
           "name": "Bedding",
           "url": "https://www.shwapno.com/bedding",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45ece429af37f903ae82"
         },
         {
           "name": "Bed Room Essentials",
           "url": "https://www.shwapno.com/bed-room-essentials",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45ece429af37f903ae83"
         },
         {
           "name": "Blanket & Comforter",
           "url": "https://www.shwapno.com/blanket-and-comforter",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45ece429af37f903ae80"
         },
         {
           "name": "Pillow & Cushion",
           "url": "https://www.shwapno.com/pillow-and-cushion",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45ece429af37f903ae81"
         },
         {
           "name": "Towels",
           "url": "https://www.shwapno.com/towels",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45ece429af37f903ae84"
         },
         {
           "name": "Lights & Electrical",
           "url": "https://www.shwapno.com/lights-and-electrical",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45ebe429af37f903ae74"
         },
         {
           "name": "Energy Saving Lamp",
           "url": "https://www.shwapno.com/lights-and-electrical",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45ebe429af37f903ae74"
         },
         {
           "name": "Fan",
           "url": "https://www.shwapno.com/Fan",
-          "enabled": true
+          "enabled": true,
+          "id": "66ab21a82b45da45d408b68b"
         },
         {
           "name": "Iron",
           "url": "https://www.shwapno.com/Iron",
-          "enabled": true
+          "enabled": true,
+          "id": "66ab21ce161b6778f680efe5"
         },
         {
           "name": "Tools & Hardware",
           "url": "https://www.shwapno.com/tools-and-hardware",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45ebe429af37f903ae75"
         },
         {
           "name": "Batteries",
           "url": "https://www.shwapno.com/batteries",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45ede429af37f903ae87"
         },
         {
           "name": "Bath & Body",
           "url": "https://www.shwapno.com/bath-and-body",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e9e429af37f903ae5d"
         },
         {
           "name": "Flask Pots Bottles",
@@ -1051,47 +1223,56 @@
         {
           "name": "Fashion & Lifestyle",
           "url": "https://www.shwapno.com/fashion-and-lifestyle",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45eee429af37f903ae99"
         },
         {
           "name": "Lungi",
           "url": "https://www.shwapno.com/lungi",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45f0e429af37f903aeb4"
         },
         {
           "name": "Kurtis Tunics Tops",
           "url": "https://www.shwapno.com/kurtis-tunics-and-tops",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45eee429af37f903ae9c"
         },
         {
           "name": "Skirts & Palazzos",
           "url": "https://www.shwapno.com/skirts-and-palazzos",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45efe429af37f903aea1"
         },
         {
           "name": "Office Products",
           "url": "https://www.shwapno.com/office-products",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45ece429af37f903ae86"
         },
         {
           "name": "Writing & Drawing",
           "url": "https://www.shwapno.com/writing-and-drawing",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45ede429af37f903ae88"
         },
         {
           "name": "Gadget",
           "url": "https://www.shwapno.com/Gadget",
-          "enabled": true
+          "enabled": true,
+          "id": "6684075f8c4b6f7aaf96d8c4"
         },
         {
           "name": "Toys & Sports",
           "url": "https://www.shwapno.com/toys-and-sports",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45f2e429af37f903aedb"
         },
         {
           "name": "Toys Items",
           "url": "https://www.shwapno.com/toys-items",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45f2e429af37f903aedc"
         }
       ]
     },
@@ -1104,17 +1285,20 @@
         {
           "name": "Pet Care",
           "url": "https://www.shwapno.com/pet-care",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e1e429af37f903ae02"
         },
         {
           "name": "Cat Food",
           "url": "https://www.shwapno.com/cat-food",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e1e429af37f903ae03"
         },
         {
           "name": "Other Birds",
           "url": "https://www.shwapno.com/other-birds",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e3e429af37f903ae13"
         }
       ]
     },
@@ -1132,7 +1316,8 @@
         {
           "name": "Food",
           "url": "https://www.shwapno.com/food",
-          "enabled": true
+          "enabled": true,
+          "id": "65ed45e0e429af37f903adf0"
         }
       ]
     }

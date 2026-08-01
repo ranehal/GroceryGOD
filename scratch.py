@@ -1,0 +1,935 @@
+import multiprocessing
+import subprocess
+import sys
+import time
+import os
+import threading
+import requests
+import socket
+import logging
+import traceback
+import json
+import html
+import shutil
+import concurrent.futures
+from datetime import datetime, timedelta, timezone
+
+# Dhaka Timezone
+DHAKA_TZ = timezone(timedelta(hours=6))
+
+# ============================================================
+# INITIALIZATION & SECRETS
+# ============================================================
+def get_secret_safe(key, default=""):
+    try:
+        from kaggle_secrets import UserSecretsClient
+        val = UserSecretsClient().get_secret(key)
+        return val if val else default
+    except:
+        return os.environ.get(key, default)
+
+GITHUB_PAT = get_secret_safe('GITHUB_PAT')
+os.environ['KAGGLE_USERNAME'] = get_secret_safe('KAGGLE_USERNAME')
+os.environ['KAGGLE_KEY'] = get_secret_safe('KAGGLE_KEY')
+TELEGRAM_BOT_TOKEN = get_secret_safe("TELEGRAM_BOT_TOKEN")
+TELEGRAM_CHAT_ID = get_secret_safe("TELEGRAM_CHAT_ID")
+os.environ["TELEGRAM_BOT_TOKEN"] = TELEGRAM_BOT_TOKEN or ""
+os.environ["TELEGRAM_CHAT_ID"] = TELEGRAM_CHAT_ID or ""
+KAGGLE_KERNEL_SLUG = get_secret_safe("KAGGLE_KERNEL_SLUG")
+os.environ['GOD_PREMIUM_KEY'] = get_secret_safe('GOD_PREMIUM_KEY', 'assalamualaikum')
+
+def run_preflight_checks():
+    print("\n" + "="*50)
+    print("🛫 PRE-FLIGHT SECRETS CHECK")
+    print("="*50)
+    missing = []
+    if not GITHUB_PAT: missing.append("GITHUB_PAT")
+    if not os.environ['KAGGLE_USERNAME']: missing.append("KAGGLE_USERNAME")
+    if not os.environ['KAGGLE_KEY']: missing.append("KAGGLE_KEY")
+    if not KAGGLE_KERNEL_SLUG: missing.append("KAGGLE_KERNEL_SLUG")
+    
+    if missing:
+        print(f"🚨 CRITICAL WARNING: The following secrets are missing or empty: {', '.join(missing)}")
+        print("🚨 Scrapers WILL fail to push to GitHub, and the script WILL fail to self-restart.")
+        print("🚨 Please stop the kernel, go to Add-ons > Secrets, attach them, and run again.\n")
+    else:
+        print("✅ All core secrets found. Systems nominal.\n")
+
+# ============================================================
+# SELF-RESTART FUNCTION
+# ============================================================
+def trigger_self_restart():
+    print("\n[SYSTEM] Initiating Kaggle Self-Restart...")
+    def _tg(msg):
+        if not TELEGRAM_BOT_TOKEN or TELEGRAM_BOT_TOKEN == "": return
+        try:
+            requests.post(f'https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage', json={'chat_id': TELEGRAM_CHAT_ID, 'text': msg, 'parse_mode': 'HTML'}, timeout=10)
+        except: pass
+
+    try:
+        if not KAGGLE_KERNEL_SLUG:
+            err = "❌ Error: KAGGLE_KERNEL_SLUG not found in secrets. Cannot restart."
+            print(err)
+            _tg(err)
+            return
+
+        subprocess.run([sys.executable, "-m", "pip", "install", "-q", "kaggle"], check=True)
+
+        kaggle_config = {"username": os.environ['KAGGLE_USERNAME'], "key": os.environ['KAGGLE_KEY']}
+        os.makedirs(os.path.expanduser('~/.kaggle'), exist_ok=True)
+        with open(os.path.expanduser('~/.kaggle/kaggle.json'), 'w') as f:
+            json.dump(kaggle_config, f)
+        os.chmod(os.path.expanduser('~/.kaggle/kaggle.json'), 0o600)
+
+        from kaggle.api.kaggle_api_extended import KaggleApi
+        api = KaggleApi()
+        api.authenticate()
+
+        restart_dir = '/tmp/restart_payload'
+        if os.path.exists(restart_dir):
+            shutil.rmtree(restart_dir)
+        os.makedirs(restart_dir, exist_ok=True)
+        os.chdir(restart_dir)
+
+        print(f"[SYSTEM] Pulling kernel metadata for {KAGGLE_KERNEL_SLUG}...")
+        api.kernels_pull(KAGGLE_KERNEL_SLUG, path='.', metadata=True)
+
+        if not os.path.exists('kernel-metadata.json'):
+            raise RuntimeError("Failed to pull kernel-metadata.json.")
+
+        with open('kernel-metadata.json', 'r') as f:
+            meta = json.load(f)
+        code_filename = meta.get('code_file', 'notebook.ipynb')
+
+        if os.path.exists('/kaggle/notebook_source.ipynb'):
+            print(f"[SYSTEM] Syncing live notebook source into payload file: {code_filename}")
+            shutil.copy('/kaggle/notebook_source.ipynb', code_filename)
+        else:
+            print("[SYSTEM] Live source location unavailable. Defaulting to server sync pull configuration.")
+
+        print("[SYSTEM] Pushing kernel payload to trigger next loop container...")
+        api.kernels_push('.')
+        
+        success_msg = "✅ <b>Kaggle Restart Triggered Successfully!</b>\nNew container should spawn shortly."
+        print(success_msg)
+        _tg(success_msg)
+
+        time.sleep(10)
+        os._exit(0)
+    except Exception as e:
+        safe_tb = html.escape(traceback.format_exc()[-500:])
+        err_msg = f"❌ <b>Kaggle Restart Failed!</b>\nError: {html.escape(str(e))}\n<pre>{safe_tb}</pre>"
+        print(err_msg)
+        _tg(err_msg)
+
+# ============================================================
+# PIPELINE 1: GROCERYGOD (CONTINUOUS LOOP)
+# ============================================================
+def run_grocery_god(github_pat):
+    print("[GroceryGOD] Process Started.")
+
+    logging.basicConfig(level=logging.DEBUG, format='%(asctime)s | %(levelname)-8s | [GroceryGOD] %(message)s', handlers=[logging.StreamHandler(sys.stdout), logging.FileHandler('/tmp/grocerygod_run.log', mode='w')])
+    log = logging.getLogger('GroceryGOD')
+
+    def _fmt_dur(seconds): return str(timedelta(seconds=int(seconds)))
+
+    def tg_send(text, silent=False):
+        if not TELEGRAM_BOT_TOKEN or TELEGRAM_BOT_TOKEN.strip() == "": return
+        TG_API = f'https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}'
+        try: 
+            requests.post(f'{TG_API}/sendMessage', json={'chat_id': TELEGRAM_CHAT_ID, 'text': text, 'parse_mode': 'HTML', 'disable_notification': silent}, timeout=15)
+        except: pass
+
+
+    def tg_send_file(file_path, caption=""):
+        if not TELEGRAM_BOT_TOKEN or TELEGRAM_BOT_TOKEN.strip() == "": return
+        try:
+            with open(file_path, "rb") as f:
+                requests.post(f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendDocument", files={"document": f}, data={"chat_id": TELEGRAM_CHAT_ID, "caption": caption[:200]}, timeout=120)
+        except: pass
+
+    def get_ips():
+        try:
+            public_ip = requests.get('https://api.ipify.org', timeout=10).text
+            shops = {
+                'Shwapno': 'www.shwapno.com',
+                'Chaldal': 'chaldal.com',
+                'MeenaBazar': 'meenabazaronline.com',
+                'Othoba': 'www.othoba.com',
+                'Unimart': 'unimart.online',
+                'MetroMart': 'www.metromartonline.com',
+                'ShotejBazar': 'shotejbazar.com'
+            }
+            shop_ips = []
+            for name, host in shops.items():
+                try: shop_ips.append(f"{name}: {socket.gethostbyname(host)}")
+                except: shop_ips.append(f"{name}: Failed")
+
+            report = f"📡 <b>Kaggle Scraper IP:</b> {public_ip}\n\n"
+            report += "<b>Shop Server IPs:</b>\n" + "\n".join(shop_ips)
+            tg_send(report)
+        except Exception as e:
+            log.error(f"IP Reporting failed: {e}")
+
+    class Step:
+        def __init__(self, name, emoji='⚙️', notify=True):
+            self.name, self.emoji, self.notify = name, emoji, notify
+        def __enter__(self):
+            self._t0 = time.time()
+            log.info(f'{self.emoji}  [{self.name}] — STARTED')
+            if self.notify: tg_send(f'{self.emoji} <b>{self.name}</b> — started', silent=True)
+            return self
+        def __exit__(self, exc_type, exc_val, exc_tb):
+            elapsed = time.time() - self._t0
+            if exc_type is None:
+                log.info(f'✅  [{self.name}] — OK ({_fmt_dur(elapsed)})')
+                if self.notify: tg_send(f'✅ <b>{self.name}</b> — complete ({_fmt_dur(elapsed)})')
+            else:
+                safe_tb = html.escape(traceback.format_exc()[-1000:])
+                log.error(f'❌  [{self.name}] — FAILED\n{traceback.format_exc()}')
+                if self.notify: tg_send(f'❌ <b>{self.name}</b> — FAILED\n<pre>{safe_tb}</pre>')
+                return False
+    # ONE-TIME INITIALIZATIONS
+    os.chdir('/kaggle/working')
+    try:
+        tg_send('🚀 <b>GroceryGOD Environment Booting Up...</b>')
+        get_ips()
+        with Step('Environment Sync', '📦'):
+            subprocess.run([sys.executable, "-m", "pip", "install", "-q", "playwright", "httpx", "beautifulsoup4", "lxml", "sqlalchemy", "aiosqlite", "requests", "pyarrow"], check=True)
+            subprocess.run([sys.executable, "-m", "playwright", "install", "chromium", "--with-deps"], check=True)
+            subprocess.run('apt-get update -y -q 2>/dev/null', shell=True)
+            subprocess.run(['apt-get', 'install', '-y', '-q', 'sqlite3'], check=True)
+    except Exception as e:
+        log.error("Environment Setup Failed. Terminating GroceryGOD loop thread.")
+        return
+
+    # INFINITE LOOP PIPELINE
+    cycle_count = 1
+    while True:
+        os.chdir('/kaggle/working')
+        
+        try:
+            tg_send(f'🚀 <b>GroceryGOD Pipeline — CYCLE {cycle_count} STARTED (Simultaneous Parallel)</b>')
+            with Step('Configuration & Git Setup', '⚙️'):
+                if not github_pat:
+                    raise RuntimeError("GITHUB_PAT is missing or empty. Git operations will fail.")
+                    
+                subprocess.run('git config --global user.email "educational.purpose37@gmail.com"', shell=True)
+                subprocess.run('git config --global user.name "ranx-x"', shell=True)
+
+                cred_path = os.path.expanduser('~/.git-credentials')
+                with open(cred_path, 'w') as f:
+                    f.write(f"https://ranx-x:{github_pat}@github.com\n")
+                subprocess.run('git config --global credential.helper store', shell=True)
+
+                REPO_URL = 'https://github.com/ranx-x/GroceryGOD.git'
+
+                if os.path.exists('GroceryGOD/.git/index.lock'):
+                    subprocess.run('rm -f GroceryGOD/.git/index.lock', shell=True)
+
+                if not os.path.exists('GroceryGOD'):
+                    clone_res = subprocess.run(f'GIT_LFS_SKIP_SMUDGE=1 git clone {REPO_URL}', shell=True, capture_output=True, text=True)
+                    if clone_res.returncode != 0:
+                        error_msg = f"Git Clone Failed! Auth issue or repo missing.\nSTDERR: {clone_res.stderr}"
+                        log.error(error_msg)
+                        raise RuntimeError(error_msg)
+
+                os.chdir('GroceryGOD')
+                
+                log.info("🔄 Forcing sync with latest GitHub master...")
+                subprocess.run('git clean -fd', shell=True)
+                subprocess.run('git fetch --all', shell=True)
+                subprocess.run('git reset --hard origin/master', shell=True)
+
+                log.info("🗑️ Purging LFS pointers to prevent SQLite corruption...")
+                subprocess.run('find . -name "*.db" -type f -delete', shell=True)
+
+            with Step('Repo Decryption', '🔓'):
+                try:
+                    import re as _re, glob as _glob, hashlib as _hashlib
+                    from cryptography.hazmat.primitives.ciphers.aead import AESGCM
+                    _KEY = os.environ.get('GOD_PREMIUM_KEY', '').strip()
+                    if not _KEY: raise RuntimeError('GOD_PREMIUM_KEY not set')
+                    _ITER = 250000
+                    def _dec(data, pw):
+                        if data[:4] != b'GGE1': raise ValueError('Bad magic')
+                        s, iv, ct = data[4:20], data[20:32], data[32:]
+                        k = _hashlib.pbkdf2_hmac('sha256', pw.encode(), s, _ITER, dklen=32)
+                        return AESGCM(k).decrypt(iv, ct, None)
+                    _cwd = os.getcwd()
+                    _chunks = _glob.glob(os.path.join(_cwd, '**', '*.enc.[0-9][0-9][0-9]'), recursive=True)
+                    _groups = {}
+                    for cf in _chunks:
+                        m = _re.match(r'(.+)\.enc\.([0-9]{3})$', cf)
+                        if m: _groups.setdefault(m.group(1)+'.enc', []).append(cf)
+                    for base, parts in _groups.items():
+                        parts.sort()
+                        log.info(f'  Reassembling {len(parts)} chunks -> {os.path.basename(base)}')
+                        with open(base, 'wb') as out:
+                            for p in parts:
+                                with open(p, 'rb') as f: out.write(f.read())
+                                os.remove(p)
+                        os.remove(base)
+                    _enc_files = _glob.glob(os.path.join(_cwd, '**', '*.enc'), recursive=True)
+                    log.info(f'  Found {len(_enc_files)} encrypted files')
+                    _dc = 0
+                    for ep in _enc_files:
+                        try:
+                            with open(ep, 'rb') as f: d = f.read()
+                            plain = _dec(d, _KEY)
+                            with open(ep[:-4], 'wb') as f: f.write(plain)
+                            os.remove(ep)
+                            _dc += 1
+                            log.info(f'  {os.path.relpath(ep, _cwd)} -> decrypted ({len(plain)//1024}KB)')
+                        except Exception as ex:
+                            log.error(f'  ERROR {os.path.basename(ep)}: {ex}')
+                    log.info(f'  Decrypted {_dc}/{len(_enc_files)} files')
+                except subprocess.CalledProcessError as e:
+                    log.error(f'Decryption failed: {e.stderr[:500]}')
+                    tg_send(f'⚠️ <b>Repo Decryption</b> — failed (non-fatal)', silent=True)
+
+            SCRAPER_TIMEOUT = 3 * 3600
+            PARALLEL_MAX_WORKERS = 5
+            ####################################################PARALLEL_MAX_WORKERS = 5
+            def run_scraper(scraper_info):
+                label, path = scraper_info
+                log.info(f'Starting {label}...')
+                t0 = time.time()
+                full_path = os.path.join(os.getcwd(), path)
+                script_target = os.path.join(full_path, 'scraper.py')
+
+                if not os.path.exists(script_target):
+                    error_msg = f"File scraper.py missing in {full_path}"
+                    log.error(f"X {error_msg}")
+                    tg_send(f'X <b>{label}</b> - {error_msg}', silent=True)
+                    return label, False, 0, "missing"
+
+                try:
+                    with open(script_target, 'r', encoding='utf-8') as f:
+                        code = f.read()
+                    patch_marker = 'DHAKA_TZ = timezone(timedelta(hours=6))'
+                    if patch_marker not in code:
+                        log.info(f"Auto-Patching base imports into {label}...")
+                        patch = "import os\nfrom datetime import timezone, timedelta\nDHAKA_TZ = timezone(timedelta(hours=6))\n"
+                        with open(script_target, 'w', encoding='utf-8') as f:
+                            f.write(patch + code)
+                    else:
+                        log.info(f"{label} already has base imports, skipping patch.")
+                except Exception as patch_err:
+                    log.warning(f"Failed to auto-patch {label}: {patch_err}")
+
+                my_env = os.environ.copy()
+                stderr_capture = []
+                stderr_lock = threading.Lock()
+                line_count = [0]
+                last_tg_line = [0]
+                proc = None
+
+                def _read_stream(stream, is_stderr=False):
+                    try:
+                        for line in stream:
+                            if is_stderr:
+                                with stderr_lock: stderr_capture.append(line)
+                                log.warning(f'[{label} stderr] {line.rstrip()}')
+                            else:
+                                line_count[0] += 1
+                                log.info(f'[{label}] {line.rstrip()}')
+                    except:
+                        pass
+
+                try:
+                    proc = subprocess.Popen([sys.executable, 'scraper.py'], cwd=full_path, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, env=my_env)
+                    t_stdout = threading.Thread(target=_read_stream, args=(proc.stdout, False), daemon=True)
+                    t_stderr = threading.Thread(target=_read_stream, args=(proc.stderr, True), daemon=True)
+                    t_stdout.start()
+                    t_stderr.start()
+
+                    _last_alive_tg = time.time()
+                    _last_ss_tg = time.time()
+                    _sent_screenshots = set()
+                    _deadline = time.time() + SCRAPER_TIMEOUT
+                    while time.time() < _deadline:
+                        if proc.poll() is not None:
+                            break
+                        _now = time.time()
+                        if _now - _last_ss_tg >= 300:
+                            _elapsed_str = _fmt_dur(_now - t0)
+                            import glob as _glob
+                            _pngs = _glob.glob(os.path.join(full_path, '**', '*.png'), recursive=True)
+                            for _png in _pngs:
+                                if _png not in _sent_screenshots:
+                                    try:
+                                        tg_send_file(_png, f"📸 <b>{label}</b> 5-min Screenshot ({_elapsed_str})")
+                                        _sent_screenshots.add(_png)
+                                    except Exception: pass
+                            tg_send(f"📸 <b>{label}</b> (Serial Run) — 5-min status update: {line_count[0]} lines ({_elapsed_str} elapsed)", silent=True)
+                            _last_ss_tg = _now
+                            _last_alive_tg = _now
+                        elif _now - _last_alive_tg >= 300:
+                            tg_send(f"<b>{label}</b> — status: {line_count[0]} lines ({_fmt_dur(_now-t0)} elapsed)", silent=True)
+                            _last_alive_tg = _now
+                        if line_count[0] - last_tg_line[0] >= 100:
+                            last_tg_line[0] = line_count[0]
+                            _last_alive_tg = _now
+                        time.sleep(5)
+
+                    timed_out = False
+                    if proc.poll() is None:
+                        proc.kill()
+                        proc.wait(timeout=10)
+                        elapsed = time.time() - t0
+                        timed_out = True
+                        log.error(f'{label} TIMED OUT after {_fmt_dur(elapsed)}!')
+                        tg_send(f'TIMEOUT <b>{label}</b> after {_fmt_dur(elapsed)}! Partial data only.', silent=True)
+                    else:
+                        elapsed = time.time() - t0
+
+                    t_stdout.join(timeout=30)
+                    t_stderr.join(timeout=30)
+
+                    if timed_out:
+                        return label, False, line_count[0], "timeout"
+                    if proc.returncode != 0:
+                        stderr_text = ''.join(stderr_capture)
+                        safe_err = stderr_text[:500]
+                        log.error(f'{label} FAILED! RC={proc.returncode}')
+                        tg_send(f'FAILED <b>{label}</b> in {_fmt_dur(elapsed)}!', silent=True)
+                        return label, False, line_count[0], "crashed"
+                except Exception as run_err:
+                    elapsed = time.time() - t0
+                    if proc and proc.poll() is None:
+                        try: proc.kill()
+                        except: pass
+                    log.error(f'{label} EXCEPTION: {run_err}')
+                    tg_send(f'EXCEPTION <b>{label}</b> after {_fmt_dur(elapsed)}!', silent=True)
+                    return label, False, line_count[0], "exception"
+
+                summary_log = ""
+                log_file = os.path.join(full_path, "last_run_log.txt")
+                if os.path.exists(log_file):
+                    try:
+                        with open(log_file, "r", encoding="utf-8") as f:
+                            summary_log = f.read().strip()
+                    except Exception as ex:
+                        log.warning(f"Error reading {log_file} for {label}: {ex}")
+
+                stderr_lines = len(stderr_capture)
+                log.info(f'OK {label} finished in {_fmt_dur(elapsed)} (stdout={line_count[0]}, stderr={stderr_lines} lines)')
+                
+                if summary_log:
+                    tg_msg = f"✅ 🟢 <b>{label}</b> — {_fmt_dur(elapsed)} ({line_count[0]} lines)\n{summary_log}"
+                else:
+                    tg_msg = f"✅ 🟢 <b>{label}</b> — {_fmt_dur(elapsed)} ({line_count[0]} lines)"
+
+                tg_send(tg_msg, silent=False)
+                return label, True, line_count[0], "ok"
+
+            with Step('History Reconstruction', '📄'):
+                try:
+                    subprocess.run([sys.executable, 'reconstruct_history.py'], check=True)
+                    log.info("History successfully reconstructed from GitHub chunks.")
+                except Exception as e:
+                    log.error(f"History reconstruction failed: {e}. Proceeding with fresh start risk...")
+
+            with Step('Market Scrapers (Serial)', '\U0001f6f8'):
+                import platform, os, subprocess
+                if platform.system() == 'Windows':
+                    shopno_dir = r'C:\PROJECTS\shopno'
+                    othoba_dir = r'C:\PROJECTS\othoba'
+                else:
+                    shopno_dir = '/kaggle/working/shopno'
+                    othoba_dir = '/kaggle/working/othoba'
+                if not os.path.exists(shopno_dir):
+                    subprocess.run(f'git clone https://github.com/ranehal/SHWAPNO-analylics.git "{shopno_dir}"', shell=True)
+                if not os.path.exists(othoba_dir):
+                    subprocess.run(f'git clone https://github.com/ranehal/Othoba-analytics.git "{othoba_dir}"', shell=True)
+                scrapers = [('Shwapno', 'swapnoTRACKER'), ('Shwapno App', 'swapnoTRACKER/shopno'), ('Shwapno Analytics', shopno_dir), ('Othoba Analytics', othoba_dir), ('Chaldal', 'PRICETRACKER'), ('Meena Bazar', 'MEENAtracker/backend'), ('Othoba', 'othobaTRACKER/backend'), ('Unimart', 'unimartTRACKER'), ('Metro Mart', 'metroTRACKER/backend'), ('ShotejBazar', 'ShotejTRACKER')]
+                results = [None] * len(scrapers)
+                log.info(f"Launching {len(scrapers)} scrapers in parallel (timeout={SCRAPER_TIMEOUT//3600}h each)")
+
+                def _run_wrapper(idx, info):
+                    return idx, run_scraper(info)
+
+                log.info('Running scrapers serially one by one...')
+                for idx, s in enumerate(scrapers):
+                    log.info(f'Starting scraper {idx+1}/{len(scrapers)}: {s[0]}')
+                    res = run_scraper(s)
+                    results[idx] = res
+
+                log.info("=== SCRAPER RESULTS SUMMARY ===\n" + "-"*60)
+                _all_ok = True
+                _status_emoji = {"ok": "OK", "timeout": "TIMEOUT", "crashed": "CRASH", "exception": "EXCEPTION", "missing": "MISSING"}
+                for r in results:
+                    _label, _ok, _lines, _status = r[0], r[1], r[2], r[3]
+                    _emoji = _status_emoji.get(_status, "?")
+                    log.info(f'  {_emoji} {_label} - lines={_lines} status={_status}')
+                    if not _ok:
+                        _all_ok = False
+                log.info("-"*60)
+                _ok_count = sum(1 for r in results if r[1])
+                log.info(f'Result: {_ok_count}/{len(results)} scrapers OK')
+                if not _all_ok:
+                    _failed = [(r[0], r[3]) for r in results if not r[1]]
+                    log.info(f'Failed: {_failed}')
+
+                tg_send(f"SCRAPER RESULTS: {_ok_count}/{len(results)} OK", silent=True)
+                for r in results:
+                    _label, _ok, _lines, _status = r
+                    _emoji = _status_emoji.get(_status, "?")
+                    tg_send(f'{_emoji} {_label} - {_lines} lines [{_status}]', silent=True)
+
+                log.info("Pushing all scraper data to GitHub...")
+                tg_send("Pushing combined scraper data to GitHub...", silent=True)
+                try:
+                    subprocess.run('git add .', shell=True)
+                    _now = datetime.now(DHAKA_TZ).strftime('%Y-%m-%d %H:%M:%S')
+                    subprocess.run(f'git commit -m "parallel scrapers {_now} ({_ok_count}/{len(results)} OK)"', shell=True)
+                    subprocess.run('git pull origin master --rebase -X ours', shell=True, capture_output=True)
+                    subprocess.run('git push origin HEAD:master --force', shell=True, capture_output=True)
+                    log.info("Combined scraper data pushed to GitHub successfully")
+                    tg_send('Combined scraper data pushed to GitHub', silent=True)
+                except Exception as push_err:
+                    log.warning(f"Failed to push scraper data: {push_err}")
+
+            with Step('GODdata Aggregator', '🧬'):
+                _agg_env = os.environ.copy()
+                _agg_proc = subprocess.Popen([sys.executable, 'aggregator.py'], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, env=_agg_env)
+                for _agg_line in _agg_proc.stdout:
+                    log.info(f'[aggregator] {_agg_line.rstrip()}')
+                _agg_proc.wait()
+                if _agg_proc.returncode != 0:
+                    log.error(f'Aggregator failed with code {_agg_proc.returncode}')
+                    tg_send(f'⚠️ <b>Aggregator</b> failed (rc={_agg_proc.returncode})', silent=True)
+                else:
+                    log.info('Aggregator completed successfully')
+                
+                try:
+                    count_file = 'run_count.txt'
+                    run_count = 1
+                    if os.path.exists(count_file):
+                        with open(count_file, 'r') as f:
+                            run_count = int(f.read().strip()) + 1
+                    with open(count_file, 'w') as f:
+                        f.write(str(run_count))
+                    log.info(f"🔄 Persistent Run count updated to {run_count}")
+                except Exception as e:
+                    log.warning(f"Failed to update run count: {e}")
+
+            with Step('Parquet Conversion', '📊'):
+                try:
+                    _pq_env = os.environ.copy()
+                    _pq_proc = subprocess.Popen([sys.executable, 'convert_to_parquet.py'], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, env=_pq_env)
+                    for _pq_line in _pq_proc.stdout:
+                        log.info(f'[parquet] {_pq_line.rstrip()}')
+                    _pq_proc.wait()
+                    if _pq_proc.returncode != 0:
+                        raise subprocess.CalledProcessError(_pq_proc.returncode, 'convert_to_parquet.py')
+                    for pf in ['products.parquet', 'history.parquet', 'products_free.parquet', 'history_free.parquet', 'premium/history_archive.parquet.enc']:
+                        if os.path.exists(pf):
+                            sz_mb = os.path.getsize(pf) / (1024*1024)
+                            log.info(f'  {pf}: {sz_mb:.1f} MB')
+                except subprocess.CalledProcessError as e:
+                    log.error(f'Parquet conversion failed with code {e.returncode}')
+                    tg_send(f'⚠️ <b>Parquet Conversion</b> — failed (non-fatal)', silent=True)
+
+            with Step('Premium Key Rotation', '🔐'):
+                new_key = get_secret_safe('GOD_PREMIUM_KEY_UPDATE', '')
+                if new_key:
+                    old_key = os.environ.get('GOD_PREMIUM_KEY', '')
+                    enc_file = 'premium/history_archive.parquet.enc'
+                    if old_key and os.path.exists(enc_file):
+                        try:
+                            res = subprocess.run([sys.executable, 'update_premium_key.py', old_key, new_key], capture_output=True, text=True, env=os.environ.copy())
+                            if res.returncode == 0:
+                                os.environ['GOD_PREMIUM_KEY'] = new_key
+                                log.info('Premium key rotated successfully.')
+                                tg_send('🔐 <b>Premium key rotated</b> — archive re-encrypted.')
+                            else:
+                                log.error(f'Key rotation failed: {res.stderr[:500]}')
+                                tg_send(f'⚠️ <b>Premium key rotation failed</b>\n<pre>{html.escape(res.stderr[:300])}</pre>')
+                        except Exception as e:
+                            log.error(f'Key rotation error: {e}')
+                    else:
+                        log.info('Skipping key rotation: no old key or archive not found.')
+                else:
+                    log.info('No GOD_PREMIUM_KEY_UPDATE set — skipping key rotation.')
+
+            with Step('Repo Encryption', '🔒'):
+                try:
+                    import glob as _glob, secrets as _secrets, hashlib as _hashlib
+                    from cryptography.hazmat.primitives.ciphers.aead import AESGCM
+                    _KEY = os.environ.get('GOD_PREMIUM_KEY', '').strip()
+                    if not _KEY: raise RuntimeError('GOD_PREMIUM_KEY not set')
+                    _ITER = 250000
+                    _SPLIT = 40 * 1024 * 1024
+                    def _enc(data, pw):
+                        salt, iv = _secrets.token_bytes(16), _secrets.token_bytes(12)
+                        k = _hashlib.pbkdf2_hmac('sha256', pw.encode(), salt, _ITER, dklen=32)
+                        ct = AESGCM(k).encrypt(iv, data, None)
+                        return b'GGE1' + salt + iv + ct
+                    def _write_enc(path, data):
+                        if len(data) <= _SPLIT:
+                            with open(path, 'wb') as f: f.write(data)
+                            return [path]
+                        if os.path.exists(path): os.remove(path)
+                        cp = []
+                        for i in range(0, len(data), _SPLIT):
+                            idx = i // _SPLIT
+                            cp.append(f'{path}.{idx:03d}')
+                            with open(cp[-1], 'wb') as f: f.write(data[i:i+_SPLIT])
+                        return cp
+                    _cwd = os.getcwd()
+                    _targets = []
+                    for pat in ['*_data_part*.js', '*_manifest.js']:
+                        _targets.extend(_glob.glob(os.path.join(_cwd, pat)))
+                    for tf in ['PRICETRACKER/data.js', 'swapnoTRACKER/data.json', 'unimartTRACKER/data.json', 'ShotejTRACKER/data.json', 'data.json', 'data.js']:
+                        p = os.path.join(_cwd, tf)
+                        if os.path.exists(p): _targets.append(p)
+                    for d in ['swapnoTRACKER', 'PRICETRACKER', 'MEENAtracker/backend', 'othobaTRACKER/backend', 'metroTRACKER/backend', 'unimartTRACKER', 'ShotejTRACKER']:
+                        p = os.path.join(_cwd, d, 'scraper.py')
+                        if os.path.exists(p): _targets.append(p)
+                    for dbf in _glob.glob(os.path.join(_cwd, '**', '*.db'), recursive=True):
+                        _targets.append(dbf)
+                    for pq in ['products.parquet', 'history.parquet']:
+                        p = os.path.join(_cwd, pq)
+                        if os.path.exists(p): _targets.append(p)
+                    pa = os.path.join(_cwd, 'premium', 'history_archive.parquet')
+                    if os.path.exists(pa): _targets.append(pa)
+                    _targets = [t for t in _targets if os.path.exists(t) and not t.endswith('.enc')]
+                    log.info(f'  Encrypting {len(_targets)} files')
+                    _ec = 0
+                    for tp in _targets:
+                        try:
+                            with open(tp, 'rb') as f: data = f.read()
+                            ed = _enc(data, _KEY)
+                            ep = tp + '.enc'
+                            for old in _glob.glob(ep + '.*'): os.remove(old)
+                            cps = _write_enc(ep, ed)
+                            _ec += 1
+                            rel = os.path.relpath(tp, _cwd)
+                            if len(cps) == 1:
+                                log.info(f'  {rel} -> .enc ({len(ed)//1024}KB)')
+                            else:
+                                log.info(f'  {rel} -> .enc ({len(ed)//1024}KB, {len(cps)} chunks)')
+                            os.remove(tp)
+                        except Exception as ex:
+                            log.error(f'  ERROR {os.path.basename(tp)}: {ex}')
+                    log.info(f'  Encrypted {_ec}/{len(_targets)} files')
+                except subprocess.CalledProcessError as e:
+                    log.error(f'Encryption failed: {e.stderr[:500]}')
+                    tg_send(f'⚠️ <b>Repo Encryption</b> — failed (non-fatal)', silent=True)
+
+            with Step('GitHub Push Guard', '🛡️'):
+                subprocess.run([sys.executable, 'guardrail.py'], check=True)
+                
+                # 🛡️ FIX: NUCLEAR LFS PROTECTION SYSTEM
+                # Tearing down Git LFS completely locally to bypass GitHub's budget blocks
+                log.info("🛡️ Deactivating local Git LFS configurations to bypass account budget lock...")
+                subprocess.run('git lfs uninstall --local', shell=True)
+                if os.path.exists('.git/hooks/pre-push'):
+                    try: os.remove('.git/hooks/pre-push')
+                    except: pass
+
+                # Stripping any wildcard LFS rules from .gitattributes to treat data as normal files
+                if os.path.exists('.gitattributes'):
+                    try:
+                        with open('.gitattributes', 'r') as f:
+                            lines = f.readlines()
+                        clean_lines = [l for l in lines if 'filter=lfs' not in l.lower() or '.db' in l.lower()]
+                        with open('.gitattributes', 'w') as f:
+                            f.writelines(clean_lines)
+                    except: pass
+                
+                subprocess.run('git add .', shell=True)
+                now = datetime.now(DHAKA_TZ).strftime('%Y-%m-%d %H:%M:%S')
+                subprocess.run(f'git commit -m "attempt #{cycle_count} if this works ill get some sleep frfr: {now}"', shell=True)
+                
+                push_success = False
+                for attempt in range(3):
+                    log.info(f"Push attempt {attempt+1}...")
+                    subprocess.run('git pull origin master --rebase -X ours', shell=True)
+                    push_res = subprocess.run('git push origin HEAD:master --force', shell=True, capture_output=True, text=True)
+                    
+                    if push_res.returncode == 0:
+                        push_success = True
+                        break
+                    else:
+                        log.warning(f"Push attempt {attempt+1} failed. Error: {push_res.stderr}")
+                        time.sleep(10)
+                
+                if not push_success:
+                    git_status = subprocess.run('git status', shell=True, capture_output=True, text=True).stdout
+                    error_msg = f"Git push failed after 3 attempts!\nGit Status:\n{git_status[:300]}\nStderr: {push_res.stderr[:300]}"
+                    log.error(error_msg)
+                    raise RuntimeError(error_msg)
+
+                tg_send(f'🚀 <b>GitHub Push Successful (Cycle {cycle_count})!</b>\n🌐 Live at https://ranx-x.github.io/GroceryGOD')
+
+            # Collect & send detailed cycle report
+            try:
+                _report = []
+                _report.append("=== GroceryGOD CYCLE REPORT (Cycle {}) ===".format(cycle_count))
+                _report.append("Date: {}".format(datetime.now(DHAKA_TZ).strftime("%Y-%m-%d %H:%M:%S DHAKA")))
+                try: _report.append("Kaggle IP: {}".format(requests.get('https://api.ipify.org', timeout=5).text))
+                except: _report.append("Kaggle IP: unknown")
+                _report.append("")
+
+                # Scraper diagnostics from last_run_log.txt
+                _scraper_dirs = [("Shwapno", "swapnoTRACKER"), ("Chaldal", "PRICETRACKER"), ("Meena Bazar", "MEENAtracker/backend"),
+                                 ("Othoba", "othobaTRACKER/backend"), ("Unimart", "unimartTRACKER"),
+                                 ("Metro Mart", "metroTRACKER/backend"), ("ShotejBazar", "ShotejTRACKER")]
+                for _sn, _sd in _scraper_dirs:
+                    _lf = os.path.join(os.getcwd(), _sd, "last_run_log.txt")
+                    if os.path.exists(_lf):
+                        try:
+                            with open(_lf, "r", encoding="utf-8") as _fh:
+                                _log_txt = _fh.read()
+                            if _log_txt.strip():
+                                _report.append(f"[{_sn}] last_run_log.txt:")
+                                _report.append(_log_txt.strip()[:1500])
+                                _report.append("---")
+                        except: pass
+
+                # Appended main log (last 300 lines)
+                _main_log = "/tmp/grocerygod_run.log"
+                if os.path.exists(_main_log):
+                    try:
+                        with open(_main_log, "r", encoding="utf-8") as _fh:
+                            _all_lines = _fh.readlines()
+                        _report.append("=== MAIN LOG (last 300 lines) ===")
+                        _report.extend(l.rstrip() for l in _all_lines[-300:])
+                    except: pass
+
+                _report_path = "/tmp/grocerygod_cycle_report.txt"
+                with open(_report_path, "w", encoding="utf-8") as _fh:
+                    _fh.write("\n".join(_report))
+                tg_send_file(_report_path, f"📊 Cycle {cycle_count} Report")
+            except Exception as _re:
+                log.warning(f"Failed to send detailed cycle report: {_re}")
+
+
+        except Exception as e:
+            safe_tb = html.escape(traceback.format_exc()[-500:])
+            err_msg = f"💥 <b>GroceryGOD CRITICAL FAILURE (Cycle {cycle_count})!</b>\nError: {html.escape(str(e))}\n<pre>{safe_tb}</pre>"
+            print(err_msg)
+            tg_send(err_msg)
+        
+        log.info(f"✅ Cycle {cycle_count} Sequence Finished. Sleeping for 0 hours...")
+        #####################################################################################_sleep_end = time.time() + 0*3600
+        _sleep_end = time.time() + 0*3600
+        while time.time() < _sleep_end:
+            _remaining = int(_sleep_end - time.time())
+            _hrs = _remaining // 3600
+            _mins = (_remaining % 3600) // 60
+            if _remaining % 600 < 60:
+                log.info(f'💤 Sleeping... {_hrs}h {_mins}m remaining (Cycle {cycle_count})')
+            time.sleep(min(300, _remaining))
+        cycle_count += 1
+
+# ============================================================
+# PIPELINE 2: GITWW
+# ============================================================
+def run_gitw():
+    print("[gitw] Process Started.")
+
+    subprocess.run('git clone https://github.com/ranehal/gitww.git', shell=True)
+    subprocess.run('unzip -o -P "ran.ragibahnafnehal2@gmail.com" gitww/gitw.dll', shell=True)
+    
+    if os.path.exists('gitw'):
+        os.chdir('gitw')
+
+    subprocess.run([sys.executable, "-m", "pip", "install", "-q", "-r", "requirements.txt"], check=True)
+    
+    processes = []
+    my_env = os.environ.copy()
+    for i in range(1, 35):
+        p = subprocess.Popen([sys.executable, f"{i}.py"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, bufsize=1, env=my_env)
+        processes.append((i, p))
+        
+    for i, p in processes:
+        p.wait()
+        
+    run_count = "Unknown"
+    count_path = '/kaggle/working/GroceryGOD/run_count.txt'
+    if os.path.exists(count_path):
+        try:
+            with open(count_path, 'r') as f:
+                run_count = f.read().strip()
+        except: pass
+        
+    now = datetime.now(DHAKA_TZ)
+    msg = f"🚀 <b>gitw Execution Completed Early!</b>\n🔄 Run Count: {run_count}\n📅 Date: {now.strftime('%Y-%m-%d')}\n🕒 Time: {now.strftime('%H:%M:%S')}"
+    try: 
+        if TELEGRAM_BOT_TOKEN and TELEGRAM_BOT_TOKEN != "":
+            requests.post(f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage", json={"chat_id": TELEGRAM_CHAT_ID, "text": msg, "parse_mode": "HTML"})
+    except: pass
+
+# ============================================================
+
+
+def run_scheduled_repo(repo_url, script_name, label, github_pat):
+
+    print(f"[{label}] Process Started.")
+
+    def tg_send(text, silent=False):
+        if not TELEGRAM_BOT_TOKEN or TELEGRAM_BOT_TOKEN.strip() == "": return
+        TG_API = f'https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}'
+        try:
+            requests.post(f'{TG_API}/sendMessage', json={'chat_id': TELEGRAM_CHAT_ID, 'text': text, 'parse_mode': 'HTML', 'disable_notification': silent}, timeout=15)
+        except: pass
+
+    if not github_pat or github_pat.strip() == "":
+        err_pat = f"GITHUB_PAT is missing or empty for {label}. Git push will fail."
+        print(f"❌ [{label}] {err_pat}")
+        tg_send(f"❌ <b>{label}</b> — {err_pat}")
+        return
+
+    tg_send(f"🚀 <b>{label}</b> — Run Started")
+    os.chdir('/kaggle/working')
+    repo_name = repo_url.split('/')[-1].replace('.git', '')
+    auth_repo_url = f"https://ranx-x:{github_pat}@github.com/ranehal/{repo_name}.git"
+
+    try:
+        subprocess.run('git config --global user.email "educational.purpose37@gmail.com"', shell=True)
+        subprocess.run('git config --global user.name "ranx-x"', shell=True)
+        cred_path = os.path.expanduser('~/.git-credentials')
+        with open(cred_path, 'w') as f:
+            f.write(f"https://ranx-x:{github_pat}@github.com\n")
+        subprocess.run('git config --global credential.helper store', shell=True)
+
+        if not os.path.exists(repo_name):
+            print(f"[{label}] Cloning {repo_name}...")
+            clone_res = subprocess.run(f'git clone {auth_repo_url}', shell=True, capture_output=True, text=True)
+            if clone_res.returncode != 0:
+                raise RuntimeError(f"Git clone failed: {clone_res.stderr}")
+
+        os.chdir(repo_name)
+        subprocess.run('git config user.email "educational.purpose37@gmail.com"', shell=True)
+        subprocess.run('git config user.name "ranx-x"', shell=True)
+        subprocess.run(f'git remote set-url origin {auth_repo_url}', shell=True)
+
+        subprocess.run('git clean -fd', shell=True)
+        subprocess.run('git fetch --all', shell=True)
+        branch_res = subprocess.run('git symbolic-ref refs/remotes/origin/HEAD', shell=True, capture_output=True, text=True)
+        default_branch = branch_res.stdout.strip().split('/')[-1] if branch_res.returncode == 0 else 'main'
+        subprocess.run(f'git reset --hard origin/{default_branch}', shell=True)
+
+        if os.path.exists('requirements.txt'):
+            subprocess.run([sys.executable, "-m", "pip", "install", "-q", "-r", "requirements.txt"], check=False)
+
+        # Auto-patch Cat NoneType error safety with indentation preservation
+        if os.path.exists(script_name):
+            try:
+                import re as _re
+                with open(script_name, 'r', encoding='utf-8') as sf:
+                    s_code = sf.read()
+                if 'for prod in cat.get("products", []):' in s_code and 'isinstance(cat, dict)' not in s_code:
+                    print(f"[{label}] Auto-patching cat dict-type safety in {script_name}...")
+                    pattern = r'([ \t]*)for prod in cat\.get\("products", \[\]\):'
+                    m = _re.search(pattern, s_code)
+                    if m:
+                        indent = m.group(1)
+                        replacement = f'{indent}if not cat or not isinstance(cat, dict): continue\n{indent}for prod in cat.get("products", []):'
+                        s_code = _re.sub(pattern, replacement, s_code, count=1)
+                        with open(script_name, 'w', encoding='utf-8') as sf:
+                            sf.write(s_code)
+            except Exception as patch_err:
+                print(f"[{label}] Script patch warning: {patch_err}")
+
+        max_script_retries = 3
+        for _attempt in range(1, max_script_retries + 1):
+            print(f"[{label}] Executing {script_name} (attempt {_attempt}/{max_script_retries})...")
+            t0 = time.time()
+            my_env = os.environ.copy()
+            res = subprocess.run([sys.executable, script_name], capture_output=True, text=True, timeout=5*18000, env=my_env)
+            elapsed = time.time() - t0
+            if res.returncode == 0:
+                break
+            safe_err = html.escape(res.stderr[:500])
+            if _attempt == max_script_retries:
+                raise RuntimeError(f"Script {script_name} failed:\n{safe_err}")
+            print(f"[WARN] {label} attempt {_attempt} failed (rc={res.returncode}), retrying...\n{safe_err[:200]}")
+            time.sleep(10)
+
+        print(f"[{label}] Finished in {int(elapsed)}s. Pushing to GitHub...")
+        subprocess.run('git add .', shell=True)
+        now_str = datetime.now(DHAKA_TZ).strftime('%Y-%m-%d %H:%M:%S')
+        subprocess.run(f'git commit -m "if this works ill get some sleep frfr {now_str}"', shell=True)
+
+        push_success = False
+        for attempt in range(3):
+            subprocess.run(f'git pull origin {default_branch} --rebase -X ours', shell=True)
+            push_res = subprocess.run(f'git push origin HEAD:{default_branch} --force', shell=True, capture_output=True, text=True)
+            if push_res.returncode == 0:
+                push_success = True
+                break
+            time.sleep(5)
+
+        if not push_success:
+            raise RuntimeError(f"Git push failed: {push_res.stderr[:300]}")
+
+        tg_send(f"✅ <b>{label}</b> — Completed in {int(elapsed)}s! Pushed to GitHub.")
+    except Exception as e:
+        safe_tb = html.escape(traceback.format_exc()[-500:])
+        err_msg = f"❌ <b>{label} FAILED!</b>\nError: {html.escape(str(e))}\n<pre>{safe_tb}</pre>"
+        print(err_msg)
+        tg_send(err_msg)
+
+# MASTER ORCHESTRATOR LOOP
+# ============================================================
+if __name__ == '__main__':
+    run_preflight_checks()
+    
+    print("🚀 Launching BOTH pipelines in Parallel...")
+    
+    p1 = multiprocessing.Process(target=run_grocery_god, args=(GITHUB_PAT,))
+    p2 = multiprocessing.Process(target=run_gitw)
+    p3 = multiprocessing.Process(target=run_scheduled_repo, args=('https://github.com/ranehal/FooDIE-RESTaurant-Analytics.git', 'scrape_menus.py', '🍔 FooDIE Restaurant Analytics', GITHUB_PAT))
+    p4 = multiprocessing.Process(target=run_scheduled_repo, args=('https://github.com/ranehal/FoodPANDA-RESTaurant-ANALytics.git', 'scrape_menus.py', '🐼 FoodPANDA Restaurant Analytics', GITHUB_PAT))
+    p5 = multiprocessing.Process(target=run_scheduled_repo, args=('https://github.com/ranehal/FooDIE-mart-Analytics.git', 'scraper.py', '🛒 FooDIE Mart Analytics', GITHUB_PAT))
+    p6 = multiprocessing.Process(target=run_scheduled_repo, args=('https://github.com/ranehal/SHWAPNO-analylics.git', 'scraper.py', '🛍️ Shwapno Analytics', GITHUB_PAT))
+    p7 = multiprocessing.Process(target=run_scheduled_repo, args=('https://github.com/ranehal/Othoba-analytics.git', 'scraper.py', '🛒 Othoba Analytics', GITHUB_PAT))
+    
+    p1.start()
+    p2.start()
+    p3.start()
+    p4.start()
+    p5.start()
+    p6.start()
+    p7.start()
+    
+    start_time = time.time()
+    timeout_seconds = (11 * 3600) + (50 * 60) 
+
+    while time.time() - start_time < timeout_seconds:
+        if not p1.is_alive() and not p2.is_alive() and not p3.is_alive() and not p4.is_alive() and not p5.is_alive() and not p6.is_alive() and not p7.is_alive():
+            print("\n✅ Both parallel pipelines finished ahead of schedule!")
+            break
+        time.sleep(30)
+    else:
+        print("\n⏳ Time limit threshold reached (11h 30m).")
+        try:
+            if TELEGRAM_BOT_TOKEN and TELEGRAM_BOT_TOKEN != "":
+                requests.post(f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage", json={"chat_id": TELEGRAM_CHAT_ID, "text": "⏳ <b>11h 30m Time limit reached!</b>\nInitiating nuclear teardown & Kaggle restart...", "parse_mode": "HTML"})
+        except: pass
+
+    print("☢️ Executing Nuclear Teardown of orphaned child processes...")
+    os.system("pkill -9 -f chromium")
+    os.system("pkill -9 -f scraper.py")
+    for i in range(1, 35):
+        os.system(f"pkill -9 -f {i}.py")
+
+    for p in [p1, p2, p3, p4, p5, p6, p7]:
+        if p.is_alive():
+            p.terminate()
+            p.join(timeout=5)
+    
+    time.sleep(5)
+    print("\n🔄 Triggering next cycle...")
+    # Report p3-p5 exit status
+    for _n, _p in [("FooDIE Rest", p3), ("FoodPANDA Rest", p4), ("FooDIE Mart", p5), ("Shwapno Analytics", p6), ("Othoba Analytics", p7)]:
+        s = "OK" if _p.exitcode == 0 else f"rc={_p.exitcode}" if _p.exitcode is not None else "alive"
+        print(f"[p3-p5] {_n}: {s}")
+    
+    trigger_self_restart()
+

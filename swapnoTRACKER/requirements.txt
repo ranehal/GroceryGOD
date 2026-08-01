@@ -3,3 +3,4 @@ playwright
 beautifulsoup4
 lxml
 requests
+aiohttp
