@@ -497,7 +497,7 @@ def load_foodi():
 
 # --- ATOMIC CHUNKING ENGINE ---
 def save_store_data(name, data_tuple):
-    if not data_tuple: return
+    if not data_tuple: return None
     
     scraper_stats = None
     if len(data_tuple) == 3:
@@ -505,7 +505,7 @@ def save_store_data(name, data_tuple):
     else:
         products, date_range = data_tuple
         
-    if not products: return
+    if not products: return None
     
     total_items = len(products)
     last_update = datetime.now(DHAKA_TZ).strftime("%Y-%m-%d %H:%M:%S")
@@ -562,19 +562,41 @@ def save_store_data(name, data_tuple):
         with open(f"{name}_data_part{i+1}.js", 'w', encoding='utf-8') as f:
             f.write(f"window.{name}_part{i+1} = {json.dumps(chunk, separators=(',', ':'))};")
             
+    summary = f"📦 <b>{name.title()}</b>: {total_items} items ({total_chunks} chunks)"
     print(f"Saved {name:15} | Items: {total_items:5} | Chunks: {total_chunks:2} | Safe Under {MAX_FILE_SIZE_MB}MB")
+    return summary
 
 def main():
     print("\n" + "="*70 + "\nGODDATA AGGREGATOR // Atomic Zero-Fail Engine\n" + "="*70)
-    save_store_data("shwapno", load_shwapno())
-    save_store_data("chaldal", load_chaldal())
-    save_store_data("meenabazar", load_meenabazar())
-    save_store_data("othoba", load_othoba())
-    save_store_data("metromart", load_metromart())
-    save_store_data("unimart", load_unimart())
-    save_store_data("shotejbazar", load_shotejbazar())
-    save_store_data("foodi", load_foodi())
+    summaries = []
+    
+    for store_name, loader in [
+        ("shwapno", load_shwapno),
+        ("chaldal", load_chaldal),
+        ("meenabazar", load_meenabazar),
+        ("othoba", load_othoba),
+        ("metromart", load_metromart),
+        ("unimart", load_unimart),
+        ("shotejbazar", load_shotejbazar),
+        ("foodi", load_foodi)
+    ]:
+        res = save_store_data(store_name, loader())
+        if res: summaries.append(res)
+        
     print("="*70 + "\n")
+    
+    # Telegram Notification
+    tg_token = os.environ.get("TELEGRAM_BOT_TOKEN")
+    tg_chat = os.environ.get("TELEGRAM_CHAT_ID")
+    if tg_token and tg_chat and summaries:
+        import requests
+        msg = "📊 <b>Aggregator Complete</b>\n\n" + "\n".join(summaries)
+        try:
+            requests.post(f"https://api.telegram.org/bot{tg_token}/sendMessage", 
+                          json={"chat_id": tg_chat, "text": msg, "parse_mode": "HTML"}, timeout=10)
+            print("Telegram summary sent.")
+        except Exception as e:
+            print(f"Failed to send Telegram summary: {e}")
 
 if __name__ == "__main__": main()
 
