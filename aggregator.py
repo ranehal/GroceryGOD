@@ -192,7 +192,7 @@ def load_shwapno():
 
 def load_chaldal():
     print("Processing Chaldal...")
-    if not os.path.exists(CHALDAL_DATA): return None, None
+    if not os.path.exists(CHALDAL_DATA): stats={"web":0, "app":0, "combined":0}; print(f"Chaldal Stats -> Web: {stats.get('web', 0)}, App: {stats.get('app', 0)}, Combined Unique: {stats.get('combined', 0)}"); return {}, "N/A", stats
     try:
         with open(CHALDAL_DATA, 'r', encoding='utf-8') as f:
             content = f.read()
@@ -217,14 +217,16 @@ def load_chaldal():
                 "current_price": curr_p, "normalized_price": norm_p,
                 "image": p.get('image'), "history": new_history
             }
-        return products, f"{min(all_dates)} to {max(all_dates)}" if all_dates else "N/A"
+        stats = {"web": len(products), "app": 0, "combined": len(products)}
+        print(f"Chaldal Stats -> Web: {stats['web']}, App: {stats['app']}, Combined Unique: {stats['combined']}")
+        return products, (f"{min(all_dates)} to {max(all_dates)}" if all_dates else "N/A"), stats
     except Exception as e:
         print(f"Error processing Chaldal: {e}")
         return None, None
 
 def load_meenabazar():
     print("Processing Meena Bazar...")
-    if not os.path.exists(MEENA_DB): return None, None
+    if not os.path.exists(MEENA_DB): stats={"web":0, "app":0, "combined":0}; print(f"Meenabazar Stats -> Web: {stats.get('web', 0)}, App: {stats.get('app', 0)}, Combined Unique: {stats.get('combined', 0)}"); return {}, "N/A", stats
     try:
         conn = sqlite3.connect(MEENA_DB); conn.row_factory = sqlite3.Row; cursor = conn.cursor()
         cursor.execute("SELECT id, name FROM categories")
@@ -258,7 +260,9 @@ def load_meenabazar():
                 "image": p['image_url'], "history": new_history
             }
         conn.close()
-        return products, f"{min(all_dates)} to {max(all_dates)}" if all_dates else "N/A"
+        stats = {"web": len(products), "app": 0, "combined": len(products)}
+        print(f"Meenabazar Stats -> Web: {stats['web']}, App: {stats['app']}, Combined Unique: {stats['combined']}")
+        return products, (f"{min(all_dates)} to {max(all_dates)}" if all_dates else "N/A"), stats
     except Exception as e:
         print(f"Error Meena Bazar: {e}")
         return None, None
@@ -351,7 +355,7 @@ def load_othoba():
 
 def load_metromart():
     print("Processing Metro Mart...")
-    if not os.path.exists(METRO_DB): return None, None
+    if not os.path.exists(METRO_DB): stats={"web":0, "app":0, "combined":0}; print(f"Metromart Stats -> Web: {stats.get('web', 0)}, App: {stats.get('app', 0)}, Combined Unique: {stats.get('combined', 0)}"); return {}, "N/A", stats
     try:
         conn = sqlite3.connect(METRO_DB); conn.row_factory = sqlite3.Row; cursor = conn.cursor()
         cursor.execute("SELECT id, name FROM categories"); cats = {row['id']: row['name'] for row in cursor.fetchall()}
@@ -385,14 +389,16 @@ def load_metromart():
                 "current_price": curr_p, "normalized_price": norm_p, "image": img, "history": new_history
             }
         conn.close()
-        return products, f"{min(all_dates)} to {max(all_dates)}" if all_dates else "N/A"
+        stats = {"web": len(products), "app": 0, "combined": len(products)}
+        print(f"Metromart Stats -> Web: {stats['web']}, App: {stats['app']}, Combined Unique: {stats['combined']}")
+        return products, (f"{min(all_dates)} to {max(all_dates)}" if all_dates else "N/A"), stats
     except Exception as e:
         print(f"Error Metro Mart: {e}")
         return None, None
 
 def load_unimart():
     print("Processing Unimart...")
-    if not os.path.exists(UNIMART_DATA): return None, None
+    if not os.path.exists(UNIMART_DATA): stats={"web":0, "app":0, "combined":0}; print(f"Unimart Stats -> Web: {stats.get('web', 0)}, App: {stats.get('app', 0)}, Combined Unique: {stats.get('combined', 0)}"); return {}, "N/A", stats
     try:
         with open(UNIMART_DATA, 'r', encoding='utf-8') as f: data = json.load(f)
         products = {}; all_dates = []
@@ -418,13 +424,15 @@ def load_unimart():
                 "category": p.get('category', 'General'), "unit": p.get('unit'), "unit_type": u_type,
                 "current_price": curr_p, "normalized_price": norm_p, "image": p.get('image'), "history": new_history
             }
-        return products, f"{min(all_dates)} to {max(all_dates)}" if all_dates else "N/A"
+        stats = {"web": len(products), "app": 0, "combined": len(products)}
+        print(f"Unimart Stats -> Web: {stats['web']}, App: {stats['app']}, Combined Unique: {stats['combined']}")
+        return products, (f"{min(all_dates)} to {max(all_dates)}" if all_dates else "N/A"), stats
     except Exception as e:
         print(f"Error Unimart: {e}"); return None, None
 
 def load_shotejbazar():
     print("Processing ShotejBazar...")
-    if not os.path.exists(SHOTEJ_DATA): return None, None
+    if not os.path.exists(SHOTEJ_DATA): stats={"web":0, "app":0, "combined":0}; print(f"Shotejbazar Stats -> Web: {stats.get('web', 0)}, App: {stats.get('app', 0)}, Combined Unique: {stats.get('combined', 0)}"); return {}, "N/A", stats
     try:
         with open(SHOTEJ_DATA, 'r', encoding='utf-8') as f: data = json.load(f)
         products = {}; all_dates = []
@@ -451,13 +459,15 @@ def load_shotejbazar():
                 "category": p.get('category', 'General'), "unit": p.get('unit'), "unit_type": u_type,
                 "current_price": curr_p, "normalized_price": norm_p, "image": p.get('image'), "history": new_history, "first_seen": first_seen
             }
-        return products, f"{min(all_dates)} to {max(all_dates)}" if all_dates else "N/A"
+        stats = {"web": len(products), "app": 0, "combined": len(products)}
+        print(f"Shotejbazar Stats -> Web: {stats['web']}, App: {stats['app']}, Combined Unique: {stats['combined']}")
+        return products, (f"{min(all_dates)} to {max(all_dates)}" if all_dates else "N/A"), stats
     except Exception as e:
         print(f"Error ShotejBazar: {e}"); return None, None
 
 def load_foodi():
     print("Processing Foodi...")
-    if not os.path.exists(FOODI_DB): return None, None
+    if not os.path.exists(FOODI_DB): stats={"web":0, "app":0, "combined":0}; print(f"Foodi Stats -> Web: {stats.get('web', 0)}, App: {stats.get('app', 0)}, Combined Unique: {stats.get('combined', 0)}"); return {}, "N/A", stats
     try:
         conn = sqlite3.connect(FOODI_DB); conn.row_factory = sqlite3.Row; cursor = conn.cursor()
         cursor.execute("SELECT product_id, name, uom, category_name, discounted_price, image_path FROM products")
@@ -496,7 +506,9 @@ def load_foodi():
                 "current_price": curr_p, "normalized_price": norm_p, "image": img, "history": new_history, "first_seen": first_seen
             }
         conn.close()
-        return products, f"{min(all_dates)} to {max(all_dates)}" if all_dates else "N/A"
+        stats = {"web": len(products), "app": 0, "combined": len(products)}
+        print(f"Foodi Stats -> Web: {stats['web']}, App: {stats['app']}, Combined Unique: {stats['combined']}")
+        return products, (f"{min(all_dates)} to {max(all_dates)}" if all_dates else "N/A"), stats
     except Exception as e:
         print(f"Error Foodi: {e}"); return None, None
 
@@ -510,7 +522,13 @@ def save_store_data(name, data_tuple):
     else:
         products, date_range = data_tuple
         
-    if not products: return None
+    if not products:
+        summary = f"📦 <b>{name.title()}</b>: 0 items"
+        if scraper_stats:
+            summary += f"\n   ├ Web: {scraper_stats.get('web', 0)} | App: {scraper_stats.get('app', 0)} | Combined Unique: {scraper_stats.get('combined', 0)}"
+        print(f"Saved {name:15} | Items:     0 | Chunks:  0 | Safe Under {MAX_FILE_SIZE_MB}MB")
+        return summary
+
     
     total_items = len(products)
     last_update = datetime.now(DHAKA_TZ).strftime("%Y-%m-%d %H:%M:%S")
