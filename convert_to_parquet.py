@@ -39,7 +39,35 @@ for store in STORES:
                     })
         print(f"  {os.path.basename(f)}: {len(data)} products")
 
-print(f"\nTotal: {len(product_rows)} products, {len(history_rows)} history rows")
+print(f"\nTotal scraped: {len(product_rows)} products, {len(history_rows)} history rows")
+
+premium_key = os.environ.get('GOD_PREMIUM_KEY', 'assalamualaikum').strip()
+archive_path = os.path.join(BASE, 'premium', 'history_archive.parquet.enc')
+
+if os.path.exists(archive_path) and premium_key:
+    try:
+        import hashlib
+        from cryptography.hazmat.primitives.ciphers.aead import AESGCM
+        with open(archive_path, 'rb') as f:
+            enc_data = f.read()
+        if enc_data[:4] == b'GGE1':
+            salt, iv, ct = enc_data[4:20], enc_data[20:32], enc_data[32:]
+            kdf = hashlib.pbkdf2_hmac('sha256', premium_key.encode('utf-8'), salt, 250000, dklen=32)
+            aesgcm = AESGCM(kdf)
+            plaintext = aesgcm.decrypt(iv, ct, None)
+            reader = pa.BufferReader(plaintext)
+            old_table = pq.read_table(reader)
+            old_rows = old_table.to_pylist()
+            
+            seen = set((r['product_id'], r['date']) for r in history_rows)
+            for r in old_rows:
+                if (r['product_id'], r['date']) not in seen:
+                    history_rows.append(r)
+                    seen.add((r['product_id'], r['date']))
+            print(f"Merged {len(old_rows)} old rows from archive. New history total: {len(history_rows)}")
+    except Exception as e:
+        print(f"Error loading history archive: {e}")
+
 
 schema = pa.schema([
     ('product_id', pa.string()),
