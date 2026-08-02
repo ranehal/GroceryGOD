@@ -105,8 +105,17 @@ async def scrape_category_api(session, category, current_data, summary, pinned_n
     
     while True:
         api_url = f"https://www.shwapno.com/api/category/products?lang=en&id={cat_id}&pageNumber={page_idx}"
+        web_headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
+            'Accept': 'application/json, text/plain, */*',
+            'Accept-Language': 'en-US,en;q=0.9',
+            'Referer': 'https://www.shwapno.com/',
+            'Sec-Fetch-Dest': 'empty',
+            'Sec-Fetch-Mode': 'cors',
+            'Sec-Fetch-Site': 'same-origin'
+        }
         try:
-            async with session.get(api_url, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'}) as r:
+            async with session.get(api_url, headers=web_headers) as r:
                 if r.status != 200:
                     logger.warning(f"  [X] API returned {r.status} on {cat_name} page {page_idx}")
                     break
