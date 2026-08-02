@@ -296,133 +296,110 @@ def run_grocery_god(github_pat):
                 log.info(f'Starting {label}...')
                 t0 = time.time()
                 full_path = os.path.join(os.getcwd(), path)
-                script_target = os.path.join(full_path, 'scraper.py')
-
-                if not os.path.exists(script_target):
-                    error_msg = f"File scraper.py missing in {full_path}"
+                import glob
+                script_targets = glob.glob(os.path.join(full_path, 'scraper*.py'))
+                
+                if not script_targets:
+                    error_msg = f"No scraper scripts found in {full_path}"
                     log.error(f"X {error_msg}")
                     tg_send(f'X <b>{label}</b> - {error_msg}', silent=True)
                     return label, False, 0, "missing"
 
-                try:
-                    with open(script_target, 'r', encoding='utf-8') as f:
-                        code = f.read()
-                    patch_marker = 'DHAKA_TZ = timezone(timedelta(hours=6))'
-                    if patch_marker not in code:
-                        log.info(f"Auto-Patching base imports into {label}...")
-                        patch = "import os\nfrom datetime import timezone, timedelta\nDHAKA_TZ = timezone(timedelta(hours=6))\n"
-                        with open(script_target, 'w', encoding='utf-8') as f:
-                            f.write(patch + code)
-                    else:
-                        log.info(f"{label} already has base imports, skipping patch.")
-                except Exception as patch_err:
-                    log.warning(f"Failed to auto-patch {label}: {patch_err}")
-
                 my_env = os.environ.copy()
-                stderr_capture = []
-                stderr_lock = threading.Lock()
-                line_count = [0]
-                last_tg_line = [0]
-                proc = None
-
-                def _read_stream(stream, is_stderr=False):
+                total_lines = 0
+                all_ok = True
+                status_res = "ok"
+                procs = []
+                threads = []
+                
+                for script_target in script_targets:
                     try:
-                        for line in stream:
-                            if is_stderr:
-                                with stderr_lock: stderr_capture.append(line)
-                                log.warning(f'[{label} stderr] {line.rstrip()}')
-                            else:
-                                line_count[0] += 1
-                                log.info(f'[{label}] {line.rstrip()}')
-                    except:
-                        pass
+                        with open(script_target, 'r', encoding='utf-8') as f: code = f.read()
+                        if 'DHAKA_TZ =' not in code:
+                            patch = "import os\nfrom datetime import timezone, timedelta\nDHAKA_TZ = timezone(timedelta(hours=6))\n"
+                            with open(script_target, 'w', encoding='utf-8') as f: f.write(patch + code)
+                    except: pass
 
-                try:
-                    proc = subprocess.Popen([sys.executable, 'scraper.py'], cwd=full_path, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, env=my_env)
-                    t_stdout = threading.Thread(target=_read_stream, args=(proc.stdout, False), daemon=True)
-                    t_stderr = threading.Thread(target=_read_stream, args=(proc.stderr, True), daemon=True)
+                    script_name = os.path.basename(script_target)
+                    proc = subprocess.Popen([sys.executable, script_name], cwd=full_path, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, env=my_env)
+                    
+                    stderr_capture = []
+                    stdout_count = [0]
+                    last_alive = [time.time()]
+                    
+                    def _read_stream(p, s_name, stream, is_stderr, capture, count, alive):
+                        try:
+                            for line in stream:
+                                alive[0] = time.time()
+                                if is_stderr:
+                                    capture.append(line)
+                                    log.warning(f'[{label}:{s_name} err] {line.rstrip()}')
+                                else:
+                                    count[0] += 1
+                                    log.info(f'[{label}:{s_name}] {line.rstrip()}')
+                        except: pass
+
+                    t_stdout = threading.Thread(target=_read_stream, args=(proc, script_name, proc.stdout, False, stderr_capture, stdout_count, last_alive), daemon=True)
+                    t_stderr = threading.Thread(target=_read_stream, args=(proc, script_name, proc.stderr, True, stderr_capture, stdout_count, last_alive), daemon=True)
                     t_stdout.start()
                     t_stderr.start()
-
-                    _last_alive_tg = time.time()
-                    _last_ss_tg = time.time()
-                    _sent_screenshots = set()
-                    _deadline = time.time() + SCRAPER_TIMEOUT
-                    while time.time() < _deadline:
-                        if proc.poll() is not None:
-                            break
-                        _now = time.time()
-                        if _now - _last_ss_tg >= 300:
-                            _elapsed_str = _fmt_dur(_now - t0)
-                            import glob as _glob
-                            _pngs = _glob.glob(os.path.join(full_path, '**', '*.png'), recursive=True)
-                            for _png in _pngs:
-                                if _png not in _sent_screenshots:
-                                    try:
-                                        tg_send_file(_png, f"📸 <b>{label}</b> 5-min Screenshot ({_elapsed_str})")
-                                        _sent_screenshots.add(_png)
-                                    except Exception: pass
-                            tg_send(f"📸 <b>{label}</b> (Serial Run) — 5-min status update: {line_count[0]} lines ({_elapsed_str} elapsed)", silent=True)
-                            _last_ss_tg = _now
-                            _last_alive_tg = _now
-                        elif _now - _last_alive_tg >= 300:
-                            tg_send(f"<b>{label}</b> — status: {line_count[0]} lines ({_fmt_dur(_now-t0)} elapsed)", silent=True)
-                            _last_alive_tg = _now
-                        if line_count[0] - last_tg_line[0] >= 100:
-                            last_tg_line[0] = line_count[0]
-                            _last_alive_tg = _now
-                        time.sleep(5)
-
-                    timed_out = False
-                    if proc.poll() is None:
-                        proc.kill()
-                        proc.wait(timeout=10)
-                        elapsed = time.time() - t0
-                        timed_out = True
-                        log.error(f'{label} TIMED OUT after {_fmt_dur(elapsed)}!')
-                        tg_send(f'TIMEOUT <b>{label}</b> after {_fmt_dur(elapsed)}! Partial data only.', silent=True)
-                    else:
-                        elapsed = time.time() - t0
-
-                    t_stdout.join(timeout=30)
-                    t_stderr.join(timeout=30)
-
-                    if timed_out:
-                        return label, False, line_count[0], "timeout"
-                    if proc.returncode != 0:
-                        stderr_text = ''.join(stderr_capture)
-                        safe_err = stderr_text[:500]
-                        log.error(f'{label} FAILED! RC={proc.returncode}')
-                        tg_send(f'FAILED <b>{label}</b> in {_fmt_dur(elapsed)}!', silent=True)
-                        return label, False, line_count[0], "crashed"
-                except Exception as run_err:
-                    elapsed = time.time() - t0
-                    if proc and proc.poll() is None:
-                        try: proc.kill()
-                        except: pass
-                    log.error(f'{label} EXCEPTION: {run_err}')
-                    tg_send(f'EXCEPTION <b>{label}</b> after {_fmt_dur(elapsed)}!', silent=True)
-                    return label, False, line_count[0], "exception"
-
-                summary_log = ""
-                log_file = os.path.join(full_path, "last_run_log.txt")
-                if os.path.exists(log_file):
-                    try:
-                        with open(log_file, "r", encoding="utf-8") as f:
-                            summary_log = f.read().strip()
-                    except Exception as ex:
-                        log.warning(f"Error reading {log_file} for {label}: {ex}")
-
-                stderr_lines = len(stderr_capture)
-                log.info(f'OK {label} finished in {_fmt_dur(elapsed)} (stdout={line_count[0]}, stderr={stderr_lines} lines)')
+                    
+                    procs.append({
+                        'proc': proc, 'name': script_name, 't_stdout': t_stdout, 't_stderr': t_stderr,
+                        'stderr_capture': stderr_capture, 'stdout_count': stdout_count, 'last_alive': last_alive, 'timed_out': False, 'crashed': False
+                    })
                 
-                if summary_log:
-                    tg_msg = f"✅ 🟢 <b>{label}</b> — {_fmt_dur(elapsed)} ({line_count[0]} lines)\n{summary_log}"
+                # Monitor all procs
+                deadline = time.time() + SCRAPER_TIMEOUT
+                while True:
+                    all_done = True
+                    for p in procs:
+                        if p['proc'].poll() is None:
+                            all_done = False
+                            _now = time.time()
+                            # Intelligent stop: 10 mins without output
+                            if _now - p['last_alive'][0] > 600:
+                                p['proc'].kill()
+                                p['timed_out'] = True
+                                log.error(f"{label}:{p['name']} TIMED OUT (No output for 10m).")
+                                tg_send(f"TIMEOUT <b>{label}:{p['name']}</b> (No output 10m).", silent=True)
+                            
+                            # Check cloudflare block in stderr
+                            err_text = ''.join(p['stderr_capture'][-20:]).lower()
+                            if 'cloudflare' in err_text or 'ip block' in err_text or '403 forbidden' in err_text:
+                                p['proc'].kill()
+                                p['crashed'] = True
+                                log.error(f"{label}:{p['name']} BLOCKED (Cloudflare/IP).")
+                                tg_send(f"BLOCKED <b>{label}:{p['name']}</b> (Cloudflare/IP issue).", silent=True)
+                                
+                    if all_done or time.time() > deadline:
+                        break
+                    time.sleep(5)
+                
+                for p in procs:
+                    if p['proc'].poll() is None:
+                        p['proc'].kill()
+                        p['timed_out'] = True
+                        tg_send(f"TIMEOUT <b>{label}:{p['name']}</b> (Hard deadline).", silent=True)
+                    p['t_stdout'].join(timeout=5)
+                    p['t_stderr'].join(timeout=5)
+                    total_lines += p['stdout_count'][0]
+                    if p['timed_out']:
+                        all_ok = False; status_res = "timeout"
+                    elif p['crashed'] or p['proc'].returncode != 0:
+                        all_ok = False; status_res = "crashed"
+
+                elapsed = time.time() - t0
+                
+                # Combine stats
+                stats_msg = "\n".join([f" - {p['name']}: {p['stdout_count'][0]} lines" for p in procs])
+                if all_ok:
+                    tg_msg = f"✅ 🟢 <b>{label}</b> — {_fmt_dur(elapsed)}\n{stats_msg}"
                 else:
-                    tg_msg = f"✅ 🟢 <b>{label}</b> — {_fmt_dur(elapsed)} ({line_count[0]} lines)"
+                    tg_msg = f"⚠️ <b>{label}</b> finished with errors — {_fmt_dur(elapsed)}\n{stats_msg}"
 
                 tg_send(tg_msg, silent=False)
-                return label, True, line_count[0], "ok"
+                return label, all_ok, total_lines, status_res
 
             with Step('History Reconstruction', '📄'):
                 try:
@@ -431,7 +408,7 @@ def run_grocery_god(github_pat):
                 except Exception as e:
                     log.error(f"History reconstruction failed: {e}. Proceeding with fresh start risk...")
 
-            with Step('Market Scrapers (Serial)', '\U0001f6f8'):
+            with Step('Market Scrapers (Serial)', '🛸'):
                 import platform, os, subprocess
                 if platform.system() == 'Windows':
                     shopno_dir = r'C:\PROJECTS\shopno'
@@ -443,7 +420,17 @@ def run_grocery_god(github_pat):
                     subprocess.run(f'git clone https://github.com/ranehal/SHWAPNO-analylics.git "{shopno_dir}"', shell=True)
                 if not os.path.exists(othoba_dir):
                     subprocess.run(f'git clone https://github.com/ranehal/Othoba-analytics.git "{othoba_dir}"', shell=True)
-                scrapers = [('Shwapno', 'swapnoTRACKER'), ('Shwapno App', 'swapnoTRACKER/shopno'), ('Shwapno Analytics', shopno_dir), ('Othoba Analytics', othoba_dir), ('Chaldal', 'PRICETRACKER'), ('Meena Bazar', 'MEENAtracker/backend'), ('Othoba', 'othobaTRACKER/backend'), ('Unimart', 'unimartTRACKER'), ('Metro Mart', 'metroTRACKER/backend'), ('ShotejBazar', 'ShotejTRACKER')]
+                
+                scrapers = [
+                    ('Shwapno', 'swapnoTRACKER'), 
+                    ('Othoba', 'othobaTRACKER'), 
+                    ('Chaldal', 'chaldalTRACKER'), 
+                    ('Meena Bazar', 'MEENAtracker'), 
+                    ('Unimart', 'unimartTRACKER'), 
+                    ('Metro Mart', 'metroTRACKER'), 
+                    ('ShotejBazar', 'ShotejTRACKER'), 
+                    ('FooDIE', 'FooDIEscraper')
+                ]
                 results = [None] * len(scrapers)
                 log.info(f"Launching {len(scrapers)} scrapers in parallel (timeout={SCRAPER_TIMEOUT//3600}h each)")
 

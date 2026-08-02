@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+
+<!-- GroceryGOD Frontend - Market Sensors View -->
+<!-- Dev note: UI ta mobile e ektu chap hoye jay, but sidebar toggle diye solve korlam. -->
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Shwapno // Price Monitor Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="style.css?v=20260731a" rel="stylesheet"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+</head>
+<body class="pitch-black theme-amoled">
+<script>window.GOD_ASSET_VERSION = '20260731a'; window.GOD_ALLOW_LEGACY_DATA = false;</script>
+<div class="spinner-container active" id="loading-spinner">
+<div class="spinner"></div>
+<span style="color:var(--accent-color); font-weight:800;">Loading: <span id="loading-percent">0</span>%</span>
+</div>
+<div class="shop-loading-overlay" id="shop-loading-modal">
+<div class="shop-loading-card glass-panel">
+<div class="shop-loading-pulse-ring" id="shop-loading-ring"></div>
+<div class="shop-loading-icon-wrapper" id="shop-loading-icon-bg">
+<i class="fas fa-store shop-loading-icon" id="shop-loading-icon"></i>
+</div>
+<h3 class="shop-loading-title" id="shop-loading-title">SHWAPNO MATRIX</h3>
+<span class="shop-loading-subtitle" id="shop-loading-subtitle">Filtering catalog products & price history...</span>
+<div class="shop-loading-bar-container">
+<div class="shop-loading-bar" id="shop-loading-bar"></div>
+</div>
+<div class="shop-loading-status-log" id="shop-loading-log">
+<span>[0.0s] Initializing shop filter...</span>
+</div>
+</div>
+</div>
+<div class="app-container">
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+<!-- Sidebar -->
+<aside class="sidebar">
+<!-- <div class="sidebar-header">
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                    <h3 style="margin:0; color:var(--gold)">Market Sensors</h3>
+                    <button id="run-aggregator-btn" class="btn-icon" title="Refresh Aggregated Data"><i class="fas fa-sync"></i></button>
+                </div>
+            </div> -->
+<div class="sidebar-controls">
+<button class="btn-icon btn-variant-minimal" id="select-all-cat" title="Toggle All"><i class="fas fa-check-double"></i></button>
+<button class="btn-icon btn-variant-soft" id="bookmark-cat-btn" title="Show Favorites Only"><i class="fas fa-star"></i></button>
+<button aria-label="Collapse filters" class="btn-icon btn-variant-ghost sidebar-close-btn" id="sidebar-close" title="Collapse filters"><i class="fas fa-chevron-left"></i></button>
+</div>
+<div class="category-search-container">
+<input id="category-filter" placeholder="Filter categories/stores..." type="text"/>
+</div>
+<ul class="category-list" id="category-list">
+<!-- Stores and categories populated by JS -->
+</ul>
+<div class="store-legend" id="store-stats-sidebar">
+<!-- Last update dates for each store -->
+</div>
+</aside>
+<!-- Main Content -->
+<main class="main-content">
+<header class="dashboard-header">
+<div class="header-left">
+<button aria-expanded="true" aria-label="Toggle stores and categories" class="sidebar-toggle-btn btn-variant-ghost" id="sidebar-toggle" title="Toggle stores and categories"><i class="fas fa-bars"></i></button>
+<div class="brand-lockup">
+<span class="brand-mark"><i class="fas fa-bolt"></i></span>
+<div>
+<h2 id="current-view-title" style="margin:0; color:var(--text-primary);">Shwapno Dashboard</h2>
+</div>
+</div>
+<div class="search-wrapper">
+<input class="search-input" id="product-search" placeholder="Search Shwapno products (Esc to close)..." type="text"/>
+<i class="fas fa-times-circle clear-search" id="clear-search"></i>
+<div class="suggestions-box" id="search-suggestions"></div>
+</div>
+<button aria-label="Enter immersive best-items view" aria-pressed="false" class="btn-icon btn-variant-neon immersive-header-btn" id="immersive-btn" title="Immersive best-items view"><i class="fas fa-expand"></i><span>Focus</span></button>
+<button aria-label="Switch theme" class="btn-icon btn-variant-theme icon-only-desktop" id="theme-toggle-btn" title="Switch light / AMOLED theme"><i class="fas fa-moon"></i></button>
+</div>
+<div class="header-right">
+<div class="multi-filter-group">
+<span class="filter-label">UNIT:</span>
+<label class="check-pill"><input checked="" type="checkbox" value="kg"/> KG</label>
+<label class="check-pill"><input checked="" type="checkbox" value="liter"/> LTR</label>
+<label class="check-pill"><input checked="" type="checkbox" value="piece"/> PCS</label>
+<label class="check-pill" style="margin-left:10px; border-left:1px solid #333; padding-left:10px; display:flex; align-items:center; gap:4px;"><i class="fas fa-clock" style="font-size:0.7rem; color:#f59e0b;"></i><input id="new-days-header" type="number" min="1" max="90" value="7" style="width:38px; background:transparent; color:#f59e0b; border:none; font-weight:700; font-size:0.75rem; text-align:center;"/> <span style="font-size:0.7rem; color:#999;">days</span></label>
+</div>
+<select class="search-input" id="sort-options">
+<option value="name_asc">Name A-Z</option>
+<option value="unit_price_asc">Unit Price Low-High</option>
+<option value="unit_price_desc">Unit Price High-Low</option>
+<option value="actual_price_asc">Actual Price Low-High</option>
+<option value="drop_desc">Biggest Drop</option>
+<option value="rise_desc">Biggest Rise</option>
+<option value="savings_desc">Best Saving</option>
+</select>
+<button class="btn-icon btn-variant-alerts premium-gated" id="price-alerts-btn" title="Premium price monitoring and notifications"><i class="fas fa-bell"></i> <span>Alerts</span><i class="fas fa-lock premium-mini-lock" id="alerts-lock-icon"></i><span class="button-count alerts-count" hidden="" id="alerts-header-count">0</span></button>
+<button aria-label="Unlock premium data" class="btn-icon btn-variant-key" id="premium-key-btn" title="Unlock premium data"><i class="fas fa-key"></i><span id="premium-key-label">Unlock</span></button>
+<button aria-label="Toggle interface density" class="btn-icon btn-variant-minimal icon-only-desktop" id="density-btn" title="Toggle interface density"><i class="fas fa-compress-alt"></i></button>
+<button aria-pressed="false" class="btn-icon btn-variant-compare" id="compare-btn" title="Select products to compare"><i class="fas fa-code-compare"></i> <span class="compare-button-label">Compare</span><span class="button-count" hidden="" id="compare-header-count">0</span></button>
+<button class="btn-icon btn-variant-soft" id="cart-comp-btn" title="Cart Analysis"><i class="fas fa-cart-shopping"></i> <span>Cart</span></button>
+<button class="btn-icon btn-variant-soft" id="show-all-toggle" title="Toggle: show all products without pagination"><i class="fas fa-list"></i> <span>Show All</span></button>
+<button class="btn-icon primary-action btn-variant-gradient premium-gated" id="analytics-btn" title="Premium analytics dashboard"><i class="fas fa-chart-line"></i> <span>Analytics</span><i class="fas fa-lock premium-mini-lock" id="analytics-lock-icon"></i></button>
+</div>
+</header>
+<!-- Intelligence Bar -->
+<div class="intelligence-bar">
+<button class="intel-btn intel-variant-all active" data-filter="all" title="Show all items"><i class="fas fa-th-large"></i> All</button>
+<button class="intel-btn intel-variant-great" data-filter="great" title="Price dropped more than 15% from average"><i class="fas fa-fire"></i> Great Deal 15%+</button>
+<button class="intel-btn intel-variant-good" data-filter="good" title="Price dropped more than 5% from average"><i class="fas fa-thumbs-up"></i> Good Buy 5%+</button>
+<div class="custom-drop-filter" title="Set your own drop from historical average">
+<button class="intel-btn intel-variant-cut" data-filter="customdrop" id="custom-drop-btn"><i class="fas fa-arrow-trend-down"></i> Drop ≥ <strong id="custom-drop-label">12%</strong></button>
+<label class="custom-drop-input-wrap"><input aria-label="Custom percentage drop" id="custom-drop-input" inputmode="numeric" max="95" min="1" step="1" type="number" value="12"/><span>%</span></label>
+</div>
+<button class="intel-btn intel-variant-wait" data-filter="wait" title="Price is above average"><i class="fas fa-hourglass-half"></i> Wait</button>
+<button class="intel-btn intel-variant-low" data-filter="low" title="Current price is the lowest recorded">All Time Low</button>
+<button class="intel-btn intel-variant-new" data-filter="new" title="Items first seen recently">New Items</button>
+<button class="intel-btn intel-variant-change" data-filter="pricechange" title="Show price change from custom days ago">Price Change</button>
+<div class="date-range-intel" id="price-change-controls" style="display:none;">
+<span>From:</span>
+<input id="pc-days-input" max="365" min="1" style="width:45px; background:var(--bg-card); color:white; border:1px solid #444; border-radius:4px; padding:2px 5px;" type="number" value="7"/>
+<span>days ago</span>
+<button class="intel-btn" id="pc-mode-toggle" style="padding:2px 8px; font-size:0.6rem; margin-left:4px;">%</button>
+</div>
+<div class="date-range-intel">
+<span>New in:</span>
+<input id="new-days-input" max="90" min="1" style="width:45px; background:var(--bg-card); color:white; border:1px solid #444; border-radius:4px; padding:2px 5px;" type="number" value="7"/>
+<span>days</span>
+</div>
+<div class="date-range-intel">
+<span>Mean Analysis:</span>
+<input id="intel-date-start" type="date"/> to <input id="intel-date-end" type="date"/>
+</div>
+<div class="filtered-items-badge" id="filtered-items-badge"><i class="fas fa-filter"></i> <span id="filter-count-text">Showing <strong>0</strong> items</span></div>
+</div>
+<!-- Stats Bar -->
+<div class="stats-bar">
+<div class="stat-item clickable" id="stat-total-btn">
+<span class="stat-label">Total Units</span>
+<span class="stat-value" id="total-items">0</span>
+</div>
+<div class="stat-item">
+<span class="stat-label">Market Status</span>
+<span class="stat-value" style="color:var(--accent-secondary)">STABLE</span>
+</div>
+<div class="stat-item clickable" id="stat-good-buys-btn">
+<span class="stat-label">Best Values</span>
+<span class="stat-value highlight" id="good-buys-count">0</span>
+</div>
+</div>
+<nav aria-label="Mobile quick actions" class="mobile-dock">
+<button id="mobile-menu-btn"><i class="fas fa-sliders"></i><span>Filters</span></button>
+<button class="dock-focus" id="mobile-immersive-btn"><i class="fas fa-expand"></i><span>Focus</span></button>
+<button class="premium-gated" id="mobile-alerts-btn"><i class="fas fa-bell"></i><span>Alerts</span><i class="fas fa-lock mobile-premium-lock" id="mobile-alerts-lock"></i><b hidden="" id="mobile-alert-count">0</b></button>
+<button id="mobile-compare-btn"><i class="fas fa-code-compare"></i><span>Compare</span></button>
+<button class="dock-primary" id="mobile-analytics-btn"><i class="fas fa-lock"></i><span>Analytics</span></button>
+<button id="mobile-cart-btn"><i class="fas fa-cart-shopping"></i><span>Cart</span></button>
+</nav>
+<div id="main-content-area">
+<div class="p-view-sh" id="sh-grid">
+<!-- Products populated by JS -->
+</div>
+</div>
+</main>
+</div>
+<section aria-label="Compare selection controls" aria-live="polite" class="compare-selection-tray" id="compare-selection-tray">
+<div class="compare-tray-summary">
+<span class="compare-tray-icon"><i class="fas fa-code-compare"></i></span>
+<div><strong><span id="compare-tray-count">0</span>/6 selected</strong><small>Tap cards to add or remove</small></div>
+</div>
+<div class="compare-tray-actions">
+<button class="tray-btn tray-btn-ghost" id="compare-tray-clear" type="button"><i class="fas fa-eraser"></i><span>Clear</span></button>
+<button class="tray-btn tray-btn-cancel" id="compare-tray-cancel" type="button"><i class="fas fa-xmark"></i><span>Exit</span></button>
+<button class="tray-btn tray-btn-go" disabled="" id="compare-tray-open" type="button"><i class="fas fa-chart-column"></i><span>Compare now</span></button>
+</div>
+</section>
+<button class="immersive-exit-btn" id="immersive-exit-btn" type="button"><i class="fas fa-compress"></i><span>Exit immersive</span><b id="immersive-count"></b></button>
+<div aria-live="polite" class="ux-toast" id="ux-toast" role="status"></div>
+<div class="scroll-nav">
+<button class="scroll-btn" id="scroll-top" title="Scroll to Top"><i class="fas fa-arrow-up"></i></button>
+<button class="scroll-btn" id="scroll-bottom" title="Scroll to Bottom"><i class="fas fa-arrow-down"></i></button>
+</div>
+<!-- Comparison Matrix Modal -->
+<div class="modal" id="compare-modal">
+<div class="modal-content full-screen-modal">
+<div class="modal-header">
+<h2>Comparison Matrix Analysis</h2>
+<span class="close-modal" data-modal="compare-modal">×</span>
+</div>
+<div class="modal-body-content">
+<div class="compare-controls">
+<button class="btn-icon" id="compare-clear-all"><i class="fas fa-trash"></i> Reset Selection</button>
+<span id="selected-count" style="color:var(--accent-color); font-weight:800;">0 units staged</span>
+</div>
+<div id="compare-chart-container">
+<canvas id="compare-chart"></canvas>
+</div>
+<div class="compare-details-grid" id="compare-details"></div>
+</div>
+</div>
+</div>
+<!-- Cart Analysis Modal -->
+<div class="modal" id="cart-modal">
+<div class="modal-content full-screen-modal">
+<div class="modal-header">
+<h2>Cart Total Intel</h2>
+<div style="display:flex; gap:10px;">
+<button class="btn-icon danger" id="reset-cart-btn"><i class="fas fa-undo"></i> Reset Cart</button>
+<span class="close-modal" data-modal="cart-modal">×</span>
+</div>
+</div>
+<div class="modal-body-content">
+<div class="cart-analysis-header" style="margin-bottom:20px; display:flex; justify-content:space-between; align-items:center;">
+<div id="shopping-lists-container" style="display:flex; gap:10px;">
+<!-- Saved lists buttons here -->
+</div>
+<button class="btn-icon" id="save-current-list-btn" title="Save current favorites as List"><i class="fas fa-save"></i> Save List</button>
+</div>
+<div class="cart-content-area" id="cart-content">
+<!-- Tab contents -->
+</div>
+</div>
+</div>
+</div>
+<!-- Detailed Chart Modal -->
+<div class="modal" id="chart-modal">
+<div class="modal-content full-screen-modal sci-fi-modal" style="max-height: 95vh; max-width: 95vw;">
+<div class="modal-header" style="background: linear-gradient(135deg, var(--bg-dark), #2a2a3a); padding: 20px;">
+<h2 id="chart-product-name" style="font-size: 1.8rem; color: var(--gold);"></h2>
+<div style="display:flex; gap:15px; align-items:center;">
+<span class="store-tag" id="chart-store-tag" style="font-size: 1rem; padding: 8px 15px;"></span>
+<span id="chart-product-unit" style="color:#888; font-size:1.1rem;"></span>
+<span class="history-access-badge" id="history-access-badge"><i class="fas fa-bullseye"></i> All-Time Low tracking</span>
+<button onclick="closeModal()" style="background: var(--danger); color: white; border: none; border-radius: 50%; width: 40px; height: 40px; font-size: 1.5rem; cursor: pointer; display: flex; align-items: center; justify-content: center;"><i class="fas fa-times"></i></button>
+</div>
+</div>
+<div class="chart-analytics full-width-analytics">
+<div class="stat-card">
+<div class="stat-label">Actual Price</div>
+<div class="stat-value" id="chart-actual"></div>
+</div>
+<div class="stat-card">
+<div class="stat-label">Unit Price</div>
+<div class="stat-value" id="chart-unit"></div>
+</div>
+<div class="stat-card">
+<div class="stat-label">Historical Average</div>
+<div class="stat-value" id="chart-avg"></div>
+</div>
+<div class="stat-card">
+<div class="stat-label">Market Range</div>
+<div class="stat-value" id="chart-min-max"></div>
+</div>
+</div>
+<div class="chart-container full-height-container history-chart-stage">
+<canvas id="price-history-chart"></canvas>
+<div class="history-paywall-mask" hidden="" id="history-paywall-mask">
+<div class="history-paywall-copy">
+          <span class="paywall-kicker"><i class="fas fa-sparkles"></i> All-Time Low unlocked for everyone</span>
+          <strong>Track the true all-time low</strong>
+          <small>Every product's lowest recorded price is free. Premium adds full analytics, custom ranges and multi-channel alerts.</small>
+<button class="paywall-cta" id="history-upgrade-btn" type="button"><i class="fas fa-crown"></i> View premium plans</button>
+</div>
+</div>
+</div>
+<button class="mobile-close-btn" id="mobile-close-chart" onclick="closeModal()"><i class="fas fa-times"></i></button>
+</div>
+</div>
+<!-- Price Alerts Center -->
+<div aria-labelledby="alerts-title" aria-modal="true" class="modal" id="alerts-modal" role="dialog">
+<div class="modal-content alerts-modal-shell glass-panel">
+<div class="modal-header alerts-modal-header">
+<div><h2 id="alerts-title"><i class="fas fa-bell"></i> Premium Price Monitor</h2><small>Track targets and receive browser, email or Telegram notifications.</small></div>
+<span aria-label="Close alerts" class="close-modal" data-modal="alerts-modal">×</span>
+</div>
+<div class="alerts-layout">
+<form class="alert-builder glass-card" id="alert-form">
+<div class="alert-builder-heading"><span class="alert-orbit"><i class="fas fa-crosshairs"></i></span><div><strong>Create premium monitor</strong><small>Target, drop and all-time-low tracking.</small></div></div>
+<label><span>Product</span><select id="alert-product-select" required=""></select></label>
+<div class="alert-product-preview" id="alert-product-preview"></div>
+<label><span>Trigger</span><select id="alert-trigger-type"><option value="target">Price reaches target</option><option value="drop">Drops X% below current</option><option value="low">Touches a new all-time low</option></select></label>
+<label id="alert-threshold-field"><span id="alert-threshold-label">Target price (Tk)</span><input id="alert-threshold" inputmode="decimal" min="1" required="" step="0.1" type="number"/></label>
+<div class="alert-channel-heading"><span>Delivery channels</span><small>Select one or more premium routes.</small></div>
+<div class="alert-channel-grid">
+<label class="alert-channel-card"><input checked="" id="alert-channel-browser" type="checkbox"/><i class="fas fa-window-maximize"></i><span><b>Browser</b><small>Instant device notification</small></span><em></em></label>
+<label class="alert-channel-card"><input id="alert-channel-email" type="checkbox"/><i class="fas fa-envelope"></i><span><b>Email</b><small>Inbox price update</small></span><em></em></label>
+<label class="alert-channel-card"><input id="alert-channel-telegram" type="checkbox"/><i class="fab fa-telegram"></i><span><b>Telegram</b><small>Bot message delivery</small></span><em></em></label>
+</div>
+<div class="alert-destination-grid">
+<label hidden="" id="alert-email-field"><span>Email address</span><input autocomplete="email" id="alert-email" placeholder="you@example.com" type="email"/></label>
+<label hidden="" id="alert-telegram-field"><span>Telegram chat ID / @username</span><input autocomplete="off" id="alert-telegram" placeholder="@username or chat ID" type="text"/></label>
+</div>
+<div class="alert-routing-note"><i class="fas fa-shield-halved"></i><span>Frontend emits a secure alert event; connect your mail and Telegram worker in production.</span></div>
+<button class="alert-create-btn" type="submit"><i class="fas fa-bell-plus"></i> Save premium monitor</button>
+</form>
+<section class="alerts-feed glass-card">
+<div class="alerts-feed-heading"><div><strong>Your premium monitors</strong><small id="alerts-summary">No active monitors</small></div><button class="btn-icon btn-variant-alerts" id="alerts-check-now" type="button"><i class="fas fa-radar"></i> Check now</button></div>
+<div class="alerts-list" id="alerts-list"></div>
+</section>
+</div>
+</div>
+</div>
+<!-- Freemium / Unlock Flow -->
+<div aria-labelledby="premium-title" aria-modal="true" class="modal" id="premium-modal" role="dialog">
+<div class="modal-content premium-modal-shell glass-panel">
+<button aria-label="Close premium dialog" class="premium-close close-modal" data-modal="premium-modal"><i class="fas fa-xmark"></i></button>
+<div aria-hidden="true" class="premium-aurora"></div>
+<section class="premium-step active" id="premium-plans-step">
+<div class="premium-hero">
+<span class="premium-crown"><i class="fas fa-crown"></i></span>
+<p class="premium-eyebrow">Shwapno Premium</p>
+  <h2 id="premium-title">Complete price intelligence across every real market date.</h2>
+  <p>All-time low tracking is free for everyone. Unlock full analytics, price monitors and multi-channel alerts.</p>
+<div class="premium-intent-note" hidden="" id="premium-intent-note"></div>
+</div>
+<div class="plan-grid">
+<button class="plan-card active" data-plan="monthly" data-price="199" type="button"><span class="plan-radio"></span><span class="plan-card-top"><small>Flexible access</small><b>Monthly</b></span><span class="plan-price"><strong>199 Tk</strong><em>/ month</em></span><span class="plan-feature-list"><span><i class="fas fa-check"></i> Full history and analytics</span><span><i class="fas fa-check"></i> Browser, email and Telegram alerts</span><span><i class="fas fa-check"></i> Cancel whenever you need</span></span></button>
+<button class="plan-card recommended" data-plan="yearly" data-price="999" type="button"><span class="save-ribbon">Save 58%</span><span class="plan-radio"></span><span class="plan-card-top"><small>Best value</small><b>Yearly</b></span><span class="plan-price"><strong>999 Tk</strong><em>/ year</em></span><span class="plan-feature-list"><span><i class="fas fa-check"></i> Everything in Monthly</span><span><i class="fas fa-check"></i> Effective 83.25 Tk per month</span><span><i class="fas fa-check"></i> One payment, twelve months</span></span></button>
+</div>
+<div aria-label="Free and Premium feature comparison" class="premium-comparison">
+<div class="comparison-row comparison-head"><span>Feature</span><b>Free</b><strong>Premium</strong></div>
+<div class="comparison-row"><span><i class="fas fa-clock-rotate-left"></i> Price history</span><b>All-time low</b><strong>All dates &amp; trends</strong></div>
+<div class="comparison-row"><span><i class="fas fa-chart-line"></i> Market analytics</span><b><i class="fas fa-minus"></i></b><strong><i class="fas fa-check"></i> Full suite</strong></div>
+<div class="comparison-row"><span><i class="fas fa-bell"></i> Price monitor alerts</span><b><i class="fas fa-minus"></i></b><strong><i class="fas fa-check"></i> Unlimited</strong></div>
+<div class="comparison-row"><span><i class="fas fa-window-maximize"></i> Browser notifications</span><b><i class="fas fa-minus"></i></b><strong><i class="fas fa-check"></i></strong></div>
+<div class="comparison-row"><span><i class="fas fa-envelope"></i> Email alerts</span><b><i class="fas fa-minus"></i></b><strong><i class="fas fa-check"></i></strong></div>
+<div class="comparison-row"><span><i class="fab fa-telegram"></i> Telegram bot messages</span><b><i class="fas fa-minus"></i></b><strong><i class="fas fa-check"></i></strong></div>
+<div class="comparison-row"><span><i class="fas fa-calendar-days"></i> Custom date ranges</span><b>All-time low</b><strong>Every range</strong></div>
+</div>
+<button class="premium-primary premium-payment-cta" id="continue-payment-btn" type="button"><span>Continue with bKash</span><i class="fas fa-arrow-right"></i></button>
+<button class="premium-link" id="show-unlock-step-btn" type="button"><i class="fas fa-key"></i> I already have an unlock key</button>
+</section>
+<section class="premium-step" id="premium-payment-step">
+<button class="premium-back" data-back="plans" type="button"><i class="fas fa-arrow-left"></i> Plans</button>
+<div class="payment-heading"><span class="bkash-mark">b</span><div><small>Send payment with bKash</small><h2 id="payment-plan-title">199 Tk monthly</h2></div></div>
+<div class="payment-grid">
+<div class="qr-frame"><img alt="bKash payment QR code" id="bkash-qr" src="qr.png"/><span>Replace demo qr.png with your live merchant QR</span></div>
+<div class="payment-instructions"><ol><li>Scan the QR and open the bKash payment screen.</li><li>Paste the exact 5-character code below into the <b>Reference</b> field while paying.</li><li>Submit payment only after confirming the same code is shown.</li></ol><div class="reference-box rgb-reference"><span>bKash payment reference code</span><strong id="payment-reference">-----</strong><button id="copy-reference-btn" title="Copy reference code" type="button"><i class="fas fa-copy"></i></button><small>Required to match and verify your payment</small></div><button class="premium-primary" id="payment-done-btn" type="button"><i class="fas fa-receipt"></i><span>I paid using this reference code</span></button><small class="verification-note">Frontend demo only: connect this action to your payment verification endpoint.</small></div>
+</div>
+</section>
+<section class="premium-step" id="premium-unlock-step">
+<button class="premium-back" data-back="plans" type="button"><i class="fas fa-arrow-left"></i> Plans</button>
+<div class="unlock-vault"><span class="vault-icon"><i class="fas fa-vault"></i></span><p class="premium-eyebrow">Subscriber access</p><h2>Unlock encrypted history</h2><p>Enter the premium passphrase. It is used in-memory to decrypt the archive and is never saved by this page.</p><label class="unlock-field"><i class="fas fa-key"></i><input autocomplete="off" id="premium-passphrase" placeholder="Enter premium passphrase" type="password"/><button aria-label="Show passphrase" id="toggle-passphrase" type="button"><i class="fas fa-eye"></i></button></label><div class="unlock-status" id="unlock-status" role="status"></div><button class="premium-primary" id="unlock-submit-btn" type="button"><span>Decrypt premium data</span><i class="fas fa-unlock-keyhole"></i></button><small class="demo-key-note">Standalone demo key: <code>GODDEMO</code></small></div>
+</section>
+<section class="premium-step" id="premium-success-step">
+<div class="premium-success"><span><i class="fas fa-check"></i></span><h2>Premium unlocked</h2><p>Complete histories, analytics and price-monitor delivery channels are now available for this browser session.</p><button class="premium-primary" id="premium-success-close" type="button">Explore full intelligence</button></div>
+</section>
+</div>
+</div>
+<!-- Analytics Dashboard Modal -->
+<div aria-labelledby="analytics-title" aria-modal="true" class="modal" id="analytics-modal" role="dialog">
+<div class="modal-content full-screen-modal analytics-modal-shell">
+<div class="modal-header analytics-modal-header">
+<div>
+<h2 id="analytics-title"><i class="fas fa-chart-line"></i> Market Intelligence</h2>
+<div class="analytics-context" id="analytics-context">Combined market view</div>
+</div>
+<div class="analytics-header-actions">
+<button class="btn-icon" id="analytics-export-btn"><i class="fas fa-file-export"></i> Export CSV</button>
+<span aria-label="Close analytics" class="close-modal" data-modal="analytics-modal">×</span>
+</div>
+</div>
+<div aria-label="Analytics filters" class="analytics-toolbar">
+<div aria-label="Analytics scope" class="analytics-scope-toggle" role="group">
+<button class="analytics-scope-btn active" data-scope="combined"><i class="fas fa-layer-group"></i> Combined</button>
+<button class="analytics-scope-btn" data-scope="store"><i class="fas fa-store"></i> Per shop</button>
+<button class="analytics-scope-btn" data-scope="category"><i class="fas fa-tags"></i> Per category</button>
+</div>
+<label class="analytics-filter-field">
+<span>Shop</span>
+<select disabled="" id="analytics-store-filter"></select>
+</label>
+<label class="analytics-filter-field">
+<span>Category</span>
+<select disabled="" id="analytics-category-filter"></select>
+</label>
+<label class="analytics-filter-field">
+<span>Unit</span>
+<select id="analytics-unit-filter">
+<option value="all">All units</option>
+<option value="kg">KG</option>
+<option value="liter">LTR</option>
+<option value="piece">PCS</option>
+</select>
+</label>
+<label class="analytics-filter-field">
+<span>Window</span>
+<select id="analytics-window-filter">
+<option value="7">7 days</option>
+<option selected="" value="30">30 days</option>
+<option value="90">90 days</option>
+<option value="all">All history</option>
+</select>
+</label>
+<button class="btn-icon analytics-refresh" id="analytics-refresh-btn"><i class="fas fa-sync-alt"></i> Refresh</button>
+</div>
+<div aria-label="Analytics sections" class="analytics-tabs" role="tablist">
+<button class="analytics-tab active" data-tab="overview"><i class="fas fa-gauge-high"></i> Overview</button>
+<button class="analytics-tab" data-tab="pricing"><i class="fas fa-coins"></i> Pricing</button>
+<button class="analytics-tab" data-tab="deals"><i class="fas fa-bolt"></i> Deals</button>
+<button class="analytics-tab" data-tab="coverage"><i class="fas fa-table-cells"></i> Coverage</button>
+<button class="analytics-tab" data-tab="quality"><i class="fas fa-shield-halved"></i> Data quality</button>
+</div>
+<div class="modal-body-content analytics-body" id="analytics-body">
+<div class="analytics-loading" id="analytics-loading">
+<div class="spinner"></div>
+<span>Building intelligence model...</span>
+</div>
+<div id="analytics-content" style="display:none;">
+<section class="analytics-panel active" data-analytics-panel="overview">
+<div class="insight-strip" id="analytics-insight-strip"></div>
+<div class="kpi-grid" id="kpi-grid"></div>
+<div class="analytics-chart-row analytics-chart-row-hero">
+<article class="analytics-chart-box chart-wide">
+<div class="chart-box-heading"><span>Market trend</span><small>Average and median unit price</small></div>
+<canvas id="trend-chart"></canvas>
+</article>
+<article class="analytics-chart-box chart-compact">
+<div class="chart-box-heading"><span>Market health</span><small>Deal / fair / wait mix</small></div>
+<canvas id="health-chart"></canvas>
+</article>
+</div>
+<div class="analytics-chart-row">
+<article class="analytics-chart-box"><canvas id="store-product-count-chart"></canvas></article>
+<article class="analytics-chart-box"><canvas id="store-avg-price-chart"></canvas></article>
+</div>
+</section>
+<section class="analytics-panel" data-analytics-panel="pricing">
+<div class="analytics-chart-row">
+<article class="analytics-chart-box"><canvas id="price-distribution-chart"></canvas></article>
+<article class="analytics-chart-box"><canvas id="unit-type-split-chart"></canvas></article>
+</div>
+<div class="analytics-chart-row">
+<article class="analytics-chart-box chart-wide"><canvas id="category-price-chart"></canvas></article>
+<article class="analytics-chart-box"><canvas id="volatility-chart"></canvas></article>
+</div>
+<div class="analytics-section">
+<div class="section-heading-row">
+<h3 class="analytics-section-title">Cross-shop price comparison</h3>
+<span class="section-note">Matched by product name, category and unit type</span>
+</div>
+<div class="table-scroll" id="cross-store-table-container"></div>
+</div>
+</section>
+<section class="analytics-panel" data-analytics-panel="deals">
+<div class="kpi-grid compact-kpi-grid" id="deal-kpi-grid"></div>
+<div class="analytics-chart-row">
+<article class="analytics-chart-box"><canvas id="deal-split-chart"></canvas></article>
+<article class="analytics-chart-box"><canvas id="savings-opportunity-chart"></canvas></article>
+</div>
+<div class="analytics-section">
+<h3 class="analytics-section-title">Top movers &amp; value opportunities</h3>
+<div class="movers-grid" id="movers-grid"></div>
+</div>
+</section>
+<section class="analytics-panel" data-analytics-panel="coverage">
+<div class="analytics-chart-row">
+<article class="analytics-chart-box chart-wide"><canvas id="category-distribution-chart"></canvas></article>
+<article class="analytics-chart-box"><canvas id="market-share-chart"></canvas></article>
+</div>
+<div class="analytics-section">
+<h3 class="analytics-section-title">Shop scorecards</h3>
+<div class="store-dive-grid" id="store-deep-dive"></div>
+</div>
+<div class="analytics-section">
+<h3 class="analytics-section-title">Category scorecards</h3>
+<div class="category-dive-grid" id="category-deep-dive"></div>
+</div>
+<div class="analytics-section">
+<h3 class="analytics-section-title">Shop × category coverage matrix</h3>
+<div class="table-scroll" id="coverage-heatmap"></div>
+</div>
+</section>
+<section class="analytics-panel" data-analytics-panel="quality">
+<div class="kpi-grid compact-kpi-grid" id="quality-kpi-grid"></div>
+<div class="analytics-section">
+<h3 class="analytics-section-title">Freshness by shop</h3>
+<div class="table-scroll" id="freshness-table"></div>
+</div>
+<div class="analytics-section">
+<h3 class="analytics-section-title">Potential anomalies</h3>
+<div class="table-scroll" id="anomaly-table"></div>
+</div>
+</section>
+</div>
+</div>
+</div>
+</div>
+
+
+<script src="shwapno_manifest.js?v=20260731a"></script>
+<script src="shwapno_data.js?v=20260731a"></script>
+<script src="script.js?v=20260731a"></script>
+<footer style="text-align:center;padding:12px 0;font-size:12px;color:#555;font-family:'Quicksand',sans-serif;background:transparent;">ভালোবাসা অবিরাম - NEHAL 💖</footer>
+</body>
+</html>

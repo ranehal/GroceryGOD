@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Chaldal Price Tracker — Bangladesh's first grocery price history comparison tool. Track price changes, view analytics, and find the best deals on Chaldal.">
+  <meta name="keywords" content="Chaldal price history, Bangladesh grocery prices, price tracker, chaldal deals, grocery comparison">
+  <meta name="theme-color" content="#0f1117">
+  <title>ChaldalTracker — Price History & Analytics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- ─── Sidebar ───────────────────────────────────────────────────── -->
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-logo">
+        <span class="logo-icon">🛒</span>
+        <div>
+          <div class="brand-name">ChaldalTracker</div>
+          <div class="brand-sub">Price Analytics</div>
+        </div>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">Navigation</div>
+      <a href="#" class="nav-item active" data-view="home" id="nav-home">
+        <span class="nav-icon">🏠</span> Home
+      </a>
+      <a href="#" class="nav-item" data-view="products" id="nav-products">
+        <span class="nav-icon">📦</span> All Products
+      </a>
+      <a href="#" class="nav-item" data-view="deals" id="nav-deals">
+        <span class="nav-icon">🔥</span> Flash Deals
+      </a>
+      <a href="#" class="nav-item" data-view="analytics" id="nav-analytics">
+        <span class="nav-icon">📊</span> Analytics
+      </a>
+      <a href="#" class="nav-item" data-view="watchlist" id="nav-watchlist">
+        <span class="nav-icon">⭐</span> Watchlist
+        <span class="badge" id="watchlist-count">0</span>
+      </a>
+
+      <div class="nav-section-label" style="margin-top:1.5rem">Categories</div>
+      <div id="cat-nav" class="cat-tree"></div>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="data-freshness" id="data-freshness">
+        <span class="freshness-dot"></span>
+        <span id="freshness-text">Loading...</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ─── Main ─────────────────────────────────────────────────────── -->
+  <main class="main-content" id="main">
+
+    <!-- Top bar -->
+    <header class="topbar">
+      <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle sidebar">☰</button>
+      <div class="search-wrap">
+        <span class="search-icon">🔍</span>
+        <input type="search" id="search-input" placeholder="Search products, categories…" autocomplete="off">
+        <kbd class="search-kbd">Ctrl+K</kbd>
+        <div id="search-dropdown" class="search-dropdown hidden"></div>
+      </div>
+      <div class="topbar-actions">
+        <button class="btn-icon" id="theme-toggle" title="Toggle theme">🌙</button>
+        <button class="btn-icon" id="refresh-btn" title="Refresh data">🔄</button>
+        <div class="area-selector">
+          <select id="area-select">
+            <option value="4">Banasree</option>
+          </select>
+        </div>
+      </div>
+    </header>
+
+    <!-- View: Home ──────────────────────────────────────────────────── -->
+    <div id="view-home" class="view">
+      <!-- Hero banner carousel -->
+      <section class="hero-section">
+        <div class="hero-carousel" id="hero-carousel">
+          <div class="hero-slide active" style="background:linear-gradient(135deg,#1a1f35 0%,#0d4f3c 100%)">
+            <div class="hero-text">
+              <div class="hero-tag">🚀 Now Live</div>
+              <h1>Bangladesh's First<br><span class="gradient-text">Grocery Price Tracker</span></h1>
+              <p>Track price history on 5000+ Chaldal products. Never overpay again.</p>
+              <div class="hero-cta">
+                <button class="btn-primary" onclick="App.showView('products')">Browse Products</button>
+                <button class="btn-ghost" onclick="App.showView('analytics')">View Analytics</button>
+              </div>
+            </div>
+            <div class="hero-graphic">
+              <div class="hero-price-card" id="hero-price-preview"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Stats row -->
+      <section class="stats-row" id="stats-row">
+        <div class="stat-card" data-stat="total">
+          <div class="stat-icon">📦</div>
+          <div class="stat-val" id="stat-products">—</div>
+          <div class="stat-label">Products Tracked</div>
+        </div>
+        <div class="stat-card" data-stat="cats">
+          <div class="stat-icon">📂</div>
+          <div class="stat-val" id="stat-cats">—</div>
+          <div class="stat-label">Categories</div>
+        </div>
+        <div class="stat-card" data-stat="drops">
+          <div class="stat-icon">📉</div>
+          <div class="stat-val" id="stat-drops">—</div>
+          <div class="stat-label">Price Drops Today</div>
+        </div>
+        <div class="stat-card" data-stat="savings">
+          <div class="stat-icon">💰</div>
+          <div class="stat-val" id="stat-savings">—</div>
+          <div class="stat-label">Avg Discount</div>
+        </div>
+      </section>
+
+      <!-- Top banners -->
+      <section class="section" id="banner-section">
+        <h2 class="section-title">Featured Offers</h2>
+        <div class="banner-grid" id="banner-grid"></div>
+      </section>
+
+      <!-- Home category groups -->
+      <section class="section" id="home-groups">
+        <h2 class="section-title">Shop by Category</h2>
+        <div class="group-grid" id="group-grid"></div>
+      </section>
+
+      <!-- Recent price drops -->
+      <section class="section">
+        <div class="section-header">
+          <h2 class="section-title">Recent Price Drops</h2>
+          <a href="#" class="see-all" onclick="App.showView('products');return false">See all →</a>
+        </div>
+        <div class="product-grid" id="drops-grid"></div>
+      </section>
+
+      <!-- Popular products -->
+      <section class="section">
+        <div class="section-header">
+          <h2 class="section-title">Popular Products</h2>
+        </div>
+        <div class="product-grid" id="popular-grid"></div>
+      </section>
+    </div>
+
+    <!-- View: Products ──────────────────────────────────────────────── -->
+    <div id="view-products" class="view hidden">
+      <div class="view-header">
+        <div>
+          <h2 class="view-title" id="products-title">All Products</h2>
+          <div class="breadcrumb" id="breadcrumb"></div>
+        </div>
+        <div class="products-toolbar">
+          <div class="filter-chips" id="filter-chips"></div>
+          <select id="sort-select" class="sort-select">
+            <option value="name">A–Z</option>
+            <option value="price-asc">Price ↑</option>
+            <option value="price-desc">Price ↓</option>
+            <option value="drop">Biggest Drop</option>
+            <option value="new">Newest</option>
+          </select>
+          <div class="view-toggle">
+            <button class="btn-icon active" id="grid-view-btn" title="Grid view">⊞</button>
+            <button class="btn-icon" id="list-view-btn" title="List view">≡</button>
+          </div>
+        </div>
+      </div>
+      <div class="products-layout">
+        <div class="subcategory-sidebar" id="subcat-sidebar"></div>
+        <div>
+          <div class="product-grid" id="products-grid"></div>
+          <div class="pagination" id="pagination"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- View: Deals ─────────────────────────────────────────────────── -->
+    <div id="view-deals" class="view hidden">
+      <div class="view-header">
+        <h2 class="view-title">🔥 Flash Deals & Offers</h2>
+      </div>
+      <div class="deals-banner" id="deals-banner">
+        <div class="deals-banner-inner">
+          <h3>Flash Sale Active</h3>
+          <p>Prices updated live · Grab before it's gone</p>
+        </div>
+      </div>
+      <div class="product-grid" id="deals-grid"></div>
+    </div>
+
+    <!-- View: Analytics ─────────────────────────────────────────────── -->
+    <div id="view-analytics" class="view hidden">
+      <div class="view-header">
+        <h2 class="view-title">📊 Price Analytics</h2>
+      </div>
+      <div class="analytics-grid">
+        <div class="chart-card full-width">
+          <div class="chart-header">
+            <h3>Category Price Distribution</h3>
+            <select id="analytics-cat-select" class="sort-select"></select>
+          </div>
+          <canvas id="chart-price-dist" height="80"></canvas>
+        </div>
+        <div class="chart-card">
+          <h3>Price Trend (7 days)</h3>
+          <canvas id="chart-trend" height="160"></canvas>
+        </div>
+        <div class="chart-card">
+          <h3>Category Product Count</h3>
+          <canvas id="chart-cat-count" height="160"></canvas>
+        </div>
+        <div class="chart-card full-width">
+          <h3>Top Price Drops</h3>
+          <div id="analytics-top-drops" class="top-drops-list"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- View: Watchlist ──────────────────────────────────────────────── -->
+    <div id="view-watchlist" class="view hidden">
+      <div class="view-header">
+        <h2 class="view-title">⭐ My Watchlist</h2>
+        <button class="btn-ghost-sm" id="clear-watchlist">Clear all</button>
+      </div>
+      <div class="product-grid" id="watchlist-grid"></div>
+      <div id="watchlist-empty" class="empty-state hidden">
+        <div class="empty-icon">⭐</div>
+        <h3>Your watchlist is empty</h3>
+        <p>Click the ⭐ on any product to add it here.</p>
+        <button class="btn-primary" onclick="App.showView('products')">Browse Products</button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ─── Product Detail Modal ─────────────────────────────────────── -->
+  <div id="product-modal" class="modal-backdrop hidden" role="dialog" aria-modal="true">
+    <div class="modal-box" id="modal-box">
+      <button class="modal-close" id="modal-close" aria-label="Close">✕</button>
+      <div class="modal-content" id="modal-content">
+        <!-- Filled by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── Toast ────────────────────────────────────────────────────── -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <!-- ─── Loading overlay ──────────────────────────────────────────── -->
+  <div id="loading" class="loading-overlay">
+    <div class="loading-inner">
+      <div class="loading-spinner"></div>
+      <div class="loading-text">Loading price data…</div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,1251 @@
+{
+  "data": {
+    "topSlider": {
+      "$type": "Slider",
+      "title": "Home Slider",
+      "displayTitle": false,
+      "layout": "Slider",
+      "sliderItems": [
+        {
+          "id": "69d5e66da1019988e0830e26",
+          "picture": {
+            "largeDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-slider-1.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-slider-1.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-slider-1.webp",
+              "width": 1200,
+              "height": 1200
+            },
+            "smallDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/6a4f77fc971d939da57fca0e_7aebfb0321fe441b9bbe16a624b6d502.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/6a4f77fc971d939da57fca0e_7aebfb0321fe441b9bbe16a624b6d502.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/6a4f77fc971d939da57fca0e_7aebfb0321fe441b9bbe16a624b6d502.webp",
+              "width": 1200,
+              "height": 596
+            },
+            "title": "Deals On Unilever",
+            "alternateText": "Deals On Unilever"
+          },
+          "type": 20,
+          "url": "/unilever",
+          "limitedToDarkStores": false,
+          "darkStores": []
+        },
+        {
+          "id": "6a605aa4711a3fb602d27563",
+          "picture": {
+            "largeDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-slider-1.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-slider-1.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-slider-1.webp",
+              "width": 1200,
+              "height": 1200
+            },
+            "smallDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/6a605aa4dd09481c9ccb0376_451bdaa2019842e986949885914e0ac0.png",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/6a605aa4dd09481c9ccb0376_451bdaa2019842e986949885914e0ac0.png",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/6a605aa4dd09481c9ccb0376_451bdaa2019842e986949885914e0ac0.png",
+              "width": 1200,
+              "height": 596
+            },
+            "title": "Himalaya",
+            "alternateText": "Himalaya"
+          },
+          "type": 20,
+          "url": "/himalaya",
+          "limitedToDarkStores": false,
+          "darkStores": []
+        },
+        {
+          "id": "6a2ac533d17ed607e5ab3949",
+          "picture": {
+            "largeDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-slider-1.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-slider-1.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-slider-1.webp",
+              "width": 1200,
+              "height": 1200
+            },
+            "smallDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/6a5f40ae0d117d911966fa41_d842b3473f0a4a99ade3fab1e9f167c7.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/6a5f40ae0d117d911966fa41_d842b3473f0a4a99ade3fab1e9f167c7.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/6a5f40ae0d117d911966fa41_d842b3473f0a4a99ade3fab1e9f167c7.webp",
+              "width": 1200,
+              "height": 596
+            },
+            "title": "Remark",
+            "alternateText": "Remark"
+          },
+          "type": 20,
+          "url": "/Remark-HB",
+          "limitedToDarkStores": false,
+          "darkStores": []
+        },
+        {
+          "id": "69d4c26d0d597cf6c4b85622",
+          "picture": {
+            "largeDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-slider-1.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-slider-1.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-slider-1.webp",
+              "width": 1200,
+              "height": 1200
+            },
+            "smallDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/69dca4de9b3d1a3b582db779_summerBANNER_MOBILE_.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/69dca4de9b3d1a3b582db779_summerBANNER_MOBILE_.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/69dca4de9b3d1a3b582db779_summerBANNER_MOBILE_.webp",
+              "width": 1200,
+              "height": 606
+            },
+            "title": "Summer Fest",
+            "alternateText": "Summer Fest"
+          },
+          "type": 30,
+          "url": "/Shwapno-Summer-Fest",
+          "limitedToDarkStores": false,
+          "darkStores": []
+        },
+        {
+          "id": "681b311b977905a43351a7be",
+          "picture": {
+            "largeDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-slider-1.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-slider-1.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-slider-1.webp",
+              "width": 1200,
+              "height": 1200
+            },
+            "smallDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/698974f28c76026cef618320_ACIBANNER_M.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/698974f28c76026cef618320_ACIBANNER_M.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/698974f28c76026cef618320_ACIBANNER_M.webp",
+              "width": 1200,
+              "height": 600
+            },
+            "title": "ACI Banner",
+            "alternateText": "ACI Banner"
+          },
+          "type": 30,
+          "url": "/aci-pure-foods",
+          "limitedToDarkStores": false,
+          "darkStores": []
+        }
+      ],
+      "componentType": "TopSlider",
+      "componentId": "65ee936c4657cad67e1f8960",
+      "displayOrder": -1
+    },
+    "categories": {
+      "$type": "Carousel",
+      "name": "Homepage Categories",
+      "displayName": false,
+      "backgroundColor": "#e4f7ff",
+      "carouselType": "Category",
+      "dataSource": 0,
+      "maxItems": 0,
+      "showBackgroundImage": false,
+      "products": [],
+      "isCustomerSpecific": false,
+      "manufacturers": [],
+      "categories": [
+        {
+          "id": "65ed45e6e429af37f903ae3e",
+          "name": "Eggs",
+          "picture": {
+            "largeDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "width": 450,
+              "height": 450
+            },
+            "smallDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/65f7d0aa115075f231e868a2_Eggs.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/65f7d0aa115075f231e868a2_Eggs.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/65f7d0aa115075f231e868a2_Eggs.webp",
+              "width": 450,
+              "height": 450
+            },
+            "title": "Picture of Eggs",
+            "alternateText": "Picture of Eggs"
+          },
+          "seName": "eggs"
+        },
+        {
+          "id": "65ed45e5e429af37f903ae29",
+          "name": "Tea",
+          "picture": {
+            "largeDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "width": 450,
+              "height": 450
+            },
+            "smallDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/66b82e145c414d20bf568247_tea.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/66b82e145c414d20bf568247_tea.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/66b82e145c414d20bf568247_tea.webp",
+              "width": 450,
+              "height": 450
+            },
+            "title": "Picture of Tea",
+            "alternateText": "Picture of Tea"
+          },
+          "seName": "tea"
+        },
+        {
+          "id": "65ed45e5e429af37f903ae2c",
+          "name": "Soft Drinks",
+          "picture": {
+            "largeDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "width": 450,
+              "height": 450
+            },
+            "smallDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/68d22b1b813f1eaa5b1e36fa_6683ec639f69bc6485cf8e46_soft drinks 2.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/68d22b1b813f1eaa5b1e36fa_6683ec639f69bc6485cf8e46_soft drinks 2.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/68d22b1b813f1eaa5b1e36fa_6683ec639f69bc6485cf8e46_soft drinks 2.webp",
+              "width": 450,
+              "height": 450
+            },
+            "title": "Picture of Soft Drinks",
+            "alternateText": "Picture of Soft Drinks"
+          },
+          "seName": "soft-drinks"
+        },
+        {
+          "id": "66d3e6c92d1d5639fbac948c",
+          "name": "Frozen",
+          "picture": {
+            "largeDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "width": 450,
+              "height": 450
+            },
+            "smallDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/66d98da4b36688f86a65a4db_Cat Card_ Frozwn.png",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/66d98da4b36688f86a65a4db_Cat Card_ Frozwn.png",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/66d98da4b36688f86a65a4db_Cat Card_ Frozwn.png",
+              "width": 450,
+              "height": 450
+            },
+            "title": "Picture of Frozen",
+            "alternateText": "Picture of Frozen"
+          },
+          "seName": "Frozen"
+        },
+        {
+          "id": "65ed45e5e429af37f903ae2a",
+          "name": "Coffee",
+          "picture": {
+            "largeDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "width": 450,
+              "height": 450
+            },
+            "smallDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/6603ccb76e5bec88ede92ef3_coffee.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/6603ccb76e5bec88ede92ef3_coffee.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/6603ccb76e5bec88ede92ef3_coffee.webp",
+              "width": 450,
+              "height": 450
+            },
+            "title": "Picture of Coffee",
+            "alternateText": "Picture of Coffee"
+          },
+          "seName": "coffee"
+        },
+        {
+          "id": "65ed45e7e429af37f903ae46",
+          "name": "Ice Cream",
+          "picture": {
+            "largeDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "width": 450,
+              "height": 450
+            },
+            "smallDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/65ffac25933e34c339654a31_ice creammmm.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/65ffac25933e34c339654a31_ice creammmm.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/65ffac25933e34c339654a31_ice creammmm.webp",
+              "width": 450,
+              "height": 450
+            },
+            "title": "Picture of Ice Cream",
+            "alternateText": "Picture of Ice Cream"
+          },
+          "seName": "ice-cream"
+        },
+        {
+          "id": "66a853ceb553767cca97ce86",
+          "name": "Noodles",
+          "picture": {
+            "largeDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "width": 450,
+              "height": 450
+            },
+            "smallDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/68cb9ef32c67e8f68aa149be_Noodles_300.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/68cb9ef32c67e8f68aa149be_Noodles_300.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/68cb9ef32c67e8f68aa149be_Noodles_300.webp",
+              "width": 450,
+              "height": 450
+            },
+            "title": "Picture of Noodles",
+            "alternateText": "Picture of Noodles"
+          },
+          "seName": "Noodles"
+        },
+        {
+          "id": "65ed45e5e429af37f903ae33",
+          "name": "Biscuits",
+          "picture": {
+            "largeDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "width": 450,
+              "height": 450
+            },
+            "smallDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/6603c272b63674f9ff21a2bc_biscuits.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/6603c272b63674f9ff21a2bc_biscuits.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/6603c272b63674f9ff21a2bc_biscuits.webp",
+              "width": 450,
+              "height": 450
+            },
+            "title": "Picture of Biscuits",
+            "alternateText": "Picture of Biscuits"
+          },
+          "seName": "biscuits"
+        },
+        {
+          "id": "65ed45e0e429af37f903adf8",
+          "name": "Candy & Chocolate",
+          "picture": {
+            "largeDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "width": 450,
+              "height": 450
+            },
+            "smallDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/68d22c51d26766443de9da19_66011b524744fb420cd77d6b_Candy Chocolate.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/68d22c51d26766443de9da19_66011b524744fb420cd77d6b_Candy Chocolate.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/68d22c51d26766443de9da19_66011b524744fb420cd77d6b_Candy Chocolate.webp",
+              "width": 450,
+              "height": 450
+            },
+            "title": "Picture of Candy & Chocolate",
+            "alternateText": "Picture of Candy & Chocolate"
+          },
+          "seName": "candy-chocolate"
+        },
+        {
+          "id": "65ed45e5e429af37f903ae2b",
+          "name": "Juice",
+          "picture": {
+            "largeDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "width": 450,
+              "height": 450
+            },
+            "smallDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/68d22955d26766443de0d36c_6683dee0ef592be2eae7c1a7_juice_300.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/68d22955d26766443de0d36c_6683dee0ef592be2eae7c1a7_juice_300.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/68d22955d26766443de0d36c_6683dee0ef592be2eae7c1a7_juice_300.webp",
+              "width": 450,
+              "height": 450
+            },
+            "title": "Picture of Juice",
+            "alternateText": "Picture of Juice"
+          },
+          "seName": "juice"
+        },
+        {
+          "id": "65ed45e7e429af37f903ae4b",
+          "name": "Cereals",
+          "picture": {
+            "largeDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "width": 450,
+              "height": 450
+            },
+            "smallDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/65f15930733cb673c8900ca5_Cereals (1).webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/65f15930733cb673c8900ca5_Cereals (1).webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/65f15930733cb673c8900ca5_Cereals (1).webp",
+              "width": 450,
+              "height": 450
+            },
+            "title": "Picture of Cereals",
+            "alternateText": "Picture of Cereals"
+          },
+          "seName": "cereals"
+        },
+        {
+          "id": "65ed45e6e429af37f903ae36",
+          "name": "Chips & Pretzels",
+          "picture": {
+            "largeDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "width": 450,
+              "height": 450
+            },
+            "smallDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/6603c49f8d0c53f5d0a978cc_chips & pretzels.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/6603c49f8d0c53f5d0a978cc_chips & pretzels.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/6603c49f8d0c53f5d0a978cc_chips & pretzels.webp",
+              "width": 450,
+              "height": 450
+            },
+            "title": "Picture of Chips & Pretzels",
+            "alternateText": "Picture of Chips & Pretzels"
+          },
+          "seName": "chips-and-pretzels"
+        },
+        {
+          "id": "65ed45e8e429af37f903ae4d",
+          "name": "Sauces",
+          "picture": {
+            "largeDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "width": 450,
+              "height": 450
+            },
+            "smallDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/6603a9ed5b1669b15f0a2b53_sauces.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/6603a9ed5b1669b15f0a2b53_sauces.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/6603a9ed5b1669b15f0a2b53_sauces.webp",
+              "width": 450,
+              "height": 450
+            },
+            "title": "Picture of Sauces",
+            "alternateText": "Picture of Sauces"
+          },
+          "seName": "sauces"
+        },
+        {
+          "id": "65ed45e7e429af37f903ae41",
+          "name": "Powder Milk",
+          "picture": {
+            "largeDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "width": 450,
+              "height": 450
+            },
+            "smallDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/6683ec92ef592be2eaea4056_powder milk 2.png",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/6683ec92ef592be2eaea4056_powder milk 2.png",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/6683ec92ef592be2eaea4056_powder milk 2.png",
+              "width": 450,
+              "height": 450
+            },
+            "title": "Picture of Powder Milk",
+            "alternateText": "Picture of Powder Milk"
+          },
+          "seName": "powder-milk"
+        },
+        {
+          "id": "65ed45e7e429af37f903ae47",
+          "name": "Breads",
+          "picture": {
+            "largeDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "width": 450,
+              "height": 450
+            },
+            "smallDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/65f1524d733cb673c88f809b_Breads.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/65f1524d733cb673c88f809b_Breads.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/65f1524d733cb673c88f809b_Breads.webp",
+              "width": 450,
+              "height": 450
+            },
+            "title": "Picture of Breads",
+            "alternateText": "Picture of Breads"
+          },
+          "seName": "breads"
+        },
+        {
+          "id": "66a852a4b553767cca926cb7",
+          "name": "Yogurt",
+          "picture": {
+            "largeDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "width": 450,
+              "height": 450
+            },
+            "smallDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/66b84f56367d9a39bc507941_1.Yogurt.png",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/66b84f56367d9a39bc507941_1.Yogurt.png",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/66b84f56367d9a39bc507941_1.Yogurt.png",
+              "width": 450,
+              "height": 450
+            },
+            "title": "Picture of Yogurt",
+            "alternateText": "Picture of Yogurt"
+          },
+          "seName": "Yogurt"
+        },
+        {
+          "id": "65ed45e0e429af37f903adf9",
+          "name": "Baking Needs",
+          "picture": {
+            "largeDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "width": 450,
+              "height": 450
+            },
+            "smallDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/66011da6d918e4890239ed21_Baking Ingridents.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/66011da6d918e4890239ed21_Baking Ingridents.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/66011da6d918e4890239ed21_Baking Ingridents.webp",
+              "width": 450,
+              "height": 450
+            },
+            "title": "Picture of Baking Needs",
+            "alternateText": "Picture of Baking Needs"
+          },
+          "seName": "baking-needs"
+        },
+        {
+          "id": "65ed45e6e429af37f903ae3c",
+          "name": "Butter",
+          "picture": {
+            "largeDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "width": 450,
+              "height": 450
+            },
+            "smallDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/65f7cf9d115075f231e851f2_Butter.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/65f7cf9d115075f231e851f2_Butter.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/65f7cf9d115075f231e851f2_Butter.webp",
+              "width": 450,
+              "height": 450
+            },
+            "title": "Picture of Butter",
+            "alternateText": "Picture of Butter"
+          },
+          "seName": "butter"
+        },
+        {
+          "id": "65ed45e2e429af37f903ae0f",
+          "name": "Meat",
+          "picture": {
+            "largeDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "width": 450,
+              "height": 450
+            },
+            "smallDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/660113be4744fb420cd5daea_meat.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/660113be4744fb420cd5daea_meat.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/660113be4744fb420cd5daea_meat.webp",
+              "width": 450,
+              "height": 450
+            },
+            "title": "Picture of Meat",
+            "alternateText": "Picture of Meat"
+          },
+          "seName": "meat"
+        },
+        {
+          "id": "65ed45e2e429af37f903ae0b",
+          "name": "Fish",
+          "picture": {
+            "largeDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "width": 450,
+              "height": 450
+            },
+            "smallDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/6600f5ddd2372028bef03bd3_Fresh Water Fish.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/6600f5ddd2372028bef03bd3_Fresh Water Fish.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/6600f5ddd2372028bef03bd3_Fresh Water Fish.webp",
+              "width": 450,
+              "height": 450
+            },
+            "title": "Picture of Fish",
+            "alternateText": "Picture of Fish"
+          },
+          "seName": "fish"
+        },
+        {
+          "id": "65ed45e2e429af37f903ae08",
+          "name": "Fresh Vegetables",
+          "picture": {
+            "largeDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "width": 450,
+              "height": 450
+            },
+            "smallDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/65ffa907933e34c33964180b_fresh vegitables.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/65ffa907933e34c33964180b_fresh vegitables.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/65ffa907933e34c33964180b_fresh vegitables.webp",
+              "width": 450,
+              "height": 450
+            },
+            "title": "Picture of Fresh Vegetables",
+            "alternateText": "Picture of Fresh Vegetables"
+          },
+          "seName": "fresh-vegetables"
+        },
+        {
+          "id": "65ed45dfe429af37f903aded",
+          "name": "Oil",
+          "picture": {
+            "largeDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "width": 450,
+              "height": 450
+            },
+            "smallDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/66010ffbd918e48902366c8f_oil-2.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/66010ffbd918e48902366c8f_oil-2.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/66010ffbd918e48902366c8f_oil-2.webp",
+              "width": 450,
+              "height": 450
+            },
+            "title": "Picture of Oil",
+            "alternateText": "Picture of Oil"
+          },
+          "seName": "oil"
+        },
+        {
+          "id": "65ed45e4e429af37f903ae22",
+          "name": "Spices",
+          "picture": {
+            "largeDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "width": 450,
+              "height": 450
+            },
+            "smallDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/660112e44744fb420cd59351_spices.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/660112e44744fb420cd59351_spices.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/660112e44744fb420cd59351_spices.webp",
+              "width": 450,
+              "height": 450
+            },
+            "title": "Picture of Spices",
+            "alternateText": "Picture of Spices"
+          },
+          "seName": "spices"
+        },
+        {
+          "id": "65ed45e2e429af37f903ae07",
+          "name": "Fresh Fruits",
+          "picture": {
+            "largeDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "width": 450,
+              "height": 450
+            },
+            "smallDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/66210262d66f7762f1e651f1_Fresh-Fruit.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/66210262d66f7762f1e651f1_Fresh-Fruit.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/66210262d66f7762f1e651f1_Fresh-Fruit.webp",
+              "width": 450,
+              "height": 450
+            },
+            "title": "Picture of Fresh Fruits",
+            "alternateText": "Picture of Fresh Fruits"
+          },
+          "seName": "fresh-fruits"
+        },
+        {
+          "id": "65ed45e4e429af37f903ae23",
+          "name": "Salt & Sugar",
+          "picture": {
+            "largeDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "width": 450,
+              "height": 450
+            },
+            "smallDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/6601132f4744fb420cd59423_Salt Sugar.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/6601132f4744fb420cd59423_Salt Sugar.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/6601132f4744fb420cd59423_Salt Sugar.webp",
+              "width": 450,
+              "height": 450
+            },
+            "title": "Picture of Salt & Sugar",
+            "alternateText": "Picture of Salt & Sugar"
+          },
+          "seName": "salt-and-sugar"
+        },
+        {
+          "id": "65ed45e7e429af37f903ae4a",
+          "name": "Honey",
+          "picture": {
+            "largeDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "width": 450,
+              "height": 450
+            },
+            "smallDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/65f1548052799b9600c3a9d3_Honey (1).webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/65f1548052799b9600c3a9d3_Honey (1).webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/65f1548052799b9600c3a9d3_Honey (1).webp",
+              "width": 450,
+              "height": 450
+            },
+            "title": "Picture of Honey",
+            "alternateText": "Picture of Honey"
+          },
+          "seName": "honey"
+        },
+        {
+          "id": "65ed45e6e429af37f903ae40",
+          "name": "Liquid & UHT Milk",
+          "picture": {
+            "largeDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "width": 450,
+              "height": 450
+            },
+            "smallDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/6682cb210a54717fc7e727b4_Liquid & UHT Milk 2.png",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/6682cb210a54717fc7e727b4_Liquid & UHT Milk 2.png",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/6682cb210a54717fc7e727b4_Liquid & UHT Milk 2.png",
+              "width": 450,
+              "height": 450
+            },
+            "title": "Picture of Liquid & UHT Milk",
+            "alternateText": "Picture of Liquid & UHT Milk"
+          },
+          "seName": "liquid-and-uht-milk"
+        },
+        {
+          "id": "65ed45e1e429af37f903adfa",
+          "name": "Baby Food & Care",
+          "picture": {
+            "largeDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "width": 450,
+              "height": 450
+            },
+            "smallDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/65ffaf5e933e34c33965ee93_baby food & care.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/65ffaf5e933e34c33965ee93_baby food & care.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/65ffaf5e933e34c33965ee93_baby food & care.webp",
+              "width": 450,
+              "height": 450
+            },
+            "title": "Picture of Baby Food & Care",
+            "alternateText": "Picture of Baby Food & Care"
+          },
+          "seName": "baby-food-and-care"
+        },
+        {
+          "id": "66a8563cb553767cca9f5e28",
+          "name": "Shampoo",
+          "picture": {
+            "largeDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "width": 450,
+              "height": 450
+            },
+            "smallDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/66b8261c5c414d20bf52e5ba_Shampoo.png",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/66b8261c5c414d20bf52e5ba_Shampoo.png",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/66b8261c5c414d20bf52e5ba_Shampoo.png",
+              "width": 450,
+              "height": 450
+            },
+            "title": "Picture of Shampoo",
+            "alternateText": "Picture of Shampoo"
+          },
+          "seName": "Shampoo"
+        },
+        {
+          "id": "66a85659e058eb2613ac9001",
+          "name": "Conditioners",
+          "picture": {
+            "largeDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "width": 450,
+              "height": 450
+            },
+            "smallDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/66b82636367d9a39bc43ec0e_Conditioner.png",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/66b82636367d9a39bc43ec0e_Conditioner.png",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/66b82636367d9a39bc43ec0e_Conditioner.png",
+              "width": 450,
+              "height": 450
+            },
+            "title": "Picture of Conditioners",
+            "alternateText": "Picture of Conditioners"
+          },
+          "seName": "Conditioners"
+        },
+        {
+          "id": "65ed45e0e429af37f903adf5",
+          "name": "Home Cleaning",
+          "picture": {
+            "largeDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "width": 450,
+              "height": 450
+            },
+            "smallDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/661f4e05c15481a97eed769e_Home Cleaning.png",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/661f4e05c15481a97eed769e_Home Cleaning.png",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/661f4e05c15481a97eed769e_Home Cleaning.png",
+              "width": 450,
+              "height": 450
+            },
+            "title": "Picture of Home Cleaning",
+            "alternateText": "Picture of Home Cleaning"
+          },
+          "seName": "home-cleaning"
+        },
+        {
+          "id": "65ed45f2e429af37f903aedb",
+          "name": "Toys & Sports",
+          "picture": {
+            "largeDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "width": 450,
+              "height": 450
+            },
+            "smallDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/66010bf9933e34c3399025ef_Toys & Sports .webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/66010bf9933e34c3399025ef_Toys & Sports .webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/66010bf9933e34c3399025ef_Toys & Sports .webp",
+              "width": 450,
+              "height": 450
+            },
+            "title": "Picture of Toys & Sports",
+            "alternateText": "Picture of Toys & Sports"
+          },
+          "seName": "toys-and-sports"
+        },
+        {
+          "id": "65ed45eee429af37f903ae99",
+          "name": "Fashion & Lifestyle",
+          "picture": {
+            "largeDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "width": 450,
+              "height": 450
+            },
+            "smallDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/6682c97d0a54717fc7e6f955_fashion and lifestyle.png",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/6682c97d0a54717fc7e6f955_fashion and lifestyle.png",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/6682c97d0a54717fc7e6f955_fashion and lifestyle.png",
+              "width": 450,
+              "height": 450
+            },
+            "title": "Picture of Fashion & Lifestyle",
+            "alternateText": "Picture of Fashion & Lifestyle"
+          },
+          "seName": "fashion-and-lifestyle"
+        },
+        {
+          "id": "65ed45e0e429af37f903adf3",
+          "name": "Sauces & Pickles",
+          "picture": {
+            "largeDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "width": 450,
+              "height": 450
+            },
+            "smallDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/66011a264744fb420cd69ee5_Sauces & Pickles.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/66011a264744fb420cd69ee5_Sauces & Pickles.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/66011a264744fb420cd69ee5_Sauces & Pickles.webp",
+              "width": 450,
+              "height": 450
+            },
+            "title": "Picture of Sauces & Pickles",
+            "alternateText": "Picture of Sauces & Pickles"
+          },
+          "seName": "sauces-and-pickles"
+        },
+        {
+          "id": "65ed45e4e429af37f903ae27",
+          "name": "Atta Maida & Suji",
+          "picture": {
+            "largeDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "width": 450,
+              "height": 450
+            },
+            "smallDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/6620f817d66f7762f1e4a78f_Flour.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/6620f817d66f7762f1e4a78f_Flour.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/6620f817d66f7762f1e4a78f_Flour.webp",
+              "width": 450,
+              "height": 450
+            },
+            "title": "Picture of Atta Maida & Suji",
+            "alternateText": "Picture of Atta Maida & Suji"
+          },
+          "seName": "flours"
+        },
+        {
+          "id": "65ed45e5e429af37f903ae31",
+          "name": "Soup",
+          "picture": {
+            "largeDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-category-picture-1.webp",
+              "width": 450,
+              "height": 450
+            },
+            "smallDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/6603beffae0e9483ca5d1399_soups_1.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/6603beffae0e9483ca5d1399_soups_1.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/6603beffae0e9483ca5d1399_soups_1.webp",
+              "width": 450,
+              "height": 450
+            },
+            "title": "Picture of Soup",
+            "alternateText": "Picture of Soup"
+          },
+          "seName": "soup"
+        }
+      ],
+      "limitedToDarkStores": false,
+      "darkStores": [],
+      "componentType": "HomepageCategories",
+      "displayOrder": 0
+    },
+    "trustBadges": [
+      {
+        "title": "60 mins delivery",
+        "shortDescription": "Free shipping over 1500Tk",
+        "icon": {
+          "largeDeviceUrl": {
+            "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/65efebe2733cb673c88abce1_Trust 1.png",
+            "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/65efebe2733cb673c88abce1_Trust 1.png",
+            "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/65efebe2733cb673c88abce1_Trust 1.png",
+            "width": 100,
+            "height": 101
+          },
+          "smallDeviceUrl": {
+            "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/65efebe2733cb673c88abce1_Trust 1.png",
+            "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/65efebe2733cb673c88abce1_Trust 1.png",
+            "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/65efebe2733cb673c88abce1_Trust 1.png",
+            "width": 100,
+            "height": 101
+          }
+        },
+        "id": "65efec1b4119aecf6521cfc4"
+      },
+      {
+        "title": "Authorized Products",
+        "shortDescription": "within 30 days for an exchange",
+        "icon": {
+          "largeDeviceUrl": {
+            "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/65effead733cb673c88b318d_Trust 2.png",
+            "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/65effead733cb673c88b318d_Trust 2.png",
+            "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/65effead733cb673c88b318d_Trust 2.png",
+            "width": 100,
+            "height": 101
+          },
+          "smallDeviceUrl": {
+            "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/65effead733cb673c88b318d_Trust 2.png",
+            "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/65effead733cb673c88b318d_Trust 2.png",
+            "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/65effead733cb673c88b318d_Trust 2.png",
+            "width": 100,
+            "height": 101
+          }
+        },
+        "id": "65effeb1101d9be04a6bf9d3"
+      },
+      {
+        "title": "Customer Service Support ",
+        "shortDescription": "8am to 10pm",
+        "icon": {
+          "largeDeviceUrl": {
+            "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/65effff052799b9600bdf486_Trust 3.png",
+            "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/65effff052799b9600bdf486_Trust 3.png",
+            "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/65effff052799b9600bdf486_Trust 3.png",
+            "width": 100,
+            "height": 101
+          },
+          "smallDeviceUrl": {
+            "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/65effff052799b9600bdf486_Trust 3.png",
+            "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/65effff052799b9600bdf486_Trust 3.png",
+            "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/65effff052799b9600bdf486_Trust 3.png",
+            "width": 100,
+            "height": 101
+          }
+        },
+        "id": "65effff54119aecf6521fd9b"
+      },
+      {
+        "title": "Flexible Payments",
+        "shortDescription": "Pay with multiple credit cards",
+        "icon": {
+          "largeDeviceUrl": {
+            "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/65f0004052799b9600bdf48c_Trust 4.png",
+            "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/65f0004052799b9600bdf48c_Trust 4.png",
+            "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/65f0004052799b9600bdf48c_Trust 4.png",
+            "width": 100,
+            "height": 101
+          },
+          "smallDeviceUrl": {
+            "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/65f0004052799b9600bdf48c_Trust 4.png",
+            "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/65f0004052799b9600bdf48c_Trust 4.png",
+            "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/65f0004052799b9600bdf48c_Trust 4.png",
+            "width": 100,
+            "height": 101
+          }
+        },
+        "id": "65f00045101d9be04a6bfbe9"
+      }
+    ],
+    "footerBanner": {
+      "$type": "Slider",
+      "title": "Bottom Banner",
+      "displayTitle": false,
+      "layout": "Banner",
+      "sliderItems": [
+        {
+          "id": "661e1b9d4e1f240b89b8b2a7",
+          "picture": {
+            "largeDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-slider-1.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-slider-1.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-slider-1.webp",
+              "width": 1200,
+              "height": 1200
+            },
+            "smallDeviceUrl": {
+              "imageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-slider-1.webp",
+              "thumbImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-slider-1.webp",
+              "fullSizeImageUrl": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-slider-1.webp",
+              "width": 1200,
+              "height": 1200
+            },
+            "title": "Bottom Banner",
+            "alternateText": "Bottom Banner"
+          },
+          "type": 40,
+          "url": "/great-savings-3",
+          "limitedToDarkStores": false,
+          "darkStores": []
+        }
+      ],
+      "componentType": "FooterBanner",
+      "componentId": "661e1b88fe37911e617014db",
+      "displayOrder": 2147483647
+    },
+    "homepageComponents": [
+      {
+        "componentType": "Carousel",
+        "componentId": "66d59e1fd02eafd6b38a91de",
+        "displayOrder": 1,
+        "id": "66d59e35d02eafd6b38cbbc1"
+      },
+      {
+        "componentType": "DiscountTab",
+        "componentId": "6677d52c887039391d0512dc",
+        "displayOrder": 2,
+        "id": "6a11b034ea302577cd3a4279"
+      },
+      {
+        "componentType": "Carousel",
+        "componentId": "68861edfef52b030fbc272cd",
+        "displayOrder": 4,
+        "id": "68861f8d3d7d57561bd6c716"
+      },
+      {
+        "componentType": "Carousel",
+        "componentId": "6a0d8b159a6b8af106d0ac90",
+        "displayOrder": 6,
+        "id": "6a0d8b563b73e13d77c199e4"
+      },
+      {
+        "componentType": "Slider",
+        "componentId": "6a61ef9cc70b356273783d8f",
+        "displayOrder": 7,
+        "id": "6a61f094c70b356273898135"
+      },
+      {
+        "componentType": "Carousel",
+        "componentId": "6a61f15a1b630f8cac449f1a",
+        "displayOrder": 8,
+        "id": "6a61f287c70b356273afb107"
+      },
+      {
+        "componentType": "Carousel",
+        "componentId": "692417b10b632a31538874a7",
+        "displayOrder": 9,
+        "id": "692417f38035a4138a9bd1f9"
+      },
+      {
+        "componentType": "Slider",
+        "componentId": "6759da3a677bbc0a4b451600",
+        "displayOrder": 10,
+        "id": "695f7bbc4502411f60a9a2d2"
+      },
+      {
+        "componentType": "Carousel",
+        "componentId": "6756aca0eb16b09e4b2e7299",
+        "displayOrder": 11,
+        "id": "695f7a8789484d115b1ca223"
+      },
+      {
+        "componentType": "Carousel",
+        "componentId": "67a0861eeb6dd6e12cc6cf88",
+        "displayOrder": 12,
+        "id": "691f39514b2b47e12f616894"
+      },
+      {
+        "componentType": "Carousel",
+        "componentId": "687c80e39355762a5ed3fadb",
+        "displayOrder": 13,
+        "id": "687c81fa276a0371be8336ed"
+      },
+      {
+        "componentType": "Carousel",
+        "componentId": "6894c15ed533dc44876ccb90",
+        "displayOrder": 14,
+        "id": "6894c1c789252b375c24c1ad"
+      },
+      {
+        "componentType": "Carousel",
+        "componentId": "65f00107101d9be04a6c0d6f",
+        "displayOrder": 15,
+        "id": "65f00316101d9be04a6c10e7"
+      },
+      {
+        "componentType": "Carousel",
+        "componentId": "691f38084b2b47e12f47ce0d",
+        "displayOrder": 16,
+        "id": "691f3a9107241d05761fafae"
+      },
+      {
+        "componentType": "Carousel",
+        "componentId": "691f2e2f07241d05765a1a4c",
+        "displayOrder": 17,
+        "id": "691f3a914b2b47e12f76957f"
+      },
+      {
+        "componentType": "DiscountTab",
+        "componentId": "6608fb8d3f670217704a9984",
+        "displayOrder": 18,
+        "id": "66e66899f52f4d7184c407ea"
+      },
+      {
+        "componentType": "Carousel",
+        "componentId": "65f0017e4119aecf65220057",
+        "displayOrder": 19,
+        "id": "65f00316101d9be04a6c10e2"
+      },
+      {
+        "componentType": "Slider",
+        "componentId": "660cfea64a6b72c3572973f1",
+        "displayOrder": 20,
+        "id": "662f4ac9665e628a78728e89"
+      },
+      {
+        "componentType": "Carousel",
+        "componentId": "686c9464ce6432340f42be67",
+        "displayOrder": 21,
+        "id": "686c95d6c01ee58b5f3d0f9a"
+      },
+      {
+        "componentType": "ProductTab",
+        "componentId": "65f005374119aecf6522153b",
+        "displayOrder": 25,
+        "id": "65f00a854119aecf65223761"
+      },
+      {
+        "componentType": "Carousel",
+        "componentId": "6630bcdd1c217e3f89672495",
+        "displayOrder": 26,
+        "id": "6630bdc61c217e3f89673fe8"
+      },
+      {
+        "componentType": "Slider",
+        "componentId": "662e8b7f876b6be84ee6ad6d",
+        "displayOrder": 27,
+        "id": "662e9247876b6be84ee6ddb0"
+      },
+      {
+        "componentType": "Carousel",
+        "componentId": "662f4cc4876b6be84efeae4c",
+        "displayOrder": 29,
+        "id": "662f4d98665e628a78747ae3"
+      }
+    ]
+  },
+  "errors": [],
+  "validationErrors": {}
+}

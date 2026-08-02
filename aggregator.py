@@ -13,15 +13,15 @@ else:
     SHWAPNO_DATA = '/kaggle/working/shopno/data.json'
 if not os.path.exists(SHWAPNO_DATA):
     SHWAPNO_DATA = 'swapnoTRACKER/data.json'
-CHALDAL_DATA = 'PRICETRACKER/data.js'
-MEENA_DB = 'MEENAtracker/backend/meenatracker.db'
+CHALDAL_DATA = 'chaldalTRACKER/data.js'
+MEENA_DB = 'MEENAtracker/meenatracker.db'
 if platform.system() == 'Windows':
-    OTHOBA_DB = r'C:\PROJECTS\othoba\backend\othoba_tracker.db'
+    OTHOBA_DB = r'C:\PROJECTS\othoba\othoba_tracker.db'
 else:
-    OTHOBA_DB = '/kaggle/working/othoba/backend/othoba_tracker.db'
+    OTHOBA_DB = '/kaggle/working/othoba/othoba_tracker.db'
 if not os.path.exists(OTHOBA_DB):
-    OTHOBA_DB = 'othobaTRACKER/backend/othoba_tracker.db'
-METRO_DB = 'metroTRACKER/backend/metro_tracker.db'
+    OTHOBA_DB = 'othobaTRACKER/othoba_tracker.db'
+METRO_DB = 'metroTRACKER/metro_tracker.db'
 UNIMART_DATA = 'unimartTRACKER/data.json'
 SHOTEJ_DATA = 'ShotejTRACKER/data.json'
 FOODI_DB = 'FooDIEscraper/data/scraper.db'
@@ -137,7 +137,7 @@ def load_shwapno():
         else:
             app_data_path = '/kaggle/working/shopno/frontend/shwapno_products.json'
         if not os.path.exists(app_data_path):
-            app_data_path = 'swapnoTRACKER/shopno/frontend/shwapno_products.json'
+            app_data_path = 'swapnoTRACKER/frontend/shwapno_products.json'
         if os.path.exists(app_data_path):
             try:
                 with open(app_data_path, 'r', encoding='utf-8') as f:
@@ -326,13 +326,18 @@ def load_othoba():
                 print(f"Error loading Othoba {source_type} data from {filepath}: {e}")
 
         # 1. Load Web Data
-        web_path = 'othobaTRACKER/othoba/frontend/othoba_products.json'
+        if platform.system() == 'Windows':
+            web_path = r'C:\PROJECTS\othoba\frontend\othoba_products.json'
+        else:
+            web_path = '/kaggle/working/othoba/frontend/othoba_products.json'
+        if not os.path.exists(web_path):
+            web_path = 'othobaTRACKER/frontend/othoba_products.json'
         process_json_file(web_path, 'web')
 
         # 2. Load App Data
-        app_path = r'C:\PROJECTS\othoba\frontend\othoba_products.json' if platform.system() == 'Windows' else '/kaggle/working/othoba/frontend/othoba_products.json'
+        app_path = r'C:\PROJECTS\othoba\othoba_products.json' if platform.system() == 'Windows' else '/kaggle/working/othoba/othoba_products.json'
         if not os.path.exists(app_path):
-            app_path = 'othobaTRACKER/backend/othoba_products.json'
+            app_path = 'othobaTRACKER/othoba_products.json'
         process_json_file(app_path, 'app')
 
         products = {v["id"]: v for v in products_by_name.values()}
@@ -563,6 +568,9 @@ def save_store_data(name, data_tuple):
             f.write(f"window.{name}_part{i+1} = {json.dumps(chunk, separators=(',', ':'))};")
             
     summary = f"📦 <b>{name.title()}</b>: {total_items} items ({total_chunks} chunks)"
+    if scraper_stats:
+        summary += f"\n   ├ Web: {scraper_stats.get('web', 0)} | App: {scraper_stats.get('app', 0)} | Combined Unique: {scraper_stats.get('combined', 0)}"
+        
     print(f"Saved {name:15} | Items: {total_items:5} | Chunks: {total_chunks:2} | Safe Under {MAX_FILE_SIZE_MB}MB")
     return summary
 

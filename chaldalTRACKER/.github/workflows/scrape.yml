@@ -1,0 +1,33 @@
+name: Daily Chaldal Price Scrape
+
+on:
+  schedule:
+    - cron: '0 18 * * *'   # 00:00 BST daily (18:00 UTC)
+  workflow_dispatch:        # Allow manual trigger
+
+permissions:
+  contents: write
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run scraper
+        run: python scraper.py --store 1 --warehouse 8 --area 4 --output data
+
+      - name: Commit updated data
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name  "ChaldalTracker Bot"
+          git add data/
+          git diff --cached --quiet || git commit -m "chore: daily price update $(date -u +%Y-%m-%d)"
+          git push

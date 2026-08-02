@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#163f32" />
+  <meta name="description" content="Pulse Market — independent grocery price-history and deal-discovery archive. Track real shelf prices from Meena Bazar over time. Not affiliated with or endorsed by Meena Bazar." />
+
+  <!-- Open Graph / social sharing -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Pulse Market — Price history, without the noise" />
+  <meta property="og:description" content="Independent grocery price-history archive. See the real story behind every price before you buy." />
+  <meta property="og:locale" content="en_BD" />
+
+  <!-- Twitter card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Pulse Market — Price history, without the noise" />
+  <meta name="twitter:description" content="Independent grocery price-history archive. Not affiliated with Meena Bazar." />
+
+  <title>Pulse Market — Price history, without the noise</title>
+
+  <!-- Web app manifest -->
+  <link rel="manifest" href="manifest.json" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#catalog">Skip to catalog</a>
+
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="Pulse Market home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 36 36" role="img"><path d="M18 3c8.3 0 15 6.7 15 15s-6.7 15-15 15S3 26.3 3 18 9.7 3 18 3Z"/><path class="brand-pulse" d="M8.5 19h5l2.5-6.5 4 12 2.4-5.5h5.1"/></svg>
+      </span>
+      <span>Pulse <strong>Market</strong></span>
+    </a>
+
+    <nav class="header-nav" aria-label="Primary navigation">
+      <a href="#catalog" class="is-active">Discover</a>
+      <a href="#insights">Insights</a>
+      <button class="plain-button" id="savedNavButton" type="button">Saved <span id="savedCount">0</span></button>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-button" id="themeToggle" type="button" aria-label="Toggle color theme" title="Toggle color theme">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 15.4A9 9 0 1 1 8.6 3.2 7 7 0 0 0 20.8 15.4Z"/></svg>
+      </button>
+      <button class="avatar-button" type="button" aria-label="Open profile">PM</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> Your calm corner of the grocery aisle</p>
+        <div class="hero-dialog" id="hero-title">
+          <p>Discounts are loud.</p>
+          <h1>History is honest.</h1>
+        </div>
+        <p class="hero-lede">See the real story behind every price, compare unit costs, and know when today’s “deal” is actually worth it.</p>
+        <div class="hero-actions">
+          <a class="primary-button" href="#catalog">Explore today’s prices</a>
+          <button class="text-button" id="openFeaturedHistory" type="button">Watch the history move <span aria-hidden="true">↗</span></button>
+        </div>
+      </div>
+
+      <div class="hero-visual hero-stats-visual" aria-label="Live catalog health statistics">
+        <article class="health-card">
+          <div class="health-primary">
+            <div class="health-topline">
+              <span class="health-status"><i aria-hidden="true"></i> Data healthy</span>
+              <strong>Asia/Dhaka</strong>
+            </div>
+            <div class="health-observed">
+              <strong id="heroObserved">0</strong>
+              <span>products observed today</span>
+            </div>
+          </div>
+          <div class="health-grid">
+            <div><small>On discount</small><strong id="heroDiscountCount">0</strong></div>
+            <div><small>In stock</small><strong id="heroStockRate">0%</strong></div>
+            <div><small>Price drops</small><strong id="heroDrops">0</strong></div>
+            <div><small>Median saving</small><strong id="heroMedianSaving">৳0</strong></div>
+          </div>
+          <div class="health-foot"><span><i aria-hidden="true"></i> Monitoring normally</span><span>Updated moments ago</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="catalog-shell" id="catalog" aria-labelledby="catalog-title">
+      <div class="catalog-heading">
+        <div>
+          <p class="eyebrow"><span></span> Live catalog</p>
+          <h2 id="catalog-title">Shop with context.</h2>
+        </div>
+        <p>Every card compares today’s shelf price with its own history—not with a noisy marketing claim.</p>
+      </div>
+
+      <div class="control-deck" aria-label="Catalog filters and sorting">
+        <div class="control-row control-row-primary">
+          <label class="search-control">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+            <span class="sr-only">Search products</span>
+            <input id="searchInput" type="search" placeholder="Search products, brands, categories…" autocomplete="off" />
+            <kbd>/</kbd>
+          </label>
+
+          <div class="segmented-control" aria-label="Price history window">
+            <button type="button" data-window="7">7D</button>
+            <button type="button" data-window="30" class="is-active">30D</button>
+            <button type="button" data-window="90">90D</button>
+            <button type="button" data-window="365">1Y</button>
+          </div>
+
+          <label class="select-control sort-control">
+            <span>Sort</span>
+            <select id="sortSelect">
+              <option value="smart">Smart picks</option>
+              <option value="discount">Biggest discount</option>
+              <option value="drop">Largest price drop</option>
+              <option value="price-asc">Price: low to high</option>
+              <option value="price-desc">Price: high to low</option>
+              <option value="unit-asc">Unit price: low to high</option>
+              <option value="name">Name A–Z</option>
+            </select>
+          </label>
+
+          <button class="saved-toggle" id="savedToggle" type="button" aria-pressed="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4.8A1.8 1.8 0 0 1 7.8 3h8.4A1.8 1.8 0 0 1 18 4.8V21l-6-3.7L6 21Z"/></svg>
+            Saved only
+          </button>
+        </div>
+
+        <div class="control-row control-row-filters">
+          <div class="multi-select" data-multi="category">
+            <button class="filter-button" type="button" aria-expanded="false">
+              <span class="filter-label">Category</span>
+              <strong id="categorySummary">All categories</strong>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 9 5 5 5-5"/></svg>
+            </button>
+            <div class="filter-popover" id="categoryPopover" role="group" aria-label="Category options"></div>
+          </div>
+
+          <div class="multi-select" data-multi="subcategory">
+            <button class="filter-button" type="button" aria-expanded="false">
+              <span class="filter-label">Subcategory</span>
+              <strong id="subcategorySummary">All subcategories</strong>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 9 5 5 5-5"/></svg>
+            </button>
+            <div class="filter-popover" id="subcategoryPopover" role="group" aria-label="Subcategory options"></div>
+          </div>
+
+          <div class="unit-filter" aria-label="Filter by unit">
+            <span>Unit</span>
+            <button type="button" data-unit="all" class="is-active">All</button>
+            <button type="button" data-unit="kg">KG</button>
+            <button type="button" data-unit="l">LTR</button>
+            <button type="button" data-unit="pcs">PCS</button>
+          </div>
+
+          <label class="price-filter">
+            <span>Up to</span>
+            <input id="maxPrice" type="range" min="50" max="2500" step="50" value="2500" />
+            <output id="maxPriceOutput" for="maxPrice">৳2,500</output>
+          </label>
+
+          <label class="check-filter">
+            <input id="inStockOnly" type="checkbox" checked />
+            <span>In stock</span>
+          </label>
+
+          <button class="clear-button" id="clearFilters" type="button">Reset</button>
+        </div>
+
+        <div class="control-row control-row-chips">
+          <span class="chip-label">Quick views</span>
+          <button class="deal-chip is-active" data-deal="all" type="button">All prices</button>
+          <button class="deal-chip" data-deal="great" type="button"><span class="chip-icon">✦</span> Great deal 15%+</button>
+          <button class="deal-chip" data-deal="good" type="button"><span class="chip-icon">●</span> Good buy 5%+</button>
+          <button class="deal-chip" data-deal="drop" type="button"><span class="chip-icon">↘</span> Falling now</button>
+          <button class="deal-chip" data-deal="alltime" type="button"><span class="chip-icon">★</span> All-time low</button>
+          <button class="deal-chip" data-deal="lowest" type="button"><span class="chip-icon">⌁</span> Lowest in window</button>
+          <div class="result-pill"><span class="pulse-dot"></span> Showing <strong id="resultCount">0</strong> items</div>
+        </div>
+      </div>
+
+      <div class="catalog-stats" id="insights">
+        <article><small>Tracked items</small><strong id="trackedStat">0</strong><span>across selected categories</span></article>
+        <article><small>Price direction</small><strong class="positive" id="directionStat">Falling</strong><span id="directionDetail">0 products below average</span></article>
+        <article><small>Best value</small><strong id="bestValueStat">—</strong><span>lowest normalized unit cost</span></article>
+        <article><small>Potential savings</small><strong id="savingsStat">৳0</strong><span>versus window average</span></article>
+      </div>
+
+      <div class="active-filters" id="activeFilters" aria-live="polite"></div>
+      <div class="product-grid" id="productGrid" aria-live="polite"></div>
+
+      <div class="empty-state" id="emptyState" hidden>
+        <span>◌</span>
+        <h3>No honest matches yet.</h3>
+        <p>Try widening the category, unit, or price filters.</p>
+        <button class="primary-button" id="emptyReset" type="button">Reset filters</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div><strong>Pulse Market</strong><span>Price history with a pulse.</span></div>
+    <p class="disclaimer">⚠ This is an <strong>independent price archive</strong> and is <strong>not affiliated with, sponsored by, or endorsed by Meena Bazar</strong>. Product data is collected from publicly available catalog information. Prices shown are observed at time of scraping and may differ from current shelf prices.</p>
+  </footer>
+
+  <dialog class="history-modal" id="historyModal" aria-labelledby="modalProductName">
+    <div class="history-app">
+      <header class="history-header">
+        <div class="history-product-heading">
+          <button class="history-close" id="historyClose" type="button" aria-label="Close price history">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
+          <div class="mini-product-art" id="modalProductArt"></div>
+          <div>
+            <p id="modalProductMeta">Category · Unit</p>
+            <h2 id="modalProductName">Product name</h2>
+          </div>
+        </div>
+        <div class="history-actions">
+          <span class="history-position" id="historyPosition">1 / 1</span>
+          <span class="keyboard-hint" aria-hidden="true">← → browse · Space / Esc close</span>
+          <button class="modal-bookmark" id="modalBookmark" type="button" aria-label="Save product">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4.8A1.8 1.8 0 0 1 7.8 3h8.4A1.8 1.8 0 0 1 18 4.8V21l-6-3.7L6 21Z"/></svg>
+            <span>Save</span>
+          </button>
+          <button class="history-close icon-only" id="historyCloseIcon" type="button" aria-label="Close price history">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+          </button>
+        </div>
+      </header>
+
+      <div class="history-body">
+        <aside class="history-sidebar">
+          <div class="current-price-panel">
+            <small>Current price</small>
+            <strong id="modalCurrentPrice">৳0</strong>
+            <span id="modalUnitPrice">৳0 / unit</span>
+            <div class="modal-deal-badge" id="modalDealBadge">At average</div>
+          </div>
+
+          <div class="history-range-picker" aria-label="Chart range">
+            <button type="button" data-chart-range="7">7D</button>
+            <button type="button" data-chart-range="30">30D</button>
+            <button type="button" data-chart-range="90" class="is-active">90D</button>
+            <button type="button" data-chart-range="365">1Y</button>
+          </div>
+
+          <dl class="metric-list">
+            <div><dt>Window low</dt><dd id="metricLow">—</dd></div>
+            <div><dt>Window high</dt><dd id="metricHigh">—</dd></div>
+            <div><dt>Average</dt><dd id="metricAverage">—</dd></div>
+            <div><dt>Volatility</dt><dd id="metricVolatility">—</dd></div>
+            <div><dt>vs. average</dt><dd id="metricVsAverage">—</dd></div>
+          </dl>
+
+          <div class="history-note">
+            <span aria-hidden="true">i</span>
+            <p>Each point is a daily observed shelf price. Missing dates carry the last known price.</p>
+          </div>
+        </aside>
+
+        <section class="chart-workspace" aria-label="Interactive price history chart">
+          <div class="chart-toolbar">
+            <div>
+              <p class="chart-kicker">Price history</p>
+              <h3><span id="chartHeadline">90-day view</span> <em id="chartTrendLabel">Stable</em></h3>
+            </div>
+            <div class="chart-legend"><span class="line-key"></span> Shelf price <span class="average-key"></span> Window average</div>
+          </div>
+
+          <div class="chart-stage" id="chartStage" tabindex="-1">
+            <button class="history-cycle history-cycle-prev" id="historyPrev" type="button" aria-label="Previous product">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+            </button>
+            <div class="chart-product-watermark" id="modalChartArt" aria-hidden="true"></div>
+            <svg id="historyChart" viewBox="0 0 1200 620" preserveAspectRatio="none" role="img" aria-labelledby="chartTitle chartDescription">
+              <title id="chartTitle">Product price history</title>
+              <desc id="chartDescription">An interactive line chart showing daily prices over the selected date range.</desc>
+              <defs>
+                <linearGradient id="historyArea" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#e56a42" stop-opacity=".26"/>
+                  <stop offset="1" stop-color="#e56a42" stop-opacity="0"/>
+                </linearGradient>
+                <filter id="pointGlow" x="-100%" y="-100%" width="300%" height="300%">
+                  <feGaussianBlur stdDeviation="5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+              </defs>
+              <g id="chartGrid"></g>
+              <path id="chartAverageLine" class="chart-average-line"/>
+              <path id="chartArea" class="chart-area"/>
+              <path id="chartLine" class="chart-line"/>
+              <g id="chartLabels"></g>
+              <line id="chartCrosshair" class="chart-crosshair" x1="0" x2="0" y1="28" y2="568" hidden/>
+              <circle id="chartPoint" class="chart-point" cx="0" cy="0" r="7" hidden/>
+              <rect id="chartHitArea" class="chart-hit-area" x="75" y="28" width="1080" height="540"/>
+            </svg>
+            <div class="chart-tooltip" id="chartTooltip" role="status" hidden>
+              <small id="tooltipDate">Date</small>
+              <strong id="tooltipPrice">৳0</strong>
+              <span id="tooltipDelta">At average</span>
+            </div>
+            <button class="history-cycle history-cycle-next" id="historyNext" type="button" aria-label="Next product">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
+            </button>
+          </div>
+
+          <div class="chart-summary-row">
+            <article><span class="summary-icon">↘</span><div><small>Best day to buy</small><strong id="bestDay">—</strong></div></article>
+            <article><span class="summary-icon">⌁</span><div><small>Longest stable run</small><strong id="stableRun">—</strong></div></article>
+            <article><span class="summary-icon">৳</span><div><small>Saved vs. peak</small><strong id="savedVsPeak">—</strong></div></article>
+          </div>
+        </section>
+      </div>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js" defer></script>
+</body>
+</html>

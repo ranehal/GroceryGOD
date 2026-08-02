@@ -1,0 +1,6 @@
+.env
+*.har
+__pycache__/
+*.pyc
+node_modules/
+dist/

@@ -1,0 +1,118 @@
+[
+  {
+    "id": "65ed45e2e429af37f903ae0f",
+    "name": "Meat",
+    "seName": "?",
+    "subCategories": [
+      {
+        "name": "Beef",
+        "seName": "beef",
+        "parent": "65ed45e2e429af37f903ae0f"
+      },
+      {
+        "name": "Mutton",
+        "seName": "mutton",
+        "parent": "65ed45e2e429af37f903ae0f"
+      },
+      {
+        "name": "Chicken",
+        "seName": "chicken",
+        "parent": "65ed45e2e429af37f903ae0f"
+      },
+      {
+        "name": "Other Birds",
+        "seName": "other-birds",
+        "parent": "65ed45e2e429af37f903ae0f"
+      }
+    ]
+  },
+  {
+    "id": "65ed45e0e429af37f903adf0",
+    "name": "Food",
+    "seName": "?",
+    "subCategories": [
+      {
+        "name": "Eggs",
+        "seName": "eggs",
+        "parent": "65ed45e0e429af37f903adf0"
+      },
+      {
+        "name": "Frozen",
+        "seName": "Frozen",
+        "parent": "65ed45e0e429af37f903adf0"
+      },
+      {
+        "name": "Ice Cream",
+        "seName": "ice-cream",
+        "parent": "65ed45e0e429af37f903adf0"
+      },
+      {
+        "name": "Candy & Chocolate",
+        "seName": "candy-chocolate",
+        "parent": "65ed45e0e429af37f903adf0"
+      },
+      {
+        "name": "Baking Needs",
+        "seName": "baking-needs",
+        "parent": "65ed45e0e429af37f903adf0"
+      },
+      {
+        "name": "Fruits & Vegetables",
+        "seName": "fruits-and-vegetables",
+        "parent": "65ed45e0e429af37f903adf0"
+      },
+      {
+        "name": "Meat & Fish",
+        "seName": "meat-and-fish",
+        "parent": "65ed45e0e429af37f903adf0"
+      },
+      {
+        "name": "Sauces & Pickles",
+        "seName": "sauces-and-pickles",
+        "parent": "65ed45e0e429af37f903adf0"
+      },
+      {
+        "name": "Cooking",
+        "seName": "cooking",
+        "parent": "65ed45e0e429af37f903adf0"
+      },
+      {
+        "name": "Canned Food",
+        "seName": "canned-food",
+        "parent": "65ed45e0e429af37f903adf0"
+      },
+      {
+        "name": "Breakfast",
+        "seName": "breakfast",
+        "parent": "65ed45e0e429af37f903adf0"
+      },
+      {
+        "name": "Dairy",
+        "seName": "dairy",
+        "parent": "65ed45e0e429af37f903adf0"
+      },
+      {
+        "name": "Drinks",
+        "seName": "beverages",
+        "parent": "65ed45e0e429af37f903adf0"
+      },
+      {
+        "name": "Snacks",
+        "seName": "snacks",
+        "parent": "65ed45e0e429af37f903adf0"
+      }
+    ]
+  },
+  {
+    "id": "65ed45f2e429af37f903aedb",
+    "name": "Toys & Sports",
+    "seName": "?",
+    "subCategories": [
+      {
+        "name": "Toys Items",
+        "seName": "toys-items",
+        "parent": "65ed45f2e429af37f903aedb"
+      }
+    ]
+  }
+]

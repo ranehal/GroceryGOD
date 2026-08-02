@@ -1,0 +1,996 @@
+{
+  "data": [
+    {
+      "title": "Food",
+      "url": "food",
+      "icon": "https://d2t8nl1y0ie1km.cloudfront.net/images/65f15e95733cb673c89046c7_Food (3).png",
+      "childMenuItems": [
+        {
+          "title": "Fruits & Vegetables",
+          "url": "fruits-and-vegetables",
+          "childMenuItems": [
+            {
+              "title": "Fresh Fruits",
+              "url": "fresh-fruits",
+              "childMenuItems": []
+            },
+            {
+              "title": "Fresh Vegetables",
+              "url": "fresh-vegetables",
+              "childMenuItems": []
+            },
+            {
+              "title": "Dry Fruits",
+              "url": "dry-fruits",
+              "childMenuItems": []
+            },
+            {
+              "title": "Dry Vegetables",
+              "url": "dry-vegetables",
+              "childMenuItems": []
+            }
+          ]
+        },
+        {
+          "title": "Meat & Fish",
+          "url": "meat-and-fish",
+          "childMenuItems": [
+            {
+              "title": "Fish",
+              "url": "fish",
+              "childMenuItems": [
+                {
+                  "title": "Fresh Water Fish",
+                  "url": "fresh-water-fish",
+                  "childMenuItems": []
+                },
+                {
+                  "title": "Sea Fish",
+                  "url": "sea-fish",
+                  "childMenuItems": []
+                }
+              ]
+            },
+            {
+              "title": "Meat",
+              "url": "meat",
+              "childMenuItems": [
+                {
+                  "title": "Beef",
+                  "url": "beef",
+                  "childMenuItems": []
+                },
+                {
+                  "title": "Chicken",
+                  "url": "chicken",
+                  "childMenuItems": []
+                },
+                {
+                  "title": "Mutton",
+                  "url": "mutton",
+                  "childMenuItems": []
+                },
+                {
+                  "title": "Other Birds",
+                  "url": "other-birds",
+                  "childMenuItems": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Eggs",
+          "url": "eggs",
+          "childMenuItems": []
+        },
+        {
+          "title": "Baking Needs",
+          "url": "baking-needs",
+          "childMenuItems": [
+            {
+              "title": "Baking Ingredients",
+              "url": "baking-ingredients",
+              "childMenuItems": []
+            },
+            {
+              "title": "Atta Maida & Suji",
+              "url": "flours",
+              "childMenuItems": []
+            },
+            {
+              "title": "Colours & Flavors",
+              "url": "colours-and-flavors",
+              "childMenuItems": []
+            }
+          ]
+        },
+        {
+          "title": "Drinks",
+          "url": "beverages",
+          "childMenuItems": [
+            {
+              "title": "Tea",
+              "url": "tea",
+              "childMenuItems": [
+                {
+                  "title": "Black Tea",
+                  "url": "Black-Tea-2",
+                  "childMenuItems": []
+                },
+                {
+                  "title": "Green Tea",
+                  "url": "Green-Tea-2",
+                  "childMenuItems": []
+                },
+                {
+                  "title": "Flavored Tea",
+                  "url": "Flavored-Tea",
+                  "childMenuItems": []
+                },
+                {
+                  "title": "Tea Others",
+                  "url": "Tea-Others",
+                  "childMenuItems": []
+                }
+              ]
+            },
+            {
+              "title": "Coffee",
+              "url": "coffee",
+              "childMenuItems": [
+                {
+                  "title": "Instant Coffee",
+                  "url": "Instant-Coffee",
+                  "childMenuItems": []
+                },
+                {
+                  "title": "Coffee Mate",
+                  "url": "Coffee-Mate",
+                  "childMenuItems": []
+                },
+                {
+                  "title": "Coffee Others",
+                  "url": "Coffee-Others",
+                  "childMenuItems": []
+                }
+              ]
+            },
+            {
+              "title": "Juice",
+              "url": "juice",
+              "childMenuItems": []
+            },
+            {
+              "title": "Soft Drinks",
+              "url": "soft-drinks",
+              "childMenuItems": []
+            },
+            {
+              "title": "Energy & Malted Drinks",
+              "url": "energy-and-malted-drinks",
+              "childMenuItems": []
+            },
+            {
+              "title": "Syrups & Powder Drinks",
+              "url": "syrups-and-powder-drinks",
+              "childMenuItems": []
+            },
+            {
+              "title": "Drinking Water",
+              "url": "drinking-water",
+              "childMenuItems": []
+            }
+          ]
+        },
+        {
+          "title": "Snacks",
+          "url": "snacks",
+          "childMenuItems": [
+            {
+              "title": "Noodles",
+              "url": "Noodles",
+              "childMenuItems": []
+            },
+            {
+              "title": "Pasta",
+              "url": "Pasta",
+              "childMenuItems": []
+            },
+            {
+              "title": "Macaroni",
+              "url": "Macaroni",
+              "childMenuItems": []
+            },
+            {
+              "title": "Soup",
+              "url": "soup",
+              "childMenuItems": []
+            },
+            {
+              "title": "Cakes",
+              "url": "cakes",
+              "childMenuItems": []
+            },
+            {
+              "title": "Biscuits",
+              "url": "biscuits",
+              "childMenuItems": [
+                {
+                  "title": "Energy Biscuit",
+                  "url": "Energy-Biscuit",
+                  "childMenuItems": []
+                },
+                {
+                  "title": "Milk Biscuits",
+                  "url": "Milk-Biscuits",
+                  "childMenuItems": []
+                },
+                {
+                  "title": "Cream & Sandwich Biscuits",
+                  "url": "Cream-Sandwich-Biscuits",
+                  "childMenuItems": []
+                },
+                {
+                  "title": "Toast Biscuit",
+                  "url": "Toast-Biscuit",
+                  "childMenuItems": []
+                },
+                {
+                  "title": "Salted",
+                  "url": "Salted",
+                  "childMenuItems": []
+                },
+                {
+                  "title": "Sugar Free Biscuits",
+                  "url": "Sugar-Free-Biscuits",
+                  "childMenuItems": []
+                },
+                {
+                  "title": "Dry-Cake",
+                  "url": "Dry-Cake",
+                  "childMenuItems": []
+                },
+                {
+                  "title": "Biscuits Others",
+                  "url": "Biscuits-Others",
+                  "childMenuItems": []
+                }
+              ]
+            },
+            {
+              "title": "Local Snacks",
+              "url": "local-snacks",
+              "childMenuItems": []
+            },
+            {
+              "title": "Popcorn & Nuts",
+              "url": "popcorn-and-nuts",
+              "childMenuItems": []
+            },
+            {
+              "title": "Chips & Pretzels",
+              "url": "chips-and-pretzels",
+              "childMenuItems": []
+            },
+            {
+              "title": "Dried Fruits",
+              "url": "dried-fruits",
+              "childMenuItems": []
+            },
+            {
+              "title": "Mayonnaise",
+              "url": "mayonnaise",
+              "childMenuItems": []
+            },
+            {
+              "title": "Shemai",
+              "url": "shemai-and-suji",
+              "childMenuItems": []
+            }
+          ]
+        },
+        {
+          "title": "Frozen",
+          "url": "Frozen",
+          "childMenuItems": [
+            {
+              "title": "Paratha & Roti",
+              "url": "Paratha",
+              "childMenuItems": []
+            },
+            {
+              "title": "Singara",
+              "url": "Singara",
+              "childMenuItems": []
+            },
+            {
+              "title": "Samosa",
+              "url": "Samosa",
+              "childMenuItems": []
+            },
+            {
+              "title": "Nuggets",
+              "url": "Nuggets",
+              "childMenuItems": []
+            },
+            {
+              "title": "Sausage",
+              "url": "Sausage",
+              "childMenuItems": []
+            },
+            {
+              "title": "French Fries",
+              "url": "French-Fries",
+              "childMenuItems": []
+            },
+            {
+              "title": "Frozen Snacks Others",
+              "url": "Frozen-Snacks-Others",
+              "childMenuItems": []
+            }
+          ]
+        },
+        {
+          "title": "Canned Food",
+          "url": "canned-food",
+          "childMenuItems": [
+            {
+              "title": "Canned Vegetables",
+              "url": "Canned-Vegetables",
+              "childMenuItems": []
+            },
+            {
+              "title": "Canned Fish",
+              "url": "Canned-Fish",
+              "childMenuItems": []
+            },
+            {
+              "title": "Canned Fruits",
+              "url": "Canned-Fruits",
+              "childMenuItems": []
+            },
+            {
+              "title": "Canned Meat",
+              "url": "Canned-Meat-2",
+              "childMenuItems": []
+            }
+          ]
+        },
+        {
+          "title": "Ice Cream",
+          "url": "ice-cream",
+          "childMenuItems": []
+        },
+        {
+          "title": "Candy & Chocolate",
+          "url": "candy-chocolate",
+          "childMenuItems": []
+        },
+        {
+          "title": "Dairy",
+          "url": "dairy",
+          "childMenuItems": [
+            {
+              "title": "Ghee",
+              "url": "ghee",
+              "childMenuItems": []
+            },
+            {
+              "title": "Butter",
+              "url": "butter",
+              "childMenuItems": []
+            },
+            {
+              "title": "Cheese",
+              "url": "Cheese",
+              "childMenuItems": []
+            },
+            {
+              "title": "Condensed Milk & Cream",
+              "url": "condensed-milk-and-cream",
+              "childMenuItems": []
+            },
+            {
+              "title": "Liquid & UHT Milk",
+              "url": "liquid-and-uht-milk",
+              "childMenuItems": [
+                {
+                  "title": "Low Fat Milk",
+                  "url": "Low-Fat-Milk-2",
+                  "childMenuItems": []
+                },
+                {
+                  "title": "Milk Others",
+                  "url": "Milk-Others",
+                  "childMenuItems": []
+                }
+              ]
+            },
+            {
+              "title": "Powder Milk",
+              "url": "powder-milk",
+              "childMenuItems": [
+                {
+                  "title": "Full Cream Milk",
+                  "url": "Full-Cream-Milk",
+                  "childMenuItems": []
+                },
+                {
+                  "title": "Diabetic Milk",
+                  "url": "Diabetic-Milk",
+                  "childMenuItems": []
+                },
+                {
+                  "title": "Low Fat Milk",
+                  "url": "Low-Fat-Milk",
+                  "childMenuItems": []
+                },
+                {
+                  "title": "Non Fat Milk",
+                  "url": "Non-Fat-Milk",
+                  "childMenuItems": []
+                },
+                {
+                  "title": "Powder Milk Others",
+                  "url": "Powder-Milk-Others",
+                  "childMenuItems": []
+                }
+              ]
+            },
+            {
+              "title": "Yogurt",
+              "url": "Yogurt",
+              "childMenuItems": []
+            },
+            {
+              "title": "Laban",
+              "url": "Laban",
+              "childMenuItems": []
+            },
+            {
+              "title": "Lacchi",
+              "url": "Lacchi",
+              "childMenuItems": []
+            }
+          ]
+        },
+        {
+          "title": "Breakfast",
+          "url": "breakfast",
+          "childMenuItems": [
+            {
+              "title": "Breads",
+              "url": "breads",
+              "childMenuItems": []
+            },
+            {
+              "title": "Jam & Jelly",
+              "url": "jam-and-jelly",
+              "childMenuItems": []
+            },
+            {
+              "title": "Dips & Spreads",
+              "url": "dips-and-spreads",
+              "childMenuItems": []
+            },
+            {
+              "title": "Honey",
+              "url": "honey",
+              "childMenuItems": []
+            },
+            {
+              "title": "Cereals",
+              "url": "cereals",
+              "childMenuItems": []
+            }
+          ]
+        },
+        {
+          "title": "Sauces & Pickles",
+          "url": "sauces-and-pickles",
+          "childMenuItems": [
+            {
+              "title": "Pickle & Condiments",
+              "url": "pickle-and-condiments",
+              "childMenuItems": []
+            },
+            {
+              "title": "Dipping Sauce",
+              "url": "dipping-sauce",
+              "childMenuItems": []
+            },
+            {
+              "title": "Cooking Sauce",
+              "url": "cooking-sauce",
+              "childMenuItems": []
+            }
+          ]
+        },
+        {
+          "title": "Cooking",
+          "url": "cooking",
+          "childMenuItems": [
+            {
+              "title": "Rice",
+              "url": "rice",
+              "childMenuItems": [
+                {
+                  "title": "Loose Rice",
+                  "url": "loose-rice",
+                  "childMenuItems": []
+                },
+                {
+                  "title": "Packed Rice",
+                  "url": "packed-rice",
+                  "childMenuItems": []
+                }
+              ]
+            },
+            {
+              "title": "Dal or Lentil",
+              "url": "daal-or-lentil",
+              "childMenuItems": [
+                {
+                  "title": "Loose Daal",
+                  "url": "loose-daal",
+                  "childMenuItems": []
+                },
+                {
+                  "title": "Packed Daal",
+                  "url": "packed-daal",
+                  "childMenuItems": []
+                }
+              ]
+            },
+            {
+              "title": "Oil",
+              "url": "oil",
+              "childMenuItems": [
+                {
+                  "title": "Soybean Oil",
+                  "url": "soybean-oil",
+                  "childMenuItems": []
+                },
+                {
+                  "title": "Rice Bran Oil",
+                  "url": "rice-bran-oil",
+                  "childMenuItems": []
+                },
+                {
+                  "title": "Sunflower Oil",
+                  "url": "sunflower-oil",
+                  "childMenuItems": []
+                },
+                {
+                  "title": "Olive Oil",
+                  "url": "olive-oil",
+                  "childMenuItems": []
+                },
+                {
+                  "title": "Mustard Oil",
+                  "url": "mustard-oil",
+                  "childMenuItems": []
+                },
+                {
+                  "title": "Flavored Oil",
+                  "url": "flavored-oil",
+                  "childMenuItems": []
+                }
+              ]
+            },
+            {
+              "title": "Spices",
+              "url": "spices",
+              "childMenuItems": [
+                {
+                  "title": "Regular Spice",
+                  "url": "Regular-Spice",
+                  "childMenuItems": []
+                },
+                {
+                  "title": "Mixed Spice",
+                  "url": "Mixed-Spice",
+                  "childMenuItems": []
+                },
+                {
+                  "title": "Wholespice",
+                  "url": "Wholespice",
+                  "childMenuItems": []
+                }
+              ]
+            },
+            {
+              "title": "Salt & Sugar",
+              "url": "salt-and-sugar",
+              "childMenuItems": [
+                {
+                  "title": "Salt",
+                  "url": "salt",
+                  "childMenuItems": []
+                },
+                {
+                  "title": "Sugar",
+                  "url": "sugar",
+                  "childMenuItems": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Baby Food & Care",
+      "url": "baby-food-and-care",
+      "icon": "https://d2t8nl1y0ie1km.cloudfront.net/images/65f15f6f52799b9600c44d28_baby care.png",
+      "childMenuItems": [
+        {
+          "title": "Baby Food",
+          "url": "baby-food",
+          "childMenuItems": []
+        },
+        {
+          "title": "Baby Wipes",
+          "url": "baby-wipes",
+          "childMenuItems": []
+        },
+        {
+          "title": "Baby Bath & Skincare",
+          "url": "baby-bath-and-skincare",
+          "childMenuItems": []
+        },
+        {
+          "title": "Baby Oral Care",
+          "url": "baby-oral-care",
+          "childMenuItems": []
+        },
+        {
+          "title": "Baby Accessories",
+          "url": "baby-accessories",
+          "childMenuItems": []
+        }
+      ]
+    },
+    {
+      "title": "Diapers",
+      "url": "Diaper",
+      "icon": "https://d2t8nl1y0ie1km.cloudfront.net/images/69ad2daa580494139cb082ba_Diapermobnavmenu.png",
+      "childMenuItems": [
+        {
+          "title": "Baby Diapers",
+          "url": "baby-diapers",
+          "childMenuItems": []
+        }
+      ]
+    },
+    {
+      "title": "Home Cleaning",
+      "url": "home-cleaning",
+      "icon": "https://d2t8nl1y0ie1km.cloudfront.net/images/65f15f9552799b9600c44d38_Home Cleaning.png",
+      "childMenuItems": [
+        {
+          "title": "Dish Cleaner",
+          "url": "dish-cleaner",
+          "childMenuItems": []
+        },
+        {
+          "title": "Laundry",
+          "url": "laundry",
+          "childMenuItems": []
+        },
+        {
+          "title": "Air Fresheners",
+          "url": "air-fresheners",
+          "childMenuItems": []
+        },
+        {
+          "title": "Floor Glass & Wood Cleaners",
+          "url": "floor-glass-and-wood-cleaners",
+          "childMenuItems": []
+        },
+        {
+          "title": "Toilet Cleaners",
+          "url": "toilet-cleaners",
+          "childMenuItems": []
+        },
+        {
+          "title": "Pest Control",
+          "url": "pest-control",
+          "childMenuItems": []
+        },
+        {
+          "title": "Trash Supplies",
+          "url": "trash-supplies",
+          "childMenuItems": []
+        }
+      ]
+    },
+    {
+      "title": "Pet Care",
+      "url": "pet-care",
+      "icon": "https://d2t8nl1y0ie1km.cloudfront.net/images/65f15f22733cb673c89046d8_pet food.png",
+      "childMenuItems": [
+        {
+          "title": "Cat Food",
+          "url": "cat-food",
+          "childMenuItems": []
+        }
+      ]
+    },
+    {
+      "title": "Beauty & Health",
+      "url": "beauty-and-health",
+      "icon": "https://d2t8nl1y0ie1km.cloudfront.net/images/65f15fd0733cb673c8908cc7_Beauty Health.png",
+      "childMenuItems": [
+        {
+          "title": "Beauty Care",
+          "url": "personal-care",
+          "childMenuItems": [
+            {
+              "title": "Body Wash",
+              "url": "bath-and-body",
+              "childMenuItems": []
+            },
+            {
+              "title": "Skincare",
+              "url": "skincare",
+              "childMenuItems": []
+            },
+            {
+              "title": "Talcum Powder",
+              "url": "talcum-powder",
+              "childMenuItems": []
+            },
+            {
+              "title": "Shampoo",
+              "url": "Shampoo",
+              "childMenuItems": []
+            },
+            {
+              "title": "Conditioners",
+              "url": "Conditioners",
+              "childMenuItems": []
+            },
+            {
+              "title": "Cream & Lotion",
+              "url": "cream-and-lotion",
+              "childMenuItems": []
+            },
+            {
+              "title": "Cosmetics",
+              "url": "cosmetics",
+              "childMenuItems": []
+            },
+            {
+              "title": "Hair Care",
+              "url": "hair-care",
+              "childMenuItems": []
+            },
+            {
+              "title": "Shaving & Facial Care",
+              "url": "shaving-and-facial-care",
+              "childMenuItems": []
+            },
+            {
+              "title": "Feminine Care",
+              "url": "feminine-care",
+              "childMenuItems": []
+            },
+            {
+              "title": "Oral Care",
+              "url": "oral-care",
+              "childMenuItems": []
+            },
+            {
+              "title": "Deodorant",
+              "url": "deodorant",
+              "childMenuItems": []
+            },
+            {
+              "title": "Tissue & Wipes",
+              "url": "tissue-and-wipes",
+              "childMenuItems": []
+            },
+            {
+              "title": "Personal Grooming",
+              "url": "personal-grooming",
+              "childMenuItems": []
+            },
+            {
+              "title": "Handwash & Handrub",
+              "url": "handwash-and-handrub",
+              "childMenuItems": []
+            }
+          ]
+        },
+        {
+          "title": "Health Care",
+          "url": "health-care",
+          "childMenuItems": [
+            {
+              "title": "Herbal & Digestive Aids",
+              "url": "herbal-and-digestive-aids",
+              "childMenuItems": []
+            },
+            {
+              "title": "First Aid & Antiseptics",
+              "url": "first-aid-and-antiseptics",
+              "childMenuItems": []
+            },
+            {
+              "title": "Diabetic Sugar",
+              "url": "diabetic-sugar",
+              "childMenuItems": []
+            },
+            {
+              "title": "Medical Devices",
+              "url": "Medical-Devices",
+              "childMenuItems": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Fashion & Lifestyle",
+      "url": "fashion-and-lifestyle",
+      "icon": "https://d2t8nl1y0ie1km.cloudfront.net/images/66b87bba367d9a39bc5c693f_lifestyle.png",
+      "childMenuItems": [
+        {
+          "title": "Kurtis Tunics & Tops",
+          "url": "kurtis-tunics-and-tops",
+          "childMenuItems": []
+        },
+        {
+          "title": "Skirts & Palazzos",
+          "url": "skirts-and-palazzos",
+          "childMenuItems": []
+        },
+        {
+          "title": "Lungi",
+          "url": "lungi",
+          "childMenuItems": []
+        }
+      ]
+    },
+    {
+      "title": "Home & Kitchen",
+      "url": "home-and-kitchen",
+      "icon": "https://d2t8nl1y0ie1km.cloudfront.net/images/65f160e3733cb673c8908ccf_Home and kitchen.png",
+      "childMenuItems": [
+        {
+          "title": "Home Appliance",
+          "url": "Home-Appliance-2",
+          "childMenuItems": [
+            {
+              "title": "Fan",
+              "url": "Fan",
+              "childMenuItems": []
+            },
+            {
+              "title": "Iron",
+              "url": "Iron",
+              "childMenuItems": []
+            }
+          ]
+        },
+        {
+          "title": "Kitchen Accessories",
+          "url": "kitchen-accessories",
+          "childMenuItems": []
+        },
+        {
+          "title": "Kitchen Essentials",
+          "url": "kitchen-appliances",
+          "childMenuItems": [
+            {
+              "title": "Storage & Containers",
+              "url": "storage-and-containers",
+              "childMenuItems": []
+            },
+            {
+              "title": "Cookware",
+              "url": "cookware",
+              "childMenuItems": []
+            },
+            {
+              "title": "Dining & Serve ware",
+              "url": "crockeries",
+              "childMenuItems": []
+            },
+            {
+              "title": "Spoons Forks & Others",
+              "url": "spoons-forks-and-others",
+              "childMenuItems": []
+            }
+          ]
+        },
+        {
+          "title": "Home Accessories",
+          "url": "living-items",
+          "childMenuItems": [
+            {
+              "title": "Towels",
+              "url": "towels",
+              "childMenuItems": []
+            },
+            {
+              "title": "Bedding",
+              "url": "bedding",
+              "childMenuItems": []
+            },
+            {
+              "title": "Pillow & Cushion",
+              "url": "pillow-and-cushion",
+              "childMenuItems": []
+            },
+            {
+              "title": "Blanket & Comforter",
+              "url": "blanket-and-comforter",
+              "childMenuItems": []
+            },
+            {
+              "title": "Bed Room Essentials",
+              "url": "bed-room-essentials",
+              "childMenuItems": []
+            }
+          ]
+        },
+        {
+          "title": "Lights & Electrical",
+          "url": "lights-and-electrical",
+          "childMenuItems": []
+        },
+        {
+          "title": "Tools & Hardware",
+          "url": "tools-and-hardware",
+          "childMenuItems": []
+        }
+      ]
+    },
+    {
+      "title": "Stationeries",
+      "url": "office-products",
+      "icon": "https://d2t8nl1y0ie1km.cloudfront.net/images/65f1613152799b9600c4b602_office.png",
+      "childMenuItems": [
+        {
+          "title": "Batteries",
+          "url": "batteries",
+          "childMenuItems": []
+        },
+        {
+          "title": "Writing & Drawing",
+          "url": "writing-and-drawing",
+          "childMenuItems": [
+            {
+              "title": "Colours",
+              "url": "colours",
+              "childMenuItems": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Toys & Sports",
+      "url": "toys-and-sports",
+      "icon": "https://d2t8nl1y0ie1km.cloudfront.net/images/65f1614b733cb673c8908cd9_Toy & sports.png",
+      "childMenuItems": [
+        {
+          "title": "Toys Items",
+          "url": "toys-items",
+          "childMenuItems": []
+        }
+      ]
+    },
+    {
+      "title": "Gadget",
+      "url": "Gadget",
+      "icon": "https://d2t8nl1y0ie1km.cloudfront.net/images/668561c08d181bc72b957c85_Gadget.png",
+      "childMenuItems": []
+    }
+  ],
+  "errors": [],
+  "validationErrors": {}
+}
