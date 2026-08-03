@@ -1,0 +1,1 @@
+window.metromartManifest = {"metadata":{"last_update":"2026-08-02 18:21:41","total":923,"date_range":"2026-07-23 to 2026-07-31","total_chunks":1,"chunk_size":5000,"scraper_stats":{"web":923,"app":0,"combined":923}}};
