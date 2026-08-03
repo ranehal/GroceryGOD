@@ -1,17 +1,8 @@
-Last Run: 2026-07-31 05:40:48
+Last Run: 2026-08-03 23:20:03
 ------------------------------
-Total Scraped: 61242
-New Items: 337
+Total Scraped: 0
+Web Scraped: 0
+App API Scraped: 0
+Combined Unique: 0
 ------------------------------
 Categories:
-- daily-bazar: 400
-- household-essentials-2: 400
-- laundry-cleaning: 400
-- kitchen-supplies-tool: 400
-- cleaning-accessories-3: 400
-- electronics-store: 400
-- computers-components-accessories: 400
-- mobile-accessories: 400
-- mouse: 400
-- keyboard: 400
-... and 362 more.
