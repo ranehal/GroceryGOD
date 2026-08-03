@@ -90357,12 +90357,144 @@
     "original_price": null,
     "discount": null
   },
+  "roshungarlicchineseloosekg": {
+    "id": "roshungarlicchineseloosekg",
+    "name": "Roshun (Garlic) Chinese Loose Kg",
+    "url": "https://www.shwapno.com/roshun-chinese-loose-p-6?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa94f8115075f231ec61fb_Roshun-Chinese-Loose-P_1.webp",
+    "category": "Dry Vegetables",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 160,
+        "normalized_price": 160.0,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 160,
+    "normalized_price": 160.0,
+    "original_price": null,
+    "discount": null,
+    "unit": "1 Piece",
+    "unit_type": "pc"
+  },
+  "alupotatoregularloosekg": {
+    "id": "alupotatoregularloosekg",
+    "name": "Alu (Potato) Regular Loose Kg",
+    "url": "https://www.shwapno.com/new-alu-loose-kg?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/693804d5a076408e0565a0a8_New-Alu-Loose-kg_1.webp",
+    "category": "Dry Vegetables",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 27,
+        "normalized_price": 27.0,
+        "original_price": 30,
+        "discount": "10%"
+      }
+    ],
+    "current_price": 27,
+    "normalized_price": 27.0,
+    "original_price": 30,
+    "discount": "10%",
+    "unit": "1 Piece",
+    "unit_type": "pc"
+  },
+  "piyajonionlocalloosepkg": {
+    "id": "piyajonionlocalloosepkg",
+    "name": "Piyaj (Onion) Local Loose (P) Kg",
+    "url": "https://www.shwapno.com/piyaj-local-loose-p-kg?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/69427f2370440128e6b5c1e7_Piyaj-Local-Loose-P-kg_1.webp",
+    "category": "Dry Vegetables",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 55,
+        "normalized_price": 55.0,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 55,
+    "normalized_price": 55.0,
+    "original_price": null,
+    "discount": null,
+    "unit": "1 Piece",
+    "unit_type": "pc"
+  },
+  "khashirmangshomuttonpremium": {
+    "id": "khashirmangshomuttonpremium",
+    "name": "Khashir Mangsho (Mutton Premium)",
+    "url": "https://www.shwapno.com/khashir-mangsho-7?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/668d1a316465c458a3e0fc55_Khashir-Mangsho_1.webp",
+    "category": "Mutton",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 1309,
+        "normalized_price": 1309.0,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 1309,
+    "normalized_price": 1309.0,
+    "original_price": null,
+    "discount": null,
+    "unit": "1 Piece",
+    "unit_type": "pc"
+  },
+  "beefpremiumcube": {
+    "id": "beefpremiumcube",
+    "name": "Beef Premium Cube",
+    "url": "https://www.shwapno.com/beef-premium-cube-kg-7?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/66bc93abea1edb765ffd4410_3100174_1.webp",
+    "category": "Beef",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 809,
+        "normalized_price": 809.0,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 809,
+    "normalized_price": 809.0,
+    "original_price": null,
+    "discount": null,
+    "unit": "1 Piece",
+    "unit_type": "pc"
+  },
+  "koyelermangshoquailmeatdressed55gmpcs": {
+    "id": "koyelermangshoquailmeatdressed55gmpcs",
+    "name": "Koyeler Mangsho (Quail Meat) Dressed 55gm+/pcs",
+    "url": "https://www.shwapno.com/koyeler-mangsho-dressed-55g-pcs?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa98d5115075f231ecdab5_Koyeler-Mangsho-Dressed_1.webp",
+    "category": "Meat Variety",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 75,
+        "normalized_price": 1363.64,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 75,
+    "normalized_price": 1363.64,
+    "original_price": null,
+    "discount": null,
+    "unit": "55.0 gm",
+    "unit_type": "kg"
+  },
   "roastchicken": {
     "id": "roastchicken",
     "name": "Roast Chicken",
     "url": "https://www.shwapno.com/roast-chicken-200-300gm-per-pcs?lang=en",
     "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa98d5115075f231ecdaad_Roast-Chicken_1.webp",
-    "category": "Chicken",
+    "category": "Meat Variety",
     "history": [
       {
         "date": "2026-08-03",
@@ -90384,7 +90516,7 @@
     "name": "Broiler Chicken Leg (Kg)",
     "url": "https://www.shwapno.com/broiler-chicken-leg-kg-7?lang=en",
     "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa98d3115075f231ecda85_Broiler-Chicken-Leg-Kg_1.webp",
-    "category": "Chicken",
+    "category": "Meat Variety",
     "history": [
       {
         "date": "2026-08-03",
@@ -90406,7 +90538,7 @@
     "name": "Broiler Chicken Drumstick (Without Skin) Kg",
     "url": "https://www.shwapno.com/broiler-chicken-drumstick-7?lang=en",
     "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa98d4115075f231ecdaa5_Broiler-Chicken-Drumstick_1.webp",
-    "category": "Chicken",
+    "category": "Meat Variety",
     "history": [
       {
         "date": "2026-08-03",
@@ -90428,7 +90560,7 @@
     "name": "Broiler Chicken (Without Skin) Kg",
     "url": "https://www.shwapno.com/broiler-chicken-without-skin-per-kg?lang=en",
     "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/668d1a316465c458a3e0fc60_Broiler-Chicken-Without-Skin_1.webp",
-    "category": "Chicken",
+    "category": "Meat Variety",
     "history": [
       {
         "date": "2026-08-03",
@@ -90450,7 +90582,7 @@
     "name": "Broiler Chicken (With Skin) Kg",
     "url": "https://www.shwapno.com/broiler-chicken-with-skin-per-kg?lang=en",
     "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/668d1a336465c458a3e0fd9c_Broiler-Chicken-With-Skin_1.webp",
-    "category": "Chicken",
+    "category": "Meat Variety",
     "history": [
       {
         "date": "2026-08-03",
@@ -90467,56 +90599,12 @@
     "unit": "1 Piece",
     "unit_type": "pc"
   },
-  "beefpremiumcube": {
-    "id": "beefpremiumcube",
-    "name": "Beef Premium Cube",
-    "url": "https://www.shwapno.com/beef-premium-cube-kg-7?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/66bc93abea1edb765ffd4410_3100174_1.webp",
-    "category": "Meat & Fish Combo",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 809,
-        "normalized_price": 809.0,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 809,
-    "normalized_price": 809.0,
-    "original_price": null,
-    "discount": null,
-    "unit": "1 Piece",
-    "unit_type": "pc"
-  },
-  "hilshafreshlocalcaptured300399gm": {
-    "id": "hilshafreshlocalcaptured300399gm",
-    "name": "Hilsha Fresh Local Captured (300-399 gm)",
-    "url": "https://www.shwapno.com/hilsha-300-390-gm?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/66fe7329f44f7af4a52823b8_Hilsha-300-390gm_1.webp",
-    "category": "Meat & Fish Combo",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 485,
-        "normalized_price": 1215.54,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 485,
-    "normalized_price": 1215.54,
-    "original_price": null,
-    "discount": null,
-    "unit": "399.0 gm",
-    "unit_type": "kg"
-  },
   "beijinghanshduckdressed23kg": {
     "id": "beijinghanshduckdressed23kg",
     "name": "Beijing Hansh (Duck) Dressed (2-3 kg)",
     "url": "https://www.shwapno.com/beijing-hansh-kg?lang=en",
     "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/6605329a55503b55855d83be_Beijing-Hansh_1.webp",
-    "category": "Meat & Fish Combo",
+    "category": "Meat Variety",
     "history": [
       {
         "date": "2026-08-03",
@@ -90533,56 +90621,12 @@
     "unit": "3.0 kg",
     "unit_type": "kg"
   },
-  "ruifreshlocalcultured11499kg": {
-    "id": "ruifreshlocalcultured11499kg",
-    "name": "Rui Fresh Local Cultured (1-1.499 kg)",
-    "url": "https://www.shwapno.com/rui-frs-loc-raj-cul-rc-1-to-1-499-kg-2?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/6790ae0b976639d257254971_Rui-frs-loc-raj-cul-RC-1-to-1-499-kg_1.webp",
-    "category": "Meat & Fish Combo",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 385,
-        "normalized_price": 256.84,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 385,
-    "normalized_price": 256.84,
-    "original_price": null,
-    "discount": null,
-    "unit": "1.499 kg",
-    "unit_type": "kg"
-  },
-  "ruifreshlocalcultured2299kg": {
-    "id": "ruifreshlocalcultured2299kg",
-    "name": "Rui Fresh Local Cultured (2-2.99 kg)",
-    "url": "https://www.shwapno.com/rui-deshi-p-2-1-to-2-5-kg-per-kg?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/668d1a306465c458a3e0fc41_Rui-Deshi-P_1.webp",
-    "category": "Meat & Fish Combo",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 475,
-        "normalized_price": 158.86,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 475,
-    "normalized_price": 158.86,
-    "original_price": null,
-    "discount": null,
-    "unit": "2.99 kg",
-    "unit_type": "kg"
-  },
   "hilshafreshlocalcaptured400499gm": {
     "id": "hilshafreshlocalcaptured400499gm",
     "name": "Hilsha Fresh Local Captured (400-499 gm)",
     "url": "https://www.shwapno.com/hilsha-400g?lang=en",
     "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/6790ae11976639d257254e29_Hilsha-400gm_1.webp",
-    "category": "Meat & Fish Combo",
+    "category": "Fish",
     "history": [
       {
         "date": "2026-08-03",
@@ -90599,100 +90643,34 @@
     "unit": "499.0 gm",
     "unit_type": "kg"
   },
-  "pangasfreshlocalcultured151999kg": {
-    "id": "pangasfreshlocalcultured151999kg",
-    "name": "Pangas Fresh Local Cultured (1.5-1.999 kg)",
-    "url": "https://www.shwapno.com/pangas-cultured-medium-p-per-kg?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/668d1a326465c458a3e0fd94_Pangas-Cultured-Medium-Premium_1.webp",
-    "category": "Meat & Fish Combo",
+  "hilshafreshlocalcaptured300399gm": {
+    "id": "hilshafreshlocalcaptured300399gm",
+    "name": "Hilsha Fresh Local Captured (300-399 gm)",
+    "url": "https://www.shwapno.com/hilsha-300-390-gm?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/66fe7329f44f7af4a52823b8_Hilsha-300-390gm_1.webp",
+    "category": "Fish",
     "history": [
       {
         "date": "2026-08-03",
-        "price": 225,
-        "normalized_price": 112.56,
+        "price": 485,
+        "normalized_price": 1215.54,
         "original_price": null,
         "discount": null
       }
     ],
-    "current_price": 225,
-    "normalized_price": 112.56,
+    "current_price": 485,
+    "normalized_price": 1215.54,
     "original_price": null,
     "discount": null,
-    "unit": "1.999 kg",
+    "unit": "399.0 gm",
     "unit_type": "kg"
-  },
-  "khashirmangshomuttonpremium": {
-    "id": "khashirmangshomuttonpremium",
-    "name": "Khashir Mangsho (Mutton Premium)",
-    "url": "https://www.shwapno.com/khashir-mangsho-7?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/668d1a316465c458a3e0fc55_Khashir-Mangsho_1.webp",
-    "category": "Meat & Fish Combo",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 1309,
-        "normalized_price": 1309.0,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 1309,
-    "normalized_price": 1309.0,
-    "original_price": null,
-    "discount": null,
-    "unit": "1 Piece",
-    "unit_type": "pc"
-  },
-  "pabdafreshlocalcultured1825pcskg": {
-    "id": "pabdafreshlocalcultured1825pcskg",
-    "name": "Pabda Fresh Local Cultured (18-25 Pcs/kg)",
-    "url": "https://www.shwapno.com/pabda-premium-7?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/6605329b55503b55855d83c2_Pabda-Premium_1.webp",
-    "category": "Meat & Fish Combo",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 440,
-        "normalized_price": 17.6,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 440,
-    "normalized_price": 17.6,
-    "original_price": null,
-    "discount": null,
-    "unit": "25.0 pc",
-    "unit_type": "pc"
-  },
-  "deshimixfreshlocalcaptured": {
-    "id": "deshimixfreshlocalcaptured",
-    "name": "Deshi Mix Fresh Local Captured",
-    "url": "https://www.shwapno.com/deshi-mix-7?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/6605329855503b55855d83aa_Deshi-Mix_1.webp",
-    "category": "Meat & Fish Combo",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 350,
-        "normalized_price": 350.0,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 350,
-    "normalized_price": 350.0,
-    "original_price": null,
-    "discount": null,
-    "unit": "1 Piece",
-    "unit_type": "pc"
   },
   "bagdachingrifreshlocalcultured5565pcskg": {
     "id": "bagdachingrifreshlocalcultured5565pcskg",
     "name": "Bagda Chingri Fresh Local Cultured (55-65 Pcs/kg)",
     "url": "https://www.shwapno.com/bagda-chingri-medium-7?lang=en",
     "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa98d6115075f231ecdacd_Bagda-Chingri-Medium_1.webp",
-    "category": "Meat & Fish Combo",
+    "category": "Fish",
     "history": [
       {
         "date": "2026-08-03",
@@ -90709,26 +90687,114 @@
     "unit": "65.0 pc",
     "unit_type": "pc"
   },
-  "koyelermangshoquailmeatdressed55gmpcs": {
-    "id": "koyelermangshoquailmeatdressed55gmpcs",
-    "name": "Koyeler Mangsho (Quail Meat) Dressed 55gm+/pcs",
-    "url": "https://www.shwapno.com/koyeler-mangsho-dressed-55g-pcs?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa98d5115075f231ecdab5_Koyeler-Mangsho-Dressed_1.webp",
-    "category": "Meat & Fish Combo",
+  "deshimixfreshlocalcaptured": {
+    "id": "deshimixfreshlocalcaptured",
+    "name": "Deshi Mix Fresh Local Captured",
+    "url": "https://www.shwapno.com/deshi-mix-7?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/6605329855503b55855d83aa_Deshi-Mix_1.webp",
+    "category": "Fish",
     "history": [
       {
         "date": "2026-08-03",
-        "price": 75,
-        "normalized_price": 1363.64,
+        "price": 350,
+        "normalized_price": 350.0,
         "original_price": null,
         "discount": null
       }
     ],
-    "current_price": 75,
-    "normalized_price": 1363.64,
+    "current_price": 350,
+    "normalized_price": 350.0,
     "original_price": null,
     "discount": null,
-    "unit": "55.0 gm",
+    "unit": "1 Piece",
+    "unit_type": "pc"
+  },
+  "pabdafreshlocalcultured1825pcskg": {
+    "id": "pabdafreshlocalcultured1825pcskg",
+    "name": "Pabda Fresh Local Cultured (18-25 Pcs/kg)",
+    "url": "https://www.shwapno.com/pabda-premium-7?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/6605329b55503b55855d83c2_Pabda-Premium_1.webp",
+    "category": "Fish",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 440,
+        "normalized_price": 17.6,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 440,
+    "normalized_price": 17.6,
+    "original_price": null,
+    "discount": null,
+    "unit": "25.0 pc",
+    "unit_type": "pc"
+  },
+  "ruifreshlocalcultured2299kg": {
+    "id": "ruifreshlocalcultured2299kg",
+    "name": "Rui Fresh Local Cultured (2-2.99 kg)",
+    "url": "https://www.shwapno.com/rui-deshi-p-2-1-to-2-5-kg-per-kg?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/668d1a306465c458a3e0fc41_Rui-Deshi-P_1.webp",
+    "category": "Fish",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 475,
+        "normalized_price": 158.86,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 475,
+    "normalized_price": 158.86,
+    "original_price": null,
+    "discount": null,
+    "unit": "2.99 kg",
+    "unit_type": "kg"
+  },
+  "pangasfreshlocalcultured151999kg": {
+    "id": "pangasfreshlocalcultured151999kg",
+    "name": "Pangas Fresh Local Cultured (1.5-1.999 kg)",
+    "url": "https://www.shwapno.com/pangas-cultured-medium-p-per-kg?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/668d1a326465c458a3e0fd94_Pangas-Cultured-Medium-Premium_1.webp",
+    "category": "Fish",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 225,
+        "normalized_price": 112.56,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 225,
+    "normalized_price": 112.56,
+    "original_price": null,
+    "discount": null,
+    "unit": "1.999 kg",
+    "unit_type": "kg"
+  },
+  "ruifreshlocalcultured11499kg": {
+    "id": "ruifreshlocalcultured11499kg",
+    "name": "Rui Fresh Local Cultured (1-1.499 kg)",
+    "url": "https://www.shwapno.com/rui-frs-loc-raj-cul-rc-1-to-1-499-kg-2?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/6790ae0b976639d257254971_Rui-frs-loc-raj-cul-RC-1-to-1-499-kg_1.webp",
+    "category": "Fish",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 385,
+        "normalized_price": 256.84,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 385,
+    "normalized_price": 256.84,
+    "original_price": null,
+    "discount": null,
+    "unit": "1.499 kg",
     "unit_type": "kg"
   },
   "ruifreshlocalcultured3399kg": {
@@ -90736,7 +90802,7 @@
     "name": "Rui Fresh Local Cultured (3-3.99 kg)",
     "url": "https://www.shwapno.com/rui-frs-loc-raj-cul-rc-3-to-3-99-kg-2?lang=en",
     "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/6790ae0d976639d257254a1f_Rui-frs-loc-raj-cul-RC-3-to-3-99-kg_1.webp",
-    "category": "Meat & Fish Combo",
+    "category": "Fish",
     "history": [
       {
         "date": "2026-08-03",
@@ -90753,774 +90819,26 @@
     "unit": "3.99 kg",
     "unit_type": "kg"
   },
-  "shoshacucumber": {
-    "id": "shoshacucumber",
-    "name": "Shosha (Cucumber)",
-    "url": "https://www.shwapno.com/cucumber-shosha-6?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/668d1a2d6465c458a3e0fbfb_Shosha-Cucumber_1.webp",
-    "category": "Fresh Vegetables",
+  "katlafreshlocalcultured56999kg": {
+    "id": "katlafreshlocalcultured56999kg",
+    "name": "Katla Fresh Local Cultured (5-6.999 kg)",
+    "url": "https://www.shwapno.com/katla-frs-loc-raj-cul-rc-5-6-999-kg?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/68c7b9de951479beed1b194e_Katla-frs-loc-raj-cul-RC-5-6-999-kg_1.webp",
+    "category": "Fish",
     "history": [
       {
         "date": "2026-08-03",
-        "price": 80,
-        "normalized_price": 80.0,
+        "price": 620,
+        "normalized_price": 88.58,
         "original_price": null,
         "discount": null
       }
     ],
-    "current_price": 80,
-    "normalized_price": 80.0,
+    "current_price": 620,
+    "normalized_price": 88.58,
     "original_price": null,
     "discount": null,
-    "unit": "1 Piece",
-    "unit_type": "pc"
-  },
-  "kachapepegreenpapaya": {
-    "id": "kachapepegreenpapaya",
-    "name": "Kacha Pepe (Green Papaya)",
-    "url": "https://www.shwapno.com/green-papaya-6?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa9759d61902ef2307bfe1_Green-Papaya_1.webp",
-    "category": "Fresh Vegetables",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 40,
-        "normalized_price": 40.0,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 40,
-    "normalized_price": 40.0,
-    "original_price": null,
-    "discount": null,
-    "unit": "1 Piece",
-    "unit_type": "pc"
-  },
-  "tomatoroundindia": {
-    "id": "tomatoroundindia",
-    "name": "Tomato Round (India)",
-    "url": "https://www.shwapno.com/tomato-round-india?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/668d1a2d6465c458a3e0fbf0_Tomato-Round-Ind_1.webp",
-    "category": "Fresh Vegetables",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 150,
-        "normalized_price": 150.0,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 150,
-    "normalized_price": 150.0,
-    "original_price": null,
-    "discount": null,
-    "unit": "1 Piece",
-    "unit_type": "pc"
-  },
-  "chichingasnakegourd": {
-    "id": "chichingasnakegourd",
-    "name": "Chichinga (Snake Gourd)",
-    "url": "https://www.shwapno.com/snake-gourd-chichinga-6?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa9757d61902ef2307be75_Snake-Gourd-Chichinga_1.webp",
-    "category": "Fresh Vegetables",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 80,
-        "normalized_price": 80.0,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 80,
-    "normalized_price": 80.0,
-    "original_price": null,
-    "discount": null,
-    "unit": "1 Piece",
-    "unit_type": "pc"
-  },
-  "dheroshladyfinger": {
-    "id": "dheroshladyfinger",
-    "name": "Dherosh (Lady Finger)",
-    "url": "https://www.shwapno.com/lady-finger-dherosh-6?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa9760d61902ef2307c60c_Lady-Finger-Dherosh_1.webp",
-    "category": "Fresh Vegetables",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 80,
-        "normalized_price": 80.0,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 80,
-    "normalized_price": 80.0,
-    "original_price": null,
-    "discount": null,
-    "unit": "1 Piece",
-    "unit_type": "pc"
-  },
-  "carrotchinachinagajorkg": {
-    "id": "carrotchinachinagajorkg",
-    "name": "Carrot China (China Gajor) Kg",
-    "url": "https://www.shwapno.com/china-carrot-china-gajor-6?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa9757d61902ef2307bec9_China-Carrot-China-Gajor_1.webp",
-    "category": "Fresh Vegetables",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 130,
-        "normalized_price": 130.0,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 130,
-    "normalized_price": 130.0,
-    "original_price": null,
-    "discount": null,
-    "unit": "1 Piece",
-    "unit_type": "pc"
-  },
-  "mishtialusweetpotato": {
-    "id": "mishtialusweetpotato",
-    "name": "Mishti Alu (Sweet Potato)",
-    "url": "https://www.shwapno.com/mishti-alu-sweet-potato-kg?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa9766d61902ef2307cb4e_Mishti-Alu-Sweet-Potato_1.webp",
-    "category": "Fresh Vegetables",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 170,
-        "normalized_price": 170.0,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 170,
-    "normalized_price": 170.0,
-    "original_price": null,
-    "discount": null,
-    "unit": "1 Piece",
-    "unit_type": "pc"
-  },
-  "piyajonionlocalloosepkg": {
-    "id": "piyajonionlocalloosepkg",
-    "name": "Piyaj (Onion) Local Loose (P) Kg",
-    "url": "https://www.shwapno.com/piyaj-local-loose-p-kg?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/69427f2370440128e6b5c1e7_Piyaj-Local-Loose-P-kg_1.webp",
-    "category": "Fruits & Vegetables",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 55,
-        "normalized_price": 55.0,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 55,
-    "normalized_price": 55.0,
-    "original_price": null,
-    "discount": null,
-    "unit": "1 Piece",
-    "unit_type": "pc"
-  },
-  "alupotatoregularloosekg": {
-    "id": "alupotatoregularloosekg",
-    "name": "Alu (Potato) Regular Loose Kg",
-    "url": "https://www.shwapno.com/new-alu-loose-kg?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/693804d5a076408e0565a0a8_New-Alu-Loose-kg_1.webp",
-    "category": "Fruits & Vegetables",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 30,
-        "normalized_price": 30.0,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 30,
-    "normalized_price": 30.0,
-    "original_price": null,
-    "discount": null,
-    "unit": "1 Piece",
-    "unit_type": "pc"
-  },
-  "roshungarlicchineseloosekg": {
-    "id": "roshungarlicchineseloosekg",
-    "name": "Roshun (Garlic) Chinese Loose Kg",
-    "url": "https://www.shwapno.com/roshun-chinese-loose-p-6?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa94f8115075f231ec61fb_Roshun-Chinese-Loose-P_1.webp",
-    "category": "Fruits & Vegetables",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 160,
-        "normalized_price": 160.0,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 160,
-    "normalized_price": 160.0,
-    "original_price": null,
-    "discount": null,
-    "unit": "1 Piece",
-    "unit_type": "pc"
-  },
-  "maltaorange": {
-    "id": "maltaorange",
-    "name": "Malta (Orange)",
-    "url": "https://www.shwapno.com/malta-7?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/668d1a2f6465c458a3e0fc23_Malta_1.webp",
-    "category": "Fruits & Vegetables",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 315,
-        "normalized_price": 315.0,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 315,
-    "normalized_price": 315.0,
-    "original_price": null,
-    "discount": null,
-    "unit": "1 Piece",
-    "unit_type": "pc"
-  },
-  "cpchickenhotsausage400gm": {
-    "id": "cpchickenhotsausage400gm",
-    "name": "CP Chicken HOT Sausage 400gm",
-    "url": "https://www.shwapno.com/cp-chicken-hot-sausage-400gm?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa9650d61902ef2307961b_CP-Chicken-HOT-Sausage-400gm_1.webp",
-    "category": "Sausage",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 288,
-        "normalized_price": 720.0,
-        "original_price": 320,
-        "discount": "10%"
-      }
-    ],
-    "current_price": 288,
-    "normalized_price": 720.0,
-    "original_price": 320,
-    "discount": "10%",
-    "unit": "400.0 gm",
-    "unit_type": "kg"
-  },
-  "cpitalianchillibolognasausageb340gm": {
-    "id": "cpitalianchillibolognasausageb340gm",
-    "name": "CP Italian Chilli Bologna Sausage & B 340gm",
-    "url": "https://www.shwapno.com/cp-italian-chilli-bologna-sausage-and-b-340gm?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa9670d61902ef2307b155_CP-Italian-Chilli-Bologna-Sausage-B-340gm_1.webp",
-    "category": "Sausage",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 243,
-        "normalized_price": 714.71,
-        "original_price": 270,
-        "discount": "10%"
-      }
-    ],
-    "current_price": 243,
-    "normalized_price": 714.71,
-    "original_price": 270,
-    "discount": "10%",
-    "unit": "340.0 gm",
-    "unit_type": "kg"
-  },
-  "goldenharvestchickensausage30040gm": {
-    "id": "goldenharvestchickensausage30040gm",
-    "name": "Golden Harvest Chicken Sausage 300(±)40gm",
-    "url": "https://www.shwapno.com/golden-harvest-chicken-sausage-30040gm?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/68071de21c4ffc7f7499ee67_Golden-Harvest-Chicken-Sausage-30040gm_1.webp",
-    "category": "Sausage",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 221,
-        "normalized_price": 5525.0,
-        "original_price": 260,
-        "discount": "15%"
-      }
-    ],
-    "current_price": 221,
-    "normalized_price": 5525.0,
-    "original_price": 260,
-    "discount": "15%",
-    "unit": "40.0 gm",
-    "unit_type": "kg"
-  },
-  "pustiplusinstantfullcreammilkpowder1kg": {
-    "id": "pustiplusinstantfullcreammilkpowder1kg",
-    "name": "Pusti Plus Instant Full Cream Milk Powder 1kg",
-    "url": "https://www.shwapno.com/pusti-plus-instant-full-cream-milk-powder-1kg?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/686f9415c45a839ba05bf3d1_Pusti-Plus-Instant-Full-Cream-Milk-Powder-1kg_1.webp",
-    "category": "Dairy",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 950,
-        "normalized_price": 950.0,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 950,
-    "normalized_price": 950.0,
-    "original_price": null,
-    "discount": null,
-    "unit": "1.0 kg",
-    "unit_type": "kg"
-  },
-  "cowbellkefirfermentedmilk200ml": {
-    "id": "cowbellkefirfermentedmilk200ml",
-    "name": "Cowbell Kefir Fermented Milk 200ml",
-    "url": "https://www.shwapno.com/cowbell-kefir-fermented-milk-200-ml?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-product.webp",
-    "category": "Liquid & UHT Milk",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 95,
-        "normalized_price": 475.0,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 95,
-    "normalized_price": 475.0,
-    "original_price": null,
-    "discount": null,
-    "unit": "200.0 ml",
-    "unit_type": "L"
-  },
-  "danodailypushtimilk1kgpolypack": {
-    "id": "danodailypushtimilk1kgpolypack",
-    "name": "Dano Daily Pushti Milk 1kg (Poly Pack)",
-    "url": "https://www.shwapno.com/dano-daily-pushti-milk-poly-pack-1kg?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/6840221f241c30cdfdee4070_Dano-Daily-Pushti-Milk-1kg-Poly-Pack_1.webp",
-    "category": "Dairy",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 770,
-        "normalized_price": 770.0,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 770,
-    "normalized_price": 770.0,
-    "original_price": null,
-    "discount": null,
-    "unit": "1.0 kg",
-    "unit_type": "kg"
-  },
-  "ultrafruitnyogurtstrawberry75gm": {
-    "id": "ultrafruitnyogurtstrawberry75gm",
-    "name": "Ultra Fruit'n Yogurt Strawberry 75gm",
-    "url": "https://www.shwapno.com/ultra-fruitn-yogurt-strawberry-75g?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa953e115075f231ec9d82_Ultra-Fruitn-Yogurt-Strawberry-75gm_1.webp",
-    "category": "Dairy",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 50,
-        "normalized_price": 666.67,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 50,
-    "normalized_price": 666.67,
-    "original_price": null,
-    "discount": null,
-    "unit": "75.0 gm",
-    "unit_type": "kg"
-  },
-  "yogooddrinkingyogurt85mlx4pcsthailand": {
-    "id": "yogooddrinkingyogurt85mlx4pcsthailand",
-    "name": "YoGood Drinking Yogurt 85ml x 4Pcs (Thailand)",
-    "url": "https://www.shwapno.com/yogood-drinking-yogurt-85ml-x-4-pcs-thailand?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-product.webp",
-    "category": "Dairy",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 350,
-        "normalized_price": 4117.65,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 350,
-    "normalized_price": 4117.65,
-    "original_price": null,
-    "discount": null,
-    "unit": "85.0 ml",
-    "unit_type": "L"
-  },
-  "ultrafruitnyogurtaloevera75gm": {
-    "id": "ultrafruitnyogurtaloevera75gm",
-    "name": "Ultra Fruit'n Yogurt Aloe Vera 75gm",
-    "url": "https://www.shwapno.com/ultra-fruitn-yogurt-aloe-vera-75-gm?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-product.webp",
-    "category": "Dairy",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 50,
-        "normalized_price": 666.67,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 50,
-    "normalized_price": 666.67,
-    "original_price": null,
-    "discount": null,
-    "unit": "75.0 gm",
-    "unit_type": "kg"
-  },
-  "nioraloevera100moisturegel300gmallkp": {
-    "id": "nioraloevera100moisturegel300gmallkp",
-    "name": "NIOR Aloe Vera 100% Moisture Gel 300gm All KP",
-    "url": "https://www.shwapno.com/nior-aloe-vera-100-moisture-gel-300gm-all-korea?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/6a0030ab2f513ec2168c3100_Nior-Aloe-Vera-100-Moisture-Gel-300gm-All-KP_1.webp",
-    "category": "Cream & Lotion",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 472,
-        "normalized_price": 1573.33,
-        "original_price": 590,
-        "discount": "20%"
-      }
-    ],
-    "current_price": 472,
-    "normalized_price": 1573.33,
-    "original_price": 590,
-    "discount": "20%",
-    "unit": "300.0 gm",
-    "unit_type": "kg"
-  },
-  "lilycucumbersoothinggel250ml": {
-    "id": "lilycucumbersoothinggel250ml",
-    "name": "LILY Cucumber Soothing Gel 250ml",
-    "url": "https://www.shwapno.com/lily-cucumber-soothing-gel-250ml-2?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/6728ac068b2e67bc58e602a2_Lily-Cucumber-Soothing-Gel-250ml_1.webp",
-    "category": "Cream & Lotion",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 300,
-        "normalized_price": 1200.0,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 300,
-    "normalized_price": 1200.0,
-    "original_price": null,
-    "discount": null,
-    "unit": "250.0 ml",
-    "unit_type": "L"
-  },
-  "niordreamyglowbrighteningcream50ml": {
-    "id": "niordreamyglowbrighteningcream50ml",
-    "name": "NIOR Dreamy Glow Brightening Cream 50ml",
-    "url": "https://www.shwapno.com/nior-dreamy-glow-brightening-cream-50ml-2?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/6a0030a82f513ec2168c30b5_Nior-Dreamy-Glow-Brightening-Cream-50ml_1.webp",
-    "category": "Cream & Lotion",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 500,
-        "normalized_price": 10000.0,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 500,
-    "normalized_price": 10000.0,
-    "original_price": null,
-    "discount": null,
-    "unit": "50.0 ml",
-    "unit_type": "L"
-  },
-  "nioraquasplashsunscreen50spf50ml": {
-    "id": "nioraquasplashsunscreen50spf50ml",
-    "name": "NIOR Aqua Splash Sun Screen 50SPF 50ml",
-    "url": "https://www.shwapno.com/nior-aqua-splash-sun-screen-50spf-50ml?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/6a0031fbb629366a256634cd_Nior-Aqua-Splash-Sun-Screen-50SPF-50ml_1.webp",
-    "category": "Cream & Lotion",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 760,
-        "normalized_price": 15200.0,
-        "original_price": 950,
-        "discount": "20%"
-      }
-    ],
-    "current_price": 760,
-    "normalized_price": 15200.0,
-    "original_price": 950,
-    "discount": "20%",
-    "unit": "50.0 ml",
-    "unit_type": "L"
-  },
-  "acipurefortifiedjeerashailrice5kg": {
-    "id": "acipurefortifiedjeerashailrice5kg",
-    "name": "ACI Pure Fortified Jeerashail Rice 5kg",
-    "url": "https://www.shwapno.com/aci-pure-fortified-jeerashail-rice-5kg-6?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/67878aa8733b6682a0da948c_2401920_1.webp",
-    "category": "Cooking",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 510,
-        "normalized_price": 102.0,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 510,
-    "normalized_price": 102.0,
-    "original_price": null,
-    "discount": null,
-    "unit": "5.0 kg",
-    "unit_type": "kg"
-  },
-  "oliooroliooliveoil500ml": {
-    "id": "oliooroliooliveoil500ml",
-    "name": "Olio Orolio Olive Oil 500ml",
-    "url": "https://www.shwapno.com/olio-orolio-olive-oil-500ml?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/6681354ef077212bd74ef5c6_Olio-Orolio-Olive-Oil-500ml_1.webp",
-    "category": "Cooking",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 900,
-        "normalized_price": 1800.0,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 900,
-    "normalized_price": 1800.0,
-    "original_price": null,
-    "discount": null,
-    "unit": "500.0 ml",
-    "unit_type": "L"
-  },
-  "acinutrilifericebranoil5ltrpet": {
-    "id": "acinutrilifericebranoil5ltrpet",
-    "name": "ACI Nutrilife Rice Bran Oil 5Ltr. (Pet)",
-    "url": "https://www.shwapno.com/aci-nutrilife-rice-bran-oil-bottle-5-liter?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/67d7c78e63084aa5c2f0ec39_ACI-Nutrilife-Rice-Bran-Oil-5L-Bottle_1.webp",
-    "category": "Cooking",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 1100,
-        "normalized_price": 220.0,
-        "original_price": 1160,
-        "discount": "5%"
-      }
-    ],
-    "current_price": 1100,
-    "normalized_price": 220.0,
-    "original_price": 1160,
-    "discount": "5%",
-    "unit": "5.0 L",
-    "unit_type": "L"
-  },
-  "acipuresalt1kg": {
-    "id": "acipuresalt1kg",
-    "name": "ACI Pure Salt 1kg",
-    "url": "https://www.shwapno.com/aci-pure-salt-1kg?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/668fd5d6067663f5e6472f3b_ACI-Pure-Salt-1Kg_1.webp",
-    "category": "Cooking",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 37,
-        "normalized_price": 37.0,
-        "original_price": 42,
-        "discount": "11%"
-      }
-    ],
-    "current_price": 37,
-    "normalized_price": 37.0,
-    "original_price": 42,
-    "discount": "11%",
-    "unit": "1.0 kg",
-    "unit_type": "kg"
-  },
-  "acipurebanglamatirice5kg": {
-    "id": "acipurebanglamatirice5kg",
-    "name": "ACI Pure Banglamati Rice 5kg",
-    "url": "https://www.shwapno.com/aci-pure-deshi-basmati-rice-5kg?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/66f128a12d5c3eb1334bfdac_ACI-Pure-Banglamati-Rice-5kg_1.webp",
-    "category": "Cooking",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 560,
-        "normalized_price": 112.0,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 560,
-    "normalized_price": 112.0,
-    "original_price": null,
-    "discount": null,
-    "unit": "5.0 kg",
-    "unit_type": "kg"
-  },
-  "acipurenajirshailrice5kg": {
-    "id": "acipurenajirshailrice5kg",
-    "name": "ACI Pure Najirshail Rice 5kg",
-    "url": "https://www.shwapno.com/aci-pure-premium-najirshail-rice-5kg?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa94f4115075f231ec5f21_ACI-Pure-Premium-Najirshail-Rice-5Kg_1.webp",
-    "category": "Cooking",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 495,
-        "normalized_price": 99.0,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 495,
-    "normalized_price": 99.0,
-    "original_price": null,
-    "discount": null,
-    "unit": "5.0 kg",
-    "unit_type": "kg"
-  },
-  "acinutrilifelowgirice1kg": {
-    "id": "acinutrilifelowgirice1kg",
-    "name": "ACI Nutrilife Low Gi Rice 1kg",
-    "url": "https://www.shwapno.com/aci-nutrilife-low-gi-rice-1kg?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/675542914f05ba4721128668_2400616_1.webp",
-    "category": "Cooking",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 120,
-        "normalized_price": 120.0,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 120,
-    "normalized_price": 120.0,
-    "original_price": null,
-    "discount": null,
-    "unit": "1.0 kg",
-    "unit_type": "kg"
-  },
-  "nazirshailriceloosespaijamkg": {
-    "id": "nazirshailriceloosespaijamkg",
-    "name": "Nazirshail Rice Loose (S) (Paijam) Kg",
-    "url": "https://www.shwapno.com/nazirshail-rice-loose-p-paijam?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa94de115075f231ec4ff2_Nazirshail-Rice-Standard_1.webp",
-    "category": "Rice",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 63,
-        "normalized_price": 63.0,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 63,
-    "normalized_price": 63.0,
-    "original_price": null,
-    "discount": null,
-    "unit": "1 kg (assumed)",
-    "unit_type": "kg"
-  },
-  "miniketriceloosesbrri28kg": {
-    "id": "miniketriceloosesbrri28kg",
-    "name": "Miniket Rice Loose(S) (BRRI-28) Kg",
-    "url": "https://www.shwapno.com/miniket-rice-loose-s-brri-28?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa94df115075f231ec5030_Miniket-Rice-Loose-Standard_1.webp",
-    "category": "Rice",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 60,
-        "normalized_price": 60.0,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 60,
-    "normalized_price": 60.0,
-    "original_price": null,
-    "discount": null,
-    "unit": "1 kg (assumed)",
-    "unit_type": "kg"
-  },
-  "chinigurariceloosepbrri34kg": {
-    "id": "chinigurariceloosepbrri34kg",
-    "name": "Chinigura Rice Loose (P) (BRRI-34) Kg",
-    "url": "https://www.shwapno.com/chinigura-rice-loose-p-brri-34?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa94e1115075f231ec51d9_Chinigura-Rice-Loose-Premium_1.webp",
-    "category": "Rice",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 200,
-        "normalized_price": 200.0,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 200,
-    "normalized_price": 200.0,
-    "original_price": null,
-    "discount": null,
-    "unit": "1 kg (assumed)",
-    "unit_type": "kg"
-  },
-  "swarnariceloosepkg": {
-    "id": "swarnariceloosepkg",
-    "name": "Swarna Rice Loose (P) Kg",
-    "url": "https://www.shwapno.com/swarna-rice-loose-p-kg?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/69d48dd27e6fdd48d61cec32_Swarna-Rice-Loose-P-kg_1.webp",
-    "category": "Rice",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 58,
-        "normalized_price": 58.0,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 58,
-    "normalized_price": 58.0,
-    "original_price": null,
-    "discount": null,
-    "unit": "1 kg (assumed)",
+    "unit": "6.999 kg",
     "unit_type": "kg"
   },
   "applefujipremium": {
@@ -91540,6 +90858,28 @@
     ],
     "current_price": 375,
     "normalized_price": 375.0,
+    "original_price": null,
+    "discount": null,
+    "unit": "1 Piece",
+    "unit_type": "pc"
+  },
+  "maltaorange": {
+    "id": "maltaorange",
+    "name": "Malta (Orange)",
+    "url": "https://www.shwapno.com/malta-7?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/668d1a2f6465c458a3e0fc23_Malta_1.webp",
+    "category": "Fresh Fruits",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 315,
+        "normalized_price": 315.0,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 315,
+    "normalized_price": 315.0,
     "original_price": null,
     "discount": null,
     "unit": "1 Piece",
@@ -91655,34 +90995,166 @@
     "unit": "1 Piece",
     "unit_type": "pc"
   },
-  "katlafreshlocalcultured56999kg": {
-    "id": "katlafreshlocalcultured56999kg",
-    "name": "Katla Fresh Local Cultured (5-6.999 kg)",
-    "url": "https://www.shwapno.com/katla-frs-loc-raj-cul-rc-5-6-999-kg?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/68c7b9de951479beed1b194e_Katla-frs-loc-raj-cul-RC-5-6-999-kg_1.webp",
-    "category": "Meat & Fish Combo",
+  "kachapepegreenpapaya": {
+    "id": "kachapepegreenpapaya",
+    "name": "Kacha Pepe (Green Papaya)",
+    "url": "https://www.shwapno.com/green-papaya-6?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa9759d61902ef2307bfe1_Green-Papaya_1.webp",
+    "category": "Fruits & Vegetables",
     "history": [
       {
         "date": "2026-08-03",
-        "price": 620,
-        "normalized_price": 88.58,
+        "price": 40,
+        "normalized_price": 40.0,
         "original_price": null,
         "discount": null
       }
     ],
-    "current_price": 620,
-    "normalized_price": 88.58,
+    "current_price": 40,
+    "normalized_price": 40.0,
     "original_price": null,
     "discount": null,
-    "unit": "6.999 kg",
-    "unit_type": "kg"
+    "unit": "1 Piece",
+    "unit_type": "pc"
+  },
+  "shoshacucumber": {
+    "id": "shoshacucumber",
+    "name": "Shosha (Cucumber)",
+    "url": "https://www.shwapno.com/cucumber-shosha-6?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/668d1a2d6465c458a3e0fbfb_Shosha-Cucumber_1.webp",
+    "category": "Fruits & Vegetables",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 80,
+        "normalized_price": 80.0,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 80,
+    "normalized_price": 80.0,
+    "original_price": null,
+    "discount": null,
+    "unit": "1 Piece",
+    "unit_type": "pc"
+  },
+  "chichingasnakegourd": {
+    "id": "chichingasnakegourd",
+    "name": "Chichinga (Snake Gourd)",
+    "url": "https://www.shwapno.com/snake-gourd-chichinga-6?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa9757d61902ef2307be75_Snake-Gourd-Chichinga_1.webp",
+    "category": "Fruits & Vegetables",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 80,
+        "normalized_price": 80.0,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 80,
+    "normalized_price": 80.0,
+    "original_price": null,
+    "discount": null,
+    "unit": "1 Piece",
+    "unit_type": "pc"
+  },
+  "tomatoroundindia": {
+    "id": "tomatoroundindia",
+    "name": "Tomato Round (India)",
+    "url": "https://www.shwapno.com/tomato-round-india?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/668d1a2d6465c458a3e0fbf0_Tomato-Round-Ind_1.webp",
+    "category": "Fruits & Vegetables",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 150,
+        "normalized_price": 150.0,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 150,
+    "normalized_price": 150.0,
+    "original_price": null,
+    "discount": null,
+    "unit": "1 Piece",
+    "unit_type": "pc"
+  },
+  "dheroshladyfinger": {
+    "id": "dheroshladyfinger",
+    "name": "Dherosh (Lady Finger)",
+    "url": "https://www.shwapno.com/lady-finger-dherosh-6?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa9760d61902ef2307c60c_Lady-Finger-Dherosh_1.webp",
+    "category": "Fresh Vegetables",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 80,
+        "normalized_price": 80.0,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 80,
+    "normalized_price": 80.0,
+    "original_price": null,
+    "discount": null,
+    "unit": "1 Piece",
+    "unit_type": "pc"
+  },
+  "carrotchinachinagajorkg": {
+    "id": "carrotchinachinagajorkg",
+    "name": "Carrot China (China Gajor) Kg",
+    "url": "https://www.shwapno.com/china-carrot-china-gajor-6?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa9757d61902ef2307bec9_China-Carrot-China-Gajor_1.webp",
+    "category": "Fresh Vegetables",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 130,
+        "normalized_price": 130.0,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 130,
+    "normalized_price": 130.0,
+    "original_price": null,
+    "discount": null,
+    "unit": "1 Piece",
+    "unit_type": "pc"
+  },
+  "mishtialusweetpotato": {
+    "id": "mishtialusweetpotato",
+    "name": "Mishti Alu (Sweet Potato)",
+    "url": "https://www.shwapno.com/mishti-alu-sweet-potato-kg?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa9766d61902ef2307cb4e_Mishti-Alu-Sweet-Potato_1.webp",
+    "category": "Fresh Vegetables",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 170,
+        "normalized_price": 170.0,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 170,
+    "normalized_price": 170.0,
+    "original_price": null,
+    "discount": null,
+    "unit": "1 Piece",
+    "unit_type": "pc"
   },
   "ruifreshlocalcultured5699kg": {
     "id": "ruifreshlocalcultured5699kg",
     "name": "Rui Fresh Local Cultured (5-6.99 kg)",
     "url": "https://www.shwapno.com/rui-frs-loc-raj-cul-rc-5-6-99-kg?lang=en",
     "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/68c7b9e6951479beed1b1bce_Rui-frs-loc-raj-cul-RC-5-6-99-kg_1.webp",
-    "category": "Meat & Fish Combo",
+    "category": "Fish",
     "history": [
       {
         "date": "2026-08-03",
@@ -91699,71 +91171,71 @@
     "unit": "6.99 kg",
     "unit_type": "kg"
   },
-  "acipuremoshurdal1kgregular": {
-    "id": "acipuremoshurdal1kgregular",
-    "name": "ACI Pure Moshur Dal 1kg Regular",
-    "url": "https://www.shwapno.com/aci-pure-moshur-dal-1-kg-regular?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/6952649dd83abe028994e73b_ACI-Pure-Moshur-Dal-1kg-Regular_1.webp",
-    "category": "Daal or Lentil",
+  "cpchickenhotsausage400gm": {
+    "id": "cpchickenhotsausage400gm",
+    "name": "CP Chicken HOT Sausage 400gm",
+    "url": "https://www.shwapno.com/cp-chicken-hot-sausage-400gm?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa9650d61902ef2307961b_CP-Chicken-HOT-Sausage-400gm_1.webp",
+    "category": "Sausage",
     "history": [
       {
         "date": "2026-08-03",
-        "price": 117.5,
-        "normalized_price": 117.5,
-        "original_price": 125.0,
-        "discount": "6%"
+        "price": 288,
+        "normalized_price": 720.0,
+        "original_price": 320,
+        "discount": "10%"
       }
     ],
-    "current_price": 117.5,
-    "normalized_price": 117.5,
-    "original_price": 125.0,
-    "discount": "6%",
-    "unit": "1.0 kg",
+    "current_price": 288,
+    "normalized_price": 720.0,
+    "original_price": 320,
+    "discount": "10%",
+    "unit": "400.0 gm",
     "unit_type": "kg"
   },
-  "moshurdalloosestandardkg": {
-    "id": "moshurdalloosestandardkg",
-    "name": "Moshur Dal Loose Standard Kg",
-    "url": "https://www.shwapno.com/moshur-dal-loose-standard-11?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa94de115075f231ec4fd1_Moshur-Dal-Loose-Standard_1.webp",
-    "category": "Daal or Lentil",
+  "cpitalianchillibolognasausageb340gm": {
+    "id": "cpitalianchillibolognasausageb340gm",
+    "name": "CP Italian Chilli Bologna Sausage & B 340gm",
+    "url": "https://www.shwapno.com/cp-italian-chilli-bologna-sausage-and-b-340gm?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa9670d61902ef2307b155_CP-Italian-Chilli-Bologna-Sausage-B-340gm_1.webp",
+    "category": "Sausage",
     "history": [
       {
         "date": "2026-08-03",
-        "price": 100,
-        "normalized_price": 100.0,
-        "original_price": null,
-        "discount": null
+        "price": 243,
+        "normalized_price": 714.71,
+        "original_price": 270,
+        "discount": "10%"
       }
     ],
-    "current_price": 100,
-    "normalized_price": 100.0,
-    "original_price": null,
-    "discount": null,
-    "unit": "1 Piece",
-    "unit_type": "pc"
+    "current_price": 243,
+    "normalized_price": 714.71,
+    "original_price": 270,
+    "discount": "10%",
+    "unit": "340.0 gm",
+    "unit_type": "kg"
   },
-  "deshimoshurdalloosepremiumkg": {
-    "id": "deshimoshurdalloosepremiumkg",
-    "name": "Deshi Moshur Dal Loose Premium Kg",
-    "url": "https://www.shwapno.com/deshi-moshur-dal-loose-6?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa94e9115075f231ec5687_Deshi-Moshur-Dal-Loose_1.webp",
-    "category": "Daal or Lentil",
+  "goldenharvestchickensausage30040gm": {
+    "id": "goldenharvestchickensausage30040gm",
+    "name": "Golden Harvest Chicken Sausage 300(±)40gm",
+    "url": "https://www.shwapno.com/golden-harvest-chicken-sausage-30040gm?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/68071de21c4ffc7f7499ee67_Golden-Harvest-Chicken-Sausage-30040gm_1.webp",
+    "category": "Sausage",
     "history": [
       {
         "date": "2026-08-03",
-        "price": 140,
-        "normalized_price": 140.0,
-        "original_price": null,
-        "discount": null
+        "price": 221,
+        "normalized_price": 5525.0,
+        "original_price": 260,
+        "discount": "15%"
       }
     ],
-    "current_price": 140,
-    "normalized_price": 140.0,
-    "original_price": null,
-    "discount": null,
-    "unit": "1 Piece",
-    "unit_type": "pc"
+    "current_price": 221,
+    "normalized_price": 5525.0,
+    "original_price": 260,
+    "discount": "15%",
+    "unit": "40.0 gm",
+    "unit_type": "kg"
   },
   "qualityomega3enrichedegg12pcspackbox": {
     "id": "qualityomega3enrichedegg12pcspackbox",
@@ -91787,12 +91259,540 @@
     "unit": "12.0 pc",
     "unit_type": "pc"
   },
+  "pustiplusinstantfullcreammilkpowder1kg": {
+    "id": "pustiplusinstantfullcreammilkpowder1kg",
+    "name": "Pusti Plus Instant Full Cream Milk Powder 1kg",
+    "url": "https://www.shwapno.com/pusti-plus-instant-full-cream-milk-powder-1kg?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/686f9415c45a839ba05bf3d1_Pusti-Plus-Instant-Full-Cream-Milk-Powder-1kg_1.webp",
+    "category": "Dairy",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 950,
+        "normalized_price": 950.0,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 950,
+    "normalized_price": 950.0,
+    "original_price": null,
+    "discount": null,
+    "unit": "1.0 kg",
+    "unit_type": "kg"
+  },
+  "cowbellkefirfermentedmilk200ml": {
+    "id": "cowbellkefirfermentedmilk200ml",
+    "name": "Cowbell Kefir Fermented Milk 200ml",
+    "url": "https://www.shwapno.com/cowbell-kefir-fermented-milk-200-ml?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-product.webp",
+    "category": "Liquid & UHT Milk",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 95,
+        "normalized_price": 475.0,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 95,
+    "normalized_price": 475.0,
+    "original_price": null,
+    "discount": null,
+    "unit": "200.0 ml",
+    "unit_type": "L"
+  },
+  "danodailypushtimilk1kgpolypack": {
+    "id": "danodailypushtimilk1kgpolypack",
+    "name": "Dano Daily Pushti Milk 1kg (Poly Pack)",
+    "url": "https://www.shwapno.com/dano-daily-pushti-milk-poly-pack-1kg?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/6840221f241c30cdfdee4070_Dano-Daily-Pushti-Milk-1kg-Poly-Pack_1.webp",
+    "category": "Full Cream Milk",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 770,
+        "normalized_price": 770.0,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 770,
+    "normalized_price": 770.0,
+    "original_price": null,
+    "discount": null,
+    "unit": "1.0 kg",
+    "unit_type": "kg"
+  },
+  "ultrafruitnyogurtstrawberry75gm": {
+    "id": "ultrafruitnyogurtstrawberry75gm",
+    "name": "Ultra Fruit'n Yogurt Strawberry 75gm",
+    "url": "https://www.shwapno.com/ultra-fruitn-yogurt-strawberry-75g?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa953e115075f231ec9d82_Ultra-Fruitn-Yogurt-Strawberry-75gm_1.webp",
+    "category": "Yogurt",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 50,
+        "normalized_price": 666.67,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 50,
+    "normalized_price": 666.67,
+    "original_price": null,
+    "discount": null,
+    "unit": "75.0 gm",
+    "unit_type": "kg"
+  },
+  "yogooddrinkingyogurt85mlx4pcsthailand": {
+    "id": "yogooddrinkingyogurt85mlx4pcsthailand",
+    "name": "YoGood Drinking Yogurt 85ml x 4Pcs (Thailand)",
+    "url": "https://www.shwapno.com/yogood-drinking-yogurt-85ml-x-4-pcs-thailand?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-product.webp",
+    "category": "Yogurt",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 350,
+        "normalized_price": 4117.65,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 350,
+    "normalized_price": 4117.65,
+    "original_price": null,
+    "discount": null,
+    "unit": "85.0 ml",
+    "unit_type": "L"
+  },
+  "ultrafruitnyogurtaloevera75gm": {
+    "id": "ultrafruitnyogurtaloevera75gm",
+    "name": "Ultra Fruit'n Yogurt Aloe Vera 75gm",
+    "url": "https://www.shwapno.com/ultra-fruitn-yogurt-aloe-vera-75-gm?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-product.webp",
+    "category": "Yogurt",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 50,
+        "normalized_price": 666.67,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 50,
+    "normalized_price": 666.67,
+    "original_price": null,
+    "discount": null,
+    "unit": "75.0 gm",
+    "unit_type": "kg"
+  },
+  "nazirshailriceloosespaijamkg": {
+    "id": "nazirshailriceloosespaijamkg",
+    "name": "Nazirshail Rice Loose (S) (Paijam) Kg",
+    "url": "https://www.shwapno.com/nazirshail-rice-loose-p-paijam?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa94de115075f231ec4ff2_Nazirshail-Rice-Standard_1.webp",
+    "category": "Loose Rice",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 60,
+        "normalized_price": 60.0,
+        "original_price": 63,
+        "discount": "4%"
+      }
+    ],
+    "current_price": 60,
+    "normalized_price": 60.0,
+    "original_price": 63,
+    "discount": "4%",
+    "unit": "1 kg (assumed)",
+    "unit_type": "kg"
+  },
+  "miniketriceloosesbrri28kg": {
+    "id": "miniketriceloosesbrri28kg",
+    "name": "Miniket Rice Loose(S) (BRRI-28) Kg",
+    "url": "https://www.shwapno.com/miniket-rice-loose-s-brri-28?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa94df115075f231ec5030_Miniket-Rice-Loose-Standard_1.webp",
+    "category": "Loose Rice",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 57,
+        "normalized_price": 57.0,
+        "original_price": 60,
+        "discount": "5%"
+      }
+    ],
+    "current_price": 57,
+    "normalized_price": 57.0,
+    "original_price": 60,
+    "discount": "5%",
+    "unit": "1 kg (assumed)",
+    "unit_type": "kg"
+  },
+  "chinigurariceloosepbrri34kg": {
+    "id": "chinigurariceloosepbrri34kg",
+    "name": "Chinigura Rice Loose (P) (BRRI-34) Kg",
+    "url": "https://www.shwapno.com/chinigura-rice-loose-p-brri-34?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa94e1115075f231ec51d9_Chinigura-Rice-Loose-Premium_1.webp",
+    "category": "Loose Rice",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 200,
+        "normalized_price": 200.0,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 200,
+    "normalized_price": 200.0,
+    "original_price": null,
+    "discount": null,
+    "unit": "1 kg (assumed)",
+    "unit_type": "kg"
+  },
+  "swarnariceloosepkg": {
+    "id": "swarnariceloosepkg",
+    "name": "Swarna Rice Loose (P) Kg",
+    "url": "https://www.shwapno.com/swarna-rice-loose-p-kg?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/69d48dd27e6fdd48d61cec32_Swarna-Rice-Loose-P-kg_1.webp",
+    "category": "Loose Rice",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 55,
+        "normalized_price": 55.0,
+        "original_price": 58,
+        "discount": "5%"
+      }
+    ],
+    "current_price": 55,
+    "normalized_price": 55.0,
+    "original_price": 58,
+    "discount": "5%",
+    "unit": "1 kg (assumed)",
+    "unit_type": "kg"
+  },
+  "acipurefortifiedjeerashailrice5kg": {
+    "id": "acipurefortifiedjeerashailrice5kg",
+    "name": "ACI Pure Fortified Jeerashail Rice 5kg",
+    "url": "https://www.shwapno.com/aci-pure-fortified-jeerashail-rice-5kg-6?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/67878aa8733b6682a0da948c_2401920_1.webp",
+    "category": "Packed Rice",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 510,
+        "normalized_price": 102.0,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 510,
+    "normalized_price": 102.0,
+    "original_price": null,
+    "discount": null,
+    "unit": "5.0 kg",
+    "unit_type": "kg"
+  },
+  "acipurebanglamatirice5kg": {
+    "id": "acipurebanglamatirice5kg",
+    "name": "ACI Pure Banglamati Rice 5kg",
+    "url": "https://www.shwapno.com/aci-pure-deshi-basmati-rice-5kg?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/66f128a12d5c3eb1334bfdac_ACI-Pure-Banglamati-Rice-5kg_1.webp",
+    "category": "Packed Rice",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 560,
+        "normalized_price": 112.0,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 560,
+    "normalized_price": 112.0,
+    "original_price": null,
+    "discount": null,
+    "unit": "5.0 kg",
+    "unit_type": "kg"
+  },
+  "acipurenajirshailrice5kg": {
+    "id": "acipurenajirshailrice5kg",
+    "name": "ACI Pure Najirshail Rice 5kg",
+    "url": "https://www.shwapno.com/aci-pure-premium-najirshail-rice-5kg?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa94f4115075f231ec5f21_ACI-Pure-Premium-Najirshail-Rice-5Kg_1.webp",
+    "category": "Packed Rice",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 495,
+        "normalized_price": 99.0,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 495,
+    "normalized_price": 99.0,
+    "original_price": null,
+    "discount": null,
+    "unit": "5.0 kg",
+    "unit_type": "kg"
+  },
+  "acinutrilifelowgirice1kg": {
+    "id": "acinutrilifelowgirice1kg",
+    "name": "ACI Nutrilife Low Gi Rice 1kg",
+    "url": "https://www.shwapno.com/aci-nutrilife-low-gi-rice-1kg?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/675542914f05ba4721128668_2400616_1.webp",
+    "category": "Packed Rice",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 120,
+        "normalized_price": 120.0,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 120,
+    "normalized_price": 120.0,
+    "original_price": null,
+    "discount": null,
+    "unit": "1.0 kg",
+    "unit_type": "kg"
+  },
+  "oliooroliooliveoil500ml": {
+    "id": "oliooroliooliveoil500ml",
+    "name": "Olio Orolio Olive Oil 500ml",
+    "url": "https://www.shwapno.com/olio-orolio-olive-oil-500ml?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/6681354ef077212bd74ef5c6_Olio-Orolio-Olive-Oil-500ml_1.webp",
+    "category": "Cooking",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 900,
+        "normalized_price": 1800.0,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 900,
+    "normalized_price": 1800.0,
+    "original_price": null,
+    "discount": null,
+    "unit": "500.0 ml",
+    "unit_type": "L"
+  },
+  "acinutrilifericebranoil5ltrpet": {
+    "id": "acinutrilifericebranoil5ltrpet",
+    "name": "ACI Nutrilife Rice Bran Oil 5Ltr. (Pet)",
+    "url": "https://www.shwapno.com/aci-nutrilife-rice-bran-oil-bottle-5-liter?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/67d7c78e63084aa5c2f0ec39_ACI-Nutrilife-Rice-Bran-Oil-5L-Bottle_1.webp",
+    "category": "Cooking",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 1100,
+        "normalized_price": 220.0,
+        "original_price": 1160,
+        "discount": "5%"
+      }
+    ],
+    "current_price": 1100,
+    "normalized_price": 220.0,
+    "original_price": 1160,
+    "discount": "5%",
+    "unit": "5.0 L",
+    "unit_type": "L"
+  },
+  "acipuresalt1kg": {
+    "id": "acipuresalt1kg",
+    "name": "ACI Pure Salt 1kg",
+    "url": "https://www.shwapno.com/aci-pure-salt-1kg?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/668fd5d6067663f5e6472f3b_ACI-Pure-Salt-1Kg_1.webp",
+    "category": "Cooking",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 37,
+        "normalized_price": 37.0,
+        "original_price": 42,
+        "discount": "11%"
+      }
+    ],
+    "current_price": 37,
+    "normalized_price": 37.0,
+    "original_price": 42,
+    "discount": "11%",
+    "unit": "1.0 kg",
+    "unit_type": "kg"
+  },
+  "nioraloevera100moisturegel300gmallkp": {
+    "id": "nioraloevera100moisturegel300gmallkp",
+    "name": "NIOR Aloe Vera 100% Moisture Gel 300gm All KP",
+    "url": "https://www.shwapno.com/nior-aloe-vera-100-moisture-gel-300gm-all-korea?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/6a0030ab2f513ec2168c3100_Nior-Aloe-Vera-100-Moisture-Gel-300gm-All-KP_1.webp",
+    "category": "Cream & Lotion",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 472,
+        "normalized_price": 1573.33,
+        "original_price": 590,
+        "discount": "20%"
+      }
+    ],
+    "current_price": 472,
+    "normalized_price": 1573.33,
+    "original_price": 590,
+    "discount": "20%",
+    "unit": "300.0 gm",
+    "unit_type": "kg"
+  },
+  "lilycucumbersoothinggel250ml": {
+    "id": "lilycucumbersoothinggel250ml",
+    "name": "LILY Cucumber Soothing Gel 250ml",
+    "url": "https://www.shwapno.com/lily-cucumber-soothing-gel-250ml-2?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/6728ac068b2e67bc58e602a2_Lily-Cucumber-Soothing-Gel-250ml_1.webp",
+    "category": "Cream & Lotion",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 300,
+        "normalized_price": 1200.0,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 300,
+    "normalized_price": 1200.0,
+    "original_price": null,
+    "discount": null,
+    "unit": "250.0 ml",
+    "unit_type": "L"
+  },
+  "niordreamyglowbrighteningcream50ml": {
+    "id": "niordreamyglowbrighteningcream50ml",
+    "name": "NIOR Dreamy Glow Brightening Cream 50ml",
+    "url": "https://www.shwapno.com/nior-dreamy-glow-brightening-cream-50ml-2?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/6a0030a82f513ec2168c30b5_Nior-Dreamy-Glow-Brightening-Cream-50ml_1.webp",
+    "category": "Cream & Lotion",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 500,
+        "normalized_price": 10000.0,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 500,
+    "normalized_price": 10000.0,
+    "original_price": null,
+    "discount": null,
+    "unit": "50.0 ml",
+    "unit_type": "L"
+  },
+  "nioraquasplashsunscreen50spf50ml": {
+    "id": "nioraquasplashsunscreen50spf50ml",
+    "name": "NIOR Aqua Splash Sun Screen 50SPF 50ml",
+    "url": "https://www.shwapno.com/nior-aqua-splash-sun-screen-50spf-50ml?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/6a0031fbb629366a256634cd_Nior-Aqua-Splash-Sun-Screen-50SPF-50ml_1.webp",
+    "category": "Cream & Lotion",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 760,
+        "normalized_price": 15200.0,
+        "original_price": 950,
+        "discount": "20%"
+      }
+    ],
+    "current_price": 760,
+    "normalized_price": 15200.0,
+    "original_price": 950,
+    "discount": "20%",
+    "unit": "50.0 ml",
+    "unit_type": "L"
+  },
+  "moshurdalloosestandardkg": {
+    "id": "moshurdalloosestandardkg",
+    "name": "Moshur Dal Loose Standard Kg",
+    "url": "https://www.shwapno.com/moshur-dal-loose-standard-11?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa94de115075f231ec4fd1_Moshur-Dal-Loose-Standard_1.webp",
+    "category": "Loose Daal",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 95,
+        "normalized_price": 95.0,
+        "original_price": 100,
+        "discount": "5%"
+      }
+    ],
+    "current_price": 95,
+    "normalized_price": 95.0,
+    "original_price": 100,
+    "discount": "5%",
+    "unit": "1 Piece",
+    "unit_type": "pc"
+  },
+  "deshimoshurdalloosepremiumkg": {
+    "id": "deshimoshurdalloosepremiumkg",
+    "name": "Deshi Moshur Dal Loose Premium Kg",
+    "url": "https://www.shwapno.com/deshi-moshur-dal-loose-6?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa94e9115075f231ec5687_Deshi-Moshur-Dal-Loose_1.webp",
+    "category": "Loose Daal",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 140,
+        "normalized_price": 140.0,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 140,
+    "normalized_price": 140.0,
+    "original_price": null,
+    "discount": null,
+    "unit": "1 Piece",
+    "unit_type": "pc"
+  },
+  "acipuremoshurdal1kgregular": {
+    "id": "acipuremoshurdal1kgregular",
+    "name": "ACI Pure Moshur Dal 1kg Regular",
+    "url": "https://www.shwapno.com/aci-pure-moshur-dal-1-kg-regular?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/6952649dd83abe028994e73b_ACI-Pure-Moshur-Dal-1kg-Regular_1.webp",
+    "category": "Daal or Lentil",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 117.5,
+        "normalized_price": 117.5,
+        "original_price": 125.0,
+        "discount": "6%"
+      }
+    ],
+    "current_price": 117.5,
+    "normalized_price": 117.5,
+    "original_price": 125.0,
+    "discount": "6%",
+    "unit": "1.0 kg",
+    "unit_type": "kg"
+  },
   "freshricebranoil5ltr": {
     "id": "freshricebranoil5ltr",
     "name": "Fresh Rice Bran Oil 5Ltr.",
     "url": "https://www.shwapno.com/fresh-rice-bran-oil-5-ltr?lang=en",
     "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/68e612d3cb51ecc3041c1e2e_Fresh-Rice-Bran-Oil-5Ltr-_1.webp",
-    "category": "Oil",
+    "category": "Rice Bran Oil",
     "history": [
       {
         "date": "2026-08-03",
@@ -91840,16 +91840,16 @@
     "history": [
       {
         "date": "2026-08-03",
-        "price": 110,
-        "normalized_price": 110.0,
-        "original_price": null,
-        "discount": null
+        "price": 107,
+        "normalized_price": 107.0,
+        "original_price": 110,
+        "discount": "2%"
       }
     ],
-    "current_price": 110,
-    "normalized_price": 110.0,
-    "original_price": null,
-    "discount": null,
+    "current_price": 107,
+    "normalized_price": 107.0,
+    "original_price": 110,
+    "discount": "2%",
     "unit": "1 Piece",
     "unit_type": "pc"
   },
@@ -91990,7 +91990,7 @@
     "name": "Fresh Premium Green Tea 37.5gm",
     "url": "https://www.shwapno.com/fresh-premium-green-tea-37-5g?lang=en",
     "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa94b8115075f231ec4e11_Fresh-Premium-Green-Tea-37-5gm_1.webp",
-    "category": "Beverages",
+    "category": "Green Tea",
     "history": [
       {
         "date": "2026-08-03",
@@ -92012,7 +92012,7 @@
     "name": "Fresh Premium Masala Tea 50gm",
     "url": "https://www.shwapno.com/fresh-premium-masala-tea-50g?lang=en",
     "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa94bf115075f231ec4e69_Fresh-Premium-Masala-Tea-50gm_1.webp",
-    "category": "Beverages",
+    "category": "Tea",
     "history": [
       {
         "date": "2026-08-03",
@@ -92027,50 +92027,6 @@
     "original_price": null,
     "discount": null,
     "unit": "50.0 gm",
-    "unit_type": "kg"
-  },
-  "horlickschocolateflavorpowderdrink500gmjar": {
-    "id": "horlickschocolateflavorpowderdrink500gmjar",
-    "name": "Horlicks Chocolate Flavor Powder Drink 500gm (Jar)",
-    "url": "https://www.shwapno.com/horlicks-chocolate-flavor-powder-drink-500-gm-jar?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/6a6a4c03a54ae49ca0dcf2b0_Horlicks-Chocolate-Flavor-Powder-Drink-500gm-Jar_1.webp",
-    "category": "Beverages",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 542,
-        "normalized_price": 1084.0,
-        "original_price": 580,
-        "discount": "6%"
-      }
-    ],
-    "current_price": 542,
-    "normalized_price": 1084.0,
-    "original_price": 580,
-    "discount": "6%",
-    "unit": "500.0 gm",
-    "unit_type": "kg"
-  },
-  "tangorangeinstantdrinkpowder500gmbib": {
-    "id": "tangorangeinstantdrinkpowder500gmbib",
-    "name": "Tang Orange Instant Drink Powder 500gm (BIB)",
-    "url": "https://www.shwapno.com/tang-powder-drink-orange-500gm-bib?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa938d115075f231ec4b22_Tang-Powder-Drink-Orange-500gm-BIB_1.webp",
-    "category": "Beverages",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 425,
-        "normalized_price": 850.0,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 425,
-    "normalized_price": 850.0,
-    "original_price": null,
-    "discount": null,
-    "unit": "500.0 gm",
     "unit_type": "kg"
   },
   "laysnoriseaweedchips48gmth": {
@@ -92117,6 +92073,50 @@
     "unit": "48.0 gm",
     "unit_type": "kg"
   },
+  "horlickschocolateflavorpowderdrink500gmjar": {
+    "id": "horlickschocolateflavorpowderdrink500gmjar",
+    "name": "Horlicks Chocolate Flavor Powder Drink 500gm (Jar)",
+    "url": "https://www.shwapno.com/horlicks-chocolate-flavor-powder-drink-500-gm-jar?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/6a6a4c03a54ae49ca0dcf2b0_Horlicks-Chocolate-Flavor-Powder-Drink-500gm-Jar_1.webp",
+    "category": "Beverages",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 542,
+        "normalized_price": 1084.0,
+        "original_price": 580,
+        "discount": "6%"
+      }
+    ],
+    "current_price": 542,
+    "normalized_price": 1084.0,
+    "original_price": 580,
+    "discount": "6%",
+    "unit": "500.0 gm",
+    "unit_type": "kg"
+  },
+  "tangorangeinstantdrinkpowder500gmbib": {
+    "id": "tangorangeinstantdrinkpowder500gmbib",
+    "name": "Tang Orange Instant Drink Powder 500gm (BIB)",
+    "url": "https://www.shwapno.com/tang-powder-drink-orange-500gm-bib?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa938d115075f231ec4b22_Tang-Powder-Drink-Orange-500gm-BIB_1.webp",
+    "category": "Beverages",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 425,
+        "normalized_price": 850.0,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 425,
+    "normalized_price": 850.0,
+    "original_price": null,
+    "discount": null,
+    "unit": "500.0 gm",
+    "unit_type": "kg"
+  },
   "chopstickramenhotchickennoodles160gm": {
     "id": "chopstickramenhotchickennoodles160gm",
     "name": "Chopstick Ramen Hot Chicken Noodles 160gm",
@@ -92161,28 +92161,6 @@
     "unit": "75.0 gm",
     "unit_type": "kg"
   },
-  "tangmangoinstantdrinkpowder500gmbib": {
-    "id": "tangmangoinstantdrinkpowder500gmbib",
-    "name": "Tang Mango Instant Drink Powder 500gm (BIB)",
-    "url": "https://www.shwapno.com/tang-powder-drink-mango-500g-bib?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/6952636638648239adbc7238_Tang-Powder-Drink-Mango-500g-BIB_1.webp",
-    "category": "Syrups & Powder Drinks",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 425,
-        "normalized_price": 850.0,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 425,
-    "normalized_price": 850.0,
-    "original_price": null,
-    "discount": null,
-    "unit": "500.0 gm",
-    "unit_type": "kg"
-  },
   "horlickschocolateflavorpowderdrink250gmjar": {
     "id": "horlickschocolateflavorpowderdrink250gmjar",
     "name": "Horlicks Chocolate Flavor Powder Drink 250gm (Jar)",
@@ -92204,138 +92182,6 @@
     "discount": null,
     "unit": "250.0 gm",
     "unit_type": "kg"
-  },
-  "nutrilifecranberryfruitmagicjuice1ltr": {
-    "id": "nutrilifecranberryfruitmagicjuice1ltr",
-    "name": "Nutrilife Cranberry Fruit Magic Juice 1Ltr.",
-    "url": "https://www.shwapno.com/nutrilife-cranberry-fruit-m-juice-1-liter?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/66827b4be605f3fd35f16cb3_Nutrilife-Cranberry-Fruit-Magic-Juice-1L_1.webp",
-    "category": "Juice",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 356,
-        "normalized_price": 356.0,
-        "original_price": 395,
-        "discount": "9%"
-      }
-    ],
-    "current_price": 356,
-    "normalized_price": 356.0,
-    "original_price": 395,
-    "discount": "9%",
-    "unit": "1.0 L",
-    "unit_type": "L"
-  },
-  "nutrilifepomegranatebeverage1ltr": {
-    "id": "nutrilifepomegranatebeverage1ltr",
-    "name": "Nutrilife Pomegranate Beverage 1Ltr.",
-    "url": "https://www.shwapno.com/nutrilife-pomegranate-beverage-1-liter?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa93be115075f231ec4d8e_Nutrilife-Pomegranate-Beverage-1L_1.webp",
-    "category": "Juice",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 336,
-        "normalized_price": 336.0,
-        "original_price": 375,
-        "discount": "10%"
-      }
-    ],
-    "current_price": 336,
-    "normalized_price": 336.0,
-    "original_price": 375,
-    "discount": "10%",
-    "unit": "1.0 L",
-    "unit_type": "L"
-  },
-  "nutrilifemangobeverage1ltr": {
-    "id": "nutrilifemangobeverage1ltr",
-    "name": "Nutrilife Mango Beverage 1Ltr.",
-    "url": "https://www.shwapno.com/nutrilife-mango-beverage-1-liter?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/66827b47e605f3fd35f16c8a_Nutrilife-Mango-Beverage-1L_1.webp",
-    "category": "Juice",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 279,
-        "normalized_price": 279.0,
-        "original_price": 295,
-        "discount": "5%"
-      }
-    ],
-    "current_price": 279,
-    "normalized_price": 279.0,
-    "original_price": 295,
-    "discount": "5%",
-    "unit": "1.0 L",
-    "unit_type": "L"
-  },
-  "nutrilifeapplefruitmagic1ltr": {
-    "id": "nutrilifeapplefruitmagic1ltr",
-    "name": "Nutrilife Apple Fruit Magic 1Ltr.",
-    "url": "https://www.shwapno.com/nutrilife-apple-fruit-magic-1-liter?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa93be115075f231ec4d92_Nutrilife-Apple-Fruit-Magic-1L_1.webp",
-    "category": "Juice",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 279,
-        "normalized_price": 279.0,
-        "original_price": 295,
-        "discount": "5%"
-      }
-    ],
-    "current_price": 279,
-    "normalized_price": 279.0,
-    "original_price": 295,
-    "discount": "5%",
-    "unit": "1.0 L",
-    "unit_type": "L"
-  },
-  "nutrilifeorangefruitmagic1ltr": {
-    "id": "nutrilifeorangefruitmagic1ltr",
-    "name": "Nutrilife Orange Fruit Magic 1Ltr.",
-    "url": "https://www.shwapno.com/nutrilife-orange-fruit-magic-1-liter?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/6728a0573a11aefc405bb708_Nutrilife-Orange-Fruit-Magic-1L_1.webp",
-    "category": "Juice",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 279,
-        "normalized_price": 279.0,
-        "original_price": 295,
-        "discount": "5%"
-      }
-    ],
-    "current_price": 279,
-    "normalized_price": 279.0,
-    "original_price": 295,
-    "discount": "5%",
-    "unit": "1.0 L",
-    "unit_type": "L"
-  },
-  "nutrilifeguavabeverage1ltr": {
-    "id": "nutrilifeguavabeverage1ltr",
-    "name": "Nutrilife Guava Beverage 1Ltr.",
-    "url": "https://www.shwapno.com/nutrilife-guava-beverage-1-liter?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/66827b4ae605f3fd35f16ca4_Nutrilife-Guava-Beverage-1L_1.webp",
-    "category": "Juice",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 279,
-        "normalized_price": 279.0,
-        "original_price": 295,
-        "discount": "5%"
-      }
-    ],
-    "current_price": 279,
-    "normalized_price": 279.0,
-    "original_price": 295,
-    "discount": "5%",
-    "unit": "1.0 L",
-    "unit_type": "L"
   },
   "tayasdamlasourtubesstrawberry30gmturkey": {
     "id": "tayasdamlasourtubesstrawberry30gmturkey",
@@ -92469,6 +92315,182 @@
     "unit": "1.0 gm",
     "unit_type": "kg"
   },
+  "tangmangoinstantdrinkpowder500gmbib": {
+    "id": "tangmangoinstantdrinkpowder500gmbib",
+    "name": "Tang Mango Instant Drink Powder 500gm (BIB)",
+    "url": "https://www.shwapno.com/tang-powder-drink-mango-500g-bib?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/6952636638648239adbc7238_Tang-Powder-Drink-Mango-500g-BIB_1.webp",
+    "category": "Syrups & Powder Drinks",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 425,
+        "normalized_price": 850.0,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 425,
+    "normalized_price": 850.0,
+    "original_price": null,
+    "discount": null,
+    "unit": "500.0 gm",
+    "unit_type": "kg"
+  },
+  "nutrilifecranberryfruitmagicjuice1ltr": {
+    "id": "nutrilifecranberryfruitmagicjuice1ltr",
+    "name": "Nutrilife Cranberry Fruit Magic Juice 1Ltr.",
+    "url": "https://www.shwapno.com/nutrilife-cranberry-fruit-m-juice-1-liter?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/66827b4be605f3fd35f16cb3_Nutrilife-Cranberry-Fruit-Magic-Juice-1L_1.webp",
+    "category": "Beverages",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 356,
+        "normalized_price": 356.0,
+        "original_price": 395,
+        "discount": "9%"
+      }
+    ],
+    "current_price": 356,
+    "normalized_price": 356.0,
+    "original_price": 395,
+    "discount": "9%",
+    "unit": "1.0 L",
+    "unit_type": "L"
+  },
+  "nutrilifepomegranatebeverage1ltr": {
+    "id": "nutrilifepomegranatebeverage1ltr",
+    "name": "Nutrilife Pomegranate Beverage 1Ltr.",
+    "url": "https://www.shwapno.com/nutrilife-pomegranate-beverage-1-liter?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa93be115075f231ec4d8e_Nutrilife-Pomegranate-Beverage-1L_1.webp",
+    "category": "Beverages",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 336,
+        "normalized_price": 336.0,
+        "original_price": 375,
+        "discount": "10%"
+      }
+    ],
+    "current_price": 336,
+    "normalized_price": 336.0,
+    "original_price": 375,
+    "discount": "10%",
+    "unit": "1.0 L",
+    "unit_type": "L"
+  },
+  "nutrilifemangobeverage1ltr": {
+    "id": "nutrilifemangobeverage1ltr",
+    "name": "Nutrilife Mango Beverage 1Ltr.",
+    "url": "https://www.shwapno.com/nutrilife-mango-beverage-1-liter?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/66827b47e605f3fd35f16c8a_Nutrilife-Mango-Beverage-1L_1.webp",
+    "category": "Beverages",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 279,
+        "normalized_price": 279.0,
+        "original_price": 295,
+        "discount": "5%"
+      }
+    ],
+    "current_price": 279,
+    "normalized_price": 279.0,
+    "original_price": 295,
+    "discount": "5%",
+    "unit": "1.0 L",
+    "unit_type": "L"
+  },
+  "nutrilifeapplefruitmagic1ltr": {
+    "id": "nutrilifeapplefruitmagic1ltr",
+    "name": "Nutrilife Apple Fruit Magic 1Ltr.",
+    "url": "https://www.shwapno.com/nutrilife-apple-fruit-magic-1-liter?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa93be115075f231ec4d92_Nutrilife-Apple-Fruit-Magic-1L_1.webp",
+    "category": "Beverages",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 279,
+        "normalized_price": 279.0,
+        "original_price": 295,
+        "discount": "5%"
+      }
+    ],
+    "current_price": 279,
+    "normalized_price": 279.0,
+    "original_price": 295,
+    "discount": "5%",
+    "unit": "1.0 L",
+    "unit_type": "L"
+  },
+  "nutrilifeorangefruitmagic1ltr": {
+    "id": "nutrilifeorangefruitmagic1ltr",
+    "name": "Nutrilife Orange Fruit Magic 1Ltr.",
+    "url": "https://www.shwapno.com/nutrilife-orange-fruit-magic-1-liter?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/6728a0573a11aefc405bb708_Nutrilife-Orange-Fruit-Magic-1L_1.webp",
+    "category": "Beverages",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 279,
+        "normalized_price": 279.0,
+        "original_price": 295,
+        "discount": "5%"
+      }
+    ],
+    "current_price": 279,
+    "normalized_price": 279.0,
+    "original_price": 295,
+    "discount": "5%",
+    "unit": "1.0 L",
+    "unit_type": "L"
+  },
+  "nutrilifeguavabeverage1ltr": {
+    "id": "nutrilifeguavabeverage1ltr",
+    "name": "Nutrilife Guava Beverage 1Ltr.",
+    "url": "https://www.shwapno.com/nutrilife-guava-beverage-1-liter?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/66827b4ae605f3fd35f16ca4_Nutrilife-Guava-Beverage-1L_1.webp",
+    "category": "Beverages",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 279,
+        "normalized_price": 279.0,
+        "original_price": 295,
+        "discount": "5%"
+      }
+    ],
+    "current_price": 279,
+    "normalized_price": 279.0,
+    "original_price": 295,
+    "discount": "5%",
+    "unit": "1.0 L",
+    "unit_type": "L"
+  },
+  "tayasmultifruitchocolate170gmtp": {
+    "id": "tayasmultifruitchocolate170gmtp",
+    "name": "Tayas Multi Fruit Chocolate 170gm TP",
+    "url": "https://www.shwapno.com/tayas-multi-fruit-chocolate-170gm-sao-tome-principe?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/6728a4c13a11aefc405eaa26_Tayas-Multi-Fruit-Chocolate-170gm-Sao-Tome-Principe_1.webp",
+    "category": "Candy & Chocolate",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 495,
+        "normalized_price": 2911.76,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 495,
+    "normalized_price": 2911.76,
+    "original_price": null,
+    "discount": null,
+    "unit": "170.0 gm",
+    "unit_type": "kg"
+  },
   "sunquickfruitdrinkberrymix1000ml": {
     "id": "sunquickfruitdrinkberrymix1000ml",
     "name": "Sunquick Fruit Drink Berry Mix 1000ml",
@@ -92535,34 +92557,12 @@
     "unit": "1000.0 ml",
     "unit_type": "L"
   },
-  "tayasmultifruitchocolate170gmtp": {
-    "id": "tayasmultifruitchocolate170gmtp",
-    "name": "Tayas Multi Fruit Chocolate 170gm TP",
-    "url": "https://www.shwapno.com/tayas-multi-fruit-chocolate-170gm-sao-tome-principe?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/6728a4c13a11aefc405eaa26_Tayas-Multi-Fruit-Chocolate-170gm-Sao-Tome-Principe_1.webp",
-    "category": "Candy & Chocolate",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 495,
-        "normalized_price": 2911.76,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 495,
-    "normalized_price": 2911.76,
-    "original_price": null,
-    "discount": null,
-    "unit": "170.0 gm",
-    "unit_type": "kg"
-  },
   "naplesmayonnaise17030gm": {
     "id": "naplesmayonnaise17030gm",
     "name": "Naples Mayonnaise 170(±)30gm",
     "url": "https://www.shwapno.com/naples-mayonnaise-170ml?lang=en",
     "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa96cbd61902ef2307b65f_Naples-Mayonnaise-170ml_1.webp",
-    "category": "Breakfast",
+    "category": "Mayonnaise",
     "history": [
       {
         "date": "2026-08-03",
@@ -92600,6 +92600,28 @@
     "discount": "9%",
     "unit": "340.0 gm",
     "unit_type": "kg"
+  },
+  "bellissimopremiumvanillapapercup100ml": {
+    "id": "bellissimopremiumvanillapapercup100ml",
+    "name": "Bellissimo Premium Vanilla PaperCup100ml",
+    "url": "https://www.shwapno.com/bellissimo-premium-vanilla-papercup100ml?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-product.webp",
+    "category": "Ice Cream",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 54,
+        "normalized_price": 540.0,
+        "original_price": 70,
+        "discount": "22%"
+      }
+    ],
+    "current_price": 54,
+    "normalized_price": 540.0,
+    "original_price": 70,
+    "discount": "22%",
+    "unit": "100.0 ml",
+    "unit_type": "L"
   },
   "tayasdamlasourtubes30gmtr": {
     "id": "tayasdamlasourtubes30gmtr",
@@ -92665,50 +92687,6 @@
     "original_price": null,
     "discount": null,
     "unit": "10.0 gm",
-    "unit_type": "kg"
-  },
-  "bellissimopremiumvanillapapercup100ml": {
-    "id": "bellissimopremiumvanillapapercup100ml",
-    "name": "Bellissimo Premium Vanilla PaperCup100ml",
-    "url": "https://www.shwapno.com/bellissimo-premium-vanilla-papercup100ml?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-product.webp",
-    "category": "Ice Cream",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 54,
-        "normalized_price": 540.0,
-        "original_price": 70,
-        "discount": "22%"
-      }
-    ],
-    "current_price": 54,
-    "normalized_price": 540.0,
-    "original_price": 70,
-    "discount": "22%",
-    "unit": "100.0 ml",
-    "unit_type": "L"
-  },
-  "tayashamletchocolatehazelnutblue700gm": {
-    "id": "tayashamletchocolatehazelnutblue700gm",
-    "name": "Tayas Hamlet Chocolate Hazelnut Blue 700gm",
-    "url": "https://www.shwapno.com/tayas-hamlet-chocolate-hazelnut-blue-700-gm?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-product.webp",
-    "category": "Candy & Chocolate",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 3350,
-        "normalized_price": 4785.71,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 3350,
-    "normalized_price": 4785.71,
-    "original_price": null,
-    "discount": null,
-    "unit": "700.0 gm",
     "unit_type": "kg"
   },
   "prantomatoketchup1000gm": {
@@ -92819,6 +92797,28 @@
     "original_price": null,
     "discount": null,
     "unit": "340.0 gm",
+    "unit_type": "kg"
+  },
+  "prancoriandersauce250gm": {
+    "id": "prancoriandersauce250gm",
+    "name": "PRAN Coriander Sauce 250gm",
+    "url": "https://www.shwapno.com/pran-coriander-sauce-250gm?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/69b1172e9d19fa3e6c9ae940_Pran-Coriander-Sauce-250gm_1.webp",
+    "category": "Dipping Sauce",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 115,
+        "normalized_price": 460.0,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 115,
+    "normalized_price": 460.0,
+    "original_price": null,
+    "discount": null,
+    "unit": "250.0 gm",
     "unit_type": "kg"
   },
   "nioreyebrowpencilallcolor009gmde": {
@@ -92997,70 +92997,26 @@
     "unit": "250.0 ml",
     "unit_type": "L"
   },
-  "prancoriandersauce250gm": {
-    "id": "prancoriandersauce250gm",
-    "name": "PRAN Coriander Sauce 250gm",
-    "url": "https://www.shwapno.com/pran-coriander-sauce-250gm?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/69b1172e9d19fa3e6c9ae940_Pran-Coriander-Sauce-250gm_1.webp",
-    "category": "Dipping Sauce",
+  "tayashamletchocolatehazelnutblue700gm": {
+    "id": "tayashamletchocolatehazelnutblue700gm",
+    "name": "Tayas Hamlet Chocolate Hazelnut Blue 700gm",
+    "url": "https://www.shwapno.com/tayas-hamlet-chocolate-hazelnut-blue-700-gm?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-product.webp",
+    "category": "Candy & Chocolate",
     "history": [
       {
         "date": "2026-08-03",
-        "price": 115,
-        "normalized_price": 460.0,
+        "price": 3350,
+        "normalized_price": 4785.71,
         "original_price": null,
         "discount": null
       }
     ],
-    "current_price": 115,
-    "normalized_price": 460.0,
+    "current_price": 3350,
+    "normalized_price": 4785.71,
     "original_price": null,
     "discount": null,
-    "unit": "250.0 gm",
-    "unit_type": "kg"
-  },
-  "pondsdailyfacewash100gm": {
-    "id": "pondsdailyfacewash100gm",
-    "name": "POND'S Daily Face Wash 100gm",
-    "url": "https://www.shwapno.com/ponds-daily-face-wash-healthy-g-100g-2?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/67dab662ac5a5cedd1d7c4b6_Ponds-Daily-Face-Wash-100gm_1.webp",
-    "category": "Skincare",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 170,
-        "normalized_price": 1700.0,
-        "original_price": 180,
-        "discount": "5%"
-      }
-    ],
-    "current_price": 170,
-    "normalized_price": 1700.0,
-    "original_price": 180,
-    "discount": "5%",
-    "unit": "100.0 gm",
-    "unit_type": "kg"
-  },
-  "pondswhitebeautyfacewash50gm": {
-    "id": "pondswhitebeautyfacewash50gm",
-    "name": "POND'S White Beauty Face Wash 50gm",
-    "url": "https://www.shwapno.com/ponds-white-beauty-face-wash-50g-2?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/68b575207d26667604574ae0_Ponds-White-Beauty-Face-Wash-50gm_1.webp",
-    "category": "Skincare",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 110,
-        "normalized_price": 2200.0,
-        "original_price": 120,
-        "discount": "8%"
-      }
-    ],
-    "current_price": 110,
-    "normalized_price": 2200.0,
-    "original_price": 120,
-    "discount": "8%",
-    "unit": "50.0 gm",
+    "unit": "700.0 gm",
     "unit_type": "kg"
   },
   "pantenelongstrongconditioner300mlthailand": {
@@ -93106,6 +93062,138 @@
     "discount": null,
     "unit": "300.0 ml",
     "unit_type": "L"
+  },
+  "bashundharafacialtissue100x2sheet": {
+    "id": "bashundharafacialtissue100x2sheet",
+    "name": "Bashundhara Facial Tissue 100x2Sheet",
+    "url": "https://www.shwapno.com/bashundhara-facial-tissue-100x2sheet?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa956a115075f231ecc58b_Bashundhara-Facial-Tissue-100x2Sheet_1.webp",
+    "category": "Personal Care",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 75,
+        "normalized_price": 75.0,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 75,
+    "normalized_price": 75.0,
+    "original_price": null,
+    "discount": null,
+    "unit": "1 Piece",
+    "unit_type": "pc"
+  },
+  "bashundharatoilettissuewhite": {
+    "id": "bashundharatoilettissuewhite",
+    "name": "Bashundhara Toilet Tissue (White)",
+    "url": "https://www.shwapno.com/bashundhara-toilet-tissue-white?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa954f115075f231ecae72_Bashundhara-Toilet-Tissue-White_1.webp",
+    "category": "Personal Care",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 28,
+        "normalized_price": 28.0,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 28,
+    "normalized_price": 28.0,
+    "original_price": null,
+    "discount": null,
+    "unit": "1 Piece",
+    "unit_type": "pc"
+  },
+  "freshfacialtissuewhite150pcsx2ply": {
+    "id": "freshfacialtissuewhite150pcsx2ply",
+    "name": "Fresh Facial Tissue White 150PcsX2Ply",
+    "url": "https://www.shwapno.com/fresh-facial-tissue-white-150pcs-x-2-ply?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/6728a16e870366949a041845_Fresh-Facial-Tissue-White-150PcsX2Ply_1.webp",
+    "category": "Personal Care",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 100,
+        "normalized_price": 0.67,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 100,
+    "normalized_price": 0.67,
+    "original_price": null,
+    "discount": null,
+    "unit": "150.0 pc",
+    "unit_type": "pc"
+  },
+  "colgatemaxfreshredgeltoothpaste150gm": {
+    "id": "colgatemaxfreshredgeltoothpaste150gm",
+    "name": "Colgate Max Fresh Red Gel Toothpaste 150gm",
+    "url": "https://www.shwapno.com/colgate-max-fresh-red-geltooth-paste-150gm-2?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa97b6d61902ef23081bf8_Colgate-Max-Fresh-Red-Gel-Toothpaste-150-gm_1.webp",
+    "category": "Oral Care",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 200,
+        "normalized_price": 1333.33,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 200,
+    "normalized_price": 1333.33,
+    "original_price": null,
+    "discount": null,
+    "unit": "150.0 gm",
+    "unit_type": "kg"
+  },
+  "pondsdailyfacewash100gm": {
+    "id": "pondsdailyfacewash100gm",
+    "name": "POND'S Daily Face Wash 100gm",
+    "url": "https://www.shwapno.com/ponds-daily-face-wash-healthy-g-100g-2?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/67dab662ac5a5cedd1d7c4b6_Ponds-Daily-Face-Wash-100gm_1.webp",
+    "category": "Skincare",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 170,
+        "normalized_price": 1700.0,
+        "original_price": 180,
+        "discount": "5%"
+      }
+    ],
+    "current_price": 170,
+    "normalized_price": 1700.0,
+    "original_price": 180,
+    "discount": "5%",
+    "unit": "100.0 gm",
+    "unit_type": "kg"
+  },
+  "pondswhitebeautyfacewash50gm": {
+    "id": "pondswhitebeautyfacewash50gm",
+    "name": "POND'S White Beauty Face Wash 50gm",
+    "url": "https://www.shwapno.com/ponds-white-beauty-face-wash-50g-2?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/68b575207d26667604574ae0_Ponds-White-Beauty-Face-Wash-50gm_1.webp",
+    "category": "Skincare",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 110,
+        "normalized_price": 2200.0,
+        "original_price": 120,
+        "discount": "8%"
+      }
+    ],
+    "current_price": 110,
+    "normalized_price": 2200.0,
+    "original_price": 120,
+    "discount": "8%",
+    "unit": "50.0 gm",
+    "unit_type": "kg"
   },
   "clearantidandruffcompleteactivecareshampoo35020ml": {
     "id": "clearantidandruffcompleteactivecareshampoo35020ml",
@@ -93283,115 +93371,137 @@
     "unit": "180.0 ml",
     "unit_type": "L"
   },
-  "veetcreamnormalskin100gm": {
-    "id": "veetcreamnormalskin100gm",
-    "name": "Veet Cream Normal Skin 100gm",
-    "url": "https://www.shwapno.com/veet-cream-100gm-normal-skin?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/67483ef62225bf11315a4d45_Veet-Cream-Normal-Skin-100gm_1.webp",
-    "category": "Feminine Care",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 370,
-        "normalized_price": 3700.0,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 370,
-    "normalized_price": 3700.0,
-    "original_price": null,
-    "discount": null,
-    "unit": "100.0 gm",
-    "unit_type": "kg"
-  },
-  "bashundharafacialtissue100x2sheet": {
-    "id": "bashundharafacialtissue100x2sheet",
-    "name": "Bashundhara Facial Tissue 100x2Sheet",
-    "url": "https://www.shwapno.com/bashundhara-facial-tissue-100x2sheet?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa956a115075f231ecc58b_Bashundhara-Facial-Tissue-100x2Sheet_1.webp",
+  "freshfacialtissuewhite100pcsx2ply": {
+    "id": "freshfacialtissuewhite100pcsx2ply",
+    "name": "Fresh Facial Tissue White 100PcsX2Ply",
+    "url": "https://www.shwapno.com/fresh-facial-tissue-white-100pcs-x-2-ply?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/6728a16d870366949a041831_Fresh-Facial-Tissue-White-100PcsX2Ply_1.webp",
     "category": "Personal Care",
     "history": [
       {
         "date": "2026-08-03",
         "price": 75,
-        "normalized_price": 75.0,
+        "normalized_price": 0.75,
         "original_price": null,
         "discount": null
       }
     ],
     "current_price": 75,
-    "normalized_price": 75.0,
+    "normalized_price": 0.75,
+    "original_price": null,
+    "discount": null,
+    "unit": "100.0 pc",
+    "unit_type": "pc"
+  },
+  "partexcleenhandtowel200x2ply": {
+    "id": "partexcleenhandtowel200x2ply",
+    "name": "Partex Cleen Hand Towel 200X2Ply",
+    "url": "https://www.shwapno.com/partex-cleen-hand-towel-200x2ply?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa959c115075f231ecc802_Partex-Cleen-Hand-Towel-200X2Ply_1.webp",
+    "category": "Personal Care",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 90,
+        "normalized_price": 90.0,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 90,
+    "normalized_price": 90.0,
     "original_price": null,
     "discount": null,
     "unit": "1 Piece",
     "unit_type": "pc"
   },
-  "bashundharatoilettissuewhite": {
-    "id": "bashundharatoilettissuewhite",
-    "name": "Bashundhara Toilet Tissue (White)",
-    "url": "https://www.shwapno.com/bashundhara-toilet-tissue-white?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa954f115075f231ecae72_Bashundhara-Toilet-Tissue-White_1.webp",
+  "partexcleenfacialtissuepaper120x2ply": {
+    "id": "partexcleenfacialtissuepaper120x2ply",
+    "name": "Partex Cleen Facial Tissue Paper 120X2Ply",
+    "url": "https://www.shwapno.com/partex-cleen-facial-tissue-paper-120x2ply?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa959a115075f231ecc7e2_Partex-Cleen-Facial-Tissue-Paper-120X2Ply_1.webp",
     "category": "Personal Care",
     "history": [
       {
         "date": "2026-08-03",
-        "price": 28,
-        "normalized_price": 28.0,
+        "price": 85,
+        "normalized_price": 85.0,
         "original_price": null,
         "discount": null
       }
     ],
-    "current_price": 28,
-    "normalized_price": 28.0,
+    "current_price": 85,
+    "normalized_price": 85.0,
     "original_price": null,
     "discount": null,
     "unit": "1 Piece",
     "unit_type": "pc"
   },
-  "freshfacialtissuewhite150pcsx2ply": {
-    "id": "freshfacialtissuewhite150pcsx2ply",
-    "name": "Fresh Facial Tissue White 150PcsX2Ply",
-    "url": "https://www.shwapno.com/fresh-facial-tissue-white-150pcs-x-2-ply?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/6728a16e870366949a041845_Fresh-Facial-Tissue-White-150PcsX2Ply_1.webp",
+  "luxbrightglowsoap9010gmbuy2save10tk": {
+    "id": "luxbrightglowsoap9010gmbuy2save10tk",
+    "name": "LUX Bright Glow Soap 90(±)10gm (Buy2 Save 10 tk)",
+    "url": "https://www.shwapno.com/lux-velvet-touch-100gm-buy2-save-tk-10?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/6655ae830e5834e013de5574_Lux-Velvet-Touch-100gm-Buy2-Save-tk-10-_1.webp",
     "category": "Personal Care",
     "history": [
       {
         "date": "2026-08-03",
-        "price": 100,
-        "normalized_price": 0.67,
-        "original_price": null,
-        "discount": null
+        "price": 106,
+        "normalized_price": 10600.0,
+        "original_price": 120,
+        "discount": "11%"
       }
     ],
-    "current_price": 100,
-    "normalized_price": 0.67,
-    "original_price": null,
-    "discount": null,
-    "unit": "150.0 pc",
-    "unit_type": "pc"
-  },
-  "colgatemaxfreshredgeltoothpaste150gm": {
-    "id": "colgatemaxfreshredgeltoothpaste150gm",
-    "name": "Colgate Max Fresh Red Gel Toothpaste 150gm",
-    "url": "https://www.shwapno.com/colgate-max-fresh-red-geltooth-paste-150gm-2?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa97b6d61902ef23081bf8_Colgate-Max-Fresh-Red-Gel-Toothpaste-150-gm_1.webp",
-    "category": "Oral Care",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 200,
-        "normalized_price": 1333.33,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 200,
-    "normalized_price": 1333.33,
-    "original_price": null,
-    "discount": null,
-    "unit": "150.0 gm",
+    "current_price": 106,
+    "normalized_price": 10600.0,
+    "original_price": 120,
+    "discount": "11%",
+    "unit": "10.0 gm",
     "unit_type": "kg"
+  },
+  "partexcleenpapernapkin100pcs": {
+    "id": "partexcleenpapernapkin100pcs",
+    "name": "Partex Cleen Paper Napkin 100Pcs",
+    "url": "https://www.shwapno.com/partex-cleen-paper-napkin-100pcs?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/66614531245cbc9913793616_Partex-Cleen-Paper-Napkin-100pcs_1.webp",
+    "category": "Personal Care",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 75,
+        "normalized_price": 0.75,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 75,
+    "normalized_price": 0.75,
+    "original_price": null,
+    "discount": null,
+    "unit": "100.0 pc",
+    "unit_type": "pc"
+  },
+  "partexcleentoilettissuesupersoft2rolls": {
+    "id": "partexcleentoilettissuesupersoft2rolls",
+    "name": "Partex Cleen Toilet Tissue Super Soft 2Rolls",
+    "url": "https://www.shwapno.com/partex-cleen-toilet-tissue-super-soft-2-rolls?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa9599115075f231ecc7da_Partex-Cleen-Toilet-Tissue-Super-Soft-2-rolls_1.webp",
+    "category": "Personal Care",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 55,
+        "normalized_price": 55.0,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 55,
+    "normalized_price": 55.0,
+    "original_price": null,
+    "discount": null,
+    "unit": "1 Piece",
+    "unit_type": "pc"
   },
   "lifebuoytotal10handwash18010mlrefill": {
     "id": "lifebuoytotal10handwash18010mlrefill",
@@ -93612,6 +93722,72 @@
     "discount": null,
     "unit": "200.0 ml",
     "unit_type": "L"
+  },
+  "veetcreamnormalskin100gm": {
+    "id": "veetcreamnormalskin100gm",
+    "name": "Veet Cream Normal Skin 100gm",
+    "url": "https://www.shwapno.com/veet-cream-100gm-normal-skin?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/67483ef62225bf11315a4d45_Veet-Cream-Normal-Skin-100gm_1.webp",
+    "category": "Feminine Care",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 370,
+        "normalized_price": 3700.0,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 370,
+    "normalized_price": 3700.0,
+    "original_price": null,
+    "discount": null,
+    "unit": "100.0 gm",
+    "unit_type": "kg"
+  },
+  "magictoothpowder100gm": {
+    "id": "magictoothpowder100gm",
+    "name": "Magic Tooth Powder 100gm",
+    "url": "https://www.shwapno.com/magic-tooth-powder-100-gm?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/694a18f7df39efd2b3ab3f37_Magic-Tooth-Powder-100gm_1.webp",
+    "category": "Oral Care",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 65,
+        "normalized_price": 650.0,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 65,
+    "normalized_price": 650.0,
+    "original_price": null,
+    "discount": null,
+    "unit": "100.0 gm",
+    "unit_type": "kg"
+  },
+  "closeupwhitenowwhiteningpurplecolortoothpaste100gmin": {
+    "id": "closeupwhitenowwhiteningpurplecolortoothpaste100gmin",
+    "name": "CloseUp White Now Whitening Purple Color Toothpaste 100gm IN",
+    "url": "https://www.shwapno.com/closeup-white-now-whitening-purple-color-toothpaste-100-gm-in?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/6a057c80a32fe1b508c548b6_CloseUp-White-Now-Whitening-Purple-Color-Toothpaste-100gm-IN_1.webp",
+    "category": "Oral Care",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 190,
+        "normalized_price": 1900.0,
+        "original_price": 300,
+        "discount": "36%"
+      }
+    ],
+    "current_price": 190,
+    "normalized_price": 1900.0,
+    "original_price": 300,
+    "discount": "36%",
+    "unit": "100.0 gm",
+    "unit_type": "kg"
   },
   "pantenehairfallcontrolshampoo170mlthailand": {
     "id": "pantenehairfallcontrolshampoo170mlthailand",
@@ -93987,204 +94163,6 @@
     "unit": "50.0 gm",
     "unit_type": "kg"
   },
-  "freshfacialtissuewhite100pcsx2ply": {
-    "id": "freshfacialtissuewhite100pcsx2ply",
-    "name": "Fresh Facial Tissue White 100PcsX2Ply",
-    "url": "https://www.shwapno.com/fresh-facial-tissue-white-100pcs-x-2-ply?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/6728a16d870366949a041831_Fresh-Facial-Tissue-White-100PcsX2Ply_1.webp",
-    "category": "Personal Care",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 75,
-        "normalized_price": 0.75,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 75,
-    "normalized_price": 0.75,
-    "original_price": null,
-    "discount": null,
-    "unit": "100.0 pc",
-    "unit_type": "pc"
-  },
-  "partexcleenhandtowel200x2ply": {
-    "id": "partexcleenhandtowel200x2ply",
-    "name": "Partex Cleen Hand Towel 200X2Ply",
-    "url": "https://www.shwapno.com/partex-cleen-hand-towel-200x2ply?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa959c115075f231ecc802_Partex-Cleen-Hand-Towel-200X2Ply_1.webp",
-    "category": "Personal Care",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 90,
-        "normalized_price": 90.0,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 90,
-    "normalized_price": 90.0,
-    "original_price": null,
-    "discount": null,
-    "unit": "1 Piece",
-    "unit_type": "pc"
-  },
-  "partexcleenfacialtissuepaper120x2ply": {
-    "id": "partexcleenfacialtissuepaper120x2ply",
-    "name": "Partex Cleen Facial Tissue Paper 120X2Ply",
-    "url": "https://www.shwapno.com/partex-cleen-facial-tissue-paper-120x2ply?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa959a115075f231ecc7e2_Partex-Cleen-Facial-Tissue-Paper-120X2Ply_1.webp",
-    "category": "Personal Care",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 85,
-        "normalized_price": 85.0,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 85,
-    "normalized_price": 85.0,
-    "original_price": null,
-    "discount": null,
-    "unit": "1 Piece",
-    "unit_type": "pc"
-  },
-  "luxbrightglowsoap9010gmbuy2save10tk": {
-    "id": "luxbrightglowsoap9010gmbuy2save10tk",
-    "name": "LUX Bright Glow Soap 90(±)10gm (Buy2 Save 10 tk)",
-    "url": "https://www.shwapno.com/lux-velvet-touch-100gm-buy2-save-tk-10?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/6655ae830e5834e013de5574_Lux-Velvet-Touch-100gm-Buy2-Save-tk-10-_1.webp",
-    "category": "Personal Care",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 106,
-        "normalized_price": 10600.0,
-        "original_price": 120,
-        "discount": "11%"
-      }
-    ],
-    "current_price": 106,
-    "normalized_price": 10600.0,
-    "original_price": 120,
-    "discount": "11%",
-    "unit": "10.0 gm",
-    "unit_type": "kg"
-  },
-  "partexcleenpapernapkin100pcs": {
-    "id": "partexcleenpapernapkin100pcs",
-    "name": "Partex Cleen Paper Napkin 100Pcs",
-    "url": "https://www.shwapno.com/partex-cleen-paper-napkin-100pcs?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/66614531245cbc9913793616_Partex-Cleen-Paper-Napkin-100pcs_1.webp",
-    "category": "Personal Care",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 75,
-        "normalized_price": 0.75,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 75,
-    "normalized_price": 0.75,
-    "original_price": null,
-    "discount": null,
-    "unit": "100.0 pc",
-    "unit_type": "pc"
-  },
-  "partexcleentoilettissuesupersoft2rolls": {
-    "id": "partexcleentoilettissuesupersoft2rolls",
-    "name": "Partex Cleen Toilet Tissue Super Soft 2Rolls",
-    "url": "https://www.shwapno.com/partex-cleen-toilet-tissue-super-soft-2-rolls?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa9599115075f231ecc7da_Partex-Cleen-Toilet-Tissue-Super-Soft-2-rolls_1.webp",
-    "category": "Personal Care",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 55,
-        "normalized_price": 55.0,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 55,
-    "normalized_price": 55.0,
-    "original_price": null,
-    "discount": null,
-    "unit": "1 Piece",
-    "unit_type": "pc"
-  },
-  "magictoothpowder100gm": {
-    "id": "magictoothpowder100gm",
-    "name": "Magic Tooth Powder 100gm",
-    "url": "https://www.shwapno.com/magic-tooth-powder-100-gm?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/694a18f7df39efd2b3ab3f37_Magic-Tooth-Powder-100gm_1.webp",
-    "category": "Oral Care",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 65,
-        "normalized_price": 650.0,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 65,
-    "normalized_price": 650.0,
-    "original_price": null,
-    "discount": null,
-    "unit": "100.0 gm",
-    "unit_type": "kg"
-  },
-  "closeupwhitenowwhiteningpurplecolortoothpaste100gmin": {
-    "id": "closeupwhitenowwhiteningpurplecolortoothpaste100gmin",
-    "name": "CloseUp White Now Whitening Purple Color Toothpaste 100gm IN",
-    "url": "https://www.shwapno.com/closeup-white-now-whitening-purple-color-toothpaste-100-gm-in?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/6a057c80a32fe1b508c548b6_CloseUp-White-Now-Whitening-Purple-Color-Toothpaste-100gm-IN_1.webp",
-    "category": "Oral Care",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 190,
-        "normalized_price": 1900.0,
-        "original_price": 300,
-        "discount": "36%"
-      }
-    ],
-    "current_price": 190,
-    "normalized_price": 1900.0,
-    "original_price": 300,
-    "discount": "36%",
-    "unit": "100.0 gm",
-    "unit_type": "kg"
-  },
-  "lilyultrasoftserumgel50gm": {
-    "id": "lilyultrasoftserumgel50gm",
-    "name": "LILY Ultra Soft Serum Gel 50gm",
-    "url": "https://www.shwapno.com/lily-ultra-soft-serum-gel-50-gm?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-product.webp",
-    "category": "Skincare",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 180,
-        "normalized_price": 3600.0,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 180,
-    "normalized_price": 3600.0,
-    "original_price": null,
-    "discount": null,
-    "unit": "50.0 gm",
-    "unit_type": "kg"
-  },
   "merilbabyshowergelorange200ml": {
     "id": "merilbabyshowergelorange200ml",
     "name": "Meril Baby Shower Gel Orange 200ml",
@@ -94205,6 +94183,72 @@
     "original_price": null,
     "discount": null,
     "unit": "200.0 ml",
+    "unit_type": "L"
+  },
+  "harpicmanikjoroffersave20tk": {
+    "id": "harpicmanikjoroffersave20tk",
+    "name": "Harpic Manik Jor Offer (Save 20 tk)",
+    "url": "https://www.shwapno.com/harpic-750ml-toilet-cleaner-and-500ml-bathroom-cleaner-liquid-manikjor-offer?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/674843bc09092f46d6e64710_2603363_1.webp",
+    "category": "Home Cleaning",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 310,
+        "normalized_price": 310.0,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 310,
+    "normalized_price": 310.0,
+    "original_price": null,
+    "discount": null,
+    "unit": "1 Piece",
+    "unit_type": "pc"
+  },
+  "harpicallinonepowder200gm": {
+    "id": "harpicallinonepowder200gm",
+    "name": "Harpic All-in-One Powder 200gm",
+    "url": "https://www.shwapno.com/harpic-all-in-one-toilet-and-bathroom-cleaning-powder-200gm?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/67483ed15d2a046bf21d0bcb_Harpic-All-in-One-Toilet-and-Bathroom-Cleaning-Powder-200gm_1.webp",
+    "category": "Home Cleaning",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 65,
+        "normalized_price": 325.0,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 65,
+    "normalized_price": 325.0,
+    "original_price": null,
+    "discount": null,
+    "unit": "200.0 gm",
+    "unit_type": "kg"
+  },
+  "aciaerosolinsectspray475ml": {
+    "id": "aciaerosolinsectspray475ml",
+    "name": "ACI Aerosol Insect Spray 475ml",
+    "url": "https://www.shwapno.com/aci-aerosol-insect-spray-475ml?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa954c115075f231ecab6a_ACI-Aerosol-Insect-Spray-475ml_1.webp",
+    "category": "Home Cleaning",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 415,
+        "normalized_price": 873.68,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 415,
+    "normalized_price": 873.68,
+    "original_price": null,
+    "discount": null,
+    "unit": "475.0 ml",
     "unit_type": "L"
   },
   "wheel2in1cleanfreshdetergent2kg": {
@@ -94339,12 +94383,232 @@
     "unit": "1.0 kg",
     "unit_type": "kg"
   },
+  "sunbitdishwash250mlrefillbuy2get1free": {
+    "id": "sunbitdishwash250mlrefillbuy2get1free",
+    "name": "Sunbit Dish Wash 250ml (Refill) (Buy2 Get1 Free)",
+    "url": "https://www.shwapno.com/sunbit-dish-wash-refill-250ml-buy2-get1-free?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/69b1170d9d19fa3e6c9ae193_Sunbit-Dish-Wash-Refill-250ml-Buy2-Get1-Free_1.webp",
+    "category": "Dish Cleaner",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 150,
+        "normalized_price": 600.0,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 150,
+    "normalized_price": 600.0,
+    "original_price": null,
+    "discount": null,
+    "unit": "250.0 ml",
+    "unit_type": "L"
+  },
+  "sunbitlemondishwashbar300gmbuy3get1free": {
+    "id": "sunbitlemondishwashbar300gmbuy3get1free",
+    "name": "Sunbit Lemon Dishwash Bar 300gm (Buy3 Get1 Free)",
+    "url": "https://www.shwapno.com/sunbit-lemon-dishwash-bar-300-gm-buy-3-get-1-free?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-product.webp",
+    "category": "Dish Cleaner",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 120,
+        "normalized_price": 400.0,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 120,
+    "normalized_price": 400.0,
+    "original_price": null,
+    "discount": null,
+    "unit": "300.0 gm",
+    "unit_type": "kg"
+  },
+  "sunbitdishwashingbar300gmbuy2get1free": {
+    "id": "sunbitdishwashingbar300gmbuy2get1free",
+    "name": "Sunbit Dish Washing Bar 300gm (Buy2 Get1 Free)",
+    "url": "https://www.shwapno.com/sunbit-dish-washing-bar-300-gm-buy-2-get-1-free?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-product.webp",
+    "category": "Dish Cleaner",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 80,
+        "normalized_price": 266.67,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 80,
+    "normalized_price": 266.67,
+    "original_price": null,
+    "discount": null,
+    "unit": "300.0 gm",
+    "unit_type": "kg"
+  },
+  "tyloxtoiletcleanerlemonlime500ml": {
+    "id": "tyloxtoiletcleanerlemonlime500ml",
+    "name": "Tylox Toilet Cleaner Lemon Lime 500ml",
+    "url": "https://www.shwapno.com/harpic-power-plus-500ml-9?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/6a0031ccb629366a25662d73_Tylox-Toilet-Cleaner-Lemon-Lime-500ml_1.webp",
+    "category": "Toilet Cleaners",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 120,
+        "normalized_price": 240.0,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 120,
+    "normalized_price": 240.0,
+    "original_price": null,
+    "discount": null,
+    "unit": "500.0 ml",
+    "unit_type": "L"
+  },
+  "tyloxtoiletcleanerfreshaqua500ml": {
+    "id": "tyloxtoiletcleanerfreshaqua500ml",
+    "name": "Tylox Toilet Cleaner Fresh Aqua 500ml",
+    "url": "https://www.shwapno.com/tylox-toilet-cleaner-fresh-aqua-500ml?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/6a0031c9b629366a25662d2d_Tylox-Toilet-Cleaner-Fresh-Aqua-500ml_1.webp",
+    "category": "Toilet Cleaners",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 120,
+        "normalized_price": 240.0,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 120,
+    "normalized_price": 240.0,
+    "original_price": null,
+    "discount": null,
+    "unit": "500.0 ml",
+    "unit_type": "L"
+  },
+  "tyloxfloorcleaner1ltrbuy1getflcl500mlfree": {
+    "id": "tyloxfloorcleaner1ltrbuy1getflcl500mlfree",
+    "name": "Tylox Floor Cleaner 1Ltr. (Buy1 Get Fl. Cl. 500ml Free)",
+    "url": "https://www.shwapno.com/tylox-floor-cleaner-1-ltr-buy-1-get-fl-cl-500-ml-free?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-product.webp",
+    "category": "Toilet Cleaners",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 350,
+        "normalized_price": 350.0,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 350,
+    "normalized_price": 350.0,
+    "original_price": null,
+    "discount": null,
+    "unit": "1.0 L",
+    "unit_type": "L"
+  },
+  "lilyultrasoftserumgel50gm": {
+    "id": "lilyultrasoftserumgel50gm",
+    "name": "LILY Ultra Soft Serum Gel 50gm",
+    "url": "https://www.shwapno.com/lily-ultra-soft-serum-gel-50-gm?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-product.webp",
+    "category": "Skincare",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 180,
+        "normalized_price": 3600.0,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 180,
+    "normalized_price": 3600.0,
+    "original_price": null,
+    "discount": null,
+    "unit": "50.0 gm",
+    "unit_type": "kg"
+  },
+  "rinadvanceddetergentpowder1kgconainer": {
+    "id": "rinadvanceddetergentpowder1kgconainer",
+    "name": "Rin Advanced Detergent Powder 1kg + Conainer",
+    "url": "https://www.shwapno.com/rin-advanced-detergent-powder-1-kg-conainer?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/69b117209d19fa3e6c9ae6ac_Rin-Advanced-Detergent-Powder-1kg-Conainer_1.webp",
+    "category": "Laundry",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 220,
+        "normalized_price": 220.0,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 220,
+    "normalized_price": 220.0,
+    "original_price": null,
+    "discount": null,
+    "unit": "1.0 kg",
+    "unit_type": "kg"
+  },
+  "orixliquiddetergentroselavender1ltr": {
+    "id": "orixliquiddetergentroselavender1ltr",
+    "name": "Orix Liquid Detergent Rose & Lavender 1Ltr.",
+    "url": "https://www.shwapno.com/orix-liquid-detergent-rose-lavender-1-ltr?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/6a0031d2b629366a25662deb_Orix-Liquid-Detergent-Rose-Lavender-1Ltr-_1.webp",
+    "category": "Laundry",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 380,
+        "normalized_price": 380.0,
+        "original_price": 480,
+        "discount": "20%"
+      }
+    ],
+    "current_price": 380,
+    "normalized_price": 380.0,
+    "original_price": 480,
+    "discount": "20%",
+    "unit": "1.0 L",
+    "unit_type": "L"
+  },
+  "garbagebag": {
+    "id": "garbagebag",
+    "name": "Garbage Bag",
+    "url": "https://www.shwapno.com/garbage-bag-3?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-product.webp",
+    "category": "Trash Supplies",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 564,
+        "normalized_price": 564.0,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 564,
+    "normalized_price": 564.0,
+    "original_price": null,
+    "discount": null,
+    "unit": "1 Piece",
+    "unit_type": "pc"
+  },
   "lizol3in1disinfectantsurfacecleanerlavender500ml": {
     "id": "lizol3in1disinfectantsurfacecleanerlavender500ml",
     "name": "Lizol 3in1 Disinfectant Surface Cleaner Lavender 500ml",
     "url": "https://www.shwapno.com/lizol-floor-and-surface-cleaner-lavender-500ml-disinfectant-liquid?lang=en",
     "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/67483ebf5d2a046bf21d09be_Lizol-Disinfectant-Floor-Surface-Cleaner-Lavender-500ml_1.webp",
-    "category": "Floor Glass Cleaner",
+    "category": "Home Cleaning",
     "history": [
       {
         "date": "2026-08-03",
@@ -94449,490 +94713,6 @@
     "unit": "1.0 L",
     "unit_type": "L"
   },
-  "sunbitdishwash250mlrefillbuy2get1free": {
-    "id": "sunbitdishwash250mlrefillbuy2get1free",
-    "name": "Sunbit Dish Wash 250ml (Refill) (Buy2 Get1 Free)",
-    "url": "https://www.shwapno.com/sunbit-dish-wash-refill-250ml-buy2-get1-free?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/69b1170d9d19fa3e6c9ae193_Sunbit-Dish-Wash-Refill-250ml-Buy2-Get1-Free_1.webp",
-    "category": "Dish Cleaner",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 150,
-        "normalized_price": 600.0,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 150,
-    "normalized_price": 600.0,
-    "original_price": null,
-    "discount": null,
-    "unit": "250.0 ml",
-    "unit_type": "L"
-  },
-  "sunbitlemondishwashbar300gmbuy3get1free": {
-    "id": "sunbitlemondishwashbar300gmbuy3get1free",
-    "name": "Sunbit Lemon Dishwash Bar 300gm (Buy3 Get1 Free)",
-    "url": "https://www.shwapno.com/sunbit-lemon-dishwash-bar-300-gm-buy-3-get-1-free?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-product.webp",
-    "category": "Dish Cleaner",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 120,
-        "normalized_price": 400.0,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 120,
-    "normalized_price": 400.0,
-    "original_price": null,
-    "discount": null,
-    "unit": "300.0 gm",
-    "unit_type": "kg"
-  },
-  "sunbitdishwashingbar300gmbuy2get1free": {
-    "id": "sunbitdishwashingbar300gmbuy2get1free",
-    "name": "Sunbit Dish Washing Bar 300gm (Buy2 Get1 Free)",
-    "url": "https://www.shwapno.com/sunbit-dish-washing-bar-300-gm-buy-2-get-1-free?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-product.webp",
-    "category": "Dish Cleaner",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 80,
-        "normalized_price": 266.67,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 80,
-    "normalized_price": 266.67,
-    "original_price": null,
-    "discount": null,
-    "unit": "300.0 gm",
-    "unit_type": "kg"
-  },
-  "aciaerosolinsectspray475ml": {
-    "id": "aciaerosolinsectspray475ml",
-    "name": "ACI Aerosol Insect Spray 475ml",
-    "url": "https://www.shwapno.com/aci-aerosol-insect-spray-475ml?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa954c115075f231ecab6a_ACI-Aerosol-Insect-Spray-475ml_1.webp",
-    "category": "Pest Control",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 415,
-        "normalized_price": 873.68,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 415,
-    "normalized_price": 873.68,
-    "original_price": null,
-    "discount": null,
-    "unit": "475.0 ml",
-    "unit_type": "L"
-  },
-  "harpicmanikjoroffersave20tk": {
-    "id": "harpicmanikjoroffersave20tk",
-    "name": "Harpic Manik Jor Offer (Save 20 tk)",
-    "url": "https://www.shwapno.com/harpic-750ml-toilet-cleaner-and-500ml-bathroom-cleaner-liquid-manikjor-offer?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/674843bc09092f46d6e64710_2603363_1.webp",
-    "category": "Home Cleaning",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 310,
-        "normalized_price": 310.0,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 310,
-    "normalized_price": 310.0,
-    "original_price": null,
-    "discount": null,
-    "unit": "1 Piece",
-    "unit_type": "pc"
-  },
-  "harpicallinonepowder200gm": {
-    "id": "harpicallinonepowder200gm",
-    "name": "Harpic All-in-One Powder 200gm",
-    "url": "https://www.shwapno.com/harpic-all-in-one-toilet-and-bathroom-cleaning-powder-200gm?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/67483ed15d2a046bf21d0bcb_Harpic-All-in-One-Toilet-and-Bathroom-Cleaning-Powder-200gm_1.webp",
-    "category": "Home Cleaning",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 65,
-        "normalized_price": 325.0,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 65,
-    "normalized_price": 325.0,
-    "original_price": null,
-    "discount": null,
-    "unit": "200.0 gm",
-    "unit_type": "kg"
-  },
-  "rinadvanceddetergentpowder1kgconainer": {
-    "id": "rinadvanceddetergentpowder1kgconainer",
-    "name": "Rin Advanced Detergent Powder 1kg + Conainer",
-    "url": "https://www.shwapno.com/rin-advanced-detergent-powder-1-kg-conainer?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/69b117209d19fa3e6c9ae6ac_Rin-Advanced-Detergent-Powder-1kg-Conainer_1.webp",
-    "category": "Laundry",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 220,
-        "normalized_price": 220.0,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 220,
-    "normalized_price": 220.0,
-    "original_price": null,
-    "discount": null,
-    "unit": "1.0 kg",
-    "unit_type": "kg"
-  },
-  "orixliquiddetergentroselavender1ltr": {
-    "id": "orixliquiddetergentroselavender1ltr",
-    "name": "Orix Liquid Detergent Rose & Lavender 1Ltr.",
-    "url": "https://www.shwapno.com/orix-liquid-detergent-rose-lavender-1-ltr?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/6a0031d2b629366a25662deb_Orix-Liquid-Detergent-Rose-Lavender-1Ltr-_1.webp",
-    "category": "Laundry",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 380,
-        "normalized_price": 380.0,
-        "original_price": 480,
-        "discount": "20%"
-      }
-    ],
-    "current_price": 380,
-    "normalized_price": 380.0,
-    "original_price": 480,
-    "discount": "20%",
-    "unit": "1.0 L",
-    "unit_type": "L"
-  },
-  "tyloxtoiletcleanerlemonlime500ml": {
-    "id": "tyloxtoiletcleanerlemonlime500ml",
-    "name": "Tylox Toilet Cleaner Lemon Lime 500ml",
-    "url": "https://www.shwapno.com/harpic-power-plus-500ml-9?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/6a0031ccb629366a25662d73_Tylox-Toilet-Cleaner-Lemon-Lime-500ml_1.webp",
-    "category": "Toilet Cleaners",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 120,
-        "normalized_price": 240.0,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 120,
-    "normalized_price": 240.0,
-    "original_price": null,
-    "discount": null,
-    "unit": "500.0 ml",
-    "unit_type": "L"
-  },
-  "tyloxtoiletcleanerfreshaqua500ml": {
-    "id": "tyloxtoiletcleanerfreshaqua500ml",
-    "name": "Tylox Toilet Cleaner Fresh Aqua 500ml",
-    "url": "https://www.shwapno.com/tylox-toilet-cleaner-fresh-aqua-500ml?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/6a0031c9b629366a25662d2d_Tylox-Toilet-Cleaner-Fresh-Aqua-500ml_1.webp",
-    "category": "Toilet Cleaners",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 120,
-        "normalized_price": 240.0,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 120,
-    "normalized_price": 240.0,
-    "original_price": null,
-    "discount": null,
-    "unit": "500.0 ml",
-    "unit_type": "L"
-  },
-  "tyloxfloorcleaner1ltrbuy1getflcl500mlfree": {
-    "id": "tyloxfloorcleaner1ltrbuy1getflcl500mlfree",
-    "name": "Tylox Floor Cleaner 1Ltr. (Buy1 Get Fl. Cl. 500ml Free)",
-    "url": "https://www.shwapno.com/tylox-floor-cleaner-1-ltr-buy-1-get-fl-cl-500-ml-free?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-product.webp",
-    "category": "Toilet Cleaners",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 350,
-        "normalized_price": 350.0,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 350,
-    "normalized_price": 350.0,
-    "original_price": null,
-    "discount": null,
-    "unit": "1.0 L",
-    "unit_type": "L"
-  },
-  "disposableplate10pcslarge": {
-    "id": "disposableplate10pcslarge",
-    "name": "Disposable Plate 10Pcs (Large)",
-    "url": "https://www.shwapno.com/disposable-plate-10pcs-large?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-product.webp",
-    "category": "Kitchen Appliances",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 65,
-        "normalized_price": 6.5,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 65,
-    "normalized_price": 6.5,
-    "original_price": null,
-    "discount": null,
-    "unit": "10.0 pc",
-    "unit_type": "pc"
-  },
-  "icebowln007": {
-    "id": "icebowln007",
-    "name": "Ice Bowl N007",
-    "url": "https://www.shwapno.com/ice-bowl-n007?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-product.webp",
-    "category": "Kitchen Appliances",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 125,
-        "normalized_price": 125.0,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 125,
-    "normalized_price": 125.0,
-    "original_price": null,
-    "discount": null,
-    "unit": "1 Piece",
-    "unit_type": "pc"
-  },
-  "spotplate105inchrio": {
-    "id": "spotplate105inchrio",
-    "name": "Spot Plate 10.5 Inch Rio",
-    "url": "https://www.shwapno.com/spot-plate-105-inch-rio?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-product.webp",
-    "category": "Kitchen Appliances",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 499,
-        "normalized_price": 499.0,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 499,
-    "normalized_price": 499.0,
-    "original_price": null,
-    "discount": null,
-    "unit": "1 Piece",
-    "unit_type": "pc"
-  },
-  "partexcleenkitchentowel2ply2rolls": {
-    "id": "partexcleenkitchentowel2ply2rolls",
-    "name": "Partex Cleen Kitchen Towel 2Ply 2Rolls",
-    "url": "https://www.shwapno.com/partex-cleen-kitchen-towel-2-ply-2-rolls?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa9598115075f231ecc7ce_Partex-Cleen-Kitchen-Towel-2Ply-2-rolls_1.webp",
-    "category": "Kitchen Accessories",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 160,
-        "normalized_price": 160.0,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 160,
-    "normalized_price": 160.0,
-    "original_price": null,
-    "discount": null,
-    "unit": "1 Piece",
-    "unit_type": "pc"
-  },
-  "partexcleenkitchentowel2ply1rolls": {
-    "id": "partexcleenkitchentowel2ply1rolls",
-    "name": "Partex Cleen Kitchen Towel 2Ply 1Rolls",
-    "url": "https://www.shwapno.com/partex-cleen-kitchen-towel-2-ply-1-roll?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/6728a186870366949a041c36_Partex-Cleen-Kitchen-Towel-2Ply-1Rolls_1.webp",
-    "category": "Kitchen Accessories",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 85,
-        "normalized_price": 85.0,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 85,
-    "normalized_price": 85.0,
-    "original_price": null,
-    "discount": null,
-    "unit": "1 Piece",
-    "unit_type": "pc"
-  },
-  "freshkitchentoweldoubleroll": {
-    "id": "freshkitchentoweldoubleroll",
-    "name": "Fresh Kitchen Towel Double Roll",
-    "url": "https://www.shwapno.com/fresh-kitchen-towel-double-roll?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa957f115075f231ecc69a_Fresh-Kitchen-Towel-Double-Roll_1.webp",
-    "category": "Kitchen Accessories",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 160,
-        "normalized_price": 160.0,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 160,
-    "normalized_price": 160.0,
-    "original_price": null,
-    "discount": null,
-    "unit": "1 Piece",
-    "unit_type": "pc"
-  },
-  "bashundharakitchentowelsinglepackwhite": {
-    "id": "bashundharakitchentowelsinglepackwhite",
-    "name": "Bashundhara Kitchen Towel Single Pack (White)",
-    "url": "https://www.shwapno.com/bashundhara-kitchen-towel-single-pack-white?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa954d115075f231ecacc4_Bashundhara-Kitchen-Towel-Single-Pack-White_1.webp",
-    "category": "Kitchen Accessories",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 85,
-        "normalized_price": 85.0,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 85,
-    "normalized_price": 85.0,
-    "original_price": null,
-    "discount": null,
-    "unit": "1 Piece",
-    "unit_type": "pc"
-  },
-  "pureitclassicgermkillkit3000ltr": {
-    "id": "pureitclassicgermkillkit3000ltr",
-    "name": "Pureit Classic Germ Kill Kit 3000Ltr.",
-    "url": "https://www.shwapno.com/pureit-classic-germ-kill-kit-3000l?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/69f976a01603910d68218e47_Pureit-Classic-Germ-Kill-Kit-3000Ltr-_1.webp",
-    "category": "Kitchen Accessories",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 1400,
-        "normalized_price": 0.47,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 1400,
-    "normalized_price": 0.47,
-    "original_price": null,
-    "discount": null,
-    "unit": "3000.0 L",
-    "unit_type": "L"
-  },
-  "electrickettle18ltr": {
-    "id": "electrickettle18ltr",
-    "name": "Electric Kettle 1.8Ltr.",
-    "url": "https://www.shwapno.com/s203121-electric-kettle-1-8l-2023?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/6735d10b767644156106c057_Electric-Kettle-1-8L_1.webp",
-    "category": "Kitchen Accessories",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 725,
-        "normalized_price": 402.78,
-        "original_price": 1380,
-        "discount": "47%"
-      }
-    ],
-    "current_price": 725,
-    "normalized_price": 402.78,
-    "original_price": 1380,
-    "discount": "47%",
-    "unit": "1.8 L",
-    "unit_type": "L"
-  },
-  "garbagebag": {
-    "id": "garbagebag",
-    "name": "Garbage Bag",
-    "url": "https://www.shwapno.com/garbage-bag-3?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-product.webp",
-    "category": "Trash Supplies",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 564,
-        "normalized_price": 564.0,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 564,
-    "normalized_price": 564.0,
-    "original_price": null,
-    "discount": null,
-    "unit": "1 Piece",
-    "unit_type": "pc"
-  },
-  "handtowelbuy1get1free": {
-    "id": "handtowelbuy1get1free",
-    "name": "Hand Towel (Buy1 Get1 Free)",
-    "url": "https://www.shwapno.com/hand-towel-buy1-get1-free?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-product.webp",
-    "category": "Living Items",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 400,
-        "normalized_price": 400000.0,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 400,
-    "normalized_price": 400000.0,
-    "original_price": null,
-    "discount": null,
-    "unit": "1.0 gm",
-    "unit_type": "kg"
-  },
   "dettolbodywashlastingfresh250ml": {
     "id": "dettolbodywashlastingfresh250ml",
     "name": "Dettol Body Wash Lasting Fresh 250ml",
@@ -94955,12 +94735,210 @@
     "unit": "250.0 ml",
     "unit_type": "L"
   },
+  "partexcleenkitchentowel2ply2rolls": {
+    "id": "partexcleenkitchentowel2ply2rolls",
+    "name": "Partex Cleen Kitchen Towel 2Ply 2Rolls",
+    "url": "https://www.shwapno.com/partex-cleen-kitchen-towel-2-ply-2-rolls?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa9598115075f231ecc7ce_Partex-Cleen-Kitchen-Towel-2Ply-2-rolls_1.webp",
+    "category": "Home & Kitchen",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 160,
+        "normalized_price": 160.0,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 160,
+    "normalized_price": 160.0,
+    "original_price": null,
+    "discount": null,
+    "unit": "1 Piece",
+    "unit_type": "pc"
+  },
+  "partexcleenkitchentowel2ply1rolls": {
+    "id": "partexcleenkitchentowel2ply1rolls",
+    "name": "Partex Cleen Kitchen Towel 2Ply 1Rolls",
+    "url": "https://www.shwapno.com/partex-cleen-kitchen-towel-2-ply-1-roll?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/6728a186870366949a041c36_Partex-Cleen-Kitchen-Towel-2Ply-1Rolls_1.webp",
+    "category": "Home & Kitchen",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 85,
+        "normalized_price": 85.0,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 85,
+    "normalized_price": 85.0,
+    "original_price": null,
+    "discount": null,
+    "unit": "1 Piece",
+    "unit_type": "pc"
+  },
+  "freshkitchentoweldoubleroll": {
+    "id": "freshkitchentoweldoubleroll",
+    "name": "Fresh Kitchen Towel Double Roll",
+    "url": "https://www.shwapno.com/fresh-kitchen-towel-double-roll?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa957f115075f231ecc69a_Fresh-Kitchen-Towel-Double-Roll_1.webp",
+    "category": "Home & Kitchen",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 160,
+        "normalized_price": 160.0,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 160,
+    "normalized_price": 160.0,
+    "original_price": null,
+    "discount": null,
+    "unit": "1 Piece",
+    "unit_type": "pc"
+  },
+  "bashundharakitchentowelsinglepackwhite": {
+    "id": "bashundharakitchentowelsinglepackwhite",
+    "name": "Bashundhara Kitchen Towel Single Pack (White)",
+    "url": "https://www.shwapno.com/bashundhara-kitchen-towel-single-pack-white?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/65fa954d115075f231ecacc4_Bashundhara-Kitchen-Towel-Single-Pack-White_1.webp",
+    "category": "Home & Kitchen",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 85,
+        "normalized_price": 85.0,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 85,
+    "normalized_price": 85.0,
+    "original_price": null,
+    "discount": null,
+    "unit": "1 Piece",
+    "unit_type": "pc"
+  },
+  "pureitclassicgermkillkit3000ltr": {
+    "id": "pureitclassicgermkillkit3000ltr",
+    "name": "Pureit Classic Germ Kill Kit 3000Ltr.",
+    "url": "https://www.shwapno.com/pureit-classic-germ-kill-kit-3000l?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/69f976a01603910d68218e47_Pureit-Classic-Germ-Kill-Kit-3000Ltr-_1.webp",
+    "category": "Home & Kitchen",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 1400,
+        "normalized_price": 0.47,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 1400,
+    "normalized_price": 0.47,
+    "original_price": null,
+    "discount": null,
+    "unit": "3000.0 L",
+    "unit_type": "L"
+  },
+  "electrickettle18ltr": {
+    "id": "electrickettle18ltr",
+    "name": "Electric Kettle 1.8Ltr.",
+    "url": "https://www.shwapno.com/s203121-electric-kettle-1-8l-2023?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/6735d10b767644156106c057_Electric-Kettle-1-8L_1.webp",
+    "category": "Home & Kitchen",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 725,
+        "normalized_price": 402.78,
+        "original_price": 1380,
+        "discount": "47%"
+      }
+    ],
+    "current_price": 725,
+    "normalized_price": 402.78,
+    "original_price": 1380,
+    "discount": "47%",
+    "unit": "1.8 L",
+    "unit_type": "L"
+  },
+  "disposableplate10pcslarge": {
+    "id": "disposableplate10pcslarge",
+    "name": "Disposable Plate 10Pcs (Large)",
+    "url": "https://www.shwapno.com/disposable-plate-10pcs-large?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-product.webp",
+    "category": "Crockeries",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 65,
+        "normalized_price": 6.5,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 65,
+    "normalized_price": 6.5,
+    "original_price": null,
+    "discount": null,
+    "unit": "10.0 pc",
+    "unit_type": "pc"
+  },
+  "icebowln007": {
+    "id": "icebowln007",
+    "name": "Ice Bowl N007",
+    "url": "https://www.shwapno.com/ice-bowl-n007?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-product.webp",
+    "category": "Crockeries",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 125,
+        "normalized_price": 125.0,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 125,
+    "normalized_price": 125.0,
+    "original_price": null,
+    "discount": null,
+    "unit": "1 Piece",
+    "unit_type": "pc"
+  },
+  "spotplate105inchrio": {
+    "id": "spotplate105inchrio",
+    "name": "Spot Plate 10.5 Inch Rio",
+    "url": "https://www.shwapno.com/spot-plate-105-inch-rio?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-product.webp",
+    "category": "Crockeries",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 499,
+        "normalized_price": 499.0,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 499,
+    "normalized_price": 499.0,
+    "original_price": null,
+    "discount": null,
+    "unit": "1 Piece",
+    "unit_type": "pc"
+  },
   "lilybeautysoapmilkbath100gm": {
     "id": "lilybeautysoapmilkbath100gm",
     "name": "LILY Beauty Soap Milk Bath 100gm",
     "url": "https://www.shwapno.com/lily-beauty-soap-milk-bath-100gm-2?lang=en",
     "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/6a003176b629366a25660a24_Lily-Beauty-Soap-Milk-Bath-100gm_1.webp",
-    "category": "Bath & Body",
+    "category": "Personal Care",
     "history": [
       {
         "date": "2026-08-03",
@@ -94975,50 +94953,6 @@
     "original_price": null,
     "discount": null,
     "unit": "100.0 gm",
-    "unit_type": "kg"
-  },
-  "moonlightcattreat15gmgr": {
-    "id": "moonlightcattreat15gmgr",
-    "name": "Moonlight Cat Treat 15gm GR",
-    "url": "https://www.shwapno.com/moonlight-cat-treat-15g-gr?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-product.webp",
-    "category": "Cat Food",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 90,
-        "normalized_price": 6000.0,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 90,
-    "normalized_price": 6000.0,
-    "original_price": null,
-    "discount": null,
-    "unit": "15.0 gm",
-    "unit_type": "kg"
-  },
-  "kittykarlochictunacdfood15kgcn": {
-    "id": "kittykarlochictunacdfood15kgcn",
-    "name": "Kitty Karlo Chic.Tuna C.D.Food 1.5kg CN",
-    "url": "https://www.shwapno.com/kitty-karlo-chictuna-cdfood-15kg-cn?lang=en",
-    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-product.webp",
-    "category": "Cat Food",
-    "history": [
-      {
-        "date": "2026-08-03",
-        "price": 990,
-        "normalized_price": 660.0,
-        "original_price": null,
-        "discount": null
-      }
-    ],
-    "current_price": 990,
-    "normalized_price": 660.0,
-    "original_price": null,
-    "discount": null,
-    "unit": "1.5 kg",
     "unit_type": "kg"
   },
   "lilybeautysoaplimepunch100gm": {
@@ -95043,12 +94977,34 @@
     "unit": "100.0 gm",
     "unit_type": "kg"
   },
+  "handtowelbuy1get1free": {
+    "id": "handtowelbuy1get1free",
+    "name": "Hand Towel (Buy1 Get1 Free)",
+    "url": "https://www.shwapno.com/hand-towel-buy1-get1-free?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-product.webp",
+    "category": "Towels",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 400,
+        "normalized_price": 400000.0,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 400,
+    "normalized_price": 400000.0,
+    "original_price": null,
+    "discount": null,
+    "unit": "1.0 gm",
+    "unit_type": "kg"
+  },
   "luxbrightglowjasminesoap150gm": {
     "id": "luxbrightglowjasminesoap150gm",
     "name": "LUX Bright Glow Jasmine Soap 150gm",
     "url": "https://www.shwapno.com/lux-bright-glow-jasmine-soap-150gm-2?lang=en",
     "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/67d2e1519b1b113f0bd5482b_Lux-Bright-Glow-Jasmine-Soap-150gm_1.webp",
-    "category": "Bath & Body",
+    "category": "Personal Care",
     "history": [
       {
         "date": "2026-08-03",
@@ -95070,7 +95026,7 @@
     "name": "Dettol Skin Care Body Wash 250ml",
     "url": "https://www.shwapno.com/dettol-antibacterial-body-wash-skincare-250ml?lang=en",
     "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/thumbs/6746ab06a335393642c8915f_Dettol-Antibacterial-Body-Wash-Skincare-250ml_1.webp",
-    "category": "Bath & Body",
+    "category": "Personal Care",
     "history": [
       {
         "date": "2026-08-03",
@@ -95086,6 +95042,50 @@
     "discount": null,
     "unit": "250.0 ml",
     "unit_type": "L"
+  },
+  "moonlightcattreat15gmgr": {
+    "id": "moonlightcattreat15gmgr",
+    "name": "Moonlight Cat Treat 15gm GR",
+    "url": "https://www.shwapno.com/moonlight-cat-treat-15g-gr?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-product.webp",
+    "category": "Pet Care",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 90,
+        "normalized_price": 6000.0,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 90,
+    "normalized_price": 6000.0,
+    "original_price": null,
+    "discount": null,
+    "unit": "15.0 gm",
+    "unit_type": "kg"
+  },
+  "kittykarlochictunacdfood15kgcn": {
+    "id": "kittykarlochictunacdfood15kgcn",
+    "name": "Kitty Karlo Chic.Tuna C.D.Food 1.5kg CN",
+    "url": "https://www.shwapno.com/kitty-karlo-chictuna-cdfood-15kg-cn?lang=en",
+    "image": "https://d2t8nl1y0ie1km.cloudfront.net/images/default-product.webp",
+    "category": "Pet Care",
+    "history": [
+      {
+        "date": "2026-08-03",
+        "price": 990,
+        "normalized_price": 660.0,
+        "original_price": null,
+        "discount": null
+      }
+    ],
+    "current_price": 990,
+    "normalized_price": 660.0,
+    "original_price": null,
+    "discount": null,
+    "unit": "1.5 kg",
+    "unit_type": "kg"
   },
   "dettolcoolbodywash250ml": {
     "id": "dettolcoolbodywash250ml",
