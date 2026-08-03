@@ -1,1 +1,0 @@
-window.shotejbazarManifest = {"metadata":{"last_update":"2026-08-03 20:53:03","total":632,"date_range":"2026-05-17 to 2026-08-03","total_chunks":1,"chunk_size":5000,"scraper_stats":{"web":632,"app":0,"combined":632}}};
