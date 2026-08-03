@@ -1,3 +1,6 @@
+import os
+from datetime import timezone, timedelta
+DHAKA_TZ = timezone(timedelta(hours=6))
 """
 FoodiBD Scraper - Async product scraper with price history tracking.
 Usage: python scraper.py [--token JWT_TOKEN]
