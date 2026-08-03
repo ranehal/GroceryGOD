@@ -45,39 +45,37 @@ def run_scrapers():
     except Exception as e:
         print(f"[Chaldal] App API scraper error: {e}")
 
-    # Read Web dataset
-    data_dir = os.path.join(dir_path, "data")
+        # Read Web & App datasets from all possible locations
+    candidate_files = [
+        os.path.join(dir_path, "data.js"),
+        os.path.join(dir_path, "chaldal_products.json"),
+        os.path.join(dir_path, "catalog.json"),
+        os.path.join(dir_path, "data", "chaldal_products.json")
+    ]
     web_products = {}
-    if os.path.exists(data_dir):
-        try:
-            for f_name in os.listdir(data_dir):
-                if f_name.endswith(".json"):
-                    fp = os.path.join(data_dir, f_name)
-                    with open(fp, "r", encoding="utf-8") as f:
-                        w_data = json.load(f)
-                        items = w_data if isinstance(w_data, list) else w_data.get("products", [])
-                        for p in items:
-                            name_key = re.sub(r'\W+', '', p.get("name", "")).lower()
-                            if not name_key: continue
-                            web_products[name_key] = p
-            web_count = len(web_products)
-        except Exception as e:
-            print(f"[Chaldal] Read web data error: {e}")
-
-    # Read App dataset
-    app_file = os.path.join(dir_path, "chaldal_products.json")
     app_products = {}
-    if os.path.exists(app_file):
-        try:
-            with open(app_file, "r", encoding="utf-8") as f:
-                a_data = json.load(f)
-                for p in a_data if isinstance(a_data, list) else a_data.get("products", []):
-                    name_key = re.sub(r'\W+', '', p.get("name", "")).lower()
-                    if not name_key: continue
-                    app_products[name_key] = p
-            app_count = len(app_products)
-        except Exception as e:
-            print(f"[Chaldal] Read app_file error: {e}")
+
+    for cf in candidate_files:
+        if os.path.exists(cf):
+            try:
+                with open(cf, "r", encoding="utf-8") as f:
+                    content = f.read().strip()
+                    if content.startswith("window.") or "=" in content[:30]:
+                        content = content.split("=", 1)[1].rstrip(";")
+                    data = json.loads(content)
+                    items = data if isinstance(data, list) else data.get("products", [])
+                    for p in items:
+                        name_key = re.sub(r'\W+', '', p.get("name", "")).lower()
+                        if not name_key: continue
+                        if "app" in cf or "catalog" in cf:
+                            app_products[name_key] = p
+                        else:
+                            web_products[name_key] = p
+            except Exception as _e:
+                print(f"[Chaldal] Error reading {os.path.basename(cf)}: {_e}")
+
+    web_count = len(web_products)
+    app_count = len(app_products)
 
     # Combine picking lowest price
     all_keys = set(web_products.keys()) | set(app_products.keys())

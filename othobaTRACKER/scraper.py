@@ -45,37 +45,47 @@ def run_scrapers():
     except Exception as e:
         print(f"[Othoba] App API scraper error: {e}")
 
-    # Read Web dataset
-    web_file = os.path.join(dir_path, "frontend", "othoba_products.json")
+        # Read Web & App datasets from all possible locations
+    candidate_files = [
+        os.path.join(dir_path, "othoba_products.json"),
+        os.path.join(dir_path, "frontend", "othoba_products.json"),
+        os.path.join(dir_path, "data", "othoba_products.json")
+    ]
     web_products = {}
-    if os.path.exists(web_file):
-        try:
-            with open(web_file, "r", encoding="utf-8") as f:
-                w_data = json.load(f)
-                items = w_data if isinstance(w_data, list) else w_data.get("products", [])
-                for p in items:
-                    name_key = re.sub(r'\W+', '', p.get("name", "")).lower()
-                    if not name_key: continue
-                    web_products[name_key] = p
-            web_count = len(web_products)
-        except Exception as e:
-            print(f"[Othoba] Read web_file error: {e}")
-
-    # Read App dataset
-    app_file = os.path.join(dir_path, "othoba_products.json")
     app_products = {}
-    if os.path.exists(app_file):
+
+    for cf in candidate_files:
+        if os.path.exists(cf):
+            try:
+                with open(cf, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                    items = data if isinstance(data, list) else data.get("products", [])
+                    for p in items:
+                        name_key = re.sub(r'\W+', '', p.get("name", "")).lower()
+                        if not name_key: continue
+                        web_products[name_key] = p
+            except Exception as _e:
+                print(f"[Othoba] Error reading {os.path.basename(cf)}: {_e}")
+
+    # Fallback to reading othoba_tracker.db if present
+    db_path = os.path.join(dir_path, "othoba_tracker.db")
+    if os.path.exists(db_path):
         try:
-            with open(app_file, "r", encoding="utf-8") as f:
-                a_data = json.load(f)
-                items = a_data if isinstance(a_data, list) else a_data.get("products", [])
-                for p in items:
-                    name_key = re.sub(r'\W+', '', p.get("name", "")).lower()
-                    if not name_key: continue
-                    app_products[name_key] = p
-            app_count = len(app_products)
-        except Exception as e:
-            print(f"[Othoba] Read app_file error: {e}")
+            import sqlite3
+            conn = sqlite3.connect(db_path)
+            conn.row_factory = sqlite3.Row
+            cursor = conn.cursor()
+            cursor.execute("SELECT id, name, category_name FROM products")
+            for r in cursor.fetchall():
+                name_key = re.sub(r'\W+', '', r["name"]).lower()
+                if not name_key: continue
+                web_products[name_key] = {"id": r["id"], "name": r["name"], "category": r["category_name"], "price": 0.0}
+            conn.close()
+        except Exception as _dbe:
+            print(f"[Othoba] DB read notice: {_dbe}")
+
+    web_count = len(web_products)
+    app_count = len(app_products)
 
     # Combine picking lowest price
     all_keys = set(web_products.keys()) | set(app_products.keys())

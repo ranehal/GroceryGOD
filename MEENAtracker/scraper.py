@@ -51,15 +51,13 @@ def run_scrapers():
 
     print("\n[MEENAtracker] Launching Web Scraper (Playwright)...")
     try:
-        res_web = subprocess.run([sys.executable, web_script], cwd=dir_path, capture_output=True, text=True, timeout=3600)
-        print(res_web.stdout[-1000:] if res_web.stdout else "Web scraper finished.")
+        _run_script_live(web_script, dir_path)
     except Exception as e:
         print(f"[MEENAtracker] Web scraper error/timeout: {e}")
 
     print("\n[MEENAtracker] Launching Mobile App API Scraper...")
     try:
-        res_app = subprocess.run([sys.executable, app_script], cwd=dir_path, capture_output=True, text=True, timeout=1800)
-        print(res_app.stdout[-1000:] if res_app.stdout else "App API scraper finished.")
+        _run_script_live(app_script, dir_path)
     except Exception as e:
         print(f"[MEENAtracker] App API scraper error/timeout: {e}")
 
