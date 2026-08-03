@@ -27,6 +27,20 @@ def tg_send(msg):
     except Exception as e:
         print(f"[Telegram Error] {e}")
 
+def _run_script_live(script_path, cwd):
+    if not os.path.exists(script_path):
+        print(f"[Orchestrator] Warning: {script_path} not found.")
+        return
+    print(f"[Orchestrator] Running {os.path.basename(script_path)} live...")
+    try:
+        proc = subprocess.Popen([sys.executable, script_path], cwd=cwd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, bufsize=1)
+        for line in proc.stdout:
+            sys.stdout.write(line)
+            sys.stdout.flush()
+        proc.wait(timeout=1800)
+    except Exception as e:
+        print(f"[Orchestrator] Error running {os.path.basename(script_path)}: {e}")
+
 def run_scrapers():
     dir_path = os.path.dirname(os.path.abspath(__file__))
     web_script = os.path.join(dir_path, "scraper_web.py")
