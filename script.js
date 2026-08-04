@@ -3349,4 +3349,24 @@ sendPriceAlertNotification = function(alert, product) {
 // Payment wording uses the generated 5-character code specifically as the bKash Reference field value.
 document.addEventListener('DOMContentLoaded',()=>{
     document.getElementById('copy-reference-btn')?.addEventListener('click',()=>{if(paymentReference)setTimeout(()=>showUXToast(`bKash reference code ${paymentReference} copied.`,'info'),0)});
+    
+    // Landscape / Graph View Orientation Toggle
+    const landscapeBtn = document.getElementById('chart-landscape-toggle');
+    if (landscapeBtn) {
+        landscapeBtn.addEventListener('click', () => {
+            const chartModalContent = document.querySelector('#chart-modal .modal-content');
+            if (chartModalContent) {
+                const isMobile = window.innerWidth <= 768;
+                chartModalContent.classList.toggle(isMobile ? 'forced-landscape-mobile' : 'forced-landscape');
+                landscapeBtn.classList.toggle('active');
+                
+                // Trigger Chart.js redraw for smooth orientation alignment
+                setTimeout(() => {
+                    if (window.priceHistoryChart) {
+                        window.priceHistoryChart.resize();
+                    }
+                }, 150);
+            }
+        });
+    }
 });
