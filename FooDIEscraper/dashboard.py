@@ -1,3 +1,5 @@
+from datetime import datetime, timezone, timedelta
+DHAKA_TZ = timezone(timedelta(hours=6))
 """
 FoodiBD Dashboard - FastAPI frontend for product data and analytics.
 Usage: python dashboard.py
@@ -107,7 +109,7 @@ def list_categories():
 @app.get("/api/price-history/{product_id}")
 def price_history(product_id: int, days: int = 90):
     db = get_db()
-    cutoff = (datetime.utcnow() - timedelta(days=days)).isoformat()
+    cutoff = (datetime.now(DHAKA_TZ) - timedelta(days=days)).isoformat()
     rows = db.execute(
         "SELECT scraped_at, base_price, discount, is_discount_in_perc, discounted_price, has_stock FROM price_history WHERE product_id = ? AND scraped_at >= ? ORDER BY scraped_at",
         (product_id, cutoff),
@@ -219,7 +221,7 @@ def search_products(q: str = "", limit: int = 20):
 def _run_scraper():
     """Run scraper.py in a subprocess (background thread)."""
     _scraper_status["running"] = True
-    _scraper_status["started_at"] = datetime.utcnow().isoformat()
+    _scraper_status["started_at"] = datetime.now(DHAKA_TZ).isoformat()
     try:
         proc = subprocess.run(
             ["python", str(BASE / "scraper.py")],
@@ -269,7 +271,7 @@ def deal_classification(
       price_change: price changed vs last run
     """
     db = get_db()
-    cutoff = (datetime.utcnow() - timedelta(days=new_days)).isoformat()
+    cutoff = (datetime.now(DHAKA_TZ) - timedelta(days=new_days)).isoformat()
 
     rows = db.execute("""
         SELECT p.product_id, p.name, p.category_name, p.discounted_price,
@@ -299,7 +301,7 @@ def deal_classification(
     """).fetchall()
     price_changes = {r["product_id"]: r for r in changes}
 
-    now = datetime.utcnow()
+    now = datetime.now(DHAKA_TZ)
     result = []
     for r in rows:
         d = dict(r)
@@ -430,7 +432,7 @@ def parquet_price_history(product_id: int, days: int = 90):
         if not ph_dir.exists():
             return JSONResponse({"error": "No parquet price history found", "data": []}, status_code=404)
 
-        cutoff = (datetime.utcnow() - timedelta(days=days)).date().isoformat()
+        cutoff = (datetime.now(DHAKA_TZ) - timedelta(days=days)).date().isoformat()
         tables = []
         for f in sorted(ph_dir.glob("date=*.parquet")):
             date_str = f.stem.split("=")[1] if "=" in f.stem else ""

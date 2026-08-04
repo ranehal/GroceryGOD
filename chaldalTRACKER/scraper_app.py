@@ -1,3 +1,5 @@
+from datetime import datetime, timezone, timedelta
+DHAKA_TZ = timezone(timedelta(hours=6))
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
@@ -145,7 +147,7 @@ def main():
     args = ap.parse_args()
 
     out   = args.output
-    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    today = datetime.now(DHAKA_TZ).strftime("%Y-%m-%d")
 
     # ── 1. Fetch init data ──────────────────────────────────────────
     print(f"[{today}] Fetching init data (store={args.store}, wh={args.warehouse})...", flush=True)

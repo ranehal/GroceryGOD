@@ -329,7 +329,7 @@ class FoodiBDScraper:
         self.base_url = API["base_url"]
         self.db = init_db(BASE / OUT["sqlite_path"])
         self.resume = load_resume()
-        self.now = datetime.now(timezone.utc)
+        self.now = datetime.now(DHAKA_TZ)
         self.delivery_time = self.now.isoformat(timespec="milliseconds").replace("+00:00", "Z")
         self.semaphore = asyncio.Semaphore(SCRAPE["max_concurrent_requests"])
         self.rate_limit_interval = 1.0 / SCRAPE["rate_limit_per_second"]
@@ -709,7 +709,7 @@ class FoodiBDScraper:
                 log.error("ABORT: Token refresh failed. Update data/token.txt + data/refresh_token.txt and re-run.")
                 self.db.execute(
                     "UPDATE scrape_runs SET finished_at=?, status='failed', error='token_expired' WHERE id=?",
-                    (datetime.now(timezone.utc).isoformat(), self.run_id),
+                    (datetime.now(DHAKA_TZ).isoformat(), self.run_id),
                 )
                 self.db.commit()
                 self.db.close()
@@ -749,7 +749,7 @@ class FoodiBDScraper:
         # Update run
         self.db.execute(
             "UPDATE scrape_runs SET finished_at=?, products_scraped=?, categories_scraped=?, status='completed' WHERE id=?",
-            (datetime.now(timezone.utc).isoformat(), self.stats["products"], self.stats["categories"], self.run_id),
+            (datetime.now(DHAKA_TZ).isoformat(), self.stats["products"], self.stats["categories"], self.run_id),
         )
         self.db.commit()
 
