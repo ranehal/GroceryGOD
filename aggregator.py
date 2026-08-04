@@ -192,9 +192,18 @@ def load_shwapno():
 
 def load_chaldal():
     print("Processing Chaldal...")
-    if not os.path.exists(CHALDAL_DATA): stats={"web":0, "app":0, "combined":0}; print(f"Chaldal Stats -> Web: {stats.get('web', 0)}, App: {stats.get('app', 0)}, Combined Unique: {stats.get('combined', 0)}"); return {}, "N/A", stats
+    target_chaldal = CHALDAL_DATA
+    if not os.path.exists(target_chaldal):
+        for candidate in ['chaldalTRACKER/data.js', 'chaldalTRACKER/data/products.json', 'chaldalTRACKER/chaldal_products.json', 'chaldalTRACKER/data.json']:
+            if os.path.exists(candidate):
+                target_chaldal = candidate
+                break
+    if not os.path.exists(target_chaldal):
+        stats={"web":0, "app":0, "combined":0}
+        print(f"Chaldal Stats -> Web: {stats.get('web', 0)}, App: {stats.get('app', 0)}, Combined Unique: {stats.get('combined', 0)}")
+        return {}, "N/A", stats
     try:
-        with open(CHALDAL_DATA, 'r', encoding='utf-8') as f:
+        with open(target_chaldal, 'r', encoding='utf-8') as f:
             content = f.read()
         start, end = content.find('{'), content.rfind('}') + 1
         if start == -1 or end == 0: return None, None

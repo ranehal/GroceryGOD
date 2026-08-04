@@ -50,7 +50,9 @@ def run_scrapers():
         os.path.join(dir_path, "data.js"),
         os.path.join(dir_path, "chaldal_products.json"),
         os.path.join(dir_path, "catalog.json"),
-        os.path.join(dir_path, "data", "chaldal_products.json")
+        os.path.join(dir_path, "data", "products.json"),
+        os.path.join(dir_path, "data", "chaldal_products.json"),
+        os.path.join(dir_path, "products.json")
     ]
     web_products = {}
     app_products = {}
