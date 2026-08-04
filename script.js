@@ -1602,8 +1602,17 @@ function updateStoreStats() {
     sortedStores.forEach(([store, data]) => {
         const config = STORE_CONFIG[store] || { color: '#888', name: store };
         let statsHtml = '';
-        if (data.scraper_stats) {
-            statsHtml = `<div style="font-size:0.55rem; color:#aaa; margin-top:3px; background:rgba(0,0,0,0.3); padding:2px 4px; border-radius:3px; display:inline-block;">Sources: Web(${data.scraper_stats.web}) + App(${data.scraper_stats.app})</div>`;
+        const webOnlyStores = ['metromart', 'unimart', 'shotejbazar'];
+
+        if (webOnlyStores.includes(store.toLowerCase())) {
+            statsHtml = `<div style="font-size:0.55rem; color:#aaa; margin-top:3px; background:rgba(0,0,0,0.3); padding:2px 4px; border-radius:3px; display:inline-block;">Sources: Web(${data.total || 0})</div>`;
+        } else if (data.scraper_stats && (data.scraper_stats.web > 0 || data.scraper_stats.app > 0)) {
+            statsHtml = `<div style="font-size:0.55rem; color:#aaa; margin-top:3px; background:rgba(0,0,0,0.3); padding:2px 4px; border-radius:3px; display:inline-block;">Sources: Web(${data.scraper_stats.web || 0}) + App(${data.scraper_stats.app || 0})</div>`;
+        } else {
+            const storeProducts = allProducts.filter(p => p.store === store);
+            const appCount = storeProducts.filter(p => (p.source === 'app' || String(p.id).includes('_app_') || String(p.id).includes('mb_a_'))).length;
+            const webCount = Math.max(0, storeProducts.length - appCount);
+            statsHtml = `<div style="font-size:0.55rem; color:#aaa; margin-top:3px; background:rgba(0,0,0,0.3); padding:2px 4px; border-radius:3px; display:inline-block;">Sources: Web(${webCount || storeProducts.length}) + App(${appCount})</div>`;
         }
         
         html += `

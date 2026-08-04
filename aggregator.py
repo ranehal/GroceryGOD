@@ -269,7 +269,30 @@ def load_meenabazar():
                 "image": p['image_url'], "history": new_history
             }
         conn.close()
-        stats = {"web": len(products), "app": 0, "combined": len(products)}
+        app_count = 0
+        cat_path = 'MEENAtracker/catalog.json'
+        if os.path.exists(cat_path):
+            try:
+                with open(cat_path, 'r', encoding='utf-8') as cf:
+                    cat_data = json.load(cf)
+                    for p in cat_data.get("products", []):
+                        pid = f"mb_a_{p.get('id')}"
+                        if pid not in products:
+                            app_count += 1
+                            curr_p = float(p.get('price', 0))
+                            u_type, norm_p = parse_unit_and_calculate(p.get('name', ''), '', curr_p)
+                            products[pid] = {
+                                "id": pid, "name": p.get('name'), "store": "meenabazar",
+                                "category": p.get('category', 'General'), "unit": 'N/A', "unit_type": u_type,
+                                "current_price": curr_p, "normalized_price": norm_p,
+                                "image": p.get('image', ''), "history": [{"date": datetime.now(DHAKA_TZ).strftime("%Y-%m-%d"), "price": curr_p, "normalized_price": norm_p}],
+                                "source": "app"
+                            }
+            except Exception as _ce:
+                print(f"Meena Bazar catalog.json notice: {_ce}")
+
+        web_count = len(products) - app_count
+        stats = {"web": web_count, "app": app_count, "combined": len(products)}
         print(f"Meenabazar Stats -> Web: {stats['web']}, App: {stats['app']}, Combined Unique: {stats['combined']}")
         return products, (f"{min(all_dates)} to {max(all_dates)}" if all_dates else "N/A"), stats
     except Exception as e:
