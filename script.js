@@ -393,28 +393,8 @@ async function loadStoreData(sid) {
 }
 
 function generatePriorHistory(firstDateStr, firstPrice, firstNormPrice, seedId, targetDays = 90) {
-    const prior = [];
-    if (!firstDateStr) return prior;
-    const firstDate = new Date(`${firstDateStr}T12:00:00`);
-    const seed = hashString(String(seedId));
-    let normValue = firstNormPrice * (0.95 + ((seed % 11) / 100));
-    let actValue = firstPrice * (0.95 + ((seed % 9) / 100));
-
-    for (let i = targetDays; i > 0; i--) {
-        const d = new Date(firstDate);
-        d.setDate(d.getDate() - i);
-        const dateStr = d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
-        const wave = Math.sin((i + (seed % 13)) / 3.2) * 0.015;
-        const drift = (((seed >> (i % 5)) & 7) - 3) * 0.0018;
-        normValue = Math.max(firstNormPrice * 0.6, normValue * (1 + wave + drift));
-        actValue = Math.max(firstPrice * 0.6, actValue * (1 + wave * 0.8 - drift));
-        prior.push({
-            date: dateStr,
-            price: round(actValue, 1),
-            normalized_price: round(normValue, 1)
-        });
-    }
-    return prior;
+    // Disabled synthetic fake data generation per user mandate. Return 100% real observed data.
+    return [];
 }
 
 async function loadProductHistory(productId) {
@@ -432,18 +412,9 @@ async function loadProductHistory(productId) {
     });
 
     if (rows.length > 0) {
-        const firstDate = rows[0].date;
-        const today = new Date(`${todayStr}T12:00:00`);
-        const startDate = new Date(`${firstDate}T12:00:00`);
-        const daysDiff = Math.round((today - startDate) / (1000 * 60 * 60 * 24));
-        if (daysDiff < 90) {
-            const prior = generatePriorHistory(firstDate, rows[0].price, rows[0].normalized_price, productId, 90 - daysDiff);
-            return [...prior, ...rows];
-        }
         return rows;
     } else if (p) {
-        const prior = generatePriorHistory(todayStr, p.current_price, p.normalized_price, productId, 90);
-        return prior;
+        return [{ date: todayStr, price: p.current_price, normalized_price: p.normalized_price }];
     }
     return [];
 }
@@ -2982,23 +2953,10 @@ function buildHistoryView(product) {
     source.sort((a, b) => a.date.localeCompare(b.date));
     
     if (premiumUnlocked) {
-        if (source.length >= 90) return { rows: source, premium: true, lockedCount: 0 };
-        const firstDate = source[0]?.date || todayStr;
-        const firstPrice = source[0]?.price || product.current_price;
-        const firstNorm = source[0]?.normalized_price || product.normalized_price;
-        const prior = generatePriorHistory(firstDate, firstPrice, firstNorm, product.id, 90 - source.length);
-        return { rows: [...prior, ...source], premium: true, lockedCount: 0 };
+        return { rows: source.length ? source : [{ date: todayStr, price: product.current_price, normalized_price: product.normalized_price }], premium: true, lockedCount: 0 };
     }
 
-    const actual = source.slice(-FREE_HISTORY_DAYS);
-    if (!actual.length) {
-        const today = new Date(`${todayStr}T12:00:00`);
-        for (let i = FREE_HISTORY_DAYS - 1; i >= 0; i -= 1) {
-            const date = new Date(today);
-            date.setDate(date.getDate() - i);
-            actual.push({ date: date.toISOString().slice(0, 10), price: product.current_price, normalized_price: product.normalized_price });
-        }
-    }
+    const actual = source.length ? source.slice(-FREE_HISTORY_DAYS) : [{ date: todayStr, price: product.current_price, normalized_price: product.normalized_price }];
     const lockedCount = Math.max(0, source.length - actual.length);
     return { rows: actual, premium: false, lockedCount: lockedCount };
 }
