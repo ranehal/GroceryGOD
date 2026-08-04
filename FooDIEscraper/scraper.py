@@ -276,8 +276,7 @@ def get_token(cli_token: Optional[str] = None) -> str:
             token_file.write_text(token)
             log.info(f"Auto-extracted token from {har_file.name}")
             return token
-    log.error("No JWT token! Provide via --token, FOODIBD_TOKEN env, data/token.txt, or place a .har file in project root")
-    sys.exit(1)
+    log.warning("No JWT token found. Continuing in public guest mode."); return ""
 
 
 def get_initial_sxsrf() -> str:
