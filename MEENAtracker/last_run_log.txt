@@ -1,5 +1,5 @@
-Meenabazar Stats -> Web: 4933, App: 10257, Combined Unique: 10257
+Meenabazar Stats -> Web: 4913, App: 10257, Combined Unique: 10257
 🛒 <b>Meena Bazar Scraper Complete</b>
-🌐 Web Scraped: <b>4933</b> items
+🌐 Web Scraped: <b>4913</b> items
 📱 App API Scraped: <b>10257</b> items
 ⚡ <b>Combined Unique (Lowest Price): 10257</b> items
