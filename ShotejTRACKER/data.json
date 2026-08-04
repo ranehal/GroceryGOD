@@ -179359,5 +179359,233 @@
     "unit": "27.0gm",
     "unit_type": "kg",
     "url": "https://shotejbazar.com/product/jack-n-jill-dewberry-blueberry-biscuit-1-box-27gmx12pc-324gm/"
+  },
+  "sj_alcaferichroastinstantcoffee200g": {
+    "id": "sj_alcaferichroastinstantcoffee200g",
+    "name": "Alcafe Rich Roast instant coffee 200g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/09/1.webp",
+    "category": "Coffee",
+    "history": [
+      {
+        "date": "2026-08-04",
+        "price": 1350.0,
+        "normalized_price": 6750.0
+      }
+    ],
+    "current_price": 1350.0,
+    "normalized_price": 6750.0,
+    "unit": "200.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/alcafe-rich-roast-instant-coffee-200g/"
+  },
+  "sj_asdagoldroastdecafricesmoothcoffee200g": {
+    "id": "sj_asdagoldroastdecafricesmoothcoffee200g",
+    "name": "Asda Gold Roast Decaf Rice & Smooth Coffee 200g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/09/3.webp",
+    "category": "Coffee",
+    "history": [
+      {
+        "date": "2026-08-04",
+        "price": 1350.0,
+        "normalized_price": 6750.0
+      }
+    ],
+    "current_price": 1350.0,
+    "normalized_price": 6750.0,
+    "unit": "200.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/asda-gold-roast-decaf-rice-smooth-coffee-200g-2/"
+  },
+  "sj_asdagoldroastinstantcoffee200gm": {
+    "id": "sj_asdagoldroastinstantcoffee200gm",
+    "name": "ASDA Gold Roast Instant Coffee 200 gm",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/09/SB_Coffee.png",
+    "category": "Coffee",
+    "history": [
+      {
+        "date": "2026-08-04",
+        "price": 1350.0,
+        "normalized_price": 6750.0
+      }
+    ],
+    "current_price": 1350.0,
+    "normalized_price": 6750.0,
+    "unit": "200.0gm",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/asda-gold-roast-instant-coffee-200-gm/"
+  },
+  "sj_beaniesamarettoalmondflavourinstantcoffee50g": {
+    "id": "sj_beaniesamarettoalmondflavourinstantcoffee50g",
+    "name": "Beanies Amaretto Almond Flavour Instant Coffee 50g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/07/4976db9e-43c7-4c31-97b7-ba3d8e8d0f08.jpg",
+    "category": "Coffee",
+    "history": [
+      {
+        "date": "2026-08-04",
+        "price": 500.0,
+        "normalized_price": 10000.0
+      }
+    ],
+    "current_price": 500.0,
+    "normalized_price": 10000.0,
+    "unit": "50.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/beanies-amaretto-almond-flavour-instant-coffee-50g/"
+  },
+  "sj_beaniesamericanoflavourinstantcoffee50g": {
+    "id": "sj_beaniesamericanoflavourinstantcoffee50g",
+    "name": "Beanies Americano Flavour Instant Coffee 50g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/11/Beanies-Americano-Flavour-Instant-Coffee-50g.png",
+    "category": "Coffee",
+    "history": [
+      {
+        "date": "2026-08-04",
+        "price": 500.0,
+        "normalized_price": 10000.0
+      }
+    ],
+    "current_price": 500.0,
+    "normalized_price": 10000.0,
+    "unit": "50.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/beanies-americano-flavour-instant-coffee-50g/"
+  },
+  "sj_beaniesbaristacappuccinoflavourinstantcoffee50g": {
+    "id": "sj_beaniesbaristacappuccinoflavourinstantcoffee50g",
+    "name": "Beanies Barista Cappuccino Flavour Instant Coffee 50g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/07/image.png",
+    "category": "Coffee",
+    "history": [
+      {
+        "date": "2026-08-04",
+        "price": 500.0,
+        "normalized_price": 10000.0
+      }
+    ],
+    "current_price": 500.0,
+    "normalized_price": 10000.0,
+    "unit": "50.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/beanies-barista-cappuccino-flavour-instant-coffee-50g/"
+  },
+  "sj_beaniesbirthdaycakeinstantcoffee50g": {
+    "id": "sj_beaniesbirthdaycakeinstantcoffee50g",
+    "name": "Beanies Birthday Cake Instant Coffee 50g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/11/Beanies-Birthday-Cake-Instant-Coffee-50g.png",
+    "category": "Coffee",
+    "history": [
+      {
+        "date": "2026-08-04",
+        "price": 500.0,
+        "normalized_price": 10000.0
+      }
+    ],
+    "current_price": 500.0,
+    "normalized_price": 10000.0,
+    "unit": "50.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/beanies-chocolate-brownie-instant-coffee-50g/"
+  },
+  "sj_beaniescaramelisedbiscuitflavourinstantcoffee50g": {
+    "id": "sj_beaniescaramelisedbiscuitflavourinstantcoffee50g",
+    "name": "Beanies Caramelised Biscuit Flavour Instant Coffee 50g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/07/ce6ab251-14b0-4acd-b6a2-174408ac91ad.png",
+    "category": "Coffee",
+    "history": [
+      {
+        "date": "2026-08-04",
+        "price": 500.0,
+        "normalized_price": 10000.0
+      }
+    ],
+    "current_price": 500.0,
+    "normalized_price": 10000.0,
+    "unit": "50.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/beanies-caramelised-biscuit-flavour-instant-coffee-50g/"
+  },
+  "sj_beanieschailatteinstantcoffee50g": {
+    "id": "sj_beanieschailatteinstantcoffee50g",
+    "name": "Beanies Chai Latte Instant Coffee 50g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2023/09/4.webp",
+    "category": "Coffee",
+    "history": [
+      {
+        "date": "2026-08-04",
+        "price": 500.0,
+        "normalized_price": 10000.0
+      }
+    ],
+    "current_price": 500.0,
+    "normalized_price": 10000.0,
+    "unit": "50.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/beanies-chai-latte-instant-coffee-50g/"
+  },
+  "sj_beanieschocolatebrownieflavourinstantcoffee50g": {
+    "id": "sj_beanieschocolatebrownieflavourinstantcoffee50g",
+    "name": "Beanies Chocolate Brownie Flavour Instant Coffee 50g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/07/1ff2d213-db2e-4440-a587-e6b45903d87d.png",
+    "category": "Coffee",
+    "history": [
+      {
+        "date": "2026-08-04",
+        "price": 500.0,
+        "normalized_price": 10000.0
+      }
+    ],
+    "current_price": 500.0,
+    "normalized_price": 10000.0,
+    "unit": "50.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/beanies-chocolate-brownie-flavour-instant-coffee-50g/"
+  },
+  "sj_beaniescindertoffeeflavourinstantcoffee50g": {
+    "id": "sj_beaniescindertoffeeflavourinstantcoffee50g",
+    "name": "Beanies Cinder Toffee Flavour Instant Coffee 50g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/07/9981a75d-919d-4521-8452-17d49f63f4d5.png",
+    "category": "Coffee",
+    "history": [
+      {
+        "date": "2026-08-04",
+        "price": 550.0,
+        "normalized_price": 11000.0
+      }
+    ],
+    "current_price": 550.0,
+    "normalized_price": 11000.0,
+    "unit": "50.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/beanies-cinder-toffee-flavour-instant-coffee-50g/"
+  },
+  "sj_beaniescinnamonhazelnutflavourinstantcoffee50g": {
+    "id": "sj_beaniescinnamonhazelnutflavourinstantcoffee50g",
+    "name": "Beanies Cinnamon Hazelnut Flavour Instant Coffee 50g",
+    "store": "shotejbazar",
+    "image": "https://shotejbazar.com/wp-content/uploads/2026/07/ShotejBazar_200KB.jpg",
+    "category": "Coffee",
+    "history": [
+      {
+        "date": "2026-08-04",
+        "price": 500.0,
+        "normalized_price": 10000.0
+      }
+    ],
+    "current_price": 500.0,
+    "normalized_price": 10000.0,
+    "unit": "50.0g",
+    "unit_type": "kg",
+    "url": "https://shotejbazar.com/product/beanies-cinnamon-hazelnut-flavour-instant-coffee-50g/"
   }
 }
