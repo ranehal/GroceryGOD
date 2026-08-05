@@ -971,11 +971,17 @@ if __name__ == '__main__':
     
     p1 = multiprocessing.Process(target=run_grocery_god, args=(GITHUB_PAT,))
     p2 = multiprocessing.Process(target=run_gitw)
-    p3 = multiprocessing.Process(target=run_scheduled_repo, args=('https://github.com/ranehal/FooDIE-RESTaurant-Analytics.git', 'scrape_menus.py', '🍔 FooDIE Restaurant Analytics', GITHUB_PAT))
-    p4 = multiprocessing.Process(target=run_scheduled_repo, args=('https://github.com/ranehal/FoodPANDA-RESTaurant-ANALytics.git', 'scrape_menus.py', '🐼 FoodPANDA Restaurant Analytics', GITHUB_PAT))
-    p5 = multiprocessing.Process(target=run_scheduled_repo, args=('https://github.com/ranehal/FooDIE-mart-Analytics.git', 'scraper.py', '🛒 FooDIE Mart Analytics', GITHUB_PAT))
-    p6 = multiprocessing.Process(target=run_scheduled_repo, args=('https://github.com/ranehal/SHWAPNO-analylics.git', 'scraper.py', '🛍️ Shwapno Analytics', GITHUB_PAT))
-    p7 = multiprocessing.Process(target=run_scheduled_repo, args=('https://github.com/ranehal/Othoba-analytics.git', 'scraper.py', '🛒 Othoba Analytics', GITHUB_PAT))
+    p3 = multiprocessing.Process(target=run_scheduled_repo, args=('https://github.com/ranehal/FooDIE-RESTaurant-Analytics.git', 'scrape_menus.py', ' FooDIE Restaurant Analytics', GITHUB_PAT))
+    p4 = multiprocessing.Process(target=run_scheduled_repo, args=('https://github.com/ranehal/FoodPANDA-RESTaurant-ANALytics.git', 'scrape_menus.py', ' FoodPANDA Restaurant Analytics', GITHUB_PAT))
+    p5 = multiprocessing.Process(target=run_scheduled_repo, args=('https://github.com/ranehal/FooDIE-mart-Analytics.git', 'scraper.py', ' FooDIE Mart Analytics', GITHUB_PAT))
+    p6 = multiprocessing.Process(target=run_scheduled_repo, args=('https://github.com/ranehal/SHWAPNO-analylics.git', 'scraper.py', ' Shwapno Analytics', GITHUB_PAT))
+    p7 = multiprocessing.Process(target=run_scheduled_repo, args=('https://github.com/ranehal/Othoba-analytics.git', 'scraper.py', ' Othoba Analytics', GITHUB_PAT))
+    p8 = multiprocessing.Process(target=run_scheduled_repo, args=('https://github.com/ranehal/CARTup-analytics.git', 'scraper.py', ' CARTup Analytics', GITHUB_PAT))
+    p9 = multiprocessing.Process(target=run_scheduled_repo, args=('https://github.com/ranehal/CHALdal-analytics.git', 'scraper.py', ' Chaldal Analytics', GITHUB_PAT))
+    p10 = multiprocessing.Process(target=run_scheduled_repo, args=('https://github.com/ranehal/COOKup-analytics.git', 'scraper.py', ' COOKup Analytics', GITHUB_PAT))
+    p11 = multiprocessing.Process(target=run_scheduled_repo, args=('https://github.com/ranehal/PICAboo-analytics.git', 'scraper.py', ' PICAboo Analytics', GITHUB_PAT))
+    p12 = multiprocessing.Process(target=run_scheduled_repo, args=('https://github.com/ranehal/DARAZ-analytics.git', 'scraper.py', ' DARAZ Analytics', GITHUB_PAT))
+    p13 = multiprocessing.Process(target=run_scheduled_repo, args=('https://github.com/ranehal/MEEnaBAzar-analylics.git', 'scraper.py', ' Meena Bazar Analytics', GITHUB_PAT))
     
     p1.start()
     p2.start()
@@ -984,12 +990,18 @@ if __name__ == '__main__':
     p5.start()
     p6.start()
     p7.start()
+    p8.start()
+    p9.start()
+    p10.start()
+    p11.start()
+    p12.start()
+    p13.start()
     
     start_time = time.time()
     timeout_seconds = (11 * 3600) + (50 * 60) 
 
     while time.time() - start_time < timeout_seconds:
-        if not p1.is_alive() and not p2.is_alive() and not p3.is_alive() and not p4.is_alive() and not p5.is_alive() and not p6.is_alive() and not p7.is_alive():
+        if not any(p.is_alive() for p in [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13]):
             print("\n✅ Both parallel pipelines finished ahead of schedule!")
             break
         time.sleep(30)
@@ -1006,7 +1018,7 @@ if __name__ == '__main__':
     for i in range(1, 35):
         os.system(f"pkill -9 -f {i}.py")
 
-    for p in [p1, p2, p3, p4, p5, p6, p7]:
+    for p in [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13]:
         if p.is_alive():
             p.terminate()
             p.join(timeout=5)
@@ -1014,7 +1026,7 @@ if __name__ == '__main__':
     time.sleep(5)
     print("\n🔄 Triggering next cycle...")
     # Report p3-p5 exit status
-    for _n, _p in [("FooDIE Rest", p3), ("FoodPANDA Rest", p4), ("FooDIE Mart", p5), ("Shwapno Analytics", p6), ("Othoba Analytics", p7)]:
+    for _n, _p in [("FooDIE Rest", p3), ("FoodPANDA Rest", p4), ("FooDIE Mart", p5), ("Shwapno Analytics", p6), ("Othoba Analytics", p7), ("CARTup", p8), ("Chaldal Analytics", p9), ("COOKup", p10), ("PICAboo", p11), ("DARAZ", p12), ("Meena Bazar Analytics", p13)]:
         s = "OK" if _p.exitcode == 0 else f"rc={_p.exitcode}" if _p.exitcode is not None else "alive"
         print(f"[p3-p5] {_n}: {s}")
     
