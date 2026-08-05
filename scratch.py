@@ -754,6 +754,40 @@ def run_gitw():
 # ============================================================
 
 
+def format_clean_status(label, elapsed, line_count, tail_lines, summary_log=None):
+    if summary_log and len(summary_log.strip()) > 10:
+        return f"✅ 🟢 <b>{label}</b> — Completed in {int(elapsed)}s ({line_count} lines)\n\n{summary_log}"
+    
+    combined_raw = "\n".join(tail_lines)
+    
+    # Extract totals & scraped counts
+    total_match = re.search(r'\((\d+)\s*total products\)', combined_raw, re.IGNORECASE) or re.search(r'Total [Scraped|Products]*:\s*(\d+)', combined_raw, re.IGNORECASE)
+    scraped_match = re.search(r'Scraped\s+(\d+)\s+unique products', combined_raw, re.IGNORECASE) or re.search(r'Unique Products:\s*(\d+)', combined_raw, re.IGNORECASE)
+    
+    total_str = f"{int(total_match.group(1)):,} total" if total_match else None
+    scraped_str = f"{int(scraped_match.group(1)):,} unique" if scraped_match else None
+    
+    # Filter out zero product noise lines (: 0 products)
+    filtered_lines = []
+    for l in tail_lines:
+        line_s = l.strip()
+        if not line_s: continue
+        if line_s.endswith(': 0 products') or ': 0 products in' in line_s: continue
+        filtered_lines.append(line_s)
+        
+    clean_tail = "\n".join(filtered_lines[-6:])
+    
+    msg = f"✅ 🟢 <b>{label}</b> — Completed in {int(elapsed)}s ({line_count} lines)"
+    if total_str or scraped_str:
+        msg += "\n------------------------------"
+        if total_str: msg += f"\n📦 Master Catalog: {total_str}"
+        if scraped_str: msg += f"\n⚡ Scraped Items: {scraped_str}"
+        msg += "\n------------------------------"
+    if clean_tail:
+        msg += f"\n<pre>{html.escape(clean_tail)}</pre>"
+        
+    return msg
+
 def run_scheduled_repo(repo_url, script_name, label, github_pat):
 
     print(f"[{label}] Process Started.")
