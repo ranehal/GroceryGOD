@@ -881,13 +881,24 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat):
         subprocess.run(f'git commit -m "if this works ill get some sleep frfr {now_str}"', shell=True)
 
         push_success = False
-        for attempt in range(3):
-            subprocess.run(f'git pull origin {default_branch} --rebase -X ours', shell=True)
-            push_res = subprocess.run(f'git push origin HEAD:{default_branch} --force', shell=True, capture_output=True, text=True)
-            if push_res.returncode == 0:
-                push_success = True
-                break
-            time.sleep(5)
+        auth_user_urls = [
+            f"https://ranehal:{github_pat}@github.com/ranehal/{repo_name}.git",
+            f"https://ranx-x:{github_pat}@github.com/ranehal/{repo_name}.git",
+            f"https://{github_pat}@github.com/ranehal/{repo_name}.git"
+        ]
+        for auth_u in auth_user_urls:
+            user_n = "ranehal" if "ranehal" in auth_u else "ranx-x"
+            subprocess.run(f'git remote set-url origin {auth_u}', shell=True)
+            subprocess.run(f'git config user.name "{user_n}"', shell=True)
+            subprocess.run(f'git config user.email "{user_n}@users.noreply.github.com"', shell=True)
+            for attempt in range(2):
+                subprocess.run(f'git pull origin {default_branch} --rebase -X ours', shell=True)
+                push_res = subprocess.run(f'git push origin HEAD:{default_branch} --force', shell=True, capture_output=True, text=True)
+                if push_res.returncode == 0:
+                    push_success = True
+                    break
+                time.sleep(3)
+            if push_success: break
 
         if not push_success:
             raise RuntimeError(f"Git push failed: {push_res.stderr[:300]}")
