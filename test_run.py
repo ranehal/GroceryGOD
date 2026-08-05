@@ -220,7 +220,7 @@ def run_grocery_god(github_pat):
 
                 cred_path = os.path.expanduser('~/.git-credentials')
                 with open(cred_path, 'w') as f:
-                    f.write(f"https://ranx-x:{github_pat}@github.com\n")
+                    f.write(f"https://ranehal:{github_pat}@github.com\nhttps://ranx-x:{github_pat}@github.com\nhttps://{github_pat}@github.com\n")
                 subprocess.run('git config --global credential.helper store', shell=True)
 
                 REPO_URL = 'https://github.com/ranx-x/GroceryGOD.git'
@@ -828,14 +828,14 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat):
     tg_send(f"🚀 <b>{label}</b> — Run Started")
     os.chdir('/kaggle/working')
     repo_name = repo_url.split('/')[-1].replace('.git', '')
-    auth_repo_url = f"https://ranx-x:{github_pat}@github.com/ranehal/{repo_name}.git"
+    auth_repo_url = f"https://ranehal:{github_pat}@github.com/ranehal/{repo_name}.git"
 
     try:
-        subprocess.run('git config --global user.email "educational.purpose37@gmail.com"', shell=True)
-        subprocess.run('git config --global user.name "ranx-x"', shell=True)
+        subprocess.run('git config user.email "ranehal@users.noreply.github.com"', shell=True)
+        subprocess.run('git config user.name "ranehal"', shell=True)
         cred_path = os.path.expanduser('~/.git-credentials')
         with open(cred_path, 'w') as f:
-            f.write(f"https://ranx-x:{github_pat}@github.com\n")
+            f.write(f"https://ranehal:{github_pat}@github.com\nhttps://ranx-x:{github_pat}@github.com\nhttps://{github_pat}@github.com\n")
         subprocess.run('git config --global credential.helper store', shell=True)
 
         if not os.path.exists(repo_name):
@@ -938,7 +938,10 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat):
             print(f"[WARN] {label} attempt {_attempt} failed (rc={proc.returncode}), retrying...\n{safe_err[:200]}")
             time.sleep(10)
 
-        print(f"[{label}] Finished in {int(elapsed)}s. Pushing to GitHub...")
+        print(f"[{label}] Finished in {int(elapsed)}s. Pushing to GitHub as ranehal...")
+        subprocess.run(f"git remote set-url origin https://ranehal:{github_pat}@github.com/ranehal/{repo_name}.git", shell=True)
+        subprocess.run('git config user.name "ranehal"', shell=True)
+        subprocess.run('git config user.email "ranehal@users.noreply.github.com"', shell=True)
         subprocess.run('git add .', shell=True)
         now_str = datetime.now(DHAKA_TZ).strftime('%Y-%m-%d %H:%M:%S')
         subprocess.run(f'git commit -m "if this works ill get some sleep frfr {now_str}"', shell=True)
