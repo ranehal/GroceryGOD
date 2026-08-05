@@ -59,7 +59,7 @@ def run_scrapers():
             try:
                 with open(cf, "r", encoding="utf-8") as f:
                     data = json.load(f)
-                    items = data if isinstance(data, list) else data.get("products", [])
+                    items = list(data.values()) if isinstance(data, dict) and "products" not in data else (data if isinstance(data, list) else data.get("products", []))
                     for p in items:
                         name_key = re.sub(r'\W+', '', p.get("name", "")).lower()
                         if not name_key: continue

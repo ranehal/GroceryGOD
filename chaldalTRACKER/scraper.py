@@ -65,7 +65,7 @@ def run_scrapers():
                     if content.startswith("window.") or "=" in content[:30]:
                         content = content.split("=", 1)[1].rstrip(";")
                     data = json.loads(content)
-                    items = data if isinstance(data, list) else data.get("products", [])
+                    items = list(data.values()) if isinstance(data, dict) and "products" not in data else (data if isinstance(data, list) else data.get("products", []))
                     for p in items:
                         name_key = re.sub(r'\W+', '', p.get("name", "")).lower()
                         if not name_key: continue
