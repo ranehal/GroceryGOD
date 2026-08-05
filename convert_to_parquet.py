@@ -21,12 +21,23 @@ for store in STORES:
             continue
         data = json.loads(match.group(1))
         for pid, p in data.items():
+            img_val = p.get('image', '')
+            if isinstance(img_val, dict): img_val = img_val.get('url', '') or img_val.get('src', '')
+            url_val = p.get('url', '')
+            if isinstance(url_val, dict): url_val = url_val.get('href', '') or url_val.get('url', '')
+
             product_rows.append({
-                'id': p['id'], 'name': p['name'], 'store': p['store'],
-                'category': p['category'], 'unit': p.get('unit', ''),
-                'unit_type': p.get('unit_type', ''), 'current_price': p.get('current_price', 0),
-                'normalized_price': p.get('normalized_price', 0), 'image': p.get('image', ''),
-                'url': p.get('url', ''), 'first_seen': p.get('first_seen', '')
+                'id': str(p.get('id', '') or ''),
+                'name': str(p.get('name', '') or ''),
+                'store': str(p.get('store', '') or ''),
+                'category': str(p.get('category', '') or ''),
+                'unit': str(p.get('unit', '') or ''),
+                'unit_type': str(p.get('unit_type', '') or ''),
+                'current_price': float(p.get('current_price', 0) or 0),
+                'normalized_price': float(p.get('normalized_price', 0) or 0),
+                'image': str(img_val or ''),
+                'url': str(url_val or ''),
+                'first_seen': str(p.get('first_seen', '') or '')
             })
             seen = set()
             for h in p.get('history', []):
@@ -78,7 +89,20 @@ schema = pa.schema([
 
 # --- Full datasets ---
 hist_table = pa.Table.from_pylist(history_rows, schema=schema)
-prod_table = pa.Table.from_pylist(product_rows)
+prod_schema = pa.schema([
+    ('id', pa.string()),
+    ('name', pa.string()),
+    ('store', pa.string()),
+    ('category', pa.string()),
+    ('unit', pa.string()),
+    ('unit_type', pa.string()),
+    ('current_price', pa.float64()),
+    ('normalized_price', pa.float64()),
+    ('image', pa.string()),
+    ('url', pa.string()),
+    ('first_seen', pa.string()),
+])
+prod_table = pa.Table.from_pylist(product_rows, schema=prod_schema)
 
 pq.write_table(prod_table, os.path.join(BASE, 'products.parquet'), compression='zstd')
 pq.write_table(hist_table, os.path.join(BASE, 'history.parquet'), compression='zstd')

@@ -1,3 +1,13 @@
+def clean_disk_space():
+    print("[Aggregator] Cleaning temporary files & caches to free disk space...")
+    import glob, shutil
+    for pattern in ['*.tmp', '*.bak', '/tmp/*', '/root/.cache/pip/*']:
+        for p in glob.glob(pattern):
+            try:
+                if os.path.isfile(p): os.remove(p)
+                elif os.path.isdir(p): shutil.rmtree(p, ignore_errors=True)
+            except: pass
+
 import platform
 import json
 # High-Performance, Atomic Chunking Aggregator
@@ -625,6 +635,7 @@ def save_store_data(name, data_tuple):
     return summary
 
 def main():
+    clean_disk_space()
     print("\n" + "="*70 + "\nGODDATA AGGREGATOR // Atomic Zero-Fail Engine\n" + "="*70)
     summaries = []
     

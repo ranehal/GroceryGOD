@@ -1,0 +1,358 @@
+=== GroceryGOD CYCLE REPORT (Cycle 2) ===
+Date: 2026-08-05 12:01:15 DHAKA
+Kaggle IP: 34.86.142.186
+
+[Shwapno] last_run_log.txt:
+Last Run: 2026-08-05 11:53:09
+------------------------------
+Total Scraped: 3462
+Web Scraped: 0
+App API Scraped: 3462
+Combined Unique: 3462
+------------------------------
+Categories:
+- Candy & Chocolate: 229
+- Skincare: 138
+- Biscuits Others: 135
+- Body Wash: 133
+- Noodles: 104
+- Oral Care: 96
+- Juice: 87
+- Chips & Pretzels: 86
+- Regular Spice: 84
+- Shampoo: 74
+... and 126 more.
+---
+[Unimart] last_run_log.txt:
+Last Run: 2026-08-04 23:38:35
+------------------------------
+Total Scraped: 1700
+New Items: 0
+------------------------------
+Categories:
+- Shampoo: 118
+- Toothpaste: 42
+- Melvados: 38
+- Feeding Accessories Kit: 35
+- Razors & Epilators: 33
+- Jhuri Bhaja: 32
+- Body Wash: 29
+- Imported Biscuit: 29
+- Hand Wash: 27
+- Instant Noodles: 25
+... and 265 more.
+---
+[ShotejBazar] last_run_log.txt:
+Last Run: 2026-08-05 03:49:39
+------------------------------
+Total Scraped: 501
+New Items: 0
+------------------------------
+Categories:
+- Chocolate: 304
+- Coffee: 62
+- Food: 55
+- Cookies: 48
+- Snacks: 32
+---
+=== MAIN LOG (last 300 lines) ===
+2026-08-05 05:58:07,042 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=generalmerchandise fetched=500/2094
+2026-08-05 05:58:08,605 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=generalmerchandise fetched=550/2094
+2026-08-05 05:58:09,854 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=generalmerchandise fetched=600/2094
+2026-08-05 05:58:11,263 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=generalmerchandise fetched=650/2094
+2026-08-05 05:58:12,496 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=generalmerchandise fetched=700/2094
+2026-08-05 05:58:14,048 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=generalmerchandise fetched=750/2094
+2026-08-05 05:58:17,397 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=generalmerchandise fetched=800/2094
+2026-08-05 05:58:19,016 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=generalmerchandise fetched=850/2094
+2026-08-05 05:58:20,975 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=generalmerchandise fetched=900/2094
+2026-08-05 05:58:22,654 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=generalmerchandise fetched=950/2094
+2026-08-05 05:58:24,486 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=generalmerchandise fetched=1000/2094
+2026-08-05 05:58:25,958 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=generalmerchandise fetched=1050/2094
+2026-08-05 05:58:27,563 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=generalmerchandise fetched=1100/2094
+2026-08-05 05:58:29,339 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=generalmerchandise fetched=1150/2094
+2026-08-05 05:58:31,204 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=generalmerchandise fetched=1200/2094
+2026-08-05 05:58:33,149 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=generalmerchandise fetched=1250/2094
+2026-08-05 05:58:35,008 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=generalmerchandise fetched=1300/2094
+2026-08-05 05:58:37,772 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=generalmerchandise fetched=1350/2094
+2026-08-05 05:58:39,651 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=generalmerchandise fetched=1400/2094
+2026-08-05 05:58:41,142 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=generalmerchandise fetched=1450/2094
+2026-08-05 05:58:42,681 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=generalmerchandise fetched=1500/2094
+2026-08-05 05:58:45,729 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=generalmerchandise fetched=1550/2094
+2026-08-05 05:58:47,234 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=generalmerchandise fetched=1600/2094
+2026-08-05 05:58:48,718 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=generalmerchandise fetched=1650/2094
+2026-08-05 05:58:50,252 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=generalmerchandise fetched=1700/2094
+2026-08-05 05:58:51,801 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=generalmerchandise fetched=1750/2094
+2026-08-05 05:58:53,446 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=generalmerchandise fetched=1800/2094
+2026-08-05 05:58:56,412 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=generalmerchandise fetched=1850/2094
+2026-08-05 05:58:57,941 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=generalmerchandise fetched=1900/2094
+2026-08-05 05:59:00,002 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=generalmerchandise fetched=1950/2094
+2026-08-05 05:59:03,774 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=generalmerchandise fetched=2000/2094
+2026-08-05 05:59:05,526 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=generalmerchandise fetched=2050/2094
+2026-08-05 05:59:07,889 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=generalmerchandise fetched=2094/2094
+2026-08-05 05:59:07,891 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO Crawling category cosmetics
+2026-08-05 05:59:09,823 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=cosmetics fetched=93/93
+2026-08-05 05:59:09,826 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO Crawling category household
+2026-08-05 05:59:12,503 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=household fetched=100/979
+2026-08-05 05:59:13,599 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=household fetched=150/979
+2026-08-05 05:59:14,951 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=household fetched=200/979
+2026-08-05 05:59:15,990 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=household fetched=250/979
+2026-08-05 05:59:17,037 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=household fetched=300/979
+2026-08-05 05:59:18,068 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=household fetched=350/979
+2026-08-05 05:59:19,412 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=household fetched=400/979
+2026-08-05 05:59:20,695 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=household fetched=450/979
+2026-08-05 05:59:21,773 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=household fetched=500/979
+2026-08-05 05:59:22,919 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=household fetched=550/979
+2026-08-05 05:59:25,522 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=household fetched=600/979
+2026-08-05 05:59:28,017 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=household fetched=650/979
+2026-08-05 05:59:29,127 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=household fetched=700/979
+2026-08-05 05:59:30,258 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=household fetched=750/979
+2026-08-05 05:59:31,314 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=household fetched=800/979
+2026-08-05 05:59:32,694 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=household fetched=850/979
+2026-08-05 05:59:33,738 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=household fetched=900/979
+2026-08-05 05:59:34,785 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=household fetched=950/979
+2026-08-05 05:59:36,072 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=household fetched=979/979
+2026-08-05 05:59:36,075 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO Crawling category stationery
+2026-08-05 05:59:38,092 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=stationery fetched=99/99
+2026-08-05 05:59:38,094 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO Crawling category toys
+2026-08-05 05:59:38,803 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO Crawling category apparel&linen
+2026-08-05 05:59:41,254 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=apparel&linen fetched=100/102
+2026-08-05 05:59:41,924 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=apparel&linen fetched=102/102
+2026-08-05 05:59:41,926 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO Crawling category pharmacy
+2026-08-05 05:59:42,567 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO Crawling category strategicpromotions
+2026-08-05 05:59:44,846 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=strategicpromotions fetched=100/514
+2026-08-05 05:59:45,924 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=strategicpromotions fetched=150/514
+2026-08-05 05:59:46,869 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=strategicpromotions fetched=200/514
+2026-08-05 05:59:48,033 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=strategicpromotions fetched=250/514
+2026-08-05 05:59:49,758 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=strategicpromotions fetched=300/514
+2026-08-05 05:59:50,676 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=strategicpromotions fetched=350/514
+2026-08-05 05:59:51,627 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=strategicpromotions fetched=400/514
+2026-08-05 05:59:52,594 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=strategicpromotions fetched=450/514
+2026-08-05 05:59:53,892 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=strategicpromotions fetched=500/514
+2026-08-05 05:59:54,549 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=strategicpromotions fetched=514/514
+2026-08-05 05:59:54,554 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO Crawling category kitchenware
+2026-08-05 05:59:57,108 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=kitchenware fetched=100/305
+2026-08-05 05:59:58,018 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=kitchenware fetched=150/305
+2026-08-05 05:59:58,920 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=kitchenware fetched=200/305
+2026-08-05 05:59:59,825 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=kitchenware fetched=250/305
+2026-08-05 06:00:00,819 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=kitchenware fetched=300/305
+2026-08-05 06:00:01,525 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO category=kitchenware fetched=305/305
+2026-08-05 06:00:02,623 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO Crawling featured brand teer
+2026-08-05 06:00:03,226 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO Crawling featured brand squarefood&beverage
+2026-08-05 06:00:05,794 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO Crawling featured brand squaretoiletriesltd.
+2026-08-05 06:00:07,202 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO Crawling featured brand dabur
+2026-08-05 06:00:07,709 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO Crawling featured brand unilever
+2026-08-05 06:00:12,337 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO Crawling featured brand bangladesh-edible-oil-limited
+2026-08-05 06:00:12,842 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO Crawling tag buy-get-free
+2026-08-05 06:00:16,779 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO Crawling tag dengue-corner
+2026-08-05 06:00:17,266 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO Crawling tag fruits-mania
+2026-08-05 06:00:17,750 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO Crawling tag remark-item
+2026-08-05 06:00:20,873 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO Crawling tag summer
+2026-08-05 06:00:24,537 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] INFO Crawling tag weekend-offer
+2026-08-05 06:00:38,422 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] Traceback (most recent call last):
+2026-08-05 06:00:38,425 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py]   File "/kaggle/working/GroceryGOD/MEENAtracker/scraper_app.py", line 439, in <module>
+2026-08-05 06:00:38,427 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py]     main()
+2026-08-05 06:00:38,429 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py]   File "/kaggle/working/GroceryGOD/MEENAtracker/scraper_app.py", line 412, in main
+2026-08-05 06:00:38,431 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py]     update_history(products)
+2026-08-05 06:00:38,433 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py]   File "/kaggle/working/GroceryGOD/MEENAtracker/scraper_app.py", line 324, in update_history
+2026-08-05 06:00:38,436 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py]     write_json(path, document)
+2026-08-05 06:00:38,438 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py]   File "/kaggle/working/GroceryGOD/MEENAtracker/scraper_app.py", line 95, in write_json
+2026-08-05 06:00:38,441 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py]     temp.write_text(json.dumps(value, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+2026-08-05 06:00:38,442 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py]   File "/usr/lib/python3.12/pathlib.py", line 1047, in write_text
+2026-08-05 06:00:38,444 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py]     with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+2026-08-05 06:00:38,446 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py]          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-05 06:00:38,448 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] OSError: [Errno 28] No space left on device
+2026-08-05 06:00:38,862 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py]
+2026-08-05 06:00:38,865 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] ==================================================
+2026-08-05 06:00:38,867 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] Meenabazar Stats -> Web: 0, App: 10258, Combined Unique: 10258
+2026-08-05 06:00:38,870 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py] ==================================================
+2026-08-05 06:00:38,872 | INFO     | [GroceryGOD] [Meena Bazar:scraper.py]
+2026-08-05 06:00:43,796 | DEBUG    | [GroceryGOD] Starting new HTTPS connection (1): api.telegram.org:443
+2026-08-05 06:00:44,264 | DEBUG    | [GroceryGOD] https://api.telegram.org:443 "POST /bot7563243860:AAG91WlEnGnplDSSpxYUuZ9YbTytE6ydCJw/sendMessage HTTP/1.1" 200 776
+2026-08-05 06:00:44,267 | INFO     | [GroceryGOD] [Meena Bazar] Instantly pushing scraped data to GitHub...
+2026-08-05 06:00:44,624 | DEBUG    | [GroceryGOD] Starting new HTTPS connection (1): api.telegram.org:443
+2026-08-05 06:00:45,081 | DEBUG    | [GroceryGOD] https://api.telegram.org:443 "POST /bot7563243860:AAG91WlEnGnplDSSpxYUuZ9YbTytE6ydCJw/sendMessage HTTP/1.1" 200 381
+2026-08-05 06:00:45,086 | INFO     | [GroceryGOD] === SCRAPER RESULTS SUMMARY ===
+------------------------------------------------------------
+2026-08-05 06:00:45,088 | INFO     | [GroceryGOD]   OK Shwapno - lines=11 status=ok
+2026-08-05 06:00:45,090 | INFO     | [GroceryGOD]   OK Othoba - lines=11 status=ok
+2026-08-05 06:00:45,092 | INFO     | [GroceryGOD]   OK Chaldal - lines=11 status=ok
+2026-08-05 06:00:45,094 | INFO     | [GroceryGOD]   OK Meena Bazar - lines=327 status=ok
+2026-08-05 06:00:45,095 | INFO     | [GroceryGOD]   CRASH Unimart - lines=0 status=crashed
+2026-08-05 06:00:45,097 | INFO     | [GroceryGOD]   CRASH Metro Mart - lines=9 status=crashed
+2026-08-05 06:00:45,098 | INFO     | [GroceryGOD]   CRASH ShotejBazar - lines=0 status=crashed
+2026-08-05 06:00:45,100 | INFO     | [GroceryGOD]   CRASH FooDIE - lines=0 status=crashed
+2026-08-05 06:00:45,102 | INFO     | [GroceryGOD] ------------------------------------------------------------
+2026-08-05 06:00:45,103 | INFO     | [GroceryGOD] Result: 4/8 scrapers OK
+2026-08-05 06:00:45,105 | INFO     | [GroceryGOD] Failed: [('Unimart', 'crashed'), ('Metro Mart', 'crashed'), ('ShotejBazar', 'crashed'), ('FooDIE', 'crashed')]
+2026-08-05 06:00:45,108 | DEBUG    | [GroceryGOD] Starting new HTTPS connection (1): api.telegram.org:443
+2026-08-05 06:00:45,567 | DEBUG    | [GroceryGOD] https://api.telegram.org:443 "POST /bot7563243860:AAG91WlEnGnplDSSpxYUuZ9YbTytE6ydCJw/sendMessage HTTP/1.1" 200 290
+2026-08-05 06:00:45,571 | DEBUG    | [GroceryGOD] Starting new HTTPS connection (1): api.telegram.org:443
+2026-08-05 06:00:46,145 | DEBUG    | [GroceryGOD] https://api.telegram.org:443 "POST /bot7563243860:AAG91WlEnGnplDSSpxYUuZ9YbTytE6ydCJw/sendMessage HTTP/1.1" 200 293
+2026-08-05 06:00:46,149 | DEBUG    | [GroceryGOD] Starting new HTTPS connection (1): api.telegram.org:443
+2026-08-05 06:00:46,610 | DEBUG    | [GroceryGOD] https://api.telegram.org:443 "POST /bot7563243860:AAG91WlEnGnplDSSpxYUuZ9YbTytE6ydCJw/sendMessage HTTP/1.1" 200 292
+2026-08-05 06:00:46,614 | DEBUG    | [GroceryGOD] Starting new HTTPS connection (1): api.telegram.org:443
+2026-08-05 06:00:47,098 | DEBUG    | [GroceryGOD] https://api.telegram.org:443 "POST /bot7563243860:AAG91WlEnGnplDSSpxYUuZ9YbTytE6ydCJw/sendMessage HTTP/1.1" 200 293
+2026-08-05 06:00:47,101 | DEBUG    | [GroceryGOD] Starting new HTTPS connection (1): api.telegram.org:443
+2026-08-05 06:00:47,573 | DEBUG    | [GroceryGOD] https://api.telegram.org:443 "POST /bot7563243860:AAG91WlEnGnplDSSpxYUuZ9YbTytE6ydCJw/sendMessage HTTP/1.1" 200 298
+2026-08-05 06:00:47,576 | DEBUG    | [GroceryGOD] Starting new HTTPS connection (1): api.telegram.org:443
+2026-08-05 06:00:48,105 | DEBUG    | [GroceryGOD] https://api.telegram.org:443 "POST /bot7563243860:AAG91WlEnGnplDSSpxYUuZ9YbTytE6ydCJw/sendMessage HTTP/1.1" 200 300
+2026-08-05 06:00:48,108 | DEBUG    | [GroceryGOD] Starting new HTTPS connection (1): api.telegram.org:443
+2026-08-05 06:00:48,599 | DEBUG    | [GroceryGOD] https://api.telegram.org:443 "POST /bot7563243860:AAG91WlEnGnplDSSpxYUuZ9YbTytE6ydCJw/sendMessage HTTP/1.1" 200 303
+2026-08-05 06:00:48,604 | DEBUG    | [GroceryGOD] Starting new HTTPS connection (1): api.telegram.org:443
+2026-08-05 06:00:49,082 | DEBUG    | [GroceryGOD] https://api.telegram.org:443 "POST /bot7563243860:AAG91WlEnGnplDSSpxYUuZ9YbTytE6ydCJw/sendMessage HTTP/1.1" 200 304
+2026-08-05 06:00:49,085 | DEBUG    | [GroceryGOD] Starting new HTTPS connection (1): api.telegram.org:443
+2026-08-05 06:00:49,684 | DEBUG    | [GroceryGOD] https://api.telegram.org:443 "POST /bot7563243860:AAG91WlEnGnplDSSpxYUuZ9YbTytE6ydCJw/sendMessage HTTP/1.1" 200 299
+2026-08-05 06:00:49,687 | INFO     | [GroceryGOD] Pushing all scraper data to GitHub...
+2026-08-05 06:00:49,689 | DEBUG    | [GroceryGOD] Starting new HTTPS connection (1): api.telegram.org:443
+2026-08-05 06:00:50,199 | DEBUG    | [GroceryGOD] https://api.telegram.org:443 "POST /bot7563243860:AAG91WlEnGnplDSSpxYUuZ9YbTytE6ydCJw/sendMessage HTTP/1.1" 200 309
+2026-08-05 06:00:50,587 | INFO     | [GroceryGOD] Combined scraper data pushed to GitHub successfully
+2026-08-05 06:00:50,591 | DEBUG    | [GroceryGOD] Starting new HTTPS connection (1): api.telegram.org:443
+2026-08-05 06:00:51,062 | DEBUG    | [GroceryGOD] https://api.telegram.org:443 "POST /bot7563243860:AAG91WlEnGnplDSSpxYUuZ9YbTytE6ydCJw/sendMessage HTTP/1.1" 200 305
+2026-08-05 06:00:51,066 | INFO     | [GroceryGOD] ✅  [Market Scrapers (Parallel)] — OK (0:07:43)
+2026-08-05 06:00:51,069 | DEBUG    | [GroceryGOD] Starting new HTTPS connection (1): api.telegram.org:443
+2026-08-05 06:00:51,527 | DEBUG    | [GroceryGOD] https://api.telegram.org:443 "POST /bot7563243860:AAG91WlEnGnplDSSpxYUuZ9YbTytE6ydCJw/sendMessage HTTP/1.1" 200 378
+2026-08-05 06:00:51,530 | INFO     | [GroceryGOD] 🧬  [GODdata Aggregator] — STARTED
+2026-08-05 06:00:51,533 | DEBUG    | [GroceryGOD] Starting new HTTPS connection (1): api.telegram.org:443
+2026-08-05 06:00:52,003 | DEBUG    | [GroceryGOD] https://api.telegram.org:443 "POST /bot7563243860:AAG91WlEnGnplDSSpxYUuZ9YbTytE6ydCJw/sendMessage HTTP/1.1" 200 365
+2026-08-05 06:00:53,230 | INFO     | [GroceryGOD] [aggregator]
+2026-08-05 06:00:53,232 | INFO     | [GroceryGOD] [aggregator] ======================================================================
+2026-08-05 06:00:53,234 | INFO     | [GroceryGOD] [aggregator] GODDATA AGGREGATOR // Atomic Zero-Fail Engine
+2026-08-05 06:00:53,236 | INFO     | [GroceryGOD] [aggregator] ======================================================================
+2026-08-05 06:00:53,238 | INFO     | [GroceryGOD] [aggregator] Processing Shwapno...
+2026-08-05 06:00:53,240 | INFO     | [GroceryGOD] [aggregator] Shwapno Stats -> Web: 3769, App: 0, Combined Unique: 3769
+2026-08-05 06:00:53,242 | INFO     | [GroceryGOD] [aggregator] Saved shwapno         | Items:  3769 | Chunks:  1 | Safe Under 45MB
+2026-08-05 06:00:53,244 | INFO     | [GroceryGOD] [aggregator] Processing Chaldal...
+2026-08-05 06:00:53,246 | INFO     | [GroceryGOD] [aggregator] Chaldal Stats -> Web: 3383, App: 0, Combined Unique: 3383
+2026-08-05 06:00:53,248 | INFO     | [GroceryGOD] [aggregator] Saved chaldal         | Items:  3383 | Chunks:  1 | Safe Under 45MB
+2026-08-05 06:00:53,250 | INFO     | [GroceryGOD] [aggregator] Processing Meena Bazar...
+2026-08-05 06:00:53,251 | INFO     | [GroceryGOD] [aggregator] Meenabazar Stats -> Web: 0, App: 10275, Combined Unique: 10275
+2026-08-05 06:00:53,253 | INFO     | [GroceryGOD] [aggregator] Traceback (most recent call last):
+2026-08-05 06:00:53,254 | INFO     | [GroceryGOD] [aggregator]   File "/kaggle/working/GroceryGOD/aggregator.py", line 659, in <module>
+2026-08-05 06:00:53,256 | INFO     | [GroceryGOD] [aggregator]     if __name__ == "__main__": main()
+2026-08-05 06:00:53,258 | INFO     | [GroceryGOD] [aggregator]                                ^^^^^^
+2026-08-05 06:00:53,259 | INFO     | [GroceryGOD] [aggregator]   File "/kaggle/working/GroceryGOD/aggregator.py", line 641, in main
+2026-08-05 06:00:53,261 | INFO     | [GroceryGOD] [aggregator]     res = save_store_data(store_name, loader())
+2026-08-05 06:00:53,262 | INFO     | [GroceryGOD] [aggregator]           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-05 06:00:53,264 | INFO     | [GroceryGOD] [aggregator]   File "/kaggle/working/GroceryGOD/aggregator.py", line 618, in save_store_data
+2026-08-05 06:00:53,266 | INFO     | [GroceryGOD] [aggregator]     f.write(f"window.{name}_part{i+1} = {json.dumps(chunk, separators=(',', ':'))};")
+2026-08-05 06:00:53,268 | INFO     | [GroceryGOD] [aggregator] OSError: [Errno 28] No space left on device
+2026-08-05 06:00:53,279 | ERROR    | [GroceryGOD] Aggregator failed with code 1
+2026-08-05 06:00:53,283 | DEBUG    | [GroceryGOD] Starting new HTTPS connection (1): api.telegram.org:443
+2026-08-05 06:00:53,745 | DEBUG    | [GroceryGOD] https://api.telegram.org:443 "POST /bot7563243860:AAG91WlEnGnplDSSpxYUuZ9YbTytE6ydCJw/sendMessage HTTP/1.1" 200 356
+2026-08-05 06:00:53,748 | INFO     | [GroceryGOD] 🔄 Persistent Run count updated to 106
+2026-08-05 06:00:53,750 | INFO     | [GroceryGOD] ✅  [GODdata Aggregator] — OK (0:00:02)
+2026-08-05 06:00:53,753 | DEBUG    | [GroceryGOD] Starting new HTTPS connection (1): api.telegram.org:443
+2026-08-05 06:00:54,241 | DEBUG    | [GroceryGOD] https://api.telegram.org:443 "POST /bot7563243860:AAG91WlEnGnplDSSpxYUuZ9YbTytE6ydCJw/sendMessage HTTP/1.1" 200 370
+2026-08-05 06:00:54,276 | INFO     | [GroceryGOD] 📊  [Parquet Conversion] — STARTED
+2026-08-05 06:00:54,287 | DEBUG    | [GroceryGOD] Starting new HTTPS connection (1): api.telegram.org:443
+2026-08-05 06:00:54,780 | DEBUG    | [GroceryGOD] https://api.telegram.org:443 "POST /bot7563243860:AAG91WlEnGnplDSSpxYUuZ9YbTytE6ydCJw/sendMessage HTTP/1.1" 200 365
+2026-08-05 06:00:58,167 | INFO     | [GroceryGOD] [parquet]   shwapno_data_part1.js: 3769 products
+2026-08-05 06:00:58,169 | INFO     | [GroceryGOD] [parquet]   chaldal_data_part1.js: 3383 products
+2026-08-05 06:00:58,172 | INFO     | [GroceryGOD] [parquet]   meenabazar_data_part1.js: 5000 products
+2026-08-05 06:00:58,174 | INFO     | [GroceryGOD] [parquet]   othoba_data_part1.js: 5000 products
+2026-08-05 06:00:58,176 | INFO     | [GroceryGOD] [parquet]   othoba_data_part2.js: 5000 products
+2026-08-05 06:00:58,178 | INFO     | [GroceryGOD] [parquet]   othoba_data_part3.js: 5000 products
+2026-08-05 06:00:58,180 | INFO     | [GroceryGOD] [parquet]   othoba_data_part4.js: 5000 products
+2026-08-05 06:00:58,183 | INFO     | [GroceryGOD] [parquet]   othoba_data_part5.js: 5000 products
+2026-08-05 06:00:58,185 | INFO     | [GroceryGOD] [parquet]   othoba_data_part6.js: 5000 products
+2026-08-05 06:00:58,188 | INFO     | [GroceryGOD] [parquet]   othoba_data_part7.js: 5000 products
+2026-08-05 06:00:58,191 | INFO     | [GroceryGOD] [parquet]   othoba_data_part8.js: 5000 products
+2026-08-05 06:00:58,193 | INFO     | [GroceryGOD] [parquet]   othoba_data_part9.js: 4830 products
+2026-08-05 06:00:58,195 | INFO     | [GroceryGOD] [parquet]   metromart_data_part1.js: 915 products
+2026-08-05 06:00:58,197 | INFO     | [GroceryGOD] [parquet]   unimart_data_part1.js: 4185 products
+2026-08-05 06:00:58,200 | INFO     | [GroceryGOD] [parquet]   shotejbazar_data_part1.js: 632 products
+2026-08-05 06:00:58,202 | INFO     | [GroceryGOD] [parquet]   foodi_data_part1.js: 5000 products
+2026-08-05 06:00:58,204 | INFO     | [GroceryGOD] [parquet]   foodi_data_part2.js: 567 products
+2026-08-05 06:00:58,205 | INFO     | [GroceryGOD] [parquet]
+2026-08-05 06:00:58,207 | INFO     | [GroceryGOD] [parquet] Total scraped: 68281 products, 245712 history rows
+2026-08-05 06:00:58,209 | INFO     | [GroceryGOD] [parquet] Traceback (most recent call last):
+2026-08-05 06:00:58,210 | INFO     | [GroceryGOD] [parquet]   File "/kaggle/working/GroceryGOD/convert_to_parquet.py", line 81, in <module>
+2026-08-05 06:00:58,212 | INFO     | [GroceryGOD] [parquet]     prod_table = pa.Table.from_pylist(product_rows)
+2026-08-05 06:00:58,214 | INFO     | [GroceryGOD] [parquet]                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-05 06:00:58,216 | INFO     | [GroceryGOD] [parquet]   File "pyarrow/table.pxi", line 2044, in pyarrow.lib._Tabular.from_pylist
+2026-08-05 06:00:58,218 | INFO     | [GroceryGOD] [parquet]   File "pyarrow/table.pxi", line 6401, in pyarrow.lib._from_pylist
+2026-08-05 06:00:58,220 | INFO     | [GroceryGOD] [parquet]   File "pyarrow/table.pxi", line 4868, in pyarrow.lib.Table.from_arrays
+2026-08-05 06:00:58,221 | INFO     | [GroceryGOD] [parquet]   File "pyarrow/table.pxi", line 1611, in pyarrow.lib._sanitize_arrays
+2026-08-05 06:00:58,223 | INFO     | [GroceryGOD] [parquet]   File "pyarrow/table.pxi", line 1592, in pyarrow.lib._schema_from_arrays
+2026-08-05 06:00:58,225 | INFO     | [GroceryGOD] [parquet]   File "pyarrow/array.pxi", line 400, in pyarrow.lib.array
+2026-08-05 06:00:58,226 | INFO     | [GroceryGOD] [parquet]   File "pyarrow/array.pxi", line 46, in pyarrow.lib._sequence_to_array
+2026-08-05 06:00:58,229 | INFO     | [GroceryGOD] [parquet]   File "pyarrow/error.pxi", line 155, in pyarrow.lib.pyarrow_internal_check_status
+2026-08-05 06:00:58,231 | INFO     | [GroceryGOD] [parquet]   File "pyarrow/error.pxi", line 92, in pyarrow.lib.check_status
+2026-08-05 06:00:58,232 | INFO     | [GroceryGOD] [parquet] pyarrow.lib.ArrowTypeError: Expected bytes, got a 'dict' object
+2026-08-05 06:00:58,434 | ERROR    | [GroceryGOD] Parquet conversion failed with code 1
+2026-08-05 06:00:58,437 | DEBUG    | [GroceryGOD] Starting new HTTPS connection (1): api.telegram.org:443
+2026-08-05 06:00:58,906 | DEBUG    | [GroceryGOD] https://api.telegram.org:443 "POST /bot7563243860:AAG91WlEnGnplDSSpxYUuZ9YbTytE6ydCJw/sendMessage HTTP/1.1" 200 376
+2026-08-05 06:00:58,908 | INFO     | [GroceryGOD] ✅  [Parquet Conversion] — OK (0:00:04)
+2026-08-05 06:00:58,911 | DEBUG    | [GroceryGOD] Starting new HTTPS connection (1): api.telegram.org:443
+2026-08-05 06:00:59,388 | DEBUG    | [GroceryGOD] https://api.telegram.org:443 "POST /bot7563243860:AAG91WlEnGnplDSSpxYUuZ9YbTytE6ydCJw/sendMessage HTTP/1.1" 200 370
+2026-08-05 06:00:59,391 | INFO     | [GroceryGOD] 🔐  [Premium Key Rotation] — STARTED
+2026-08-05 06:00:59,395 | DEBUG    | [GroceryGOD] Starting new HTTPS connection (1): api.telegram.org:443
+2026-08-05 06:00:59,869 | DEBUG    | [GroceryGOD] https://api.telegram.org:443 "POST /bot7563243860:AAG91WlEnGnplDSSpxYUuZ9YbTytE6ydCJw/sendMessage HTTP/1.1" 200 367
+2026-08-05 06:00:59,920 | INFO     | [GroceryGOD] No GOD_PREMIUM_KEY_UPDATE set — skipping key rotation.
+2026-08-05 06:00:59,922 | INFO     | [GroceryGOD] ✅  [Premium Key Rotation] — OK (0:00:00)
+2026-08-05 06:00:59,926 | DEBUG    | [GroceryGOD] Starting new HTTPS connection (1): api.telegram.org:443
+2026-08-05 06:01:00,393 | DEBUG    | [GroceryGOD] https://api.telegram.org:443 "POST /bot7563243860:AAG91WlEnGnplDSSpxYUuZ9YbTytE6ydCJw/sendMessage HTTP/1.1" 200 372
+2026-08-05 06:01:00,396 | INFO     | [GroceryGOD] 🔒  [Repo Encryption] — STARTED
+2026-08-05 06:01:00,400 | DEBUG    | [GroceryGOD] Starting new HTTPS connection (1): api.telegram.org:443
+2026-08-05 06:01:00,877 | DEBUG    | [GroceryGOD] https://api.telegram.org:443 "POST /bot7563243860:AAG91WlEnGnplDSSpxYUuZ9YbTytE6ydCJw/sendMessage HTTP/1.1" 200 362
+2026-08-05 06:01:00,893 | INFO     | [GroceryGOD]   Encrypting 44 files
+2026-08-05 06:01:01,232 | ERROR    | [GroceryGOD]   ERROR othoba_data_part6.js: [Errno 28] No space left on device
+2026-08-05 06:01:01,538 | ERROR    | [GroceryGOD]   ERROR othoba_data_part7.js: [Errno 28] No space left on device
+2026-08-05 06:01:01,898 | ERROR    | [GroceryGOD]   ERROR foodi_data_part1.js: [Errno 28] No space left on device
+2026-08-05 06:01:02,162 | ERROR    | [GroceryGOD]   ERROR othoba_data_part8.js: [Errno 28] No space left on device
+2026-08-05 06:01:02,440 | ERROR    | [GroceryGOD]   ERROR foodi_data_part2.js: [Errno 28] No space left on device
+2026-08-05 06:01:02,723 | ERROR    | [GroceryGOD]   ERROR unimart_data_part1.js: [Errno 28] No space left on device
+2026-08-05 06:01:02,982 | ERROR    | [GroceryGOD]   ERROR othoba_data_part5.js: [Errno 28] No space left on device
+2026-08-05 06:01:03,240 | ERROR    | [GroceryGOD]   ERROR meenabazar_data_part1.js: [Errno 28] No space left on device
+2026-08-05 06:01:03,486 | ERROR    | [GroceryGOD]   ERROR chaldal_data_part1.js: [Errno 28] No space left on device
+2026-08-05 06:01:03,730 | ERROR    | [GroceryGOD]   ERROR meenabazar_data_part2.js: [Errno 28] No space left on device
+2026-08-05 06:01:03,992 | ERROR    | [GroceryGOD]   ERROR shotejbazar_data_part1.js: [Errno 28] No space left on device
+2026-08-05 06:01:04,237 | ERROR    | [GroceryGOD]   ERROR othoba_data_part4.js: [Errno 28] No space left on device
+2026-08-05 06:01:04,486 | ERROR    | [GroceryGOD]   ERROR shwapno_data_part1.js: [Errno 28] No space left on device
+2026-08-05 06:01:04,735 | ERROR    | [GroceryGOD]   ERROR othoba_data_part1.js: [Errno 28] No space left on device
+2026-08-05 06:01:04,985 | ERROR    | [GroceryGOD]   ERROR othoba_data_part2.js: [Errno 28] No space left on device
+2026-08-05 06:01:05,229 | ERROR    | [GroceryGOD]   ERROR othoba_data_part9.js: [Errno 28] No space left on device
+2026-08-05 06:01:05,474 | ERROR    | [GroceryGOD]   ERROR othoba_data_part3.js: [Errno 28] No space left on device
+2026-08-05 06:01:05,718 | ERROR    | [GroceryGOD]   ERROR metromart_data_part1.js: [Errno 28] No space left on device
+2026-08-05 06:01:05,971 | ERROR    | [GroceryGOD]   ERROR othoba_manifest.js: [Errno 28] No space left on device
+2026-08-05 06:01:06,221 | ERROR    | [GroceryGOD]   ERROR meenabazar_manifest.js: [Errno 28] No space left on device
+2026-08-05 06:01:06,466 | ERROR    | [GroceryGOD]   ERROR foodi_manifest.js: [Errno 28] No space left on device
+2026-08-05 06:01:06,711 | ERROR    | [GroceryGOD]   ERROR unimart_manifest.js: [Errno 28] No space left on device
+2026-08-05 06:01:06,959 | ERROR    | [GroceryGOD]   ERROR shotejbazar_manifest.js: [Errno 28] No space left on device
+2026-08-05 06:01:07,212 | ERROR    | [GroceryGOD]   ERROR shwapno_manifest.js: [Errno 28] No space left on device
+2026-08-05 06:01:07,464 | ERROR    | [GroceryGOD]   ERROR chaldal_manifest.js: [Errno 28] No space left on device
+2026-08-05 06:01:07,706 | ERROR    | [GroceryGOD]   ERROR metromart_manifest.js: [Errno 28] No space left on device
+2026-08-05 06:01:07,952 | ERROR    | [GroceryGOD]   ERROR data.js: [Errno 28] No space left on device
+2026-08-05 06:01:08,205 | ERROR    | [GroceryGOD]   ERROR data.json: [Errno 28] No space left on device
+2026-08-05 06:01:08,503 | ERROR    | [GroceryGOD]   ERROR data.json: [Errno 28] No space left on device
+2026-08-05 06:01:08,776 | ERROR    | [GroceryGOD]   ERROR data.json: [Errno 28] No space left on device
+2026-08-05 06:01:09,058 | ERROR    | [GroceryGOD]   ERROR data.json: [Errno 28] No space left on device
+2026-08-05 06:01:09,308 | ERROR    | [GroceryGOD]   ERROR data.js: [Errno 28] No space left on device
+2026-08-05 06:01:09,564 | ERROR    | [GroceryGOD]   ERROR scraper.py: [Errno 28] No space left on device
+2026-08-05 06:01:09,852 | ERROR    | [GroceryGOD]   ERROR scraper.py: [Errno 28] No space left on device
+2026-08-05 06:01:10,184 | ERROR    | [GroceryGOD]   ERROR scraper.py: [Errno 28] No space left on device
+2026-08-05 06:01:10,479 | ERROR    | [GroceryGOD]   ERROR metro_tracker.db: [Errno 28] No space left on device
+2026-08-05 06:01:10,772 | ERROR    | [GroceryGOD]   ERROR metro_tracker.db: [Errno 28] No space left on device
+2026-08-05 06:01:11,130 | ERROR    | [GroceryGOD]   ERROR othoba_tracker.db: [Errno 28] No space left on device
+2026-08-05 06:01:11,435 | ERROR    | [GroceryGOD]   ERROR meenatracker.db: [Errno 28] No space left on device
+2026-08-05 06:01:11,703 | ERROR    | [GroceryGOD]   ERROR meenatracker.db: [Errno 28] No space left on device
+2026-08-05 06:01:12,148 | ERROR    | [GroceryGOD]   ERROR scraper.db: [Errno 28] No space left on device
+2026-08-05 06:01:12,413 | ERROR    | [GroceryGOD]   ERROR products.parquet: [Errno 28] No space left on device
+2026-08-05 06:01:12,660 | ERROR    | [GroceryGOD]   ERROR history.parquet: [Errno 28] No space left on device
+2026-08-05 06:01:12,915 | ERROR    | [GroceryGOD]   ERROR history_archive.parquet: [Errno 28] No space left on device
+2026-08-05 06:01:12,917 | INFO     | [GroceryGOD]   Encrypted 0/44 files
+2026-08-05 06:01:12,919 | INFO     | [GroceryGOD] ✅  [Repo Encryption] — OK (0:00:12)
+2026-08-05 06:01:12,922 | DEBUG    | [GroceryGOD] Starting new HTTPS connection (1): api.telegram.org:443
+2026-08-05 06:01:13,404 | DEBUG    | [GroceryGOD] https://api.telegram.org:443 "POST /bot7563243860:AAG91WlEnGnplDSSpxYUuZ9YbTytE6ydCJw/sendMessage HTTP/1.1" 200 367
+2026-08-05 06:01:13,407 | INFO     | [GroceryGOD] 🛡️  [GitHub Push Guard] — STARTED
+2026-08-05 06:01:13,410 | DEBUG    | [GroceryGOD] Starting new HTTPS connection (1): api.telegram.org:443
+2026-08-05 06:01:13,882 | DEBUG    | [GroceryGOD] https://api.telegram.org:443 "POST /bot7563243860:AAG91WlEnGnplDSSpxYUuZ9YbTytE6ydCJw/sendMessage HTTP/1.1" 200 370
+2026-08-05 06:01:14,035 | INFO     | [GroceryGOD] 🛡️ Deactivating local Git LFS configurations to bypass account budget lock...
+2026-08-05 06:01:14,143 | INFO     | [GroceryGOD] Push attempt 1...
+2026-08-05 06:01:14,445 | DEBUG    | [GroceryGOD] Starting new HTTPS connection (1): api.telegram.org:443
+2026-08-05 06:01:14,926 | DEBUG    | [GroceryGOD] https://api.telegram.org:443 "POST /bot7563243860:AAG91WlEnGnplDSSpxYUuZ9YbTytE6ydCJw/sendMessage HTTP/1.1" 200 462
+2026-08-05 06:01:14,929 | INFO     | [GroceryGOD] ✅  [GitHub Push Guard] — OK (0:00:01)
+2026-08-05 06:01:14,932 | DEBUG    | [GroceryGOD] Starting new HTTPS connection (1): api.telegram.org:443
+2026-08-05 06:01:15,394 | DEBUG    | [GroceryGOD] https://api.telegram.org:443 "POST /bot7563243860:AAG91WlEnGnplDSSpxYUuZ9YbTytE6ydCJw/sendMessage HTTP/1.1" 200 369
+2026-08-05 06:01:15,398 | DEBUG    | [GroceryGOD] Starting new HTTPS connection (1): api.ipify.org:443
+2026-08-05 06:01:15,429 | DEBUG    | [GroceryGOD] https://api.ipify.org:443 "GET / HTTP/1.1" 200 13
