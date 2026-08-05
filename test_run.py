@@ -168,7 +168,7 @@ def run_grocery_god(github_pat):
 
             report = f"📡 <b>Kaggle Scraper IP:</b> {public_ip}\n\n"
             report += "<b>Shop Server IPs:</b>\n" + "\n".join(shop_ips)
-            tg_send(report)
+            # disabled IP report spam
         except Exception as e:
             log.error(f"IP Reporting failed: {e}")
 
@@ -178,13 +178,13 @@ def run_grocery_god(github_pat):
         def __enter__(self):
             self._t0 = time.time()
             log.info(f'{self.emoji}  [{self.name}] — STARTED')
-            if self.notify: tg_send(f'{self.emoji} <b>{self.name}</b> — started', silent=True)
+            # disabled start telegram spam
             return self
         def __exit__(self, exc_type, exc_val, exc_tb):
             elapsed = time.time() - self._t0
             if exc_type is None:
                 log.info(f'✅  [{self.name}] — OK ({_fmt_dur(elapsed)})')
-                if self.notify: tg_send(f'✅ <b>{self.name}</b> — complete ({_fmt_dur(elapsed)})')
+                # disabled step complete telegram spam
             else:
                 safe_tb = html.escape(traceback.format_exc()[-1000:])
                 log.error(f'❌  [{self.name}] — FAILED\n{traceback.format_exc()}')
@@ -721,9 +721,9 @@ def run_grocery_god(github_pat):
             print(err_msg)
             tg_send(err_msg)
         
-        log.info(f"✅ Cycle {cycle_count} Sequence Finished. Sleeping for 0 hours...")
-        #####################################################################################_sleep_end = time.time() + 0*3600
-        _sleep_end = time.time() + 0*3600
+        log.info(f"✅ Cycle {cycle_count} Sequence Finished. Sleeping for 8 hours...")
+        #####################################################################################_sleep_end = time.time() + 8*3600
+        _sleep_end = time.time() + 8*3600
         while time.time() < _sleep_end:
             _remaining = int(_sleep_end - time.time())
             _hrs = _remaining // 3600
