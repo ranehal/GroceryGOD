@@ -347,12 +347,20 @@ def run_grocery_god(github_pat):
 
                     _last_alive_tg = time.time()
                     _last_ss_tg = time.time()
+                    _last_10m_tg = None
                     _sent_screenshots = set()
                     _deadline = time.time() + SCRAPER_TIMEOUT
                     while time.time() < _deadline:
                         if proc.poll() is not None:
                             break
                         _now = time.time()
+                        _elapsed = _now - t0
+                        if _elapsed >= 1800:
+                            if _last_10m_tg is None or (_now - _last_10m_tg) >= 600:
+                                status_msg = f"⏳ <b>{label}</b> Status Update — Running for {_fmt_dur(_elapsed)}\nLines: {line_count[0]}"
+                                log.info(f"[{label}] Sending 10-min TG status report ({_fmt_dur(_elapsed)} elapsed)...")
+                                tg_send(status_msg, silent=True)
+                                _last_10m_tg = _now
                         if _now - _last_ss_tg >= 300:
                             _elapsed_str = _fmt_dur(_now - t0)
                             import glob as _glob
@@ -857,6 +865,26 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat):
 
         if os.path.exists('requirements.txt'):
             subprocess.run([sys.executable, "-m", "pip", "install", "-q", "-r", "requirements.txt"], check=False)
+
+        # Auto-detect script name recursively if expected script_name does not exist
+        if not os.path.exists(script_name):
+            import glob
+            exact_matches = glob.glob(f'**/{script_name}', recursive=True)
+            if exact_matches:
+                script_name = exact_matches[0]
+            else:
+                py_files = [f for f in glob.glob('**/*.py', recursive=True) if not os.path.basename(f).startswith('__') and os.path.basename(f) != 'setup.py']
+                preferred = [f for f in py_files if any(k in f.lower() for k in ['scraper', 'main', 'run', 'meena', 'app', 'web'])]
+                if preferred:
+                    script_name = preferred[0]
+                elif py_files:
+                    script_name = py_files[0]
+                else:
+                    err_msg = f"No executable python script found in {repo_name} (expected '{script_name}')."
+                    print(f"❌ [{label}] {err_msg}")
+                    tg_send(f"⚠️ <b>{label}</b> — {err_msg}", silent=True)
+                    return
+            print(f"[{label}] Target script auto-resolved to: {script_name}")
 
         # Auto-patch Cat NoneType error safety with indentation preservation
         if os.path.exists(script_name):

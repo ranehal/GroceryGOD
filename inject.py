@@ -64,6 +64,7 @@ new_code = '''            def run_scraper(scraper_info):
                 
                 # Monitor all procs
                 deadline = time.time() + SCRAPER_TIMEOUT
+                _last_10m_tg = None
                 while True:
                     all_done = True
                     for p in procs:
@@ -85,6 +86,17 @@ new_code = '''            def run_scraper(scraper_info):
                                 log.error(f"{label}:{p['name']} BLOCKED (Cloudflare/IP).")
                                 tg_send(f"BLOCKED <b>{label}:{p['name']}</b> (Cloudflare/IP issue).", silent=True)
                                 
+                    _now = time.time()
+                    _elapsed = _now - t0
+                    if _elapsed >= 1800:
+                        if _last_10m_tg is None or (_now - _last_10m_tg) >= 600:
+                            total_so_far = sum(p['stdout_count'][0] for p in procs)
+                            proc_stats = "\\n".join([f" • {p['name']}: {p['stdout_count'][0]} lines ({'running' if p['proc'].poll() is None else 'finished'})" for p in procs])
+                            status_msg = f"⏳ <b>{label}</b> Status Update — Running for {_fmt_dur(_elapsed)}\\nTotal lines: {total_so_far}\\n{proc_stats}"
+                            log.info(f"[{label}] Sending 10-min TG status report ({_fmt_dur(_elapsed)} elapsed)...")
+                            tg_send(status_msg, silent=True)
+                            _last_10m_tg = _now
+
                     if all_done or time.time() > deadline:
                         break
                     time.sleep(5)

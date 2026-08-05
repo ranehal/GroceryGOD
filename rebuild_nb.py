@@ -138,11 +138,18 @@ else:
 with open("kaggle gitGOD.ipynb", "r", encoding="utf-8") as f:
     nb = json.load(f)
 
-# Rebuild cell
-lines = [line + '\\n' for line in source.split('\\n')]
-# Remove the last \\n if source didn't end with one, but let's just use splitlines(keepends=True)
-lines = source.splitlines(keepends=True)
+# Rebuild cell 0 (header text block summary)
+nb["cells"][0]["source"] = [
+    "# 🚀 Parallel Execution: Continuous GroceryGOD (Simultaneous) + gitww\n",
+    "Executes all scrapers completely simultaneously via multi-threading in an infinite loop alongside gitww. Features live notebook source persistence and Git LFS budget bypass protection across automated restarts.\n",
+    "\n",
+    "### 📋 Maintenance & Patch Log:\n",
+    "- **10-Min TG Status Reports**: Sends status reports via Telegram every 10 mins for scrapers running longer than 30 mins.\n",
+    "- **Scheduled Repo Auto-Resolution**: Fixed Meena Bazar Analytics (`MEEnaBAzar-analylics`) missing script error by auto-detecting target python scripts in scheduled repositories.\n"
+]
 
+# Rebuild cell 1 (python code source)
+lines = source.splitlines(keepends=True)
 nb["cells"][1]["source"] = lines
 
 with open("kaggle gitGOD.ipynb", "w", encoding="utf-8") as f:
