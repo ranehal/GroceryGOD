@@ -1,3 +1,24 @@
+def safe_load_json(filepath, default=None):
+    if default is None: default = {}
+    if not os.path.exists(filepath): return default
+    with open(filepath, 'r', encoding='utf-8', errors='ignore') as f:
+        content = f.read().strip()
+    if not content: return default
+    try:
+        return json.loads(content)
+    except Exception as e:
+        print(f"[JSON Recovery] Truncation in {os.path.basename(filepath)} ({e}). Repairing...")
+        last_close = content.rfind('}')
+        while last_close > 0:
+            candidate = content[:last_close+1]
+            if candidate.count('{') > candidate.count('}'):
+                candidate += '}' * (candidate.count('{') - candidate.count('}'))
+            try:
+                return json.loads(candidate)
+            except Exception:
+                last_close = content.rfind('}', 0, last_close)
+        return default
+
 def clean_disk_space():
     print("[Aggregator] Cleaning temporary files & caches to free disk space...")
     import glob, shutil
@@ -442,7 +463,7 @@ def load_unimart():
     print("Processing Unimart...")
     if not os.path.exists(UNIMART_DATA): stats={"web":0, "app":0, "combined":0}; print(f"Unimart Stats -> Web: {stats.get('web', 0)}, App: {stats.get('app', 0)}, Combined Unique: {stats.get('combined', 0)}"); return {}, "N/A", stats
     try:
-        with open(UNIMART_DATA, 'r', encoding='utf-8') as f: data = json.load(f)
+        data = safe_load_json(UNIMART_DATA)
         products = {}; all_dates = []
         for pid, p in data.items():
             p_id = f"un_{pid}" if not pid.startswith("un_") else pid
@@ -476,7 +497,7 @@ def load_shotejbazar():
     print("Processing ShotejBazar...")
     if not os.path.exists(SHOTEJ_DATA): stats={"web":0, "app":0, "combined":0}; print(f"Shotejbazar Stats -> Web: {stats.get('web', 0)}, App: {stats.get('app', 0)}, Combined Unique: {stats.get('combined', 0)}"); return {}, "N/A", stats
     try:
-        with open(SHOTEJ_DATA, 'r', encoding='utf-8') as f: data = json.load(f)
+        data = safe_load_json(SHOTEJ_DATA)
         products = {}; all_dates = []
         for pid, p in data.items():
             p_id = f"sj_{pid}" if not pid.startswith("sj_") else pid

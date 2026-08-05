@@ -398,23 +398,29 @@ function generatePriorHistory(firstDateStr, firstPrice, firstNormPrice, seedId, 
 }
 
 async function loadProductHistory(productId) {
-    if (!godDB) return [];
     const p = allProducts.find(x => x.id === productId);
-    const result = await godDB.conn.query(`
-        SELECT date, price, normalized_price 
-        FROM history_access 
-        WHERE product_id = '${productId.replace(/'/g, "''")}'
-        ORDER BY date ASC
-    `);
-    const rows = result.toArray().map(r => {
-        const h = r.toJSON();
-        return { date: String(h.date), price: Number(h.price), normalized_price: Number(h.normalized_price) };
-    });
-
-    if (rows.length > 0) {
-        return rows;
-    } else if (p) {
-        return [{ date: todayStr, price: p.current_price, normalized_price: p.normalized_price }];
+    if (godDB) {
+        try {
+            const result = await godDB.conn.query(`
+                SELECT date, price, normalized_price 
+                FROM history_access 
+                WHERE product_id = '${productId.replace(/'/g, "''")}'
+                ORDER BY date ASC
+            `);
+            const rows = result.toArray().map(r => {
+                const h = r.toJSON();
+                return { date: String(h.date), price: Number(h.price), normalized_price: Number(h.normalized_price) };
+            });
+            if (rows.length > 0) return rows;
+        } catch (e) {
+            console.warn("DuckDB query fallback:", e);
+        }
+    }
+    if (p && Array.isArray(p.history) && p.history.length > 0) {
+        return p.history.map(h => ({ date: String(h.date), price: Number(h.price), normalized_price: Number(h.normalized_price || h.price) }));
+    }
+    if (p) {
+        return [{ date: p.first_seen || todayStr, price: Number(p.current_price || 0), normalized_price: Number(p.normalized_price || p.current_price || 0) }];
     }
     return [];
 }
