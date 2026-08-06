@@ -866,6 +866,18 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat):
         if os.path.exists('requirements.txt'):
             subprocess.run([sys.executable, "-m", "pip", "install", "-q", "-r", "requirements.txt"], check=False)
 
+        # Auto-install essential scraping dependencies if missing
+        _deps_to_check = ['playwright', 'httpx', 'requests', 'bs4', 'lxml']
+        for _dep in _deps_to_check:
+            try:
+                __import__(_dep)
+            except ImportError:
+                _pkg = 'beautifulsoup4' if _dep == 'bs4' else _dep
+                print(f"[{label}] Auto-installing missing dependency: {_pkg}...")
+                subprocess.run([sys.executable, "-m", "pip", "install", "-q", _pkg], check=False)
+                if _dep == 'playwright':
+                    subprocess.run([sys.executable, "-m", "playwright", "install", "chromium", "--with-deps"], check=False)
+
         # Auto-detect script name recursively if expected script_name does not exist
         if not os.path.exists(script_name):
             import glob

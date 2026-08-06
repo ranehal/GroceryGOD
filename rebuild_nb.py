@@ -121,8 +121,7 @@ new_parallel_block = """                def _run_wrapper(idx, info):
                 with concurrent.futures.ThreadPoolExecutor(max_workers=PARALLEL_MAX_WORKERS) as executor:
                     futures = {executor.submit(_run_wrapper, idx, s): idx for idx, s in enumerate(scrapers)}
                     for future in concurrent.futures.as_completed(futures):
-                        idx = futures[future]
-                        try:
+                                             try:
                             results[idx] = future.result()[1]
                         except Exception as e:
                             log.error(f'Parallel execution error for scraper {scrapers[idx][0]}: {e}')
@@ -132,7 +131,6 @@ if old_parallel_block in source:
     source = source.replace(old_parallel_block, new_parallel_block)
 else:
     print("Warning: old_parallel_block not found in scratch.py!")
-
 
 # Load Kaggle notebook template
 with open("kaggle gitGOD.ipynb", "r", encoding="utf-8") as f:
@@ -145,7 +143,8 @@ nb["cells"][0]["source"] = [
     "\n",
     "### 📋 Maintenance & Patch Log:\n",
     "- **10-Min TG Status Reports**: Sends status reports via Telegram every 10 mins for scrapers running longer than 30 mins.\n",
-    "- **Scheduled Repo Auto-Resolution**: Fixed Meena Bazar Analytics (`MEEnaBAzar-analylics`) missing script error by auto-detecting target python scripts in scheduled repositories.\n"
+    "- **Scheduled Repo Auto-Resolution**: Fixed Meena Bazar Analytics (`MEEnaBAzar-analylics`) missing script error by auto-detecting target python scripts recursively (`backend/scraper.py`).\n",
+    "- **Auto-Dependency Installation**: Fixed `ModuleNotFoundError: No module named 'playwright'` in scheduled sub-repos by auto-checking and installing `playwright`, `httpx`, and core scraper dependencies prior to execution.\n"
 ]
 
 # Rebuild cell 1 (python code source)
@@ -154,5 +153,5 @@ nb["cells"][1]["source"] = lines
 
 with open("kaggle gitGOD.ipynb", "w", encoding="utf-8") as f:
     json.dump(nb, f, indent=1)
-    
+
 print("Notebook rebuilt.")
