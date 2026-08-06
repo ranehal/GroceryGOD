@@ -144,7 +144,8 @@ nb["cells"][0]["source"] = [
     "### 📋 Maintenance & Patch Log:\n",
     "- **10-Min TG Status Reports**: Sends status reports via Telegram every 10 mins for scrapers running longer than 30 mins.\n",
     "- **Scheduled Repo Auto-Resolution**: Fixed Meena Bazar Analytics (`MEEnaBAzar-analylics`) missing script error by auto-detecting target python scripts recursively (`backend/scraper.py`).\n",
-    "- **Auto-Dependency Installation**: Fixed `ModuleNotFoundError: No module named 'playwright'` in scheduled sub-repos by auto-checking and installing `playwright`, `httpx`, and core scraper dependencies prior to execution.\n"
+    "- **Auto-Dependency Installation**: Fixed `ModuleNotFoundError: No module named 'playwright'` in scheduled sub-repos by auto-checking and installing `playwright`, `httpx`, and core scraper dependencies prior to execution.\n",
+    "- **Parallel Execution & Unbuffered Output**: Fixed pipeline hangs by running scrapers in parallel with 5 thread workers, forcing unbuffered stdout (`-u` & `PYTHONUNBUFFERED=1`), and setting a 30-minute max timeout per scraper.\n"
 ]
 
 # Rebuild cell 1 (python code source)

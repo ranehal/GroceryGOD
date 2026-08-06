@@ -288,7 +288,7 @@ def run_grocery_god(github_pat):
                     log.error(f'Decryption failed: {e.stderr[:500]}')
                     tg_send(f'⚠️ <b>Repo Decryption</b> — failed (non-fatal)', silent=True)
 
-            SCRAPER_TIMEOUT = 3 * 3600
+            SCRAPER_TIMEOUT = 30 * 60
             PARALLEL_MAX_WORKERS = 5
             ####################################################PARALLEL_MAX_WORKERS = 5
             def run_scraper(scraper_info):
@@ -310,6 +310,9 @@ def run_grocery_god(github_pat):
                     return label, False, 0, "missing"
 
                 my_env = os.environ.copy()
+                my_env["PYTHONUNBUFFERED"] = "1"
+                my_env["PYTHONIOENCODING"] = "utf-8"
+                my_env["GIT_TERMINAL_PROMPT"] = "0"
                 total_lines = 0
                 all_ok = True
                 status_res = "ok"
@@ -325,7 +328,7 @@ def run_grocery_god(github_pat):
                     except: pass
 
                     script_name = os.path.basename(script_target)
-                    proc = subprocess.Popen([sys.executable, script_name], cwd=full_path, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, env=my_env)
+                    proc = subprocess.Popen([sys.executable, "-u", script_name], cwd=full_path, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, env=my_env, bufsize=1)
                     
                     stderr_capture = []
                     stdout_count = [0]
@@ -453,11 +456,17 @@ def run_grocery_god(github_pat):
                 def _run_wrapper(idx, info):
                     return idx, run_scraper(info)
 
-                log.info('Running scrapers serially one by one...')
-                for idx, s in enumerate(scrapers):
-                    log.info(f'Starting scraper {idx+1}/{len(scrapers)}: {s[0]}')
-                    res = run_scraper(s)
-                    results[idx] = res
+                log.info(f'Running scrapers in PARALLEL with {PARALLEL_MAX_WORKERS} workers...')
+                import concurrent.futures
+                with concurrent.futures.ThreadPoolExecutor(max_workers=PARALLEL_MAX_WORKERS) as executor:
+                    futures = {executor.submit(_run_wrapper, idx, s): idx for idx, s in enumerate(scrapers)}
+                    for future in concurrent.futures.as_completed(futures):
+                        idx = futures[future]
+                        try:
+                            results[idx] = future.result()[1]
+                        except Exception as e:
+                            log.error(f'Parallel execution error for scraper {scrapers[idx][0]}: {e}')
+                            results[idx] = (scrapers[idx][0], False, 0, "exception")
 
                 log.info("=== SCRAPER RESULTS SUMMARY ===\n" + "-"*60)
                 _all_ok = True
