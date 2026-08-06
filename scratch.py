@@ -297,7 +297,11 @@ def run_grocery_god(github_pat):
                 t0 = time.time()
                 full_path = os.path.join(os.getcwd(), path)
                 import glob
-                script_targets = glob.glob(os.path.join(full_path, 'scraper*.py'))
+                main_scraper = os.path.join(full_path, 'scraper.py')
+                if os.path.exists(main_scraper):
+                    script_targets = [main_scraper]
+                else:
+                    script_targets = glob.glob(os.path.join(full_path, 'scraper*.py'))
                 
                 if not script_targets:
                     error_msg = f"No scraper scripts found in {full_path}"
