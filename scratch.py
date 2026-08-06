@@ -949,7 +949,7 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat):
             subprocess.run(f'git config user.name "{user_n}"', shell=True)
             subprocess.run(f'git config user.email "{user_n}@users.noreply.github.com"', shell=True)
             for attempt in range(2):
-                subprocess.run(f'git pull origin {default_branch} --rebase -X ours', shell=True)
+                subprocess.run(f'git pull origin {default_branch} --rebase -X ours -q', shell=True, capture_output=True)
                 push_res = subprocess.run(f'git push origin HEAD:{default_branch} --force', shell=True, capture_output=True, text=True)
                 if push_res.returncode == 0:
                     push_success = True
