@@ -25,6 +25,24 @@ def tg_send(msg):
     except Exception as e:
         print(f"[Telegram Error] {e}")
 
+import threading
+_print_lock = threading.Lock()
+
+def _run_script_live(script_path, cwd):
+    if not os.path.exists(script_path):
+        print(f"[Orchestrator] Warning: {script_path} not found.")
+        return
+    print(f"[Orchestrator] Running {os.path.basename(script_path)} live...")
+    try:
+        proc = subprocess.Popen([sys.executable, "-u", script_path], cwd=cwd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, bufsize=1)
+        for line in proc.stdout:
+            with _print_lock:
+                sys.stdout.write(line)
+                sys.stdout.flush()
+        proc.wait(timeout=1800)
+    except Exception as e:
+        print(f"[Orchestrator] Error running {os.path.basename(script_path)}: {e}")
+
 def run_scrapers():
     dir_path = os.path.dirname(os.path.abspath(__file__))
     web_script = os.path.join(dir_path, "scraper_web.py")
@@ -33,17 +51,15 @@ def run_scrapers():
     web_count = 0
     app_count = 0
 
-    print("\n[Chaldal] Launching Web Scraper...")
-    try:
-        _run_script_live(web_script, dir_path)
-    except Exception as e:
-        print(f"[Chaldal] Web scraper error: {e}")
-
-    print("\n[Chaldal] Launching App API Scraper...")
-    try:
-        _run_script_live(app_script, dir_path)
-    except Exception as e:
-        print(f"[Chaldal] App API scraper error: {e}")
+    print("\n[Chaldal] Launching Web & App API Scrapers simultaneously in PARALLEL...")
+    t_web = threading.Thread(target=_run_script_live, args=(web_script, dir_path), daemon=True)
+    t_app = threading.Thread(target=_run_script_live, args=(app_script, dir_path), daemon=True)
+    
+    t_web.start()
+    t_app.start()
+    
+    t_web.join()
+    t_app.join()
 
         # Read Web & App datasets from all possible locations
     candidate_files = [

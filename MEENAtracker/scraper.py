@@ -27,16 +27,20 @@ def tg_send(msg):
     except Exception as e:
         print(f"[Telegram Error] {e}")
 
+import threading
+_print_lock = threading.Lock()
+
 def _run_script_live(script_path, cwd):
     if not os.path.exists(script_path):
         print(f"[Orchestrator] Warning: {script_path} not found.")
         return
     print(f"[Orchestrator] Running {os.path.basename(script_path)} live...")
     try:
-        proc = subprocess.Popen([sys.executable, script_path], cwd=cwd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, bufsize=1)
+        proc = subprocess.Popen([sys.executable, "-u", script_path], cwd=cwd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, bufsize=1)
         for line in proc.stdout:
-            sys.stdout.write(line)
-            sys.stdout.flush()
+            with _print_lock:
+                sys.stdout.write(line)
+                sys.stdout.flush()
         proc.wait(timeout=1800)
     except Exception as e:
         print(f"[Orchestrator] Error running {os.path.basename(script_path)}: {e}")
@@ -49,17 +53,15 @@ def run_scrapers():
     web_items = 0
     app_items = 0
 
-    print("\n[MEENAtracker] Launching Web Scraper (Playwright)...")
-    try:
-        _run_script_live(web_script, dir_path)
-    except Exception as e:
-        print(f"[MEENAtracker] Web scraper error/timeout: {e}")
-
-    print("\n[MEENAtracker] Launching Mobile App API Scraper...")
-    try:
-        _run_script_live(app_script, dir_path)
-    except Exception as e:
-        print(f"[MEENAtracker] App API scraper error/timeout: {e}")
+    print("\n[MEENAtracker] Launching Web & App API Scrapers simultaneously in PARALLEL...")
+    t_web = threading.Thread(target=_run_script_live, args=(web_script, dir_path), daemon=True)
+    t_app = threading.Thread(target=_run_script_live, args=(app_script, dir_path), daemon=True)
+    
+    t_web.start()
+    t_app.start()
+    
+    t_web.join()
+    t_app.join()
 
     # Process & Combine DB / JSON data
     db_path = os.path.join(dir_path, "meenatracker.db")

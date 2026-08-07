@@ -427,7 +427,7 @@ def run_grocery_god(github_pat):
                 except Exception as e:
                     log.error(f"History reconstruction failed: {e}. Proceeding with fresh start risk...")
 
-            with Step('Market Scrapers (Serial)', '🛸'):
+            with Step('Market Scrapers (Parallel)', '🛸'):
                 import platform, os, subprocess
                 if platform.system() == 'Windows':
                     shopno_dir = r'C:\PROJECTS\shopno'
