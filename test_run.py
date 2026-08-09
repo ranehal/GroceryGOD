@@ -867,6 +867,7 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat):
             subprocess.run([sys.executable, "-m", "pip", "install", "-q", "-r", "requirements.txt"], check=False)
 
         # Auto-install essential scraping dependencies if missing
+        # Auto-install essential scraping dependencies if missing
         _deps_to_check = ['playwright', 'httpx', 'requests', 'bs4', 'lxml']
         for _dep in _deps_to_check:
             try:
@@ -875,8 +876,11 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat):
                 _pkg = 'beautifulsoup4' if _dep == 'bs4' else _dep
                 print(f"[{label}] Auto-installing missing dependency: {_pkg}...")
                 subprocess.run([sys.executable, "-m", "pip", "install", "-q", _pkg], check=False)
-                if _dep == 'playwright':
-                    subprocess.run([sys.executable, "-m", "playwright", "install", "chromium", "--with-deps"], check=False)
+        
+        # Ensure Playwright Chromium browser binary is always installed
+        try:
+            subprocess.run([sys.executable, "-m", "playwright", "install", "chromium"], check=False, capture_output=True)
+        except: pass
 
         # Auto-detect script name recursively if expected script_name does not exist
         if not os.path.exists(script_name):
@@ -917,16 +921,23 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat):
             except Exception as patch_err:
                 print(f"[{label}] Script patch warning: {patch_err}")
 
+        script_abs_path = os.path.abspath(script_name)
+        script_dir = os.path.dirname(script_abs_path)
+        script_file = os.path.basename(script_abs_path)
+
         max_script_retries = 3
         for _attempt in range(1, max_script_retries + 1):
-            print(f"[{label}] Executing {script_name} (attempt {_attempt}/{max_script_retries})...")
+            print(f"[{label}] Executing {script_file} in {script_dir} (attempt {_attempt}/{max_script_retries})...")
             t0 = time.time()
             my_env = os.environ.copy()
             my_env["GIT_TERMINAL_PROMPT"] = "0"
+            my_env["PYTHONPATH"] = f"{script_dir}{os.pathsep}{os.getcwd()}{os.pathsep}{my_env.get('PYTHONPATH', '')}"
+            my_env["PYTHONUNBUFFERED"] = "1"
+            my_env["PYTHONIOENCODING"] = "utf-8"
             
             import threading
             import collections
-            proc = subprocess.Popen([sys.executable, script_name], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, env=my_env)
+            proc = subprocess.Popen([sys.executable, "-u", script_file], cwd=script_dir, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, env=my_env, bufsize=1)
             line_count = [0]
             stderr_capture = []
             stdout_last_lines = collections.deque(maxlen=15)

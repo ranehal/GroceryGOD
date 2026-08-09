@@ -872,8 +872,11 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat):
                 _pkg = 'beautifulsoup4' if _dep == 'bs4' else _dep
                 print(f"[{label}] Auto-installing missing dependency: {_pkg}...")
                 subprocess.run([sys.executable, "-m", "pip", "install", "-q", _pkg], check=False)
-                if _dep == 'playwright':
-                    subprocess.run([sys.executable, "-m", "playwright", "install", "chromium", "--with-deps"], check=False)
+        
+        # Ensure Playwright Chromium browser binary is always installed
+        try:
+            subprocess.run([sys.executable, "-m", "playwright", "install", "chromium"], check=False, capture_output=True)
+        except: pass
 
         # Auto-detect script name recursively if expected script_name does not exist
         if not os.path.exists(script_name):
@@ -914,18 +917,25 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat):
             except Exception as patch_err:
                 print(f"[{label}] Script patch warning: {patch_err}")
 
+        script_abs_path = os.path.abspath(script_name)
+        script_dir = os.path.dirname(script_abs_path)
+        script_file = os.path.basename(script_abs_path)
+
         max_script_retries = 3
         for _attempt in range(1, max_script_retries + 1):
-            print(f"[{label}] Executing {script_name} (attempt {_attempt}/{max_script_retries})...")
+            print(f"[{label}] Executing {script_file} in {script_dir} (attempt {_attempt}/{max_script_retries})...")
             t0 = time.time()
             my_env = os.environ.copy()
-            res = subprocess.run([sys.executable, script_name], capture_output=True, text=True, timeout=5*18000, env=my_env)
+            my_env["PYTHONPATH"] = f"{script_dir}{os.pathsep}{os.getcwd()}{os.pathsep}{my_env.get('PYTHONPATH', '')}"
+            my_env["PYTHONUNBUFFERED"] = "1"
+            my_env["PYTHONIOENCODING"] = "utf-8"
+            res = subprocess.run([sys.executable, "-u", script_file], cwd=script_dir, capture_output=True, text=True, timeout=5*18000, env=my_env)
             elapsed = time.time() - t0
             if res.returncode == 0:
                 break
             safe_err = html.escape(res.stderr[:500])
             if _attempt == max_script_retries:
-                raise RuntimeError(f"Script {script_name} failed:\n{safe_err}")
+                raise RuntimeError(f"Script {script_name} failed in {script_dir}:\n{safe_err}")
             print(f"[WARN] {label} attempt {_attempt} failed (rc={res.returncode}), retrying...\n{safe_err[:200]}")
             time.sleep(10)
 
