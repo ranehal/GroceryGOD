@@ -289,8 +289,8 @@ def run_grocery_god(github_pat):
                     tg_send(f'⚠️ <b>Repo Decryption</b> — failed (non-fatal)', silent=True)
 
             SCRAPER_TIMEOUT = 30 * 60
-            PARALLEL_MAX_WORKERS = 5
-            ####################################################PARALLEL_MAX_WORKERS = 5
+            PARALLEL_MAX_WORKERS = 8
+            ####################################################PARALLEL_MAX_WORKERS = 8
             def run_scraper(scraper_info):
                 label, path = scraper_info
                 log.info(f'Starting {label}...')
@@ -863,6 +863,25 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat):
         if os.path.exists('requirements.txt'):
             subprocess.run([sys.executable, "-m", "pip", "install", "-q", "-r", "requirements.txt"], check=False)
 
+        # Low-disk preflight: /kaggle/working disk-full (Errno 28) silently breaks
+        # Chromium installs and DB writes, causing random asyncio/playwright crashes.
+        try:
+            import glob as _glob
+            _du = shutil.disk_usage(os.getcwd())
+            _free_gb = _du.free / (1024 ** 3)
+            if _free_gb < 2.0:
+                print(f"[{label}] WARNING: low disk space ({_free_gb:.2f} GB free). Clearing __pycache__ + stale run artifacts...")
+                for _p in _glob.glob(os.path.join(os.getcwd(), "**", "__pycache__"), recursive=True):
+                    shutil.rmtree(_p, ignore_errors=True)
+                for _pat in ("**/*.pyc", "**/_scraper_error_*.log", "**/last_run_log.txt"):
+                    for _p in _glob.glob(os.path.join(os.getcwd(), _pat), recursive=True):
+                        try: os.remove(_p)
+                        except Exception: pass
+                _du2 = shutil.disk_usage(os.getcwd())
+                print(f"[{label}] After cleanup: {_du2.free / (1024 ** 3):.2f} GB free.")
+        except Exception as _du_err:
+            print(f"[{label}] Disk check warning: {_du_err}")
+
         # Auto-install essential scraping dependencies if missing
         _deps_to_check = ['playwright', 'httpx', 'requests', 'bs4', 'lxml']
         for _dep in _deps_to_check:
@@ -873,10 +892,30 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat):
                 print(f"[{label}] Auto-installing missing dependency: {_pkg}...")
                 subprocess.run([sys.executable, "-m", "pip", "install", "-q", _pkg], check=False)
         
-        # Ensure Playwright Chromium browser binary is always installed
+        # Ensure Playwright Chromium browser binary is always installed (verified)
         try:
-            subprocess.run([sys.executable, "-m", "playwright", "install", "chromium"], check=False, capture_output=True)
-        except: pass
+            import platform as _platform
+            _install_cmds = [[sys.executable, "-m", "playwright", "install", "chromium"]]
+            if _platform.system() == "Linux":
+                _install_cmds.insert(0, [sys.executable, "-m", "playwright", "install", "chromium", "--with-deps"])
+            _installed = False
+            for _cmd in _install_cmds:
+                _res = subprocess.run(_cmd, capture_output=True, text=True)
+                if _res.returncode == 0:
+                    _installed = True
+                    break
+                print(f"[{label}] Playwright install failed: {(_res.stderr or '')[:300]}")
+            if _installed:
+                _dry = subprocess.run([sys.executable, "-m", "playwright", "install", "--dry-run", "chromium"], capture_output=True, text=True)
+                _dry_out = ((_dry.stdout or "") + (_dry.stderr or "")).lower()
+                if "already installed" not in _dry_out and "install" in _dry_out:
+                    print(f"[{label}] WARNING: Chromium may still be missing ({(_dry.stderr or _dry.stdout or '').strip()[:200]})")
+                else:
+                    print(f"[{label}] Playwright chromium verified OK.")
+            else:
+                print(f"[{label}] CRITICAL: Chromium install failed. Browser launch will crash.")
+        except Exception as _pw_err:
+            print(f"[{label}] Playwright setup warning: {_pw_err}")
 
         # Auto-detect script name recursively if expected script_name does not exist
         if not os.path.exists(script_name):
@@ -933,10 +972,16 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat):
             elapsed = time.time() - t0
             if res.returncode == 0:
                 break
-            safe_err = html.escape(res.stderr[:500])
+            _err_log = os.path.join(os.getcwd(), f"_scraper_error_{_attempt}.log")
+            try:
+                with open(_err_log, "w", encoding="utf-8") as _ef:
+                    _ef.write((res.stderr or "") + "\n--- STDOUT TAIL ---\n" + (res.stdout or "")[-2000:])
+            except Exception:
+                pass
+            safe_err = html.escape((res.stderr or "")[:5000])
             if _attempt == max_script_retries:
-                raise RuntimeError(f"Script {script_name} failed in {script_dir}:\n{safe_err}")
-            print(f"[WARN] {label} attempt {_attempt} failed (rc={res.returncode}), retrying...\n{safe_err[:200]}")
+                raise RuntimeError(f"Script {script_name} failed in {script_dir}:\n{safe_err}\n(Full error saved to {_err_log})")
+            print(f"[WARN] {label} attempt {_attempt} failed (rc={res.returncode}), retrying...\n{safe_err[:500]}")
             time.sleep(10)
 
         print(f"[{label}] Finished in {int(elapsed)}s. Pushing to GitHub as ranehal...")
