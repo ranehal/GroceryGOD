@@ -83,6 +83,20 @@ SOURCES = [
     ('6a4c67d5', 'shwapno_data.js', 'sh_', False),
     ('810aaec8', 'swapnoTRACKER/data.json', 'sh_', True),
     ('0a1992f0', 'PRICETRACKER/data.js', 'ch_', False),
+    # Deep-search full-history snapshots from tracker subdirs / part files (Jun-Jul gaps)
+    ('c19afd71', 'PRICETRACKER/data.js', 'ch_', False),
+    ('c19afd71', 'chaldal_data_part1.js', 'ch_', False),
+    ('0d876f65', 'swapnoTRACKER/data.json', 'sh_', True),
+    ('0d876f65', 'shwapno_data_part1.js', 'sh_', False),
+    ('0d876f65', 'shwapno_data_part2.js', 'sh_', False),
+    ('ac30a233', 'meenabazar_data_part1.js', 'mb_', False),
+    ('ac30a233', 'meenabazar_data_part2.js', 'mb_', False),
+    ('0d876f65', 'othoba_data_part1.js', 'ot_', False),
+    ('0d876f65', 'othoba_data_part2.js', 'ot_', False),
+    ('9530714f', 'unimart_data_part1.js', 'un_', False),
+    ('9530714f', 'shotejbazar_data_part1.js', 'sj_', False),
+    ('4d2c4ed4', 'metromart_data_part1.js', 'mt_', False),
+    ('d1d7343b', 'foodi_data_part1.js', 'fd_', False),
 ]
 
 print("[RESCUE] Loading existing history (plaintext or decrypted .enc)...")
