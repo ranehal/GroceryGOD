@@ -1178,16 +1178,19 @@ button:focus-visible, input:focus-visible, select:focus-visible, [tabindex]:focu
     position: sticky;
     top: var(--header-height);
     z-index: 65;
-    padding: 4px 10px;
-    gap: 5px;
+    padding: 6px 12px;
+    gap: 6px 8px;
     background: rgba(3, 4, 5, .94);
     border-color: var(--line-soft);
     backdrop-filter: blur(14px);
-    overflow-x: auto;
-    flex-wrap: nowrap;
-    scrollbar-width: thin;
+    overflow: visible !important;
+    overflow-x: hidden !important;
+    flex-wrap: wrap !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
     align-items: center;
 }
+.intelligence-bar::-webkit-scrollbar { display: none !important; width: 0 !important; height: 0 !important; }
 .intel-btn { flex: 0 0 auto; min-height: 26px; height: 26px; padding: 3px 10px; border-radius: 999px; font-size: 0.76rem; font-weight: 700; }
 .date-range-intel { flex: 0 0 auto; display: flex; align-items: center; gap: 5px; font-size: 0.76rem; color: #94a3b8; }
 .date-range-intel input { min-height: 24px; height: 24px; font-size: 0.76rem; padding: 2px 5px; }
