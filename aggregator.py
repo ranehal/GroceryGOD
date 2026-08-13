@@ -124,7 +124,8 @@ def load_shwapno():
             return raw_cat
 
         products_by_name = {}
-        stats = {"web": 0, "app": 0, "combined": 0}
+        stats = {"web_scraped": 0, "app_scraped": 0, "web_selected": 0, "app_selected": 0,
+                 "dropped": 0, "web": 0, "app": 0, "combined": 0}
         all_dates = []
 
         # 1. Load Web Data
@@ -156,9 +157,10 @@ def load_shwapno():
                         "id": final_pid, "name": p.get('name'), "store": "shwapno",
                         "category": get_display_cat(p.get('category', 'General')), "unit": p.get('unit', 'N/A'), "unit_type": u_type,
                         "current_price": curr_p, "normalized_price": norm_p,
-                        "image": p.get('image'), "url": p.get('url'), "history": new_history, "first_seen": first_seen
+                        "image": p.get('image'), "url": p.get('url'), "history": new_history, "first_seen": first_seen,
+                        "_src": "web"
                     }
-                    stats["web"] += 1
+                    stats["web_scraped"] += 1
             except Exception as e:
                 print(f"Error loading Shwapno web data: {e}")
 
@@ -180,10 +182,12 @@ def load_shwapno():
                     curr_p = p.get('current_price', 0)
                     u_type, norm_p = parse_unit_and_calculate(p.get('name', ''), p.get('unit', ''), curr_p)
                     
+                    stats["app_scraped"] += 1
                     # Check for collision
                     if name_key in products_by_name:
                         existing = products_by_name[name_key]
                         if curr_p >= existing['current_price']:
+                            stats["dropped"] += 1
                             continue
                             
                     final_pid = f"sh_{p.get('id')}"
@@ -206,15 +210,22 @@ def load_shwapno():
                         "id": final_pid, "name": p.get('name'), "store": "shwapno",
                         "category": get_display_cat(p.get('category', 'General')), "unit": p.get('unit', 'N/A'), "unit_type": u_type,
                         "current_price": curr_p, "normalized_price": norm_p,
-                        "image": p.get('image'), "url": url, "history": new_history, "first_seen": first_seen
+                        "image": p.get('image'), "url": url, "history": new_history, "first_seen": first_seen,
+                        "_src": "app"
                     }
-                    stats["app"] += 1
+                stats["app_selected"] = sum(1 for v in products_by_name.values() if v.get("_src") == "app")
             except Exception as e:
                 print(f"Error loading Shwapno App data: {e}")
 
         products = {v["id"]: v for v in products_by_name.values()}
+        stats["web_selected"] = len([v for v in products_by_name.values() if v.get("_src") == "web"])
+        stats["app_selected"] = sum(1 for v in products_by_name.values() if v.get("_src") == "app")
         stats["combined"] = len(products)
-        print(f"Shwapno Stats -> Web: {stats['web']}, App: {stats['app']}, Combined Unique: {stats['combined']}")
+        for v in products.values(): v.pop("_src", None)
+        stats["web"] = stats["web_scraped"]; stats["app"] = stats["app_scraped"]
+        print(f"Shwapno Stats -> Web scraped: {stats['web_scraped']}, Web selected: {stats['web_selected']}, "
+              f"App scraped: {stats['app_scraped']}, App selected: {stats['app_selected']}, "
+              f"Dropped: {stats['dropped']}, Combined Unique: {stats['combined']}")
 
         return products, (f"{min(all_dates)} to {max(all_dates)}" if all_dates else "N/A"), stats
     except Exception as e:
@@ -230,8 +241,8 @@ def load_chaldal():
                 target_chaldal = candidate
                 break
     if not os.path.exists(target_chaldal):
-        stats={"web":0, "app":0, "combined":0}
-        print(f"Chaldal Stats -> Web: {stats.get('web', 0)}, App: {stats.get('app', 0)}, Combined Unique: {stats.get('combined', 0)}")
+        stats={"web_scraped":0,"app_scraped":0,"web_selected":0,"app_selected":0,"dropped":0,"web":0,"app":0,"combined":0}
+        print(f"Chaldal Stats -> Web scraped: 0, Web selected: 0, App scraped: 0, App selected: 0, Combined Unique: 0")
         return {}, "N/A", stats
     try:
         with open(target_chaldal, 'r', encoding='utf-8') as f:
@@ -255,10 +266,13 @@ def load_chaldal():
                 "id": f"ch_{pid}", "name": p.get('name'), "store": "chaldal",
                 "category": p.get('category', 'General'), "unit": p.get('current_unit'), "unit_type": u_type,
                 "current_price": curr_p, "normalized_price": norm_p,
-                "image": p.get('image'), "history": new_history
+                "image": p.get('image'), "history": new_history, "_src": "web"
             }
-        stats = {"web": len(products), "app": 0, "combined": len(products)}
-        print(f"Chaldal Stats -> Web: {stats['web']}, App: {stats['app']}, Combined Unique: {stats['combined']}")
+        stats = {"web_scraped": len(products), "app_scraped": 0, "web_selected": len(products),
+                 "app_selected": 0, "dropped": 0, "web": len(products), "app": 0, "combined": len(products)}
+        for v in products.values(): v.pop("_src", None)
+        print(f"Chaldal Stats -> Web scraped: {stats['web_scraped']}, Web selected: {stats['web_selected']}, "
+              f"App scraped: 0, App selected: 0, Combined Unique: {stats['combined']}")
         return products, (f"{min(all_dates)} to {max(all_dates)}" if all_dates else "N/A"), stats
     except Exception as e:
         print(f"Error processing Chaldal: {e}")
@@ -266,7 +280,7 @@ def load_chaldal():
 
 def load_meenabazar():
     print("Processing Meena Bazar...")
-    if not os.path.exists(MEENA_DB): stats={"web":0, "app":0, "combined":0}; print(f"Meenabazar Stats -> Web: {stats.get('web', 0)}, App: {stats.get('app', 0)}, Combined Unique: {stats.get('combined', 0)}"); return {}, "N/A", stats
+    if not os.path.exists(MEENA_DB): stats={"web_scraped":0,"app_scraped":0,"web_selected":0,"app_selected":0,"dropped":0,"web":0,"app":0,"combined":0}; print(f"Meenabazar Stats -> Web scraped: 0, Web selected: 0, App scraped: 0, App selected: 0, Combined Unique: 0"); return {}, "N/A", stats
     try:
         conn = sqlite3.connect(MEENA_DB); conn.row_factory = sqlite3.Row; cursor = conn.cursor()
         cursor.execute("SELECT id, name FROM categories")
@@ -297,11 +311,12 @@ def load_meenabazar():
                 "id": f"mb_{p['external_id'] or p['id']}", "name": p['name'], "store": "meenabazar",
                 "category": cats.get(p['category_id'], 'General'), "unit": p['unit'], "unit_type": u_type,
                 "current_price": curr_p, "normalized_price": norm_p,
-                "image": p['image_url'], "history": new_history
+                "image": p['image_url'], "history": new_history, "_src": "web"
             }
         conn.close()
         app_count = 0
         cat_path = 'MEENAtracker/catalog.json'
+        cat_data = {}
         if os.path.exists(cat_path):
             try:
                 with open(cat_path, 'r', encoding='utf-8') as cf:
@@ -317,14 +332,22 @@ def load_meenabazar():
                                 "category": p.get('category', 'General'), "unit": 'N/A', "unit_type": u_type,
                                 "current_price": curr_p, "normalized_price": norm_p,
                                 "image": p.get('image', ''), "history": [{"date": datetime.now(DHAKA_TZ).strftime("%Y-%m-%d"), "price": curr_p, "normalized_price": norm_p}],
-                                "source": "app"
+                                "source": "app", "_src": "app"
                             }
             except Exception as _ce:
                 print(f"Meena Bazar catalog.json notice: {_ce}")
 
-        web_count = len(products) - app_count
-        stats = {"web": web_count, "app": app_count, "combined": len(products)}
-        print(f"Meenabazar Stats -> Web: {stats['web']}, App: {stats['app']}, Combined Unique: {stats['combined']}")
+        web_scraped = len(db_p)
+        app_scraped = len(cat_data.get("products", [])) if os.path.exists(cat_path) else 0
+        stats = {"web_scraped": web_scraped, "app_scraped": app_scraped,
+                 "web_selected": sum(1 for v in products.values() if v.get("_src") == "web"),
+                 "app_selected": sum(1 for v in products.values() if v.get("_src") == "app"),
+                 "dropped": (web_scraped + app_scraped) - len(products),
+                 "web": web_scraped, "app": app_scraped, "combined": len(products)}
+        for v in products.values(): v.pop("_src", None)
+        print(f"Meenabazar Stats -> Web scraped: {stats['web_scraped']}, Web selected: {stats['web_selected']}, "
+              f"App scraped: {stats['app_scraped']}, App selected: {stats['app_selected']}, "
+              f"Dropped: {stats['dropped']}, Combined Unique: {stats['combined']}")
         return products, (f"{min(all_dates)} to {max(all_dates)}" if all_dates else "N/A"), stats
     except Exception as e:
         print(f"Error Meena Bazar: {e}")
@@ -334,7 +357,8 @@ def load_othoba():
     print("Processing Othoba...")
     try:
         products_by_name = {}
-        stats = {"web": 0, "app": 0, "combined": 0}
+        stats = {"web_scraped": 0, "app_scraped": 0, "web_selected": 0, "app_selected": 0,
+                 "dropped": 0, "web": 0, "app": 0, "combined": 0}
         all_dates = []
 
         def process_json_file(filepath, source_type):
@@ -348,13 +372,14 @@ def load_othoba():
                     name_key = re.sub(r'\W+', '', p.get('name', '')).lower()
                     if not name_key: continue
                     
-                    stats[source_type] += 1
+                    stats[source_type + "_scraped"] += 1
                     curr_p = p.get('current_price', 0)
                     u_type, norm_p = parse_unit_and_calculate(p.get('name', ''), p.get('unit', ''), curr_p)
                     
                     if name_key in products_by_name:
                         existing = products_by_name[name_key]
                         if curr_p >= existing['current_price']:
+                            stats["dropped"] += 1
                             continue
                             
                     final_pid = p.get('id')
@@ -387,7 +412,8 @@ def load_othoba():
                         "id": final_pid, "name": p.get('name'), "store": "othoba",
                         "category": p.get('category', 'General'), "unit": p.get('unit', 'N/A'), "unit_type": u_type,
                         "current_price": curr_p, "normalized_price": norm_p,
-                        "image": p.get('image'), "history": new_history, "first_seen": first_seen
+                        "image": p.get('image'), "history": new_history, "first_seen": first_seen,
+                        "_src": source_type
                     }
             except Exception as e:
                 print(f"Error loading Othoba {source_type} data from {filepath}: {e}")
@@ -408,8 +434,14 @@ def load_othoba():
         process_json_file(app_path, 'app')
 
         products = {v["id"]: v for v in products_by_name.values()}
+        for v in products.values(): v.pop("_src", None)
+        stats["web_selected"] = sum(1 for v in products_by_name.values() if v.get("_src") == "web")
+        stats["app_selected"] = sum(1 for v in products_by_name.values() if v.get("_src") == "app")
         stats["combined"] = len(products)
-        print(f"Othoba Stats -> Web: {stats['web']}, App: {stats['app']}, Combined Unique: {stats['combined']}")
+        stats["web"] = stats["web_scraped"]; stats["app"] = stats["app_scraped"]
+        print(f"Othoba Stats -> Web scraped: {stats['web_scraped']}, Web selected: {stats['web_selected']}, "
+              f"App scraped: {stats['app_scraped']}, App selected: {stats['app_selected']}, "
+              f"Dropped: {stats['dropped']}, Combined Unique: {stats['combined']}")
 
         return products, (f"{min(all_dates)} to {max(all_dates)}" if all_dates else "N/A"), stats
     except Exception as e:
@@ -418,7 +450,7 @@ def load_othoba():
 
 def load_metromart():
     print("Processing Metro Mart...")
-    if not os.path.exists(METRO_DB): stats={"web":0, "app":0, "combined":0}; print(f"Metromart Stats -> Web: {stats.get('web', 0)}, App: {stats.get('app', 0)}, Combined Unique: {stats.get('combined', 0)}"); return {}, "N/A", stats
+    if not os.path.exists(METRO_DB): stats={"web_scraped":0,"app_scraped":0,"web_selected":0,"app_selected":0,"dropped":0,"web":0,"app":0,"combined":0}; print(f"Metromart Stats -> Web scraped: 0, Web selected: 0, App scraped: 0, App selected: 0, Combined Unique: 0"); return {}, "N/A", stats
     try:
         conn = sqlite3.connect(METRO_DB); conn.row_factory = sqlite3.Row; cursor = conn.cursor()
         cursor.execute("SELECT id, name FROM categories"); cats = {row['id']: row['name'] for row in cursor.fetchall()}
@@ -452,8 +484,10 @@ def load_metromart():
                 "current_price": curr_p, "normalized_price": norm_p, "image": img, "history": new_history
             }
         conn.close()
-        stats = {"web": len(products), "app": 0, "combined": len(products)}
-        print(f"Metromart Stats -> Web: {stats['web']}, App: {stats['app']}, Combined Unique: {stats['combined']}")
+        stats = {"web_scraped": len(products), "app_scraped": 0, "web_selected": len(products),
+                 "app_selected": 0, "dropped": 0, "web": len(products), "app": 0, "combined": len(products)}
+        print(f"Metromart Stats -> Web scraped: {stats['web_scraped']}, Web selected: {stats['web_selected']}, "
+              f"App scraped: 0, App selected: 0, Combined Unique: {stats['combined']}")
         return products, (f"{min(all_dates)} to {max(all_dates)}" if all_dates else "N/A"), stats
     except Exception as e:
         print(f"Error Metro Mart: {e}")
@@ -461,7 +495,7 @@ def load_metromart():
 
 def load_unimart():
     print("Processing Unimart...")
-    if not os.path.exists(UNIMART_DATA): stats={"web":0, "app":0, "combined":0}; print(f"Unimart Stats -> Web: {stats.get('web', 0)}, App: {stats.get('app', 0)}, Combined Unique: {stats.get('combined', 0)}"); return {}, "N/A", stats
+    if not os.path.exists(UNIMART_DATA): stats={"web_scraped":0,"app_scraped":0,"web_selected":0,"app_selected":0,"dropped":0,"web":0,"app":0,"combined":0}; print(f"Unimart Stats -> Web scraped: 0, Web selected: 0, App scraped: 0, App selected: 0, Combined Unique: 0"); return {}, "N/A", stats
     try:
         data = safe_load_json(UNIMART_DATA)
         products = {}; all_dates = []
@@ -487,15 +521,17 @@ def load_unimart():
                 "category": p.get('category', 'General'), "unit": p.get('unit'), "unit_type": u_type,
                 "current_price": curr_p, "normalized_price": norm_p, "image": p.get('image'), "history": new_history
             }
-        stats = {"web": len(products), "app": 0, "combined": len(products)}
-        print(f"Unimart Stats -> Web: {stats['web']}, App: {stats['app']}, Combined Unique: {stats['combined']}")
+        stats = {"web_scraped": len(products), "app_scraped": 0, "web_selected": len(products),
+                 "app_selected": 0, "dropped": 0, "web": len(products), "app": 0, "combined": len(products)}
+        print(f"Unimart Stats -> Web scraped: {stats['web_scraped']}, Web selected: {stats['web_selected']}, "
+              f"App scraped: 0, App selected: 0, Combined Unique: {stats['combined']}")
         return products, (f"{min(all_dates)} to {max(all_dates)}" if all_dates else "N/A"), stats
     except Exception as e:
         print(f"Error Unimart: {e}"); return None, None
 
 def load_shotejbazar():
     print("Processing ShotejBazar...")
-    if not os.path.exists(SHOTEJ_DATA): stats={"web":0, "app":0, "combined":0}; print(f"Shotejbazar Stats -> Web: {stats.get('web', 0)}, App: {stats.get('app', 0)}, Combined Unique: {stats.get('combined', 0)}"); return {}, "N/A", stats
+    if not os.path.exists(SHOTEJ_DATA): stats={"web_scraped":0,"app_scraped":0,"web_selected":0,"app_selected":0,"dropped":0,"web":0,"app":0,"combined":0}; print(f"Shotejbazar Stats -> Web scraped: 0, Web selected: 0, App scraped: 0, App selected: 0, Combined Unique: 0"); return {}, "N/A", stats
     try:
         data = safe_load_json(SHOTEJ_DATA)
         products = {}; all_dates = []
@@ -522,15 +558,17 @@ def load_shotejbazar():
                 "category": p.get('category', 'General'), "unit": p.get('unit'), "unit_type": u_type,
                 "current_price": curr_p, "normalized_price": norm_p, "image": p.get('image'), "history": new_history, "first_seen": first_seen
             }
-        stats = {"web": len(products), "app": 0, "combined": len(products)}
-        print(f"Shotejbazar Stats -> Web: {stats['web']}, App: {stats['app']}, Combined Unique: {stats['combined']}")
+        stats = {"web_scraped": len(products), "app_scraped": 0, "web_selected": len(products),
+                 "app_selected": 0, "dropped": 0, "web": len(products), "app": 0, "combined": len(products)}
+        print(f"Shotejbazar Stats -> Web scraped: {stats['web_scraped']}, Web selected: {stats['web_selected']}, "
+              f"App scraped: 0, App selected: 0, Combined Unique: {stats['combined']}")
         return products, (f"{min(all_dates)} to {max(all_dates)}" if all_dates else "N/A"), stats
     except Exception as e:
         print(f"Error ShotejBazar: {e}"); return None, None
 
 def load_foodi():
     print("Processing Foodi...")
-    if not os.path.exists(FOODI_DB): stats={"web":0, "app":0, "combined":0}; print(f"Foodi Stats -> Web: {stats.get('web', 0)}, App: {stats.get('app', 0)}, Combined Unique: {stats.get('combined', 0)}"); return {}, "N/A", stats
+    if not os.path.exists(FOODI_DB): stats={"web_scraped":0,"app_scraped":0,"web_selected":0,"app_selected":0,"dropped":0,"web":0,"app":0,"combined":0}; print(f"Foodi Stats -> Web scraped: 0, Web selected: 0, App scraped: 0, App selected: 0, Combined Unique: 0"); return {}, "N/A", stats
     try:
         conn = sqlite3.connect(FOODI_DB); conn.row_factory = sqlite3.Row; cursor = conn.cursor()
         cursor.execute("SELECT product_id, name, uom, category_name, discounted_price, image_path FROM products")
@@ -569,8 +607,10 @@ def load_foodi():
                 "current_price": curr_p, "normalized_price": norm_p, "image": img, "history": new_history, "first_seen": first_seen
             }
         conn.close()
-        stats = {"web": len(products), "app": 0, "combined": len(products)}
-        print(f"Foodi Stats -> Web: {stats['web']}, App: {stats['app']}, Combined Unique: {stats['combined']}")
+        stats = {"web_scraped": len(products), "app_scraped": 0, "web_selected": len(products),
+                 "app_selected": 0, "dropped": 0, "web": len(products), "app": 0, "combined": len(products)}
+        print(f"Foodi Stats -> Web scraped: {stats['web_scraped']}, Web selected: {stats['web_selected']}, "
+              f"App scraped: 0, App selected: 0, Combined Unique: {stats['combined']}")
         return products, (f"{min(all_dates)} to {max(all_dates)}" if all_dates else "N/A"), stats
     except Exception as e:
         print(f"Error Foodi: {e}"); return None, None
@@ -588,7 +628,8 @@ def save_store_data(name, data_tuple):
     if not products:
         summary = f"📦 <b>{name.title()}</b>: 0 items"
         if scraper_stats:
-            summary += f"\n   ├ Web: {scraper_stats.get('web', 0)} | App: {scraper_stats.get('app', 0)} | Combined Unique: {scraper_stats.get('combined', 0)}"
+            summary += f"\n   ├ Web scraped: {scraper_stats.get('web_scraped', 0)} | Web selected: {scraper_stats.get('web_selected', 0)}"
+            summary += f"\n   ├ App scraped: {scraper_stats.get('app_scraped', 0)} | App selected: {scraper_stats.get('app_selected', 0)}"
         print(f"Saved {name:15} | Items:     0 | Chunks:  0 | Safe Under {MAX_FILE_SIZE_MB}MB")
         return summary
 
@@ -650,15 +691,82 @@ def save_store_data(name, data_tuple):
             
     summary = f"📦 <b>{name.title()}</b>: {total_items} items ({total_chunks} chunks)"
     if scraper_stats:
-        summary += f"\n   ├ Web: {scraper_stats.get('web', 0)} | App: {scraper_stats.get('app', 0)} | Combined Unique: {scraper_stats.get('combined', 0)}"
+        summary += f"\n   ├ Web scraped: {scraper_stats.get('web_scraped', 0)} | Web selected: {scraper_stats.get('web_selected', 0)}"
+        summary += f"\n   ├ App scraped: {scraper_stats.get('app_scraped', 0)} | App selected: {scraper_stats.get('app_selected', 0)}"
+        if scraper_stats.get('dropped'):
+            summary += f"\n   ├ Dropped (dup/higher price): {scraper_stats['dropped']}"
         
     print(f"Saved {name:15} | Items: {total_items:5} | Chunks: {total_chunks:2} | Safe Under {MAX_FILE_SIZE_MB}MB")
     return summary
+
+def read_scraper_log(store_dir):
+    candidates = [
+        os.path.join(store_dir, 'last_run_log.txt'),
+        os.path.join(store_dir, 'last_run_logs.txt'),
+        os.path.join(store_dir, 'data', 'logs', 'lastrun.log'),
+        os.path.join(store_dir, 'scraper.log'),
+    ]
+    content = None
+    for log_path in candidates:
+        if os.path.exists(log_path):
+            try:
+                with open(log_path, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                if content and content.strip():
+                    break
+            except Exception:
+                continue
+    if content is None or not content.strip():
+        return None
+
+    def grab(pattern):
+        m = re.search(pattern, content)
+        return int(m.group(1)) if m else None
+
+    stats = {}
+    stats['total'] = grab(r'Total Scraped:\s*(\d+)')
+    stats['web'] = grab(r'Web Scraped:\s*(\d+)')
+    stats['app'] = grab(r'App API Scraped:\s*(\d+)')
+    stats['new'] = grab(r'New Items:\s*(\d+)')
+    stats['combined'] = grab(r'Combined Unique:\s*(\d+)')
+    m = re.search(r'Stats -> Web:\s*(\d+),\s*App:\s*(\d+)', content)
+    if m:
+        stats['web'] = int(m.group(1)); stats['app'] = int(m.group(2))
+    if stats['total'] is None and stats['web'] is not None and stats['app'] is not None:
+        stats['total'] = (stats['web'] or 0) + (stats['app'] or 0)
+    return stats
+
+def print_failure_diagnostics(scraper_logs, agg_results):
+    print("\n" + "="*70 + "\nSCRAPER DIAGNOSTICS // claimed vs aggregated\n" + "="*70)
+    for store, log in scraper_logs.items():
+        res = agg_results.get(store, {})
+        claimed_total = (log.get('total') or 0) if log else None
+        claimed_web = (log.get('web') or 0) if log else 0
+        claimed_app = (log.get('app') or 0) if log else 0
+        agg_web = res.get('web_scraped', 0)
+        agg_app = res.get('app_scraped', 0)
+        selected = res.get('combined', 0)
+        if not log:
+            print(f"⚠  {store:12} no last_run_log.txt found -> scraper may not have run")
+            continue
+        line = f"{store:12} claimed web={claimed_web} app={claimed_app}"
+        line += f" -> agg web={agg_web} app={agg_app} selected={selected}"
+        print(line)
+        if claimed_total == 0:
+            print(f"   ⚠ Scraper reported ZERO scraped. Aggregator fell back to prior/decrypted data.")
+        elif agg_web == 0 and claimed_web > 0:
+            print(f"   ⚠ Web items claimed ({claimed_web}) but aggregator read 0 -> file path/format mismatch")
+        elif agg_app == 0 and claimed_app > 0:
+            print(f"   ⚠ App items claimed ({claimed_app}) but aggregator read 0 -> app source not merged")
+        elif selected < claimed_total:
+            print(f"   ℹ {claimed_total - selected} of {claimed_total} claimed items not in final merge (dups or dropped)")
+    print("="*70)
 
 def main():
     clean_disk_space()
     print("\n" + "="*70 + "\nGODDATA AGGREGATOR // Atomic Zero-Fail Engine\n" + "="*70)
     summaries = []
+    agg_results = {}
     
     for store_name, loader in [
         ("shwapno", load_shwapno),
@@ -670,10 +778,27 @@ def main():
         ("shotejbazar", load_shotejbazar),
         ("foodi", load_foodi)
     ]:
-        res = save_store_data(store_name, loader())
+        data_tuple = loader()
+        res = save_store_data(store_name, data_tuple)
         if res: summaries.append(res)
+        store_res = None
+        if data_tuple and len(data_tuple) == 3:
+            store_res = data_tuple[2]
+        agg_results[store_name] = store_res or {}
         
     print("="*70 + "\n")
+    
+    scraper_logs = {
+        "shwapno": read_scraper_log('swapnoTRACKER'),
+        "chaldal": read_scraper_log('chaldalTRACKER'),
+        "meenabazar": read_scraper_log('MEENAtracker'),
+        "othoba": read_scraper_log('othobaTRACKER'),
+        "metromart": read_scraper_log('metroTRACKER'),
+        "unimart": read_scraper_log('unimartTRACKER'),
+        "shotejbazar": read_scraper_log('ShotejTRACKER'),
+        "foodi": read_scraper_log('FooDIEscraper'),
+    }
+    print_failure_diagnostics(scraper_logs, agg_results)
     
     # Telegram Notification
     tg_token = os.environ.get("TELEGRAM_BOT_TOKEN")
