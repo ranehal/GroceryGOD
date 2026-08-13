@@ -2808,7 +2808,24 @@ function setupPremiumUI() {
     document.body.classList.toggle('demo-mode', Boolean(window.GOD_DEMO_MODE));
     setPremiumUnlocked(premiumUnlocked, false);
 
-    document.getElementById('premium-key-btn')?.addEventListener('click', () => openPremiumModal(premiumUnlocked ? 'success' : 'unlock'));
+    document.getElementById('premium-key-btn')?.addEventListener('click', () => {
+        if (premiumUnlocked) {
+            showUXToast('✨ Premium mode is active.', 'info');
+            activeCategoryFilter = 'all';
+            activeShopFilters.clear();
+            const searchInput = document.getElementById('product-search');
+            if (searchInput) searchInput.value = '';
+            const currentTitle = document.getElementById('current-view-title');
+            if (currentTitle) currentTitle.textContent = 'GroceryGOD Unified';
+            processData();
+            renderSidebar();
+            renderProducts();
+            updateStatsBar();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+            openPremiumModal('unlock');
+        }
+    });
     document.getElementById('history-upgrade-btn')?.addEventListener('click', () => openPremiumModal('plans'));
     document.getElementById('show-unlock-step-btn')?.addEventListener('click', () => setPremiumStep('unlock'));
     document.querySelectorAll('.premium-back').forEach(button => button.addEventListener('click', () => setPremiumStep(button.dataset.back || 'plans')));
@@ -2913,17 +2930,22 @@ async function attemptPremiumUnlock() {
     try {
         await unlockPremiumArchive(passphrase);
         setPremiumUnlocked(true);
-        if (status) {
-            status.textContent = 'Premium archive decrypted successfully.';
-            status.classList.add('success');
-        }
-        setPremiumStep('success');
+        closePremiumModal();
+        showUXToast('✨ Premium archive unlocked! Returning to Home.', 'success');
+
+        // Auto return to Home
+        activeCategoryFilter = 'all';
+        activeShopFilters.clear();
+        const searchInput = document.getElementById('product-search');
+        if (searchInput) searchInput.value = '';
+        const currentTitle = document.getElementById('current-view-title');
+        if (currentTitle) currentTitle.textContent = 'GroceryGOD Unified';
+
         processData();
+        renderSidebar();
         renderProducts();
         updateStatsBar();
-        if (currentDetailProductIndex >= 0 && document.getElementById('chart-modal')?.style.display === 'flex') {
-            await openDetailedChart(currentFilteredProducts[currentDetailProductIndex]);
-        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch (error) {
         console.error('[GOD_PREMIUM] Unlock failed:', error);
         if (status) status.textContent = window.GOD_DEMO_MODE ? 'Incorrect demo key. Use GODDEMO.' : 'The key is invalid or the encrypted archive is unavailable.';
