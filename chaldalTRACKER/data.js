@@ -3,7 +3,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_super_hero_tiffin_box_each",
     "name": "RFL Super Hero Tiffin Box",
     "image": "https://i.chaldn.com/_mpimage/rfl-super-hero-tiffin-box-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D96365&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Box & Container",
     "current_price": 100.0,
     "current_unit": "each",
     "history": [
@@ -22,7 +22,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_winner_tiffin_box_rectangular_each",
     "name": "RFL Winner Tiffin Box Rectangular",
     "image": "https://i.chaldn.com/_mpimage/rfl-winner-tiffin-box-rectangular-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132894&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Box & Container",
     "current_price": 150.0,
     "current_unit": "each",
     "history": [
@@ -41,7 +41,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_cherry_container_trans_set_3_pcs",
     "name": "RFL Cherry Container Trans Set",
     "image": "https://i.chaldn.com/_mpimage/rfl-cherry-container-trans-set-3-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132706&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Box & Container",
     "current_price": 310.0,
     "current_unit": "3 pcs",
     "history": [
@@ -60,7 +60,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_classic_round_container_trans_set_5_pcs",
     "name": "RFL Classic Round Container Trans Set",
     "image": "https://i.chaldn.com/_mpimage/rfl-classic-round-container-trans-set-5-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132708&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Box & Container",
     "current_price": 190.0,
     "current_unit": "5 pcs",
     "history": [
@@ -79,7 +79,7 @@ window.PRODUCT_DATA = {
     "id": "npoly_round_food_box_3_pcs",
     "name": "Npoly Round Food Box",
     "image": "https://i.chaldn.com/_mpimage/npoly-round-food-box-3-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D148458&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Box & Container",
     "current_price": 255.0,
     "current_unit": "3 pcs",
     "history": [
@@ -459,7 +459,7 @@ window.PRODUCT_DATA = {
     "id": "sirona_oxo_biodegradable_tampon_condom_disposal_bag_50_pcs",
     "name": "Sirona Oxo-Biodegradable Tampon & Condom Disposal Bag",
     "image": "https://i.chaldn.com/_mpimage/sirona-oxo-biodegradable-tampon-condom-disposal-bag-50-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D168380&q=best&v=1&m=400&webp=1",
-    "category": "Family Planning",
+    "category": "Feminine Care",
     "current_price": 350.0,
     "current_unit": "50 pcs",
     "history": [
@@ -1409,7 +1409,7 @@ window.PRODUCT_DATA = {
     "id": "hexisol_hand_rub_50_ml",
     "name": "Hexisol Hand Rub",
     "image": "https://i.chaldn.com/_mpimage/hexisol-hand-rub-50-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D129219&q=best&v=1&m=400&webp=1",
-    "category": "Antiseptics",
+    "category": "Handwash & Handrub",
     "current_price": 55.0,
     "current_unit": "50 ml",
     "history": [
@@ -1428,7 +1428,7 @@ window.PRODUCT_DATA = {
     "id": "hexisol_hand_rub_250_ml",
     "name": "Hexisol Hand Rub",
     "image": "https://i.chaldn.com/_mpimage/hexisol-hand-rub-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D103093&q=best&v=1&m=400&webp=1",
-    "category": "Antiseptics",
+    "category": "Handwash & Handrub",
     "current_price": 140.0,
     "current_unit": "250 ml",
     "history": [
@@ -1504,7 +1504,7 @@ window.PRODUCT_DATA = {
     "id": "golden_grain_white_sesame_seed_til__100_gm",
     "name": "Golden Grain White Sesame Seed (Til)",
     "image": "https://i.chaldn.com/_mpimage/golden-grain-white-sesame-seed-til-100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D187935&q=best&v=1&m=400&webp=1",
-    "category": "Keto Food",
+    "category": "Nuts & Dried Fruits",
     "current_price": 85.0,
     "current_unit": "100 gm",
     "history": [
@@ -1637,7 +1637,7 @@ window.PRODUCT_DATA = {
     "id": "best_s_mushroom_choice_whole_tin_425_gm",
     "name": "Best's Mushroom Choice Whole Tin",
     "image": "https://i.chaldn.com/_mpimage/bests-mushroom-choice-whole-tin-425-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D125750&q=best&v=1&m=400&webp=1",
-    "category": "Mushroom Cans",
+    "category": "Keto Food",
     "current_price": 182.0,
     "current_unit": "425 gm",
     "history": [
@@ -1675,7 +1675,7 @@ window.PRODUCT_DATA = {
     "id": "walnuts_akhrot__100_gm",
     "name": "Walnuts (Akhrot)",
     "image": "https://i.chaldn.com/_mpimage/walnuts-akhrot-100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D184610&q=best&v=1&m=400&webp=1",
-    "category": "Keto Food",
+    "category": "Nuts & Dried Fruits",
     "current_price": 179.0,
     "current_unit": "100 gm",
     "history": [
@@ -1694,7 +1694,7 @@ window.PRODUCT_DATA = {
     "id": "peanut_peeled_vaja_cheena_badam__100_gm",
     "name": "Peanut Peeled (Vaja Cheena Badam)",
     "image": "https://i.chaldn.com/_mpimage/peanut-peeled-vaja-cheena-badam-100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D184613&q=best&v=1&m=400&webp=1",
-    "category": "Keto Food",
+    "category": "Nuts & Dried Fruits",
     "current_price": 45.0,
     "current_unit": "100 gm",
     "history": [
@@ -1713,7 +1713,7 @@ window.PRODUCT_DATA = {
     "id": "cashew_nut_kaju_badam__100_gm",
     "name": "Cashew Nut (Kaju Badam)",
     "image": "https://i.chaldn.com/_mpimage/cashew-nut-kaju-badam-100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D184612&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Keto Food",
+    "category": "Nuts & Dried Fruits",
     "current_price": 189.0,
     "current_unit": "100 gm",
     "history": [
@@ -1808,7 +1808,7 @@ window.PRODUCT_DATA = {
     "id": "white_sesame_seed_til__100_gm",
     "name": "White Sesame Seed (Til)",
     "image": "https://i.chaldn.com/_mpimage/white-sesame-seed-til-100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D184017&q=best&v=1&m=400&webp=1",
-    "category": "Keto Food",
+    "category": "Nuts & Dried Fruits",
     "current_price": 49.0,
     "current_unit": "100 gm",
     "history": [
@@ -1998,7 +1998,7 @@ window.PRODUCT_DATA = {
     "id": "ceylon_organic_extra_virgin_coconut_oil_500_ml",
     "name": "Ceylon Organic Extra Virgin Coconut Oil",
     "image": "https://i.chaldn.com/_mpimage/ceylon-organic-extra-virgin-coconut-oil-500-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D126647&q=best&v=1&m=400&webp=1",
-    "category": "Keto Food",
+    "category": "Hair Care",
     "current_price": 1590.0,
     "current_unit": "500 ml",
     "history": [
@@ -2036,7 +2036,7 @@ window.PRODUCT_DATA = {
     "id": "welcome_light_meat_tuna_in_sunflower_oil_flake__170_gm",
     "name": "Welcome Light Meat Tuna In Sunflower Oil (Flake)",
     "image": "https://i.chaldn.com/_mpimage/welcome-light-meat-tuna-in-sunflower-oil-flake-170-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D60408&q=low&v=1&m=400&m=400&webp=1",
-    "category": "Keto Food",
+    "category": "Fish Cans",
     "current_price": 190.0,
     "current_unit": "170 gm",
     "history": [
@@ -2055,7 +2055,7 @@ window.PRODUCT_DATA = {
     "id": "bpm_white_till_200_gm",
     "name": "BPM White Till",
     "image": "https://i.chaldn.com/_mpimage/bpm-white-till-200-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D52502&q=best&v=1&m=400&webp=1",
-    "category": "Keto Food",
+    "category": "Nuts & Dried Fruits",
     "current_price": 90.0,
     "current_unit": "200 gm",
     "history": [
@@ -2150,7 +2150,7 @@ window.PRODUCT_DATA = {
     "id": "hosen_mushroom_choice_whole_can_425_gm",
     "name": "Hosen Mushroom Choice Whole Can",
     "image": "https://i.chaldn.com/_mpimage/hosen-mushroom-choice-whole-can-425-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D92521&q=best&v=1&m=400&webp=1",
-    "category": "Mushroom Cans",
+    "category": "Keto Food",
     "current_price": 350.0,
     "current_unit": "425 gm",
     "history": [
@@ -2283,7 +2283,7 @@ window.PRODUCT_DATA = {
     "id": "figaro_pitted_black_olive_340_gm",
     "name": "Figaro Pitted Black Olive",
     "image": "https://i.chaldn.com/_mpimage/figaro-pitted-black-olive-340-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D109282&q=best&v=1&m=400&webp=1",
-    "category": "Canned Fruits & Sweets",
+    "category": "Keto Food",
     "current_price": 395.0,
     "current_unit": "340 gm",
     "history": [
@@ -2321,7 +2321,7 @@ window.PRODUCT_DATA = {
     "id": "tong_garden_salted_peanuts_can_150_gm",
     "name": "Tong Garden Salted Peanuts Can",
     "image": "https://i.chaldn.com/_mpimage/tong-garden-salted-peanuts-can-150-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D136479&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Keto Food",
+    "category": "Nuts & Dried Fruits",
     "current_price": 695.0,
     "current_unit": "150 gm",
     "history": [
@@ -2340,7 +2340,7 @@ window.PRODUCT_DATA = {
     "id": "nautilus_lite_tuna_chunk_soybean_oil_165_gm",
     "name": "Nautilus Lite Tuna Chunk Soybean Oil",
     "image": "https://i.chaldn.com/_mpimage/nautilus-lite-tuna-chunk-soybean-oil-165-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D175007&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Keto Food",
+    "category": "Fish Cans",
     "current_price": 319.0,
     "current_unit": "165 gm",
     "history": [
@@ -2359,7 +2359,7 @@ window.PRODUCT_DATA = {
     "id": "hibiscus_mushrooms_choice_whole_can_425_gm",
     "name": "Hibiscus Mushrooms Choice Whole Can",
     "image": "https://i.chaldn.com/_mpimage/hibiscus-mushrooms-choice-whole-can-425-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D129220&q=best&v=1&m=400&webp=1",
-    "category": "Mushroom Cans",
+    "category": "Keto Food",
     "current_price": 229.0,
     "current_unit": "425 gm",
     "history": [
@@ -3632,7 +3632,7 @@ window.PRODUCT_DATA = {
     "id": "casio_scientific_calculator_fx_991es_plus__each",
     "name": "Casio Scientific Calculator (FX 991ES Plus)",
     "image": "https://i.chaldn.com/_mpimage/casio-scientific-calculator-fx-991es-plus-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D54071&q=low&v=1&m=400&webp=1",
-    "category": "Calculators",
+    "category": "Diaries & Notebooks (School)",
     "current_price": 1339.0,
     "current_unit": "each",
     "history": [
@@ -3727,7 +3727,7 @@ window.PRODUCT_DATA = {
     "id": "bigen_hair_color_conditioner_light_brown__80_gm",
     "name": "Bigen Hair Color & Conditioner (Light Brown)",
     "image": "https://i.chaldn.com/_mpimage/bigen-hair-color-conditioner-light-brown-80-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D125773&q=best&v=1&m=400&webp=1",
-    "category": "Men's Hair Care",
+    "category": "Hair Care",
     "current_price": 750.0,
     "current_unit": "80 gm",
     "history": [
@@ -3746,7 +3746,7 @@ window.PRODUCT_DATA = {
     "id": "bigen_hair_color_conditioner_natural_brown__80_gm",
     "name": "Bigen Hair Color & Conditioner (Natural Brown)",
     "image": "https://i.chaldn.com/_mpimage/bigen-hair-color-conditioner-natural-brown-80-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D71945&q=best&v=1&m=400&webp=1",
-    "category": "Men's Hair Care",
+    "category": "Hair Care",
     "current_price": 700.0,
     "current_unit": "80 gm",
     "history": [
@@ -3765,7 +3765,7 @@ window.PRODUCT_DATA = {
     "id": "bigen_hair_color_conditioner_dark_brown__80_gm",
     "name": "Bigen Hair Color & Conditioner (Dark Brown)",
     "image": "https://i.chaldn.com/_mpimage/bigen-hair-color-conditioner-dark-brown-80-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D71944&q=best&v=1&m=400&webp=1",
-    "category": "Men's Hair Care",
+    "category": "Hair Care",
     "current_price": 700.0,
     "current_unit": "80 gm",
     "history": [
@@ -3784,7 +3784,7 @@ window.PRODUCT_DATA = {
     "id": "bigen_hair_color_conditioner_natural_black__80_gm",
     "name": "Bigen Hair Color & Conditioner (Natural Black)",
     "image": "https://i.chaldn.com/_mpimage/bigen-hair-color-conditioner-natural-black-80-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D125774&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Men's Hair Care",
+    "category": "Hair Care",
     "current_price": 700.0,
     "current_unit": "80 gm",
     "history": [
@@ -4164,7 +4164,7 @@ window.PRODUCT_DATA = {
     "id": "glow_lovely_face_cream_blemish_balm_40_gm",
     "name": "Glow & Lovely Face Cream Blemish Balm",
     "image": "https://i.chaldn.com/_mpimage/glow-lovely-face-cream-blemish-balm-40-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D174440&q=best&v=1&m=400&webp=1",
-    "category": "Lipsticks & Lip Balm",
+    "category": "Creams",
     "current_price": 240.0,
     "current_unit": "40 gm",
     "history": [
@@ -4183,7 +4183,7 @@ window.PRODUCT_DATA = {
     "id": "ujjwala_care_anti_hairfall_herbal_hair_oil_100_ml",
     "name": "Ujjwala Care Anti Hairfall Herbal Hair Oil",
     "image": "https://i.chaldn.com/_mpimage/ujjwala-care-anti-hairfall-herbal-hair-oil-100-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D177342&q=best&v=1&m=400&webp=1",
-    "category": "Body & Hair Oil",
+    "category": "Hair Care",
     "current_price": 200.0,
     "current_unit": "100 ml",
     "history": [
@@ -4487,7 +4487,7 @@ window.PRODUCT_DATA = {
     "id": "parachute_advansed_aloe_vera_hair_oil_250_ml_2_pcs",
     "name": "Parachute Advansed Aloe Vera Hair Oil 250 ml",
     "image": "https://i.chaldn.com/_mpimage/parachute-advansed-aloe-vera-hair-oil-250-ml-2-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D109555&q=best&v=1&m=400&webp=1",
-    "category": "Men's Hair Care",
+    "category": "Hair Care",
     "current_price": 640.0,
     "current_unit": "2 pcs",
     "history": [
@@ -4506,7 +4506,7 @@ window.PRODUCT_DATA = {
     "id": "livon_hair_serum_50_ml",
     "name": "Livon Hair Serum",
     "image": "https://i.chaldn.com/_mpimage/livon-hair-serum-50-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130306&q=best&v=1&m=400&webp=1",
-    "category": "Men's Hair Care",
+    "category": "Hair Care",
     "current_price": 300.0,
     "current_unit": "50 ml",
     "history": [
@@ -4544,7 +4544,7 @@ window.PRODUCT_DATA = {
     "id": "meril_olive_oil_tin_jar_150_ml",
     "name": "Meril Olive Oil Tin Jar",
     "image": "https://i.chaldn.com/_mpimage/meril-olive-oil-tin-jar-150-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D185676&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Body & Hair Oil",
+    "category": "Hair Care",
     "current_price": 450.0,
     "current_unit": "150 ml",
     "history": [
@@ -4563,7 +4563,7 @@ window.PRODUCT_DATA = {
     "id": "himani_navaratna_cool_ayurvedic_hair_oil_200_ml",
     "name": "Himani Navaratna Cool Ayurvedic Hair Oil",
     "image": "https://i.chaldn.com/_mpimage/himani-navaratna-cool-ayurvedic-hair-oil-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D103607&q=best&v=1&m=400&webp=1",
-    "category": "Body & Hair Oil",
+    "category": "Hair Care",
     "current_price": 280.0,
     "current_unit": "200 ml",
     "history": [
@@ -5855,7 +5855,7 @@ window.PRODUCT_DATA = {
     "id": "wild_stone_forest_spice_soap_125_gm",
     "name": "Wild Stone Forest Spice Soap",
     "image": "https://i.chaldn.com/_mpimage/wild-stone-forest-spice-soap-125-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D77305&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Men's Soaps",
+    "category": "Soaps",
     "current_price": 188.0,
     "current_unit": "125 gm",
     "history": [
@@ -5874,7 +5874,7 @@ window.PRODUCT_DATA = {
     "id": "dettol_soap_bathing_bar_original_germ_defence_125_gm",
     "name": "Dettol Soap Bathing Bar Original Germ Defence",
     "image": "https://i.chaldn.com/_mpimage/dettol-soap-bathing-bar-original-germ-defence-125-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D179245&q=best&v=1&m=400&webp=1",
-    "category": "Men's Soaps",
+    "category": "Soaps",
     "current_price": 95.0,
     "current_unit": "125 gm",
     "history": [
@@ -7033,7 +7033,7 @@ window.PRODUCT_DATA = {
     "id": "comely_shower_gel_sunshine_garden__350_ml",
     "name": "Comely Shower Gel (Sunshine Garden)",
     "image": "https://i.chaldn.com/_mpimage/comely-shower-gel-sunshine-garden-350-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D186422&q=best&v=1&m=400&webp=1",
-    "category": "Women's Shower Gel",
+    "category": "Men's Shower Gels",
     "current_price": 300.0,
     "current_unit": "350 ml",
     "history": [
@@ -7052,7 +7052,7 @@ window.PRODUCT_DATA = {
     "id": "the_dermalix_rose_soothing_shower_gel_250_ml",
     "name": "The Dermalix Rose Soothing Shower Gel",
     "image": "https://i.chaldn.com/_mpimage/the-dermalix-rose-soothing-shower-gel-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D183903&q=best&v=1&m=400&webp=1",
-    "category": "Women's Shower Gel",
+    "category": "Men's Shower Gels",
     "current_price": 350.0,
     "current_unit": "250 ml",
     "history": [
@@ -7071,7 +7071,7 @@ window.PRODUCT_DATA = {
     "id": "dettol_skincare_bodywash_250_ml",
     "name": "Dettol Skincare Bodywash",
     "image": "https://i.chaldn.com/_mpimage/dettol-skincare-bodywash-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D149404&q=best&v=1&m=400&webp=1",
-    "category": "Women's Shower Gel",
+    "category": "Men's Shower Gels",
     "current_price": 225.0,
     "current_unit": "250 ml",
     "history": [
@@ -7090,7 +7090,7 @@ window.PRODUCT_DATA = {
     "id": "lux_body_wash_french_rose_almond_oil_245_ml",
     "name": "Lux Body Wash French Rose & Almond Oil",
     "image": "https://i.chaldn.com/_mpimage/lux-body-wash-french-rose-almond-oil-245-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D177276&q=best&v=1&m=400&webp=1",
-    "category": "Women's Shower Gel",
+    "category": "Men's Shower Gels",
     "current_price": 220.0,
     "current_unit": "245 ml",
     "history": [
@@ -7109,7 +7109,7 @@ window.PRODUCT_DATA = {
     "id": "dettol_aloe_vera_bodywash_250_ml",
     "name": "Dettol Aloe Vera Bodywash",
     "image": "https://i.chaldn.com/_mpimage/dettol-aloe-vera-bodywash-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D163292&q=best&v=1&m=400&webp=1",
-    "category": "Women's Shower Gel",
+    "category": "Men's Shower Gels",
     "current_price": 225.0,
     "current_unit": "250 ml",
     "history": [
@@ -7128,7 +7128,7 @@ window.PRODUCT_DATA = {
     "id": "dettol_cool_bodywash_250_ml",
     "name": "Dettol Cool Bodywash",
     "image": "https://i.chaldn.com/_mpimage/dettol-cool-bodywash-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D163291&q=best&v=1&m=400&webp=1",
-    "category": "Women's Shower Gel",
+    "category": "Men's Shower Gels",
     "current_price": 225.0,
     "current_unit": "250 ml",
     "history": [
@@ -7147,7 +7147,7 @@ window.PRODUCT_DATA = {
     "id": "dettol_skincare_bodywash_refill_170_ml",
     "name": "Dettol Skincare Bodywash Refill",
     "image": "https://i.chaldn.com/_mpimage/dettol-skincare-bodywash-refill-170-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D153114&q=best&v=1&m=400&webp=1",
-    "category": "Women's Shower Gel",
+    "category": "Men's Shower Gels",
     "current_price": 125.0,
     "current_unit": "170 ml",
     "history": [
@@ -7166,7 +7166,7 @@ window.PRODUCT_DATA = {
     "id": "dettol_lasting_fresh_bodywash_refill_170_ml",
     "name": "Dettol Lasting Fresh Bodywash Refill",
     "image": "https://i.chaldn.com/_mpimage/dettol-lasting-fresh-bodywash-refill-170-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D153113&q=best&v=1&m=400&webp=1",
-    "category": "Women's Shower Gel",
+    "category": "Men's Shower Gels",
     "current_price": 125.0,
     "current_unit": "170 ml",
     "history": [
@@ -7185,7 +7185,7 @@ window.PRODUCT_DATA = {
     "id": "dettol_original_bodywash_250_ml",
     "name": "Dettol Original Bodywash",
     "image": "https://i.chaldn.com/_mpimage/dettol-original-bodywash-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D149403&q=best&v=1&m=400&webp=1",
-    "category": "Women's Shower Gel",
+    "category": "Men's Shower Gels",
     "current_price": 200.0,
     "current_unit": "250 ml",
     "history": [
@@ -7204,7 +7204,7 @@ window.PRODUCT_DATA = {
     "id": "dettol_fresh_antibacterial_bodywash_citrus_orange_blossom_250_ml",
     "name": "Dettol Fresh Antibacterial Bodywash Citrus & Orange Blossom",
     "image": "https://i.chaldn.com/_mpimage/dettol-fresh-antibacterial-bodywash-citrus-orange-blossom-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D104957&q=best&v=1&m=400&webp=1",
-    "category": "Women's Shower Gel",
+    "category": "Men's Shower Gels",
     "current_price": 350.0,
     "current_unit": "250 ml",
     "history": [
@@ -7261,7 +7261,7 @@ window.PRODUCT_DATA = {
     "id": "biore_mens_hygienic_energy_shower_gel_250_ml",
     "name": "Biore Mens Hygienic Energy Shower Gel",
     "image": "https://i.chaldn.com/_mpimage/biore-mens-hygienic-energy-shower-gel-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D116352&q=best&v=1&m=400&webp=1",
-    "category": "Women's Shower Gel",
+    "category": "Men's Shower Gels",
     "current_price": 750.0,
     "current_unit": "250 ml",
     "history": [
@@ -7280,7 +7280,7 @@ window.PRODUCT_DATA = {
     "id": "biore_mens_cool_energy_shower_gel_250_ml",
     "name": "Biore Mens Cool Energy Shower Gel",
     "image": "https://i.chaldn.com/_mpimage/biore-mens-cool-energy-shower-gel-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D116351&q=best&v=1&m=400&webp=1",
-    "category": "Women's Shower Gel",
+    "category": "Men's Shower Gels",
     "current_price": 750.0,
     "current_unit": "250 ml",
     "history": [
@@ -7299,7 +7299,7 @@ window.PRODUCT_DATA = {
     "id": "st_ives_fresh_skin_apricot_body_wash_400_ml",
     "name": "St. Ives Fresh Skin Apricot Body Wash",
     "image": "https://i.chaldn.com/_mpimage/st-ives-fresh-skin-apricot-body-wash-400-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D134993&q=best&v=1&m=400&webp=1",
-    "category": "Women's Shower Gel",
+    "category": "Men's Shower Gels",
     "current_price": 850.0,
     "current_unit": "400 ml",
     "history": [
@@ -7603,7 +7603,7 @@ window.PRODUCT_DATA = {
     "id": "livon_hair_serum_18_ml",
     "name": "Livon Hair Serum",
     "image": "https://i.chaldn.com/_mpimage/livon-hair-serum-18-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130305&q=best&v=1&m=400&webp=1",
-    "category": "Men's Hair Care",
+    "category": "Hair Care",
     "current_price": 140.0,
     "current_unit": "18 ml",
     "history": [
@@ -7641,7 +7641,7 @@ window.PRODUCT_DATA = {
     "id": "gillette_blue_2_disposable_razor_each",
     "name": "Gillette Blue 2 Disposable Razor",
     "image": "https://i.chaldn.com/_mpimage/gillette-blue-2-disposable-razor-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D114759&q=best&v=1&m=400&webp=1",
-    "category": "Razors & Blades",
+    "category": "Shaving Needs",
     "current_price": 55.0,
     "current_unit": "each",
     "history": [
@@ -7660,7 +7660,7 @@ window.PRODUCT_DATA = {
     "id": "gillette_guard_cartridges_single_cartridge_each",
     "name": "Gillette Guard Cartridges Single Cartridge",
     "image": "https://i.chaldn.com/_mpimage/gillette-guard-cartridges-single-cartridge-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128790&q=best&v=1&m=400&webp=1",
-    "category": "Razors & Blades",
+    "category": "Shaving Needs",
     "current_price": 30.0,
     "current_unit": "each",
     "history": [
@@ -7679,7 +7679,7 @@ window.PRODUCT_DATA = {
     "id": "gillette_mach3_turbo_men_s_shaving_razor_each",
     "name": "Gillette Mach3 Turbo Men's Shaving Razor",
     "image": "https://i.chaldn.com/_mpimage/gillette-mach3-turbo-mens-shaving-razor-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128800&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Razors & Blades",
+    "category": "Shaving Needs",
     "current_price": 665.0,
     "current_unit": "each",
     "history": [
@@ -7698,7 +7698,7 @@ window.PRODUCT_DATA = {
     "id": "gillette_proglide_men_s_grooming_razor_with_flexible_technology_each",
     "name": "Gillette Proglide Men's Grooming Razor With Flexible Technology",
     "image": "https://i.chaldn.com/_mpimage/gillette-proglide-mens-grooming-razor-with-flexible-technology-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D146408&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Razors & Blades",
+    "category": "Shaving Needs",
     "current_price": 1090.0,
     "current_unit": "each",
     "history": [
@@ -7717,7 +7717,7 @@ window.PRODUCT_DATA = {
     "id": "gillette_mach3_new_blade_razor_each",
     "name": "Gillette Mach3 New Blade Razor",
     "image": "https://i.chaldn.com/_mpimage/gillette-mach3-new-blade-razor-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D181489&q=best&v=1&m=400&webp=1",
-    "category": "Razors & Blades",
+    "category": "Shaving Needs",
     "current_price": 655.0,
     "current_unit": "each",
     "history": [
@@ -7736,7 +7736,7 @@ window.PRODUCT_DATA = {
     "id": "gillette_fusion_manual_razor_each",
     "name": "Gillette Fusion Manual Razor",
     "image": "https://i.chaldn.com/_mpimage/gillette-fusion-manual-razor-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D146407&q=best&v=1&m=400&webp=1",
-    "category": "Razors & Blades",
+    "category": "Shaving Needs",
     "current_price": 1090.0,
     "current_unit": "each",
     "history": [
@@ -8249,7 +8249,7 @@ window.PRODUCT_DATA = {
     "id": "nivea_fresh_natural_body_spray_150_ml",
     "name": "Nivea Fresh Natural Body Spray",
     "image": "https://i.chaldn.com/_mpimage/nivea-fresh-natural-body-spray-150-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D103636&q=best&v=1&m=400&webp=1",
-    "category": "Men's Soaps",
+    "category": "Men's Perfume",
     "current_price": 525.0,
     "current_unit": "150 ml",
     "history": [
@@ -8876,7 +8876,7 @@ window.PRODUCT_DATA = {
     "id": "head_shoulders_smooth_silky_anti_dandruff_shampoo_1_ltr",
     "name": "Head & Shoulders Smooth & Silky Anti Dandruff Shampoo",
     "image": "https://i.chaldn.com/_mpimage/head-shoulders-smooth-silky-anti-dandruff-shampoo-1-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D160232&q=best&v=1&m=400&webp=1",
-    "category": "Women's Shampoos & Conditioners",
+    "category": "Men's Shampoos & Conditioners",
     "current_price": 2799.0,
     "current_unit": "1 ltr",
     "history": [
@@ -8971,7 +8971,7 @@ window.PRODUCT_DATA = {
     "id": "herbal_essences_white_strawberry_sweet_mint_conditioner_400_ml",
     "name": "Herbal Essences White Strawberry & Sweet Mint Conditioner",
     "image": "https://i.chaldn.com/_mpimage/herbal-essences-white-strawberry-sweet-mint-conditioner-400-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D89837&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Women's Shampoos & Conditioners",
+    "category": "Men's Shampoos & Conditioners",
     "current_price": 775.0,
     "current_unit": "400 ml",
     "history": [
@@ -8990,7 +8990,7 @@ window.PRODUCT_DATA = {
     "id": "herbal_essences_strength_whipped_cocoa_butter_conditioner_400_ml",
     "name": "Herbal Essences Strength Whipped Cocoa Butter Conditioner",
     "image": "https://i.chaldn.com/_mpimage/herbal-essences-strength-whipped-cocoa-butter-conditioner-400-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D89831&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Women's Shampoos & Conditioners",
+    "category": "Men's Shampoos & Conditioners",
     "current_price": 775.0,
     "current_unit": "400 ml",
     "history": [
@@ -9009,7 +9009,7 @@ window.PRODUCT_DATA = {
     "id": "head_shoulders_cool_menthol_anti_dandruff_shampoo_1_ltr",
     "name": "Head & Shoulders Cool Menthol Anti Dandruff Shampoo",
     "image": "https://i.chaldn.com/_mpimage/head-shoulders-cool-menthol-anti-dandruff-shampoo-1-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D89811&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Women's Shampoos & Conditioners",
+    "category": "Men's Shampoos & Conditioners",
     "current_price": 1800.0,
     "current_unit": "1 ltr",
     "history": [
@@ -9028,7 +9028,7 @@ window.PRODUCT_DATA = {
     "id": "head_shoulders_smooth_silky_anti_dandruff_shampoo_340_ml",
     "name": "Head & Shoulders Smooth & Silky Anti Dandruff Shampoo",
     "image": "https://i.chaldn.com/_mpimage/head-shoulders-smooth-silky-anti-dandruff-shampoo-340-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D160229&q=best&v=1&m=400&webp=1",
-    "category": "Women's Shampoos & Conditioners",
+    "category": "Men's Shampoos & Conditioners",
     "current_price": 990.0,
     "current_unit": "340 ml",
     "history": [
@@ -9047,7 +9047,7 @@ window.PRODUCT_DATA = {
     "id": "head_shoulders_2_in_1_cool_menthol_anti_dandruff_shampoo_conditioner_340_ml",
     "name": "Head & Shoulders 2 in 1 Cool Menthol Anti Dandruff Shampoo + Conditioner",
     "image": "https://i.chaldn.com/_mpimage/head-shoulders-cool-menthol-anti-dandruff-shampoo-conditioner-340-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D89699&q=best&v=1&m=400&webp=1",
-    "category": "Women's Shampoos & Conditioners",
+    "category": "Men's Shampoos & Conditioners",
     "current_price": 1200.0,
     "current_unit": "340 ml",
     "history": [
@@ -9066,7 +9066,7 @@ window.PRODUCT_DATA = {
     "id": "head_shoulders_2_in_1_smooth_silky_shampoo_conditioner_180_ml",
     "name": "Head & Shoulders 2 in 1 Smooth & Silky Shampoo + Conditioner",
     "image": "https://i.chaldn.com/_mpimage/head-shoulders-2-in-1-smooth-silky-shampoo-conditioner-180-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D129162&q=best&v=1&m=400&webp=1",
-    "category": "Women's Shampoos & Conditioners",
+    "category": "Men's Shampoos & Conditioners",
     "current_price": 650.0,
     "current_unit": "180 ml",
     "history": [
@@ -10358,7 +10358,7 @@ window.PRODUCT_DATA = {
     "id": "dove_face_wash_beauty_serum_sensitive_130_gm",
     "name": "Dove Face Wash Beauty Serum Sensitive",
     "image": "https://i.chaldn.com/_mpimage/dove-face-wash-beauty-serum-sensitive-130-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D107910&q=best&v=1&m=400&webp=1",
-    "category": "Face Wash & Scrub",
+    "category": "Serum, Oil & Toners",
     "current_price": 330.0,
     "current_unit": "130 gm",
     "history": [
@@ -12144,7 +12144,7 @@ window.PRODUCT_DATA = {
     "id": "ujjwala_care_anti_hairfall_herbal_shampoo_200_ml",
     "name": "Ujjwala Care Anti Hairfall Herbal Shampoo",
     "image": "https://i.chaldn.com/_mpimage/ujjwala-care-anti-hairfall-herbal-shampoo-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D177915&q=best&v=1&m=400&webp=1",
-    "category": "Women's Shampoos & Conditioners",
+    "category": "Hair Care",
     "current_price": 320.0,
     "current_unit": "200 ml",
     "history": [
@@ -12163,7 +12163,7 @@ window.PRODUCT_DATA = {
     "id": "ujjwala_care_anti_hairfall_herbal_shampoo_350_ml",
     "name": "Ujjwala Care Anti Hairfall Herbal Shampoo",
     "image": "https://i.chaldn.com/_mpimage/ujjwala-care-anti-hairfall-herbal-shampoo-350-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D177336&q=best&v=1&m=400&webp=1",
-    "category": "Women's Shampoos & Conditioners",
+    "category": "Hair Care",
     "current_price": 480.0,
     "current_unit": "350 ml",
     "history": [
@@ -12334,7 +12334,7 @@ window.PRODUCT_DATA = {
     "id": "herbal_essences_white_strawberry_sweet_mint_shampoo_400_ml",
     "name": "Herbal Essences White Strawberry & Sweet Mint Shampoo",
     "image": "https://i.chaldn.com/_mpimage/herbal-essences-white-strawberry-sweet-mint-shampoo-400-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D101830&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Women's Shampoos & Conditioners",
+    "category": "Hair Care",
     "current_price": 1800.0,
     "current_unit": "400 ml",
     "history": [
@@ -12619,7 +12619,7 @@ window.PRODUCT_DATA = {
     "id": "tresemm\u00e9_shampoo_hair_fall_defense_580_ml",
     "name": "Tresemm\u00e9 Shampoo Hair Fall Defense",
     "image": "https://i.chaldn.com/_mpimage/tresemme-shampoo-hair-fall-defense-580-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128355&q=best&v=1&m=400&webp=1",
-    "category": "Women's Shampoos & Conditioners",
+    "category": "Hair Care",
     "current_price": 850.0,
     "current_unit": "580 ml",
     "history": [
@@ -13968,7 +13968,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_english_dish_rack_red_each",
     "name": "RFL English Dish Rack Red",
     "image": "https://i.chaldn.com/_mpimage/rfl-english-dish-rack-red-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D95740&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Rack & Organizer",
     "current_price": 670.0,
     "current_unit": "each",
     "history": [
@@ -13987,7 +13987,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_smart_kitchen_rack_mini_two_color_each",
     "name": "RFL Smart Kitchen Rack Mini Two Color",
     "image": "https://i.chaldn.com/_mpimage/rfl-smart-kitchen-rack-mini-two-color-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132806&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Rack & Organizer",
     "current_price": 480.0,
     "current_unit": "each",
     "history": [
@@ -14006,7 +14006,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_flower_cloth_clip_set_12_pcs",
     "name": "RFL Flower Cloth Clip Set",
     "image": "https://i.chaldn.com/_mpimage/rfl-flower-cloth-clip-set-12-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D95692&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Rack & Organizer",
     "current_price": 150.0,
     "current_unit": "12 pcs",
     "history": [
@@ -14044,7 +14044,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_roman_wall_rack_light_blue__each",
     "name": "RFL Roman Wall Rack (Light Blue)",
     "image": "https://i.chaldn.com/_mpimage/rfl-roman-wall-rack-light-blue-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D95595&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Rack & Organizer",
     "current_price": 330.0,
     "current_unit": "each",
     "history": [
@@ -14101,7 +14101,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_mini_rack_sm_blue__each",
     "name": "RFL Mini Rack (SM Blue)",
     "image": "https://i.chaldn.com/_mpimage/rfl-mini-rack-sm-blue-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D95597&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Rack & Organizer",
     "current_price": 260.0,
     "current_unit": "each",
     "history": [
@@ -14310,7 +14310,7 @@ window.PRODUCT_DATA = {
     "id": "one_time_packaging_tray_100_pcs",
     "name": "One Time Packaging Tray",
     "image": "https://i.chaldn.com/_mpimage/one-time-packaging-tray-100-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D108017&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Disposables",
     "current_price": 299.0,
     "current_unit": "100 pcs",
     "history": [
@@ -14424,7 +14424,7 @@ window.PRODUCT_DATA = {
     "id": "trash_bag_black_20_x_30__12_pcs",
     "name": "Trash Bag Black - 20\" x 30\"",
     "image": "https://i.chaldn.com/_mpimage/trash-bag-black-20-x-30-12-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D49765&q=best&v=1&m=400&webp=1",
-    "category": "Cleaning Accessories",
+    "category": "Disposables & Trash Bags",
     "current_price": 283.0,
     "current_unit": "12 pcs",
     "history": [
@@ -14481,7 +14481,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_magic_clean_bucket_with_mop_green__each",
     "name": "RFL Magic Clean Bucket With Mop (Green)",
     "image": "https://i.chaldn.com/_mpimage/rfl-magic-clean-bucket-with-mop-green-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D113150&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Cleaning Accessories",
+    "category": "Basket & Bucket",
     "current_price": 2000.0,
     "current_unit": "each",
     "history": [
@@ -15051,7 +15051,7 @@ window.PRODUCT_DATA = {
     "id": "trash_bag_white_20_x_30__10_pcs",
     "name": "Trash Bag White - 20\" x 30\"",
     "image": "https://i.chaldn.com/_mpimage/trash-bag-white-20-x-30-10-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D49766&q=best&v=1&m=400&webp=1",
-    "category": "Cleaning Accessories",
+    "category": "Disposables & Trash Bags",
     "current_price": 230.0,
     "current_unit": "10 pcs",
     "history": [
@@ -16419,7 +16419,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_deluxe_bowl_red_8_ltr_each",
     "name": "RFL Deluxe Bowl Red 8 ltr",
     "image": "https://i.chaldn.com/_mpimage/rfl-deluxe-bowl-red-8-ltr-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D153301&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Basket & Bucket",
     "current_price": 140.0,
     "current_unit": "each",
     "history": [
@@ -16438,7 +16438,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_deluxe_bowl_red_3_ltr_each",
     "name": "RFL Deluxe Bowl Red 3 ltr",
     "image": "https://i.chaldn.com/_mpimage/rfl-deluxe-bowl-red-3-ltr-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D153299&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Basket & Bucket",
     "current_price": 80.0,
     "current_unit": "each",
     "history": [
@@ -16628,7 +16628,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_family_basket_each",
     "name": "RFL Family Basket",
     "image": "https://i.chaldn.com/_mpimage/rfl-family-basket-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132758&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Basket & Bucket",
     "current_price": 520.0,
     "current_unit": "each",
     "history": [
@@ -16799,7 +16799,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_deluxe_bucket_15_ltr_red__each",
     "name": "RFL Deluxe Bucket 15 ltr (Red)",
     "image": "https://i.chaldn.com/_mpimage/rfl-deluxe-bucket-15-ltr-red-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D95523&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Basket & Bucket",
     "current_price": 240.0,
     "current_unit": "each",
     "history": [
@@ -16818,7 +16818,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_design_bucket_20_ltr_sm_blue__each",
     "name": "RFL Design Bucket 20 ltr (SM Blue)",
     "image": "https://i.chaldn.com/_mpimage/rfl-design-bucket-20-ltr-sm-blue-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132750&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Basket & Bucket",
     "current_price": 300.0,
     "current_unit": "each",
     "history": [
@@ -16837,7 +16837,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_design_bucket_25_ltr_red__each",
     "name": "RFL Design Bucket 25 ltr (Red)",
     "image": "https://i.chaldn.com/_mpimage/rfl-design-bucket-25-ltr-red-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D153302&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Basket & Bucket",
     "current_price": 300.0,
     "current_unit": "each",
     "history": [
@@ -16856,7 +16856,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_design_bucket_25_ltr_sm_blue__each",
     "name": "RFL Design Bucket 25 ltr (SM Blue)",
     "image": "https://i.chaldn.com/_mpimage/rfl-design-bucket-25-ltr-sm-blue-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132749&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Basket & Bucket",
     "current_price": 350.0,
     "current_unit": "each",
     "history": [
@@ -16875,7 +16875,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_design_bucket_8_ltr_sm_blue__each",
     "name": "RFL Design Bucket 8 ltr (SM Blue)",
     "image": "https://i.chaldn.com/_mpimage/rfl-design-bucket-8-ltr-sm-blue-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132751&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Basket & Bucket",
     "current_price": 150.0,
     "current_unit": "each",
     "history": [
@@ -16894,7 +16894,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_design_bucket_8_ltr_red__each",
     "name": "RFL Design Bucket 8 ltr (Red)",
     "image": "https://i.chaldn.com/_mpimage/rfl-design-bucket-8-ltr-red-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D153304&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Basket & Bucket",
     "current_price": 150.0,
     "current_unit": "each",
     "history": [
@@ -16913,7 +16913,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_design_bucket_5_ltr_sm_blue__each",
     "name": "RFL Design Bucket 5 ltr (SM Blue)",
     "image": "https://i.chaldn.com/_mpimage/rfl-design-bucket-5-ltr-sm-blue-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132752&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Basket & Bucket",
     "current_price": 120.0,
     "current_unit": "each",
     "history": [
@@ -16932,7 +16932,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_design_bowl_8_ltr_blue__each",
     "name": "RFL Design Bowl 8 ltr (Blue)",
     "image": "https://i.chaldn.com/_mpimage/rfl-design-bowl-8-ltr-blue-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D95935&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Basket & Bucket",
     "current_price": 120.0,
     "current_unit": "each",
     "history": [
@@ -16951,7 +16951,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_design_bowl_8_ltr_red__each",
     "name": "RFL Design Bowl 8 ltr (Red)",
     "image": "https://i.chaldn.com/_mpimage/rfl-design-bowl-8-ltr-red-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132745&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Basket & Bucket",
     "current_price": 150.0,
     "current_unit": "each",
     "history": [
@@ -16970,7 +16970,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_design_bowl_3_ltr_red__each",
     "name": "RFL Design Bowl 3 ltr (Red)",
     "image": "https://i.chaldn.com/_mpimage/rfl-design-bowl-3-ltr-red-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132743&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Basket & Bucket",
     "current_price": 80.0,
     "current_unit": "each",
     "history": [
@@ -16989,7 +16989,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_design_bowl_3_ltr_blue__each",
     "name": "RFL Design Bowl 3 ltr (Blue)",
     "image": "https://i.chaldn.com/_mpimage/rfl-design-bowl-3-ltr-blue-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132742&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Basket & Bucket",
     "current_price": 80.0,
     "current_unit": "each",
     "history": [
@@ -17008,7 +17008,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_design_bowl_5_ltr_red__each",
     "name": "RFL Design Bowl 5 ltr (Red)",
     "image": "https://i.chaldn.com/_mpimage/rfl-design-bowl-5-ltr-red-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132744&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Basket & Bucket",
     "current_price": 110.0,
     "current_unit": "each",
     "history": [
@@ -17027,7 +17027,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_design_bowl_5_ltr_blue__each",
     "name": "RFL Design Bowl 5 ltr (Blue)",
     "image": "https://i.chaldn.com/_mpimage/rfl-design-bowl-5-ltr-blue-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D95475&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Basket & Bucket",
     "current_price": 110.0,
     "current_unit": "each",
     "history": [
@@ -17350,7 +17350,7 @@ window.PRODUCT_DATA = {
     "id": "manual_stainless_stell_hand_mixer_each",
     "name": "Manual Stainless Stell Hand Mixer",
     "image": "https://i.chaldn.com/_mpimage/manual-stainless-stell-hand-mixer-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130596&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Kitchen Appliances",
     "current_price": 169.0,
     "current_unit": "each",
     "history": [
@@ -17388,7 +17388,7 @@ window.PRODUCT_DATA = {
     "id": "npoly_design_bucket_with_lead_red__25_ltr",
     "name": "Npoly Design Bucket With Lead (Red)",
     "image": "https://i.chaldn.com/_mpimage/npoly-design-bucket-with-lead-red-25-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D131458&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Basket & Bucket",
     "current_price": 445.0,
     "current_unit": "25 ltr",
     "history": [
@@ -17445,7 +17445,7 @@ window.PRODUCT_DATA = {
     "id": "meat_tenderizer_2_5_x_8_inch_china_each",
     "name": "Meat Tenderizer (2.5 x 8 inch) China",
     "image": "https://i.chaldn.com/_mpimage/meat-tenderizer-25-x-8-inch-china-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130655&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Kitchen Appliances",
     "current_price": 629.0,
     "current_unit": "each",
     "history": [
@@ -17464,7 +17464,7 @@ window.PRODUCT_DATA = {
     "id": "hualanz_flask_500_ml__each",
     "name": "Hualanz Flask (500 ml)",
     "image": "https://i.chaldn.com/_mpimage/hualanz-flask-500-ml-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D95800&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Kitchen Appliances",
     "current_price": 559.0,
     "current_unit": "each",
     "history": [
@@ -17502,7 +17502,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_topper_nonstick_fry_pan_lid_red_24_cm_each",
     "name": "RFL Topper NonStick Fry Pan & Lid Red 24 cm",
     "image": "https://i.chaldn.com/_mpimage/rfl-topper-nonstick-fry-pan-lid-red-24-cm-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D113257&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Kitchen Appliances",
     "current_price": 1170.0,
     "current_unit": "each",
     "history": [
@@ -17540,7 +17540,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_topper_nonstick_glamour_fry_pan_with_lid_red_26_cm_each",
     "name": "RFL Topper Nonstick Glamour Fry Pan with Lid (Red) 26 cm",
     "image": "https://i.chaldn.com/_mpimage/rfl-topper-nonstick-glamour-fry-pan-with-lid-red-26-cm-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D113254&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Kitchen Appliances",
     "current_price": 1405.0,
     "current_unit": "each",
     "history": [
@@ -17559,7 +17559,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_topper_nonstick_cassrole_lid_red_26_cm_each",
     "name": "RFL Topper NonStick Cassrole & Lid Red 26 cm",
     "image": "https://i.chaldn.com/_mpimage/rfl-topper-nonstick-cassrole-lid-red-26-cm-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D113253&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Kitchen Appliances",
     "current_price": 1940.0,
     "current_unit": "each",
     "history": [
@@ -17578,7 +17578,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_topper_silver_pressure_cooker_5_ltr_each",
     "name": "RFL Topper Silver Pressure Cooker 5 ltr",
     "image": "https://chaldn.com/_mpimage/rfl-topper-silver-pressure-cooker-5-ltr-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D113266&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Kitchen Appliances",
     "current_price": 1900.0,
     "current_unit": "each",
     "history": [
@@ -17616,7 +17616,7 @@ window.PRODUCT_DATA = {
     "id": "net_bag_150_pcs",
     "name": "Net Bag",
     "image": "https://chaldn.com/_mpimage/net-bag-150-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D125478&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Disposables & Trash Bags",
     "current_price": 289.0,
     "current_unit": "150 pcs",
     "history": [
@@ -19801,7 +19801,7 @@ window.PRODUCT_DATA = {
     "id": "aci_nutrilife_brown_flour_atta__1_kg",
     "name": "ACI Nutrilife Brown Flour (Atta)",
     "image": "https://i.chaldn.com/_mpimage/aci-nutrilife-brown-flour-atta-1-kg?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D177378&q=best&v=1&m=400&webp=1",
-    "category": "Diabetic Food",
+    "category": "Flour",
     "current_price": 70.0,
     "current_unit": "1 kg",
     "history": [
@@ -19839,7 +19839,7 @@ window.PRODUCT_DATA = {
     "id": "aci_nutrilife_brown_atta_2_kg",
     "name": "ACI Nutrilife Brown Atta",
     "image": "https://i.chaldn.com/_mpimage/aci-nutrilife-brown-atta-2-kg?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D177148&q=best&v=1&m=400&webp=1",
-    "category": "Diabetic Food",
+    "category": "Flour",
     "current_price": 140.0,
     "current_unit": "2 kg",
     "history": [
@@ -19896,7 +19896,7 @@ window.PRODUCT_DATA = {
     "id": "teer_whole_wheat_flour_atta__2_kg",
     "name": "Teer Whole Wheat Flour (Atta)",
     "image": "https://i.chaldn.com/_mpimage/teer-whole-wheat-flour-atta-2-kg?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D101279&q=best&v=1&m=400&webp=1",
-    "category": "Diabetic Food",
+    "category": "Flour",
     "current_price": 140.0,
     "current_unit": "2 kg",
     "history": [
@@ -21240,5 +21240,8403 @@ window.PRODUCT_DATA = {
       }
     ],
     "norm_price_display": "860.0 / 1 kg"
+  },
+  "vision_electronic_iron_multi_color_vis_dei_011__each": {
+    "id": "vision_electronic_iron_multi_color_vis_dei_011__each",
+    "name": "Vision Electronic Iron Multi-Color (VIS-DEI-011)",
+    "image": "https://i.chaldn.com/_mpimage/vision-electronic-iron-multi-color-vis-dei-011-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D185382&q=best&v=1&m=400&webp=1",
+    "category": "New Arrival",
+    "current_price": 1400.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 1400.0,
+        "unit": "each",
+        "norm_price": 1400.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "1400.0 / each"
+  },
+  "foster_clark_s_custard_powder_pack_200_gm": {
+    "id": "foster_clark_s_custard_powder_pack_200_gm",
+    "name": "Foster Clark's Custard Powder Pack",
+    "image": "https://i.chaldn.com/_mpimage/foster-clarks-custard-powder-pack-200-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130373&q=best&v=1&m=400&webp=1",
+    "category": "Baking & Dessert Mixes",
+    "current_price": 395.0,
+    "current_unit": "200 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 395.0,
+        "unit": "200 gm",
+        "norm_price": 1975.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1975.0 / 1 kg"
+  },
+  "foster_clark_s_gelatin_jelly_dessert_lemon_flavour_80_gm": {
+    "id": "foster_clark_s_gelatin_jelly_dessert_lemon_flavour_80_gm",
+    "name": "Foster Clark's Gelatin Jelly Dessert Lemon Flavour",
+    "image": "https://i.chaldn.com/_mpimage/foster-clarks-gelatin-jelly-dessert-lemon-flavour-80-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D153741&q=best&v=1&m=400&webp=1",
+    "category": "Baking & Dessert Mixes",
+    "current_price": 160.0,
+    "current_unit": "80 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 160.0,
+        "unit": "80 gm",
+        "norm_price": 2000.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2000.0 / 1 kg"
+  },
+  "vision_electric_heavy_iron_vis_dei_012__each": {
+    "id": "vision_electric_heavy_iron_vis_dei_012__each",
+    "name": "Vision Electric Heavy Iron (VIS-DEI-012)",
+    "image": "https://i.chaldn.com/_mpimage/vision-electric-heavy-iron-vis-dei-012-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D185381&q=best&v=1&m=400&webp=1",
+    "category": "New Arrival",
+    "current_price": 1350.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 1350.0,
+        "unit": "each",
+        "norm_price": 1350.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "1350.0 / each"
+  },
+  "foster_clark_s_custard_powder_tin_300_gm": {
+    "id": "foster_clark_s_custard_powder_tin_300_gm",
+    "name": "Foster Clark's Custard Powder Tin",
+    "image": "https://i.chaldn.com/_mpimage/foster-clarks-custard-powder-tin-300-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128575&q=best&v=1&m=400&webp=1",
+    "category": "Baking & Dessert Mixes",
+    "current_price": 395.0,
+    "current_unit": "300 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 395.0,
+        "unit": "300 gm",
+        "norm_price": 1316.67,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1316.67 / 1 kg"
+  },
+  "vision_electric_kettle_glass_vis_ek_016__1_8_ltr": {
+    "id": "vision_electric_kettle_glass_vis_ek_016__1_8_ltr",
+    "name": "Vision Electric Kettle Glass (VIS-EK-016)",
+    "image": "https://i.chaldn.com/_mpimage/vision-electric-kettle-glass-vis-ek-016-18-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D185377&q=best&v=1&m=400&webp=1",
+    "category": "Kitchen Appliances",
+    "current_price": 1500.0,
+    "current_unit": "1.8 ltr",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 1500.0,
+        "unit": "1.8 ltr",
+        "norm_price": 833.33,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "833.33 / 1 L"
+  },
+  "vision_room_comforter_wall_mount_each": {
+    "id": "vision_room_comforter_wall_mount_each",
+    "name": "Vision Room Comforter Wall Mount",
+    "image": "https://i.chaldn.com/_mpimage/vision-room-comforter-wall-mount-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D185375&q=best&v=1&m=400&webp=1",
+    "category": "New Arrival",
+    "current_price": 5900.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 5900.0,
+        "unit": "each",
+        "norm_price": 5900.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "5900.0 / each"
+  },
+  "foster_clark_s_baking_powder_225_gm": {
+    "id": "foster_clark_s_baking_powder_225_gm",
+    "name": "Foster Clark's Baking Powder",
+    "image": "https://i.chaldn.com/_mpimage/foster-clarks-baking-powder-225-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128570&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Baking & Dessert Mixes",
+    "current_price": 360.0,
+    "current_unit": "225 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 360.0,
+        "unit": "225 gm",
+        "norm_price": 1600.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1600.0 / 1 kg"
+  },
+  "vision_electric_kettle_vis_ek_008__1_5_ltr": {
+    "id": "vision_electric_kettle_vis_ek_008__1_5_ltr",
+    "name": "Vision Electric Kettle (VIS-EK-008)",
+    "image": "https://i.chaldn.com/_mpimage/vision-electric-kettle-vis-ek-008-15-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D185374&q=best&v=1&m=400&webp=1",
+    "category": "Kitchen Appliances",
+    "current_price": 900.0,
+    "current_unit": "1.5 ltr",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 900.0,
+        "unit": "1.5 ltr",
+        "norm_price": 600.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "600.0 / 1 L"
+  },
+  "vision_electric_kettle_vis_ek_005__1_8_ltr": {
+    "id": "vision_electric_kettle_vis_ek_005__1_8_ltr",
+    "name": "Vision Electric Kettle (VIS-EK-005)",
+    "image": "https://i.chaldn.com/_mpimage/vision-electric-kettle-vis-ek-005-18-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D185373&q=best&v=1&m=400&webp=1",
+    "category": "Kitchen Appliances",
+    "current_price": 1000.0,
+    "current_unit": "1.8 ltr",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 1000.0,
+        "unit": "1.8 ltr",
+        "norm_price": 555.56,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "555.56 / 1 L"
+  },
+  "vision_room_heater_fire_with_smooth_moving_system_each": {
+    "id": "vision_room_heater_fire_with_smooth_moving_system_each",
+    "name": "Vision Room Heater Fire with Smooth Moving System",
+    "image": "https://i.chaldn.com/_mpimage/vision-room-heater-fire-with-smooth-moving-system-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D185372&q=best&v=1&m=400&webp=1",
+    "category": "New Arrival",
+    "current_price": 3600.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 3600.0,
+        "unit": "each",
+        "norm_price": 3600.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "3600.0 / each"
+  },
+  "rfl_topper_nonstick_glamour_fry_pan_with_lid_ash_28_cm_": {
+    "id": "rfl_topper_nonstick_glamour_fry_pan_with_lid_ash_28_cm_",
+    "name": "RFL Topper Nonstick Glamour Fry Pan With Lid (Ash) 28 cm",
+    "image": "https://i.chaldn.com/_mpimage/rfl-topper-nonstick-glamour-fry-pan-with-lid-ash-28-cm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D185170&q=best&v=1&m=400&webp=1",
+    "category": "Kitchen Appliances",
+    "current_price": 1540.0,
+    "current_unit": "",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 1540.0,
+        "unit": "",
+        "norm_price": 1540.0,
+        "norm_unit": ""
+      }
+    ],
+    "norm_price_display": "1540.0 / "
+  },
+  "rfl_topper_nonstick_marble_coated_fry_pan_with_lid_26_cm_": {
+    "id": "rfl_topper_nonstick_marble_coated_fry_pan_with_lid_26_cm_",
+    "name": "RFL Topper Nonstick Marble Coated Fry Pan With Lid 26 cm",
+    "image": "https://i.chaldn.com/_mpimage/rfl-topper-nonstick-marble-coated-fry-pan-with-lid-26-cm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D185168&q=best&v=1&m=400&webp=1",
+    "category": "Kitchen Appliances",
+    "current_price": 1450.0,
+    "current_unit": "",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 1450.0,
+        "unit": "",
+        "norm_price": 1450.0,
+        "norm_unit": ""
+      }
+    ],
+    "norm_price_display": "1450.0 / "
+  },
+  "rfl_topper_nonstick_marble_coated_fry_pan_with_lid_ib_22_cm_": {
+    "id": "rfl_topper_nonstick_marble_coated_fry_pan_with_lid_ib_22_cm_",
+    "name": "RFL Topper Nonstick Marble Coated Fry Pan With Lid IB 22 cm",
+    "image": "https://i.chaldn.com/_mpimage/rfl-topper-nonstick-marble-coated-fry-pan-with-lid-ib-22-cm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D185167&q=best&v=1&m=400&webp=1",
+    "category": "Kitchen Appliances",
+    "current_price": 1250.0,
+    "current_unit": "",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 1250.0,
+        "unit": "",
+        "norm_price": 1250.0,
+        "norm_unit": ""
+      }
+    ],
+    "norm_price_display": "1250.0 / "
+  },
+  "rfl_topper_nonstick_marble_coated_fry_pan_with_lid_24_cm_each": {
+    "id": "rfl_topper_nonstick_marble_coated_fry_pan_with_lid_24_cm_each",
+    "name": "RFL Topper Nonstick Marble Coated Fry Pan With Lid 24 cm",
+    "image": "https://i.chaldn.com/_mpimage/rfl-topper-nonstick-marble-coated-fry-pan-with-lid-24-cm-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D185166&q=best&v=1&m=400&webp=1",
+    "category": "Kitchen Appliances",
+    "current_price": 1300.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 1300.0,
+        "unit": "each",
+        "norm_price": 1300.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "1300.0 / each"
+  },
+  "rfl_topper_nonstick_glamour_dosa_tawa_ib_ash_26_cm_each": {
+    "id": "rfl_topper_nonstick_glamour_dosa_tawa_ib_ash_26_cm_each",
+    "name": "RFL Topper Nonstick Glamour Dosa Tawa IB (Ash) 26 cm",
+    "image": "https://i.chaldn.com/_mpimage/rfl-topper-nonstick-glamour-dosa-tawa-ib-ash-26-cm-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D185165&q=best&v=1&m=400&webp=1",
+    "category": "Kitchen Appliances",
+    "current_price": 1100.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 1100.0,
+        "unit": "each",
+        "norm_price": 1100.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "1100.0 / each"
+  },
+  "dettol_fresh_liquid_handwash_refill_170_ml": {
+    "id": "dettol_fresh_liquid_handwash_refill_170_ml",
+    "name": "Dettol Fresh Liquid Handwash Refill",
+    "image": "https://i.chaldn.com/_mpimage/dettol-fresh-liquid-handwash-refill-170-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D121869&q=best&v=1&m=400&webp=1",
+    "category": "Handwash & Handrub",
+    "current_price": 80.0,
+    "current_unit": "170 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 80.0,
+        "unit": "170 ml",
+        "norm_price": 470.59,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "470.59 / 1 L"
+  },
+  "dettol_fresh_liquid_handwash_pump_200_ml": {
+    "id": "dettol_fresh_liquid_handwash_pump_200_ml",
+    "name": "Dettol Fresh Liquid Handwash Pump",
+    "image": "https://i.chaldn.com/_mpimage/dettol-fresh-liquid-handwash-pump-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D134132&q=best&v=1&m=400&webp=1",
+    "category": "Handwash & Handrub",
+    "current_price": 110.0,
+    "current_unit": "200 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 110.0,
+        "unit": "200 ml",
+        "norm_price": 550.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "550.0 / 1 L"
+  },
+  "dettol_handwash_original_liquid_refill_170_ml": {
+    "id": "dettol_handwash_original_liquid_refill_170_ml",
+    "name": "Dettol Handwash Original Liquid Refill",
+    "image": "https://i.chaldn.com/_mpimage/dettol-handwash-original-liquid-refill-170-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D160588&q=best&v=1&m=400&webp=1",
+    "category": "Handwash & Handrub",
+    "current_price": 80.0,
+    "current_unit": "170 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 80.0,
+        "unit": "170 ml",
+        "norm_price": 470.59,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "470.59 / 1 L"
+  },
+  "dettol_handwash_original_liquid_pump_200_ml": {
+    "id": "dettol_handwash_original_liquid_pump_200_ml",
+    "name": "Dettol Handwash Original Liquid Pump",
+    "image": "https://i.chaldn.com/_mpimage/dettol-handwash-original-liquid-pump-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D146326&q=best&v=1&m=400&webp=1",
+    "category": "Handwash & Handrub",
+    "current_price": 110.0,
+    "current_unit": "200 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 110.0,
+        "unit": "200 ml",
+        "norm_price": 550.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "550.0 / 1 L"
+  },
+  "dettol_handwash_skincare_liquid_refill_170_ml": {
+    "id": "dettol_handwash_skincare_liquid_refill_170_ml",
+    "name": "Dettol Handwash Skincare Liquid Refill",
+    "image": "https://i.chaldn.com/_mpimage/dettol-handwash-skincare-liquid-refill-170-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D114827&q=best&v=1&m=400&webp=1",
+    "category": "Handwash & Handrub",
+    "current_price": 80.0,
+    "current_unit": "170 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 80.0,
+        "unit": "170 ml",
+        "norm_price": 470.59,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "470.59 / 1 L"
+  },
+  "aci_savlon_ocean_blue_antiseptic_handwash_refill_170_ml": {
+    "id": "aci_savlon_ocean_blue_antiseptic_handwash_refill_170_ml",
+    "name": "ACI Savlon Ocean Blue Antiseptic Handwash Refill",
+    "image": "https://i.chaldn.com/_mpimage/aci-savlon-ocean-blue-antiseptic-handwash-refill-170-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D146333&q=best&v=1&m=400&webp=1",
+    "category": "Handwash & Handrub",
+    "current_price": 80.0,
+    "current_unit": "170 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 80.0,
+        "unit": "170 ml",
+        "norm_price": 470.59,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "470.59 / 1 L"
+  },
+  "dettol_handwash_re_energize_liquid_refill_750_ml": {
+    "id": "dettol_handwash_re_energize_liquid_refill_750_ml",
+    "name": "Dettol Handwash Re-Energize Liquid Refill",
+    "image": "https://i.chaldn.com/_mpimage/dettol-handwash-re-energize-liquid-refill-750-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D179243&q=best&v=1&m=400&webp=1",
+    "category": "Handwash & Handrub",
+    "current_price": 270.0,
+    "current_unit": "750 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 270.0,
+        "unit": "750 ml",
+        "norm_price": 360.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "360.0 / 1 L"
+  },
+  "savlon_instant_hand_sanitizer_200_ml": {
+    "id": "savlon_instant_hand_sanitizer_200_ml",
+    "name": "Savlon Instant Hand Sanitizer",
+    "image": "https://i.chaldn.com/_mpimage/savlon-instant-hand-sanitizer-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D75306&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Handwash & Handrub",
+    "current_price": 200.0,
+    "current_unit": "200 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 200.0,
+        "unit": "200 ml",
+        "norm_price": 1000.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1000.0 / 1 L"
+  },
+  "savlon_hand_sanitizer_50_ml": {
+    "id": "savlon_hand_sanitizer_50_ml",
+    "name": "Savlon Hand Sanitizer",
+    "image": "https://i.chaldn.com/_mpimage/savlon-hand-sanitizer-50-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D133231&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Handwash & Handrub",
+    "current_price": 80.0,
+    "current_unit": "50 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 80.0,
+        "unit": "50 ml",
+        "norm_price": 1600.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1600.0 / 1 L"
+  },
+  "dettol_handwash_re_energize_liquid_5_ltr": {
+    "id": "dettol_handwash_re_energize_liquid_5_ltr",
+    "name": "Dettol Handwash Re-Energize Liquid",
+    "image": "https://i.chaldn.com/_mpimage/dettol-handwash-re-energize-liquid-5-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D186627&q=best&v=1&m=400&webp=1",
+    "category": "Handwash & Handrub",
+    "current_price": 1400.0,
+    "current_unit": "5 ltr",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 1400.0,
+        "unit": "5 ltr",
+        "norm_price": 280.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "280.0 / 1 L"
+  },
+  "sepnil_instant_hand_sanitizer_40_ml": {
+    "id": "sepnil_instant_hand_sanitizer_40_ml",
+    "name": "Sepnil Instant Hand Sanitizer",
+    "image": "https://i.chaldn.com/_mpimage/sepnil-instant-hand-sanitizer-40-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D60016&q=best&v=1&m=400&webp=1",
+    "category": "Handwash & Handrub",
+    "current_price": 80.0,
+    "current_unit": "40 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 80.0,
+        "unit": "40 ml",
+        "norm_price": 2000.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "2000.0 / 1 L"
+  },
+  "dettol_handwash_aloe_vera_liquid_pump_200_ml": {
+    "id": "dettol_handwash_aloe_vera_liquid_pump_200_ml",
+    "name": "Dettol Handwash Aloe Vera Liquid Pump",
+    "image": "https://i.chaldn.com/_mpimage/dettol-handwash-aloe-vera-liquid-pump-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D184818&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Handwash & Handrub",
+    "current_price": 110.0,
+    "current_unit": "200 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 110.0,
+        "unit": "200 ml",
+        "norm_price": 550.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "550.0 / 1 L"
+  },
+  "dettol_handwash_aloe_vera_liquid_refill_170_ml": {
+    "id": "dettol_handwash_aloe_vera_liquid_refill_170_ml",
+    "name": "Dettol Handwash Aloe Vera Liquid Refill",
+    "image": "https://i.chaldn.com/_mpimage/dettol-handwash-aloe-vera-liquid-refill-170-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D114828&q=best&v=1&m=400&webp=1",
+    "category": "Handwash & Handrub",
+    "current_price": 80.0,
+    "current_unit": "170 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 80.0,
+        "unit": "170 ml",
+        "norm_price": 470.59,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "470.59 / 1 L"
+  },
+  "sepnil_instant_hand_sanitizer_200_ml": {
+    "id": "sepnil_instant_hand_sanitizer_200_ml",
+    "name": "Sepnil Instant Hand Sanitizer",
+    "image": "https://i.chaldn.com/_mpimage/sepnil-instant-hand-sanitizer-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D178322&q=best&v=1&m=400&webp=1",
+    "category": "Handwash & Handrub",
+    "current_price": 250.0,
+    "current_unit": "200 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 250.0,
+        "unit": "200 ml",
+        "norm_price": 1250.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1250.0 / 1 L"
+  },
+  "dettol_handwash_cool_liquid_refill_170_ml": {
+    "id": "dettol_handwash_cool_liquid_refill_170_ml",
+    "name": "Dettol Handwash Cool Liquid Refill",
+    "image": "https://i.chaldn.com/_mpimage/dettol-handwash-cool-liquid-refill-170-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D114788&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Handwash & Handrub",
+    "current_price": 80.0,
+    "current_unit": "170 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 80.0,
+        "unit": "170 ml",
+        "norm_price": 470.59,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "470.59 / 1 L"
+  },
+  "dettol_handwash_cool_liquid_pump_200_ml": {
+    "id": "dettol_handwash_cool_liquid_pump_200_ml",
+    "name": "Dettol Handwash Cool Liquid Pump",
+    "image": "https://i.chaldn.com/_mpimage/dettol-handwash-cool-liquid-pump-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D112224&q=best&v=1&m=400&webp=1",
+    "category": "Handwash & Handrub",
+    "current_price": 110.0,
+    "current_unit": "200 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 110.0,
+        "unit": "200 ml",
+        "norm_price": 550.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "550.0 / 1 L"
+  },
+  "dettol_handwash_skincare_liquid_pump_200_ml": {
+    "id": "dettol_handwash_skincare_liquid_pump_200_ml",
+    "name": "Dettol Handwash Skincare Liquid Pump",
+    "image": "https://i.chaldn.com/_mpimage/dettol-handwash-skincare-liquid-pump-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D112103&q=best&v=1&m=400&webp=1",
+    "category": "Handwash & Handrub",
+    "current_price": 110.0,
+    "current_unit": "200 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 110.0,
+        "unit": "200 ml",
+        "norm_price": 550.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "550.0 / 1 L"
+  },
+  "lifebuoy_handwash_total_pump_200_ml": {
+    "id": "lifebuoy_handwash_total_pump_200_ml",
+    "name": "Lifebuoy Handwash Total Pump",
+    "image": "https://i.chaldn.com/_mpimage/lifebuoy-handwash-total-pump-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D161166&q=best&v=1&m=400&webp=1",
+    "category": "Handwash & Handrub",
+    "current_price": 120.0,
+    "current_unit": "200 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 120.0,
+        "unit": "200 ml",
+        "norm_price": 600.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "600.0 / 1 L"
+  },
+  "university_khata_300_pages_each": {
+    "id": "university_khata_300_pages_each",
+    "name": "University khata 300 Pages",
+    "image": "https://i.chaldn.com/_mpimage/university-khata-300-pages-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D114550&q=best&v=1&m=400&webp=1",
+    "category": "Diaries & Notebooks",
+    "current_price": 169.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 169.0,
+        "unit": "each",
+        "norm_price": 169.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "169.0 / each"
+  },
+  "pencil_bag_yellow__each": {
+    "id": "pencil_bag_yellow__each",
+    "name": "Pencil Bag (Yellow)",
+    "image": "https://i.chaldn.com/_mpimage/pencil-bag-yellow-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D109717&q=best&v=1&m=400&webp=1",
+    "category": "Diaries & Notebooks (School)",
+    "current_price": 40.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 40.0,
+        "unit": "each",
+        "norm_price": 40.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "40.0 / each"
+  },
+  "pencil_box_red__each": {
+    "id": "pencil_box_red__each",
+    "name": "Pencil Box (Red)",
+    "image": "https://i.chaldn.com/_mpimage/pencil-box-red-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D97818&q=best&v=1&m=400&webp=1",
+    "category": "Diaries & Notebooks (School)",
+    "current_price": 114.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 114.0,
+        "unit": "each",
+        "norm_price": 114.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "114.0 / each"
+  },
+  "pencil_box_pink__each": {
+    "id": "pencil_box_pink__each",
+    "name": "Pencil Box (Pink)",
+    "image": "https://i.chaldn.com/_mpimage/pencil-box-pink-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D97789&q=best&v=1&m=400&webp=1",
+    "category": "Diaries & Notebooks (School)",
+    "current_price": 114.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 114.0,
+        "unit": "each",
+        "norm_price": 114.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "114.0 / each"
+  },
+  "pencil_box_purple__each": {
+    "id": "pencil_box_purple__each",
+    "name": "Pencil Box (Purple)",
+    "image": "https://i.chaldn.com/_mpimage/pencil-box-purple-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D97788&q=best&v=1&m=400&webp=1",
+    "category": "Diaries & Notebooks (School)",
+    "current_price": 114.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 114.0,
+        "unit": "each",
+        "norm_price": 114.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "114.0 / each"
+  },
+  "pencil_box_blue__each": {
+    "id": "pencil_box_blue__each",
+    "name": "Pencil Box (Blue)",
+    "image": "https://i.chaldn.com/_mpimage/pencil-box-blue-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D97787&q=best&v=1&m=400&webp=1",
+    "category": "Diaries & Notebooks (School)",
+    "current_price": 114.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 114.0,
+        "unit": "each",
+        "norm_price": 114.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "114.0 / each"
+  },
+  "rfl_good_luck_kids_arabic_book_each": {
+    "id": "rfl_good_luck_kids_arabic_book_each",
+    "name": "RFL Good Luck Kids Arabic Book",
+    "image": "https://i.chaldn.com/_mpimage/rfl-good-luck-kids-arabic-book-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D97369&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Diaries & Notebooks",
+    "current_price": 30.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 30.0,
+        "unit": "each",
+        "norm_price": 30.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "30.0 / each"
+  },
+  "register_book_150_pages_": {
+    "id": "register_book_150_pages_",
+    "name": "Register Book 150 pages",
+    "image": "https://i.chaldn.com/_mpimage/register-book-150-pages?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D43773&q=low&v=1&m=400&m=400&webp=1",
+    "category": "Diaries & Notebooks",
+    "current_price": 90.0,
+    "current_unit": "",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 90.0,
+        "unit": "",
+        "norm_price": 90.0,
+        "norm_unit": ""
+      }
+    ],
+    "norm_price_display": "90.0 / "
+  },
+  "register_book_300_page_each": {
+    "id": "register_book_300_page_each",
+    "name": "Register Book 300 Page",
+    "image": "https://i.chaldn.com/_mpimage/register-book-300-page-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D9770&q=low&v=1&m=400&webp=1",
+    "category": "Diaries & Notebooks",
+    "current_price": 179.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 179.0,
+        "unit": "each",
+        "norm_price": 179.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "179.0 / each"
+  },
+  "deli_whiteboard_eraser_grey__each": {
+    "id": "deli_whiteboard_eraser_grey__each",
+    "name": "Deli Whiteboard Eraser (Grey)",
+    "image": "https://i.chaldn.com/_mpimage/deli-whiteboard-eraser-grey-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D97959&q=best&v=1&m=400&webp=1",
+    "category": "Erasers & Correction",
+    "current_price": 50.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 50.0,
+        "unit": "each",
+        "norm_price": 50.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "50.0 / each"
+  },
+  "rfl_good_luck_duster_blue_each": {
+    "id": "rfl_good_luck_duster_blue_each",
+    "name": "RFL Good Luck Duster Blue",
+    "image": "https://i.chaldn.com/_mpimage/rfl-good-luck-duster-blue-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D97009&q=best&v=1&m=400&webp=1",
+    "category": "Erasers & Correction",
+    "current_price": 35.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 35.0,
+        "unit": "each",
+        "norm_price": 35.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "35.0 / each"
+  },
+  "rfl_good_luck_duster_red_each": {
+    "id": "rfl_good_luck_duster_red_each",
+    "name": "RFL Good Luck Duster Red",
+    "image": "https://i.chaldn.com/_mpimage/rfl-good-luck-duster-red-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D133221&q=best&v=1&m=400&webp=1",
+    "category": "Erasers & Correction",
+    "current_price": 30.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 30.0,
+        "unit": "each",
+        "norm_price": 30.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "30.0 / each"
+  },
+  "deli_correction_pen_quick_drying_8_ml_each": {
+    "id": "deli_correction_pen_quick_drying_8_ml_each",
+    "name": "Deli Correction Pen Quick Drying 8 ml",
+    "image": "https://i.chaldn.com/_mpimage/deli-correction-pen-quick-drying-8-ml-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D99368&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Erasers & Correction",
+    "current_price": 55.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 55.0,
+        "unit": "each",
+        "norm_price": 55.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "55.0 / each"
+  },
+  "pencil_sharpner_94529__each": {
+    "id": "pencil_sharpner_94529__each",
+    "name": "Pencil Sharpner (94529)",
+    "image": "https://i.chaldn.com/_mpimage/pencil-sharpner-94529-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D153446&q=best&v=1&m=400&webp=1",
+    "category": "Erasers & Correction",
+    "current_price": 19.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 19.0,
+        "unit": "each",
+        "norm_price": 19.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "19.0 / each"
+  },
+  "horse_refill_ink_for_stamp_pad_30_cc_violet__each": {
+    "id": "horse_refill_ink_for_stamp_pad_30_cc_violet__each",
+    "name": "Horse Refill Ink For Stamp Pad 30 cc (Violet)",
+    "image": "https://i.chaldn.com/_mpimage/horse-refill-ink-for-stamp-pad-30-cc-violet-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D95399&q=best&v=1&m=400&webp=1",
+    "category": "Toner & Ink",
+    "current_price": 71.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 71.0,
+        "unit": "each",
+        "norm_price": 71.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "71.0 / each"
+  },
+  "horse_stamp_pad_un_ink__each": {
+    "id": "horse_stamp_pad_un_ink__each",
+    "name": "Horse Stamp Pad (UN-Ink)",
+    "image": "https://i.chaldn.com/_mpimage/horse-stamp-pad-un-ink-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D95398&q=best&v=1&m=400&webp=1",
+    "category": "Toner & Ink",
+    "current_price": 179.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 179.0,
+        "unit": "each",
+        "norm_price": 179.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "179.0 / each"
+  },
+  "printex_laser_toner_cartridge_48a__each": {
+    "id": "printex_laser_toner_cartridge_48a__each",
+    "name": "Printex Laser Toner Cartridge (48A)",
+    "image": "https://i.chaldn.com/_mpimage/printex-laser-toner-cartridge-48a-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D99353&q=best&v=1&m=400&webp=1",
+    "category": "Toner & Ink",
+    "current_price": 2459.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 2459.0,
+        "unit": "each",
+        "norm_price": 2459.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "2459.0 / each"
+  },
+  "printex_laser_toner_cartridge_85a__each": {
+    "id": "printex_laser_toner_cartridge_85a__each",
+    "name": "Printex Laser Toner Cartridge (85A)",
+    "image": "https://i.chaldn.com/_mpimage/printex-laser-toner-cartridge-85a-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D99359&q=best&v=1&m=400&webp=1",
+    "category": "Toner & Ink",
+    "current_price": 999.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 999.0,
+        "unit": "each",
+        "norm_price": 999.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "999.0 / each"
+  },
+  "printex_laser_toner_cartridge_79a__each": {
+    "id": "printex_laser_toner_cartridge_79a__each",
+    "name": "Printex Laser Toner Cartridge (79A)",
+    "image": "https://i.chaldn.com/_mpimage/printex-laser-toner-cartridge-79a-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D99364&q=best&v=1&m=400&webp=1",
+    "category": "Toner & Ink",
+    "current_price": 1209.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 1209.0,
+        "unit": "each",
+        "norm_price": 1209.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "1209.0 / each"
+  },
+  "visa_laser_toner_cartridge_48a__each": {
+    "id": "visa_laser_toner_cartridge_48a__each",
+    "name": "Visa Laser Toner Cartridge (48A)",
+    "image": "https://i.chaldn.com/_mpimage/visa-laser-toner-cartridge-48a-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D99366&q=best&v=1&m=400&webp=1",
+    "category": "Toner & Ink",
+    "current_price": 1999.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 1999.0,
+        "unit": "each",
+        "norm_price": 1999.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "1999.0 / each"
+  },
+  "visa_laser_toner_cartridge_79a__each": {
+    "id": "visa_laser_toner_cartridge_79a__each",
+    "name": "Visa Laser Toner Cartridge (79A)",
+    "image": "https://i.chaldn.com/_mpimage/visa-laser-toner-cartridge-79a-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D99361&q=best&v=1&m=400&webp=1",
+    "category": "Toner & Ink",
+    "current_price": 839.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 839.0,
+        "unit": "each",
+        "norm_price": 839.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "839.0 / each"
+  },
+  "visa_laser_toner_cartridge_285a_p1102__each": {
+    "id": "visa_laser_toner_cartridge_285a_p1102__each",
+    "name": "Visa Laser Toner Cartridge (285A - P1102)",
+    "image": "https://i.chaldn.com/_mpimage/visa-laser-toner-cartridge-285a-p1102-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D33928&q=best&v=1&m=400&webp=1",
+    "category": "Toner & Ink",
+    "current_price": 929.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 929.0,
+        "unit": "each",
+        "norm_price": 929.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "929.0 / each"
+  },
+  "red_leaf_707_permanent_marker_red__each": {
+    "id": "red_leaf_707_permanent_marker_red__each",
+    "name": "Red Leaf 707 Permanent Marker (Red)",
+    "image": "https://i.chaldn.com/_mpimage/red-leaf-707-permanent-marker-red-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D126126&q=best&v=1&m=400&webp=1",
+    "category": "Highlighters & Markers",
+    "current_price": 79.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 79.0,
+        "unit": "each",
+        "norm_price": 79.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "79.0 / each"
+  },
+  "red_leaf_707_permanent_marker_blue__each": {
+    "id": "red_leaf_707_permanent_marker_blue__each",
+    "name": "Red Leaf 707 Permanent Marker (Blue)",
+    "image": "https://i.chaldn.com/_mpimage/red-leaf-707-permanent-marker-blue-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D126125&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Highlighters & Markers",
+    "current_price": 79.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 79.0,
+        "unit": "each",
+        "norm_price": 79.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "79.0 / each"
+  },
+  "red_leaf_white_board_marker_pen_737_black__each": {
+    "id": "red_leaf_white_board_marker_pen_737_black__each",
+    "name": "Red Leaf White Board Marker Pen 737 (Black)",
+    "image": "https://i.chaldn.com/_mpimage/red-leaf-white-board-marker-pen-737-black-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D126124&q=best&v=1&m=400&webp=1",
+    "category": "Highlighters & Markers",
+    "current_price": 139.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 139.0,
+        "unit": "each",
+        "norm_price": 139.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "139.0 / each"
+  },
+  "faber_castell_highlighter_marker_nion_red__each": {
+    "id": "faber_castell_highlighter_marker_nion_red__each",
+    "name": "Faber Castell Highlighter Marker (Nion Red)",
+    "image": "https://i.chaldn.com/_mpimage/faber-castell-highlighter-marker-nion-red-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D141980&q=best&v=1&m=400&webp=1",
+    "category": "Highlighters & Markers",
+    "current_price": 79.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 79.0,
+        "unit": "each",
+        "norm_price": 79.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "79.0 / each"
+  },
+  "deli_liquid_highlighter_chisel_tip_yellow__each": {
+    "id": "deli_liquid_highlighter_chisel_tip_yellow__each",
+    "name": "Deli Liquid Highlighter Chisel Tip (Yellow)",
+    "image": "https://i.chaldn.com/_mpimage/deli-liquid-highlighter-chisel-tip-yellow-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D127608&q=best&v=1&m=400&webp=1",
+    "category": "Highlighters & Markers",
+    "current_price": 35.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 35.0,
+        "unit": "each",
+        "norm_price": 35.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "35.0 / each"
+  },
+  "red_leaf_707_permanent_marker_black__each": {
+    "id": "red_leaf_707_permanent_marker_black__each",
+    "name": "Red Leaf 707 Permanent Marker (Black)",
+    "image": "https://i.chaldn.com/_mpimage/red-leaf-707-permanent-marker-black-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D110524&q=best&v=1&m=400&webp=1",
+    "category": "Highlighters & Markers",
+    "current_price": 109.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 109.0,
+        "unit": "each",
+        "norm_price": 109.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "109.0 / each"
+  },
+  "red_leaf_303_flourescent_highlighter_pink__each": {
+    "id": "red_leaf_303_flourescent_highlighter_pink__each",
+    "name": "Red Leaf 303 Flourescent Highlighter (Pink)",
+    "image": "https://i.chaldn.com/_mpimage/red-leaf-303-flourescent-highlighter-pink-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132647&q=best&v=1&m=400&webp=1",
+    "category": "Highlighters & Markers",
+    "current_price": 59.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 59.0,
+        "unit": "each",
+        "norm_price": 59.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "59.0 / each"
+  },
+  "red_leaf_303_flourescent_highlighter_blue__each": {
+    "id": "red_leaf_303_flourescent_highlighter_blue__each",
+    "name": "Red Leaf 303 Flourescent Highlighter (Blue)",
+    "image": "https://i.chaldn.com/_mpimage/red-leaf-303-flourescent-highlighter-blue-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132641&q=best&v=1&m=400&webp=1",
+    "category": "Highlighters & Markers",
+    "current_price": 59.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 59.0,
+        "unit": "each",
+        "norm_price": 59.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "59.0 / each"
+  },
+  "red_leaf_303_flourescent_highlighter_orange__each": {
+    "id": "red_leaf_303_flourescent_highlighter_orange__each",
+    "name": "Red Leaf 303 Flourescent Highlighter (Orange)",
+    "image": "https://i.chaldn.com/_mpimage/red-leaf-303-flourescent-highlighter-orange-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132646&q=best&v=1&m=400&webp=1",
+    "category": "Highlighters & Markers",
+    "current_price": 59.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 59.0,
+        "unit": "each",
+        "norm_price": 59.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "59.0 / each"
+  },
+  "red_leaf_303_flourescent_highlighter_green__each": {
+    "id": "red_leaf_303_flourescent_highlighter_green__each",
+    "name": "Red Leaf 303 Flourescent Highlighter (Green)",
+    "image": "https://i.chaldn.com/_mpimage/red-leaf-303-flourescent-highlighter-green-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132642&q=best&v=1&m=400&webp=1",
+    "category": "Highlighters & Markers",
+    "current_price": 59.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 59.0,
+        "unit": "each",
+        "norm_price": 59.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "59.0 / each"
+  },
+  "faber_castell_highlighter_marker_green__each": {
+    "id": "faber_castell_highlighter_marker_green__each",
+    "name": "Faber Castell Highlighter Marker (Green)",
+    "image": "https://i.chaldn.com/_mpimage/faber-castell-highlighter-marker-green-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D99397&q=best&v=1&m=400&webp=1",
+    "category": "Highlighters & Markers",
+    "current_price": 45.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 45.0,
+        "unit": "each",
+        "norm_price": 45.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "45.0 / each"
+  },
+  "faber_castell_highlighter_marker_blue__each": {
+    "id": "faber_castell_highlighter_marker_blue__each",
+    "name": "Faber Castell Highlighter Marker (Blue)",
+    "image": "https://i.chaldn.com/_mpimage/faber-castell-highlighter-marker-blue-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D109058&q=best&v=1&m=400&webp=1",
+    "category": "Highlighters & Markers",
+    "current_price": 45.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 45.0,
+        "unit": "each",
+        "norm_price": 45.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "45.0 / each"
+  },
+  "faber_castell_highlighter_marker_yellow__each": {
+    "id": "faber_castell_highlighter_marker_yellow__each",
+    "name": "Faber Castell Highlighter Marker (Yellow)",
+    "image": "https://i.chaldn.com/_mpimage/faber-castell-highlighter-marker-yellow-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D99401&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Highlighters & Markers",
+    "current_price": 45.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 45.0,
+        "unit": "each",
+        "norm_price": 45.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "45.0 / each"
+  },
+  "red_leaf_white_board_marker_pen_black__each": {
+    "id": "red_leaf_white_board_marker_pen_black__each",
+    "name": "Red Leaf White Board Marker Pen (Black)",
+    "image": "https://i.chaldn.com/_mpimage/red-leaf-white-board-marker-pen-black-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D99404&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Highlighters & Markers",
+    "current_price": 139.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 139.0,
+        "unit": "each",
+        "norm_price": 139.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "139.0 / each"
+  },
+  "bili_management_file_a4_purple__each": {
+    "id": "bili_management_file_a4_purple__each",
+    "name": "Bili Management File A4 (Purple)",
+    "image": "https://i.chaldn.com/_mpimage/bili-management-file-a4-purple-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D126122&q=best&v=1&m=400&webp=1",
+    "category": "File Folder",
+    "current_price": 39.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 39.0,
+        "unit": "each",
+        "norm_price": 39.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "39.0 / each"
+  },
+  "bili_management_file_a4_blue__each": {
+    "id": "bili_management_file_a4_blue__each",
+    "name": "Bili Management File A4 (Blue)",
+    "image": "https://i.chaldn.com/_mpimage/bili-management-file-a4-blue-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D126121&q=best&v=1&m=400&webp=1",
+    "category": "File Folder",
+    "current_price": 39.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 39.0,
+        "unit": "each",
+        "norm_price": 39.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "39.0 / each"
+  },
+  "bili_management_file_a4_green__each": {
+    "id": "bili_management_file_a4_green__each",
+    "name": "Bili Management File A4 (Green)",
+    "image": "https://i.chaldn.com/_mpimage/bili-management-file-a4-green-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D126119&q=best&v=1&m=400&webp=1",
+    "category": "File Folder",
+    "current_price": 39.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 39.0,
+        "unit": "each",
+        "norm_price": 39.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "39.0 / each"
+  },
+  "transparent_file_folder_each": {
+    "id": "transparent_file_folder_each",
+    "name": "Transparent File Folder",
+    "image": "https://i.chaldn.com/_mpimage/transparent-file-folder-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D185005&q=best&v=1&m=400&m=400&webp=1",
+    "category": "File Folder",
+    "current_price": 39.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 39.0,
+        "unit": "each",
+        "norm_price": 39.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "39.0 / each"
+  },
+  "court_file_orange__each": {
+    "id": "court_file_orange__each",
+    "name": "Court File (Orange)",
+    "image": "https://i.chaldn.com/_mpimage/court-file-orange-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D140781&q=best&v=1&m=400&webp=1",
+    "category": "File Folder",
+    "current_price": 79.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 79.0,
+        "unit": "each",
+        "norm_price": 79.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "79.0 / each"
+  },
+  "court_file_blue__each": {
+    "id": "court_file_blue__each",
+    "name": "Court File (Blue)",
+    "image": "https://i.chaldn.com/_mpimage/court-file-blue-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D140783&q=best&v=1&m=400&webp=1",
+    "category": "File Folder",
+    "current_price": 79.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 79.0,
+        "unit": "each",
+        "norm_price": 79.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "79.0 / each"
+  },
+  "court_file_yellow__each": {
+    "id": "court_file_yellow__each",
+    "name": "Court File (Yellow)",
+    "image": "https://i.chaldn.com/_mpimage/court-file-yellow-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D140795&q=best&v=1&m=400&webp=1",
+    "category": "File Folder",
+    "current_price": 69.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 69.0,
+        "unit": "each",
+        "norm_price": 69.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "69.0 / each"
+  },
+  "rfl_good_luck_three_station_file_organizer_each": {
+    "id": "rfl_good_luck_three_station_file_organizer_each",
+    "name": "RFL Good Luck Three Station File Organizer",
+    "image": "https://i.chaldn.com/_mpimage/rfl-good-luck-three-station-file-organizer-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D133222&q=best&v=1&m=400&webp=1",
+    "category": "File Folder",
+    "current_price": 300.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 300.0,
+        "unit": "each",
+        "norm_price": 300.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "300.0 / each"
+  },
+  "deli_management_file_each": {
+    "id": "deli_management_file_each",
+    "name": "Deli Management File",
+    "image": "https://i.chaldn.com/_mpimage/deli-management-file-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D103723&q=best&v=1&m=400&webp=1",
+    "category": "File Folder",
+    "current_price": 35.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 35.0,
+        "unit": "each",
+        "norm_price": 35.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "35.0 / each"
+  },
+  "bag_file_each": {
+    "id": "bag_file_each",
+    "name": "Bag File",
+    "image": "https://i.chaldn.com/_mpimage/bag-file-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D1137&q=low&v=1&m=400&webp=1",
+    "category": "File Folder",
+    "current_price": 649.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 649.0,
+        "unit": "each",
+        "norm_price": 649.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "649.0 / each"
+  },
+  "court_file_each": {
+    "id": "court_file_each",
+    "name": "Court File",
+    "image": "https://i.chaldn.com/_mpimage/court-file-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D127093&q=best&v=1&m=400&webp=1",
+    "category": "File Folder",
+    "current_price": 49.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 49.0,
+        "unit": "each",
+        "norm_price": 49.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "49.0 / each"
+  },
+  "alteco_super_glue_3_gm_each": {
+    "id": "alteco_super_glue_3_gm_each",
+    "name": "Alteco Super Glue 3 gm",
+    "image": "https://i.chaldn.com/_mpimage/alteco-super-glue-3-gm-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D125190&q=best&v=1&m=400&webp=1",
+    "category": "Tapes, Glues & Adhesive",
+    "current_price": 35.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 35.0,
+        "unit": "each",
+        "norm_price": 35.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "35.0 / each"
+  },
+  "osaka_pvc_tape_red_18_mm__3_pcs": {
+    "id": "osaka_pvc_tape_red_18_mm__3_pcs",
+    "name": "Osaka PVC Tape Red (18 mm)",
+    "image": "https://i.chaldn.com/_mpimage/osaka-pvc-tape-red-18-mm-3-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D95098&q=best&v=1&m=400&webp=1",
+    "category": "Tapes, Glues & Adhesive",
+    "current_price": 72.0,
+    "current_unit": "3 pcs",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 72.0,
+        "unit": "3 pcs",
+        "norm_price": 24.0,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "24.0 / 1 pc"
+  },
+  "osaka_pvc_tape_white_18_mm__3_pcs": {
+    "id": "osaka_pvc_tape_white_18_mm__3_pcs",
+    "name": "Osaka PVC Tape White (18 mm)",
+    "image": "https://i.chaldn.com/_mpimage/osaka-pvc-tape-white-18-mm-3-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D126075&q=best&v=1&m=400&webp=1",
+    "category": "Tapes, Glues & Adhesive",
+    "current_price": 71.0,
+    "current_unit": "3 pcs",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 71.0,
+        "unit": "3 pcs",
+        "norm_price": 23.67,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "23.67 / 1 pc"
+  },
+  "deli_stick_up_glue_36_gm": {
+    "id": "deli_stick_up_glue_36_gm",
+    "name": "Deli Stick Up Glue",
+    "image": "https://i.chaldn.com/_mpimage/deli-stick-up-glue-36-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D98010&q=best&v=1&m=400&webp=1",
+    "category": "Tapes, Glues & Adhesive",
+    "current_price": 99.0,
+    "current_unit": "36 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 99.0,
+        "unit": "36 gm",
+        "norm_price": 2750.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2750.0 / 1 kg"
+  },
+  "deli_packing_tape_dispenser_each": {
+    "id": "deli_packing_tape_dispenser_each",
+    "name": "Deli Packing Tape Dispenser",
+    "image": "https://i.chaldn.com/_mpimage/deli-packing-tape-dispenser-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D97756&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Tapes, Glues & Adhesive",
+    "current_price": 610.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 610.0,
+        "unit": "each",
+        "norm_price": 610.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "610.0 / each"
+  },
+  "rubber_bands_100_gm": {
+    "id": "rubber_bands_100_gm",
+    "name": "Rubber Bands",
+    "image": "https://i.chaldn.com/_mpimage/rubber-bands-100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D133058&q=best&v=1&m=400&webp=1",
+    "category": "Tapes, Glues & Adhesive",
+    "current_price": 119.0,
+    "current_unit": "100 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 119.0,
+        "unit": "100 gm",
+        "norm_price": 1190.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1190.0 / 1 kg"
+  },
+  "scotia_transparent_packaging_200_mtr_tape_each": {
+    "id": "scotia_transparent_packaging_200_mtr_tape_each",
+    "name": "Scotia Transparent Packaging 200 mtr Tape",
+    "image": "https://i.chaldn.com/_mpimage/scotia-transparent-packaging-200-mtr-tape-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D53461&q=best&v=1&m=400&webp=1",
+    "category": "Tapes, Glues & Adhesive",
+    "current_price": 175.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 175.0,
+        "unit": "each",
+        "norm_price": 175.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "175.0 / each"
+  },
+  "camel_glue_gun_100_w_gg_5_machine_each": {
+    "id": "camel_glue_gun_100_w_gg_5_machine_each",
+    "name": "Camel Glue Gun 100 W GG-5 Machine",
+    "image": "https://i.chaldn.com/_mpimage/camel-glue-gun-100-w-gg-5-machine-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D126583&q=best&v=1&m=400&webp=1",
+    "category": "Tapes, Glues & Adhesive",
+    "current_price": 390.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 390.0,
+        "unit": "each",
+        "norm_price": 390.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "390.0 / each"
+  },
+  "osaka_pvc_tape_black_18_mm__3_pcs": {
+    "id": "osaka_pvc_tape_black_18_mm__3_pcs",
+    "name": "Osaka PVC Tape Black (18 mm)",
+    "image": "https://i.chaldn.com/_mpimage/osaka-pvc-tape-black-18-mm-3-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D126076&q=best&v=1&m=400&webp=1",
+    "category": "Tapes, Glues & Adhesive",
+    "current_price": 75.0,
+    "current_unit": "3 pcs",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 75.0,
+        "unit": "3 pcs",
+        "norm_price": 25.0,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "25.0 / 1 pc"
+  },
+  "hunter_both_sided_gum_tape_0_5_inch__each": {
+    "id": "hunter_both_sided_gum_tape_0_5_inch__each",
+    "name": "Hunter Both Sided Gum Tape (0.5 inch)",
+    "image": "https://i.chaldn.com/_mpimage/hunter-both-sided-gum-tape-05-inch-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D105214&q=best&v=1&m=400&webp=1",
+    "category": "Tapes, Glues & Adhesive",
+    "current_price": 55.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 55.0,
+        "unit": "each",
+        "norm_price": 55.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "55.0 / each"
+  },
+  "olympic_heavy_duty_aaa_battery_2_pcs": {
+    "id": "olympic_heavy_duty_aaa_battery_2_pcs",
+    "name": "Olympic Heavy Duty AAA Battery",
+    "image": "https://i.chaldn.com/_mpimage/olympic-heavy-duty-aaa-battery-2-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D131555&q=best&v=1&m=400&webp=1",
+    "category": "Batteries",
+    "current_price": 30.0,
+    "current_unit": "2 pcs",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 30.0,
+        "unit": "2 pcs",
+        "norm_price": 15.0,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "15.0 / 1 pc"
+  },
+  "sunlite_heavy_duty_aaa_battery_2_pcs": {
+    "id": "sunlite_heavy_duty_aaa_battery_2_pcs",
+    "name": "Sunlite Heavy Duty AAA Battery",
+    "image": "https://i.chaldn.com/_mpimage/sunlite-heavy-duty-aaa-battery-2-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D135639&q=best&v=1&m=400&webp=1",
+    "category": "Batteries",
+    "current_price": 30.0,
+    "current_unit": "2 pcs",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 30.0,
+        "unit": "2 pcs",
+        "norm_price": 15.0,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "15.0 / 1 pc"
+  },
+  "olympic_heavy_duty_aa_battery_2_pcs": {
+    "id": "olympic_heavy_duty_aa_battery_2_pcs",
+    "name": "Olympic Heavy Duty AA Battery",
+    "image": "https://i.chaldn.com/_mpimage/olympic-heavy-duty-aa-battery-2-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D101191&q=best&v=1&m=400&webp=1",
+    "category": "Batteries",
+    "current_price": 36.0,
+    "current_unit": "2 pcs",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 36.0,
+        "unit": "2 pcs",
+        "norm_price": 18.0,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "18.0 / 1 pc"
+  },
+  "sunlite_heavy_duty_aa_battery_2_pcs": {
+    "id": "sunlite_heavy_duty_aa_battery_2_pcs",
+    "name": "Sunlite Heavy Duty AA Battery",
+    "image": "https://i.chaldn.com/_mpimage/sunlite-heavy-duty-aa-battery-2-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D135638&q=best&v=1&m=400&webp=1",
+    "category": "Batteries",
+    "current_price": 49.0,
+    "current_unit": "2 pcs",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 49.0,
+        "unit": "2 pcs",
+        "norm_price": 24.5,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "24.5 / 1 pc"
+  },
+  "olympic_volt_remote_battery_2_pcs": {
+    "id": "olympic_volt_remote_battery_2_pcs",
+    "name": "Olympic Volt Remote Battery",
+    "image": "https://i.chaldn.com/_mpimage/olympic-volt-remote-battery-2-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D131562&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Batteries",
+    "current_price": 30.0,
+    "current_unit": "2 pcs",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 30.0,
+        "unit": "2 pcs",
+        "norm_price": 15.0,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "15.0 / 1 pc"
+  },
+  "olympic_volt_pencil_battery_metallic_each": {
+    "id": "olympic_volt_pencil_battery_metallic_each",
+    "name": "Olympic Volt Pencil Battery Metallic",
+    "image": "https://i.chaldn.com/_mpimage/olympic-volt-pencil-battery-metallic-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D95522&q=best&v=1&m=400&webp=1",
+    "category": "Batteries",
+    "current_price": 18.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 18.0,
+        "unit": "each",
+        "norm_price": 18.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "18.0 / each"
+  },
+  "maxell_alkaline_lr44_a76_battery_2_pcs": {
+    "id": "maxell_alkaline_lr44_a76_battery_2_pcs",
+    "name": "Maxell Alkaline LR44 (A76) Battery",
+    "image": "https://i.chaldn.com/_mpimage/maxell-alkaline-lr44-a76-battery-2-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130640&q=best&v=1&m=400&webp=1",
+    "category": "Batteries",
+    "current_price": 139.0,
+    "current_unit": "2 pcs",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 139.0,
+        "unit": "2 pcs",
+        "norm_price": 69.5,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "69.5 / 1 pc"
+  },
+  "energizer_recharge_power_plus_battery_aa_2_pcs": {
+    "id": "energizer_recharge_power_plus_battery_aa_2_pcs",
+    "name": "Energizer Recharge Power Plus Battery AA",
+    "image": "https://i.chaldn.com/_mpimage/energizer-recharge-power-plus-battery-aa-2-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D108633&q=best&v=1&m=400&webp=1",
+    "category": "Batteries",
+    "current_price": 675.0,
+    "current_unit": "2 pcs",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 675.0,
+        "unit": "2 pcs",
+        "norm_price": 337.5,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "337.5 / 1 pc"
+  },
+  "olympic_gold_heavy_duty_aa_battery_2_pcs": {
+    "id": "olympic_gold_heavy_duty_aa_battery_2_pcs",
+    "name": "Olympic Gold Heavy Duty AA Battery",
+    "image": "https://i.chaldn.com/_mpimage/olympic-gold-heavy-duty-aa-battery-2-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D183203&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Batteries",
+    "current_price": 36.0,
+    "current_unit": "2 pcs",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 36.0,
+        "unit": "2 pcs",
+        "norm_price": 18.0,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "18.0 / 1 pc"
+  },
+  "energizer_max_power_battery_1_5v_aa_2_pcs": {
+    "id": "energizer_max_power_battery_1_5v_aa_2_pcs",
+    "name": "Energizer Max Power Battery 1.5V AA",
+    "image": "https://i.chaldn.com/_mpimage/energizer-max-power-battery-15v-aa-2-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D108298&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Batteries",
+    "current_price": 230.0,
+    "current_unit": "2 pcs",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 230.0,
+        "unit": "2 pcs",
+        "norm_price": 115.0,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "115.0 / 1 pc"
+  },
+  "maxell_alkaline_battery_size_aa_2_pcs": {
+    "id": "maxell_alkaline_battery_size_aa_2_pcs",
+    "name": "Maxell Alkaline Battery Size: AA",
+    "image": "https://i.chaldn.com/_mpimage/maxell-alkaline-battery-size-aa-2-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130637&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Batteries",
+    "current_price": 255.0,
+    "current_unit": "2 pcs",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 255.0,
+        "unit": "2 pcs",
+        "norm_price": 127.5,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "127.5 / 1 pc"
+  },
+  "sony_aa_alkaline_batteries_2_pcs": {
+    "id": "sony_aa_alkaline_batteries_2_pcs",
+    "name": "Sony AA Alkaline Batteries",
+    "image": "https://i.chaldn.com/_mpimage/sony-aa-alkaline-batteries-2-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D1196&q=best&v=1&m=400&webp=1",
+    "category": "Batteries",
+    "current_price": 299.0,
+    "current_unit": "2 pcs",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 299.0,
+        "unit": "2 pcs",
+        "norm_price": 149.5,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "149.5 / 1 pc"
+  },
+  "pond_s_bright_beauty_anti_spot_formula_serum_cream_35_gm": {
+    "id": "pond_s_bright_beauty_anti_spot_formula_serum_cream_35_gm",
+    "name": "Pond's Bright Beauty Anti-Spot-Formula Serum Cream",
+    "image": "https://i.chaldn.com/_mpimage/ponds-bright-beauty-anti-spot-formula-serum-cream-35-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D178420&q=best&v=1&m=400&webp=1",
+    "category": "Creams",
+    "current_price": 180.0,
+    "current_unit": "35 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 180.0,
+        "unit": "35 gm",
+        "norm_price": 5142.86,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "5142.86 / 1 kg"
+  },
+  "pond_s_bright_beauty_anti_spot_formula_serum_cream_23_gm": {
+    "id": "pond_s_bright_beauty_anti_spot_formula_serum_cream_23_gm",
+    "name": "Pond's Bright Beauty Anti-Spot-Formula Serum Cream",
+    "image": "https://i.chaldn.com/_mpimage/ponds-bright-beauty-anti-spot-formula-serum-cream-23-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D176370&q=best&v=1&m=400&webp=1",
+    "category": "Creams",
+    "current_price": 130.0,
+    "current_unit": "23 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 130.0,
+        "unit": "23 gm",
+        "norm_price": 5652.17,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "5652.17 / 1 kg"
+  },
+  "ligion_active_gold_mehedi_25_gm": {
+    "id": "ligion_active_gold_mehedi_25_gm",
+    "name": "Ligion Active Gold Mehedi",
+    "image": "https://i.chaldn.com/_mpimage/ligion-active-gold-mehedi-25-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130140&q=best&v=1&m=400&webp=1",
+    "category": "Creams",
+    "current_price": 50.0,
+    "current_unit": "25 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 50.0,
+        "unit": "25 gm",
+        "norm_price": 2000.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2000.0 / 1 kg"
+  },
+  "dove_silky_cream_300_ml": {
+    "id": "dove_silky_cream_300_ml",
+    "name": "Dove Silky Cream",
+    "image": "https://i.chaldn.com/_mpimage/dove-silky-cream-300-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D107988&q=best&v=1&m=400&webp=1",
+    "category": "Creams",
+    "current_price": 1450.0,
+    "current_unit": "300 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 1450.0,
+        "unit": "300 ml",
+        "norm_price": 4833.33,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "4833.33 / 1 L"
+  },
+  "dove_intensive_cream_75_ml": {
+    "id": "dove_intensive_cream_75_ml",
+    "name": "Dove Intensive Cream",
+    "image": "https://i.chaldn.com/_mpimage/dove-intensive-cream-75-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D107913&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Creams",
+    "current_price": 495.0,
+    "current_unit": "75 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 495.0,
+        "unit": "75 ml",
+        "norm_price": 6600.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "6600.0 / 1 L"
+  },
+  "pond_s_white_beauty_day_cream_35_gm": {
+    "id": "pond_s_white_beauty_day_cream_35_gm",
+    "name": "Pond's White Beauty Day Cream",
+    "image": "https://i.chaldn.com/_mpimage/ponds-white-beauty-day-cream-35-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D101382&q=best&v=1&m=400&webp=1",
+    "category": "Creams",
+    "current_price": 240.0,
+    "current_unit": "35 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 240.0,
+        "unit": "35 gm",
+        "norm_price": 6857.14,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "6857.14 / 1 kg"
+  },
+  "glow_lovely_advanced_multivitamin_cream_100_gm": {
+    "id": "glow_lovely_advanced_multivitamin_cream_100_gm",
+    "name": "Glow & Lovely Advanced Multivitamin Cream",
+    "image": "https://i.chaldn.com/_mpimage/glow-lovely-advanced-multivitamin-cream-100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128315&q=best&v=1&m=400&webp=1",
+    "category": "Creams",
+    "current_price": 300.0,
+    "current_unit": "100 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 300.0,
+        "unit": "100 gm",
+        "norm_price": 3000.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "3000.0 / 1 kg"
+  },
+  "beauty_formulas_intensive_foot_cream_100_ml": {
+    "id": "beauty_formulas_intensive_foot_cream_100_ml",
+    "name": "Beauty Formulas Intensive Foot Cream",
+    "image": "https://i.chaldn.com/_mpimage/beauty-formulas-intensive-foot-cream-100-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D129754&q=best&v=1&m=400&webp=1",
+    "category": "Creams",
+    "current_price": 509.0,
+    "current_unit": "100 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 509.0,
+        "unit": "100 ml",
+        "norm_price": 5090.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "5090.0 / 1 L"
+  },
+  "sudocrem_antiseptic_healing_cream_125_gm": {
+    "id": "sudocrem_antiseptic_healing_cream_125_gm",
+    "name": "Sudocrem Antiseptic Healing Cream",
+    "image": "https://i.chaldn.com/_mpimage/sudocrem-antiseptic-healing-cream-125-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D135376&q=best&v=1&m=400&webp=1",
+    "category": "Creams",
+    "current_price": 980.0,
+    "current_unit": "125 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 980.0,
+        "unit": "125 gm",
+        "norm_price": 7840.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "7840.0 / 1 kg"
+  },
+  "fair_and_lovely_cream_advanced_multivitamin_80_gm": {
+    "id": "fair_and_lovely_cream_advanced_multivitamin_80_gm",
+    "name": "Fair And Lovely Cream Advanced Multivitamin",
+    "image": "https://i.chaldn.com/_mpimage/fair-and-lovely-cream-advanced-multivitamin-80-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D131726&q=best&v=1&m=400&webp=1",
+    "category": "Creams",
+    "current_price": 400.0,
+    "current_unit": "80 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 400.0,
+        "unit": "80 gm",
+        "norm_price": 5000.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "5000.0 / 1 kg"
+  },
+  "neutrogena_ultra_sheer_dry_touch_sunblock_spf_88_ml": {
+    "id": "neutrogena_ultra_sheer_dry_touch_sunblock_spf_88_ml",
+    "name": "Neutrogena Ultra Sheer Dry Touch Sunblock SPF",
+    "image": "https://i.chaldn.com/_mpimage/neutrogena-ultra-sheer-dry-touch-sunblock-spf-88-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D131396&q=best&v=1&m=400&webp=1",
+    "category": "Creams",
+    "current_price": 1299.0,
+    "current_unit": "88 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 1299.0,
+        "unit": "88 ml",
+        "norm_price": 14761.36,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "14761.36 / 1 L"
+  },
+  "glow_lovely_advanced_multi_vitamin_cream_47_gm": {
+    "id": "glow_lovely_advanced_multi_vitamin_cream_47_gm",
+    "name": "Glow & Lovely Advanced Multi Vitamin Cream",
+    "image": "https://i.chaldn.com/_mpimage/glow-lovely-advanced-multi-vitamin-cream-47-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D153615&q=best&v=1&m=400&webp=1",
+    "category": "Creams",
+    "current_price": 165.0,
+    "current_unit": "47 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 165.0,
+        "unit": "47 gm",
+        "norm_price": 3510.64,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "3510.64 / 1 kg"
+  },
+  "pond_s_vanishing_cream_28_gm": {
+    "id": "pond_s_vanishing_cream_28_gm",
+    "name": "Pond's Vanishing Cream",
+    "image": "https://i.chaldn.com/_mpimage/ponds-vanishing-cream-28-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D101422&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Creams",
+    "current_price": 60.0,
+    "current_unit": "28 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 60.0,
+        "unit": "28 gm",
+        "norm_price": 2142.86,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2142.86 / 1 kg"
+  },
+  "glow_lovely_advanced_multi_vitamin_cream_23_gm": {
+    "id": "glow_lovely_advanced_multi_vitamin_cream_23_gm",
+    "name": "Glow & Lovely Advanced Multi Vitamin Cream",
+    "image": "https://i.chaldn.com/_mpimage/glow-lovely-advanced-multi-vitamin-cream-23-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D153614&q=best&v=1&m=400&webp=1",
+    "category": "Creams",
+    "current_price": 95.0,
+    "current_unit": "23 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 95.0,
+        "unit": "23 gm",
+        "norm_price": 4130.43,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "4130.43 / 1 kg"
+  },
+  "pond_s_bright_beauty_spot_less_glow_day_cream_23_gm": {
+    "id": "pond_s_bright_beauty_spot_less_glow_day_cream_23_gm",
+    "name": "Pond's Bright Beauty Spot-less Glow Day Cream",
+    "image": "https://i.chaldn.com/_mpimage/ponds-bright-beauty-spot-less-glow-day-cream-23-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D101379&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Creams",
+    "current_price": 130.0,
+    "current_unit": "23 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 130.0,
+        "unit": "23 gm",
+        "norm_price": 5652.17,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "5652.17 / 1 kg"
+  },
+  "olay_night_moisturiser_total_effects_7_in_1_anti_ageing_50_gm": {
+    "id": "olay_night_moisturiser_total_effects_7_in_1_anti_ageing_50_gm",
+    "name": "Olay Night Moisturiser Total Effects 7 in 1 Anti Ageing",
+    "image": "https://i.chaldn.com/_mpimage/olay-night-moisturiser-total-effects-7-in-1-anti-ageing-50-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D131527&q=best&v=1&m=400&webp=1",
+    "category": "Creams",
+    "current_price": 1470.0,
+    "current_unit": "50 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 1470.0,
+        "unit": "50 gm",
+        "norm_price": 29400.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "29400.0 / 1 kg"
+  },
+  "tibet_snow_50_gm": {
+    "id": "tibet_snow_50_gm",
+    "name": "Tibet Snow",
+    "image": "https://i.chaldn.com/_mpimage/tibet-snow-50-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D95094&q=best&v=1&m=400&webp=1",
+    "category": "Creams",
+    "current_price": 70.0,
+    "current_unit": "50 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 70.0,
+        "unit": "50 gm",
+        "norm_price": 1400.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1400.0 / 1 kg"
+  },
+  "glow_lovely_winter_glow_face_cream_50_gm": {
+    "id": "glow_lovely_winter_glow_face_cream_50_gm",
+    "name": "Glow & Lovely Winter Glow Face Cream",
+    "image": "https://i.chaldn.com/_mpimage/glow-lovely-winter-glow-face-cream-50-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128821&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Creams",
+    "current_price": 170.0,
+    "current_unit": "50 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 170.0,
+        "unit": "50 gm",
+        "norm_price": 3400.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "3400.0 / 1 kg"
+  },
+  "sensodyne_daily_protection_toothpaste_20_gm": {
+    "id": "sensodyne_daily_protection_toothpaste_20_gm",
+    "name": "Sensodyne Daily Protection Toothpaste",
+    "image": "https://i.chaldn.com/_mpimage/sensodyne-daily-protection-toothpaste-20-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D179682&q=best&v=1&m=400&webp=1",
+    "category": "Toothpastes",
+    "current_price": 55.0,
+    "current_unit": "20 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 55.0,
+        "unit": "20 gm",
+        "norm_price": 2750.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2750.0 / 1 kg"
+  },
+  "closeup_toothpaste_menthol_fresh_145_gm": {
+    "id": "closeup_toothpaste_menthol_fresh_145_gm",
+    "name": "Closeup Toothpaste Menthol Fresh",
+    "image": "https://i.chaldn.com/_mpimage/closeup-toothpaste-menthol-fresh-145-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D166873&q=best&v=1&m=400&webp=1",
+    "category": "Toothpastes",
+    "current_price": 155.0,
+    "current_unit": "145 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 155.0,
+        "unit": "145 gm",
+        "norm_price": 1068.97,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1068.97 / 1 kg"
+  },
+  "medident_sensitive_care_toothpaste_100_gm": {
+    "id": "medident_sensitive_care_toothpaste_100_gm",
+    "name": "Medident Sensitive Care Toothpaste",
+    "image": "https://i.chaldn.com/_mpimage/medident-sensitive-care-toothpaste-100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D168533&q=best&v=1&m=400&webp=1",
+    "category": "Toothpastes",
+    "current_price": 120.0,
+    "current_unit": "100 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 120.0,
+        "unit": "100 gm",
+        "norm_price": 1200.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1200.0 / 1 kg"
+  },
+  "medident_g_gum_care_toothpaste_140_gm": {
+    "id": "medident_g_gum_care_toothpaste_140_gm",
+    "name": "Medident-G Gum Care Toothpaste",
+    "image": "https://i.chaldn.com/_mpimage/medident-g-gum-care-toothpaste-140-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D168532&q=best&v=1&m=400&webp=1",
+    "category": "Toothpastes",
+    "current_price": 170.0,
+    "current_unit": "140 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 170.0,
+        "unit": "140 gm",
+        "norm_price": 1214.29,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1214.29 / 1 kg"
+  },
+  "mediplus_toothpaste_70_gm": {
+    "id": "mediplus_toothpaste_70_gm",
+    "name": "Mediplus Toothpaste",
+    "image": "https://i.chaldn.com/_mpimage/mediplus-toothpaste-70-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D93883&q=best&v=1&m=400&webp=1",
+    "category": "Toothpastes",
+    "current_price": 70.0,
+    "current_unit": "70 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 70.0,
+        "unit": "70 gm",
+        "norm_price": 1000.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1000.0 / 1 kg"
+  },
+  "sensodyne_fresh_mint_toothpaste_40_gm": {
+    "id": "sensodyne_fresh_mint_toothpaste_40_gm",
+    "name": "Sensodyne Fresh Mint Toothpaste",
+    "image": "https://i.chaldn.com/_mpimage/sensodyne-fresh-mint-toothpaste-40-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D133480&q=best&v=1&m=400&webp=1",
+    "category": "Toothpastes",
+    "current_price": 110.0,
+    "current_unit": "40 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 110.0,
+        "unit": "40 gm",
+        "norm_price": 2750.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2750.0 / 1 kg"
+  },
+  "closeup_toothpaste_menthol_fresh_85_gm": {
+    "id": "closeup_toothpaste_menthol_fresh_85_gm",
+    "name": "Closeup Toothpaste Menthol Fresh",
+    "image": "https://i.chaldn.com/_mpimage/closeup-toothpaste-menthol-fresh-85-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D181179&q=best&v=1&m=400&webp=1",
+    "category": "Toothpastes",
+    "current_price": 105.0,
+    "current_unit": "85 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 105.0,
+        "unit": "85 gm",
+        "norm_price": 1235.29,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1235.29 / 1 kg"
+  },
+  "mediplus_ds_toothpaste_140_gm": {
+    "id": "mediplus_ds_toothpaste_140_gm",
+    "name": "Mediplus DS Toothpaste",
+    "image": "https://i.chaldn.com/_mpimage/mediplus-ds-toothpaste-140-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130669&q=best&v=1&m=400&webp=1",
+    "category": "Toothpastes",
+    "current_price": 135.0,
+    "current_unit": "140 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 135.0,
+        "unit": "140 gm",
+        "norm_price": 964.29,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "964.29 / 1 kg"
+  },
+  "mediplus_fluoride_gel_toothpaste_100_gm": {
+    "id": "mediplus_fluoride_gel_toothpaste_100_gm",
+    "name": "Mediplus Fluoride Gel Toothpaste",
+    "image": "https://i.chaldn.com/_mpimage/mediplus-fluoride-gel-toothpaste-100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130671&q=best&v=1&m=400&webp=1",
+    "category": "Toothpastes",
+    "current_price": 100.0,
+    "current_unit": "100 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 100.0,
+        "unit": "100 gm",
+        "norm_price": 1000.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1000.0 / 1 kg"
+  },
+  "pepsodent_toothpaste_germi_check__190_gm": {
+    "id": "pepsodent_toothpaste_germi_check__190_gm",
+    "name": "Pepsodent Toothpaste Germi Check +",
+    "image": "https://i.chaldn.com/_mpimage/pepsodent-toothpaste-germi-check-190-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D153837&q=best&v=1&m=400&webp=1",
+    "category": "Toothpastes",
+    "current_price": 170.0,
+    "current_unit": "190 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 170.0,
+        "unit": "190 gm",
+        "norm_price": 894.74,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "894.74 / 1 kg"
+  },
+  "colgate_max_fresh_blue_gel_toothpaste_150_gm": {
+    "id": "colgate_max_fresh_blue_gel_toothpaste_150_gm",
+    "name": "Colgate Max Fresh Blue Gel Toothpaste",
+    "image": "https://i.chaldn.com/_mpimage/colgate-max-fresh-blue-gel-toothpaste-150-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D127083&q=best&v=1&m=400&webp=1",
+    "category": "Toothpastes",
+    "current_price": 200.0,
+    "current_unit": "150 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 200.0,
+        "unit": "150 gm",
+        "norm_price": 1333.33,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1333.33 / 1 kg"
+  },
+  "pepsodent_toothpaste_germi_check__140_gm": {
+    "id": "pepsodent_toothpaste_germi_check__140_gm",
+    "name": "Pepsodent Toothpaste Germi Check +",
+    "image": "https://i.chaldn.com/_mpimage/pepsodent-toothpaste-germi-check-140-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D159931&q=best&v=1&m=400&webp=1",
+    "category": "Toothpastes",
+    "current_price": 125.0,
+    "current_unit": "140 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 125.0,
+        "unit": "140 gm",
+        "norm_price": 892.86,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "892.86 / 1 kg"
+  },
+  "pepsodent_toothpaste_germi_check__85_gm": {
+    "id": "pepsodent_toothpaste_germi_check__85_gm",
+    "name": "Pepsodent Toothpaste Germi Check +",
+    "image": "https://i.chaldn.com/_mpimage/pepsodent-toothpaste-germi-check-85-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D155624&q=best&v=1&m=400&webp=1",
+    "category": "Toothpastes",
+    "current_price": 95.0,
+    "current_unit": "85 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 95.0,
+        "unit": "85 gm",
+        "norm_price": 1117.65,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1117.65 / 1 kg"
+  },
+  "sensodyne_repair_protect_toothpaste_100_gm": {
+    "id": "sensodyne_repair_protect_toothpaste_100_gm",
+    "name": "Sensodyne Repair & Protect Toothpaste",
+    "image": "https://i.chaldn.com/_mpimage/sensodyne-repair-protect-toothpaste-100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D179674&q=best&v=1&m=400&webp=1",
+    "category": "Toothpastes",
+    "current_price": 475.0,
+    "current_unit": "100 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 475.0,
+        "unit": "100 gm",
+        "norm_price": 4750.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "4750.0 / 1 kg"
+  },
+  "parodontax_ultra_clean_toothpaste_75_gm": {
+    "id": "parodontax_ultra_clean_toothpaste_75_gm",
+    "name": "Parodontax ultra Clean Toothpaste",
+    "image": "https://i.chaldn.com/_mpimage/parodontax-ultra-clean-toothpaste-75-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D179671&q=best&v=1&m=400&webp=1",
+    "category": "Toothpastes",
+    "current_price": 250.0,
+    "current_unit": "75 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 250.0,
+        "unit": "75 gm",
+        "norm_price": 3333.33,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "3333.33 / 1 kg"
+  },
+  "parodntax_daily_flouride_toothpaste_75_gm": {
+    "id": "parodntax_daily_flouride_toothpaste_75_gm",
+    "name": "Parodntax Daily Flouride Toothpaste",
+    "image": "https://i.chaldn.com/_mpimage/parodntax-daily-flouride-toothpaste-75-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D179670&q=best&v=1&m=400&webp=1",
+    "category": "Toothpastes",
+    "current_price": 220.0,
+    "current_unit": "75 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 220.0,
+        "unit": "75 gm",
+        "norm_price": 2933.33,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2933.33 / 1 kg"
+  },
+  "magic_herbal_toothpaste_100_gm": {
+    "id": "magic_herbal_toothpaste_100_gm",
+    "name": "Magic Herbal Toothpaste",
+    "image": "https://i.chaldn.com/_mpimage/magic-herbal-toothpaste-100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D185685&q=best&v=1&m=400&webp=1",
+    "category": "Toothpastes",
+    "current_price": 90.0,
+    "current_unit": "100 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 90.0,
+        "unit": "100 gm",
+        "norm_price": 900.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "900.0 / 1 kg"
+  },
+  "colgate_kids_premium_toothpaste_3_5_years__80_gm": {
+    "id": "colgate_kids_premium_toothpaste_3_5_years__80_gm",
+    "name": "Colgate Kids Premium Toothpaste (3-5 Years)",
+    "image": "https://i.chaldn.com/_mpimage/colgate-kids-premium-toothpaste-3-5-years-80-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D117609&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Toothpastes",
+    "current_price": 320.0,
+    "current_unit": "80 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 320.0,
+        "unit": "80 gm",
+        "norm_price": 4000.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "4000.0 / 1 kg"
+  },
+  "colgate_kids_premium_toothpaste_0_2_years__70_gm": {
+    "id": "colgate_kids_premium_toothpaste_0_2_years__70_gm",
+    "name": "Colgate Kids Premium Toothpaste (0-2 Years)",
+    "image": "https://i.chaldn.com/_mpimage/colgate-kids-premium-toothpaste-0-2-years-70-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D117608&q=best&v=1&m=400&webp=1",
+    "category": "Toothpastes",
+    "current_price": 320.0,
+    "current_unit": "70 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 320.0,
+        "unit": "70 gm",
+        "norm_price": 4571.43,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "4571.43 / 1 kg"
+  },
+  "dabur_red_toothpaste_50_gm": {
+    "id": "dabur_red_toothpaste_50_gm",
+    "name": "Dabur Red Toothpaste",
+    "image": "https://i.chaldn.com/_mpimage/dabur-red-toothpaste-50-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D127403&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Toothpastes",
+    "current_price": 45.0,
+    "current_unit": "50 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 45.0,
+        "unit": "50 gm",
+        "norm_price": 900.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "900.0 / 1 kg"
+  },
+  "dabur_red_toothpaste_super_saver_pack__300_gm": {
+    "id": "dabur_red_toothpaste_super_saver_pack__300_gm",
+    "name": "Dabur Red Toothpaste (Super Saver Pack)",
+    "image": "https://i.chaldn.com/_mpimage/dabur-red-toothpaste-super-saver-pack-300-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D93102&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Toothpastes",
+    "current_price": 155.0,
+    "current_unit": "300 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 155.0,
+        "unit": "300 gm",
+        "norm_price": 516.67,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "516.67 / 1 kg"
+  },
+  "pepsodent_awesome_orange_toothpaste_45_gm": {
+    "id": "pepsodent_awesome_orange_toothpaste_45_gm",
+    "name": "Pepsodent Awesome Orange Toothpaste",
+    "image": "https://i.chaldn.com/_mpimage/pepsodent-awesome-orange-toothpaste-45-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128294&q=best&v=1&m=400&webp=1",
+    "category": "Toothpastes",
+    "current_price": 85.0,
+    "current_unit": "45 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 85.0,
+        "unit": "45 gm",
+        "norm_price": 1888.89,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1888.89 / 1 kg"
+  },
+  "sensodyne_fresh_gel_toothpaste_free_brush_1_pcs__150_gm": {
+    "id": "sensodyne_fresh_gel_toothpaste_free_brush_1_pcs__150_gm",
+    "name": "Sensodyne Fresh Gel Toothpaste (Free Brush 1 pcs)",
+    "image": "https://i.chaldn.com/_mpimage/sensodyne-fresh-gel-toothpaste-free-brush-1-pcs-150-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D133475&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Toothpastes",
+    "current_price": 350.0,
+    "current_unit": "150 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 350.0,
+        "unit": "150 gm",
+        "norm_price": 2333.33,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2333.33 / 1 kg"
+  },
+  "sensodyne_fresh_mint_toothpaste_free_brush_1_pcs__150_gm": {
+    "id": "sensodyne_fresh_mint_toothpaste_free_brush_1_pcs__150_gm",
+    "name": "Sensodyne Fresh Mint Toothpaste (Free Brush 1 pcs)",
+    "image": "https://i.chaldn.com/_mpimage/sensodyne-fresh-mint-toothpaste-free-brush-1-pcs-150-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D133477&q=best&v=1&m=400&webp=1",
+    "category": "Toothpastes",
+    "current_price": 350.0,
+    "current_unit": "150 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 350.0,
+        "unit": "150 gm",
+        "norm_price": 2333.33,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2333.33 / 1 kg"
+  },
+  "sensodyne_rapid_relief_toothpaste_40_gm": {
+    "id": "sensodyne_rapid_relief_toothpaste_40_gm",
+    "name": "Sensodyne Rapid Relief Toothpaste",
+    "image": "https://i.chaldn.com/_mpimage/sensodyne-rapid-relief-toothpaste-40-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D133482&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Toothpastes",
+    "current_price": 180.0,
+    "current_unit": "40 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 180.0,
+        "unit": "40 gm",
+        "norm_price": 4500.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "4500.0 / 1 kg"
+  },
+  "sensodyne_repair_and_protect_toothpaste_70_gm": {
+    "id": "sensodyne_repair_and_protect_toothpaste_70_gm",
+    "name": "Sensodyne Repair and Protect Toothpaste",
+    "image": "https://i.chaldn.com/_mpimage/sensodyne-repair-and-protect-toothpaste-70-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D84103&q=best&v=1&m=400&webp=1",
+    "category": "Toothpastes",
+    "current_price": 360.0,
+    "current_unit": "70 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 360.0,
+        "unit": "70 gm",
+        "norm_price": 5142.86,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "5142.86 / 1 kg"
+  },
+  "whiteplus_toothpaste_200_gm": {
+    "id": "whiteplus_toothpaste_200_gm",
+    "name": "WhitePlus Toothpaste",
+    "image": "https://i.chaldn.com/_mpimage/whiteplus-toothpaste-200-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D138283&q=best&v=1&m=400&webp=1",
+    "category": "Toothpastes",
+    "current_price": 160.0,
+    "current_unit": "200 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 160.0,
+        "unit": "200 gm",
+        "norm_price": 800.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "800.0 / 1 kg"
+  },
+  "himalaya_complete_care_toothpaste_175_gm": {
+    "id": "himalaya_complete_care_toothpaste_175_gm",
+    "name": "Himalaya Complete Care Toothpaste",
+    "image": "https://i.chaldn.com/_mpimage/himalaya-complete-care-toothpaste-175-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D129247&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Toothpastes",
+    "current_price": 280.0,
+    "current_unit": "175 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 280.0,
+        "unit": "175 gm",
+        "norm_price": 1600.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1600.0 / 1 kg"
+  },
+  "pepsodent_toothpaste_sensitive_expert_gum_care_140_gm": {
+    "id": "pepsodent_toothpaste_sensitive_expert_gum_care_140_gm",
+    "name": "Pepsodent Toothpaste Sensitive Expert Gum Care",
+    "image": "https://i.chaldn.com/_mpimage/pepsodent-toothpaste-sensitive-expert-gum-care-140-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D151066&q=best&v=1&m=400&webp=1",
+    "category": "Toothpastes",
+    "current_price": 250.0,
+    "current_unit": "140 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 250.0,
+        "unit": "140 gm",
+        "norm_price": 1785.71,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1785.71 / 1 kg"
+  },
+  "sensodyne_deep_clean_toothpaste_70_gm": {
+    "id": "sensodyne_deep_clean_toothpaste_70_gm",
+    "name": "Sensodyne Deep Clean Toothpaste",
+    "image": "https://i.chaldn.com/_mpimage/sensodyne-deep-clean-toothpaste-70-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D133474&q=best&v=1&m=400&webp=1",
+    "category": "Toothpastes",
+    "current_price": 200.0,
+    "current_unit": "70 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 200.0,
+        "unit": "70 gm",
+        "norm_price": 2857.14,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2857.14 / 1 kg"
+  },
+  "pepsodent_toothpaste_sensitive_expert_professional_140_gm": {
+    "id": "pepsodent_toothpaste_sensitive_expert_professional_140_gm",
+    "name": "Pepsodent Toothpaste Sensitive Expert Professional",
+    "image": "https://i.chaldn.com/_mpimage/pepsodent-toothpaste-sensitive-expert-professional-140-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D163422&q=best&v=1&m=400&webp=1",
+    "category": "Toothpastes",
+    "current_price": 220.0,
+    "current_unit": "140 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 220.0,
+        "unit": "140 gm",
+        "norm_price": 1571.43,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1571.43 / 1 kg"
+  },
+  "whiteplus_enamel_guard_toothpaste_100_gm": {
+    "id": "whiteplus_enamel_guard_toothpaste_100_gm",
+    "name": "WhitePlus Enamel Guard Toothpaste",
+    "image": "https://i.chaldn.com/_mpimage/whiteplus-enamel-guard-toothpaste-100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D53557&q=best&v=1&m=400&webp=1",
+    "category": "Toothpastes",
+    "current_price": 110.0,
+    "current_unit": "100 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 110.0,
+        "unit": "100 gm",
+        "norm_price": 1100.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1100.0 / 1 kg"
+  },
+  "brushup_fresh_alpine_mint_toothpaste_100_gm": {
+    "id": "brushup_fresh_alpine_mint_toothpaste_100_gm",
+    "name": "BrushUp Fresh Alpine Mint Toothpaste",
+    "image": "https://i.chaldn.com/_mpimage/brushup-fresh-alpine-mint-toothpaste-100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D93880&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Toothpastes",
+    "current_price": 70.0,
+    "current_unit": "100 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 70.0,
+        "unit": "100 gm",
+        "norm_price": 700.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "700.0 / 1 kg"
+  },
+  "sensodyne_rapid_relief_toothpaste_80_gm": {
+    "id": "sensodyne_rapid_relief_toothpaste_80_gm",
+    "name": "Sensodyne Rapid Relief Toothpaste",
+    "image": "https://i.chaldn.com/_mpimage/sensodyne-rapid-relief-toothpaste-80-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D133481&q=best&v=1&m=400&webp=1",
+    "category": "Toothpastes",
+    "current_price": 330.0,
+    "current_unit": "80 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 330.0,
+        "unit": "80 gm",
+        "norm_price": 4125.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "4125.0 / 1 kg"
+  },
+  "colgate_total_advance_health_toothpaste_120_gm": {
+    "id": "colgate_total_advance_health_toothpaste_120_gm",
+    "name": "Colgate Total Advance Health Toothpaste",
+    "image": "https://i.chaldn.com/_mpimage/colgate-total-advance-health-toothpaste-120-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D127136&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Toothpastes",
+    "current_price": 320.0,
+    "current_unit": "120 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 320.0,
+        "unit": "120 gm",
+        "norm_price": 2666.67,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2666.67 / 1 kg"
+  },
+  "sensodyne_fresh_mint_toothpaste_75_gm": {
+    "id": "sensodyne_fresh_mint_toothpaste_75_gm",
+    "name": "Sensodyne Fresh Mint Toothpaste",
+    "image": "https://i.chaldn.com/_mpimage/sensodyne-fresh-mint-toothpaste-75-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D133479&q=best&v=1&m=400&webp=1",
+    "category": "Toothpastes",
+    "current_price": 200.0,
+    "current_unit": "75 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 200.0,
+        "unit": "75 gm",
+        "norm_price": 2666.67,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2666.67 / 1 kg"
+  },
+  "zact_whitening_toothpaste_150_gm": {
+    "id": "zact_whitening_toothpaste_150_gm",
+    "name": "Zact Whitening Toothpaste",
+    "image": "https://i.chaldn.com/_mpimage/zact-whitening-toothpaste-150-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D138401&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Toothpastes",
+    "current_price": 347.0,
+    "current_unit": "150 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 347.0,
+        "unit": "150 gm",
+        "norm_price": 2313.33,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2313.33 / 1 kg"
+  },
+  "sensodyne_fresh_gel_toothpaste_75_gm": {
+    "id": "sensodyne_fresh_gel_toothpaste_75_gm",
+    "name": "Sensodyne Fresh Gel Toothpaste",
+    "image": "https://i.chaldn.com/_mpimage/sensodyne-fresh-gel-toothpaste-75-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D133476&q=best&v=1&m=400&webp=1",
+    "category": "Toothpastes",
+    "current_price": 200.0,
+    "current_unit": "75 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 200.0,
+        "unit": "75 gm",
+        "norm_price": 2666.67,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2666.67 / 1 kg"
+  },
+  "sensodyne_fresh_gel_toothpaste_150_gm": {
+    "id": "sensodyne_fresh_gel_toothpaste_150_gm",
+    "name": "Sensodyne Fresh Gel Toothpaste",
+    "image": "https://i.chaldn.com/_mpimage/sensodyne-fresh-gel-toothpaste-150-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D84074&q=best&v=1&m=400&webp=1",
+    "category": "Toothpastes",
+    "current_price": 350.0,
+    "current_unit": "150 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 350.0,
+        "unit": "150 gm",
+        "norm_price": 2333.33,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2333.33 / 1 kg"
+  },
+  "colgate_anticavity_active_salt_toothpaste_190_gm": {
+    "id": "colgate_anticavity_active_salt_toothpaste_190_gm",
+    "name": "Colgate Anticavity Active Salt Toothpaste",
+    "image": "https://i.chaldn.com/_mpimage/colgate-anticavity-active-salt-toothpaste-190-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D186379&q=best&v=1&m=400&webp=1",
+    "category": "Toothpastes",
+    "current_price": 220.0,
+    "current_unit": "190 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 220.0,
+        "unit": "190 gm",
+        "norm_price": 1157.89,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1157.89 / 1 kg"
+  },
+  "colgate_max_fresh_red_gel_toothpaste_150_gm": {
+    "id": "colgate_max_fresh_red_gel_toothpaste_150_gm",
+    "name": "Colgate Max Fresh Red Gel Toothpaste",
+    "image": "https://i.chaldn.com/_mpimage/colgate-max-fresh-red-gel-toothpaste-150-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D127084&q=best&v=1&m=400&webp=1",
+    "category": "Toothpastes",
+    "current_price": 200.0,
+    "current_unit": "150 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 200.0,
+        "unit": "150 gm",
+        "norm_price": 1333.33,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1333.33 / 1 kg"
+  },
+  "colgate_visible_white_toothpaste_100_gm": {
+    "id": "colgate_visible_white_toothpaste_100_gm",
+    "name": "Colgate Visible White Toothpaste",
+    "image": "https://i.chaldn.com/_mpimage/colgate-visible-white-toothpaste-100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D62922&q=best&v=1&m=400&webp=1",
+    "category": "Toothpastes",
+    "current_price": 350.0,
+    "current_unit": "100 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 350.0,
+        "unit": "100 gm",
+        "norm_price": 3500.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "3500.0 / 1 kg"
+  },
+  "zact_smokers_toothpaste_150_gm": {
+    "id": "zact_smokers_toothpaste_150_gm",
+    "name": "Zact Smokers' Toothpaste",
+    "image": "https://i.chaldn.com/_mpimage/zact-smokers-toothpaste-150-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D138400&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Toothpastes",
+    "current_price": 320.0,
+    "current_unit": "150 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 320.0,
+        "unit": "150 gm",
+        "norm_price": 2133.33,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2133.33 / 1 kg"
+  },
+  "sensodyne_fresh_mint_toothpaste_150_gm": {
+    "id": "sensodyne_fresh_mint_toothpaste_150_gm",
+    "name": "Sensodyne Fresh Mint Toothpaste",
+    "image": "https://i.chaldn.com/_mpimage/sensodyne-fresh-mint-toothpaste-150-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D133478&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Toothpastes",
+    "current_price": 350.0,
+    "current_unit": "150 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 350.0,
+        "unit": "150 gm",
+        "norm_price": 2333.33,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2333.33 / 1 kg"
+  },
+  "mediplus_ds_toothpaste_90_gm": {
+    "id": "mediplus_ds_toothpaste_90_gm",
+    "name": "Mediplus DS Toothpaste",
+    "image": "https://i.chaldn.com/_mpimage/mediplus-ds-toothpaste-90-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130670&q=best&v=1&m=400&webp=1",
+    "category": "Toothpastes",
+    "current_price": 90.0,
+    "current_unit": "90 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 90.0,
+        "unit": "90 gm",
+        "norm_price": 1000.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1000.0 / 1 kg"
+  },
+  "yc_men_oil_control_face_wash_100_ml": {
+    "id": "yc_men_oil_control_face_wash_100_ml",
+    "name": "YC Men Oil Control Face Wash",
+    "image": "https://i.chaldn.com/_mpimage/yc-men-oil-control-face-wash-100-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D85223&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Men's Facewash",
+    "current_price": 624.0,
+    "current_unit": "100 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 624.0,
+        "unit": "100 ml",
+        "norm_price": 6240.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "6240.0 / 1 L"
+  },
+  "biore_men_s_acne_bacterior_face_wash_100_gm": {
+    "id": "biore_men_s_acne_bacterior_face_wash_100_gm",
+    "name": "Biore Men's Acne Bacterior Face Wash",
+    "image": "https://i.chaldn.com/_mpimage/biore-mens-acne-bacterior-face-wash-100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D125823&q=best&v=1&m=400&webp=1",
+    "category": "Men's Facewash",
+    "current_price": 700.0,
+    "current_unit": "100 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 700.0,
+        "unit": "100 gm",
+        "norm_price": 7000.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "7000.0 / 1 kg"
+  },
+  "himalaya_men_power_glow_licorice_face_wash_100_ml": {
+    "id": "himalaya_men_power_glow_licorice_face_wash_100_ml",
+    "name": "Himalaya Men Power Glow Licorice Face Wash",
+    "image": "https://i.chaldn.com/_mpimage/himalaya-men-power-glow-licorice-face-wash-100-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D103353&q=best&v=1&m=400&webp=1",
+    "category": "Men's Facewash",
+    "current_price": 250.0,
+    "current_unit": "100 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 250.0,
+        "unit": "100 ml",
+        "norm_price": 2500.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "2500.0 / 1 L"
+  },
+  "himalaya_men_acne_clear_neem_face_wash_100_ml": {
+    "id": "himalaya_men_acne_clear_neem_face_wash_100_ml",
+    "name": "Himalaya Men Acne Clear Neem Face Wash",
+    "image": "https://i.chaldn.com/_mpimage/himalaya-men-acne-clear-neem-face-wash-100-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D179534&q=best&v=1&m=400&webp=1",
+    "category": "Men's Facewash",
+    "current_price": 250.0,
+    "current_unit": "100 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 250.0,
+        "unit": "100 ml",
+        "norm_price": 2500.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "2500.0 / 1 L"
+  },
+  "biore_mens_acne_action_face_wash_100_gm": {
+    "id": "biore_mens_acne_action_face_wash_100_gm",
+    "name": "Biore Mens Acne Action Face Wash",
+    "image": "https://i.chaldn.com/_mpimage/biore-mens-acne-action-face-wash-100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D125821&q=best&v=1&m=400&webp=1",
+    "category": "Men's Facewash",
+    "current_price": 450.0,
+    "current_unit": "100 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 450.0,
+        "unit": "100 gm",
+        "norm_price": 4500.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "4500.0 / 1 kg"
+  },
+  "garnier_men_power_white_fairness_face_wash_100_gm": {
+    "id": "garnier_men_power_white_fairness_face_wash_100_gm",
+    "name": "Garnier Men Power White Fairness Face Wash",
+    "image": "https://i.chaldn.com/_mpimage/garnier-men-power-white-fairness-face-wash-100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D114489&q=best&v=1&m=400&webp=1",
+    "category": "Men's Facewash",
+    "current_price": 505.0,
+    "current_unit": "100 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 505.0,
+        "unit": "100 gm",
+        "norm_price": 5050.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "5050.0 / 1 kg"
+  },
+  "biore_mans_bright_action_face_wash_100_gm": {
+    "id": "biore_mans_bright_action_face_wash_100_gm",
+    "name": "Biore Mans Bright Action Face Wash",
+    "image": "https://i.chaldn.com/_mpimage/biore-mans-bright-action-face-wash-100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D125818&q=best&v=1&m=400&webp=1",
+    "category": "Men's Facewash",
+    "current_price": 450.0,
+    "current_unit": "100 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 450.0,
+        "unit": "100 gm",
+        "norm_price": 4500.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "4500.0 / 1 kg"
+  },
+  "men_s_glow_handsome_face_wash_rapid_action_100_gm": {
+    "id": "men_s_glow_handsome_face_wash_rapid_action_100_gm",
+    "name": "Men's Glow & Handsome Face Wash Rapid Action",
+    "image": "https://i.chaldn.com/_mpimage/mens-glow-handsome-face-wash-rapid-action-100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D180812&q=best&v=1&m=400&webp=1",
+    "category": "Men's Facewash",
+    "current_price": 190.0,
+    "current_unit": "100 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 190.0,
+        "unit": "100 gm",
+        "norm_price": 1900.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1900.0 / 1 kg"
+  },
+  "st_ives_acne_control_apricot_scrub_283_gm": {
+    "id": "st_ives_acne_control_apricot_scrub_283_gm",
+    "name": "St. Ives Acne Control Apricot Scrub",
+    "image": "https://i.chaldn.com/_mpimage/st-ives-acne-control-apricot-scrub-283-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D134997&q=best&v=1&m=400&webp=1",
+    "category": "Men's Facewash",
+    "current_price": 1050.0,
+    "current_unit": "283 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 1050.0,
+        "unit": "283 gm",
+        "norm_price": 3710.25,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "3710.25 / 1 kg"
+  },
+  "garnier_men_acno_fight_face_wash_100_gm": {
+    "id": "garnier_men_acno_fight_face_wash_100_gm",
+    "name": "Garnier Men Acno Fight Face Wash",
+    "image": "https://i.chaldn.com/_mpimage/garnier-men-acno-fight-face-wash-100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D114486&q=best&v=1&m=400&webp=1",
+    "category": "Men's Facewash",
+    "current_price": 505.0,
+    "current_unit": "100 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 505.0,
+        "unit": "100 gm",
+        "norm_price": 5050.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "5050.0 / 1 kg"
+  },
+  "nivea_men_protect_care_face_wash_100_ml": {
+    "id": "nivea_men_protect_care_face_wash_100_ml",
+    "name": "Nivea Men Protect & Care Face Wash",
+    "image": "https://i.chaldn.com/_mpimage/nivea-men-protect-care-face-wash-100-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D104969&q=best&v=1&m=400&webp=1",
+    "category": "Men's Facewash",
+    "current_price": 500.0,
+    "current_unit": "100 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 500.0,
+        "unit": "100 ml",
+        "norm_price": 5000.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "5000.0 / 1 L"
+  },
+  "glow_handsome_rapid_action_instant_brightness_facewash_50_gm": {
+    "id": "glow_handsome_rapid_action_instant_brightness_facewash_50_gm",
+    "name": "Glow & Handsome Rapid Action Instant Brightness Facewash",
+    "image": "https://i.chaldn.com/_mpimage/glow-handsome-rapid-action-instant-brightness-facewash-50-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130734&q=best&v=1&m=400&webp=1",
+    "category": "Men's Facewash",
+    "current_price": 140.0,
+    "current_unit": "50 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 140.0,
+        "unit": "50 gm",
+        "norm_price": 2800.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2800.0 / 1 kg"
+  },
+  "kool_2_in_1_after_shave_gel_cream_50_gm": {
+    "id": "kool_2_in_1_after_shave_gel_cream_50_gm",
+    "name": "Kool 2 In 1 After Shave Gel Cream",
+    "image": "https://i.chaldn.com/_mpimage/kool-2-in-1-after-shave-gel-cream-50-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D146811&q=best&v=1&m=400&webp=1",
+    "category": "Shaving Needs",
+    "current_price": 140.0,
+    "current_unit": "50 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 140.0,
+        "unit": "50 gm",
+        "norm_price": 2800.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2800.0 / 1 kg"
+  },
+  "nivea_men_cool_kick_shaving_gel_200_ml": {
+    "id": "nivea_men_cool_kick_shaving_gel_200_ml",
+    "name": "Nivea Men Cool Kick Shaving Gel",
+    "image": "https://i.chaldn.com/_mpimage/nivea-men-cool-kick-shaving-gel-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D103663&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Shaving Needs",
+    "current_price": 375.0,
+    "current_unit": "200 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 375.0,
+        "unit": "200 ml",
+        "norm_price": 1875.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1875.0 / 1 L"
+  },
+  "kool_after_shave_lotion_50_ml": {
+    "id": "kool_after_shave_lotion_50_ml",
+    "name": "Kool After Shave Lotion",
+    "image": "https://i.chaldn.com/_mpimage/kool-after-shave-lotion-50-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D129845&q=best&v=1&m=400&webp=1",
+    "category": "Shaving Needs",
+    "current_price": 200.0,
+    "current_unit": "50 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 200.0,
+        "unit": "50 ml",
+        "norm_price": 4000.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "4000.0 / 1 L"
+  },
+  "nivea_men_sensitive_after_shave_lotion_100_ml": {
+    "id": "nivea_men_sensitive_after_shave_lotion_100_ml",
+    "name": "Nivea Men Sensitive After Shave Lotion",
+    "image": "https://i.chaldn.com/_mpimage/nivea-men-sensitive-after-shave-lotion-100-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D104979&q=best&v=1&m=400&webp=1",
+    "category": "Shaving Needs",
+    "current_price": 550.0,
+    "current_unit": "100 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 550.0,
+        "unit": "100 ml",
+        "norm_price": 5500.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "5500.0 / 1 L"
+  },
+  "kool_ultra_glide_shaving_foam_200_ml": {
+    "id": "kool_ultra_glide_shaving_foam_200_ml",
+    "name": "Kool Ultra Glide Shaving Foam",
+    "image": "https://i.chaldn.com/_mpimage/kool-ultra-glide-shaving-foam-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D155413&q=best&v=1&m=400&webp=1",
+    "category": "Shaving Needs",
+    "current_price": 350.0,
+    "current_unit": "200 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 350.0,
+        "unit": "200 ml",
+        "norm_price": 1750.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1750.0 / 1 L"
+  },
+  "kool_after_shave_lotion_100_ml": {
+    "id": "kool_after_shave_lotion_100_ml",
+    "name": "Kool After Shave Lotion",
+    "image": "https://i.chaldn.com/_mpimage/kool-after-shave-lotion-100-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D129844&q=best&v=1&m=400&webp=1",
+    "category": "Shaving Needs",
+    "current_price": 300.0,
+    "current_unit": "100 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 300.0,
+        "unit": "100 ml",
+        "norm_price": 3000.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "3000.0 / 1 L"
+  },
+  "kool_frosty_shaving_cream_50_gm": {
+    "id": "kool_frosty_shaving_cream_50_gm",
+    "name": "Kool Frosty Shaving Cream",
+    "image": "https://i.chaldn.com/_mpimage/kool-frosty-shaving-cream-50-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D93741&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Shaving Needs",
+    "current_price": 55.0,
+    "current_unit": "50 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 55.0,
+        "unit": "50 gm",
+        "norm_price": 1100.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1100.0 / 1 kg"
+  },
+  "veet_pure_hair_removal_cream_free_dettol_original_soap_75_gm__100_gm": {
+    "id": "veet_pure_hair_removal_cream_free_dettol_original_soap_75_gm__100_gm",
+    "name": "Veet Pure Hair Removal Cream (Free Dettol Original Soap 75 gm)",
+    "image": "https://i.chaldn.com/_mpimage/veet-pure-hair-removal-cream-free-dettol-original-soap-75-gm-100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D187721&q=best&v=1&m=400&webp=1",
+    "category": "Feminine Care",
+    "current_price": 350.0,
+    "current_unit": "100 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 350.0,
+        "unit": "100 gm",
+        "norm_price": 3500.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "3500.0 / 1 kg"
+  },
+  "gsn1_grace_wings_sanitary_napkin_regular_flow_panty_5_pads_": {
+    "id": "gsn1_grace_wings_sanitary_napkin_regular_flow_panty_5_pads_",
+    "name": "GSN1 Grace Wings Sanitary Napkin Regular Flow (Panty) 5 pads",
+    "image": "https://i.chaldn.com/_mpimage/gsn1-grace-wings-sanitary-napkin-regular-flow-panty-5-pads?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D186404&q=best&v=1&m=400&webp=1",
+    "category": "Feminine Care",
+    "current_price": 65.0,
+    "current_unit": "",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 65.0,
+        "unit": "",
+        "norm_price": 65.0,
+        "norm_unit": ""
+      }
+    ],
+    "norm_price_display": "65.0 / "
+  },
+  "qsn4_queen_sanitary_napkin_panty_liner_25_pcs": {
+    "id": "qsn4_queen_sanitary_napkin_panty_liner_25_pcs",
+    "name": "QSN4 Queen Sanitary Napkin Panty Liner",
+    "image": "https://i.chaldn.com/_mpimage/qsn4-queen-sanitary-napkin-panty-liner-25-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D185202&q=best&v=1&m=400&webp=1",
+    "category": "Feminine Care",
+    "current_price": 245.0,
+    "current_unit": "25 pcs",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 245.0,
+        "unit": "25 pcs",
+        "norm_price": 9.8,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "9.8 / 1 pc"
+  },
+  "vsn1_venus_premium_sanitary_napkin_panty__8_pcs": {
+    "id": "vsn1_venus_premium_sanitary_napkin_panty__8_pcs",
+    "name": "VSN1 Venus Premium Sanitary Napkin (Panty)",
+    "image": "https://i.chaldn.com/_mpimage/vsn1-venus-premium-sanitary-napkin-panty-8-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D185122&q=best&v=1&m=400&webp=1",
+    "category": "Feminine Care",
+    "current_price": 250.0,
+    "current_unit": "8 pcs",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 250.0,
+        "unit": "8 pcs",
+        "norm_price": 31.25,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "31.25 / 1 pc"
+  },
+  "qsn2_queen_plus_sanitary_napkin_panty__10_pcs": {
+    "id": "qsn2_queen_plus_sanitary_napkin_panty__10_pcs",
+    "name": "QSN2 Queen Plus Sanitary Napkin (Panty)",
+    "image": "https://i.chaldn.com/_mpimage/qsn2-queen-plus-sanitary-napkin-panty-10-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D185120&q=best&v=1&m=400&webp=1",
+    "category": "Feminine Care",
+    "current_price": 150.0,
+    "current_unit": "10 pcs",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 150.0,
+        "unit": "10 pcs",
+        "norm_price": 15.0,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "15.0 / 1 pc"
+  },
+  "veet_pure_hair_removal_cream_normal_skin_with_organic_aloe_vera_rose_extracts_25_gm": {
+    "id": "veet_pure_hair_removal_cream_normal_skin_with_organic_aloe_vera_rose_extracts_25_gm",
+    "name": "Veet Pure Hair Removal Cream Normal Skin With Organic Aloe Vera & Rose Extracts",
+    "image": "https://i.chaldn.com/_mpimage/veet-pure-hair-removal-cream-normal-skin-with-organic-aloe-vera-rose-extracts-25-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D174824&q=best&v=1&m=400&webp=1",
+    "category": "Feminine Care",
+    "current_price": 110.0,
+    "current_unit": "25 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 110.0,
+        "unit": "25 gm",
+        "norm_price": 4400.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "4400.0 / 1 kg"
+  },
+  "veet_pure_hair_removal_cream_normal_skin_with_organic_aloe_vera_rose_extracts_100_gm": {
+    "id": "veet_pure_hair_removal_cream_normal_skin_with_organic_aloe_vera_rose_extracts_100_gm",
+    "name": "Veet Pure Hair Removal Cream Normal Skin With Organic Aloe Vera & Rose Extracts",
+    "image": "https://i.chaldn.com/_mpimage/veet-pure-hair-removal-cream-normal-skin-with-organic-aloe-vera-rose-extracts-100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D168416&q=best&v=1&m=400&webp=1",
+    "category": "Feminine Care",
+    "current_price": 350.0,
+    "current_unit": "100 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 350.0,
+        "unit": "100 gm",
+        "norm_price": 3500.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "3500.0 / 1 kg"
+  },
+  "veet_pure_hair_removal_cream_sensitive_skin_with_aloe_vera_extract_25_gm": {
+    "id": "veet_pure_hair_removal_cream_sensitive_skin_with_aloe_vera_extract_25_gm",
+    "name": "Veet Pure Hair Removal Cream Sensitive Skin With Aloe Vera Extract",
+    "image": "https://i.chaldn.com/_mpimage/veet-pure-hair-removal-cream-sensitive-skin-with-aloe-vera-extract-25-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D153089&q=best&v=1&m=400&webp=1",
+    "category": "Feminine Care",
+    "current_price": 110.0,
+    "current_unit": "25 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 110.0,
+        "unit": "25 gm",
+        "norm_price": 4400.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "4400.0 / 1 kg"
+  },
+  "c17_fresh_anonna_sanitary_napkin_belt_system_15_pads_": {
+    "id": "c17_fresh_anonna_sanitary_napkin_belt_system_15_pads_",
+    "name": "C17 Fresh Anonna Sanitary Napkin Belt system 15 pads",
+    "image": "https://i.chaldn.com/_mpimage/c17-fresh-anonna-sanitary-napkin-belt-system-15-pads?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D131178&q=best&v=1&m=400&webp=1",
+    "category": "Feminine Care",
+    "current_price": 110.0,
+    "current_unit": "",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 110.0,
+        "unit": "",
+        "norm_price": 110.0,
+        "norm_unit": ""
+      }
+    ],
+    "norm_price_display": "110.0 / "
+  },
+  "af2_smc_joya_all_night_wings_8_pcs": {
+    "id": "af2_smc_joya_all_night_wings_8_pcs",
+    "name": "AF2 SMC Joya All Night Wings",
+    "image": "https://i.chaldn.com/_mpimage/af2-smc-joya-all-night-wings-8-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D61678&q=low&v=1&m=400&m=400&webp=1",
+    "category": "Feminine Care",
+    "current_price": 120.0,
+    "current_unit": "8 pcs",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 120.0,
+        "unit": "8 pcs",
+        "norm_price": 15.0,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "15.0 / 1 pc"
+  },
+  "intimia_ultra_thin_peaceful_night_xl_sanitary_napkin_6_pcs": {
+    "id": "intimia_ultra_thin_peaceful_night_xl_sanitary_napkin_6_pcs",
+    "name": "Intimia Ultra Thin Peaceful Night XL Sanitary Napkin",
+    "image": "https://i.chaldn.com/_mpimage/intimia-ultra-thin-peaceful-night-xl-sanitary-napkin-6-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D184045&q=best&v=1&m=400&webp=1",
+    "category": "Feminine Care",
+    "current_price": 200.0,
+    "current_unit": "6 pcs",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 200.0,
+        "unit": "6 pcs",
+        "norm_price": 33.33,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "33.33 / 1 pc"
+  },
+  "veet_expert_all_in_one_women_s_trimmer_": {
+    "id": "veet_expert_all_in_one_women_s_trimmer_",
+    "name": "Veet Expert All-in-One Women's Trimmer",
+    "image": "https://i.chaldn.com/_mpimage/veet-expert-all-in-one-womens-trimmer?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D181903&q=best&v=1&m=400&webp=1",
+    "category": "Feminine Care",
+    "current_price": 3200.0,
+    "current_unit": "",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 3200.0,
+        "unit": "",
+        "norm_price": 3200.0,
+        "norm_unit": ""
+      }
+    ],
+    "norm_price_display": "3200.0 / "
+  },
+  "veet_pure_hair_removal_cream_with_organic_aelo_vera_and_rose_extract_50_gm": {
+    "id": "veet_pure_hair_removal_cream_with_organic_aelo_vera_and_rose_extract_50_gm",
+    "name": "Veet Pure Hair Removal Cream With Organic Aelo Vera and Rose Extract",
+    "image": "https://i.chaldn.com/_mpimage/veet-pure-hair-removal-cream-with-organic-aelo-vera-and-rose-extract-50-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D170071&q=best&v=1&m=400&webp=1",
+    "category": "Feminine Care",
+    "current_price": 200.0,
+    "current_unit": "50 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 200.0,
+        "unit": "50 gm",
+        "norm_price": 4000.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "4000.0 / 1 kg"
+  },
+  "ss3_shokhi_sanitary_napkin_panty__8_pcs": {
+    "id": "ss3_shokhi_sanitary_napkin_panty__8_pcs",
+    "name": "SS3 Shokhi Sanitary Napkin (Panty)",
+    "image": "https://i.chaldn.com/_mpimage/ss3-shokhi-sanitary-napkin-panty-8-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D164392&q=best&v=1&m=400&webp=1",
+    "category": "Feminine Care",
+    "current_price": 70.0,
+    "current_unit": "8 pcs",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 70.0,
+        "unit": "8 pcs",
+        "norm_price": 8.75,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "8.75 / 1 pc"
+  },
+  "ss1_shokhi_sanitary_napkin_belt__8_pcs": {
+    "id": "ss1_shokhi_sanitary_napkin_belt__8_pcs",
+    "name": "SS1 Shokhi Sanitary Napkin (Belt)",
+    "image": "https://i.chaldn.com/_mpimage/ss1-shokhi-sanitary-napkin-belt-8-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D164391&q=best&v=1&m=400&webp=1",
+    "category": "Feminine Care",
+    "current_price": 60.0,
+    "current_unit": "8 pcs",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 60.0,
+        "unit": "8 pcs",
+        "norm_price": 7.5,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "7.5 / 1 pc"
+  },
+  "ss2_shokhi_sanitary_napkin_belt__15_pcs": {
+    "id": "ss2_shokhi_sanitary_napkin_belt__15_pcs",
+    "name": "SS2 Shokhi Sanitary Napkin (Belt)",
+    "image": "https://i.chaldn.com/_mpimage/ss2-shokhi-sanitary-napkin-belt-15-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D164244&q=best&v=1&m=400&webp=1",
+    "category": "Feminine Care",
+    "current_price": 110.0,
+    "current_unit": "15 pcs",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 110.0,
+        "unit": "15 pcs",
+        "norm_price": 7.33,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "7.33 / 1 pc"
+  },
+  "ss4_shokhi_sanitary_napkin_panty__15_pcs": {
+    "id": "ss4_shokhi_sanitary_napkin_panty__15_pcs",
+    "name": "SS4 Shokhi Sanitary Napkin (Panty)",
+    "image": "https://i.chaldn.com/_mpimage/ss4-shokhi-sanitary-napkin-panty-15-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D164243&q=best&v=1&m=400&webp=1",
+    "category": "Feminine Care",
+    "current_price": 120.0,
+    "current_unit": "15 pcs",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 120.0,
+        "unit": "15 pcs",
+        "norm_price": 8.0,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "8.0 / 1 pc"
+  },
+  "freedom_hair_removal_cream_25_gm": {
+    "id": "freedom_hair_removal_cream_25_gm",
+    "name": "Freedom Hair Removal Cream",
+    "image": "https://i.chaldn.com/_mpimage/freedom-hair-removal-cream-25-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D141665&q=best&v=1&m=400&webp=1",
+    "category": "Feminine Care",
+    "current_price": 100.0,
+    "current_unit": "25 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 100.0,
+        "unit": "25 gm",
+        "norm_price": 4000.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "4000.0 / 1 kg"
+  },
+  "t3_whisper_ultra_softs_air_fresh_sanitary_napkin_xl__7_pcs": {
+    "id": "t3_whisper_ultra_softs_air_fresh_sanitary_napkin_xl__7_pcs",
+    "name": "T3 Whisper Ultra Softs Air Fresh Sanitary Napkin XL+",
+    "image": "https://i.chaldn.com/_mpimage/t3-whisper-ultra-softs-air-fresh-sanitary-napkin-xl-7-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D89375&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Feminine Care",
+    "current_price": 160.0,
+    "current_unit": "7 pcs",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 160.0,
+        "unit": "7 pcs",
+        "norm_price": 22.86,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "22.86 / 1 pc"
+  },
+  "t5_whisper_ultra_softs_air_fresh_sanitary_napkins_xl__15_pcs": {
+    "id": "t5_whisper_ultra_softs_air_fresh_sanitary_napkins_xl__15_pcs",
+    "name": "T5 Whisper Ultra Softs Air Fresh Sanitary Napkins XL+",
+    "image": "https://i.chaldn.com/_mpimage/t5-whisper-ultra-softs-air-fresh-sanitary-napkins-xl-15-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D136031&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Feminine Care",
+    "current_price": 360.0,
+    "current_unit": "15 pcs",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 360.0,
+        "unit": "15 pcs",
+        "norm_price": 24.0,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "24.0 / 1 pc"
+  },
+  "vwash_intimate_hygiene_wash_100_ml": {
+    "id": "vwash_intimate_hygiene_wash_100_ml",
+    "name": "VWash Intimate Hygiene Wash",
+    "image": "https://i.chaldn.com/_mpimage/vwash-intimate-hygiene-wash-100-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D89015&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Feminine Care",
+    "current_price": 527.0,
+    "current_unit": "100 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 527.0,
+        "unit": "100 ml",
+        "norm_price": 5270.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "5270.0 / 1 L"
+  },
+  "l17_laurier_panty_liner_cleanfresh_non_perfumed_20_pcs": {
+    "id": "l17_laurier_panty_liner_cleanfresh_non_perfumed_20_pcs",
+    "name": "L17 Laurier Panty liner Cleanfresh Non Perfumed",
+    "image": "https://i.chaldn.com/_mpimage/l17-laurier-panty-liner-cleanfresh-non-perfumed-20-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D129903&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Feminine Care",
+    "current_price": 170.0,
+    "current_unit": "20 pcs",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 170.0,
+        "unit": "20 pcs",
+        "norm_price": 8.5,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "8.5 / 1 pc"
+  },
+  "beauty_formulas_aloe_vera_wax_strips_36_pcs": {
+    "id": "beauty_formulas_aloe_vera_wax_strips_36_pcs",
+    "name": "Beauty Formulas Aloe Vera Wax Strips",
+    "image": "https://i.chaldn.com/_mpimage/beauty-formulas-aloe-vera-wax-strips-36-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D116274&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Feminine Care",
+    "current_price": 189.0,
+    "current_unit": "36 pcs",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 189.0,
+        "unit": "36 pcs",
+        "norm_price": 5.25,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "5.25 / 1 pc"
+  },
+  "l11_laurier_healthy_skin_wing_sanitary_napkin14_pcs_": {
+    "id": "l11_laurier_healthy_skin_wing_sanitary_napkin14_pcs_",
+    "name": "L11 Laurier Healthy Skin Wing Sanitary Napkin14 pcs",
+    "image": "https://i.chaldn.com/_mpimage/l11-laurier-healthy-skin-wing-sanitary-napkin14-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D116353&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Feminine Care",
+    "current_price": 350.0,
+    "current_unit": "",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 350.0,
+        "unit": "",
+        "norm_price": 350.0,
+        "norm_unit": ""
+      }
+    ],
+    "norm_price_display": "350.0 / "
+  },
+  "beauty_formulas_vitamin_e_wax_strips_20_pcs": {
+    "id": "beauty_formulas_vitamin_e_wax_strips_20_pcs",
+    "name": "Beauty Formulas Vitamin E Wax Strips",
+    "image": "https://i.chaldn.com/_mpimage/beauty-formulas-vitamin-e-wax-strips-20-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D61264&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Feminine Care",
+    "current_price": 680.0,
+    "current_unit": "20 pcs",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 680.0,
+        "unit": "20 pcs",
+        "norm_price": 34.0,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "34.0 / 1 pc"
+  },
+  "af3_smc_joya_sanitary_napkin_belt__8_pcs": {
+    "id": "af3_smc_joya_sanitary_napkin_belt__8_pcs",
+    "name": "AF3 SMC Joya Sanitary Napkin (Belt)",
+    "image": "https://i.chaldn.com/_mpimage/af3-smc-joya-sanitary-napkin-belt-8-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D122905&q=best&v=1&m=400&webp=1",
+    "category": "Feminine Care",
+    "current_price": 60.0,
+    "current_unit": "8 pcs",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 60.0,
+        "unit": "8 pcs",
+        "norm_price": 7.5,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "7.5 / 1 pc"
+  },
+  "c3_senora_sanitary_napkin_regular_flow_belt__10_pcs": {
+    "id": "c3_senora_sanitary_napkin_regular_flow_belt__10_pcs",
+    "name": "C3 Senora Sanitary Napkin Regular Flow (Belt)",
+    "image": "https://i.chaldn.com/_mpimage/c3-senora-sanitary-napkin-regular-flow-belt-10-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D126334&q=best&v=1&m=400&webp=1",
+    "category": "Feminine Care",
+    "current_price": 100.0,
+    "current_unit": "10 pcs",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 100.0,
+        "unit": "10 pcs",
+        "norm_price": 10.0,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "10.0 / 1 pc"
+  },
+  "c5_senora_sanitary_napkin_belt__15_pcs": {
+    "id": "c5_senora_sanitary_napkin_belt__15_pcs",
+    "name": "C5 Senora Sanitary Napkin (Belt)",
+    "image": "https://i.chaldn.com/_mpimage/c5-senora-sanitary-napkin-belt-15-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D185669&q=best&v=1&m=400&webp=1",
+    "category": "Feminine Care",
+    "current_price": 130.0,
+    "current_unit": "15 pcs",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 130.0,
+        "unit": "15 pcs",
+        "norm_price": 8.67,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "8.67 / 1 pc"
+  },
+  "c9_senora_confidence_regular_flow_panty_system__10_pcs": {
+    "id": "c9_senora_confidence_regular_flow_panty_system__10_pcs",
+    "name": "C9 Senora Confidence Regular Flow (Panty System)",
+    "image": "https://i.chaldn.com/_mpimage/c9-senora-confidence-regular-flow-panty-system-10-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D126336&q=best&v=1&m=400&webp=1",
+    "category": "Feminine Care",
+    "current_price": 120.0,
+    "current_unit": "10 pcs",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 120.0,
+        "unit": "10 pcs",
+        "norm_price": 12.0,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "12.0 / 1 pc"
+  },
+  "veet_hair_removal_cream_normal_skin_with_lotus_milk_50_gm": {
+    "id": "veet_hair_removal_cream_normal_skin_with_lotus_milk_50_gm",
+    "name": "Veet Hair Removal Cream Normal Skin With Lotus Milk",
+    "image": "https://i.chaldn.com/_mpimage/veet-hair-removal-cream-normal-skin-with-lotus-milk-50-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D136999&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 200.0,
+    "current_unit": "50 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 200.0,
+        "unit": "50 gm",
+        "norm_price": 4000.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "4000.0 / 1 kg"
+  },
+  "a5_freedom_panty_system_sanitary_napkin_10_pads_": {
+    "id": "a5_freedom_panty_system_sanitary_napkin_10_pads_",
+    "name": "A5 Freedom Panty System Sanitary Napkin 10 pads",
+    "image": "https://i.chaldn.com/_mpimage/a5-freedom-panty-system-sanitary-napkin-10-pads?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D116424&q=best&v=1&m=400&webp=1",
+    "category": "Feminine Care",
+    "current_price": 100.0,
+    "current_unit": "",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 100.0,
+        "unit": "",
+        "norm_price": 100.0,
+        "norm_unit": ""
+      }
+    ],
+    "norm_price_display": "100.0 / "
+  },
+  "nihar_naturals_shanti_badam_amla_hair_oil_175_ml": {
+    "id": "nihar_naturals_shanti_badam_amla_hair_oil_175_ml",
+    "name": "Nihar Naturals Shanti Badam Amla Hair Oil",
+    "image": "https://i.chaldn.com/_mpimage/nihar-naturals-shanti-badam-amla-hair-oil-175-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D154044&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 175.0,
+    "current_unit": "175 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 175.0,
+        "unit": "175 ml",
+        "norm_price": 1000.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1000.0 / 1 L"
+  },
+  "gondhraj_perfume_hair_oil_350_ml": {
+    "id": "gondhraj_perfume_hair_oil_350_ml",
+    "name": "Gondhraj Perfume Hair Oil",
+    "image": "https://i.chaldn.com/_mpimage/gondhraj-perfume-hair-oil-350-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D176464&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 320.0,
+    "current_unit": "350 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 320.0,
+        "unit": "350 ml",
+        "norm_price": 914.29,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "914.29 / 1 L"
+  },
+  "well_s_almond_oil_70_ml": {
+    "id": "well_s_almond_oil_70_ml",
+    "name": "Well's Almond Oil",
+    "image": "https://i.chaldn.com/_mpimage/wells-almond-oil-70-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D138271&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 299.0,
+    "current_unit": "70 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 299.0,
+        "unit": "70 ml",
+        "norm_price": 4271.43,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "4271.43 / 1 L"
+  },
+  "parachute_advansed_beliphool_coconut_hair_oil_300_ml": {
+    "id": "parachute_advansed_beliphool_coconut_hair_oil_300_ml",
+    "name": "Parachute Advansed Beliphool Coconut Hair Oil",
+    "image": "https://i.chaldn.com/_mpimage/parachute-advansed-beliphool-coconut-hair-oil-300-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D131903&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 310.0,
+    "current_unit": "300 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 310.0,
+        "unit": "300 ml",
+        "norm_price": 1033.33,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1033.33 / 1 L"
+  },
+  "well_s_castor_oil_70_ml": {
+    "id": "well_s_castor_oil_70_ml",
+    "name": "Well's Castor Oil",
+    "image": "https://i.chaldn.com/_mpimage/wells-castor-oil-70-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D138272&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 500.0,
+    "current_unit": "70 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 500.0,
+        "unit": "70 ml",
+        "norm_price": 7142.86,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "7142.86 / 1 L"
+  },
+  "parachute_coconut_oil_extra_15_ml__175_ml": {
+    "id": "parachute_coconut_oil_extra_15_ml__175_ml",
+    "name": "Parachute Coconut Oil (Extra 15 ml)",
+    "image": "https://i.chaldn.com/_mpimage/parachute-coconut-oil-extra-15-ml-175-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D186223&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 200.0,
+    "current_unit": "175 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 200.0,
+        "unit": "175 ml",
+        "norm_price": 1142.86,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1142.86 / 1 L"
+  },
+  "parachute_coconut_oil_95_ml": {
+    "id": "parachute_coconut_oil_95_ml",
+    "name": "Parachute Coconut Oil",
+    "image": "https://i.chaldn.com/_mpimage/parachute-coconut-oil-95-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D186224&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 110.0,
+    "current_unit": "95 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 110.0,
+        "unit": "95 ml",
+        "norm_price": 1157.89,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1157.89 / 1 L"
+  },
+  "parachute_coconut_oil_500_ml": {
+    "id": "parachute_coconut_oil_500_ml",
+    "name": "Parachute Coconut Oil",
+    "image": "https://i.chaldn.com/_mpimage/parachute-coconut-oil-500-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D120823&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 450.0,
+    "current_unit": "500 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 450.0,
+        "unit": "500 ml",
+        "norm_price": 900.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "900.0 / 1 L"
+  },
+  "jui_coconut_oil_200_ml": {
+    "id": "jui_coconut_oil_200_ml",
+    "name": "Jui Coconut Oil",
+    "image": "https://i.chaldn.com/_mpimage/jui-coconut-oil-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D129629&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 200.0,
+    "current_unit": "200 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 200.0,
+        "unit": "200 ml",
+        "norm_price": 1000.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1000.0 / 1 L"
+  },
+  "natura_grow_hair_oil_200_ml": {
+    "id": "natura_grow_hair_oil_200_ml",
+    "name": "Natura Grow Hair Oil",
+    "image": "https://i.chaldn.com/_mpimage/natura-grow-hair-oil-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D174134&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 230.0,
+    "current_unit": "200 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 230.0,
+        "unit": "200 ml",
+        "norm_price": 1150.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1150.0 / 1 L"
+  },
+  "dove_shampoo_intense_repair_450_ml": {
+    "id": "dove_shampoo_intense_repair_450_ml",
+    "name": "Dove Shampoo Intense Repair",
+    "image": "https://i.chaldn.com/_mpimage/dove-shampoo-intense-repair-450-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D159916&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 580.0,
+    "current_unit": "450 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 580.0,
+        "unit": "450 ml",
+        "norm_price": 1288.89,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1288.89 / 1 L"
+  },
+  "parachute_naturale_shampoo_advanced_hair_fall_control_320_ml": {
+    "id": "parachute_naturale_shampoo_advanced_hair_fall_control_320_ml",
+    "name": "Parachute Naturale Shampoo Advanced Hair Fall Control",
+    "image": "https://i.chaldn.com/_mpimage/parachute-naturale-shampoo-advanced-hair-fall-control-320-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D180759&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 265.0,
+    "current_unit": "320 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 265.0,
+        "unit": "320 ml",
+        "norm_price": 828.12,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "828.12 / 1 L"
+  },
+  "farmer_s_gold_sweet_pumpkin_seed_oil_30_ml": {
+    "id": "farmer_s_gold_sweet_pumpkin_seed_oil_30_ml",
+    "name": "Farmer's Gold Sweet Pumpkin Seed Oil",
+    "image": "https://i.chaldn.com/_mpimage/farmers-gold-sweet-pumpkin-seed-oil-30-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D120324&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 450.0,
+    "current_unit": "30 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 450.0,
+        "unit": "30 ml",
+        "norm_price": 15000.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "15000.0 / 1 L"
+  },
+  "parachute_advansed_onion_enriched_coconut_hair_growth_oil_200_ml": {
+    "id": "parachute_advansed_onion_enriched_coconut_hair_growth_oil_200_ml",
+    "name": "Parachute Advansed Onion Enriched Coconut Hair Growth Oil",
+    "image": "https://i.chaldn.com/_mpimage/parachute-advansed-onion-enriched-coconut-hair-growth-oil-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D116167&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 215.0,
+    "current_unit": "200 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 215.0,
+        "unit": "200 ml",
+        "norm_price": 1075.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1075.0 / 1 L"
+  },
+  "b_tech_expert_pure_herbal_hair_care_oil_gold__200_ml": {
+    "id": "b_tech_expert_pure_herbal_hair_care_oil_gold__200_ml",
+    "name": "B. Tech Expert Pure Herbal Hair Care Oil (Gold)",
+    "image": "https://i.chaldn.com/_mpimage/b-tech-expert-pure-herbal-hair-care-oil-gold-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D111361&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 210.0,
+    "current_unit": "200 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 210.0,
+        "unit": "200 ml",
+        "norm_price": 1050.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1050.0 / 1 L"
+  },
+  "farmer_s_gold_onion_oil_30_ml": {
+    "id": "farmer_s_gold_onion_oil_30_ml",
+    "name": "Farmer's Gold Onion Oil",
+    "image": "https://i.chaldn.com/_mpimage/farmers-gold-onion-oil-30-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D98426&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 250.0,
+    "current_unit": "30 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 250.0,
+        "unit": "30 ml",
+        "norm_price": 8333.33,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "8333.33 / 1 L"
+  },
+  "farmer_s_gold_neem_oil_100_ml": {
+    "id": "farmer_s_gold_neem_oil_100_ml",
+    "name": "Farmer's Gold Neem Oil",
+    "image": "https://i.chaldn.com/_mpimage/farmers-gold-neem-oil-100-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D98333&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 255.0,
+    "current_unit": "100 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 255.0,
+        "unit": "100 ml",
+        "norm_price": 2550.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "2550.0 / 1 L"
+  },
+  "dabur_amla_hair_oil_extra_50_ml__400_ml": {
+    "id": "dabur_amla_hair_oil_extra_50_ml__400_ml",
+    "name": "Dabur Amla Hair Oil (Extra 50 ml )",
+    "image": "https://i.chaldn.com/_mpimage/dabur-amla-hair-oil-extra-50-ml-400-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D123334&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 440.0,
+    "current_unit": "400 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 440.0,
+        "unit": "400 ml",
+        "norm_price": 1100.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1100.0 / 1 L"
+  },
+  "himalaya_anti_hair_fall_shampoo_180_ml": {
+    "id": "himalaya_anti_hair_fall_shampoo_180_ml",
+    "name": "Himalaya Anti Hair Fall Shampoo",
+    "image": "https://i.chaldn.com/_mpimage/himalaya-anti-hair-fall-shampoo-180-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D129228&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 270.0,
+    "current_unit": "180 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 270.0,
+        "unit": "180 ml",
+        "norm_price": 1500.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1500.0 / 1 L"
+  },
+  "sesa_herbal_hair_oil_100_ml": {
+    "id": "sesa_herbal_hair_oil_100_ml",
+    "name": "Sesa Herbal Hair Oil",
+    "image": "https://i.chaldn.com/_mpimage/sesa-herbal-hair-oil-100-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D133488&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 250.0,
+    "current_unit": "100 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 250.0,
+        "unit": "100 ml",
+        "norm_price": 2500.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "2500.0 / 1 L"
+  },
+  "ceylon_organic_extra_virgin_coconut_oil_200_ml": {
+    "id": "ceylon_organic_extra_virgin_coconut_oil_200_ml",
+    "name": "Ceylon Organic Extra Virgin Coconut Oil",
+    "image": "https://i.chaldn.com/_mpimage/ceylon-organic-extra-virgin-coconut-oil-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D126645&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 600.0,
+    "current_unit": "200 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 600.0,
+        "unit": "200 ml",
+        "norm_price": 3000.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "3000.0 / 1 L"
+  },
+  "agrilife_extra_virgin_coconut_oil_450_ml": {
+    "id": "agrilife_extra_virgin_coconut_oil_450_ml",
+    "name": "Agrilife Extra Virgin Coconut Oil",
+    "image": "https://i.chaldn.com/_mpimage/agrilife-extra-virgin-coconut-oil-450-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D92014&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 1089.0,
+    "current_unit": "450 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 1089.0,
+        "unit": "450 ml",
+        "norm_price": 2420.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "2420.0 / 1 L"
+  },
+  "dabur_amla_hair_oil_300_ml": {
+    "id": "dabur_amla_hair_oil_300_ml",
+    "name": "Dabur Amla Hair Oil",
+    "image": "https://i.chaldn.com/_mpimage/dabur-amla-hair-oil-300-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D123331&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 290.0,
+    "current_unit": "300 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 290.0,
+        "unit": "300 ml",
+        "norm_price": 966.67,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "966.67 / 1 L"
+  },
+  "indulekha_bringha_ayurvedic_hair_oil_50_ml": {
+    "id": "indulekha_bringha_ayurvedic_hair_oil_50_ml",
+    "name": "Indulekha Bringha Ayurvedic Hair Oil",
+    "image": "https://i.chaldn.com/_mpimage/indulekha-bringha-ayurvedic-hair-oil-50-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D129474&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 549.0,
+    "current_unit": "50 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 549.0,
+        "unit": "50 ml",
+        "norm_price": 10980.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "10980.0 / 1 L"
+  },
+  "my_organic_bd_shikakai_powder_100_gm": {
+    "id": "my_organic_bd_shikakai_powder_100_gm",
+    "name": "My Organic BD Shikakai Powder",
+    "image": "https://i.chaldn.com/_mpimage/my-organic-bd-shikakai-powder-100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D131076&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 85.0,
+    "current_unit": "100 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 85.0,
+        "unit": "100 gm",
+        "norm_price": 850.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "850.0 / 1 kg"
+  },
+  "dabur_amla_hair_oil_100_ml": {
+    "id": "dabur_amla_hair_oil_100_ml",
+    "name": "Dabur Amla Hair Oil",
+    "image": "https://i.chaldn.com/_mpimage/dabur-amla-hair-oil-100-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D123325&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 110.0,
+    "current_unit": "100 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 110.0,
+        "unit": "100 ml",
+        "norm_price": 1100.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1100.0 / 1 L"
+  },
+  "kumarika_spilt_control_hair_oil_200_ml": {
+    "id": "kumarika_spilt_control_hair_oil_200_ml",
+    "name": "Kumarika Spilt & Control Hair Oil",
+    "image": "https://i.chaldn.com/_mpimage/kumarika-spilt-control-hair-oil-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D113433&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 200.0,
+    "current_unit": "200 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 200.0,
+        "unit": "200 ml",
+        "norm_price": 1000.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1000.0 / 1 L"
+  },
+  "kumarika_anti_dandruff_control_hair_oil_200_ml": {
+    "id": "kumarika_anti_dandruff_control_hair_oil_200_ml",
+    "name": "Kumarika Anti Dandruff Control Hair Oil",
+    "image": "https://i.chaldn.com/_mpimage/kumarika-anti-dandruff-control-hair-oil-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D129868&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 240.0,
+    "current_unit": "200 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 240.0,
+        "unit": "200 ml",
+        "norm_price": 1200.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1200.0 / 1 L"
+  },
+  "parachute_advansed_coconut_hair_oil_275_ml": {
+    "id": "parachute_advansed_coconut_hair_oil_275_ml",
+    "name": "Parachute Advansed Coconut Hair Oil",
+    "image": "https://i.chaldn.com/_mpimage/parachute-advansed-coconut-hair-oil-275-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D98895&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 210.0,
+    "current_unit": "275 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 210.0,
+        "unit": "275 ml",
+        "norm_price": 763.64,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "763.64 / 1 L"
+  },
+  "emami_7_oils_in_one_non_sticky_hair_oil_300_ml": {
+    "id": "emami_7_oils_in_one_non_sticky_hair_oil_300_ml",
+    "name": "Emami 7 Oils In One Non Sticky Hair Oil",
+    "image": "https://i.chaldn.com/_mpimage/emami-7-oils-in-one-non-sticky-hair-oil-300-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D73784&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 380.0,
+    "current_unit": "300 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 380.0,
+        "unit": "300 ml",
+        "norm_price": 1266.67,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1266.67 / 1 L"
+  },
+  "jui_coconut_oil_can_350_ml": {
+    "id": "jui_coconut_oil_can_350_ml",
+    "name": "Jui Coconut Oil Can",
+    "image": "https://i.chaldn.com/_mpimage/jui-coconut-oil-can-350-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D110871&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 340.0,
+    "current_unit": "350 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 340.0,
+        "unit": "350 ml",
+        "norm_price": 971.43,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "971.43 / 1 L"
+  },
+  "naturel_organic_extra_virgin_coconut_oil_500_ml": {
+    "id": "naturel_organic_extra_virgin_coconut_oil_500_ml",
+    "name": "Naturel Organic Extra Virgin Coconut Oil",
+    "image": "https://i.chaldn.com/_mpimage/naturel-organic-extra-virgin-coconut-oil-500-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D101800&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 1525.0,
+    "current_unit": "500 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 1525.0,
+        "unit": "500 ml",
+        "norm_price": 3050.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "3050.0 / 1 L"
+  },
+  "disposable_head_cover_100_pcs": {
+    "id": "disposable_head_cover_100_pcs",
+    "name": "Disposable Head Cover",
+    "image": "https://i.chaldn.com/_mpimage/disposable-head-cover-100-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D79813&q=best&v=1&m=400&webp=1",
+    "category": "Disposables & Trash Bags",
+    "current_price": 489.0,
+    "current_unit": "100 pcs",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 489.0,
+        "unit": "100 pcs",
+        "norm_price": 4.89,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "4.89 / 1 pc"
+  },
+  "dabur_vatika_enriched_coconut_hair_oil_150_ml": {
+    "id": "dabur_vatika_enriched_coconut_hair_oil_150_ml",
+    "name": "Dabur Vatika Enriched Coconut Hair Oil",
+    "image": "https://i.chaldn.com/_mpimage/dabur-vatika-enriched-coconut-hair-oil-150-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D123350&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 210.0,
+    "current_unit": "150 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 210.0,
+        "unit": "150 ml",
+        "norm_price": 1400.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1400.0 / 1 L"
+  },
+  "dabur_methi_amla_hair_oil_200_ml": {
+    "id": "dabur_methi_amla_hair_oil_200_ml",
+    "name": "Dabur Methi Amla Hair Oil",
+    "image": "https://i.chaldn.com/_mpimage/dabur-methi-amla-hair-oil-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D149248&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 170.0,
+    "current_unit": "200 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 170.0,
+        "unit": "200 ml",
+        "norm_price": 850.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "850.0 / 1 L"
+  },
+  "parachute_advansed_beliphool_coconut_hair_oil_400_ml": {
+    "id": "parachute_advansed_beliphool_coconut_hair_oil_400_ml",
+    "name": "Parachute Advansed Beliphool Coconut Hair Oil",
+    "image": "https://i.chaldn.com/_mpimage/parachute-advansed-beliphool-coconut-hair-oil-400-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D131904&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 410.0,
+    "current_unit": "400 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 410.0,
+        "unit": "400 ml",
+        "norm_price": 1025.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1025.0 / 1 L"
+  },
+  "parachute_advansed_beliphool_coconut_hair_oil_200_ml": {
+    "id": "parachute_advansed_beliphool_coconut_hair_oil_200_ml",
+    "name": "Parachute Advansed Beliphool Coconut Hair Oil",
+    "image": "https://i.chaldn.com/_mpimage/parachute-advansed-beliphool-coconut-hair-oil-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D131902&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 220.0,
+    "current_unit": "200 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 220.0,
+        "unit": "200 ml",
+        "norm_price": 1100.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1100.0 / 1 L"
+  },
+  "bajaj_cool_almond_drops_95_ml": {
+    "id": "bajaj_cool_almond_drops_95_ml",
+    "name": "Bajaj Cool Almond Drops",
+    "image": "https://i.chaldn.com/_mpimage/bajaj-cool-almond-drops-95-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D125332&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 150.0,
+    "current_unit": "95 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 150.0,
+        "unit": "95 ml",
+        "norm_price": 1578.95,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1578.95 / 1 L"
+  },
+  "sesa_herbal_hair_oil_200_ml": {
+    "id": "sesa_herbal_hair_oil_200_ml",
+    "name": "Sesa Herbal Hair Oil",
+    "image": "https://i.chaldn.com/_mpimage/sesa-herbal-hair-oil-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D112877&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 490.0,
+    "current_unit": "200 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 490.0,
+        "unit": "200 ml",
+        "norm_price": 2450.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "2450.0 / 1 L"
+  },
+  "emami_7_oils_in_one_pumpkin_plus_hair_oil_200_ml": {
+    "id": "emami_7_oils_in_one_pumpkin_plus_hair_oil_200_ml",
+    "name": "Emami 7 Oils In One Pumpkin Plus Hair Oil",
+    "image": "https://i.chaldn.com/_mpimage/emami-7-oils-in-one-pumpkin-plus-hair-oil-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D108350&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 280.0,
+    "current_unit": "200 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 280.0,
+        "unit": "200 ml",
+        "norm_price": 1400.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1400.0 / 1 L"
+  },
+  "clear_shampoo_anti_hairfall_anti_dandruff_330_ml": {
+    "id": "clear_shampoo_anti_hairfall_anti_dandruff_330_ml",
+    "name": "Clear Shampoo Anti Hairfall Anti Dandruff",
+    "image": "https://i.chaldn.com/_mpimage/clear-shampoo-anti-hairfall-anti-dandruff-330-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128549&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 400.0,
+    "current_unit": "330 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 400.0,
+        "unit": "330 ml",
+        "norm_price": 1212.12,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1212.12 / 1 L"
+  },
+  "sunsilk_perfect_straight_shampoo_300_ml": {
+    "id": "sunsilk_perfect_straight_shampoo_300_ml",
+    "name": "Sunsilk Perfect Straight Shampoo",
+    "image": "https://i.chaldn.com/_mpimage/sunsilk-perfect-straight-shampoo-300-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D51990&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 830.0,
+    "current_unit": "300 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 830.0,
+        "unit": "300 ml",
+        "norm_price": 2766.67,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "2766.67 / 1 L"
+  },
+  "sunsilk_soft_smooth_shampoo_300_ml": {
+    "id": "sunsilk_soft_smooth_shampoo_300_ml",
+    "name": "Sunsilk Soft & Smooth Shampoo",
+    "image": "https://i.chaldn.com/_mpimage/sunsilk-soft-smooth-shampoo-300-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D135683&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 829.0,
+    "current_unit": "300 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 829.0,
+        "unit": "300 ml",
+        "norm_price": 2763.33,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "2763.33 / 1 L"
+  },
+  "cute_refined_coconut_hair_oil_330_ml": {
+    "id": "cute_refined_coconut_hair_oil_330_ml",
+    "name": "Cute Refined Coconut Hair Oil",
+    "image": "https://i.chaldn.com/_mpimage/cute-refined-coconut-hair-oil-330-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D50484&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 270.0,
+    "current_unit": "330 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 270.0,
+        "unit": "330 ml",
+        "norm_price": 818.18,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "818.18 / 1 L"
+  },
+  "dhaka_dough_cold_pressed_almond_oil_80_ml": {
+    "id": "dhaka_dough_cold_pressed_almond_oil_80_ml",
+    "name": "Dhaka Dough Cold Pressed Almond Oil",
+    "image": "https://i.chaldn.com/_mpimage/dhaka-dough-cold-pressed-almond-oil-80-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D127703&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 350.0,
+    "current_unit": "80 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 350.0,
+        "unit": "80 ml",
+        "norm_price": 4375.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "4375.0 / 1 L"
+  },
+  "dove_conditioner_intense_repair_170_ml": {
+    "id": "dove_conditioner_intense_repair_170_ml",
+    "name": "Dove Conditioner Intense Repair",
+    "image": "https://i.chaldn.com/_mpimage/dove-conditioner-intense-repair-170-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D163911&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 290.0,
+    "current_unit": "170 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 290.0,
+        "unit": "170 ml",
+        "norm_price": 1705.88,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1705.88 / 1 L"
+  },
+  "dove_conditioner_hair_fall_rescue_170_ml": {
+    "id": "dove_conditioner_hair_fall_rescue_170_ml",
+    "name": "Dove Conditioner Hair Fall Rescue",
+    "image": "https://i.chaldn.com/_mpimage/dove-conditioner-hair-fall-rescue-170-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D157849&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 290.0,
+    "current_unit": "170 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 290.0,
+        "unit": "170 ml",
+        "norm_price": 1705.88,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1705.88 / 1 L"
+  },
+  "parachute_advansed_aloe_vera_hair_oil_150_ml": {
+    "id": "parachute_advansed_aloe_vera_hair_oil_150_ml",
+    "name": "Parachute Advansed Aloe Vera Hair Oil",
+    "image": "https://i.chaldn.com/_mpimage/parachute-advansed-aloe-vera-hair-oil-150-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D131900&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 215.0,
+    "current_unit": "150 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 215.0,
+        "unit": "150 ml",
+        "norm_price": 1433.33,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1433.33 / 1 L"
+  },
+  "emami_7_oils_in_one_black_seed_hair_oil_200_ml": {
+    "id": "emami_7_oils_in_one_black_seed_hair_oil_200_ml",
+    "name": "Emami 7 Oils In One Black Seed Hair Oil",
+    "image": "https://i.chaldn.com/_mpimage/emami-7-oils-in-one-black-seed-hair-oil-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128171&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 240.0,
+    "current_unit": "200 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 240.0,
+        "unit": "200 ml",
+        "norm_price": 1200.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1200.0 / 1 L"
+  },
+  "nihar_naturals_anti_hair_fall_5_seeds_hair_oil_200_ml": {
+    "id": "nihar_naturals_anti_hair_fall_5_seeds_hair_oil_200_ml",
+    "name": "Nihar Naturals Anti Hair Fall 5 Seeds Hair Oil",
+    "image": "https://i.chaldn.com/_mpimage/nihar-naturals-anti-hair-fall-5-seeds-hair-oil-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D159826&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 220.0,
+    "current_unit": "200 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 220.0,
+        "unit": "200 ml",
+        "norm_price": 1100.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1100.0 / 1 L"
+  },
+  "livon_hair_serum_100_ml": {
+    "id": "livon_hair_serum_100_ml",
+    "name": "Livon Hair Serum",
+    "image": "https://i.chaldn.com/_mpimage/livon-hair-serum-100-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130307&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 540.0,
+    "current_unit": "100 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 540.0,
+        "unit": "100 ml",
+        "norm_price": 5400.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "5400.0 / 1 L"
+  },
+  "tresemm\u00e9_shampoo_botanique_nourish_and_replenish_580_ml": {
+    "id": "tresemm\u00e9_shampoo_botanique_nourish_and_replenish_580_ml",
+    "name": "Tresemm\u00e9 Shampoo Botanique Nourish and Replenish",
+    "image": "https://i.chaldn.com/_mpimage/tresemme-shampoo-botanique-nourish-and-replenish-580-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D136577&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 850.0,
+    "current_unit": "580 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 850.0,
+        "unit": "580 ml",
+        "norm_price": 1465.52,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1465.52 / 1 L"
+  },
+  "dove_shampoo_environmental_defense_340_ml": {
+    "id": "dove_shampoo_environmental_defense_340_ml",
+    "name": "Dove Shampoo Environmental Defense",
+    "image": "https://i.chaldn.com/_mpimage/dove-shampoo-environmental-defense-340-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D127868&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 370.0,
+    "current_unit": "340 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 370.0,
+        "unit": "340 ml",
+        "norm_price": 1088.24,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1088.24 / 1 L"
+  },
+  "dove_shampoo_hairfall_rescue_170_ml": {
+    "id": "dove_shampoo_hairfall_rescue_170_ml",
+    "name": "Dove Shampoo Hairfall Rescue",
+    "image": "https://i.chaldn.com/_mpimage/dove-shampoo-hairfall-rescue-170-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D127871&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 200.0,
+    "current_unit": "170 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 200.0,
+        "unit": "170 ml",
+        "norm_price": 1176.47,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1176.47 / 1 L"
+  },
+  "parachute_advansed_aloe_vera_hair_oil_250_ml": {
+    "id": "parachute_advansed_aloe_vera_hair_oil_250_ml",
+    "name": "Parachute Advansed Aloe Vera Hair Oil",
+    "image": "https://i.chaldn.com/_mpimage/parachute-advansed-aloe-vera-hair-oil-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D109552&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 290.0,
+    "current_unit": "250 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 290.0,
+        "unit": "250 ml",
+        "norm_price": 1160.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1160.0 / 1 L"
+  },
+  "parachute_advansed_extra_care_anti_hairfall_oil_150_ml": {
+    "id": "parachute_advansed_extra_care_anti_hairfall_oil_150_ml",
+    "name": "Parachute Advansed Extra Care Anti Hairfall Oil",
+    "image": "https://i.chaldn.com/_mpimage/parachute-advansed-extra-care-anti-hairfall-oil-150-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D131906&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 210.0,
+    "current_unit": "150 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 210.0,
+        "unit": "150 ml",
+        "norm_price": 1400.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1400.0 / 1 L"
+  },
+  "vaseline_hair_tonic_scalp_conditioner_200_ml": {
+    "id": "vaseline_hair_tonic_scalp_conditioner_200_ml",
+    "name": "Vaseline Hair Tonic & Scalp Conditioner",
+    "image": "https://i.chaldn.com/_mpimage/vaseline-hair-tonic-scalp-conditioner-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D29618&q=low&v=1&m=400&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 620.0,
+    "current_unit": "200 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 620.0,
+        "unit": "200 ml",
+        "norm_price": 3100.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "3100.0 / 1 L"
+  },
+  "sesa_ayurvedic_hair_oil_100_ml": {
+    "id": "sesa_ayurvedic_hair_oil_100_ml",
+    "name": "Sesa Ayurvedic Hair Oil",
+    "image": "https://i.chaldn.com/_mpimage/sesa-ayurvedic-hair-oil-100-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D133487&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 800.0,
+    "current_unit": "100 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 800.0,
+        "unit": "100 ml",
+        "norm_price": 8000.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "8000.0 / 1 L"
+  },
+  "lucy_oliva_olive_oil_300_ml": {
+    "id": "lucy_oliva_olive_oil_300_ml",
+    "name": "Lucy Oliva Olive Oil",
+    "image": "https://i.chaldn.com/_mpimage/lucy-oliva-olive-oil-300-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130401&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 850.0,
+    "current_unit": "300 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 850.0,
+        "unit": "300 ml",
+        "norm_price": 2833.33,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "2833.33 / 1 L"
+  },
+  "keo_karpin_non_sticky_hair_oil_200_ml": {
+    "id": "keo_karpin_non_sticky_hair_oil_200_ml",
+    "name": "Keo Karpin Non Sticky Hair Oil",
+    "image": "https://i.chaldn.com/_mpimage/keo-karpin-non-sticky-hair-oil-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D108578&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 360.0,
+    "current_unit": "200 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 360.0,
+        "unit": "200 ml",
+        "norm_price": 1800.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1800.0 / 1 L"
+  },
+  "emami_7_oils_in_one_non_sticky_hair_oil_200_ml": {
+    "id": "emami_7_oils_in_one_non_sticky_hair_oil_200_ml",
+    "name": "Emami 7 Oils In One Non Sticky Hair Oil",
+    "image": "https://i.chaldn.com/_mpimage/emami-7-oils-in-one-non-sticky-hair-oil-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128175&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 280.0,
+    "current_unit": "200 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 280.0,
+        "unit": "200 ml",
+        "norm_price": 1400.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1400.0 / 1 L"
+  },
+  "parachute_advansed_extra_care_anti_hairfall_oil_300_ml": {
+    "id": "parachute_advansed_extra_care_anti_hairfall_oil_300_ml",
+    "name": "Parachute Advansed Extra Care Anti Hairfall Oil",
+    "image": "https://i.chaldn.com/_mpimage/parachute-advansed-extra-care-anti-hairfall-oil-300-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D131905&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 380.0,
+    "current_unit": "300 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 380.0,
+        "unit": "300 ml",
+        "norm_price": 1266.67,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1266.67 / 1 L"
+  },
+  "tibet_pumpkin_hair_oil_100_ml": {
+    "id": "tibet_pumpkin_hair_oil_100_ml",
+    "name": "Tibet Pumpkin Hair Oil",
+    "image": "https://i.chaldn.com/_mpimage/tibet-pumpkin-hair-oil-100-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D136227&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 125.0,
+    "current_unit": "100 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 125.0,
+        "unit": "100 ml",
+        "norm_price": 1250.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1250.0 / 1 L"
+  },
+  "garnier_color_naturals_cream_3_darkest_brown_130_ml": {
+    "id": "garnier_color_naturals_cream_3_darkest_brown_130_ml",
+    "name": "Garnier Color Naturals Cream 3 Darkest Brown",
+    "image": "https://i.chaldn.com/_mpimage/garnier-color-naturals-cream-3-darkest-brown-130-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D169225&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 405.0,
+    "current_unit": "130 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 405.0,
+        "unit": "130 ml",
+        "norm_price": 3115.38,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "3115.38 / 1 L"
+  },
+  "bajaj_almond_drops_vitamin_e_hair_oil_200_ml": {
+    "id": "bajaj_almond_drops_vitamin_e_hair_oil_200_ml",
+    "name": "Bajaj Almond Drops Vitamin E Hair Oil",
+    "image": "https://i.chaldn.com/_mpimage/bajaj-almond-drops-vitamin-e-hair-oil-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D146765&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 285.0,
+    "current_unit": "200 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 285.0,
+        "unit": "200 ml",
+        "norm_price": 1425.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1425.0 / 1 L"
+  },
+  "jui_coconut_oil_350_ml": {
+    "id": "jui_coconut_oil_350_ml",
+    "name": "Jui Coconut Oil",
+    "image": "https://i.chaldn.com/_mpimage/jui-coconut-oil-350-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D110870&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 340.0,
+    "current_unit": "350 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 340.0,
+        "unit": "350 ml",
+        "norm_price": 971.43,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "971.43 / 1 L"
+  },
+  "jui_coconut_oil_can_200_ml": {
+    "id": "jui_coconut_oil_can_200_ml",
+    "name": "Jui Coconut Oil Can",
+    "image": "https://i.chaldn.com/_mpimage/jui-coconut-oil-can-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D129630&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 200.0,
+    "current_unit": "200 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 200.0,
+        "unit": "200 ml",
+        "norm_price": 1000.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1000.0 / 1 L"
+  },
+  "bajaj_almond_drops_vitamin_e_hair_oil_100_ml": {
+    "id": "bajaj_almond_drops_vitamin_e_hair_oil_100_ml",
+    "name": "Bajaj Almond Drops Vitamin E Hair Oil",
+    "image": "https://i.chaldn.com/_mpimage/bajaj-almond-drops-vitamin-e-hair-oil-100-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D146692&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 130.0,
+    "current_unit": "100 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 130.0,
+        "unit": "100 ml",
+        "norm_price": 1300.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1300.0 / 1 L"
+  },
+  "tibet_pumpkin_hair_oil_200_ml": {
+    "id": "tibet_pumpkin_hair_oil_200_ml",
+    "name": "Tibet Pumpkin Hair Oil",
+    "image": "https://i.chaldn.com/_mpimage/tibet-pumpkin-hair-oil-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D136228&q=best&v=1&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 240.0,
+    "current_unit": "200 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 240.0,
+        "unit": "200 ml",
+        "norm_price": 1200.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1200.0 / 1 L"
+  },
+  "parachute_coconut_oil_extra_35_ml__300_ml": {
+    "id": "parachute_coconut_oil_extra_35_ml__300_ml",
+    "name": "Parachute Coconut Oil (Extra 35 ml)",
+    "image": "https://i.chaldn.com/_mpimage/parachute-coconut-oil-extra-35-ml-300-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D186222&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 340.0,
+    "current_unit": "300 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 340.0,
+        "unit": "300 ml",
+        "norm_price": 1133.33,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1133.33 / 1 L"
+  },
+  "dabur_vatika_enriched_coconut_hair_oil_300_ml": {
+    "id": "dabur_vatika_enriched_coconut_hair_oil_300_ml",
+    "name": "Dabur Vatika Enriched Coconut Hair Oil",
+    "image": "https://i.chaldn.com/_mpimage/dabur-vatika-enriched-coconut-hair-oil-300-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D136980&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Hair Care",
+    "current_price": 320.0,
+    "current_unit": "300 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 320.0,
+        "unit": "300 ml",
+        "norm_price": 1066.67,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1066.67 / 1 L"
+  },
+  "jackly_hardware_tools_each": {
+    "id": "jackly_hardware_tools_each",
+    "name": "Jackly Hardware Tools",
+    "image": "https://i.chaldn.com/_mpimage/jackly-hardware-tools-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D107294&q=best&v=1&m=400&webp=1",
+    "category": "Tools & Hardware",
+    "current_price": 249.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 249.0,
+        "unit": "each",
+        "norm_price": 249.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "249.0 / each"
+  },
+  "quality_clipper_nail_cutter_each": {
+    "id": "quality_clipper_nail_cutter_each",
+    "name": "Quality Clipper Nail Cutter",
+    "image": "https://i.chaldn.com/_mpimage/quality-clipper-nail-cutter-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D112352&q=best&v=1&m=400&webp=1",
+    "category": "Tools & Hardware",
+    "current_price": 122.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 122.0,
+        "unit": "each",
+        "norm_price": 122.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "122.0 / each"
+  },
+  "stainless_steel_windbreak_clip_20_pcs": {
+    "id": "stainless_steel_windbreak_clip_20_pcs",
+    "name": "Stainless Steel Windbreak Clip",
+    "image": "https://i.chaldn.com/_mpimage/stainless-steel-windbreak-clip-20-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D177498&q=best&v=1&m=400&webp=1",
+    "category": "Tools & Hardware",
+    "current_price": 155.0,
+    "current_unit": "20 pcs",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 155.0,
+        "unit": "20 pcs",
+        "norm_price": 7.75,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "7.75 / 1 pc"
+  },
+  "portable_digital_weight_scale_": {
+    "id": "portable_digital_weight_scale_",
+    "name": "Portable Digital Weight Scale",
+    "image": "https://i.chaldn.com/_mpimage/portable-digital-weight-scale?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132212&q=best&v=1&m=400&webp=1",
+    "category": "Tools & Hardware",
+    "current_price": 439.0,
+    "current_unit": "",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 439.0,
+        "unit": "",
+        "norm_price": 439.0,
+        "norm_unit": ""
+      }
+    ],
+    "norm_price_display": "439.0 / "
+  },
+  "glue_gun_stick_11_inch_white_5_pcs": {
+    "id": "glue_gun_stick_11_inch_white_5_pcs",
+    "name": "Glue Gun Stick 11 inch White",
+    "image": "https://i.chaldn.com/_mpimage/glue-gun-stick-11-inch-white-5-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D114898&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Tools & Hardware",
+    "current_price": 100.0,
+    "current_unit": "5 pcs",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 100.0,
+        "unit": "5 pcs",
+        "norm_price": 20.0,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "20.0 / 1 pc"
+  },
+  "can_bottle_opener_each": {
+    "id": "can_bottle_opener_each",
+    "name": "Can & Bottle Opener",
+    "image": "https://i.chaldn.com/_mpimage/can-bottle-opener-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D126584&q=best&v=1&m=400&webp=1",
+    "category": "Tools & Hardware",
+    "current_price": 269.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 269.0,
+        "unit": "each",
+        "norm_price": 269.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "269.0 / each"
+  },
+  "cutting_pliers_red_black__each": {
+    "id": "cutting_pliers_red_black__each",
+    "name": "Cutting Pliers (Red & Black)",
+    "image": "https://i.chaldn.com/_mpimage/cutting-pliers-red-black-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D133283&q=best&v=1&m=400&webp=1",
+    "category": "Tools & Hardware",
+    "current_price": 426.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 426.0,
+        "unit": "each",
+        "norm_price": 426.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "426.0 / each"
+  },
+  "feather_paint_brush_each": {
+    "id": "feather_paint_brush_each",
+    "name": "Feather Paint Brush",
+    "image": "https://i.chaldn.com/_mpimage/feather-paint-brush-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128445&q=best&v=1&m=400&webp=1",
+    "category": "Tools & Hardware",
+    "current_price": 139.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 139.0,
+        "unit": "each",
+        "norm_price": 139.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "139.0 / each"
+  },
+  "nail_cutter_each": {
+    "id": "nail_cutter_each",
+    "name": "Nail Cutter",
+    "image": "https://i.chaldn.com/_mpimage/nail-cutter-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D138662&q=best&v=1&m=400&webp=1",
+    "category": "Tools & Hardware",
+    "current_price": 199.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 199.0,
+        "unit": "each",
+        "norm_price": 199.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "199.0 / each"
+  },
+  "mobaj_premium_7_levers_lock_each": {
+    "id": "mobaj_premium_7_levers_lock_each",
+    "name": "Mobaj Premium 7 Levers Lock",
+    "image": "https://i.chaldn.com/_mpimage/mobaj-premium-7-levers-lock-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130791&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Tools & Hardware",
+    "current_price": 899.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 899.0,
+        "unit": "each",
+        "norm_price": 899.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "899.0 / each"
+  },
+  "stainless_steel_rice_spoon_each": {
+    "id": "stainless_steel_rice_spoon_each",
+    "name": "Stainless Steel Rice Spoon",
+    "image": "https://i.chaldn.com/_mpimage/stainless-steel-rice-spoon-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D135005&q=low&v=1&m=400&webp=1",
+    "category": "Tools & Hardware",
+    "current_price": 197.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 197.0,
+        "unit": "each",
+        "norm_price": 197.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "197.0 / each"
+  },
+  "rfl_round_laundry_basket_red__each": {
+    "id": "rfl_round_laundry_basket_red__each",
+    "name": "RFL Round Laundry Basket (Red)",
+    "image": "https://i.chaldn.com/_mpimage/rfl-round-laundry-basket-red-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D113241&q=best&v=1&m=400&webp=1",
+    "category": "Basket & Bucket",
+    "current_price": 300.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 300.0,
+        "unit": "each",
+        "norm_price": 300.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "300.0 / each"
+  },
+  "rfl_cane_laundry_brown_basket_big_each": {
+    "id": "rfl_cane_laundry_brown_basket_big_each",
+    "name": "RFL Cane Laundry Brown Basket Big",
+    "image": "https://i.chaldn.com/_mpimage/rfl-cane-laundry-brown-basket-big-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D19083&q=best&v=1&m=400&webp=1",
+    "category": "Basket & Bucket",
+    "current_price": 980.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 980.0,
+        "unit": "each",
+        "norm_price": 980.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "980.0 / each"
+  },
+  "trash_bag_black_18_x_24__10_pcs": {
+    "id": "trash_bag_black_18_x_24__10_pcs",
+    "name": "Trash Bag Black (18\" x 24\")",
+    "image": "https://i.chaldn.com/_mpimage/trash-bag-black-18-x-24-10-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D129180&q=best&v=1&m=400&webp=1",
+    "category": "Disposables & Trash Bags",
+    "current_price": 230.0,
+    "current_unit": "10 pcs",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 230.0,
+        "unit": "10 pcs",
+        "norm_price": 23.0,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "23.0 / 1 pc"
+  },
+  "trash_bag_white_18_x_24__10_pcs": {
+    "id": "trash_bag_white_18_x_24__10_pcs",
+    "name": "Trash Bag White (18\" x 24\")",
+    "image": "https://i.chaldn.com/_mpimage/trash-bag-white-18-x-24-10-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D91221&q=best&v=1&m=400&webp=1",
+    "category": "Disposables & Trash Bags",
+    "current_price": 242.0,
+    "current_unit": "10 pcs",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 242.0,
+        "unit": "10 pcs",
+        "norm_price": 24.2,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "24.2 / 1 pc"
+  },
+  "trash_bag_black_32_x_42__10_pcs": {
+    "id": "trash_bag_black_32_x_42__10_pcs",
+    "name": "Trash Bag Black (32\" x 42\")",
+    "image": "https://i.chaldn.com/_mpimage/trash-bag-black-32-x-42-10-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D91220&q=best&v=1&m=400&webp=1",
+    "category": "Disposables & Trash Bags",
+    "current_price": 299.0,
+    "current_unit": "10 pcs",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 299.0,
+        "unit": "10 pcs",
+        "norm_price": 29.9,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "29.9 / 1 pc"
+  },
+  "transparent_disposable_piping_bags_8_5_x12_5__100_pcs": {
+    "id": "transparent_disposable_piping_bags_8_5_x12_5__100_pcs",
+    "name": "Transparent Disposable Piping Bags (8.5\"x12.5\")",
+    "image": "https://i.chaldn.com/_mpimage/transparent-disposable-piping-bags-85x125-100-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D69286&q=best&v=1&m=400&webp=1",
+    "category": "Baking Tools",
+    "current_price": 719.0,
+    "current_unit": "100 pcs",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 719.0,
+        "unit": "100 pcs",
+        "norm_price": 7.19,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "7.19 / 1 pc"
+  },
+  "disposable_shoe_cover_25_pairs_": {
+    "id": "disposable_shoe_cover_25_pairs_",
+    "name": "Disposable Shoe Cover 25 pairs",
+    "image": "https://i.chaldn.com/_mpimage/disposable-shoe-cover-25-pairs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D106822&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Disposables & Trash Bags",
+    "current_price": 609.0,
+    "current_unit": "",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 609.0,
+        "unit": "",
+        "norm_price": 609.0,
+        "norm_unit": ""
+      }
+    ],
+    "norm_price_display": "609.0 / "
+  },
+  "odonil_air_freshener_block_jasmine_mist_48_gm": {
+    "id": "odonil_air_freshener_block_jasmine_mist_48_gm",
+    "name": "Odonil Air Freshener Block Jasmine Mist",
+    "image": "https://i.chaldn.com/_mpimage/odonil-air-freshener-block-jasmine-mist-48-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D105104&q=best&v=1&m=400&webp=1",
+    "category": "Air Fresheners",
+    "current_price": 65.0,
+    "current_unit": "48 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 65.0,
+        "unit": "48 gm",
+        "norm_price": 1354.17,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1354.17 / 1 kg"
+  },
+  "godrej_aer_power_pocket_bathroom_fragrance_sea_breeze_10_gm": {
+    "id": "godrej_aer_power_pocket_bathroom_fragrance_sea_breeze_10_gm",
+    "name": "Godrej Aer Power Pocket Bathroom Fragrance Sea Breeze",
+    "image": "https://i.chaldn.com/_mpimage/godrej-aer-power-pocket-bathroom-fragrance-sea-breeze-10-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128828&q=best&v=1&m=400&webp=1",
+    "category": "Air Fresheners",
+    "current_price": 75.0,
+    "current_unit": "10 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 75.0,
+        "unit": "10 gm",
+        "norm_price": 7500.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "7500.0 / 1 kg"
+  },
+  "godrej_aer_power_pocket_bathroom_fragrance_rose_fresh_blossom_10_gm": {
+    "id": "godrej_aer_power_pocket_bathroom_fragrance_rose_fresh_blossom_10_gm",
+    "name": "Godrej Aer Power Pocket Bathroom Fragrance Rose Fresh Blossom",
+    "image": "https://i.chaldn.com/_mpimage/godrej-aer-power-pocket-bathroom-fragrance-rose-fresh-blossom-10-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D134863&q=best&v=1&m=400&webp=1",
+    "category": "Air Fresheners",
+    "current_price": 75.0,
+    "current_unit": "10 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 75.0,
+        "unit": "10 gm",
+        "norm_price": 7500.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "7500.0 / 1 kg"
+  },
+  "odonil_air_freshener_block_lavender_meadows_48_gm": {
+    "id": "odonil_air_freshener_block_lavender_meadows_48_gm",
+    "name": "Odonil Air Freshener Block Lavender Meadows",
+    "image": "https://i.chaldn.com/_mpimage/odonil-air-freshener-block-lavender-meadows-48-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D105109&q=best&v=1&m=400&webp=1",
+    "category": "Air Fresheners",
+    "current_price": 65.0,
+    "current_unit": "48 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 65.0,
+        "unit": "48 gm",
+        "norm_price": 1354.17,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1354.17 / 1 kg"
+  },
+  "odonil_air_freshener_block_orchid_dew_48_gm": {
+    "id": "odonil_air_freshener_block_orchid_dew_48_gm",
+    "name": "Odonil Air Freshener Block Orchid Dew",
+    "image": "https://i.chaldn.com/_mpimage/odonil-air-freshener-block-orchid-dew-48-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D105115&q=best&v=1&m=400&webp=1",
+    "category": "Air Fresheners",
+    "current_price": 65.0,
+    "current_unit": "48 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 65.0,
+        "unit": "48 gm",
+        "norm_price": 1354.17,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1354.17 / 1 kg"
+  },
+  "godrej_aer_room_air_freshener_spray_cool_surf_blue_300_ml": {
+    "id": "godrej_aer_room_air_freshener_spray_cool_surf_blue_300_ml",
+    "name": "Godrej Aer Room Air Freshener Spray Cool Surf Blue",
+    "image": "https://i.chaldn.com/_mpimage/godrej-aer-room-air-freshener-spray-cool-surf-blue-300-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D153002&q=best&v=1&m=400&webp=1",
+    "category": "Air Fresheners",
+    "current_price": 300.0,
+    "current_unit": "300 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 300.0,
+        "unit": "300 ml",
+        "norm_price": 1000.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1000.0 / 1 L"
+  },
+  "odonil_air_freshener_block_mystic_rose_48_gm": {
+    "id": "odonil_air_freshener_block_mystic_rose_48_gm",
+    "name": "Odonil Air Freshener Block Mystic Rose",
+    "image": "https://i.chaldn.com/_mpimage/odonil-air-freshener-block-mystic-rose-48-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D131522&q=best&v=1&m=400&webp=1",
+    "category": "Air Fresheners",
+    "current_price": 65.0,
+    "current_unit": "48 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 65.0,
+        "unit": "48 gm",
+        "norm_price": 1354.17,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1354.17 / 1 kg"
+  },
+  "ermani_air_freshener_lemon__300_ml": {
+    "id": "ermani_air_freshener_lemon__300_ml",
+    "name": "Ermani Air Freshener (Lemon)",
+    "image": "https://i.chaldn.com/_mpimage/ermani-air-freshener-lemon-300-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D184035&q=best&v=1&m=400&webp=1",
+    "category": "Air Fresheners",
+    "current_price": 290.0,
+    "current_unit": "300 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 290.0,
+        "unit": "300 ml",
+        "norm_price": 966.67,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "966.67 / 1 L"
+  },
+  "go_fresh_air_freshener_anti_tobacco_300_ml": {
+    "id": "go_fresh_air_freshener_anti_tobacco_300_ml",
+    "name": "Go Fresh Air Freshener Anti Tobacco",
+    "image": "https://i.chaldn.com/_mpimage/go-fresh-air-freshener-anti-tobacco-300-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D175815&q=best&v=1&m=400&webp=1",
+    "category": "Air Fresheners",
+    "current_price": 195.0,
+    "current_unit": "300 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 195.0,
+        "unit": "300 ml",
+        "norm_price": 650.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "650.0 / 1 L"
+  },
+  "go_fresh_air_freshener_strawberry_300_ml": {
+    "id": "go_fresh_air_freshener_strawberry_300_ml",
+    "name": "Go Fresh Air Freshener Strawberry",
+    "image": "https://i.chaldn.com/_mpimage/go-fresh-air-freshener-strawberry-300-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D175811&q=best&v=1&m=400&webp=1",
+    "category": "Air Fresheners",
+    "current_price": 195.0,
+    "current_unit": "300 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 195.0,
+        "unit": "300 ml",
+        "norm_price": 650.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "650.0 / 1 L"
+  },
+  "bashundhara_air_freshener_orchid_300_ml": {
+    "id": "bashundhara_air_freshener_orchid_300_ml",
+    "name": "Bashundhara Air Freshener Orchid",
+    "image": "https://i.chaldn.com/_mpimage/bashundhara-air-freshener-orchid-300-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D153976&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Air Fresheners",
+    "current_price": 290.0,
+    "current_unit": "300 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 290.0,
+        "unit": "300 ml",
+        "norm_price": 966.67,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "966.67 / 1 L"
+  },
+  "bashundhara_air_freshener_lotus_300_ml": {
+    "id": "bashundhara_air_freshener_lotus_300_ml",
+    "name": "Bashundhara Air Freshener Lotus",
+    "image": "https://i.chaldn.com/_mpimage/bashundhara-air-freshener-lotus-300-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D153973&q=best&v=1&m=400&webp=1",
+    "category": "Air Fresheners",
+    "current_price": 240.0,
+    "current_unit": "300 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 240.0,
+        "unit": "300 ml",
+        "norm_price": 800.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "800.0 / 1 L"
+  },
+  "fresh_n_garden_air_freshener_orange_300_ml": {
+    "id": "fresh_n_garden_air_freshener_orange_300_ml",
+    "name": "Fresh N Garden Air Freshener Orange",
+    "image": "https://i.chaldn.com/_mpimage/fresh-n-garden-air-freshener-orange-300-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D153690&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Air Fresheners",
+    "current_price": 220.0,
+    "current_unit": "300 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 220.0,
+        "unit": "300 ml",
+        "norm_price": 733.33,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "733.33 / 1 L"
+  },
+  "godrej_aer_room_air_freshener_spray_monsoon_refresh_220_ml": {
+    "id": "godrej_aer_room_air_freshener_spray_monsoon_refresh_220_ml",
+    "name": "Godrej Aer Room Air Freshener Spray Monsoon Refresh",
+    "image": "https://i.chaldn.com/_mpimage/godrej-aer-room-air-freshener-spray-monsoon-refresh-220-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D151464&q=best&v=1&m=400&webp=1",
+    "category": "Air Fresheners",
+    "current_price": 240.0,
+    "current_unit": "220 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 240.0,
+        "unit": "220 ml",
+        "norm_price": 1090.91,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1090.91 / 1 L"
+  },
+  "godrej_aer_power_bathroom_fragrance_assorted_buy_4_get_1_free__10_gm": {
+    "id": "godrej_aer_power_bathroom_fragrance_assorted_buy_4_get_1_free__10_gm",
+    "name": "Godrej Aer Power Bathroom Fragrance Assorted (Buy 4 Get 1 Free)",
+    "image": "https://i.chaldn.com/_mpimage/godrej-aer-power-bathroom-fragrance-assorted-buy-4-get-1-free-10-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D183701&q=best&v=1&m=400&webp=1",
+    "category": "Air Fresheners",
+    "current_price": 300.0,
+    "current_unit": "10 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 300.0,
+        "unit": "10 gm",
+        "norm_price": 30000.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "30000.0 / 1 kg"
+  },
+  "fresh_n_garden_oudh_air_freshener_300_ml": {
+    "id": "fresh_n_garden_oudh_air_freshener_300_ml",
+    "name": "Fresh N Garden Oudh Air Freshener",
+    "image": "https://i.chaldn.com/_mpimage/fresh-n-garden-oudh-air-freshener-300-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D124239&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Air Fresheners",
+    "current_price": 220.0,
+    "current_unit": "300 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 220.0,
+        "unit": "300 ml",
+        "norm_price": 733.33,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "733.33 / 1 L"
+  },
+  "fantastik_air_freshener_natural_orchid_300_ml": {
+    "id": "fantastik_air_freshener_natural_orchid_300_ml",
+    "name": "Fantastik Air Freshener Natural Orchid",
+    "image": "https://i.chaldn.com/_mpimage/fantastik-air-freshener-natural-orchid-300-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D98656&q=best&v=1&m=400&webp=1",
+    "category": "Air Fresheners",
+    "current_price": 280.0,
+    "current_unit": "300 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 280.0,
+        "unit": "300 ml",
+        "norm_price": 933.33,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "933.33 / 1 L"
+  },
+  "shalimar_chandan_incense_sticks_agarbatti__150_gm": {
+    "id": "shalimar_chandan_incense_sticks_agarbatti__150_gm",
+    "name": "Shalimar Chandan Incense Sticks (Agarbatti)",
+    "image": "https://i.chaldn.com/_mpimage/shalimar-chandan-incense-sticks-agarbatti-150-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D133508&q=best&v=1&m=400&webp=1",
+    "category": "Air Fresheners",
+    "current_price": 170.0,
+    "current_unit": "150 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 170.0,
+        "unit": "150 gm",
+        "norm_price": 1133.33,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1133.33 / 1 kg"
+  },
+  "fresh_n_garden_air_freshener_lemon_300_ml": {
+    "id": "fresh_n_garden_air_freshener_lemon_300_ml",
+    "name": "Fresh N Garden Air Freshener Lemon",
+    "image": "https://i.chaldn.com/_mpimage/fresh-n-garden-air-freshener-lemon-300-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128648&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Air Fresheners",
+    "current_price": 220.0,
+    "current_unit": "300 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 220.0,
+        "unit": "300 ml",
+        "norm_price": 733.33,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "733.33 / 1 L"
+  },
+  "godrej_aer_room_air_freshener_spray_violet_valley_bloom_300_ml": {
+    "id": "godrej_aer_room_air_freshener_spray_violet_valley_bloom_300_ml",
+    "name": "Godrej Aer Room Air Freshener Spray Violet Valley Bloom",
+    "image": "https://i.chaldn.com/_mpimage/godrej-aer-room-air-freshener-spray-violet-valley-bloom-300-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D153005&q=best&v=1&m=400&webp=1",
+    "category": "Air Fresheners",
+    "current_price": 300.0,
+    "current_unit": "300 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 300.0,
+        "unit": "300 ml",
+        "norm_price": 1000.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1000.0 / 1 L"
+  },
+  "odonil_air_freshener_room_spray_jasmin_fresh_300_ml": {
+    "id": "odonil_air_freshener_room_spray_jasmin_fresh_300_ml",
+    "name": "Odonil Air Freshener Room Spray Jasmin Fresh",
+    "image": "https://i.chaldn.com/_mpimage/odonil-air-freshener-room-spray-jasmin-fresh-300-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D148932&q=best&v=1&m=400&webp=1",
+    "category": "Air Fresheners",
+    "current_price": 320.0,
+    "current_unit": "300 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 320.0,
+        "unit": "300 ml",
+        "norm_price": 1066.67,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1066.67 / 1 L"
+  },
+  "odonil_air_freshener_room_spray_citrus_fresh_300_ml": {
+    "id": "odonil_air_freshener_room_spray_citrus_fresh_300_ml",
+    "name": "Odonil Air Freshener Room Spray Citrus Fresh",
+    "image": "https://i.chaldn.com/_mpimage/odonil-air-freshener-room-spray-citrus-fresh-300-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D148832&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Air Fresheners",
+    "current_price": 300.0,
+    "current_unit": "300 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 300.0,
+        "unit": "300 ml",
+        "norm_price": 1000.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1000.0 / 1 L"
+  },
+  "godrej_aer_power_pocket_bathroom_fragrance_fresh_blossom_10_gm": {
+    "id": "godrej_aer_power_pocket_bathroom_fragrance_fresh_blossom_10_gm",
+    "name": "Godrej Aer Power Pocket Bathroom Fragrance Fresh Blossom",
+    "image": "https://i.chaldn.com/_mpimage/godrej-aer-power-pocket-bathroom-fragrance-fresh-blossom-10-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128826&q=best&v=1&m=400&webp=1",
+    "category": "Air Fresheners",
+    "current_price": 70.0,
+    "current_unit": "10 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 70.0,
+        "unit": "10 gm",
+        "norm_price": 7000.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "7000.0 / 1 kg"
+  },
+  "godrej_aer_power_pocket_bathroom_fragrance_lavender_bloom_10_gm": {
+    "id": "godrej_aer_power_pocket_bathroom_fragrance_lavender_bloom_10_gm",
+    "name": "Godrej Aer Power Pocket Bathroom Fragrance Lavender Bloom",
+    "image": "https://i.chaldn.com/_mpimage/godrej-aer-power-pocket-bathroom-fragrance-lavender-bloom-10-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128827&q=best&v=1&m=400&webp=1",
+    "category": "Air Fresheners",
+    "current_price": 75.0,
+    "current_unit": "10 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 75.0,
+        "unit": "10 gm",
+        "norm_price": 7500.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "7500.0 / 1 kg"
+  },
+  "wave_air_freshener_anti_tobacco__300_ml": {
+    "id": "wave_air_freshener_anti_tobacco__300_ml",
+    "name": "Wave Air Freshener (Anti Tobacco)",
+    "image": "https://i.chaldn.com/_mpimage/wave-air-freshener-anti-tobacco-300-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D55030&q=best&v=1&m=400&webp=1",
+    "category": "Air Fresheners",
+    "current_price": 290.0,
+    "current_unit": "300 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 290.0,
+        "unit": "300 ml",
+        "norm_price": 966.67,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "966.67 / 1 L"
+  },
+  "armaf_enchanted_lemon_air_freshener_300_ml": {
+    "id": "armaf_enchanted_lemon_air_freshener_300_ml",
+    "name": "Armaf Enchanted Lemon Air Freshener",
+    "image": "https://i.chaldn.com/_mpimage/armaf-enchanted-lemon-air-freshener-300-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D125279&q=best&v=1&m=400&webp=1",
+    "category": "Air Fresheners",
+    "current_price": 440.0,
+    "current_unit": "300 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 440.0,
+        "unit": "300 ml",
+        "norm_price": 1466.67,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1466.67 / 1 L"
+  },
+  "spring_anti_tobacco_wild_pine_air_freshener_300_ml": {
+    "id": "spring_anti_tobacco_wild_pine_air_freshener_300_ml",
+    "name": "Spring Anti Tobacco Wild Pine Air Freshener",
+    "image": "https://i.chaldn.com/_mpimage/spring-anti-tobacco-wild-pine-air-freshener-300-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D48512&q=best&v=1&m=400&webp=1",
+    "category": "Air Fresheners",
+    "current_price": 300.0,
+    "current_unit": "300 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 300.0,
+        "unit": "300 ml",
+        "norm_price": 1000.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1000.0 / 1 L"
+  },
+  "wave_air_freshener_lemongrass__300_ml": {
+    "id": "wave_air_freshener_lemongrass__300_ml",
+    "name": "Wave Air Freshener (Lemongrass)",
+    "image": "https://i.chaldn.com/_mpimage/wave-air-freshener-lemongrass-300-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D152801&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Air Fresheners",
+    "current_price": 290.0,
+    "current_unit": "300 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 290.0,
+        "unit": "300 ml",
+        "norm_price": 966.67,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "966.67 / 1 L"
+  },
+  "wave_air_freshener_rojonigondha__300_ml": {
+    "id": "wave_air_freshener_rojonigondha__300_ml",
+    "name": "Wave Air Freshener (Rojonigondha)",
+    "image": "https://i.chaldn.com/_mpimage/wave-air-freshener-rojonigondha-300-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D152803&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Air Fresheners",
+    "current_price": 290.0,
+    "current_unit": "300 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 290.0,
+        "unit": "300 ml",
+        "norm_price": 966.67,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "966.67 / 1 L"
+  },
+  "wave_air_freshener_jasmine__300_ml": {
+    "id": "wave_air_freshener_jasmine__300_ml",
+    "name": "Wave Air Freshener (Jasmine)",
+    "image": "https://i.chaldn.com/_mpimage/wave-air-freshener-jasmine-300-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D152802&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Air Fresheners",
+    "current_price": 290.0,
+    "current_unit": "300 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 290.0,
+        "unit": "300 ml",
+        "norm_price": 966.67,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "966.67 / 1 L"
+  },
+  "fresh_n_fresh_air_freshener_jasmine_300_ml": {
+    "id": "fresh_n_fresh_air_freshener_jasmine_300_ml",
+    "name": "Fresh N Fresh Air Freshener Jasmine",
+    "image": "https://i.chaldn.com/_mpimage/fresh-n-fresh-air-freshener-jasmine-300-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128643&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Air Fresheners",
+    "current_price": 400.0,
+    "current_unit": "300 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 400.0,
+        "unit": "300 ml",
+        "norm_price": 1333.33,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1333.33 / 1 L"
+  },
+  "fresh_n_fresh_air_freshener_lemon_300_ml": {
+    "id": "fresh_n_fresh_air_freshener_lemon_300_ml",
+    "name": "Fresh N Fresh Air Freshener Lemon",
+    "image": "https://i.chaldn.com/_mpimage/fresh-n-fresh-air-freshener-lemon-300-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D113124&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Air Fresheners",
+    "current_price": 450.0,
+    "current_unit": "300 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 450.0,
+        "unit": "300 ml",
+        "norm_price": 1500.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1500.0 / 1 L"
+  },
+  "fresh_n_fresh_air_freshener_rose_300_ml": {
+    "id": "fresh_n_fresh_air_freshener_rose_300_ml",
+    "name": "Fresh N Fresh Air Freshener Rose",
+    "image": "https://i.chaldn.com/_mpimage/fresh-n-fresh-air-freshener-rose-300-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128645&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Air Fresheners",
+    "current_price": 350.0,
+    "current_unit": "300 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 350.0,
+        "unit": "300 ml",
+        "norm_price": 1166.67,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1166.67 / 1 L"
+  },
+  "godrej_aer_cool_surf_blue_click_gel_ac_vent_car_freshener_each": {
+    "id": "godrej_aer_cool_surf_blue_click_gel_ac_vent_car_freshener_each",
+    "name": "Godrej Aer Cool Surf Blue Click Gel AC Vent Car Freshener",
+    "image": "https://i.chaldn.com/_mpimage/godrej-aer-cool-surf-blue-click-gel-ac-vent-car-freshener-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D114942&q=best&v=1&m=400&webp=1",
+    "category": "Air Fresheners",
+    "current_price": 399.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 399.0,
+        "unit": "each",
+        "norm_price": 399.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "399.0 / each"
+  },
+  "godrej_aer_twist_dashboard_car_freshener_cool_surf_blue__45_gm": {
+    "id": "godrej_aer_twist_dashboard_car_freshener_cool_surf_blue__45_gm",
+    "name": "Godrej Aer Twist Dashboard Car Freshener Cool Surf (Blue)",
+    "image": "https://i.chaldn.com/_mpimage/godrej-aer-twist-dashboard-car-freshener-cool-surf-blue-45-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D48496&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Air Fresheners",
+    "current_price": 599.0,
+    "current_unit": "45 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 599.0,
+        "unit": "45 gm",
+        "norm_price": 13311.11,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "13311.11 / 1 kg"
+  },
+  "godrej_aer_room_air_freshener_spray_fresh_lush_green_300_ml": {
+    "id": "godrej_aer_room_air_freshener_spray_fresh_lush_green_300_ml",
+    "name": "Godrej Aer Room Air Freshener Spray Fresh Lush Green",
+    "image": "https://i.chaldn.com/_mpimage/godrej-aer-room-air-freshener-spray-fresh-lush-green-300-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D153003&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Air Fresheners",
+    "current_price": 300.0,
+    "current_unit": "300 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 300.0,
+        "unit": "300 ml",
+        "norm_price": 1000.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1000.0 / 1 L"
+  },
+  "fay_air_freshener_lily_3_in_1_300_ml": {
+    "id": "fay_air_freshener_lily_3_in_1_300_ml",
+    "name": "Fay Air Freshener Lily 3 in 1",
+    "image": "https://i.chaldn.com/_mpimage/fay-air-freshener-lily-3-in-1-300-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D109263&q=best&v=1&m=400&webp=1",
+    "category": "Air Fresheners",
+    "current_price": 320.0,
+    "current_unit": "300 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 320.0,
+        "unit": "300 ml",
+        "norm_price": 1066.67,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1066.67 / 1 L"
+  },
+  "fay_air_freshener_orchid_3_in_1_300_ml": {
+    "id": "fay_air_freshener_orchid_3_in_1_300_ml",
+    "name": "Fay Air Freshener Orchid 3 In 1",
+    "image": "https://i.chaldn.com/_mpimage/fay-air-freshener-orchid-3-in-1-300-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D48493&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Air Fresheners",
+    "current_price": 320.0,
+    "current_unit": "300 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 320.0,
+        "unit": "300 ml",
+        "norm_price": 1066.67,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1066.67 / 1 L"
+  },
+  "fay_air_freshener_lime_3_in_1_300_ml": {
+    "id": "fay_air_freshener_lime_3_in_1_300_ml",
+    "name": "Fay Air Freshener Lime 3 in 1",
+    "image": "https://i.chaldn.com/_mpimage/fay-air-freshener-lime-3-in-1-300-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D109260&q=best&v=1&m=400&webp=1",
+    "category": "Air Fresheners",
+    "current_price": 320.0,
+    "current_unit": "300 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 320.0,
+        "unit": "300 ml",
+        "norm_price": 1066.67,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1066.67 / 1 L"
+  },
+  "fay_air_freshener_jasmine_3_in_1_300_ml": {
+    "id": "fay_air_freshener_jasmine_3_in_1_300_ml",
+    "name": "Fay Air Freshener Jasmine 3 in 1",
+    "image": "https://i.chaldn.com/_mpimage/fay-air-freshener-jasmine-3-in-1-300-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128438&q=best&v=1&m=400&webp=1",
+    "category": "Air Fresheners",
+    "current_price": 340.0,
+    "current_unit": "300 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 340.0,
+        "unit": "300 ml",
+        "norm_price": 1133.33,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1133.33 / 1 L"
+  },
+  "fay_air_freshener_magnolia_3_in_1_300_ml": {
+    "id": "fay_air_freshener_magnolia_3_in_1_300_ml",
+    "name": "Fay Air Freshener Magnolia 3 in 1",
+    "image": "https://i.chaldn.com/_mpimage/fay-air-freshener-magnolia-3-in-1-300-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D131688&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Air Fresheners",
+    "current_price": 340.0,
+    "current_unit": "300 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 340.0,
+        "unit": "300 ml",
+        "norm_price": 1133.33,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1133.33 / 1 L"
+  },
+  "fay_air_freshener_rose_3_in_1_300_ml": {
+    "id": "fay_air_freshener_rose_3_in_1_300_ml",
+    "name": "Fay Air Freshener Rose 3 in 1",
+    "image": "https://i.chaldn.com/_mpimage/fay-air-freshener-rose-3-in-1-300-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D109262&q=best&v=1&m=400&webp=1",
+    "category": "Air Fresheners",
+    "current_price": 340.0,
+    "current_unit": "300 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 340.0,
+        "unit": "300 ml",
+        "norm_price": 1133.33,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1133.33 / 1 L"
+  },
+  "fay_air_freshener_narcissus_3_in1_300_ml": {
+    "id": "fay_air_freshener_narcissus_3_in1_300_ml",
+    "name": "Fay Air Freshener Narcissus 3 in1",
+    "image": "https://i.chaldn.com/_mpimage/fay-air-freshener-narcissus-3-in1-300-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D109261&q=best&v=1&m=400&webp=1",
+    "category": "Air Fresheners",
+    "current_price": 320.0,
+    "current_unit": "300 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 320.0,
+        "unit": "300 ml",
+        "norm_price": 1066.67,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1066.67 / 1 L"
+  },
+  "spring_air_freshener_orange_fresh_300_ml": {
+    "id": "spring_air_freshener_orange_fresh_300_ml",
+    "name": "Spring Air Freshener Orange Fresh",
+    "image": "https://i.chaldn.com/_mpimage/spring-air-freshener-orange-fresh-300-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D48511&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Air Fresheners",
+    "current_price": 320.0,
+    "current_unit": "300 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 320.0,
+        "unit": "300 ml",
+        "norm_price": 1066.67,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1066.67 / 1 L"
+  },
+  "fay_air_freshener_lavender_3_in_1_300_ml": {
+    "id": "fay_air_freshener_lavender_3_in_1_300_ml",
+    "name": "Fay Air Freshener Lavender 3 in 1",
+    "image": "https://i.chaldn.com/_mpimage/fay-air-freshener-lavender-3-in-1-300-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D109256&q=best&v=1&m=400&webp=1",
+    "category": "Air Fresheners",
+    "current_price": 340.0,
+    "current_unit": "300 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 340.0,
+        "unit": "300 ml",
+        "norm_price": 1133.33,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1133.33 / 1 L"
+  },
+  "spring_air_freshener_lemon_fresh_300_ml": {
+    "id": "spring_air_freshener_lemon_fresh_300_ml",
+    "name": "Spring Air Freshener Lemon Fresh",
+    "image": "https://i.chaldn.com/_mpimage/spring-air-freshener-lemon-fresh-300-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D48510&q=best&v=1&m=400&webp=1",
+    "category": "Air Fresheners",
+    "current_price": 320.0,
+    "current_unit": "300 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 320.0,
+        "unit": "300 ml",
+        "norm_price": 1066.67,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1066.67 / 1 L"
+  },
+  "spring_air_freshener_floral_fresh_300_ml": {
+    "id": "spring_air_freshener_floral_fresh_300_ml",
+    "name": "Spring Air Freshener Floral Fresh",
+    "image": "https://i.chaldn.com/_mpimage/spring-air-freshener-floral-fresh-300-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D48509&q=best&v=1&m=400&webp=1",
+    "category": "Air Fresheners",
+    "current_price": 320.0,
+    "current_unit": "300 ml",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 320.0,
+        "unit": "300 ml",
+        "norm_price": 1066.67,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1066.67 / 1 L"
+  },
+  "samurai_multi_functional_electric_cooker_pink_all_plastic__1_8_ltr": {
+    "id": "samurai_multi_functional_electric_cooker_pink_all_plastic__1_8_ltr",
+    "name": "Samurai Multi Functional Electric Cooker Pink (All Plastic)",
+    "image": "https://i.chaldn.com/_mpimage/samurai-multi-functional-electric-cooker-pink-all-plastic-18-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D186274&q=best&v=1&m=400&webp=1",
+    "category": "Kitchen Appliances",
+    "current_price": 1400.0,
+    "current_unit": "1.8 ltr",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 1400.0,
+        "unit": "1.8 ltr",
+        "norm_price": 777.78,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "777.78 / 1 L"
+  },
+  "samurai_multi_functional_electric_cooker_teal_all_plastic__1_8_ltr": {
+    "id": "samurai_multi_functional_electric_cooker_teal_all_plastic__1_8_ltr",
+    "name": "Samurai Multi Functional Electric Cooker Teal (All Plastic)",
+    "image": "https://i.chaldn.com/_mpimage/samurai-multi-functional-electric-cooker-teal-all-plastic-18-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D186273&q=best&v=1&m=400&webp=1",
+    "category": "Kitchen Appliances",
+    "current_price": 1400.0,
+    "current_unit": "1.8 ltr",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 1400.0,
+        "unit": "1.8 ltr",
+        "norm_price": 777.78,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "777.78 / 1 L"
+  },
+  "samurai_mosquito_bat_white_rechargeable__each": {
+    "id": "samurai_mosquito_bat_white_rechargeable__each",
+    "name": "Samurai Mosquito Bat White (Rechargeable)",
+    "image": "https://i.chaldn.com/_mpimage/samurai-mosquito-bat-white-rechargeable-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D186268&q=best&v=1&m=400&webp=1",
+    "category": "Kitchen Appliances",
+    "current_price": 750.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 750.0,
+        "unit": "each",
+        "norm_price": 750.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "750.0 / each"
+  },
+  "stainless_steel_round_spoon_medium_each": {
+    "id": "stainless_steel_round_spoon_medium_each",
+    "name": "Stainless Steel Round Spoon Medium",
+    "image": "https://i.chaldn.com/_mpimage/stainless-steel-round-spoon-medium-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D176970&q=best&v=1&m=400&webp=1",
+    "category": "Kitchen Appliances",
+    "current_price": 159.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 159.0,
+        "unit": "each",
+        "norm_price": 159.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "159.0 / each"
+  },
+  "pureit_classic_germ_kill_kit_1500_ltr": {
+    "id": "pureit_classic_germ_kill_kit_1500_ltr",
+    "name": "Pureit Classic Germ Kill Kit",
+    "image": "https://i.chaldn.com/_mpimage/pureit-classic-germ-kill-kit-1500-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D177904&q=best&v=1&m=400&webp=1",
+    "category": "Kitchen Appliances",
+    "current_price": 800.0,
+    "current_unit": "1500 ltr",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 800.0,
+        "unit": "1500 ltr",
+        "norm_price": 0.53,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "0.53 / 1 L"
+  },
+  "vision_electric_kettle_heavy_duty_vis_ek_017__5_ltr": {
+    "id": "vision_electric_kettle_heavy_duty_vis_ek_017__5_ltr",
+    "name": "Vision Electric Kettle Heavy Duty (VIS-EK-017)",
+    "image": "https://i.chaldn.com/_mpimage/vision-electric-kettle-heavy-duty-vis-ek-017-5-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D185376&q=best&v=1&m=400&webp=1",
+    "category": "Kitchen Appliances",
+    "current_price": 2500.0,
+    "current_unit": "5 ltr",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 2500.0,
+        "unit": "5 ltr",
+        "norm_price": 500.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "500.0 / 1 L"
+  },
+  "stainless_steel_whisk_blue__each": {
+    "id": "stainless_steel_whisk_blue__each",
+    "name": "Stainless Steel Whisk (Blue)",
+    "image": "https://i.chaldn.com/_mpimage/stainless-steel-whisk-blue-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130303&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Kitchen Appliances",
+    "current_price": 128.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 128.0,
+        "unit": "each",
+        "norm_price": 128.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "128.0 / each"
+  },
+  "rfl_topper_aluminum_belly_pot_2_5_ltr_each": {
+    "id": "rfl_topper_aluminum_belly_pot_2_5_ltr_each",
+    "name": "RFL Topper Aluminum Belly Pot 2.5 ltr",
+    "image": "https://i.chaldn.com/_mpimage/rfl-topper-aluminum-belly-pot-25-ltr-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D100627&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Kitchen Appliances",
+    "current_price": 840.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 840.0,
+        "unit": "each",
+        "norm_price": 840.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "840.0 / each"
+  },
+  "kitchen_apron_each": {
+    "id": "kitchen_apron_each",
+    "name": "Kitchen Apron",
+    "image": "https://i.chaldn.com/_mpimage/kitchen-apron-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D110133&q=best&v=1&m=400&webp=1",
+    "category": "Kitchen Appliances",
+    "current_price": 271.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 271.0,
+        "unit": "each",
+        "norm_price": 271.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "271.0 / each"
+  },
+  "stainless_steel_grater_each": {
+    "id": "stainless_steel_grater_each",
+    "name": "Stainless Steel Grater",
+    "image": "https://i.chaldn.com/_mpimage/stainless-steel-grater-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D53905&q=best&v=1&m=400&webp=1",
+    "category": "Kitchen Appliances",
+    "current_price": 199.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 199.0,
+        "unit": "each",
+        "norm_price": 199.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "199.0 / each"
+  },
+  "stainless_steel_whisk_each": {
+    "id": "stainless_steel_whisk_each",
+    "name": "Stainless Steel Whisk",
+    "image": "https://i.chaldn.com/_mpimage/stainless-steel-whisk-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D177526&q=best&v=1&m=400&webp=1",
+    "category": "Kitchen Appliances",
+    "current_price": 117.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 117.0,
+        "unit": "each",
+        "norm_price": 117.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "117.0 / each"
+  },
+  "heat_insulation_pad_each": {
+    "id": "heat_insulation_pad_each",
+    "name": "Heat Insulation Pad",
+    "image": "https://i.chaldn.com/_mpimage/heat-insulation-pad-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D101705&q=best&v=1&m=400&webp=1",
+    "category": "Kitchen Appliances",
+    "current_price": 100.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 100.0,
+        "unit": "each",
+        "norm_price": 100.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "100.0 / each"
+  },
+  "non_stick_fry_pan_spoon_each": {
+    "id": "non_stick_fry_pan_spoon_each",
+    "name": "Non Stick Fry Pan Spoon",
+    "image": "https://i.chaldn.com/_mpimage/non-stick-fry-pan-spoon-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D131450&q=best&v=1&m=400&webp=1",
+    "category": "Kitchen Appliances",
+    "current_price": 149.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 149.0,
+        "unit": "each",
+        "norm_price": 149.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "149.0 / each"
+  },
+  "rfl_vision_classic_3_in_1_blender_1_6_ltr": {
+    "id": "rfl_vision_classic_3_in_1_blender_1_6_ltr",
+    "name": "RFL Vision Classic 3 In 1 Blender",
+    "image": "https://i.chaldn.com/_mpimage/rfl-vision-classic-3-in-1-blender-16-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D113270&q=best&v=1&m=400&webp=1",
+    "category": "Kitchen Appliances",
+    "current_price": 2500.0,
+    "current_unit": "1.6 ltr",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 2500.0,
+        "unit": "1.6 ltr",
+        "norm_price": 1562.5,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1562.5 / 1 L"
+  },
+  "stainless_steel_pickle_spoon_each": {
+    "id": "stainless_steel_pickle_spoon_each",
+    "name": "Stainless Steel Pickle Spoon",
+    "image": "https://i.chaldn.com/_mpimage/stainless-steel-pickle-spoon-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D36804&q=best&v=1&m=400&webp=1",
+    "category": "Kitchen Appliances",
+    "current_price": 105.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 105.0,
+        "unit": "each",
+        "norm_price": 105.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "105.0 / each"
+  },
+  "king_bell_tuna_salad_vegetables_170_gm": {
+    "id": "king_bell_tuna_salad_vegetables_170_gm",
+    "name": "King Bell Tuna Salad Vegetables",
+    "image": "https://i.chaldn.com/_mpimage/king-bell-tuna-salad-vegetables-170-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D129782&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Fish Cans",
+    "current_price": 320.0,
+    "current_unit": "170 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 320.0,
+        "unit": "170 gm",
+        "norm_price": 1882.35,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1882.35 / 1 kg"
+  },
+  "king_bell_tuna_salad_in_tomato_sauce_170_gm": {
+    "id": "king_bell_tuna_salad_in_tomato_sauce_170_gm",
+    "name": "King Bell Tuna Salad In Tomato Sauce",
+    "image": "https://i.chaldn.com/_mpimage/king-bell-tuna-salad-in-tomato-sauce-170-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D184785&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Fish Cans",
+    "current_price": 310.0,
+    "current_unit": "170 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 310.0,
+        "unit": "170 gm",
+        "norm_price": 1823.53,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1823.53 / 1 kg"
+  },
+  "nautilus_lite_sandwich_tuna_in_spring_water_165_gm": {
+    "id": "nautilus_lite_sandwich_tuna_in_spring_water_165_gm",
+    "name": "Nautilus Lite Sandwich Tuna In Spring Water",
+    "image": "https://i.chaldn.com/_mpimage/nautilus-lite-sandwich-tuna-in-spring-water-165-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D182822&q=best&v=1&m=400&webp=1",
+    "category": "Fish Cans",
+    "current_price": 429.0,
+    "current_unit": "165 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 429.0,
+        "unit": "165 gm",
+        "norm_price": 2600.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2600.0 / 1 kg"
+  },
+  "nautilus_sandwich_tuna_in_soybean_oil_165_gm": {
+    "id": "nautilus_sandwich_tuna_in_soybean_oil_165_gm",
+    "name": "Nautilus Sandwich Tuna In Soybean Oil",
+    "image": "https://i.chaldn.com/_mpimage/nautilus-sandwich-tuna-in-soybean-oil-165-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D92539&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Fish Cans",
+    "current_price": 319.0,
+    "current_unit": "165 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 319.0,
+        "unit": "165 gm",
+        "norm_price": 1933.33,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1933.33 / 1 kg"
+  },
+  "golden_harvest_mini_singara_20_pcs_300_gm": {
+    "id": "golden_harvest_mini_singara_20_pcs_300_gm",
+    "name": "Golden Harvest Mini Singara 20 pcs",
+    "image": "https://i.chaldn.com/_mpimage/golden-harvest-mini-singara-20-pcs-300-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D146226&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Vegetable Snacks",
+    "current_price": 125.0,
+    "current_unit": "300 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 125.0,
+        "unit": "300 gm",
+        "norm_price": 416.67,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "416.67 / 1 kg"
+  },
+  "ag_food_vegetable_spring_roll_10_pcs_400_gm": {
+    "id": "ag_food_vegetable_spring_roll_10_pcs_400_gm",
+    "name": "AG Food Vegetable Spring Roll 10 pcs",
+    "image": "https://i.chaldn.com/_mpimage/ag-food-vegetable-spring-roll-10-pcs-400-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D88097&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Vegetable Snacks",
+    "current_price": 120.0,
+    "current_unit": "400 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 120.0,
+        "unit": "400 gm",
+        "norm_price": 300.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "300.0 / 1 kg"
+  },
+  "kazi_farms_kitchen_vegetable_spring_roll_10_pcs_400_gm": {
+    "id": "kazi_farms_kitchen_vegetable_spring_roll_10_pcs_400_gm",
+    "name": "Kazi Farms Kitchen Vegetable Spring Roll 10 pcs",
+    "image": "https://i.chaldn.com/_mpimage/kazi-farms-kitchen-vegetable-spring-roll-10-pcs-400-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D108265&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Vegetable Snacks",
+    "current_price": 145.0,
+    "current_unit": "400 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 145.0,
+        "unit": "400 gm",
+        "norm_price": 362.5,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "362.5 / 1 kg"
+  },
+  "jhatpot_aloo_puri_454_gm_10_pcs": {
+    "id": "jhatpot_aloo_puri_454_gm_10_pcs",
+    "name": "Jhatpot Aloo Puri 454 gm",
+    "image": "https://i.chaldn.com/_mpimage/jhatpot-aloo-puri-454-gm-10-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D107314&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Vegetable Snacks",
+    "current_price": 140.0,
+    "current_unit": "10 pcs",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 140.0,
+        "unit": "10 pcs",
+        "norm_price": 14.0,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "14.0 / 1 pc"
+  },
+  "jhatpot_vegetables_spring_roll_360_gm_9_pcs": {
+    "id": "jhatpot_vegetables_spring_roll_360_gm_9_pcs",
+    "name": "Jhatpot Vegetables Spring Roll 360 gm",
+    "image": "https://i.chaldn.com/_mpimage/jhatpot-vegetables-spring-roll-360-gm-9-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D107318&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Vegetable Snacks",
+    "current_price": 140.0,
+    "current_unit": "9 pcs",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 140.0,
+        "unit": "9 pcs",
+        "norm_price": 15.56,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "15.56 / 1 pc"
+  },
+  "jhatpot_vegetables_singara_400_gm_10_pcs": {
+    "id": "jhatpot_vegetables_singara_400_gm_10_pcs",
+    "name": "Jhatpot Vegetables Singara 400 gm",
+    "image": "https://i.chaldn.com/_mpimage/jhatpot-vegetables-singara-400-gm-10-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D107317&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Vegetable Snacks",
+    "current_price": 125.0,
+    "current_unit": "10 pcs",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 125.0,
+        "unit": "10 pcs",
+        "norm_price": 12.5,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "12.5 / 1 pc"
+  },
+  "kazi_farms_kitchen_dal_puri_10_pcs_450_gm": {
+    "id": "kazi_farms_kitchen_dal_puri_10_pcs_450_gm",
+    "name": "Kazi Farms Kitchen Dal Puri 10 pcs",
+    "image": "https://i.chaldn.com/_mpimage/kazi-farms-kitchen-dal-puri-10-pcs-450-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D96082&q=best&v=1&m=400&webp=1",
+    "category": "Vegetable Snacks",
+    "current_price": 145.0,
+    "current_unit": "450 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 145.0,
+        "unit": "450 gm",
+        "norm_price": 322.22,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "322.22 / 1 kg"
+  },
+  "silicon_spatula_2_pcs": {
+    "id": "silicon_spatula_2_pcs",
+    "name": "Silicon Spatula",
+    "image": "https://i.chaldn.com/_mpimage/silicon-spatula-2-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D133658&q=best&v=1&m=400&webp=1",
+    "category": "Baking Tools",
+    "current_price": 219.0,
+    "current_unit": "2 pcs",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 219.0,
+        "unit": "2 pcs",
+        "norm_price": 109.5,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "109.5 / 1 pc"
+  },
+  "silicone_chocolate_mould_each": {
+    "id": "silicone_chocolate_mould_each",
+    "name": "Silicone Chocolate Mould",
+    "image": "https://i.chaldn.com/_mpimage/silicone-chocolate-mould-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D133659&q=best&v=1&m=400&webp=1",
+    "category": "Baking Tools",
+    "current_price": 269.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 269.0,
+        "unit": "each",
+        "norm_price": 269.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "269.0 / each"
+  },
+  "lacy_s_baking_cooking_paper_10_m_each": {
+    "id": "lacy_s_baking_cooking_paper_10_m_each",
+    "name": "Lacy's Baking & Cooking Paper 10 m",
+    "image": "https://i.chaldn.com/_mpimage/lacys-baking-cooking-paper-10-m-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D129933&q=best&v=1&m=400&webp=1",
+    "category": "Baking Tools",
+    "current_price": 649.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 649.0,
+        "unit": "each",
+        "norm_price": 649.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "649.0 / each"
+  },
+  "wooden_silicone_spatula_each": {
+    "id": "wooden_silicone_spatula_each",
+    "name": "Wooden Silicone Spatula",
+    "image": "https://i.chaldn.com/_mpimage/wooden-silicone-spatula-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D69263&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Baking Tools",
+    "current_price": 379.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 379.0,
+        "unit": "each",
+        "norm_price": 379.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "379.0 / each"
+  },
+  "cake_muffin_tin_each": {
+    "id": "cake_muffin_tin_each",
+    "name": "Cake Muffin Tin",
+    "image": "https://i.chaldn.com/_mpimage/cake-muffin-tin-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D126552&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Baking Tools",
+    "current_price": 379.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 379.0,
+        "unit": "each",
+        "norm_price": 379.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "379.0 / each"
+  },
+  "heart_shaped_cake_pan_each": {
+    "id": "heart_shaped_cake_pan_each",
+    "name": "Heart Shaped Cake Pan",
+    "image": "https://i.chaldn.com/_mpimage/heart-shaped-cake-pan-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D101704&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Baking Tools",
+    "current_price": 299.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 299.0,
+        "unit": "each",
+        "norm_price": 299.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "299.0 / each"
+  },
+  "round_cake_pan_each": {
+    "id": "round_cake_pan_each",
+    "name": "Round Cake Pan",
+    "image": "https://i.chaldn.com/_mpimage/round-cake-pan-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D133044&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Baking Tools",
+    "current_price": 409.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 409.0,
+        "unit": "each",
+        "norm_price": 409.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "409.0 / each"
+  },
+  "russian_flower_nozzle_set_7_pcs": {
+    "id": "russian_flower_nozzle_set_7_pcs",
+    "name": "Russian Flower Nozzle Set",
+    "image": "https://i.chaldn.com/_mpimage/russian-flower-nozzle-set-7-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D133084&q=best&v=1&m=400&webp=1",
+    "category": "Baking Tools",
+    "current_price": 480.0,
+    "current_unit": "7 pcs",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 480.0,
+        "unit": "7 pcs",
+        "norm_price": 68.57,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "68.57 / 1 pc"
+  },
+  "cake_decoration_nozzle_set_12_pcs": {
+    "id": "cake_decoration_nozzle_set_12_pcs",
+    "name": "Cake Decoration Nozzle Set",
+    "image": "https://i.chaldn.com/_mpimage/cake-decoration-nozzle-set-12-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D126549&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Baking Tools",
+    "current_price": 179.0,
+    "current_unit": "12 pcs",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 179.0,
+        "unit": "12 pcs",
+        "norm_price": 14.92,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "14.92 / 1 pc"
+  },
+  "pizza_cutter_each": {
+    "id": "pizza_cutter_each",
+    "name": "Pizza Cutter",
+    "image": "https://i.chaldn.com/_mpimage/pizza-cutter-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D177335&q=best&v=1&m=400&webp=1",
+    "category": "Baking Tools",
+    "current_price": 250.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 250.0,
+        "unit": "each",
+        "norm_price": 250.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "250.0 / each"
+  },
+  "small_whisk_each": {
+    "id": "small_whisk_each",
+    "name": "Small Whisk",
+    "image": "https://i.chaldn.com/_mpimage/small-whisk-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D68665&q=best&v=1&m=400&webp=1",
+    "category": "Baking Tools",
+    "current_price": 159.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 159.0,
+        "unit": "each",
+        "norm_price": 159.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "159.0 / each"
+  },
+  "boutique_straw_4_pcs": {
+    "id": "boutique_straw_4_pcs",
+    "name": "Boutique Straw",
+    "image": "https://i.chaldn.com/_mpimage/boutique-straw-4-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D68403&q=best&v=1&m=400&webp=1",
+    "category": "Baking Tools",
+    "current_price": 400.0,
+    "current_unit": "4 pcs",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 400.0,
+        "unit": "4 pcs",
+        "norm_price": 100.0,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "100.0 / 1 pc"
+  },
+  "orange_medium_measurement_mug_each": {
+    "id": "orange_medium_measurement_mug_each",
+    "name": "Orange Medium Measurement Mug",
+    "image": "https://i.chaldn.com/_mpimage/orange-medium-measurement-mug-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D68417&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Baking Tools",
+    "current_price": 359.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 359.0,
+        "unit": "each",
+        "norm_price": 359.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "359.0 / each"
+  },
+  "raisins_kishmish__100_gm": {
+    "id": "raisins_kishmish__100_gm",
+    "name": "Raisins (Kishmish)",
+    "image": "https://i.chaldn.com/_mpimage/raisins-kishmish-100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D183690&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Nuts & Dried Fruits",
+    "current_price": 99.0,
+    "current_unit": "100 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 99.0,
+        "unit": "100 gm",
+        "norm_price": 990.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "990.0 / 1 kg"
+  },
+  "mazzak_badam_roasted_peanut_170_gm": {
+    "id": "mazzak_badam_roasted_peanut_170_gm",
+    "name": "Mazzak Badam Roasted Peanut",
+    "image": "https://i.chaldn.com/_mpimage/mazzak-badam-roasted-peanut-170-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D185956&q=best&v=1&m=400&webp=1",
+    "category": "Nuts & Dried Fruits",
+    "current_price": 150.0,
+    "current_unit": "170 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 150.0,
+        "unit": "170 gm",
+        "norm_price": 882.35,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "882.35 / 1 kg"
+  },
+  "mazzak_badam_almond_roasted_light_salt_40_gm": {
+    "id": "mazzak_badam_almond_roasted_light_salt_40_gm",
+    "name": "Mazzak Badam Almond Roasted & Light Salt",
+    "image": "https://i.chaldn.com/_mpimage/mazzak-badam-almond-roasted-light-salt-40-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D185967&q=best&v=1&m=400&webp=1",
+    "category": "Nuts & Dried Fruits",
+    "current_price": 149.0,
+    "current_unit": "40 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 149.0,
+        "unit": "40 gm",
+        "norm_price": 3725.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "3725.0 / 1 kg"
+  },
+  "mazzak_badam_cashews_roasted_salt_40_gm": {
+    "id": "mazzak_badam_cashews_roasted_salt_40_gm",
+    "name": "Mazzak Badam Cashews Roasted & Salt",
+    "image": "https://i.chaldn.com/_mpimage/mazzak-badam-cashews-roasted-salt-40-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D185965&q=best&v=1&m=400&webp=1",
+    "category": "Nuts & Dried Fruits",
+    "current_price": 149.0,
+    "current_unit": "40 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 149.0,
+        "unit": "40 gm",
+        "norm_price": 3725.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "3725.0 / 1 kg"
+  },
+  "mazzak_badam_pistachio_roasted_light_salt_40_gm": {
+    "id": "mazzak_badam_pistachio_roasted_light_salt_40_gm",
+    "name": "Mazzak Badam Pistachio Roasted & Light Salt",
+    "image": "https://i.chaldn.com/_mpimage/mazzak-badam-pistachio-roasted-light-salt-40-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D185963&q=best&v=1&m=400&webp=1",
+    "category": "Nuts & Dried Fruits",
+    "current_price": 169.0,
+    "current_unit": "40 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 169.0,
+        "unit": "40 gm",
+        "norm_price": 4225.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "4225.0 / 1 kg"
+  },
+  "mazzak_sunflower_seeds_roasted_light_salt_165_gm": {
+    "id": "mazzak_sunflower_seeds_roasted_light_salt_165_gm",
+    "name": "Mazzak Sunflower Seeds Roasted & Light Salt",
+    "image": "https://i.chaldn.com/_mpimage/mazzak-sunflower-seeds-roasted-light-salt-165-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D185952&q=best&v=1&m=400&webp=1",
+    "category": "Nuts & Dried Fruits",
+    "current_price": 259.0,
+    "current_unit": "165 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 259.0,
+        "unit": "165 gm",
+        "norm_price": 1569.7,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1569.7 / 1 kg"
+  },
+  "al_barakah_premium_dates_250_gm": {
+    "id": "al_barakah_premium_dates_250_gm",
+    "name": "Al Barakah Premium Dates",
+    "image": "https://i.chaldn.com/_mpimage/al-barakah-premium-dates-250gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D171857&q=best&v=1&m=400&webp=1",
+    "category": "Nuts & Dried Fruits",
+    "current_price": 190.0,
+    "current_unit": "250\u00a0gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 190.0,
+        "unit": "250\u00a0gm",
+        "norm_price": 760.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "760.0 / 1 kg"
+  },
+  "royal_gardens_salted_cashews_100_gm": {
+    "id": "royal_gardens_salted_cashews_100_gm",
+    "name": "Royal Gardens Salted Cashews",
+    "image": "https://i.chaldn.com/_mpimage/royal-gardens-salted-cashews-100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D138791&q=best&v=1&m=400&webp=1",
+    "category": "Nuts & Dried Fruits",
+    "current_price": 435.0,
+    "current_unit": "100 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 435.0,
+        "unit": "100 gm",
+        "norm_price": 4350.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "4350.0 / 1 kg"
+  },
+  "almonds_kath_badam__100_gm": {
+    "id": "almonds_kath_badam__100_gm",
+    "name": "Almonds (Kath Badam)",
+    "image": "https://i.chaldn.com/_mpimage/almonds-kath-badam-100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D184611&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Nuts & Dried Fruits",
+    "current_price": 159.0,
+    "current_unit": "100 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 159.0,
+        "unit": "100 gm",
+        "norm_price": 1590.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1590.0 / 1 kg"
+  },
+  "medjool_dates_khejur__500_gm": {
+    "id": "medjool_dates_khejur__500_gm",
+    "name": "Medjool Dates (Khejur)",
+    "image": "https://i.chaldn.com/_mpimage/medjool-dates-khejur-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D184072&q=best&v=1&m=400&webp=1",
+    "category": "Nuts & Dried Fruits",
+    "current_price": 759.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 759.0,
+        "unit": "500 gm",
+        "norm_price": 1518.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1518.0 / 1 kg"
+  },
+  "mazzak_pumpkin_seeds_roasted_light_salt_165_gm": {
+    "id": "mazzak_pumpkin_seeds_roasted_light_salt_165_gm",
+    "name": "Mazzak Pumpkin Seeds Roasted & Light Salt",
+    "image": "https://i.chaldn.com/_mpimage/mazzak-pumpkin-seeds-roasted-light-salt-165-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D185953&q=best&v=1&m=400&webp=1",
+    "category": "Nuts & Dried Fruits",
+    "current_price": 240.0,
+    "current_unit": "165 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 240.0,
+        "unit": "165 gm",
+        "norm_price": 1454.55,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1454.55 / 1 kg"
+  },
+  "ruchi_spicy_cashew_nut_150_gm": {
+    "id": "ruchi_spicy_cashew_nut_150_gm",
+    "name": "Ruchi Spicy Cashew Nut",
+    "image": "https://i.chaldn.com/_mpimage/ruchi-spicy-cashew-nut-150-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D158258&q=best&v=1&m=400&webp=1",
+    "category": "Nuts & Dried Fruits",
+    "current_price": 650.0,
+    "current_unit": "150 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 650.0,
+        "unit": "150 gm",
+        "norm_price": 4333.33,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "4333.33 / 1 kg"
+  },
+  "ruchi_spicy_cashew_nut_40_gm": {
+    "id": "ruchi_spicy_cashew_nut_40_gm",
+    "name": "Ruchi Spicy Cashew Nut",
+    "image": "https://i.chaldn.com/_mpimage/ruchi-spicy-cashew-nut-40-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D158257&q=best&v=1&m=400&webp=1",
+    "category": "Nuts & Dried Fruits",
+    "current_price": 185.0,
+    "current_unit": "40 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 185.0,
+        "unit": "40 gm",
+        "norm_price": 4625.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "4625.0 / 1 kg"
+  },
+  "blossoms_dried_mixed_plum_220_gm": {
+    "id": "blossoms_dried_mixed_plum_220_gm",
+    "name": "Blossoms Dried Mixed Plum",
+    "image": "https://i.chaldn.com/_mpimage/blossoms-dried-mixed-plum-220-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D148500&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Nuts & Dried Fruits",
+    "current_price": 300.0,
+    "current_unit": "220 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 300.0,
+        "unit": "220 gm",
+        "norm_price": 1363.64,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1363.64 / 1 kg"
+  },
+  "blossoms_dried_sakura_plum_220_gm": {
+    "id": "blossoms_dried_sakura_plum_220_gm",
+    "name": "Blossoms Dried Sakura Plum",
+    "image": "https://i.chaldn.com/_mpimage/blossoms-dried-sakura-plum-220-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D148499&q=best&v=1&m=400&webp=1",
+    "category": "Nuts & Dried Fruits",
+    "current_price": 365.0,
+    "current_unit": "220 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 365.0,
+        "unit": "220 gm",
+        "norm_price": 1659.09,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1659.09 / 1 kg"
+  },
+  "royal_gardens_masala_cashews_150_gm": {
+    "id": "royal_gardens_masala_cashews_150_gm",
+    "name": "Royal Gardens Masala Cashews",
+    "image": "https://i.chaldn.com/_mpimage/royal-gardens-masala-cashews-150-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D137047&q=best&v=1&m=400&webp=1",
+    "category": "Nuts & Dried Fruits",
+    "current_price": 695.0,
+    "current_unit": "150 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 695.0,
+        "unit": "150 gm",
+        "norm_price": 4633.33,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "4633.33 / 1 kg"
+  },
+  "farmer_s_gold_mixed_nut_250_gm": {
+    "id": "farmer_s_gold_mixed_nut_250_gm",
+    "name": "Farmer's Gold Mixed Nut",
+    "image": "https://i.chaldn.com/_mpimage/farmers-gold-mixed-nut-250-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D152969&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Nuts & Dried Fruits",
+    "current_price": 380.0,
+    "current_unit": "250 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 380.0,
+        "unit": "250 gm",
+        "norm_price": 1520.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1520.0 / 1 kg"
+  },
+  "blue_diamond_almonds_bold_habanero_bbq_170_gm": {
+    "id": "blue_diamond_almonds_bold_habanero_bbq_170_gm",
+    "name": "Blue Diamond Almonds Bold Habanero BBQ",
+    "image": "https://i.chaldn.com/_mpimage/blue-diamond-almonds-bold-habanero-bbq-170-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D125844&q=best&v=1&m=400&webp=1",
+    "category": "Nuts & Dried Fruits",
+    "current_price": 850.0,
+    "current_unit": "170 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 850.0,
+        "unit": "170 gm",
+        "norm_price": 5000.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "5000.0 / 1 kg"
+  },
+  "blue_diamond_almonds_honey_roasted_170_gm": {
+    "id": "blue_diamond_almonds_honey_roasted_170_gm",
+    "name": "Blue Diamond Almonds Honey Roasted",
+    "image": "https://i.chaldn.com/_mpimage/blue-diamond-almonds-honey-roasted-170-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D125854&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Nuts & Dried Fruits",
+    "current_price": 850.0,
+    "current_unit": "170 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 850.0,
+        "unit": "170 gm",
+        "norm_price": 5000.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "5000.0 / 1 kg"
+  },
+  "blue_diamond_almonds_bold_wasabi_soy_sauce_170_gm": {
+    "id": "blue_diamond_almonds_bold_wasabi_soy_sauce_170_gm",
+    "name": "Blue Diamond Almonds Bold Wasabi & Soy Sauce",
+    "image": "https://i.chaldn.com/_mpimage/blue-diamond-almonds-bold-wasabi-soy-sauce-170-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D125848&q=best&v=1&m=400&webp=1",
+    "category": "Nuts & Dried Fruits",
+    "current_price": 850.0,
+    "current_unit": "170 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 850.0,
+        "unit": "170 gm",
+        "norm_price": 5000.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "5000.0 / 1 kg"
+  },
+  "fit_food_honey_roasted_almond_125_gm": {
+    "id": "fit_food_honey_roasted_almond_125_gm",
+    "name": "Fit Food Honey Roasted Almond",
+    "image": "https://i.chaldn.com/_mpimage/fit-food-honey-roasted-almond-125-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128533&q=best&v=1&m=400&webp=1",
+    "category": "Nuts & Dried Fruits",
+    "current_price": 260.0,
+    "current_unit": "125 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 260.0,
+        "unit": "125 gm",
+        "norm_price": 2080.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2080.0 / 1 kg"
+  },
+  "noi_salted_peanuts_110_gm": {
+    "id": "noi_salted_peanuts_110_gm",
+    "name": "Noi Salted Peanuts",
+    "image": "https://i.chaldn.com/_mpimage/noi-salted-peanuts-110-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D131449&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Nuts & Dried Fruits",
+    "current_price": 352.0,
+    "current_unit": "110 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 352.0,
+        "unit": "110 gm",
+        "norm_price": 3200.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "3200.0 / 1 kg"
+  },
+  "nut_candy_salted_cashew_nuts_kaju_badam__140_gm": {
+    "id": "nut_candy_salted_cashew_nuts_kaju_badam__140_gm",
+    "name": "Nut Candy Salted Cashew Nuts (Kaju Badam)",
+    "image": "https://i.chaldn.com/_mpimage/nut-candy-salted-cashew-nuts-kaju-badam-140-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D115732&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Nuts & Dried Fruits",
+    "current_price": 989.0,
+    "current_unit": "140 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 989.0,
+        "unit": "140 gm",
+        "norm_price": 7064.29,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "7064.29 / 1 kg"
+  },
+  "nut_candy_salted_peanuts_150_gm": {
+    "id": "nut_candy_salted_peanuts_150_gm",
+    "name": "Nut Candy Salted Peanuts",
+    "image": "https://i.chaldn.com/_mpimage/nut-candy-salted-peanuts-150-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D131466&q=best&v=1&m=400&webp=1",
+    "category": "Nuts & Dried Fruits",
+    "current_price": 490.0,
+    "current_unit": "150 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 490.0,
+        "unit": "150 gm",
+        "norm_price": 3266.67,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "3266.67 / 1 kg"
+  },
+  "tong_garden_salted_almonds_35_gm": {
+    "id": "tong_garden_salted_almonds_35_gm",
+    "name": "Tong Garden Salted Almonds",
+    "image": "https://i.chaldn.com/_mpimage/tong-garden-salted-almonds-35-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D50020&q=best&v=1&m=400&webp=1",
+    "category": "Nuts & Dried Fruits",
+    "current_price": 239.0,
+    "current_unit": "35 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 239.0,
+        "unit": "35 gm",
+        "norm_price": 6828.57,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "6828.57 / 1 kg"
+  },
+  "tong_garden_japanese_rice_cracker_mixed_coated_peanut_150_gm": {
+    "id": "tong_garden_japanese_rice_cracker_mixed_coated_peanut_150_gm",
+    "name": "Tong Garden Japanese Rice Cracker Mixed Coated Peanut",
+    "image": "https://i.chaldn.com/_mpimage/tong-garden-japanese-rice-cracker-mixed-coated-peanut-150-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D73990&q=best&v=1&m=400&webp=1",
+    "category": "Nuts & Dried Fruits",
+    "current_price": 675.0,
+    "current_unit": "150 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 675.0,
+        "unit": "150 gm",
+        "norm_price": 4500.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "4500.0 / 1 kg"
+  },
+  "crunchos_assorted_mix_nuts_tin_350_gm": {
+    "id": "crunchos_assorted_mix_nuts_tin_350_gm",
+    "name": "Crunchos Assorted Mix Nuts Tin",
+    "image": "https://i.chaldn.com/_mpimage/crunchos-assorted-mix-nuts-tin-350-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D127237&q=best&v=1&m=400&webp=1",
+    "category": "Nuts & Dried Fruits",
+    "current_price": 1619.0,
+    "current_unit": "350 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 1619.0,
+        "unit": "350 gm",
+        "norm_price": 4625.71,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "4625.71 / 1 kg"
+  },
+  "khurma_dry_dates_khejur_30_gm_500_gm": {
+    "id": "khurma_dry_dates_khejur_30_gm_500_gm",
+    "name": "Khurma Dry Dates (Khejur) \u00b1 30 gm",
+    "image": "https://i.chaldn.com/_mpimage/khurma-dry-dates-khejur-30-gm-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D76365&q=best&v=1&m=400&webp=1",
+    "category": "Nuts & Dried Fruits",
+    "current_price": 179.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 179.0,
+        "unit": "500 gm",
+        "norm_price": 358.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "358.0 / 1 kg"
+  },
+  "tong_garden_salted_pistachio_pesta_badam__130_gm": {
+    "id": "tong_garden_salted_pistachio_pesta_badam__130_gm",
+    "name": "Tong Garden Salted Pistachio (Pesta Badam)",
+    "image": "https://i.chaldn.com/_mpimage/tong-garden-salted-pistachio-pesta-badam-130-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D136480&q=best&v=1&m=400&webp=1",
+    "category": "Nuts & Dried Fruits",
+    "current_price": 995.0,
+    "current_unit": "130 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 995.0,
+        "unit": "130 gm",
+        "norm_price": 7653.85,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "7653.85 / 1 kg"
+  },
+  "tong_garden_salted_almonds_140_gm": {
+    "id": "tong_garden_salted_almonds_140_gm",
+    "name": "Tong Garden Salted Almonds",
+    "image": "https://i.chaldn.com/_mpimage/tong-garden-salted-almonds-140-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D136415&q=best&v=1&m=400&webp=1",
+    "category": "Nuts & Dried Fruits",
+    "current_price": 995.0,
+    "current_unit": "140 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 995.0,
+        "unit": "140 gm",
+        "norm_price": 7107.14,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "7107.14 / 1 kg"
+  },
+  "tong_garden_salted_cocktail_nuts_160_gm": {
+    "id": "tong_garden_salted_cocktail_nuts_160_gm",
+    "name": "Tong Garden Salted Cocktail Nuts",
+    "image": "https://i.chaldn.com/_mpimage/tong-garden-salted-cocktail-nuts-160-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D136419&q=best&v=1&m=400&webp=1",
+    "category": "Nuts & Dried Fruits",
+    "current_price": 995.0,
+    "current_unit": "160 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 995.0,
+        "unit": "160 gm",
+        "norm_price": 6218.75,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "6218.75 / 1 kg"
+  },
+  "tong_garden_salted_cashew_nuts_can_150_gm": {
+    "id": "tong_garden_salted_cashew_nuts_can_150_gm",
+    "name": "Tong Garden Salted Cashew Nuts Can",
+    "image": "https://i.chaldn.com/_mpimage/tong-garden-salted-cashew-nuts-can-150-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D136418&q=best&v=1&m=400&webp=1",
+    "category": "Nuts & Dried Fruits",
+    "current_price": 995.0,
+    "current_unit": "150 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 995.0,
+        "unit": "150 gm",
+        "norm_price": 6633.33,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "6633.33 / 1 kg"
+  },
+  "pistachio_pesta_badam__100_gm": {
+    "id": "pistachio_pesta_badam__100_gm",
+    "name": "Pistachio (Pesta Badam)",
+    "image": "https://i.chaldn.com/_mpimage/pistachio-pesta-badam-100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D184150&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Nuts & Dried Fruits",
+    "current_price": 399.0,
+    "current_unit": "100 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 399.0,
+        "unit": "100 gm",
+        "norm_price": 3990.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "3990.0 / 1 kg"
+  },
+  "teer_flour_atta__2_kg": {
+    "id": "teer_flour_atta__2_kg",
+    "name": "Teer Flour (Atta)",
+    "image": "https://i.chaldn.com/_mpimage/teer-flour-atta-2-kg?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D101280&q=best&v=1&m=400&webp=1",
+    "category": "Flour",
+    "current_price": 130.0,
+    "current_unit": "2 kg",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 130.0,
+        "unit": "2 kg",
+        "norm_price": 65.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "65.0 / 1 kg"
+  },
+  "chickpea_flour_boot_beshon__500_gm": {
+    "id": "chickpea_flour_boot_beshon__500_gm",
+    "name": "Chickpea Flour (Boot Beshon)",
+    "image": "https://i.chaldn.com/_mpimage/chickpea-flour-boot-beshon-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D176725&q=best&v=1&m=400&webp=1",
+    "category": "Flour",
+    "current_price": 69.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 69.0,
+        "unit": "500 gm",
+        "norm_price": 138.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "138.0 / 1 kg"
+  },
+  "farmer_s_gold_atop_rice_flour_chaler_gura__1_kg": {
+    "id": "farmer_s_gold_atop_rice_flour_chaler_gura__1_kg",
+    "name": "Farmer's Gold Atop Rice Flour (Chaler Gura)",
+    "image": "https://i.chaldn.com/_mpimage/farmers-gold-atop-rice-flour-chaler-gura-1-kg?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D122145&q=best&v=1&m=400&webp=1",
+    "category": "Flour",
+    "current_price": 110.0,
+    "current_unit": "1 kg",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 110.0,
+        "unit": "1 kg",
+        "norm_price": 110.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "110.0 / 1 kg"
+  },
+  "white_flour_maida__1_kg": {
+    "id": "white_flour_maida__1_kg",
+    "name": "White Flour (Maida)",
+    "image": "https://i.chaldn.com/_mpimage/white-flour-maida-1-kg?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D185479&q=good&v=1&m=400&webp=1",
+    "category": "Flour",
+    "current_price": 59.0,
+    "current_unit": "1 kg",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 59.0,
+        "unit": "1 kg",
+        "norm_price": 59.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "59.0 / 1 kg"
+  },
+  "flour_atta__1_kg": {
+    "id": "flour_atta__1_kg",
+    "name": "Flour (Atta)",
+    "image": "https://i.chaldn.com/_mpimage/flour-atta-1-kg?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D185390&q=best&v=1&m=400&webp=1",
+    "category": "Flour",
+    "current_price": 49.0,
+    "current_unit": "1 kg",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 49.0,
+        "unit": "1 kg",
+        "norm_price": 49.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "49.0 / 1 kg"
+  },
+  "fresh_flour_atta__2_kg": {
+    "id": "fresh_flour_atta__2_kg",
+    "name": "Fresh Flour (Atta)",
+    "image": "https://i.chaldn.com/_mpimage/fresh-flour-atta-2-kg?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D97220&q=best&v=1&m=400&webp=1",
+    "category": "Flour",
+    "current_price": 130.0,
+    "current_unit": "2 kg",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 130.0,
+        "unit": "2 kg",
+        "norm_price": 65.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "65.0 / 1 kg"
+  },
+  "teer_white_flour_maida__2_kg": {
+    "id": "teer_white_flour_maida__2_kg",
+    "name": "Teer White Flour (Maida)",
+    "image": "https://i.chaldn.com/_mpimage/teer-white-flour-maida-2-kg?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D101278&q=best&v=1&m=400&webp=1",
+    "category": "Flour",
+    "current_price": 140.0,
+    "current_unit": "2 kg",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 140.0,
+        "unit": "2 kg",
+        "norm_price": 70.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "70.0 / 1 kg"
+  },
+  "fresh_white_flour_maida__2_kg": {
+    "id": "fresh_white_flour_maida__2_kg",
+    "name": "Fresh White Flour (Maida)",
+    "image": "https://i.chaldn.com/_mpimage/fresh-white-flour-maida-2-kg?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D97222&q=best&v=1&m=400&webp=1",
+    "category": "Flour",
+    "current_price": 140.0,
+    "current_unit": "2 kg",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 140.0,
+        "unit": "2 kg",
+        "norm_price": 70.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "70.0 / 1 kg"
+  },
+  "shaad_brown_flour_lal_atta__1_kg": {
+    "id": "shaad_brown_flour_lal_atta__1_kg",
+    "name": "Shaad Brown Flour (Lal Atta)",
+    "image": "https://i.chaldn.com/_mpimage/shaad-brown-flour-lal-atta-1-kg?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D133501&q=best&v=1&m=400&webp=1",
+    "category": "Flour",
+    "current_price": 70.0,
+    "current_unit": "1 kg",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 70.0,
+        "unit": "1 kg",
+        "norm_price": 70.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "70.0 / 1 kg"
+  },
+  "shaad_flour_atta__2_kg": {
+    "id": "shaad_flour_atta__2_kg",
+    "name": "Shaad Flour (Atta)",
+    "image": "https://i.chaldn.com/_mpimage/shaad-flour-atta-2-kg?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D133503&q=best&v=1&m=400&webp=1",
+    "category": "Flour",
+    "current_price": 130.0,
+    "current_unit": "2 kg",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 130.0,
+        "unit": "2 kg",
+        "norm_price": 65.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "65.0 / 1 kg"
+  },
+  "bashundhara_flour_atta__2_kg": {
+    "id": "bashundhara_flour_atta__2_kg",
+    "name": "Bashundhara Flour (Atta)",
+    "image": "https://i.chaldn.com/_mpimage/bashundhara-flour-atta-2-kg?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D125452&q=best&v=1&m=400&webp=1",
+    "category": "Flour",
+    "current_price": 130.0,
+    "current_unit": "2 kg",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 130.0,
+        "unit": "2 kg",
+        "norm_price": 65.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "65.0 / 1 kg"
+  },
+  "corn_flour_loose__500_gm": {
+    "id": "corn_flour_loose__500_gm",
+    "name": "Corn Flour (Loose)",
+    "image": "https://i.chaldn.com/_mpimage/corn-flour-loose-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D48033&q=best&v=1&m=400&webp=1",
+    "category": "Flour",
+    "current_price": 69.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 69.0,
+        "unit": "500 gm",
+        "norm_price": 138.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "138.0 / 1 kg"
+  },
+  "aci_pure_flour_atta__2_kg": {
+    "id": "aci_pure_flour_atta__2_kg",
+    "name": "ACI Pure Flour (Atta)",
+    "image": "https://i.chaldn.com/_mpimage/aci-pure-flour-atta-2-kg?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D177377&q=best&v=1&m=400&webp=1",
+    "category": "Flour",
+    "current_price": 130.0,
+    "current_unit": "2 kg",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 130.0,
+        "unit": "2 kg",
+        "norm_price": 65.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "65.0 / 1 kg"
+  },
+  "aci_pure_white_flour_maida__2_kg": {
+    "id": "aci_pure_white_flour_maida__2_kg",
+    "name": "ACI Pure White Flour (Maida)",
+    "image": "https://i.chaldn.com/_mpimage/aci-pure-white-flour-maida-2-kg?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D115124&q=best&v=1&m=400&webp=1",
+    "category": "Flour",
+    "current_price": 140.0,
+    "current_unit": "2 kg",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 140.0,
+        "unit": "2 kg",
+        "norm_price": 70.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "70.0 / 1 kg"
+  },
+  "white_rice_flour_chaler_gura__1_kg": {
+    "id": "white_rice_flour_chaler_gura__1_kg",
+    "name": "White Rice Flour (Chaler Gura)",
+    "image": "https://i.chaldn.com/_mpimage/white-rice-flour-chaler-gura-1-kg?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D149195&q=best&v=1&m=400&webp=1",
+    "category": "Flour",
+    "current_price": 110.0,
+    "current_unit": "1 kg",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 110.0,
+        "unit": "1 kg",
+        "norm_price": 110.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "110.0 / 1 kg"
+  },
+  "sunshine_maida_2_kg": {
+    "id": "sunshine_maida_2_kg",
+    "name": "Sunshine Maida",
+    "image": "https://i.chaldn.com/_mpimage/sunshine-maida-2-kg?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D160941&q=best&v=1&m=400&webp=1",
+    "category": "Flour",
+    "current_price": 144.0,
+    "current_unit": "2 kg",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 144.0,
+        "unit": "2 kg",
+        "norm_price": 72.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "72.0 / 1 kg"
+  },
+  "ahmed_corn_flour_250_gm": {
+    "id": "ahmed_corn_flour_250_gm",
+    "name": "Ahmed Corn Flour",
+    "image": "https://i.chaldn.com/_mpimage/ahmed-corn-flour-250-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D122982&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Flour",
+    "current_price": 120.0,
+    "current_unit": "250 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 120.0,
+        "unit": "250 gm",
+        "norm_price": 480.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "480.0 / 1 kg"
+  },
+  "uncle_barn_s_tempura_flour_500_gm": {
+    "id": "uncle_barn_s_tempura_flour_500_gm",
+    "name": "Uncle Barn's Tempura Flour",
+    "image": "https://i.chaldn.com/_mpimage/uncle-barns-tempura-flour-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D185237&q=low&v=1&m=400&m=400&webp=1",
+    "category": "Flour",
+    "current_price": 275.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-13",
+        "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 275.0,
+        "unit": "500 gm",
+        "norm_price": 550.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "550.0 / 1 kg"
   }
 };
