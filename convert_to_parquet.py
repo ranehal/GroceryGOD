@@ -7,7 +7,7 @@ import pyarrow.parquet as pq
 STORES = ['shwapno','chaldal','meenabazar','othoba','metromart','unimart','shotejbazar','foodi']
 BASE = os.path.dirname(os.path.abspath(__file__))
 DHAKA_TZ = timezone(timedelta(hours=6))
-FREE_HISTORY_DAYS = 3
+FREE_HISTORY_DAYS = 180
 
 product_rows = []
 history_rows = []
@@ -78,6 +78,24 @@ if os.path.exists(archive_path) and premium_key:
             print(f"Merged {len(old_rows)} old rows from archive. New history total: {len(history_rows)}")
     except Exception as e:
         print(f"Error loading history archive: {e}")
+
+# Check unencrypted history.parquet fallback to prevent data loss
+unenc_hist = os.path.join(BASE, 'history.parquet')
+if os.path.exists(unenc_hist):
+    try:
+        old_table = pq.read_table(unenc_hist)
+        old_rows = old_table.to_pylist()
+        seen = set((r['product_id'], r['date']) for r in history_rows)
+        added = 0
+        for r in old_rows:
+            if (r['product_id'], r['date']) not in seen:
+                history_rows.append(r)
+                seen.add((r['product_id'], r['date']))
+                added += 1
+        if added:
+            print(f"Merged {added} rows from local history.parquet. Total: {len(history_rows)}")
+    except Exception as e:
+        print(f"Error reading local history.parquet: {e}")
 
 
 schema = pa.schema([
