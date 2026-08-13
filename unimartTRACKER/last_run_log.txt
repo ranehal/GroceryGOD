@@ -1,17 +1,6 @@
-Last Run: 2026-08-04 23:38:35
+Last Run: 2026-08-13 21:49:32
 ------------------------------
-Total Scraped: 1700
+Total Scraped: 0
 New Items: 0
 ------------------------------
 Categories:
-- Shampoo: 118
-- Toothpaste: 42
-- Melvados: 38
-- Feeding Accessories Kit: 35
-- Razors & Epilators: 33
-- Jhuri Bhaja: 32
-- Body Wash: 29
-- Imported Biscuit: 29
-- Hand Wash: 27
-- Instant Noodles: 25
-... and 265 more.
