@@ -236,43 +236,104 @@ def load_chaldal():
     print("Processing Chaldal...")
     target_chaldal = CHALDAL_DATA
     if not os.path.exists(target_chaldal):
-        for candidate in ['chaldalTRACKER/data.js', 'chaldalTRACKER/data/products.json', 'chaldalTRACKER/chaldal_products.json', 'chaldalTRACKER/data.json']:
+        for candidate in ['chaldalTRACKER/data.js', 'chaldalTRACKER/chaldal_products.json', 'chaldalTRACKER/data.json']:
             if os.path.exists(candidate):
                 target_chaldal = candidate
                 break
-    if not os.path.exists(target_chaldal):
-        stats={"web_scraped":0,"app_scraped":0,"web_selected":0,"app_selected":0,"dropped":0,"web":0,"app":0,"combined":0}
-        print(f"Chaldal Stats -> Web scraped: 0, Web selected: 0, App scraped: 0, App selected: 0, Combined Unique: 0")
-        return {}, "N/A", stats
     try:
-        with open(target_chaldal, 'r', encoding='utf-8') as f:
-            content = f.read()
-        start, end = content.find('{'), content.rfind('}') + 1
-        if start == -1 or end == 0: return None, None
-        data = json.loads(content[start:end])
-        products = {}
+        products_by_name = {}
         all_dates = []
-        for pid, p in data.items():
-            if pid in ['metadata', 'products']: continue
-            source_history = p.get('history', [])
-            new_history = []
-            for h in source_history:
-                _, h_norm = parse_unit_and_calculate(p.get('name', ''), p.get('current_unit', ''), h.get('price', 0))
-                new_history.append({"date": h.get('date'), "price": h.get('price'), "normalized_price": h_norm})
-                if h.get('date'): all_dates.append(h['date'])
-            curr_p = p.get('current_price', 0)
-            u_type, norm_p = parse_unit_and_calculate(p.get('name', ''), p.get('current_unit', ''), curr_p)
-            products[f"ch_{pid}"] = {
-                "id": f"ch_{pid}", "name": p.get('name'), "store": "chaldal",
-                "category": p.get('category', 'General'), "unit": p.get('current_unit'), "unit_type": u_type,
-                "current_price": curr_p, "normalized_price": norm_p,
-                "image": p.get('image'), "history": new_history, "_src": "web"
-            }
-        stats = {"web_scraped": len(products), "app_scraped": 0, "web_selected": len(products),
-                 "app_selected": 0, "dropped": 0, "web": len(products), "app": 0, "combined": len(products)}
+
+        def add_product(name_key, product, source):
+            if not name_key: return
+            if name_key in products_by_name:
+                existing = products_by_name[name_key]
+                if product.get('current_price', 0) >= existing.get('current_price', 0):
+                    stats["dropped"] += 1
+                    return
+            products_by_name[name_key] = product
+
+        stats = {"web_scraped": 0, "app_scraped": 0, "web_selected": 0, "app_selected": 0,
+                 "dropped": 0, "web": 0, "app": 0, "combined": 0}
+
+        # 1. Load Web data (data.js) if present
+        if os.path.exists(target_chaldal):
+            try:
+                with open(target_chaldal, 'r', encoding='utf-8') as f:
+                    content = f.read()
+                start, end = content.find('{'), content.rfind('}') + 1
+                if start != -1 and end != 0:
+                    data = json.loads(content[start:end])
+                    for pid, p in data.items():
+                        if pid in ['metadata', 'products']: continue
+                        source_history = p.get('history', [])
+                        new_history = []
+                        for h in source_history:
+                            _, h_norm = parse_unit_and_calculate(p.get('name', ''), p.get('current_unit', ''), h.get('price', 0))
+                            new_history.append({"date": h.get('date'), "price": h.get('price'), "normalized_price": h_norm})
+                            if h.get('date'): all_dates.append(h['date'])
+                        curr_p = p.get('current_price', 0)
+                        u_type, norm_p = parse_unit_and_calculate(p.get('name', ''), p.get('current_unit', ''), curr_p)
+                        name_key = re.sub(r'\W+', '', p.get('name', '')).lower()
+                        if not name_key: continue
+                        stats["web_scraped"] += 1
+                        add_product(name_key, {
+                            "id": f"ch_{pid}", "name": p.get('name'), "store": "chaldal",
+                            "category": p.get('category', 'General'), "unit": p.get('current_unit'), "unit_type": u_type,
+                            "current_price": curr_p, "normalized_price": norm_p,
+                            "image": p.get('image'), "history": new_history, "_src": "web"
+                        }, "web")
+            except Exception as e:
+                print(f"Error loading Chaldal web data: {e}")
+
+        # 2. Load App API data (chaldalTRACKER/data/products.json + price_history.json)
+        app_prod_path = os.path.join('chaldalTRACKER', 'data', 'products.json')
+        app_hist_path = os.path.join('chaldalTRACKER', 'data', 'price_history.json')
+        if not os.path.exists(app_prod_path):
+            app_prod_path = os.path.join(target_chaldal, '..', '..', 'data', 'products.json') if target_chaldal.startswith('chaldalTRACKER') else app_prod_path
+        if os.path.exists(app_prod_path):
+            try:
+                with open(app_prod_path, 'r', encoding='utf-8') as f:
+                    app_data = json.load(f)
+                app_history = {}
+                if os.path.exists(app_hist_path):
+                    with open(app_hist_path, 'r', encoding='utf-8') as f:
+                        app_history = json.load(f)
+                for pid, p in app_data.items():
+                    name_key = re.sub(r'\W+', '', p.get('name', '')).lower()
+                    if not name_key: continue
+                    stats["app_scraped"] += 1
+                    curr_p = p.get('price', 0) or 0
+                    u_type, norm_p = parse_unit_and_calculate(p.get('name', ''), '', curr_p)
+                    new_history = []
+                    for h in app_history.get(str(pid), []) or app_history.get(pid, []):
+                        d_str = h.get('d')
+                        price_val = h.get('p')
+                        if d_str:
+                            _, h_norm = parse_unit_and_calculate(p.get('name', ''), '', price_val)
+                            new_history.append({"date": d_str, "price": price_val, "normalized_price": h_norm})
+                            all_dates.append(d_str)
+                    if not new_history:
+                        new_history = [{"date": datetime.now(DHAKA_TZ).strftime("%Y-%m-%d"), "price": curr_p, "normalized_price": norm_p}]
+                    img = p.get('imageUrl') or p.get('image_url') or ''
+                    add_product(name_key, {
+                        "id": f"ch_a_{pid}", "name": p.get('name'), "store": "chaldal",
+                        "category": p.get('category', 'General'), "unit": '', "unit_type": u_type,
+                        "current_price": curr_p, "normalized_price": norm_p,
+                        "image": img, "history": new_history, "_src": "app"
+                    }, "app")
+            except Exception as e:
+                print(f"Error loading Chaldal App data: {e}")
+
+        products = {v["id"]: v for v in products_by_name.values()}
+        stats["web_selected"] = len([v for v in products_by_name.values() if v.get("_src") == "web"])
+        stats["app_selected"] = sum(1 for v in products_by_name.values() if v.get("_src") == "app")
+        stats["combined"] = len(products)
+        stats["web"] = stats["web_scraped"]; stats["app"] = stats["app_scraped"]
         for v in products.values(): v.pop("_src", None)
         print(f"Chaldal Stats -> Web scraped: {stats['web_scraped']}, Web selected: {stats['web_selected']}, "
-              f"App scraped: 0, App selected: 0, Combined Unique: {stats['combined']}")
+              f"App scraped: {stats['app_scraped']}, App selected: {stats['app_selected']}, "
+              f"Dropped: {stats['dropped']}, Combined Unique: {stats['combined']}")
         return products, (f"{min(all_dates)} to {max(all_dates)}" if all_dates else "N/A"), stats
     except Exception as e:
         print(f"Error processing Chaldal: {e}")
@@ -418,6 +479,15 @@ def load_othoba():
             except Exception as e:
                 print(f"Error loading Othoba {source_type} data from {filepath}: {e}")
 
+        def add_product(name_key, product, source):
+            if not name_key: return
+            if name_key in products_by_name:
+                existing = products_by_name[name_key]
+                if product.get('current_price', 0) >= existing.get('current_price', 0):
+                    stats["dropped"] += 1
+                    return
+            products_by_name[name_key] = product
+
         # 1. Load Web Data
         if platform.system() == 'Windows':
             web_path = r'C:\PROJECTS\othoba\frontend\othoba_products.json'
@@ -432,6 +502,29 @@ def load_othoba():
         if not os.path.exists(app_path):
             app_path = 'othobaTRACKER/othoba_products.json'
         process_json_file(app_path, 'app')
+
+        # 3. DB fallback (othoba_tracker.db) if JSON sources were empty
+        if stats["web_scraped"] == 0 and stats["app_scraped"] == 0 and os.path.exists(OTHOBA_DB):
+            try:
+                conn = sqlite3.connect(OTHOBA_DB)
+                conn.row_factory = sqlite3.Row
+                cursor = conn.cursor()
+                cursor.execute("SELECT id, name, category_name, image_url FROM products")
+                for r in cursor.fetchall():
+                    name_key = re.sub(r'\W+', '', r["name"] or "").lower()
+                    if not name_key: continue
+                    stats["web_scraped"] += 1
+                    add_product(name_key, {
+                        "id": f"ot_{r['id']}", "name": r["name"], "store": "othoba",
+                        "category": r["category_name"] or 'General', "unit": 'N/A', "unit_type": 'piece',
+                        "current_price": 0, "normalized_price": 0,
+                        "image": r["image_url"] or '', "history": [], "first_seen": datetime.now(DHAKA_TZ).strftime("%Y-%m-%d"),
+                        "_src": "web"
+                    }, "web")
+                conn.close()
+                print(f"[Othoba] JSON sources empty; recovered {stats['web_scraped']} products from DB fallback")
+            except Exception as e:
+                print(f"Error reading Othoba DB fallback: {e}")
 
         products = {v["id"]: v for v in products_by_name.values()}
         for v in products.values(): v.pop("_src", None)
@@ -729,6 +822,8 @@ def read_scraper_log(store_dir):
     stats['app'] = grab(r'App API Scraped:\s*(\d+)')
     stats['new'] = grab(r'New Items:\s*(\d+)')
     stats['combined'] = grab(r'Combined Unique:\s*(\d+)')
+    stats['total'] = stats['total'] or grab(r'Unique products:\s*(\d+)')
+    stats['new'] = stats['new'] or grab(r'New products:\s*(\d+)')
     m = re.search(r'Stats -> Web:\s*(\d+),\s*App:\s*(\d+)', content)
     if m:
         stats['web'] = int(m.group(1)); stats['app'] = int(m.group(2))
@@ -788,16 +883,29 @@ def main():
         
     print("="*70 + "\n")
     
-    scraper_logs = {
-        "shwapno": read_scraper_log('swapnoTRACKER'),
-        "chaldal": read_scraper_log('chaldalTRACKER'),
-        "meenabazar": read_scraper_log('MEENAtracker'),
-        "othoba": read_scraper_log('othobaTRACKER'),
-        "metromart": read_scraper_log('metroTRACKER'),
-        "unimart": read_scraper_log('unimartTRACKER'),
-        "shotejbazar": read_scraper_log('ShotejTRACKER'),
-        "foodi": read_scraper_log('FooDIEscraper'),
-    }
+    scraper_logs = {}
+    if platform.system() == 'Windows':
+        scraper_logs = {
+            "shwapno": read_scraper_log('swapnoTRACKER'),
+            "chaldal": read_scraper_log('chaldalTRACKER'),
+            "meenabazar": read_scraper_log('MEENAtracker'),
+            "othoba": read_scraper_log('othobaTRACKER'),
+            "metromart": read_scraper_log('metroTRACKER'),
+            "unimart": read_scraper_log('unimartTRACKER'),
+            "shotejbazar": read_scraper_log('ShotejTRACKER'),
+            "foodi": read_scraper_log('FooDIEscraper'),
+        }
+    else:
+        scraper_logs = {
+            "shwapno": read_scraper_log('/kaggle/working/shopno') or read_scraper_log('swapnoTRACKER'),
+            "chaldal": read_scraper_log('chaldalTRACKER'),
+            "meenabazar": read_scraper_log('MEENAtracker'),
+            "othoba": read_scraper_log('/kaggle/working/othoba') or read_scraper_log('othobaTRACKER'),
+            "metromart": read_scraper_log('metroTRACKER'),
+            "unimart": read_scraper_log('unimartTRACKER'),
+            "shotejbazar": read_scraper_log('ShotejTRACKER'),
+            "foodi": read_scraper_log('FooDIEscraper'),
+        }
     print_failure_diagnostics(scraper_logs, agg_results)
     
     # Telegram Notification
