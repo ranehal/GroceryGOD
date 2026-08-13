@@ -187,14 +187,33 @@ function fmt(num) {
     return Number.isInteger(num) ? num.toString() : num.toFixed(1).replace(/\.0$/, '');
 }
 
+const MONTH_NAMES_SHORT = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+function formatChartDateItem(dateStr, includeYear = false) {
+    if (!dateStr || typeof dateStr !== 'string') return dateStr;
+    const cleanStr = dateStr.trim().slice(0, 10);
+    const parts = cleanStr.split('-');
+    if (parts.length === 3 && parts[0].length === 4) {
+        const year = parts[0];
+        const monthIdx = parseInt(parts[1], 10) - 1;
+        const day = parseInt(parts[2], 10);
+        if (monthIdx >= 0 && monthIdx < 12 && !isNaN(day)) {
+            const mName = MONTH_NAMES_SHORT[monthIdx];
+            if (includeYear) {
+                return `${day} ${mName} '${year.slice(2)}`;
+            }
+            return `${day} ${mName}`;
+        }
+    }
+    return dateStr;
+}
+
 function formatChartDates(dates) {
-    if (!dates.length) return dates;
-    const years = new Set(dates.map(d => d.slice(0, 4)));
-    const months = new Set(dates.map(d => d.slice(0, 7)));
-    if (years.size === 1 && months.size === 1) return dates.map(d => d.slice(8, 10));
-    if (months.size <= 3 && years.size === 1) return dates.map(d => { const dd = d.slice(8, 10); return dd === '01' ? d.slice(5) : dd; });
-    if (years.size === 1) return dates.map(d => d.slice(5));
-    return dates.map(d => d.slice(2));
+    if (!dates || !dates.length) return dates;
+    const validDates = dates.filter(d => typeof d === 'string' && d.length >= 10);
+    const years = new Set(validDates.map(d => d.slice(0, 4)));
+    const includeYear = years.size > 1;
+    return dates.map(d => formatChartDateItem(d, includeYear));
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -254,7 +273,7 @@ async function loadAllFromParquet() {
     const t1 = performance.now();
     const [productAsset, historyAsset] = await Promise.all([
         fetchFirstAvailable(['products_free.parquet', 'products.parquet'], 'free products'),
-        fetchFirstAvailable(['history.parquet', 'history_free.parquet'], 'product history')
+        fetchFirstAvailable(['history_free.parquet', 'history.parquet'], 'product history')
     ]);
     const pBuf = productAsset.buffer;
     const hBuf = historyAsset.buffer;
@@ -399,12 +418,15 @@ function generatePriorHistory(firstDateStr, firstPrice, firstNormPrice, seedId, 
 
 async function loadProductHistory(productId) {
     const p = allProducts.find(x => x.id === productId);
+    const rawId = productId.replace(/^(sh_|ch_|mb_|ot_|mt_|uni_|sj_|fd_)/, '');
     if (godDB) {
         try {
+            const cleanId = productId.replace(/'/g, "''");
+            const cleanRawId = rawId.replace(/'/g, "''");
             const result = await godDB.conn.query(`
                 SELECT date, price, normalized_price 
                 FROM history_access 
-                WHERE product_id = '${productId.replace(/'/g, "''")}'
+                WHERE product_id = '${cleanId}' OR product_id = '${cleanRawId}'
                 ORDER BY date ASC
             `);
             const rows = result.toArray().map(r => {
@@ -1566,7 +1588,26 @@ async function openDetailedChart(product) {
                 y1: { position: 'right', title: { display: true, text: 'Actual Price', color: getChartTheme().actual, font: { weight: 'bold' } }, grid: { display: false }, ticks: { color: getChartTheme().actual, font: { size: 11, weight: 'bold' } } },
                 x: { ticks: { color: getChartTheme().text, font: { size: 11, weight: 'bold' }, maxRotation: 45 }, grid: { color: '#1a1a1a' } }
             },
-            plugins: { legend: { labels: { color: getChartTheme().text, font: { size: 12, weight: 'bold' } } } }
+            plugins: { 
+                legend: { labels: { color: getChartTheme().text, font: { size: 12, weight: 'bold' } } },
+                tooltip: {
+                    callbacks: {
+                        title: (tooltipItems) => {
+                            if (!tooltipItems.length) return '';
+                            const idx = tooltipItems[0].dataIndex;
+                            const rawDate = rawDates[idx];
+                            if (rawDate) {
+                                const d = new Date(rawDate + 'T00:00:00');
+                                if (!isNaN(d.getTime())) {
+                                    return d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' });
+                                }
+                                return rawDate;
+                            }
+                            return tooltipItems[0].label;
+                        }
+                    }
+                }
+            }
         }
     });
 }
@@ -1601,36 +1642,64 @@ function updateStoreStats() {
         }
     });
 
-    let html = '<div style="font-size: 0.65rem; color: var(--gold); margin-bottom: 12px; font-weight: 800; letter-spacing:1px; border-bottom:1px solid #222; padding-bottom:5px;">GODDATA UPLINK STATUS</div>';
+    let html = '<div class="store-legend-header"><span>GODDATA UPLINK STATUS</span></div>';
+    html += '<div class="store-legend-grid">';
     
     const sortedStores = Object.entries(metadata.stores).sort((a, b) => a[0].localeCompare(b[0]));
     
+    const formatNum = (num) => {
+        if (!num) return '0';
+        if (num >= 1000) return (num / 1000).toFixed(1) + 'k';
+        return num;
+    };
+
+    const formatCompactRange = (rangeStr) => {
+        if (!rangeStr || rangeStr === 'N/A') return 'N/A';
+        const parts = rangeStr.split(' to ');
+        if (parts.length === 2) {
+            const d1 = parts[0].slice(5).replace('-', '/');
+            const d2 = parts[1].slice(5).replace('-', '/');
+            if (d1 === d2) return d1;
+            return `${d1}-${d2}`;
+        }
+        return rangeStr.slice(5).replace('-', '/');
+    };
+
     sortedStores.forEach(([store, data]) => {
         const config = STORE_CONFIG[store] || { color: '#888', name: store };
-        let statsHtml = '';
         const webOnlyStores = ['metromart', 'unimart', 'shotejbazar'];
+        let srcTxt = '';
 
         if (webOnlyStores.includes(store.toLowerCase())) {
-            statsHtml = `<div style="font-size:0.55rem; color:#aaa; margin-top:3px; background:rgba(0,0,0,0.3); padding:2px 4px; border-radius:3px; display:inline-block;">Sources: Web(${data.total || 0})</div>`;
+            srcTxt = `W:${formatNum(data.total || 0)}`;
         } else if (data.scraper_stats && (data.scraper_stats.web > 0 || data.scraper_stats.app > 0)) {
-            statsHtml = `<div style="font-size:0.55rem; color:#aaa; margin-top:3px; background:rgba(0,0,0,0.3); padding:2px 4px; border-radius:3px; display:inline-block;">Sources: Web(${data.scraper_stats.web || 0}) + App(${data.scraper_stats.app || 0})</div>`;
+            const w = formatNum(data.scraper_stats.web || 0);
+            const a = formatNum(data.scraper_stats.app || 0);
+            srcTxt = `W:${w}${data.scraper_stats.app > 0 ? ' A:' + a : ''}`;
         } else {
             const storeProducts = allProducts.filter(p => p.store === store);
             const appCount = storeProducts.filter(p => (p.source === 'app' || String(p.id).includes('_app_') || String(p.id).includes('mb_a_'))).length;
             const webCount = Math.max(0, storeProducts.length - appCount);
-            statsHtml = `<div style="font-size:0.55rem; color:#aaa; margin-top:3px; background:rgba(0,0,0,0.3); padding:2px 4px; border-radius:3px; display:inline-block;">Sources: Web(${webCount || storeProducts.length}) + App(${appCount})</div>`;
+            const w = formatNum(webCount || storeProducts.length);
+            const a = formatNum(appCount);
+            srcTxt = `W:${w}${appCount > 0 ? ' A:' + a : ''}`;
         }
         
+        const dateRangeCompact = formatCompactRange(data.date_range);
+        
         html += `
-        <div class="legend-item" data-store="${store}" style="display:flex; flex-direction:column; margin-bottom:10px; cursor:pointer; padding:6px 8px; border-radius:6px; transition:background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.06)'" onmouseout="this.style.background='transparent'">
-            <div style="display:flex; justify-content:space-between; font-weight:800; font-size:0.75rem;">
-                <span style="color:${config.color}">${config.name.toUpperCase()}</span>
-                <span style="color:#eee;">${data.total} units</span>
+        <div class="legend-item" data-store="${store}" title="${config.name.toUpperCase()}: ${data.total} units (${data.date_range || 'N/A'})">
+            <div class="legend-row-top">
+                <span class="legend-store-name" style="color:${config.color}">${config.name.toUpperCase()}</span>
+                <span class="legend-store-units">${formatNum(data.total)}</span>
             </div>
-            <div style="font-size:0.6rem; opacity:0.6; color:#888;">Range: ${data.date_range || 'N/A'}</div>
-            ${statsHtml}
+            <div class="legend-row-bottom">
+                <span class="legend-date">${dateRangeCompact}</span>
+                <span class="legend-source">${srcTxt}</span>
+            </div>
         </div>`;
     });
+    html += '</div>';
     sidebarStats.innerHTML = html;
 
     sidebarStats.querySelectorAll('.legend-item[data-store]').forEach(item => {
