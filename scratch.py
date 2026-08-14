@@ -12,10 +12,73 @@ import json
 import html
 import shutil
 import concurrent.futures
+import platform
 from datetime import datetime, timedelta, timezone
 
 # Dhaka Timezone
 DHAKA_TZ = timezone(timedelta(hours=6))
+
+try:
+    import fcntl
+except ImportError:
+    fcntl = None
+
+def _with_lock(lock_key, fn, timeout=900):
+    """Serialize a critical section across parallel processes (git config, apt/playwright installs)."""
+    if fcntl is not None:
+        _fd = os.open(f"/tmp/{lock_key}.lck", os.O_CREAT | os.O_RDWR, 0o600)
+        _deadline = time.time() + timeout
+        try:
+            while True:
+                try:
+                    fcntl.flock(_fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
+                    break
+                except OSError:
+                    if time.time() > _deadline:
+                        break
+                    time.sleep(5)
+            return fn()
+        finally:
+            try: fcntl.flock(_fd, fcntl.LOCK_UN)
+            except OSError: pass
+            os.close(_fd)
+    return fn()
+
+def _git_config(cmd_str):
+    """Run git config with retry on concurrent lock contention."""
+    for _i in range(8):
+        _res = subprocess.run(cmd_str, shell=True, capture_output=True, text=True)
+        if "could not lock" in ((_res.stderr or "") + (_res.stdout or "")).lower():
+            time.sleep(4)
+            continue
+        return _res
+    return _res
+
+def _reclaim_disk(force=False):
+    """Free disk space before large clones. Returns free GB after cleanup."""
+    try:
+        _free_before = shutil.disk_usage('/kaggle/working').free / (1024 ** 3)
+        if not force and _free_before >= 3.0:
+            return _free_before
+        print(f"[DISK] Free space {_free_before:.2f} GB — reclaiming disk...")
+        try:
+            subprocess.run([sys.executable, "-m", "pip", "cache", "purge"], capture_output=True, text=True)
+        except Exception: pass
+        for _sh in [
+            'rm -rf /root/.cache/pip 2>/dev/null',
+            'rm -rf /var/lib/apt/lists/* 2>/dev/null',
+            'find /kaggle /tmp -name "__pycache__" -type d -prune -exec rm -rf {} + 2>/dev/null',
+            'find /kaggle/working -name "*.pyc" -delete 2>/dev/null',
+            'find /kaggle/working -name "_scraper_error_*.log" -delete 2>/dev/null',
+        ]:
+            try: subprocess.run(_sh, shell=True, capture_output=True, text=True)
+            except Exception: pass
+        _free_after = shutil.disk_usage('/kaggle/working').free / (1024 ** 3)
+        print(f"[DISK] After cleanup: {_free_after:.2f} GB free.")
+        return _free_after
+    except Exception as e:
+        print(f"[DISK] Cleanup warning: {e}")
+        return 0.0
 
 # ============================================================
 # INITIALIZATION & SECRETS
@@ -195,10 +258,32 @@ def run_grocery_god(github_pat):
         tg_send('🚀 <b>GroceryGOD Environment Booting Up...</b>')
         get_ips()
         with Step('Environment Sync', '📦'):
-            subprocess.run([sys.executable, "-m", "pip", "install", "-q", "playwright", "httpx", "beautifulsoup4", "lxml", "sqlalchemy", "aiosqlite", "requests", "pyarrow"], check=True)
-            subprocess.run([sys.executable, "-m", "playwright", "install", "chromium", "--with-deps"], check=True)
-            subprocess.run('apt-get update -y -q 2>/dev/null', shell=True)
-            subprocess.run(['apt-get', 'install', '-y', '-q', 'sqlite3'], check=True)
+            try:
+                subprocess.run([sys.executable, "-m", "pip", "install", "-q", "playwright", "httpx", "beautifulsoup4", "lxml", "sqlalchemy", "aiosqlite", "requests", "pyarrow"], check=True)
+            except Exception as _pip_err:
+                log.warning(f"pip install failed (non-fatal): {_pip_err}")
+
+            def _env_sync():
+                _pw_ok = False
+                for _cmd in ([sys.executable, "-m", "playwright", "install", "chromium", "--with-deps"],
+                             [sys.executable, "-m", "playwright", "install", "chromium"]):
+                    try:
+                        _r = subprocess.run(_cmd, capture_output=True, text=True)
+                        if _r.returncode == 0:
+                            _pw_ok = True
+                            break
+                        log.warning(f"playwright install failed: {(_r.stderr or '')[:300]}")
+                    except Exception as _pw_err:
+                        log.warning(f"playwright install error: {_pw_err}")
+                if not _pw_ok:
+                    log.warning("Chromium install failed (non-fatal). Playwright-based scrapers may crash.")
+                subprocess.run('apt-get update -y -q 2>/dev/null', shell=True)
+                try:
+                    subprocess.run(['apt-get', 'install', '-y', '-q', 'sqlite3'], check=True)
+                except Exception as _sq_err:
+                    log.warning(f"sqlite3 install failed (non-fatal): {_sq_err}")
+
+            _with_lock('playwright-install', _env_sync)
     except Exception as e:
         log.error("Environment Setup Failed. Terminating GroceryGOD loop thread.")
         return
@@ -214,27 +299,32 @@ def run_grocery_god(github_pat):
                 if not github_pat:
                     raise RuntimeError("GITHUB_PAT is missing or empty. Git operations will fail.")
                     
-                subprocess.run('git config --global user.email "educational.purpose37@gmail.com"', shell=True)
-                subprocess.run('git config --global user.name "ranx-x"', shell=True)
+                def _setup_git_config():
+                    _git_config('git config --global user.email "ranehal@users.noreply.github.com"')
+                    _git_config('git config --global user.name "ranehal"')
 
-                cred_path = os.path.expanduser('~/.git-credentials')
-                with open(cred_path, 'w') as f:
-                    f.write(f"https://ranehal:{github_pat}@github.com\nhttps://ranx-x:{github_pat}@github.com\nhttps://{github_pat}@github.com\n")
-                subprocess.run('git config --global credential.helper store', shell=True)
+                    cred_path = os.path.expanduser('~/.git-credentials')
+                    with open(cred_path, 'w') as f:
+                        f.write(f"https://ranehal:{github_pat}@github.com\nhttps://{github_pat}@github.com\n")
+                    _git_config('git config --global credential.helper store')
+                _with_lock('git-config', _setup_git_config)
 
-                REPO_URL = 'https://github.com/ranx-x/GroceryGOD.git'
+                REPO_URL = 'https://github.com/ranehal/GroceryGOD.git'
+                auth_grocery_url = f"https://ranehal:{github_pat}@github.com/ranehal/GroceryGOD.git"
 
                 if os.path.exists('GroceryGOD/.git/index.lock'):
                     subprocess.run('rm -f GroceryGOD/.git/index.lock', shell=True)
 
                 if not os.path.exists('GroceryGOD'):
-                    clone_res = subprocess.run(f'GIT_LFS_SKIP_SMUDGE=1 git clone {REPO_URL}', shell=True, capture_output=True, text=True)
+                    _reclaim_disk(force=True)
+                    clone_res = subprocess.run(f'GIT_LFS_SKIP_SMUDGE=1 git clone --depth 1 --single-branch --branch master --no-tags {auth_grocery_url} GroceryGOD', shell=True, capture_output=True, text=True)
                     if clone_res.returncode != 0:
                         error_msg = f"Git Clone Failed! Auth issue or repo missing.\nSTDERR: {clone_res.stderr}"
                         log.error(error_msg)
                         raise RuntimeError(error_msg)
 
                 os.chdir('GroceryGOD')
+                subprocess.run(f'git remote set-url origin {auth_grocery_url}', shell=True)
                 
                 log.info("🔄 Forcing sync with latest GitHub master...")
                 subprocess.run('git clean -fd', shell=True)
@@ -428,7 +518,6 @@ def run_grocery_god(github_pat):
                     log.error(f"History reconstruction failed: {e}. Proceeding with fresh start risk...")
 
             with Step('Market Scrapers (Parallel)', '🛸'):
-                import platform, os, subprocess
                 if platform.system() == 'Windows':
                     shopno_dir = r'C:\PROJECTS\shopno'
                     othoba_dir = r'C:\PROJECTS\othoba'
@@ -657,17 +746,22 @@ def run_grocery_god(github_pat):
                 subprocess.run(f'git commit -m "attempt #{cycle_count} if this works ill get some sleep frfr: {now}"', shell=True)
                 
                 push_success = False
-                for attempt in range(3):
-                    log.info(f"Push attempt {attempt+1}...")
-                    subprocess.run('git pull origin master --rebase -X ours', shell=True)
-                    push_res = subprocess.run('git push origin HEAD:master --force', shell=True, capture_output=True, text=True)
-                    
-                    if push_res.returncode == 0:
-                        push_success = True
-                        break
-                    else:
-                        log.warning(f"Push attempt {attempt+1} failed. Error: {push_res.stderr}")
-                        time.sleep(10)
+                auth_push_urls = [
+                    f"https://ranehal:{github_pat}@github.com/ranehal/GroceryGOD.git",
+                    f"https://{github_pat}@github.com/ranehal/GroceryGOD.git"
+                ]
+                for _auth_u in auth_push_urls:
+                    subprocess.run(f'git remote set-url origin {_auth_u}', shell=True)
+                    for attempt in range(2):
+                        log.info(f"Push attempt {attempt+1}...")
+                        subprocess.run('git pull origin master --rebase -X ours', shell=True, capture_output=True)
+                        push_res = subprocess.run('git push origin HEAD:master --force', shell=True, capture_output=True, text=True)
+                        if push_res.returncode == 0:
+                            push_success = True
+                            break
+                        log.warning(f"Push attempt {attempt+1} failed. Error: {push_res.stderr[:200]}")
+                        time.sleep(3)
+                    if push_success: break
                 
                 if not push_success:
                     git_status = subprocess.run('git status', shell=True, capture_output=True, text=True).stdout
@@ -675,7 +769,7 @@ def run_grocery_god(github_pat):
                     log.error(error_msg)
                     raise RuntimeError(error_msg)
 
-                tg_send(f'🚀 <b>GitHub Push Successful (Cycle {cycle_count})!</b>\n🌐 Live at https://ranx-x.github.io/GroceryGOD')
+                tg_send(f'🚀 <b>GitHub Push Successful (Cycle {cycle_count})!</b>\n🌐 Live at https://ranehal.github.io/GroceryGOD')
 
             # Collect & send detailed cycle report
             try:
@@ -830,20 +924,22 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat):
         tg_send(f"❌ <b>{label}</b> — {err_pat}")
         return
 
-    tg_send(f"🚀 <b>{label}</b> — Run Started")
     os.chdir('/kaggle/working')
     repo_name = repo_url.split('/')[-1].replace('.git', '')
     auth_repo_url = f"https://ranehal:{github_pat}@github.com/ranehal/{repo_name}.git"
 
     try:
-        subprocess.run('git config user.email "ranehal@users.noreply.github.com"', shell=True)
-        subprocess.run('git config user.name "ranehal"', shell=True)
-        cred_path = os.path.expanduser('~/.git-credentials')
-        with open(cred_path, 'w') as f:
-            f.write(f"https://ranehal:{github_pat}@github.com\nhttps://ranx-x:{github_pat}@github.com\nhttps://{github_pat}@github.com\n")
-        subprocess.run('git config --global credential.helper store', shell=True)
+        def _setup_git_config():
+            _git_config('git config user.email "ranehal@users.noreply.github.com"')
+            _git_config('git config user.name "ranehal"')
+            cred_path = os.path.expanduser('~/.git-credentials')
+            with open(cred_path, 'w') as f:
+                f.write(f"https://ranehal:{github_pat}@github.com\nhttps://{github_pat}@github.com\n")
+            _git_config('git config --global credential.helper store')
+        _with_lock('git-config', _setup_git_config)
 
         if not os.path.exists(repo_name):
+            _reclaim_disk()
             print(f"[{label}] Cloning {repo_name}...")
             clone_res = subprocess.run(f'git clone {auth_repo_url}', shell=True, capture_output=True, text=True)
             if clone_res.returncode != 0:
@@ -851,7 +947,7 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat):
 
         os.chdir(repo_name)
         subprocess.run('git config user.email "educational.purpose37@gmail.com"', shell=True)
-        subprocess.run('git config user.name "ranx-x"', shell=True)
+        subprocess.run('git config user.name "ranehal"', shell=True)
         subprocess.run(f'git remote set-url origin {auth_repo_url}', shell=True)
 
         subprocess.run('git clean -fd', shell=True)
@@ -895,25 +991,34 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat):
         # Ensure Playwright Chromium browser binary is always installed (verified)
         try:
             import platform as _platform
-            _install_cmds = [[sys.executable, "-m", "playwright", "install", "chromium"]]
-            if _platform.system() == "Linux":
-                _install_cmds.insert(0, [sys.executable, "-m", "playwright", "install", "chromium", "--with-deps"])
-            _installed = False
-            for _cmd in _install_cmds:
-                _res = subprocess.run(_cmd, capture_output=True, text=True)
-                if _res.returncode == 0:
-                    _installed = True
-                    break
-                print(f"[{label}] Playwright install failed: {(_res.stderr or '')[:300]}")
-            if _installed:
-                _dry = subprocess.run([sys.executable, "-m", "playwright", "install", "--dry-run", "chromium"], capture_output=True, text=True)
-                _dry_out = ((_dry.stdout or "") + (_dry.stderr or "")).lower()
-                if "already installed" not in _dry_out and "install" in _dry_out:
-                    print(f"[{label}] WARNING: Chromium may still be missing ({(_dry.stderr or _dry.stdout or '').strip()[:200]})")
+            def _pw_install():
+                _install_cmds = [[sys.executable, "-m", "playwright", "install", "chromium"]]
+                if _platform.system() == "Linux":
+                    _install_cmds.insert(0, [sys.executable, "-m", "playwright", "install", "chromium", "--with-deps"])
+                _installed = False
+                for _cmd in _install_cmds:
+                    _res = subprocess.run(_cmd, capture_output=True, text=True)
+                    if _res.returncode == 0:
+                        _installed = True
+                        break
+                    print(f"[{label}] Playwright install failed: {(_res.stderr or '')[:300]}")
+                if _installed:
+                    _dry = subprocess.run([sys.executable, "-m", "playwright", "install", "--dry-run", "chromium"], capture_output=True, text=True)
+                    _dry_out = ((_dry.stdout or "") + (_dry.stderr or ""))
+                    _loc = ""
+                    for _ln in _dry_out.splitlines():
+                        if "Install location:" in _ln:
+                            _loc = _ln.split("Install location:", 1)[1].strip()
+                            break
+                    if _loc and os.path.isdir(_loc):
+                        print(f"[{label}] Playwright chromium verified OK ({_loc}).")
+                    elif "already installed" in _dry_out.lower():
+                        print(f"[{label}] Playwright chromium verified OK.")
+                    else:
+                        print(f"[{label}] WARNING: Chromium may still be missing ({(_dry.stderr or _dry.stdout or '').strip()[:200]})")
                 else:
-                    print(f"[{label}] Playwright chromium verified OK.")
-            else:
-                print(f"[{label}] CRITICAL: Chromium install failed. Browser launch will crash.")
+                    print(f"[{label}] CRITICAL: Chromium install failed. Browser launch will crash.")
+            _with_lock('playwright-install', _pw_install)
         except Exception as _pw_err:
             print(f"[{label}] Playwright setup warning: {_pw_err}")
 
@@ -988,18 +1093,18 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat):
         subprocess.run(f"git remote set-url origin https://ranehal:{github_pat}@github.com/ranehal/{repo_name}.git", shell=True)
         subprocess.run('git config user.name "ranehal"', shell=True)
         subprocess.run('git config user.email "ranehal@users.noreply.github.com"', shell=True)
+        subprocess.run('find . -name "_scraper_error_*.log" -delete', shell=True)
         subprocess.run('git add .', shell=True)
         now_str = datetime.now(DHAKA_TZ).strftime('%Y-%m-%d %H:%M:%S')
         subprocess.run(f'git commit -m "if this works ill get some sleep frfr {now_str}"', shell=True)
 
         push_success = False
         auth_user_urls = [
-            f"https://ranehal:{github_pat}@github.com/ranehal/{repo_name}.git",
-            f"https://ranx-x:{github_pat}@github.com/ranehal/{repo_name}.git",
-            f"https://{github_pat}@github.com/ranehal/{repo_name}.git"
-        ]
+                    f"https://ranehal:{github_pat}@github.com/ranehal/{repo_name}.git",
+                    f"https://{github_pat}@github.com/ranehal/{repo_name}.git"
+                ]
         for auth_u in auth_user_urls:
-            user_n = "ranehal" if "ranehal" in auth_u else "ranx-x"
+            user_n = "ranehal"
             subprocess.run(f'git remote set-url origin {auth_u}', shell=True)
             subprocess.run(f'git config user.name "{user_n}"', shell=True)
             subprocess.run(f'git config user.email "{user_n}@users.noreply.github.com"', shell=True)
@@ -1015,7 +1120,7 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat):
         if not push_success:
             raise RuntimeError(f"Git push failed: {push_res.stderr[:300]}")
 
-        tg_send(f"✅ <b>{label}</b> — Completed in {int(elapsed)}s! Pushed to GitHub.")
+        tg_send(f"🔗 https://ranehal.github.io/{repo_name}/")
     except Exception as e:
         safe_tb = html.escape(traceback.format_exc()[-500:])
         err_msg = f"❌ <b>{label} FAILED!</b>\nError: {html.escape(str(e))}\n<pre>{safe_tb}</pre>"

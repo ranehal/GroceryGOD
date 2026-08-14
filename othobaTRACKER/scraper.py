@@ -76,10 +76,11 @@ def run_scrapers():
                 with open(cf, "r", encoding="utf-8") as f:
                     data = json.load(f)
                     items = list(data.values()) if isinstance(data, dict) and "products" not in data else (data if isinstance(data, list) else data.get("products", []))
+                    target = app_products if ('frontend' in cf or 'data' in cf) else web_products
                     for p in items:
                         name_key = re.sub(r'\W+', '', p.get("name", "")).lower()
                         if not name_key: continue
-                        web_products[name_key] = p
+                        target[name_key] = p
             except Exception as _e:
                 print(f"[Othoba] Error reading {os.path.basename(cf)}: {_e}")
 

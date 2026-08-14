@@ -216,14 +216,14 @@ def run_grocery_god(github_pat):
                     raise RuntimeError("GITHUB_PAT is missing or empty. Git operations will fail.")
                     
                 subprocess.run('git config --global user.email "educational.purpose37@gmail.com"', shell=True)
-                subprocess.run('git config --global user.name "ranx-x"', shell=True)
+                subprocess.run('git config --global user.name "ranehal"', shell=True)
 
                 cred_path = os.path.expanduser('~/.git-credentials')
                 with open(cred_path, 'w') as f:
-                    f.write(f"https://ranehal:{github_pat}@github.com\nhttps://ranx-x:{github_pat}@github.com\nhttps://{github_pat}@github.com\n")
+                    f.write(f"https://ranehal:{github_pat}@github.com\nhttps://{github_pat}@github.com\n")
                 subprocess.run('git config --global credential.helper store', shell=True)
 
-                REPO_URL = 'https://github.com/ranx-x/GroceryGOD.git'
+                REPO_URL = 'https://github.com/ranehal/GroceryGOD.git'
 
                 if os.path.exists('GroceryGOD/.git/index.lock'):
                     subprocess.run('rm -f GroceryGOD/.git/index.lock', shell=True)
@@ -678,7 +678,7 @@ def run_grocery_god(github_pat):
                     log.error(error_msg)
                     raise RuntimeError(error_msg)
 
-                tg_send(f'🚀 <b>GitHub Push Successful (Cycle {cycle_count})!</b>\n🌐 Live at https://ranx-x.github.io/GroceryGOD')
+                tg_send(f'🚀 <b>GitHub Push Successful (Cycle {cycle_count})!</b>\n🌐 Live at https://ranehal.github.io/GroceryGOD')
 
             # Collect & send detailed cycle report
             try:
@@ -843,7 +843,7 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat):
         subprocess.run('git config user.name "ranehal"', shell=True)
         cred_path = os.path.expanduser('~/.git-credentials')
         with open(cred_path, 'w') as f:
-            f.write(f"https://ranehal:{github_pat}@github.com\nhttps://ranx-x:{github_pat}@github.com\nhttps://{github_pat}@github.com\n")
+            f.write(f"https://ranehal:{github_pat}@github.com\nhttps://{github_pat}@github.com\n")
         subprocess.run('git config --global credential.helper store', shell=True)
 
         if not os.path.exists(repo_name):
@@ -854,7 +854,7 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat):
 
         os.chdir(repo_name)
         subprocess.run('git config user.email "educational.purpose37@gmail.com"', shell=True)
-        subprocess.run('git config user.name "ranx-x"', shell=True)
+        subprocess.run('git config user.name "ranehal"', shell=True)
         subprocess.run(f'git remote set-url origin {auth_repo_url}', shell=True)
 
         subprocess.run('git clean -fd', shell=True)
@@ -1045,11 +1045,11 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat):
         push_success = False
         auth_user_urls = [
             f"https://ranehal:{github_pat}@github.com/ranehal/{repo_name}.git",
-            f"https://ranx-x:{github_pat}@github.com/ranehal/{repo_name}.git",
+            f"https://{github_pat}@github.com/ranehal/{repo_name}.git",
             f"https://{github_pat}@github.com/ranehal/{repo_name}.git"
         ]
         for auth_u in auth_user_urls:
-            user_n = "ranehal" if "ranehal" in auth_u else "ranx-x"
+            user_n = "ranehal"
             subprocess.run(f'git remote set-url origin {auth_u}', shell=True)
             subprocess.run(f'git config user.name "{user_n}"', shell=True)
             subprocess.run(f'git config user.email "{user_n}@users.noreply.github.com"', shell=True)

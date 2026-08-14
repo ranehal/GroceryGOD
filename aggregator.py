@@ -495,43 +495,56 @@ def load_othoba():
                     return
             products_by_name[name_key] = product
 
-        # 1. Load Web Data
-        if platform.system() == 'Windows':
-            web_path = r'C:\PROJECTS\othoba\frontend\othoba_products.json'
-        else:
-            web_path = '/kaggle/working/othoba/frontend/othoba_products.json'
-        if not os.path.exists(web_path):
-            web_path = 'othobaTRACKER/frontend/othoba_products.json'
-        process_json_file(web_path, 'web')
-
-        # 2. Load App Data
-        app_path = r'C:\PROJECTS\othoba\othoba_products.json' if platform.system() == 'Windows' else '/kaggle/working/othoba/othoba_products.json'
-        if not os.path.exists(app_path):
-            app_path = 'othobaTRACKER/othoba_products.json'
-        process_json_file(app_path, 'app')
-
-        # 3. DB fallback (othoba_tracker.db) if JSON sources were empty
-        if stats["web_scraped"] == 0 and stats["app_scraped"] == 0 and os.path.exists(OTHOBA_DB):
+        # 1. Load Web Data (website scraper DB, decrypted from .db.enc at runtime)
+        web_db_candidates = [r'C:\PROJECTS\othoba\othoba_tracker.db', 'othobaTRACKER/othoba_tracker.db']
+        if platform.system() != 'Windows':
+            web_db_candidates.insert(0, '/kaggle/working/othoba/othoba_tracker.db')
+        web_db = next((p for p in web_db_candidates if os.path.exists(p)), None)
+        if web_db:
             try:
-                conn = sqlite3.connect(OTHOBA_DB)
+                conn = sqlite3.connect(web_db)
                 conn.row_factory = sqlite3.Row
                 cursor = conn.cursor()
                 cursor.execute("SELECT id, name, category_name, image_url FROM products")
                 for r in cursor.fetchall():
                     name_key = re.sub(r'\W+', '', r["name"] or "").lower()
                     if not name_key: continue
+                    hcur = conn.cursor()
+                    hcur.execute("SELECT timestamp, price_amount FROM price_history WHERE product_id=? ORDER BY timestamp", (r["id"],))
+                    hist_rows = hcur.fetchall()
+                    price = float(hist_rows[-1]["price_amount"]) if hist_rows else 0
+                    u_type, norm_p = parse_unit_and_calculate(r["name"] or "", '', price)
+                    unique_hist = {}
+                    for hrow in hist_rows:
+                        d_str = str(hrow["timestamp"])[:10]
+                        unique_hist[d_str] = {"date": d_str, "price": float(hrow["price_amount"] or 0), "normalized_price": norm_p}
+                    new_history = sorted(unique_hist.values(), key=lambda x: x['date'])
+                    for h in new_history: all_dates.append(h['date'])
                     stats["web_scraped"] += 1
                     add_product(name_key, {
                         "id": f"ot_{r['id']}", "name": r["name"], "store": "othoba",
-                        "category": r["category_name"] or 'General', "unit": 'N/A', "unit_type": 'piece',
-                        "current_price": 0, "normalized_price": 0,
-                        "image": r["image_url"] or '', "history": [], "first_seen": datetime.now(DHAKA_TZ).strftime("%Y-%m-%d"),
+                        "category": r["category_name"] or 'General', "unit": 'N/A', "unit_type": u_type,
+                        "current_price": price, "normalized_price": norm_p,
+                        "image": r["image_url"] or '', "history": new_history, "first_seen": datetime.now(DHAKA_TZ).strftime("%Y-%m-%d"),
                         "_src": "web"
                     }, "web")
                 conn.close()
-                print(f"[Othoba] JSON sources empty; recovered {stats['web_scraped']} products from DB fallback")
+                print(f"[Othoba] Web data loaded from DB: {stats['web_scraped']} products")
             except Exception as e:
-                print(f"Error reading Othoba DB fallback: {e}")
+                print(f"Error reading Othoba DB: {e}")
+
+        # 1b. JSON fallback as web if DB missing/empty
+        if stats["web_scraped"] == 0:
+            web_path = r'C:\PROJECTS\othoba\frontend\othoba_products.json' if platform.system() == 'Windows' else '/kaggle/working/othoba/frontend/othoba_products.json'
+            if not os.path.exists(web_path):
+                web_path = 'othobaTRACKER/frontend/othoba_products.json'
+            process_json_file(web_path, 'web')
+
+        # 2. Load App Data (mobile app API scraper JSON)
+        app_path = r'C:\PROJECTS\othoba\frontend\othoba_products.json' if platform.system() == 'Windows' else '/kaggle/working/othoba/frontend/othoba_products.json'
+        if not os.path.exists(app_path):
+            app_path = 'othobaTRACKER/frontend/othoba_products.json'
+        process_json_file(app_path, 'app')
 
         products = {v["id"]: v for v in products_by_name.values()}
         stats["web_selected"] = sum(1 for v in products_by_name.values() if v.get("_src") == "web")

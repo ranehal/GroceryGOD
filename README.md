@@ -130,7 +130,7 @@ GroceryGOD/
 
 ```bash
 # Clone the repository
-git clone https://github.com/ranx-x/GroceryGOD.git
+git clone https://github.com/ranehal/GroceryGOD.git
 cd GroceryGOD
 
 # Install Python dependencies
@@ -179,5 +179,5 @@ The system includes an automated continuous execution engine (`gitgod.ipynb` exe
 
 ## 🛡 License & Disclaimer
 
-Copyright © 2026 **ranx-x**. All Rights Reserved.  
+Copyright © 2026 **ranehal**. All Rights Reserved.  
 Data aggregated by GroceryGOD is collected strictly from publicly accessible online storefronts for market analytics and price comparison research. All brand names, logos, and trademarks belong to their respective owners.
