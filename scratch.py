@@ -781,9 +781,9 @@ def run_grocery_god(github_pat):
                 _report.append("")
 
                 # Scraper diagnostics from last_run_log.txt
-                _scraper_dirs = [("Shwapno", "swapnoTRACKER"), ("Chaldal", "PRICETRACKER"), ("Meena Bazar", "MEENAtracker/backend"),
-                                 ("Othoba", "othobaTRACKER/backend"), ("Unimart", "unimartTRACKER"),
-                                 ("Metro Mart", "metroTRACKER/backend"), ("ShotejBazar", "ShotejTRACKER")]
+                _scraper_dirs = [("Shwapno", "swapnoTRACKER"), ("Chaldal", "PRICETRACKER"), ("Meena Bazar", "MEENAtracker"),
+                                 ("Othoba", "othobaTRACKER"), ("Unimart", "unimartTRACKER"),
+                                 ("Metro Mart", "metroTRACKER"), ("ShotejBazar", "ShotejTRACKER")]
                 for _sn, _sd in _scraper_dirs:
                     _lf = os.path.join(os.getcwd(), _sd, "last_run_log.txt")
                     if os.path.exists(_lf):
@@ -1147,6 +1147,7 @@ if __name__ == '__main__':
     p11 = multiprocessing.Process(target=run_scheduled_repo, args=('https://github.com/ranehal/PICAboo-analytics.git', 'scraper.py', ' PICAboo Analytics', GITHUB_PAT))
     p12 = multiprocessing.Process(target=run_scheduled_repo, args=('https://github.com/ranehal/DARAZ-analytics.git', 'scraper.py', ' DARAZ Analytics', GITHUB_PAT))
     p13 = multiprocessing.Process(target=run_scheduled_repo, args=('https://github.com/ranehal/MEEnaBAzar-analylics.git', 'scraper.py', ' Meena Bazar Analytics', GITHUB_PAT))
+    p14 = multiprocessing.Process(target=run_scheduled_repo, args=('https://github.com/ranehal/sharedeal.git', 'scraper.py', ' ShareDeal Analytics', GITHUB_PAT))
     
     p2.start()
     print("⏳ Sleeping 10 minutes (600s) before starting p1 & p3-p13 to sync Kaggle Netherlands/UTC time with Dhaka date...")
@@ -1163,12 +1164,13 @@ if __name__ == '__main__':
     p11.start()
     p12.start()
     p13.start()
+    p14.start()
     
     start_time = time.time()
     timeout_seconds = (11 * 3600) + (50 * 60) 
 
     while time.time() - start_time < timeout_seconds:
-        if not any(p.is_alive() for p in [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13]):
+        if not any(p.is_alive() for p in [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14]):
             print("\n✅ Both parallel pipelines finished ahead of schedule!")
             break
         time.sleep(30)
@@ -1185,7 +1187,7 @@ if __name__ == '__main__':
     for i in range(1, 35):
         os.system(f"pkill -9 -f {i}.py")
 
-    for p in [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13]:
+    for p in [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14]:
         if p.is_alive():
             p.terminate()
             p.join(timeout=5)
@@ -1193,7 +1195,7 @@ if __name__ == '__main__':
     time.sleep(5)
     print("\n🔄 Triggering next cycle...")
     # Report p3-p5 exit status
-    for _n, _p in [("FooDIE Rest", p3), ("FoodPANDA Rest", p4), ("FooDIE Mart", p5), ("Shwapno Analytics", p6), ("Othoba Analytics", p7), ("CARTup", p8), ("Chaldal Analytics", p9), ("COOKup", p10), ("PICAboo", p11), ("DARAZ", p12), ("Meena Bazar Analytics", p13)]:
+    for _n, _p in [("FooDIE Rest", p3), ("FoodPANDA Rest", p4), ("FooDIE Mart", p5), ("Shwapno Analytics", p6), ("Othoba Analytics", p7), ("CARTup", p8), ("Chaldal Analytics", p9), ("COOKup", p10), ("PICAboo", p11), ("DARAZ", p12), ("Meena Bazar Analytics", p13), ("ShareDeal Analytics", p14)]:
         s = "OK" if _p.exitcode == 0 else f"rc={_p.exitcode}" if _p.exitcode is not None else "alive"
         print(f"[p3-p5] {_n}: {s}")
     
