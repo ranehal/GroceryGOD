@@ -1,17 +1,17 @@
-Last Run: 2026-08-14 03:19:49
+Last Run: 2026-08-14 18:03:08
 ------------------------------
 Total Scraped: 1800
-New Items: 0
+New Items: 381
 ------------------------------
 Categories:
-- Shampoo: 109
-- Socks: 84
-- Cookies: 42
-- Toothpaste: 39
-- Imported Wafers: 37
-- Chocolate Bar: 35
-- Body Wash: 34
-- Pasteurized Full Cream Milk: 30
-- Imported Biscuit: 30
-- Chips: 30
-... and 278 more.
+- Shampoo: 97
+- Cookies: 64
+- Imported Wafers: 48
+- Socks: 42
+- Chips: 39
+- Toothpaste: 38
+- Chocolate Bar: 33
+- Face Treatments: 33
+- Soft Drinks: 32
+- Pasteurized Full Cream Milk: 28
+... and 282 more.
