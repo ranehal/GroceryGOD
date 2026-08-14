@@ -1,4 +1,4 @@
-"""Convert JS data files to Parquet. Generates free (3-day) + premium (full) datasets."""
+"""Convert JS data files to Parquet. Generates free (7-day) + premium (full) datasets."""
 import json, os, re, glob
 from datetime import datetime, timedelta, timezone
 import pyarrow as pa
@@ -7,7 +7,7 @@ import pyarrow.parquet as pq
 STORES = ['shwapno','chaldal','meenabazar','othoba','metromart','unimart','shotejbazar','foodi']
 BASE = os.path.dirname(os.path.abspath(__file__))
 DHAKA_TZ = timezone(timedelta(hours=6))
-FREE_HISTORY_DAYS = 180
+FREE_HISTORY_DAYS = 7
 
 product_rows = []
 history_rows = []
@@ -125,7 +125,7 @@ prod_table = pa.Table.from_pylist(product_rows, schema=prod_schema)
 pq.write_table(prod_table, os.path.join(BASE, 'products.parquet'), compression='zstd')
 pq.write_table(hist_table, os.path.join(BASE, 'history.parquet'), compression='zstd')
 
-# --- Free tier: all products + last 3 days of history ---
+# --- Free tier: all products + last 7 days of history (matches FREE_HISTORY_DAYS in script.js) ---
 cutoff = (datetime.now(DHAKA_TZ) - timedelta(days=FREE_HISTORY_DAYS)).strftime('%Y-%m-%d')
 free_hist_rows = [r for r in history_rows if r['date'] >= cutoff]
 

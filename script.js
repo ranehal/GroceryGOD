@@ -796,7 +796,7 @@ function renderProducts() {
         if (activeIntelFilter === 'good') return p.normalized_price < (p.avgPrice * goodBuyThreshold);
         if (activeIntelFilter === 'customdrop') return p.avgPrice > 0 && p.normalized_price <= (p.avgPrice * (1 - customDropThreshold / 100));
         if (activeIntelFilter === 'wait') return p.normalized_price > (p.avgPrice * 1.05);
-        if (activeIntelFilter === 'low') return p.hist_count >= 1 && p.normalized_price <= (p.minPrice + 0.01) && p.hasPriceToday && Number(p.normalized_price) > 0;
+        if (activeIntelFilter === 'low') return p.hist_count >= 1 && p.maxPrice - p.minPrice > 0.01 && p.normalized_price <= (p.minPrice + 0.01) && p.hasPriceToday && Number(p.normalized_price) > 0;
         if (activeIntelFilter === 'new') return p.isNew;
         if (activeIntelFilter === 'pricechange') {
             if (p._pcDiff === undefined) return false;
@@ -966,7 +966,7 @@ function createProductCard(p) {
         </div>
     ` : '';
 
-    const isLow = p.hist_count >= 1 && p.normalized_price <= (p.minPrice + 0.01) && p.hasPriceToday && Number(p.normalized_price) > 0;
+    const isLow = p.hist_count >= 1 && p.maxPrice - p.minPrice > 0.01 && p.normalized_price <= (p.minPrice + 0.01) && p.hasPriceToday && Number(p.normalized_price) > 0;
     const lowBadge = isLow ? `
         <div style="position:absolute; top:35px; ${p.isNew ? 'right:44px;' : 'right:8px;'} font-size:0.55rem; font-weight:900; background:#f59e0b; padding:1px 5px; border-radius:3px; color:#000; z-index:11;">
             LOW
@@ -1604,7 +1604,7 @@ async function openDetailedChart(product) {
         document.getElementById('chart-product-unit').innerText = unitDisplay;
     }
     
-    const isAllTimeLow = product.normalized_price <= (product.minPrice + 0.01);
+    const isAllTimeLow = product.maxPrice - product.minPrice > 0.01 && product.normalized_price <= (product.minPrice + 0.01);
     const minDisplay = isAllTimeLow 
         ? '<span style="color:var(--gold); font-weight:900;">' + (premiumUnlocked ? 'ALL TIME LOW: ' : '7-DAY LOW: ') + fmt(product.minPrice) + '</span>'
         : '<span style="color:var(--text-secondary)">High: ' + fmt(product.maxPrice) + '</span>';
@@ -2082,7 +2082,7 @@ function buildAnalyticsModel(products) {
     const goodDeals = validHistorical.filter(p => p.normalized_price > p.avgPrice * greatDealThreshold && p.normalized_price <= p.avgPrice * goodBuyThreshold);
     const fair = validHistorical.filter(p => p.normalized_price > p.avgPrice * goodBuyThreshold && p.normalized_price <= p.avgPrice * 1.05);
     const wait = validHistorical.filter(p => p.normalized_price > p.avgPrice * 1.05);
-    const allTimeLows = validHistorical.filter(p => p.hist_count > 1 && p.normalized_price <= p.minPrice + .01);
+    const allTimeLows = validHistorical.filter(p => p.hist_count > 1 && p.maxPrice - p.minPrice > 0.01 && p.normalized_price <= p.minPrice + .01);
     const new7 = products.filter(p => Number(p.ageDays) <= 7);
     const new30 = products.filter(p => Number(p.ageDays) <= 30);
     const fresh = products.filter(p => p.hasPriceToday);
@@ -3012,7 +3012,7 @@ async function attemptPremiumUnlock() {
 
         // Auto return to Home
         activeCategoryFilter = 'all';
-        activeShopFilters.clear();
+        activeShopFilters = new Set(['shwapno']);
         const searchInput = document.getElementById('product-search');
         if (searchInput) searchInput.value = '';
         const currentTitle = document.getElementById('current-view-title');
