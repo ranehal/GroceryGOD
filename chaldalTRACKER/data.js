@@ -192,7 +192,7 @@ window.PRODUCT_DATA = {
     "id": "colgate_plax_peppermint_mouth_wash_750_ml",
     "name": "Colgate Plax Peppermint Mouth Wash",
     "image": "https://i.chaldn.com/_mpimage/colgate-plax-peppermint-mouth-wash-750-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D127132&q=best&v=1&m=400&webp=1",
-    "category": "Mouthwash & Others",
+    "category": "Mouthwashes, Inhaler & Balm",
     "current_price": 1160.0,
     "current_unit": "750 ml",
     "history": [
@@ -219,7 +219,7 @@ window.PRODUCT_DATA = {
     "id": "colgate_plax_peppermint_mouth_wash_500_ml",
     "name": "Colgate Plax Peppermint Mouth Wash",
     "image": "https://i.chaldn.com/_mpimage/colgate-plax-peppermint-mouth-wash-500-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D127133&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Mouthwash & Others",
+    "category": "Mouthwashes, Inhaler & Balm",
     "current_price": 585.0,
     "current_unit": "500 ml",
     "history": [
@@ -246,7 +246,7 @@ window.PRODUCT_DATA = {
     "id": "colgate_plax_herbal_salt_mouth_wash_500_ml",
     "name": "Colgate Plax Herbal Salt Mouth Wash",
     "image": "https://i.chaldn.com/_mpimage/colgate-plax-herbal-salt-mouth-wash-500-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D135607&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Mouthwash & Others",
+    "category": "Mouthwashes, Inhaler & Balm",
     "current_price": 1260.0,
     "current_unit": "500 ml",
     "history": [
@@ -273,7 +273,7 @@ window.PRODUCT_DATA = {
     "id": "colgate_plax_freshmint_mouth_wash_750_ml",
     "name": "Colgate Plax Freshmint Mouth Wash",
     "image": "https://i.chaldn.com/_mpimage/colgate-plax-freshmint-mouth-wash-750-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D127087&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Mouthwash & Others",
+    "category": "Mouthwashes, Inhaler & Balm",
     "current_price": 815.0,
     "current_unit": "750 ml",
     "history": [
@@ -651,7 +651,7 @@ window.PRODUCT_DATA = {
     "id": "sirona_oxo_biodegradable_tampon_condom_disposal_bag_50_pcs",
     "name": "Sirona Oxo-Biodegradable Tampon & Condom Disposal Bag",
     "image": "https://i.chaldn.com/_mpimage/sirona-oxo-biodegradable-tampon-condom-disposal-bag-50-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D168380&q=best&v=1&m=400&webp=1",
-    "category": "Feminine Care",
+    "category": "Family Planning",
     "current_price": 350.0,
     "current_unit": "50 pcs",
     "history": [
@@ -1029,7 +1029,7 @@ window.PRODUCT_DATA = {
     "id": "mother_s_smile_profom_milk_jar_400_gm",
     "name": "Mother's Smile Profom Milk Jar",
     "image": "https://i.chaldn.com/_mpimage/mothers-smile-profom-milk-jar-400-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130882&q=best&v=1&m=400&webp=1",
-    "category": "Food Supplements",
+    "category": "Energy Boosters",
     "current_price": 630.0,
     "current_unit": "400 gm",
     "history": [
@@ -1164,7 +1164,7 @@ window.PRODUCT_DATA = {
     "id": "standard_horlicks_health_and_nutrition_drink_jar_250_gm",
     "name": "Standard Horlicks Health And Nutrition Drink Jar",
     "image": "https://i.chaldn.com/_mpimage/standard-horlicks-health-and-nutrition-drink-jar-250-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D163368&q=best&v=1&m=400&webp=1",
-    "category": "Food Supplements",
+    "category": "Energy Boosters",
     "current_price": 280.0,
     "current_unit": "250 gm",
     "history": [
@@ -1245,7 +1245,7 @@ window.PRODUCT_DATA = {
     "id": "mother_s_horlicks_health_and_nutrition_drink_bib_350_gm",
     "name": "Mother's Horlicks Health and Nutrition Drink BIB",
     "image": "https://i.chaldn.com/_mpimage/mothers-horlicks-health-and-nutrition-drink-bib-350-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128293&q=best&v=1&m=400&webp=1",
-    "category": "Food Supplements",
+    "category": "Energy Boosters",
     "current_price": 620.0,
     "current_unit": "350 gm",
     "history": [
@@ -1272,7 +1272,7 @@ window.PRODUCT_DATA = {
     "id": "horlicks_chocolate_flavour_jar_500_gm",
     "name": "Horlicks Chocolate Flavour Jar",
     "image": "https://i.chaldn.com/_mpimage/horlicks-chocolate-flavour-jar-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D163350&q=best&v=1&m=400&webp=1",
-    "category": "Food Supplements",
+    "category": "Energy Boosters",
     "current_price": 550.0,
     "current_unit": "500 gm",
     "history": [
@@ -1299,7 +1299,7 @@ window.PRODUCT_DATA = {
     "id": "junior_horlicks_health_and_nutrition_drink_container_stage_2_500_gm",
     "name": "Junior Horlicks Health And Nutrition Drink Container Stage-2",
     "image": "https://i.chaldn.com/_mpimage/junior-horlicks-health-and-nutrition-drink-container-stage-2-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D168999&q=best&v=1&m=400&webp=1",
-    "category": "Food Supplements",
+    "category": "Energy Boosters",
     "current_price": 550.0,
     "current_unit": "500 gm",
     "history": [
@@ -1326,7 +1326,7 @@ window.PRODUCT_DATA = {
     "id": "standard_horlicks_health_and_nutrition_drink_jar_500_gm",
     "name": "Standard Horlicks Health And Nutrition Drink Jar",
     "image": "https://i.chaldn.com/_mpimage/standard-horlicks-health-and-nutrition-drink-jar-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D168985&q=best&v=1&m=400&webp=1",
-    "category": "Food Supplements",
+    "category": "Energy Boosters",
     "current_price": 500.0,
     "current_unit": "500 gm",
     "history": [
@@ -1353,7 +1353,7 @@ window.PRODUCT_DATA = {
     "id": "maltova_health_and_nutrition_drink_bib_400_gm",
     "name": "Maltova Health And Nutrition Drink BIB",
     "image": "https://i.chaldn.com/_mpimage/maltova-health-and-nutrition-drink-bib-400-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128292&q=best&v=1&m=400&webp=1",
-    "category": "Food Supplements",
+    "category": "Energy Boosters",
     "current_price": 550.0,
     "current_unit": "400 gm",
     "history": [
@@ -1380,7 +1380,7 @@ window.PRODUCT_DATA = {
     "id": "boost_chocolate_jar_400_gm",
     "name": "Boost Chocolate Jar",
     "image": "https://i.chaldn.com/_mpimage/boost-chocolate-jar-400-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D173037&q=best&v=1&m=400&webp=1",
-    "category": "Food Supplements",
+    "category": "Energy Boosters",
     "current_price": 550.0,
     "current_unit": "400 gm",
     "history": [
@@ -1407,7 +1407,7 @@ window.PRODUCT_DATA = {
     "id": "women_s_plus_horlicks_health_and_nutrition_drink_jar_400_gm",
     "name": "Women's Plus Horlicks Health And Nutrition Drink Jar",
     "image": "https://i.chaldn.com/_mpimage/womens-plus-horlicks-health-and-nutrition-drink-jar-400-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128374&q=best&v=1&m=400&webp=1",
-    "category": "Food Supplements",
+    "category": "Energy Boosters",
     "current_price": 600.0,
     "current_unit": "400 gm",
     "history": [
@@ -1434,7 +1434,7 @@ window.PRODUCT_DATA = {
     "id": "horlicks_lite_health_and_nutrition_drink_jar_400_gm",
     "name": "Horlicks Lite Health And Nutrition Drink Jar",
     "image": "https://i.chaldn.com/_mpimage/horlicks-lite-health-and-nutrition-drink-jar-400-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D155022&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Food Supplements",
+    "category": "Energy Boosters",
     "current_price": 650.0,
     "current_unit": "400 gm",
     "history": [
@@ -1499,6 +1499,14 @@ window.PRODUCT_DATA = {
         "unit": "200 gm",
         "norm_price": 245.0,
         "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 49.0,
+        "unit": "200 gm",
+        "norm_price": 245.0,
+        "norm_unit": "1 kg"
       }
     ],
     "norm_price_display": "245.0 / 1 kg"
@@ -1514,6 +1522,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T21:44:23.676464+06:00",
+        "price": 140.0,
+        "unit": "20 pcs",
+        "norm_price": 7.0,
+        "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 140.0,
         "unit": "20 pcs",
         "norm_price": 7.0,
@@ -1537,6 +1553,14 @@ window.PRODUCT_DATA = {
         "unit": "150 gm",
         "norm_price": 3000.0,
         "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 450.0,
+        "unit": "150 gm",
+        "norm_price": 3000.0,
+        "norm_unit": "1 kg"
       }
     ],
     "norm_price_display": "3000.0 / 1 kg"
@@ -1552,6 +1576,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T21:44:23.676464+06:00",
+        "price": 450.0,
+        "unit": "150 gm",
+        "norm_price": 3000.0,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 450.0,
         "unit": "150 gm",
         "norm_price": 3000.0,
@@ -1575,6 +1607,14 @@ window.PRODUCT_DATA = {
         "unit": "25 gm",
         "norm_price": 6000.0,
         "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 150.0,
+        "unit": "25 gm",
+        "norm_price": 6000.0,
+        "norm_unit": "1 kg"
       }
     ],
     "norm_price_display": "6000.0 / 1 kg"
@@ -1590,6 +1630,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T21:44:23.676464+06:00",
+        "price": 110.0,
+        "unit": "74 gm",
+        "norm_price": 1486.49,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 110.0,
         "unit": "74 gm",
         "norm_price": 1486.49,
@@ -1613,6 +1661,14 @@ window.PRODUCT_DATA = {
         "unit": "5 pcs",
         "norm_price": 15.0,
         "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 75.0,
+        "unit": "5 pcs",
+        "norm_price": 15.0,
+        "norm_unit": "1 pc"
       }
     ],
     "norm_price_display": "15.0 / 1 pc"
@@ -1628,6 +1684,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T21:44:23.676464+06:00",
+        "price": 175.0,
+        "unit": "75 gm",
+        "norm_price": 2333.33,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 175.0,
         "unit": "75 gm",
         "norm_price": 2333.33,
@@ -1651,6 +1715,14 @@ window.PRODUCT_DATA = {
         "unit": "68 gm",
         "norm_price": 1617.65,
         "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 110.0,
+        "unit": "68 gm",
+        "norm_price": 1617.65,
+        "norm_unit": "1 kg"
       }
     ],
     "norm_price_display": "1617.65 / 1 kg"
@@ -1670,6 +1742,14 @@ window.PRODUCT_DATA = {
         "unit": "100 gm",
         "norm_price": 1590.0,
         "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 159.0,
+        "unit": "100 gm",
+        "norm_price": 1590.0,
+        "norm_unit": "1 kg"
       }
     ],
     "norm_price_display": "1590.0 / 1 kg"
@@ -1678,13 +1758,21 @@ window.PRODUCT_DATA = {
     "id": "dabur_chyawanprash_awaleha_500_gm",
     "name": "Dabur Chyawanprash Awaleha",
     "image": "https://i.chaldn.com/_mpimage/dabur-chyawanprash-awaleha-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D158180&q=best&v=1&m=400&webp=1",
-    "category": "Herbal & Digestive Aids",
+    "category": "Energy Boosters",
     "current_price": 600.0,
     "current_unit": "500 gm",
     "history": [
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T21:44:23.676464+06:00",
+        "price": 600.0,
+        "unit": "500 gm",
+        "norm_price": 1200.0,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 600.0,
         "unit": "500 gm",
         "norm_price": 1200.0,
@@ -2048,7 +2136,7 @@ window.PRODUCT_DATA = {
     "id": "golden_grain_white_sesame_seed_til__100_gm",
     "name": "Golden Grain White Sesame Seed (Til)",
     "image": "https://i.chaldn.com/_mpimage/golden-grain-white-sesame-seed-til-100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D187935&q=best&v=1&m=400&webp=1",
-    "category": "Keto Food",
+    "category": "Nuts & Dried Fruits",
     "current_price": 85.0,
     "current_unit": "100 gm",
     "history": [
@@ -2102,7 +2190,7 @@ window.PRODUCT_DATA = {
     "id": "aarong_dairy_sour_curd_500_gm",
     "name": "Aarong Dairy Sour Curd",
     "image": "https://i.chaldn.com/_mpimage/aarong-dairy-sour-curd-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D77433&q=best&v=1&m=400&webp=1",
-    "category": "Keto Food",
+    "category": "Yogurt & Sweets",
     "current_price": 120.0,
     "current_unit": "500 gm",
     "history": [
@@ -2129,7 +2217,7 @@ window.PRODUCT_DATA = {
     "id": "duck_eggs_hasher_dim__6_pcs",
     "name": "Duck Eggs (Hasher Dim)",
     "image": "https://i.chaldn.com/_mpimage/duck-eggs-hasher-dim-6-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D79970&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Keto Food",
+    "category": "Eggs",
     "current_price": 115.0,
     "current_unit": "6 pcs",
     "history": [
@@ -2156,7 +2244,7 @@ window.PRODUCT_DATA = {
     "id": "quail_eggs_20_pcs",
     "name": "Quail Eggs",
     "image": "https://i.chaldn.com/_mpimage/quail-eggs-20-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D79220&q=best&v=1&m=400&webp=1",
-    "category": "Keto Food",
+    "category": "Eggs",
     "current_price": 89.0,
     "current_unit": "20 pcs",
     "history": [
@@ -2237,7 +2325,7 @@ window.PRODUCT_DATA = {
     "id": "best_s_mushroom_choice_whole_tin_425_gm",
     "name": "Best's Mushroom Choice Whole Tin",
     "image": "https://i.chaldn.com/_mpimage/bests-mushroom-choice-whole-tin-425-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D125750&q=best&v=1&m=400&webp=1",
-    "category": "Keto Food",
+    "category": "Mushroom Cans",
     "current_price": 182.0,
     "current_unit": "425 gm",
     "history": [
@@ -2291,7 +2379,7 @@ window.PRODUCT_DATA = {
     "id": "walnuts_akhrot__100_gm",
     "name": "Walnuts (Akhrot)",
     "image": "https://i.chaldn.com/_mpimage/walnuts-akhrot-100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D184610&q=best&v=1&m=400&webp=1",
-    "category": "Keto Food",
+    "category": "Popcorn & Nuts",
     "current_price": 179.0,
     "current_unit": "100 gm",
     "history": [
@@ -2318,7 +2406,7 @@ window.PRODUCT_DATA = {
     "id": "peanut_peeled_vaja_cheena_badam__100_gm",
     "name": "Peanut Peeled (Vaja Cheena Badam)",
     "image": "https://i.chaldn.com/_mpimage/peanut-peeled-vaja-cheena-badam-100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D184613&q=best&v=1&m=400&webp=1",
-    "category": "Keto Food",
+    "category": "Popcorn & Nuts",
     "current_price": 45.0,
     "current_unit": "100 gm",
     "history": [
@@ -2345,7 +2433,7 @@ window.PRODUCT_DATA = {
     "id": "cashew_nut_kaju_badam__100_gm",
     "name": "Cashew Nut (Kaju Badam)",
     "image": "https://i.chaldn.com/_mpimage/cashew-nut-kaju-badam-100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D184612&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Keto Food",
+    "category": "Nuts & Dried Fruits",
     "current_price": 189.0,
     "current_unit": "100 gm",
     "history": [
@@ -2372,7 +2460,7 @@ window.PRODUCT_DATA = {
     "id": "brooke_bond_taaza_black_tea_400_gm",
     "name": "Brooke Bond Taaza Black Tea",
     "image": "https://i.chaldn.com/_mpimage/brooke-bond-taaza-black-tea-400-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D162455&q=best&v=1&m=400&webp=1",
-    "category": "Keto Food",
+    "category": "Tea",
     "current_price": 250.0,
     "current_unit": "400 gm",
     "history": [
@@ -2453,7 +2541,7 @@ window.PRODUCT_DATA = {
     "id": "kazi_kazi_organic_green_tea_40_pcs_60_gm",
     "name": "Kazi & Kazi Organic Green Tea 40 pcs",
     "image": "https://i.chaldn.com/_mpimage/kazi-kazi-organic-green-tea-40-pcs-60-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D108206&q=best&v=1&m=400&webp=1",
-    "category": "Keto Food",
+    "category": "Tea",
     "current_price": 215.0,
     "current_unit": "60 gm",
     "history": [
@@ -2480,7 +2568,7 @@ window.PRODUCT_DATA = {
     "id": "white_sesame_seed_til__100_gm",
     "name": "White Sesame Seed (Til)",
     "image": "https://i.chaldn.com/_mpimage/white-sesame-seed-til-100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D184017&q=best&v=1&m=400&webp=1",
-    "category": "Keto Food",
+    "category": "Nuts & Dried Fruits",
     "current_price": 49.0,
     "current_unit": "100 gm",
     "history": [
@@ -2561,7 +2649,7 @@ window.PRODUCT_DATA = {
     "id": "amul_dark_chocolate_minis_gable_pouch_100_gm",
     "name": "Amul Dark Chocolate Minis Gable Pouch",
     "image": "https://i.chaldn.com/_mpimage/amul-dark-chocolate-minis-gable-pouch-100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D72183&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Keto Food",
+    "category": "Chocolates",
     "current_price": 469.0,
     "current_unit": "100 gm",
     "history": [
@@ -2588,7 +2676,7 @@ window.PRODUCT_DATA = {
     "id": "vivo_ambient_whip_topping_with_vegetable_fat_1100_gm",
     "name": "Vivo Ambient Whip Topping with Vegetable Fat",
     "image": "https://i.chaldn.com/_mpimage/vivo-ambient-whip-topping-with-vegetable-fat-1100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D137073&q=best&v=1&m=400&webp=1",
-    "category": "Keto Food",
+    "category": "Condensed Milk & Cream",
     "current_price": 736.0,
     "current_unit": "1100 gm",
     "history": [
@@ -2642,7 +2730,7 @@ window.PRODUCT_DATA = {
     "id": "grand_or_uht_cooking_cream_1000_gm",
     "name": "Grand'Or UHT Cooking Cream",
     "image": "https://i.chaldn.com/_mpimage/grandor-uht-cooking-cream-1000-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128959&q=best&v=1&m=400&webp=1",
-    "category": "Keto Food",
+    "category": "Condensed Milk & Cream",
     "current_price": 1550.0,
     "current_unit": "1000 gm",
     "history": [
@@ -2723,7 +2811,7 @@ window.PRODUCT_DATA = {
     "id": "ispahani_blender_s_choice_premium_green_tea_bag_70_gm_50_pcs",
     "name": "Ispahani Blender's Choice Premium Green Tea Bag 70 gm",
     "image": "https://i.chaldn.com/_mpimage/ispahani-blenders-choice-premium-green-tea-bag-70-gm-50-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D107163&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Keto Food",
+    "category": "Tea",
     "current_price": 205.0,
     "current_unit": "50 pcs",
     "history": [
@@ -2804,7 +2892,7 @@ window.PRODUCT_DATA = {
     "id": "welcome_light_meat_tuna_in_sunflower_oil_flake__170_gm",
     "name": "Welcome Light Meat Tuna In Sunflower Oil (Flake)",
     "image": "https://i.chaldn.com/_mpimage/welcome-light-meat-tuna-in-sunflower-oil-flake-170-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D60408&q=low&v=1&m=400&m=400&webp=1",
-    "category": "Keto Food",
+    "category": "Fish Cans",
     "current_price": 190.0,
     "current_unit": "170 gm",
     "history": [
@@ -2831,7 +2919,7 @@ window.PRODUCT_DATA = {
     "id": "bpm_white_till_200_gm",
     "name": "BPM White Till",
     "image": "https://i.chaldn.com/_mpimage/bpm-white-till-200-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D52502&q=best&v=1&m=400&webp=1",
-    "category": "Keto Food",
+    "category": "Nuts & Dried Fruits",
     "current_price": 90.0,
     "current_unit": "200 gm",
     "history": [
@@ -2858,7 +2946,7 @@ window.PRODUCT_DATA = {
     "id": "nut_candy_wasabi_coated_green_peas_180_gm",
     "name": "Nut Candy Wasabi Coated Green Peas",
     "image": "https://i.chaldn.com/_mpimage/nut-candy-wasabi-coated-green-peas-180-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D131468&q=best&v=1&m=400&webp=1",
-    "category": "Keto Food",
+    "category": "Popcorn & Nuts",
     "current_price": 550.0,
     "current_unit": "180 gm",
     "history": [
@@ -2885,7 +2973,7 @@ window.PRODUCT_DATA = {
     "id": "lipton_green_tea_bag_honey_and_lemon_50_pcs",
     "name": "Lipton Green Tea Bag Honey and Lemon",
     "image": "https://i.chaldn.com/_mpimage/lipton-green-tea-bag-honey-and-lemon-50-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D93326&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Keto Food",
+    "category": "Tea",
     "current_price": 150.0,
     "current_unit": "50 pcs",
     "history": [
@@ -2966,7 +3054,7 @@ window.PRODUCT_DATA = {
     "id": "hosen_mushroom_choice_whole_can_425_gm",
     "name": "Hosen Mushroom Choice Whole Can",
     "image": "https://i.chaldn.com/_mpimage/hosen-mushroom-choice-whole-can-425-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D92521&q=best&v=1&m=400&webp=1",
-    "category": "Keto Food",
+    "category": "Mushroom Cans",
     "current_price": 350.0,
     "current_unit": "425 gm",
     "history": [
@@ -3020,7 +3108,7 @@ window.PRODUCT_DATA = {
     "id": "ispahani_blender_s_choice_premium_green_tea_35_gm_25_pcs",
     "name": "Ispahani Blender's Choice Premium Green Tea 35 gm",
     "image": "https://i.chaldn.com/_mpimage/ispahani-blenders-choice-premium-green-tea-35-gm-25-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D107156&q=best&v=1&m=400&webp=1",
-    "category": "Keto Food",
+    "category": "Tea",
     "current_price": 110.0,
     "current_unit": "25 pcs",
     "history": [
@@ -3047,7 +3135,7 @@ window.PRODUCT_DATA = {
     "id": "almarai_spreadable_cream_cheese_200_gm",
     "name": "Almarai Spreadable Cream Cheese",
     "image": "https://i.chaldn.com/_mpimage/almarai-spreadable-cream-cheese-200-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D175776&q=best&v=1&m=400&webp=1",
-    "category": "Keto Food",
+    "category": "Dips, Spreads & Syrups",
     "current_price": 619.0,
     "current_unit": "200 gm",
     "history": [
@@ -3101,7 +3189,7 @@ window.PRODUCT_DATA = {
     "id": "twinings_green_tea_lemon_25_tea_bags_each",
     "name": "Twinings Green Tea & Lemon 25 Tea bags",
     "image": "https://i.chaldn.com/_mpimage/twinings-green-tea-lemon-25-tea-bags-1-pack?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D136601&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Keto Food",
+    "category": "Tea",
     "current_price": 850.0,
     "current_unit": "each",
     "history": [
@@ -3209,7 +3297,7 @@ window.PRODUCT_DATA = {
     "id": "tong_garden_salted_peanuts_can_150_gm",
     "name": "Tong Garden Salted Peanuts Can",
     "image": "https://i.chaldn.com/_mpimage/tong-garden-salted-peanuts-can-150-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D136479&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Keto Food",
+    "category": "Popcorn & Nuts",
     "current_price": 695.0,
     "current_unit": "150 gm",
     "history": [
@@ -3236,7 +3324,7 @@ window.PRODUCT_DATA = {
     "id": "nautilus_lite_tuna_chunk_soybean_oil_165_gm",
     "name": "Nautilus Lite Tuna Chunk Soybean Oil",
     "image": "https://i.chaldn.com/_mpimage/nautilus-lite-tuna-chunk-soybean-oil-165-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D175007&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Keto Food",
+    "category": "Fish Cans",
     "current_price": 319.0,
     "current_unit": "165 gm",
     "history": [
@@ -3263,7 +3351,7 @@ window.PRODUCT_DATA = {
     "id": "hibiscus_mushrooms_choice_whole_can_425_gm",
     "name": "Hibiscus Mushrooms Choice Whole Can",
     "image": "https://i.chaldn.com/_mpimage/hibiscus-mushrooms-choice-whole-can-425-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D129220&q=best&v=1&m=400&webp=1",
-    "category": "Keto Food",
+    "category": "Mushroom Cans",
     "current_price": 229.0,
     "current_unit": "425 gm",
     "history": [
@@ -3706,6 +3794,14 @@ window.PRODUCT_DATA = {
         "unit": "12 pcs",
         "norm_price": 10.42,
         "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 125.0,
+        "unit": "12 pcs",
+        "norm_price": 10.42,
+        "norm_unit": "1 pc"
       }
     ],
     "norm_price_display": "10.42 / 1 pc"
@@ -3721,6 +3817,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T21:44:23.676464+06:00",
+        "price": 320.0,
+        "unit": "12 pcs",
+        "norm_price": 26.67,
+        "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 320.0,
         "unit": "12 pcs",
         "norm_price": 26.67,
@@ -3744,6 +3848,14 @@ window.PRODUCT_DATA = {
         "unit": "12 pcs",
         "norm_price": 13.0,
         "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 156.0,
+        "unit": "12 pcs",
+        "norm_price": 13.0,
+        "norm_unit": "1 pc"
       }
     ],
     "norm_price_display": "13.0 / 1 pc"
@@ -3759,6 +3871,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T21:44:23.676464+06:00",
+        "price": 120.0,
+        "unit": "12 pcs",
+        "norm_price": 10.0,
+        "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 120.0,
         "unit": "12 pcs",
         "norm_price": 10.0,
@@ -3782,6 +3902,14 @@ window.PRODUCT_DATA = {
         "unit": "12 pcs",
         "norm_price": 10.0,
         "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 120.0,
+        "unit": "12 pcs",
+        "norm_price": 10.0,
+        "norm_unit": "1 pc"
       }
     ],
     "norm_price_display": "10.0 / 1 pc"
@@ -3790,7 +3918,7 @@ window.PRODUCT_DATA = {
     "id": "faber_castell_hb_pencil_with_eraser__12_pcs",
     "name": "Faber Castell HB pencil (with Eraser)",
     "image": "https://i.chaldn.com/_mpimage/faber-castell-hb-pencil-with-eraser-12-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128271&q=best&v=1&m=400&webp=1",
-    "category": "Diaries & Notebooks (School)",
+    "category": "Pencils",
     "current_price": 249.0,
     "current_unit": "12 pcs",
     "history": [
@@ -3828,6 +3956,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 49.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 49.0,
+        "unit": "each",
+        "norm_price": 49.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "49.0 / each"
@@ -3836,7 +3972,7 @@ window.PRODUCT_DATA = {
     "id": "matador_i_teen_aroma_ball_pen_black_ink_6_pcs",
     "name": "Matador i-teen Aroma Ball Pen Black Ink",
     "image": "https://i.chaldn.com/_mpimage/matador-i-teen-aroma-ball-pen-black-ink-6-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D88577&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Diaries & Notebooks (School)",
+    "category": "Pens",
     "current_price": 73.0,
     "current_unit": "6 pcs",
     "history": [
@@ -3874,6 +4010,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 80.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 80.0,
+        "unit": "each",
+        "norm_price": 80.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "80.0 / each"
@@ -3889,6 +4033,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T21:44:23.676464+06:00",
+        "price": 100.0,
+        "unit": "10 pcs",
+        "norm_price": 10.0,
+        "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 100.0,
         "unit": "10 pcs",
         "norm_price": 10.0,
@@ -3912,6 +4064,14 @@ window.PRODUCT_DATA = {
         "unit": "6 pcs",
         "norm_price": 26.5,
         "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 159.0,
+        "unit": "6 pcs",
+        "norm_price": 26.5,
+        "norm_unit": "1 pc"
       }
     ],
     "norm_price_display": "26.5 / 1 pc"
@@ -3927,6 +4087,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T21:44:23.676464+06:00",
+        "price": 70.0,
+        "unit": "6 pcs",
+        "norm_price": 11.67,
+        "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 70.0,
         "unit": "6 pcs",
         "norm_price": 11.67,
@@ -3950,6 +4118,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 189.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 189.0,
+        "unit": "each",
+        "norm_price": 189.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "189.0 / each"
@@ -3965,6 +4141,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T21:44:23.676464+06:00",
+        "price": 269.0,
+        "unit": "each",
+        "norm_price": 269.0,
+        "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 269.0,
         "unit": "each",
         "norm_price": 269.0,
@@ -3988,6 +4172,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 269.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 269.0,
+        "unit": "each",
+        "norm_price": 269.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "269.0 / each"
@@ -4003,6 +4195,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T21:44:23.676464+06:00",
+        "price": 75.0,
+        "unit": "each",
+        "norm_price": 75.0,
+        "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 75.0,
         "unit": "each",
         "norm_price": 75.0,
@@ -4026,6 +4226,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 100.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 100.0,
+        "unit": "each",
+        "norm_price": 100.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "100.0 / each"
@@ -4045,6 +4253,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 150.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 150.0,
+        "unit": "each",
+        "norm_price": 150.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "150.0 / each"
@@ -4060,6 +4276,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T21:44:23.676464+06:00",
+        "price": 149.0,
+        "unit": "each",
+        "norm_price": 149.0,
+        "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 149.0,
         "unit": "each",
         "norm_price": 149.0,
@@ -4261,7 +4485,7 @@ window.PRODUCT_DATA = {
     "id": "deli_compass_set_each",
     "name": "Deli Compass Set",
     "image": "https://i.chaldn.com/_mpimage/deli-compass-set-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D103648&q=best&v=1&m=400&webp=1",
-    "category": "Measuring Tools",
+    "category": "Diaries & Notebooks (School)",
     "current_price": 400.0,
     "current_unit": "each",
     "history": [
@@ -4299,6 +4523,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 159.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 159.0,
+        "unit": "each",
+        "norm_price": 159.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "159.0 / each"
@@ -4314,6 +4546,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T21:44:23.676464+06:00",
+        "price": 60.0,
+        "unit": "each",
+        "norm_price": 60.0,
+        "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 60.0,
         "unit": "each",
         "norm_price": 60.0,
@@ -4337,6 +4577,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 180.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 180.0,
+        "unit": "each",
+        "norm_price": 180.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "180.0 / each"
@@ -4352,6 +4600,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T21:44:23.676464+06:00",
+        "price": 100.0,
+        "unit": "each",
+        "norm_price": 100.0,
+        "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 100.0,
         "unit": "each",
         "norm_price": 100.0,
@@ -4375,6 +4631,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 199.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 199.0,
+        "unit": "each",
+        "norm_price": 199.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "199.0 / each"
@@ -4390,6 +4654,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T21:44:23.676464+06:00",
+        "price": 129.0,
+        "unit": "each",
+        "norm_price": 129.0,
+        "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 129.0,
         "unit": "each",
         "norm_price": 129.0,
@@ -4413,6 +4685,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 198.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 198.0,
+        "unit": "each",
+        "norm_price": 198.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "198.0 / each"
@@ -4428,6 +4708,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T21:44:23.676464+06:00",
+        "price": 45.0,
+        "unit": "10 pcs",
+        "norm_price": 4.5,
+        "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 45.0,
         "unit": "10 pcs",
         "norm_price": 4.5,
@@ -4872,7 +5160,7 @@ window.PRODUCT_DATA = {
     "id": "casio_scientific_calculator_fx_991es_plus__each",
     "name": "Casio Scientific Calculator (FX 991ES Plus)",
     "image": "https://i.chaldn.com/_mpimage/casio-scientific-calculator-fx-991es-plus-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D54071&q=low&v=1&m=400&webp=1",
-    "category": "Calculators",
+    "category": "Diaries & Notebooks (School)",
     "current_price": 1339.0,
     "current_unit": "each",
     "history": [
@@ -6087,7 +6375,7 @@ window.PRODUCT_DATA = {
     "id": "parachute_advansed_aloe_vera_hair_oil_250_ml_2_pcs",
     "name": "Parachute Advansed Aloe Vera Hair Oil 250 ml",
     "image": "https://i.chaldn.com/_mpimage/parachute-advansed-aloe-vera-hair-oil-250-ml-2-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D109555&q=best&v=1&m=400&webp=1",
-    "category": "Men's Hair Care",
+    "category": "Body & Hair Oil",
     "current_price": 640.0,
     "current_unit": "2 pcs",
     "history": [
@@ -6114,7 +6402,7 @@ window.PRODUCT_DATA = {
     "id": "livon_hair_serum_50_ml",
     "name": "Livon Hair Serum",
     "image": "https://i.chaldn.com/_mpimage/livon-hair-serum-50-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130306&q=best&v=1&m=400&webp=1",
-    "category": "Men's Hair Care",
+    "category": "Body & Hair Oil",
     "current_price": 300.0,
     "current_unit": "50 ml",
     "history": [
@@ -6276,7 +6564,7 @@ window.PRODUCT_DATA = {
     "id": "parachute_skinpure_aloe_vera_gel_100_ml",
     "name": "Parachute SkinPure Aloe Vera Gel",
     "image": "https://i.chaldn.com/_mpimage/parachute-skinpure-aloe-vera-gel-100-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D131962&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Cream & Lotion",
+    "category": "Female Moisturizer",
     "current_price": 205.0,
     "current_unit": "100 ml",
     "history": [
@@ -6330,7 +6618,7 @@ window.PRODUCT_DATA = {
     "id": "parachute_skinpure_aloe_vera_gel_50_ml",
     "name": "Parachute SkinPure Aloe Vera Gel",
     "image": "https://i.chaldn.com/_mpimage/parachute-skinpure-aloe-vera-gel-50-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D131963&q=best&v=1&m=400&webp=1",
-    "category": "Cream & Lotion",
+    "category": "Female Moisturizer",
     "current_price": 120.0,
     "current_unit": "50 ml",
     "history": [
@@ -6492,7 +6780,7 @@ window.PRODUCT_DATA = {
     "id": "pond_s_face_wash_bright_beauty_100_gm",
     "name": "Pond's Face Wash Bright Beauty",
     "image": "https://i.chaldn.com/_mpimage/ponds-face-wash-bright-beauty-100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D174855&q=best&v=1&m=400&webp=1",
-    "category": "Face Wash & Mask",
+    "category": "Face Wash & Scrub",
     "current_price": 210.0,
     "current_unit": "100 gm",
     "history": [
@@ -7032,7 +7320,7 @@ window.PRODUCT_DATA = {
     "id": "enchanteur_perfumed_body_lotion_charming_satin_smooth_500_ml",
     "name": "Enchanteur Perfumed Body Lotion Charming Satin Smooth",
     "image": "https://i.chaldn.com/_mpimage/enchanteur-perfumed-body-lotion-charming-satin-smooth-500-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D169085&q=best&v=1&m=400&webp=1",
-    "category": "Cream & Lotion",
+    "category": "Female Moisturizer",
     "current_price": 1700.0,
     "current_unit": "500 ml",
     "history": [
@@ -8031,7 +8319,7 @@ window.PRODUCT_DATA = {
     "id": "wild_stone_forest_spice_soap_125_gm",
     "name": "Wild Stone Forest Spice Soap",
     "image": "https://i.chaldn.com/_mpimage/wild-stone-forest-spice-soap-125-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D77305&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Men's Soaps",
+    "category": "Soaps",
     "current_price": 188.0,
     "current_unit": "125 gm",
     "history": [
@@ -8058,7 +8346,7 @@ window.PRODUCT_DATA = {
     "id": "dettol_soap_bathing_bar_original_germ_defence_125_gm",
     "name": "Dettol Soap Bathing Bar Original Germ Defence",
     "image": "https://i.chaldn.com/_mpimage/dettol-soap-bathing-bar-original-germ-defence-125-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D179245&q=best&v=1&m=400&webp=1",
-    "category": "Men's Soaps",
+    "category": "Soaps",
     "current_price": 95.0,
     "current_unit": "125 gm",
     "history": [
@@ -9354,7 +9642,7 @@ window.PRODUCT_DATA = {
     "id": "fresh_hand_towel_250x1_ply__each",
     "name": "Fresh Hand Towel (250X1 Ply)",
     "image": "https://i.chaldn.com/_mpimage/fresh-hand-towel-250x1-ply-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D113119&q=best&v=1&m=400&webp=1",
-    "category": "Tissue & Wipes",
+    "category": "Napkins & Paper Products",
     "current_price": 100.0,
     "current_unit": "each",
     "history": [
@@ -9381,7 +9669,7 @@ window.PRODUCT_DATA = {
     "id": "fresh_perfumed_facial_tissue_150_x_2_ply_box_each",
     "name": "Fresh Perfumed Facial Tissue (150 X 2) ply Box",
     "image": "https://i.chaldn.com/_mpimage/fresh-perfumed-facial-tissue-150-x-2-ply-box-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D49747&q=best&v=1&m=400&webp=1",
-    "category": "Tissue & Wipes",
+    "category": "Napkins & Paper Products",
     "current_price": 100.0,
     "current_unit": "each",
     "history": [
@@ -9408,7 +9696,7 @@ window.PRODUCT_DATA = {
     "id": "fresh_paper_napkins_13_perfumed_100x1_ply__each",
     "name": "Fresh Paper Napkins 13\" Perfumed (100X1 Ply)",
     "image": "https://i.chaldn.com/_mpimage/fresh-paper-napkins-13-perfumed-100x1-ply-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D113125&q=best&v=1&m=400&webp=1",
-    "category": "Tissue & Wipes",
+    "category": "Napkins & Paper Products",
     "current_price": 75.0,
     "current_unit": "each",
     "history": [
@@ -9489,7 +9777,7 @@ window.PRODUCT_DATA = {
     "id": "bashundhara_paper_napkins_13_unscented_100_pcs",
     "name": "Bashundhara Paper Napkins 13\" Unscented",
     "image": "https://i.chaldn.com/_mpimage/bashundhara-paper-napkins-13-unscented-100-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D164084&q=best&v=1&m=400&webp=1",
-    "category": "Tissue & Wipes",
+    "category": "Napkins & Paper Products",
     "current_price": 75.0,
     "current_unit": "100 pcs",
     "history": [
@@ -9516,7 +9804,7 @@ window.PRODUCT_DATA = {
     "id": "fresh_toilet_tissue_family_value_pack__4_pcs",
     "name": "Fresh Toilet Tissue (Family Value Pack)",
     "image": "https://i.chaldn.com/_mpimage/fresh-toilet-tissue-family-value-pack-4-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D113296&q=best&v=1&m=400&webp=1",
-    "category": "Tissue & Wipes",
+    "category": "Napkins & Paper Products",
     "current_price": 100.0,
     "current_unit": "4 pcs",
     "history": [
@@ -9624,7 +9912,7 @@ window.PRODUCT_DATA = {
     "id": "fay_toilet_tissue_white_180_sheet_each",
     "name": "Fay Toilet Tissue White 180 Sheet",
     "image": "https://i.chaldn.com/_mpimage/fay-toilet-tissue-white-180-sheet-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128444&q=best&v=1&m=400&webp=1",
-    "category": "Tissue & Wipes",
+    "category": "Napkins & Paper Products",
     "current_price": 30.0,
     "current_unit": "each",
     "history": [
@@ -9678,7 +9966,7 @@ window.PRODUCT_DATA = {
     "id": "bashundhara_gold_toilet_tissue_each",
     "name": "Bashundhara Gold Toilet Tissue",
     "image": "https://i.chaldn.com/_mpimage/bashundhara-gold-toilet-tissue-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D64375&q=low&v=1&m=400&webp=1",
-    "category": "Tissue & Wipes",
+    "category": "Napkins & Paper Products",
     "current_price": 38.0,
     "current_unit": "each",
     "history": [
@@ -9759,7 +10047,7 @@ window.PRODUCT_DATA = {
     "id": "dettol_skincare_bodywash_250_ml",
     "name": "Dettol Skincare Bodywash",
     "image": "https://i.chaldn.com/_mpimage/dettol-skincare-bodywash-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D149404&q=best&v=1&m=400&webp=1",
-    "category": "Men's Soaps",
+    "category": "Men's Shower Gels",
     "current_price": 225.0,
     "current_unit": "250 ml",
     "history": [
@@ -9921,7 +10209,7 @@ window.PRODUCT_DATA = {
     "id": "dettol_original_bodywash_250_ml",
     "name": "Dettol Original Bodywash",
     "image": "https://i.chaldn.com/_mpimage/dettol-original-bodywash-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D149403&q=best&v=1&m=400&webp=1",
-    "category": "Men's Soaps",
+    "category": "Men's Shower Gels",
     "current_price": 200.0,
     "current_unit": "250 ml",
     "history": [
@@ -9948,7 +10236,7 @@ window.PRODUCT_DATA = {
     "id": "dettol_fresh_antibacterial_bodywash_citrus_orange_blossom_250_ml",
     "name": "Dettol Fresh Antibacterial Bodywash Citrus & Orange Blossom",
     "image": "https://i.chaldn.com/_mpimage/dettol-fresh-antibacterial-bodywash-citrus-orange-blossom-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D104957&q=best&v=1&m=400&webp=1",
-    "category": "Men's Soaps",
+    "category": "Men's Shower Gels",
     "current_price": 350.0,
     "current_unit": "250 ml",
     "history": [
@@ -10434,7 +10722,7 @@ window.PRODUCT_DATA = {
     "id": "eunyul_tomato_soothing_gel_300_gm",
     "name": "Eunyul Tomato Soothing Gel",
     "image": "https://i.chaldn.com/_mpimage/eunyul-tomato-soothing-gel-300-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D108991&q=best&v=1&m=400&webp=1",
-    "category": "Cream & Lotion",
+    "category": "Female Moisturizer",
     "current_price": 1400.0,
     "current_unit": "300 gm",
     "history": [
@@ -10488,7 +10776,7 @@ window.PRODUCT_DATA = {
     "id": "tibet_pomade_50_ml",
     "name": "Tibet Pomade",
     "image": "https://i.chaldn.com/_mpimage/tibet-pomade-50-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D136217&q=best&v=1&m=400&webp=1",
-    "category": "Cream & Lotion",
+    "category": "Female Moisturizer",
     "current_price": 70.0,
     "current_unit": "50 ml",
     "history": [
@@ -10812,7 +11100,7 @@ window.PRODUCT_DATA = {
     "id": "layer_r_wottagirl_secret_crush_body_spray_135_ml",
     "name": "Layer'r Wottagirl Secret Crush Body Spray",
     "image": "https://i.chaldn.com/_mpimage/layerr-wottagirl-secret-crush-body-spray-135-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D94025&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 595.0,
     "current_unit": "135 ml",
     "history": [
@@ -10839,7 +11127,7 @@ window.PRODUCT_DATA = {
     "id": "layer_r_shot_red_stallion_body_spray_135_ml",
     "name": "Layer'r Shot Red Stallion Body Spray",
     "image": "https://i.chaldn.com/_mpimage/layerr-shot-red-stallion-body-spray-135-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D94024&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 595.0,
     "current_unit": "135 ml",
     "history": [
@@ -10866,7 +11154,7 @@ window.PRODUCT_DATA = {
     "id": "layer_r_shot_power_play_body_spray_135_ml",
     "name": "Layer'r Shot Power Play Body Spray",
     "image": "https://i.chaldn.com/_mpimage/layerr-shot-power-play-body-spray-135-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D93993&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 595.0,
     "current_unit": "135 ml",
     "history": [
@@ -12324,7 +12612,7 @@ window.PRODUCT_DATA = {
     "id": "head_shoulders_smooth_silky_anti_dandruff_shampoo_1_ltr",
     "name": "Head & Shoulders Smooth & Silky Anti Dandruff Shampoo",
     "image": "https://i.chaldn.com/_mpimage/head-shoulders-smooth-silky-anti-dandruff-shampoo-1-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D160232&q=best&v=1&m=400&webp=1",
-    "category": "Men's Shampoos & Conditioners",
+    "category": "Women's Shampoos & Conditioners",
     "current_price": 2799.0,
     "current_unit": "1 ltr",
     "history": [
@@ -12459,7 +12747,7 @@ window.PRODUCT_DATA = {
     "id": "herbal_essences_white_strawberry_sweet_mint_conditioner_400_ml",
     "name": "Herbal Essences White Strawberry & Sweet Mint Conditioner",
     "image": "https://i.chaldn.com/_mpimage/herbal-essences-white-strawberry-sweet-mint-conditioner-400-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D89837&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Men's Shampoos & Conditioners",
+    "category": "Women's Shampoos & Conditioners",
     "current_price": 775.0,
     "current_unit": "400 ml",
     "history": [
@@ -12486,7 +12774,7 @@ window.PRODUCT_DATA = {
     "id": "herbal_essences_strength_whipped_cocoa_butter_conditioner_400_ml",
     "name": "Herbal Essences Strength Whipped Cocoa Butter Conditioner",
     "image": "https://i.chaldn.com/_mpimage/herbal-essences-strength-whipped-cocoa-butter-conditioner-400-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D89831&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Men's Shampoos & Conditioners",
+    "category": "Women's Shampoos & Conditioners",
     "current_price": 775.0,
     "current_unit": "400 ml",
     "history": [
@@ -12513,7 +12801,7 @@ window.PRODUCT_DATA = {
     "id": "head_shoulders_cool_menthol_anti_dandruff_shampoo_1_ltr",
     "name": "Head & Shoulders Cool Menthol Anti Dandruff Shampoo",
     "image": "https://i.chaldn.com/_mpimage/head-shoulders-cool-menthol-anti-dandruff-shampoo-1-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D89811&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Men's Shampoos & Conditioners",
+    "category": "Women's Shampoos & Conditioners",
     "current_price": 1800.0,
     "current_unit": "1 ltr",
     "history": [
@@ -12540,7 +12828,7 @@ window.PRODUCT_DATA = {
     "id": "head_shoulders_smooth_silky_anti_dandruff_shampoo_340_ml",
     "name": "Head & Shoulders Smooth & Silky Anti Dandruff Shampoo",
     "image": "https://i.chaldn.com/_mpimage/head-shoulders-smooth-silky-anti-dandruff-shampoo-340-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D160229&q=best&v=1&m=400&webp=1",
-    "category": "Men's Shampoos & Conditioners",
+    "category": "Women's Shampoos & Conditioners",
     "current_price": 990.0,
     "current_unit": "340 ml",
     "history": [
@@ -12567,7 +12855,7 @@ window.PRODUCT_DATA = {
     "id": "head_shoulders_2_in_1_cool_menthol_anti_dandruff_shampoo_conditioner_340_ml",
     "name": "Head & Shoulders 2 in 1 Cool Menthol Anti Dandruff Shampoo + Conditioner",
     "image": "https://i.chaldn.com/_mpimage/head-shoulders-cool-menthol-anti-dandruff-shampoo-conditioner-340-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D89699&q=best&v=1&m=400&webp=1",
-    "category": "Men's Shampoos & Conditioners",
+    "category": "Women's Shampoos & Conditioners",
     "current_price": 1200.0,
     "current_unit": "340 ml",
     "history": [
@@ -12594,7 +12882,7 @@ window.PRODUCT_DATA = {
     "id": "head_shoulders_2_in_1_smooth_silky_shampoo_conditioner_180_ml",
     "name": "Head & Shoulders 2 in 1 Smooth & Silky Shampoo + Conditioner",
     "image": "https://i.chaldn.com/_mpimage/head-shoulders-2-in-1-smooth-silky-shampoo-conditioner-180-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D129162&q=best&v=1&m=400&webp=1",
-    "category": "Men's Shampoos & Conditioners",
+    "category": "Women's Shampoos & Conditioners",
     "current_price": 650.0,
     "current_unit": "180 ml",
     "history": [
@@ -14430,7 +14718,7 @@ window.PRODUCT_DATA = {
     "id": "dove_face_wash_beauty_serum_sensitive_130_gm",
     "name": "Dove Face Wash Beauty Serum Sensitive",
     "image": "https://i.chaldn.com/_mpimage/dove-face-wash-beauty-serum-sensitive-130-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D107910&q=best&v=1&m=400&webp=1",
-    "category": "Serum, Oil & Toners",
+    "category": "Face Wash & Scrub",
     "current_price": 330.0,
     "current_unit": "130 gm",
     "history": [
@@ -14754,7 +15042,7 @@ window.PRODUCT_DATA = {
     "id": "colour_me_women_s_body_spray_pink_150_ml",
     "name": "Colour Me Women's Body Spray Pink",
     "image": "https://i.chaldn.com/_mpimage/colour-me-womens-body-spray-pink-150-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D127151&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 775.0,
     "current_unit": "150 ml",
     "history": [
@@ -14781,7 +15069,7 @@ window.PRODUCT_DATA = {
     "id": "lafz_premium_body_spray_dariush_120_ml",
     "name": "Lafz Premium Body Spray Dariush",
     "image": "https://i.chaldn.com/_mpimage/lafz-premium-body-spray-dariush-120-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D92073&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 390.0,
     "current_unit": "120 ml",
     "history": [
@@ -14808,7 +15096,7 @@ window.PRODUCT_DATA = {
     "id": "fa_roll_on_aqua_auatic_fresh_50_ml",
     "name": "Fa Roll On Aqua Auatic Fresh",
     "image": "https://i.chaldn.com/_mpimage/fa-roll-on-aqua-auatic-fresh-50-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D127270&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 289.0,
     "current_unit": "50 ml",
     "history": [
@@ -14835,7 +15123,7 @@ window.PRODUCT_DATA = {
     "id": "fa_roll_on_sport_50_ml",
     "name": "Fa Roll On Sport",
     "image": "https://i.chaldn.com/_mpimage/fa-roll-on-sport-50-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D109050&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 279.0,
     "current_unit": "50 ml",
     "history": [
@@ -14862,7 +15150,7 @@ window.PRODUCT_DATA = {
     "id": "fa_roll_on_caribbean_lemon_50_ml",
     "name": "Fa Roll On Caribbean Lemon",
     "image": "https://i.chaldn.com/_mpimage/fa-roll-on-caribbean-lemon-50-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D135825&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 299.0,
     "current_unit": "50 ml",
     "history": [
@@ -14889,7 +15177,7 @@ window.PRODUCT_DATA = {
     "id": "ca_active_women_body_spray_200_ml",
     "name": "CA Active Women Body Spray",
     "image": "https://i.chaldn.com/_mpimage/ca-active-women-body-spray-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D126337&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 680.0,
     "current_unit": "200 ml",
     "history": [
@@ -14916,7 +15204,7 @@ window.PRODUCT_DATA = {
     "id": "lafz_ibadet_body_spray_90_ml",
     "name": "Lafz Ibadet Body Spray",
     "image": "https://i.chaldn.com/_mpimage/lafz-ibadet-body-spray-90-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D74551&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 300.0,
     "current_unit": "90 ml",
     "history": [
@@ -14943,7 +15231,7 @@ window.PRODUCT_DATA = {
     "id": "lafz_gul_wissal_body_spray_100_ml",
     "name": "Lafz Gul Wissal Body Spray",
     "image": "https://i.chaldn.com/_mpimage/lafz-gul-wissal-body-spray-100-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D74548&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 294.0,
     "current_unit": "100 ml",
     "history": [
@@ -14970,7 +15258,7 @@ window.PRODUCT_DATA = {
     "id": "enchanteur_pocket_perfume_romantic_18_ml",
     "name": "Enchanteur Pocket Perfume Romantic",
     "image": "https://i.chaldn.com/_mpimage/enchanteur-pocket-perfume-romantic-18-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D108631&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 350.0,
     "current_unit": "18 ml",
     "history": [
@@ -14997,7 +15285,7 @@ window.PRODUCT_DATA = {
     "id": "enchanteur_pocket_perfume_charming_18_ml",
     "name": "Enchanteur Pocket Perfume Charming",
     "image": "https://i.chaldn.com/_mpimage/enchanteur-pocket-perfume-charming-18-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D108595&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 300.0,
     "current_unit": "18 ml",
     "history": [
@@ -15024,7 +15312,7 @@ window.PRODUCT_DATA = {
     "id": "enchanteur_perfumed_deo_roll_on_alluring_50_ml",
     "name": "Enchanteur Perfumed Deo Roll On Alluring",
     "image": "https://i.chaldn.com/_mpimage/enchanteur-perfumed-deo-roll-on-alluring-50-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128211&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 500.0,
     "current_unit": "50 ml",
     "history": [
@@ -15051,7 +15339,7 @@ window.PRODUCT_DATA = {
     "id": "royal_mirage_sport_perfume_120_ml",
     "name": "Royal Mirage Sport Perfume",
     "image": "https://i.chaldn.com/_mpimage/royal-mirage-sport-perfume-120-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D133053&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 1750.0,
     "current_unit": "120 ml",
     "history": [
@@ -15078,7 +15366,7 @@ window.PRODUCT_DATA = {
     "id": "royal_mirage_sport_body_spray_150_ml",
     "name": "Royal Mirage Sport Body Spray",
     "image": "https://i.chaldn.com/_mpimage/royal-mirage-sport-body-spray-150-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D60455&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 620.0,
     "current_unit": "150 ml",
     "history": [
@@ -15105,7 +15393,7 @@ window.PRODUCT_DATA = {
     "id": "eternal_love_xlouis_women_body_spray_200_ml",
     "name": "Eternal Love Xlouis Women Body Spray",
     "image": "https://i.chaldn.com/_mpimage/eternal-love-xlouis-women-body-spray-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D108698&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 780.0,
     "current_unit": "200 ml",
     "history": [
@@ -15132,7 +15420,7 @@ window.PRODUCT_DATA = {
     "id": "layer_r_wottagirl_pure_paradise_body_spray_135_ml",
     "name": "Layer'r Wottagirl Pure Paradise Body Spray",
     "image": "https://i.chaldn.com/_mpimage/layerr-wottagirl-pure-paradise-body-spray-135-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130002&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 545.0,
     "current_unit": "135 ml",
     "history": [
@@ -15159,7 +15447,7 @@ window.PRODUCT_DATA = {
     "id": "layer_r_wottagirl_pink_angel_body_spray_135_ml",
     "name": "Layer'r Wottagirl Pink Angel Body Spray",
     "image": "https://i.chaldn.com/_mpimage/layerr-wottagirl-pink-angel-body-spray-135-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130001&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 595.0,
     "current_unit": "135 ml",
     "history": [
@@ -15186,7 +15474,7 @@ window.PRODUCT_DATA = {
     "id": "ossum_body_spray_teaser_120_ml",
     "name": "Ossum Body Spray Teaser",
     "image": "https://i.chaldn.com/_mpimage/ossum-body-spray-teaser-120-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D115532&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 550.0,
     "current_unit": "120 ml",
     "history": [
@@ -15213,7 +15501,7 @@ window.PRODUCT_DATA = {
     "id": "ossum_body_spray_desire_120_ml",
     "name": "Ossum Body Spray Desire",
     "image": "https://i.chaldn.com/_mpimage/ossum-body-spray-desire-120-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D115531&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 550.0,
     "current_unit": "120 ml",
     "history": [
@@ -15240,7 +15528,7 @@ window.PRODUCT_DATA = {
     "id": "ossum_body_spray_cherish_120_ml",
     "name": "Ossum Body Spray Cherish",
     "image": "https://i.chaldn.com/_mpimage/ossum-body-spray-cherish-120-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D115530&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 550.0,
     "current_unit": "120 ml",
     "history": [
@@ -15294,7 +15582,7 @@ window.PRODUCT_DATA = {
     "id": "ossum_body_spray_appeal_120_ml",
     "name": "Ossum Body Spray Appeal",
     "image": "https://i.chaldn.com/_mpimage/ossum-body-spray-appeal-120-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D115529&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 550.0,
     "current_unit": "120 ml",
     "history": [
@@ -15348,7 +15636,7 @@ window.PRODUCT_DATA = {
     "id": "ossum_body_mist_pleasere_115_ml",
     "name": "Ossum Body Mist Pleasere",
     "image": "https://i.chaldn.com/_mpimage/ossum-body-mist-pleasere-115-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D115525&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 580.0,
     "current_unit": "115 ml",
     "history": [
@@ -15375,7 +15663,7 @@ window.PRODUCT_DATA = {
     "id": "ossum_body_mist_blossom_115_ml",
     "name": "Ossum Body Mist Blossom",
     "image": "https://i.chaldn.com/_mpimage/ossum-body-mist-blossom-115-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D115524&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 670.0,
     "current_unit": "115 ml",
     "history": [
@@ -15429,7 +15717,7 @@ window.PRODUCT_DATA = {
     "id": "enchanteur_perfumed_deo_spary_gorgeous_150_ml",
     "name": "Enchanteur Perfumed Deo Spary Gorgeous",
     "image": "https://i.chaldn.com/_mpimage/enchanteur-perfumed-deo-spary-gorgeous-150-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D169088&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 400.0,
     "current_unit": "150 ml",
     "history": [
@@ -15483,7 +15771,7 @@ window.PRODUCT_DATA = {
     "id": "enchanteur_perfumed_deo_spary_charming_150_ml",
     "name": "Enchanteur Perfumed Deo Spary Charming",
     "image": "https://i.chaldn.com/_mpimage/enchanteur-perfumed-deo-spary-charming-150-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D169087&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 400.0,
     "current_unit": "150 ml",
     "history": [
@@ -15564,7 +15852,7 @@ window.PRODUCT_DATA = {
     "id": "colour_me_perfume_volt_50_ml",
     "name": "Colour Me Perfume Volt",
     "image": "https://i.chaldn.com/_mpimage/colour-me-perfume-volt-50-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D127148&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 625.0,
     "current_unit": "50 ml",
     "history": [
@@ -15591,7 +15879,7 @@ window.PRODUCT_DATA = {
     "id": "ossum_perfumed_body_mist_delight_115_ml",
     "name": "Ossum Perfumed Body Mist Delight",
     "image": "https://i.chaldn.com/_mpimage/ossum-perfumed-body-mist-delight-115-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D115533&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 750.0,
     "current_unit": "115 ml",
     "history": [
@@ -15645,7 +15933,7 @@ window.PRODUCT_DATA = {
     "id": "ossum_perfumed_body_mist_romance_115_ml",
     "name": "Ossum Perfumed Body Mist Romance",
     "image": "https://i.chaldn.com/_mpimage/ossum-perfumed-body-mist-romance-115-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D115534&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 750.0,
     "current_unit": "115 ml",
     "history": [
@@ -15699,7 +15987,7 @@ window.PRODUCT_DATA = {
     "id": "fogg_scent_women_i_am_queen__100_ml",
     "name": "Fogg Scent Women (I Am Queen)",
     "image": "https://i.chaldn.com/_mpimage/fogg-scent-women-i-am-queen-100-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D60061&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 900.0,
     "current_unit": "100 ml",
     "history": [
@@ -15753,7 +16041,7 @@ window.PRODUCT_DATA = {
     "id": "layer_r_wattagirl_fresh_citrus_body_spray_135_ml",
     "name": "Layer'r Wattagirl Fresh Citrus Body Spray",
     "image": "https://i.chaldn.com/_mpimage/layerr-wattagirl-fresh-citrus-body-spray-135-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D129999&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 699.0,
     "current_unit": "135 ml",
     "history": [
@@ -15861,7 +16149,7 @@ window.PRODUCT_DATA = {
     "id": "enchanteur_perfumed_deo_spary_romantic_150_ml",
     "name": "Enchanteur Perfumed Deo Spary Romantic",
     "image": "https://i.chaldn.com/_mpimage/enchanteur-perfumed-deo-spary-romantic-150-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D169084&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 450.0,
     "current_unit": "150 ml",
     "history": [
@@ -15915,7 +16203,7 @@ window.PRODUCT_DATA = {
     "id": "enchanteur_perfumed_deo_roll_on_romantic_50_ml",
     "name": "Enchanteur Perfumed Deo Roll On Romantic",
     "image": "https://i.chaldn.com/_mpimage/enchanteur-perfumed-deo-roll-on-romantic-50-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D108626&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 319.0,
     "current_unit": "50 ml",
     "history": [
@@ -16725,7 +17013,7 @@ window.PRODUCT_DATA = {
     "id": "creme_21_vitamin_e_moisturizing_soft_cream_150_ml",
     "name": "Creme 21 Vitamin E Moisturizing Soft Cream",
     "image": "https://i.chaldn.com/_mpimage/creme-21-vitamin-e-moisturizing-soft-cream-150-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D101098&q=best&v=1&m=400&webp=1",
-    "category": "Creams",
+    "category": "Female Moisturizer",
     "current_price": 605.0,
     "current_unit": "150 ml",
     "history": [
@@ -20100,7 +20388,7 @@ window.PRODUCT_DATA = {
     "id": "rok_dishwashing_steel_scourer_each",
     "name": "Rok Dishwashing Steel Scourer",
     "image": "https://i.chaldn.com/_mpimage/rok-dishwashing-steel-scourer-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132985&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Cleaning Accessories",
     "current_price": 35.0,
     "current_unit": "each",
     "history": [
@@ -20127,7 +20415,7 @@ window.PRODUCT_DATA = {
     "id": "dishwashing_stainless_steel_scrubber_4_pcs",
     "name": "Dishwashing Stainless Steel Scrubber",
     "image": "https://i.chaldn.com/_mpimage/dishwashing-stainless-steel-scrubber-4-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D135006&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Cleaning Accessories",
     "current_price": 150.0,
     "current_unit": "4 pcs",
     "history": [
@@ -20181,7 +20469,7 @@ window.PRODUCT_DATA = {
     "id": "dish_washing_scrubbing_pad_each",
     "name": "Dish Washing Scrubbing Pad",
     "image": "https://i.chaldn.com/_mpimage/dish-washing-scrubbing-pad-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D106820&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Cleaning Accessories",
     "current_price": 50.0,
     "current_unit": "each",
     "history": [
@@ -20208,7 +20496,7 @@ window.PRODUCT_DATA = {
     "id": "trash_bag_black_20_x_30__12_pcs",
     "name": "Trash Bag Black - 20\" x 30\"",
     "image": "https://i.chaldn.com/_mpimage/trash-bag-black-20-x-30-12-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D49765&q=best&v=1&m=400&webp=1",
-    "category": "Disposables & Trash Bags",
+    "category": "Cleaning Accessories",
     "current_price": 283.0,
     "current_unit": "12 pcs",
     "history": [
@@ -20505,7 +20793,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_glass_cleaner_wiper_each",
     "name": "RFL Glass Cleaner Wiper",
     "image": "https://i.chaldn.com/_mpimage/rfl-glass-cleaner-wiper-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132761&q=best&v=1&m=400&webp=1",
-    "category": "Floor & Glass Cleaners",
+    "category": "Cleaning Accessories",
     "current_price": 65.0,
     "current_unit": "each",
     "history": [
@@ -20586,7 +20874,7 @@ window.PRODUCT_DATA = {
     "id": "npoly_dust_pan_red_8_x_6_inch_each",
     "name": "Npoly Dust Pan (Red) 8 x 6 inch",
     "image": "https://i.chaldn.com/_mpimage/npoly-dust-pan-red-8-x-6-inch-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D135749&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Cleaning Accessories",
     "current_price": 60.0,
     "current_unit": "each",
     "history": [
@@ -21072,7 +21360,7 @@ window.PRODUCT_DATA = {
     "id": "finis_perfume_finyle_toilet_floor_cleaner_1_ltr",
     "name": "Finis Perfume Finyle Toilet & Floor Cleaner",
     "image": "https://i.chaldn.com/_mpimage/finis-perfume-finyle-toilet-floor-cleaner-1-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D184809&q=best&v=1&m=400&webp=1",
-    "category": "Floor & Glass Cleaners",
+    "category": "Toilet Cleaners",
     "current_price": 165.0,
     "current_unit": "1 ltr",
     "history": [
@@ -21099,7 +21387,7 @@ window.PRODUCT_DATA = {
     "id": "trash_bag_white_20_x_30__10_pcs",
     "name": "Trash Bag White - 20\" x 30\"",
     "image": "https://i.chaldn.com/_mpimage/trash-bag-white-20-x-30-10-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D49766&q=best&v=1&m=400&webp=1",
-    "category": "Disposables & Trash Bags",
+    "category": "Cleaning Accessories",
     "current_price": 230.0,
     "current_unit": "10 pcs",
     "history": [
@@ -21261,7 +21549,7 @@ window.PRODUCT_DATA = {
     "id": "finis_phenyle_extra_strong_toilet_floor_cleaner_3_ltr",
     "name": "Finis Phenyle Extra Strong Toilet & Floor Cleaner",
     "image": "https://i.chaldn.com/_mpimage/finis-phenyle-extra-strong-toilet-floor-cleaner-3-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D161207&q=best&v=1&m=400&webp=1",
-    "category": "Floor & Glass Cleaners",
+    "category": "Toilet Cleaners",
     "current_price": 185.0,
     "current_unit": "3 ltr",
     "history": [
@@ -22055,6 +22343,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 719.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 719.0,
+        "unit": "each",
+        "norm_price": 719.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "719.0 / each"
@@ -22074,6 +22370,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 650.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 650.0,
+        "unit": "each",
+        "norm_price": 650.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "650.0 / each"
@@ -22089,6 +22393,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T21:44:23.676464+06:00",
+        "price": 799.0,
+        "unit": "each",
+        "norm_price": 799.0,
+        "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 799.0,
         "unit": "each",
         "norm_price": 799.0,
@@ -22425,7 +22737,7 @@ window.PRODUCT_DATA = {
     "id": "bashundhara_kitchen_towel_rolls_2_pcs",
     "name": "Bashundhara Kitchen Towel Rolls",
     "image": "https://i.chaldn.com/_mpimage/bashundhara-kitchen-towel-rolls-2-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D99748&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Napkins & Paper Products",
     "current_price": 160.0,
     "current_unit": "2 pcs",
     "history": [
@@ -22452,7 +22764,7 @@ window.PRODUCT_DATA = {
     "id": "bashundhara_kitchen_towel_rolls_each",
     "name": "Bashundhara Kitchen Towel Rolls",
     "image": "https://i.chaldn.com/_mpimage/bashundhara-kitchen-towel-rolls-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D124786&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Napkins & Paper Products",
     "current_price": 85.0,
     "current_unit": "each",
     "history": [
@@ -22479,7 +22791,7 @@ window.PRODUCT_DATA = {
     "id": "fresh_kitchen_towel_roll_each",
     "name": "Fresh kitchen Towel Roll",
     "image": "https://i.chaldn.com/_mpimage/fresh-kitchen-towel-roll-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D49743&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Napkins & Paper Products",
     "current_price": 85.0,
     "current_unit": "each",
     "history": [
@@ -23019,7 +23331,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_deluxe_bowl_red_8_ltr_each",
     "name": "RFL Deluxe Bowl Red 8 ltr",
     "image": "https://i.chaldn.com/_mpimage/rfl-deluxe-bowl-red-8-ltr-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D153301&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Basket & Bucket",
     "current_price": 140.0,
     "current_unit": "each",
     "history": [
@@ -23046,7 +23358,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_deluxe_bowl_red_3_ltr_each",
     "name": "RFL Deluxe Bowl Red 3 ltr",
     "image": "https://i.chaldn.com/_mpimage/rfl-deluxe-bowl-red-3-ltr-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D153299&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Basket & Bucket",
     "current_price": 80.0,
     "current_unit": "each",
     "history": [
@@ -23316,7 +23628,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_family_basket_each",
     "name": "RFL Family Basket",
     "image": "https://i.chaldn.com/_mpimage/rfl-family-basket-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132758&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Basket & Bucket",
     "current_price": 520.0,
     "current_unit": "each",
     "history": [
@@ -23559,7 +23871,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_deluxe_bucket_15_ltr_red__each",
     "name": "RFL Deluxe Bucket 15 ltr (Red)",
     "image": "https://i.chaldn.com/_mpimage/rfl-deluxe-bucket-15-ltr-red-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D95523&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Basket & Bucket",
     "current_price": 240.0,
     "current_unit": "each",
     "history": [
@@ -23586,7 +23898,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_design_bucket_20_ltr_sm_blue__each",
     "name": "RFL Design Bucket 20 ltr (SM Blue)",
     "image": "https://i.chaldn.com/_mpimage/rfl-design-bucket-20-ltr-sm-blue-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132750&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Basket & Bucket",
     "current_price": 300.0,
     "current_unit": "each",
     "history": [
@@ -23613,7 +23925,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_design_bucket_25_ltr_red__each",
     "name": "RFL Design Bucket 25 ltr (Red)",
     "image": "https://i.chaldn.com/_mpimage/rfl-design-bucket-25-ltr-red-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D153302&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Basket & Bucket",
     "current_price": 300.0,
     "current_unit": "each",
     "history": [
@@ -23640,7 +23952,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_design_bucket_25_ltr_sm_blue__each",
     "name": "RFL Design Bucket 25 ltr (SM Blue)",
     "image": "https://i.chaldn.com/_mpimage/rfl-design-bucket-25-ltr-sm-blue-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132749&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Basket & Bucket",
     "current_price": 350.0,
     "current_unit": "each",
     "history": [
@@ -23667,7 +23979,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_design_bucket_8_ltr_sm_blue__each",
     "name": "RFL Design Bucket 8 ltr (SM Blue)",
     "image": "https://i.chaldn.com/_mpimage/rfl-design-bucket-8-ltr-sm-blue-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132751&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Basket & Bucket",
     "current_price": 150.0,
     "current_unit": "each",
     "history": [
@@ -23694,7 +24006,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_design_bucket_8_ltr_red__each",
     "name": "RFL Design Bucket 8 ltr (Red)",
     "image": "https://i.chaldn.com/_mpimage/rfl-design-bucket-8-ltr-red-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D153304&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Basket & Bucket",
     "current_price": 150.0,
     "current_unit": "each",
     "history": [
@@ -23721,7 +24033,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_design_bucket_5_ltr_sm_blue__each",
     "name": "RFL Design Bucket 5 ltr (SM Blue)",
     "image": "https://i.chaldn.com/_mpimage/rfl-design-bucket-5-ltr-sm-blue-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132752&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Basket & Bucket",
     "current_price": 120.0,
     "current_unit": "each",
     "history": [
@@ -23748,7 +24060,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_design_bowl_8_ltr_blue__each",
     "name": "RFL Design Bowl 8 ltr (Blue)",
     "image": "https://i.chaldn.com/_mpimage/rfl-design-bowl-8-ltr-blue-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D95935&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Basket & Bucket",
     "current_price": 120.0,
     "current_unit": "each",
     "history": [
@@ -23775,7 +24087,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_design_bowl_8_ltr_red__each",
     "name": "RFL Design Bowl 8 ltr (Red)",
     "image": "https://i.chaldn.com/_mpimage/rfl-design-bowl-8-ltr-red-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132745&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Basket & Bucket",
     "current_price": 150.0,
     "current_unit": "each",
     "history": [
@@ -23802,7 +24114,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_design_bowl_3_ltr_red__each",
     "name": "RFL Design Bowl 3 ltr (Red)",
     "image": "https://i.chaldn.com/_mpimage/rfl-design-bowl-3-ltr-red-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132743&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Basket & Bucket",
     "current_price": 80.0,
     "current_unit": "each",
     "history": [
@@ -23829,7 +24141,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_design_bowl_3_ltr_blue__each",
     "name": "RFL Design Bowl 3 ltr (Blue)",
     "image": "https://i.chaldn.com/_mpimage/rfl-design-bowl-3-ltr-blue-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132742&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Basket & Bucket",
     "current_price": 80.0,
     "current_unit": "each",
     "history": [
@@ -23856,7 +24168,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_design_bowl_5_ltr_red__each",
     "name": "RFL Design Bowl 5 ltr (Red)",
     "image": "https://i.chaldn.com/_mpimage/rfl-design-bowl-5-ltr-red-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132744&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Basket & Bucket",
     "current_price": 110.0,
     "current_unit": "each",
     "history": [
@@ -23883,7 +24195,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_design_bowl_5_ltr_blue__each",
     "name": "RFL Design Bowl 5 ltr (Blue)",
     "image": "https://i.chaldn.com/_mpimage/rfl-design-bowl-5-ltr-blue-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D95475&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Basket & Bucket",
     "current_price": 110.0,
     "current_unit": "each",
     "history": [
@@ -24342,7 +24654,7 @@ window.PRODUCT_DATA = {
     "id": "manual_stainless_stell_hand_mixer_each",
     "name": "Manual Stainless Stell Hand Mixer",
     "image": "https://i.chaldn.com/_mpimage/manual-stainless-stell-hand-mixer-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130596&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Kitchen Appliances",
     "current_price": 169.0,
     "current_unit": "each",
     "history": [
@@ -24396,7 +24708,7 @@ window.PRODUCT_DATA = {
     "id": "npoly_design_bucket_with_lead_red__25_ltr",
     "name": "Npoly Design Bucket With Lead (Red)",
     "image": "https://i.chaldn.com/_mpimage/npoly-design-bucket-with-lead-red-25-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D131458&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Basket & Bucket",
     "current_price": 445.0,
     "current_unit": "25 ltr",
     "history": [
@@ -24477,7 +24789,7 @@ window.PRODUCT_DATA = {
     "id": "meat_tenderizer_2_5_x_8_inch_china_each",
     "name": "Meat Tenderizer (2.5 x 8 inch) China",
     "image": "https://i.chaldn.com/_mpimage/meat-tenderizer-25-x-8-inch-china-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130655&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Kitchen Appliances",
     "current_price": 629.0,
     "current_unit": "each",
     "history": [
@@ -24504,7 +24816,7 @@ window.PRODUCT_DATA = {
     "id": "hualanz_flask_500_ml__each",
     "name": "Hualanz Flask (500 ml)",
     "image": "https://i.chaldn.com/_mpimage/hualanz-flask-500-ml-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D95800&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Kitchen Appliances",
     "current_price": 559.0,
     "current_unit": "each",
     "history": [
@@ -24558,7 +24870,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_topper_nonstick_fry_pan_lid_red_24_cm_each",
     "name": "RFL Topper NonStick Fry Pan & Lid Red 24 cm",
     "image": "https://i.chaldn.com/_mpimage/rfl-topper-nonstick-fry-pan-lid-red-24-cm-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D113257&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Kitchen Appliances",
     "current_price": 1170.0,
     "current_unit": "each",
     "history": [
@@ -24612,7 +24924,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_topper_nonstick_glamour_fry_pan_with_lid_red_26_cm_each",
     "name": "RFL Topper Nonstick Glamour Fry Pan with Lid (Red) 26 cm",
     "image": "https://i.chaldn.com/_mpimage/rfl-topper-nonstick-glamour-fry-pan-with-lid-red-26-cm-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D113254&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Kitchen Appliances",
     "current_price": 1405.0,
     "current_unit": "each",
     "history": [
@@ -24639,7 +24951,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_topper_nonstick_cassrole_lid_red_26_cm_each",
     "name": "RFL Topper NonStick Cassrole & Lid Red 26 cm",
     "image": "https://i.chaldn.com/_mpimage/rfl-topper-nonstick-cassrole-lid-red-26-cm-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D113253&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Kitchen Appliances",
     "current_price": 1940.0,
     "current_unit": "each",
     "history": [
@@ -24666,7 +24978,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_topper_silver_pressure_cooker_5_ltr_each",
     "name": "RFL Topper Silver Pressure Cooker 5 ltr",
     "image": "https://chaldn.com/_mpimage/rfl-topper-silver-pressure-cooker-5-ltr-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D113266&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Kitchen Appliances",
     "current_price": 1900.0,
     "current_unit": "each",
     "history": [
@@ -27701,6 +28013,14 @@ window.PRODUCT_DATA = {
         "unit": "25 gm",
         "norm_price": 15960.0,
         "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 399.0,
+        "unit": "25 gm",
+        "norm_price": 15960.0,
+        "norm_unit": "1 kg"
       }
     ],
     "norm_price_display": "15960.0 / 1 kg"
@@ -27720,6 +28040,14 @@ window.PRODUCT_DATA = {
         "unit": "25 gm",
         "norm_price": 5960.0,
         "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 149.0,
+        "unit": "25 gm",
+        "norm_price": 5960.0,
+        "norm_unit": "1 kg"
       }
     ],
     "norm_price_display": "5960.0 / 1 kg"
@@ -27735,6 +28063,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T21:44:23.676464+06:00",
+        "price": 149.0,
+        "unit": "25 gm",
+        "norm_price": 5960.0,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 149.0,
         "unit": "25 gm",
         "norm_price": 5960.0,
@@ -27785,6 +28121,14 @@ window.PRODUCT_DATA = {
         "unit": "500 gm",
         "norm_price": 530.0,
         "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 265.0,
+        "unit": "500 gm",
+        "norm_price": 530.0,
+        "norm_unit": "1 kg"
       }
     ],
     "norm_price_display": "530.0 / 1 kg"
@@ -27800,6 +28144,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T21:44:23.676464+06:00",
+        "price": 70.0,
+        "unit": "1 kg",
+        "norm_price": 70.0,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 70.0,
         "unit": "1 kg",
         "norm_price": 70.0,
@@ -27850,6 +28202,14 @@ window.PRODUCT_DATA = {
         "unit": "2 kg",
         "norm_price": 70.0,
         "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 140.0,
+        "unit": "2 kg",
+        "norm_price": 70.0,
+        "norm_unit": "1 kg"
       }
     ],
     "norm_price_display": "70.0 / 1 kg"
@@ -27865,6 +28225,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T21:44:23.676464+06:00",
+        "price": 400.0,
+        "unit": "",
+        "norm_price": 400.0,
+        "norm_unit": ""
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 400.0,
         "unit": "",
         "norm_price": 400.0,
@@ -27915,6 +28283,14 @@ window.PRODUCT_DATA = {
         "unit": "2 kg",
         "norm_price": 70.0,
         "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 140.0,
+        "unit": "2 kg",
+        "norm_price": 70.0,
+        "norm_unit": "1 kg"
       }
     ],
     "norm_price_display": "70.0 / 1 kg"
@@ -27957,6 +28333,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T21:44:23.676464+06:00",
+        "price": 200.0,
+        "unit": "each",
+        "norm_price": 200.0,
+        "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 200.0,
         "unit": "each",
         "norm_price": 200.0,
@@ -28034,6 +28418,14 @@ window.PRODUCT_DATA = {
         "unit": "5 ltr",
         "norm_price": 232.0,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 1160.0,
+        "unit": "5 ltr",
+        "norm_price": 232.0,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "232.0 / 1 L"
@@ -28049,6 +28441,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T21:44:23.676464+06:00",
+        "price": 120.0,
+        "unit": "30 pcs",
+        "norm_price": 4.0,
+        "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 120.0,
         "unit": "30 pcs",
         "norm_price": 4.0,
@@ -28126,6 +28526,14 @@ window.PRODUCT_DATA = {
         "unit": "400 gm",
         "norm_price": 900.0,
         "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 360.0,
+        "unit": "400 gm",
+        "norm_price": 900.0,
+        "norm_unit": "1 kg"
       }
     ],
     "norm_price_display": "900.0 / 1 kg"
@@ -28168,6 +28576,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T21:44:23.676464+06:00",
+        "price": 140.0,
+        "unit": "26.6 gm",
+        "norm_price": 5263.16,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 140.0,
         "unit": "26.6 gm",
         "norm_price": 5263.16,
@@ -28218,6 +28634,14 @@ window.PRODUCT_DATA = {
         "unit": "100 pcs",
         "norm_price": 3.0,
         "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 300.0,
+        "unit": "100 pcs",
+        "norm_price": 3.0,
+        "norm_unit": "1 pc"
       }
     ],
     "norm_price_display": "3.0 / 1 pc"
@@ -28264,6 +28688,14 @@ window.PRODUCT_DATA = {
         "unit": "80 gm",
         "norm_price": 5125.0,
         "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 410.0,
+        "unit": "80 gm",
+        "norm_price": 5125.0,
+        "norm_unit": "1 kg"
       }
     ],
     "norm_price_display": "5125.0 / 1 kg"
@@ -28272,13 +28704,21 @@ window.PRODUCT_DATA = {
     "id": "eclipse_sugar_free_winterfrost_mints_35_gm",
     "name": "Eclipse Sugar Free Winterfrost Mints",
     "image": "https://i.chaldn.com/_mpimage/eclipse-sugar-free-winterfrost-mints-35-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D108270&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Diabetic Food",
+    "category": "Gums, Mints & Mouth Fresheners",
     "current_price": 290.0,
     "current_unit": "35 gm",
     "history": [
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T21:44:23.676464+06:00",
+        "price": 290.0,
+        "unit": "35 gm",
+        "norm_price": 8285.71,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 290.0,
         "unit": "35 gm",
         "norm_price": 8285.71,
@@ -28291,13 +28731,21 @@ window.PRODUCT_DATA = {
     "id": "iko_sugar_free_oat_bran_crackers_220_gm",
     "name": "Iko Sugar Free Oat Bran Crackers",
     "image": "https://i.chaldn.com/_mpimage/iko-sugar-free-oat-bran-crackers-220-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D107040&q=best&v=1&m=400&webp=1",
-    "category": "Diabetic Food",
+    "category": "Cookies",
     "current_price": 730.0,
     "current_unit": "220 gm",
     "history": [
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T21:44:23.676464+06:00",
+        "price": 730.0,
+        "unit": "220 gm",
+        "norm_price": 3318.18,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 730.0,
         "unit": "220 gm",
         "norm_price": 3318.18,
@@ -28321,6 +28769,14 @@ window.PRODUCT_DATA = {
         "unit": "400 gm",
         "norm_price": 900.0,
         "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 360.0,
+        "unit": "400 gm",
+        "norm_price": 900.0,
+        "norm_unit": "1 kg"
       }
     ],
     "norm_price_display": "900.0 / 1 kg"
@@ -28340,6 +28796,14 @@ window.PRODUCT_DATA = {
         "unit": "400 gm",
         "norm_price": 1250.0,
         "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 500.0,
+        "unit": "400 gm",
+        "norm_price": 1250.0,
+        "norm_unit": "1 kg"
       }
     ],
     "norm_price_display": "1250.0 / 1 kg"
@@ -28348,13 +28812,21 @@ window.PRODUCT_DATA = {
     "id": "eclipse_sugar_free_mints_spearmint_flavor_35_gm",
     "name": "Eclipse Sugar Free Mints Spearmint Flavor",
     "image": "https://i.chaldn.com/_mpimage/eclipse-sugar-free-mints-spearmint-flavor-35-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D127970&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Diabetic Food",
+    "category": "Gums, Mints & Mouth Fresheners",
     "current_price": 370.0,
     "current_unit": "35 gm",
     "history": [
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T21:44:23.676464+06:00",
+        "price": 370.0,
+        "unit": "35 gm",
+        "norm_price": 10571.43,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 370.0,
         "unit": "35 gm",
         "norm_price": 10571.43,
@@ -28367,13 +28839,21 @@ window.PRODUCT_DATA = {
     "id": "iko_sugar_free_pumpkin_cookies_178_gm",
     "name": "Iko Sugar Free Pumpkin Cookies",
     "image": "https://i.chaldn.com/_mpimage/iko-sugar-free-pumpkin-cookies-178-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D107042&q=best&v=1&m=400&webp=1",
-    "category": "Diabetic Food",
+    "category": "Cookies",
     "current_price": 610.0,
     "current_unit": "178 gm",
     "history": [
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T21:44:23.676464+06:00",
+        "price": 610.0,
+        "unit": "178 gm",
+        "norm_price": 3426.97,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 610.0,
         "unit": "178 gm",
         "norm_price": 3426.97,
@@ -28397,6 +28877,14 @@ window.PRODUCT_DATA = {
         "unit": "75 gm",
         "norm_price": 10533.33,
         "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 790.0,
+        "unit": "75 gm",
+        "norm_price": 10533.33,
+        "norm_unit": "1 kg"
       }
     ],
     "norm_price_display": "10533.33 / 1 kg"
@@ -28412,6 +28900,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T21:44:23.676464+06:00",
+        "price": 250.0,
+        "unit": "",
+        "norm_price": 250.0,
+        "norm_unit": ""
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 250.0,
         "unit": "",
         "norm_price": 250.0,
@@ -28435,6 +28931,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 120.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 120.0,
+        "unit": "each",
+        "norm_price": 120.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "120.0 / each"
@@ -28450,6 +28954,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T21:44:23.676464+06:00",
+        "price": 270.0,
+        "unit": "450 gm",
+        "norm_price": 600.0,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 270.0,
         "unit": "450 gm",
         "norm_price": 600.0,
@@ -28473,6 +28985,14 @@ window.PRODUCT_DATA = {
         "unit": "25 pcs",
         "norm_price": 4.0,
         "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 100.0,
+        "unit": "25 pcs",
+        "norm_price": 4.0,
+        "norm_unit": "1 pc"
       }
     ],
     "norm_price_display": "4.0 / 1 pc"
@@ -28488,6 +29008,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T21:44:23.676464+06:00",
+        "price": 599.0,
+        "unit": "500 gm",
+        "norm_price": 1198.0,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 599.0,
         "unit": "500 gm",
         "norm_price": 1198.0,
@@ -29453,7 +29981,7 @@ window.PRODUCT_DATA = {
     "id": "vision_electronic_iron_multi_color_vis_dei_011__each",
     "name": "Vision Electronic Iron Multi-Color (VIS-DEI-011)",
     "image": "https://i.chaldn.com/_mpimage/vision-electronic-iron-multi-color-vis-dei-011-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D185382&q=best&v=1&m=400&webp=1",
-    "category": "New Arrival",
+    "category": "Electronics",
     "current_price": 1400.0,
     "current_unit": "each",
     "history": [
@@ -29534,7 +30062,7 @@ window.PRODUCT_DATA = {
     "id": "vision_electric_heavy_iron_vis_dei_012__each",
     "name": "Vision Electric Heavy Iron (VIS-DEI-012)",
     "image": "https://i.chaldn.com/_mpimage/vision-electric-heavy-iron-vis-dei-012-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D185381&q=best&v=1&m=400&webp=1",
-    "category": "New Arrival",
+    "category": "Electronics",
     "current_price": 1350.0,
     "current_unit": "each",
     "history": [
@@ -29588,7 +30116,7 @@ window.PRODUCT_DATA = {
     "id": "vision_electric_kettle_glass_vis_ek_016__1_8_ltr",
     "name": "Vision Electric Kettle Glass (VIS-EK-016)",
     "image": "https://i.chaldn.com/_mpimage/vision-electric-kettle-glass-vis-ek-016-18-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D185377&q=best&v=1&m=400&webp=1",
-    "category": "New Arrival",
+    "category": "Kitchen Appliances",
     "current_price": 1500.0,
     "current_unit": "1.8 ltr",
     "history": [
@@ -29615,7 +30143,7 @@ window.PRODUCT_DATA = {
     "id": "vision_room_comforter_wall_mount_each",
     "name": "Vision Room Comforter Wall Mount",
     "image": "https://i.chaldn.com/_mpimage/vision-room-comforter-wall-mount-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D185375&q=best&v=1&m=400&webp=1",
-    "category": "New Arrival",
+    "category": "Electronics",
     "current_price": 5900.0,
     "current_unit": "each",
     "history": [
@@ -29669,7 +30197,7 @@ window.PRODUCT_DATA = {
     "id": "vision_electric_kettle_vis_ek_008__1_5_ltr",
     "name": "Vision Electric Kettle (VIS-EK-008)",
     "image": "https://i.chaldn.com/_mpimage/vision-electric-kettle-vis-ek-008-15-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D185374&q=best&v=1&m=400&webp=1",
-    "category": "New Arrival",
+    "category": "Kitchen Appliances",
     "current_price": 900.0,
     "current_unit": "1.5 ltr",
     "history": [
@@ -29696,7 +30224,7 @@ window.PRODUCT_DATA = {
     "id": "vision_electric_kettle_vis_ek_005__1_8_ltr",
     "name": "Vision Electric Kettle (VIS-EK-005)",
     "image": "https://i.chaldn.com/_mpimage/vision-electric-kettle-vis-ek-005-18-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D185373&q=best&v=1&m=400&webp=1",
-    "category": "New Arrival",
+    "category": "Kitchen Appliances",
     "current_price": 1000.0,
     "current_unit": "1.8 ltr",
     "history": [
@@ -29723,7 +30251,7 @@ window.PRODUCT_DATA = {
     "id": "vision_room_heater_fire_with_smooth_moving_system_each",
     "name": "Vision Room Heater Fire with Smooth Moving System",
     "image": "https://i.chaldn.com/_mpimage/vision-room-heater-fire-with-smooth-moving-system-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D185372&q=best&v=1&m=400&webp=1",
-    "category": "New Arrival",
+    "category": "Electronics",
     "current_price": 3600.0,
     "current_unit": "each",
     "history": [
@@ -29750,7 +30278,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_topper_nonstick_glamour_fry_pan_with_lid_ash_28_cm_",
     "name": "RFL Topper Nonstick Glamour Fry Pan With Lid (Ash) 28 cm",
     "image": "https://i.chaldn.com/_mpimage/rfl-topper-nonstick-glamour-fry-pan-with-lid-ash-28-cm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D185170&q=best&v=1&m=400&webp=1",
-    "category": "New Arrival",
+    "category": "Kitchen Appliances",
     "current_price": 1540.0,
     "current_unit": "",
     "history": [
@@ -29777,7 +30305,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_topper_nonstick_marble_coated_fry_pan_with_lid_26_cm_",
     "name": "RFL Topper Nonstick Marble Coated Fry Pan With Lid 26 cm",
     "image": "https://i.chaldn.com/_mpimage/rfl-topper-nonstick-marble-coated-fry-pan-with-lid-26-cm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D185168&q=best&v=1&m=400&webp=1",
-    "category": "New Arrival",
+    "category": "Kitchen Appliances",
     "current_price": 1450.0,
     "current_unit": "",
     "history": [
@@ -29804,7 +30332,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_topper_nonstick_marble_coated_fry_pan_with_lid_ib_22_cm_",
     "name": "RFL Topper Nonstick Marble Coated Fry Pan With Lid IB 22 cm",
     "image": "https://i.chaldn.com/_mpimage/rfl-topper-nonstick-marble-coated-fry-pan-with-lid-ib-22-cm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D185167&q=best&v=1&m=400&webp=1",
-    "category": "New Arrival",
+    "category": "Kitchen Appliances",
     "current_price": 1250.0,
     "current_unit": "",
     "history": [
@@ -29831,7 +30359,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_topper_nonstick_marble_coated_fry_pan_with_lid_24_cm_each",
     "name": "RFL Topper Nonstick Marble Coated Fry Pan With Lid 24 cm",
     "image": "https://i.chaldn.com/_mpimage/rfl-topper-nonstick-marble-coated-fry-pan-with-lid-24-cm-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D185166&q=best&v=1&m=400&webp=1",
-    "category": "New Arrival",
+    "category": "Kitchen Appliances",
     "current_price": 1300.0,
     "current_unit": "each",
     "history": [
@@ -29858,7 +30386,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_topper_nonstick_glamour_dosa_tawa_ib_ash_26_cm_each",
     "name": "RFL Topper Nonstick Glamour Dosa Tawa IB (Ash) 26 cm",
     "image": "https://i.chaldn.com/_mpimage/rfl-topper-nonstick-glamour-dosa-tawa-ib-ash-26-cm-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D185165&q=best&v=1&m=400&webp=1",
-    "category": "New Arrival",
+    "category": "Kitchen Appliances",
     "current_price": 1100.0,
     "current_unit": "each",
     "history": [
@@ -30696,6 +31224,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 71.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 71.0,
+        "unit": "each",
+        "norm_price": 71.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "71.0 / each"
@@ -30711,6 +31247,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 179.0,
+        "unit": "each",
+        "norm_price": 179.0,
+        "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 179.0,
         "unit": "each",
         "norm_price": 179.0,
@@ -30734,6 +31278,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 2459.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 2459.0,
+        "unit": "each",
+        "norm_price": 2459.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "2459.0 / each"
@@ -30749,6 +31301,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 999.0,
+        "unit": "each",
+        "norm_price": 999.0,
+        "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 999.0,
         "unit": "each",
         "norm_price": 999.0,
@@ -30772,6 +31332,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 1209.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 1209.0,
+        "unit": "each",
+        "norm_price": 1209.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "1209.0 / each"
@@ -30787,6 +31355,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 1999.0,
+        "unit": "each",
+        "norm_price": 1999.0,
+        "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 1999.0,
         "unit": "each",
         "norm_price": 1999.0,
@@ -30810,6 +31386,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 839.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 839.0,
+        "unit": "each",
+        "norm_price": 839.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "839.0 / each"
@@ -30825,6 +31409,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 929.0,
+        "unit": "each",
+        "norm_price": 929.0,
+        "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 929.0,
         "unit": "each",
         "norm_price": 929.0,
@@ -31793,6 +32385,14 @@ window.PRODUCT_DATA = {
         "unit": "2 pcs",
         "norm_price": 15.0,
         "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 30.0,
+        "unit": "2 pcs",
+        "norm_price": 15.0,
+        "norm_unit": "1 pc"
       }
     ],
     "norm_price_display": "15.0 / 1 pc"
@@ -31808,6 +32408,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 30.0,
+        "unit": "2 pcs",
+        "norm_price": 15.0,
+        "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 30.0,
         "unit": "2 pcs",
         "norm_price": 15.0,
@@ -31831,6 +32439,14 @@ window.PRODUCT_DATA = {
         "unit": "2 pcs",
         "norm_price": 18.0,
         "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 36.0,
+        "unit": "2 pcs",
+        "norm_price": 18.0,
+        "norm_unit": "1 pc"
       }
     ],
     "norm_price_display": "18.0 / 1 pc"
@@ -31846,6 +32462,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 49.0,
+        "unit": "2 pcs",
+        "norm_price": 24.5,
+        "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 49.0,
         "unit": "2 pcs",
         "norm_price": 24.5,
@@ -31869,6 +32493,14 @@ window.PRODUCT_DATA = {
         "unit": "2 pcs",
         "norm_price": 15.0,
         "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 30.0,
+        "unit": "2 pcs",
+        "norm_price": 15.0,
+        "norm_unit": "1 pc"
       }
     ],
     "norm_price_display": "15.0 / 1 pc"
@@ -31884,6 +32516,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 18.0,
+        "unit": "each",
+        "norm_price": 18.0,
+        "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 18.0,
         "unit": "each",
         "norm_price": 18.0,
@@ -31907,6 +32547,14 @@ window.PRODUCT_DATA = {
         "unit": "2 pcs",
         "norm_price": 69.5,
         "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 139.0,
+        "unit": "2 pcs",
+        "norm_price": 69.5,
+        "norm_unit": "1 pc"
       }
     ],
     "norm_price_display": "69.5 / 1 pc"
@@ -31922,6 +32570,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 675.0,
+        "unit": "2 pcs",
+        "norm_price": 337.5,
+        "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 675.0,
         "unit": "2 pcs",
         "norm_price": 337.5,
@@ -31945,6 +32601,14 @@ window.PRODUCT_DATA = {
         "unit": "2 pcs",
         "norm_price": 18.0,
         "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 36.0,
+        "unit": "2 pcs",
+        "norm_price": 18.0,
+        "norm_unit": "1 pc"
       }
     ],
     "norm_price_display": "18.0 / 1 pc"
@@ -31960,6 +32624,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 230.0,
+        "unit": "2 pcs",
+        "norm_price": 115.0,
+        "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 230.0,
         "unit": "2 pcs",
         "norm_price": 115.0,
@@ -31983,6 +32655,14 @@ window.PRODUCT_DATA = {
         "unit": "2 pcs",
         "norm_price": 127.5,
         "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 255.0,
+        "unit": "2 pcs",
+        "norm_price": 127.5,
+        "norm_unit": "1 pc"
       }
     ],
     "norm_price_display": "127.5 / 1 pc"
@@ -31998,6 +32678,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 299.0,
+        "unit": "2 pcs",
+        "norm_price": 149.5,
+        "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 299.0,
         "unit": "2 pcs",
         "norm_price": 149.5,
@@ -34130,7 +34818,7 @@ window.PRODUCT_DATA = {
       },
       {
         "date": "2026-08-14",
-        "timestamp": "2026-08-14T18:00:03.820802+06:00",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 550.0,
         "unit": "100 ml",
         "norm_price": 5500.0,
@@ -36726,6 +37414,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 300.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 300.0,
+        "unit": "each",
+        "norm_price": 300.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "300.0 / each"
@@ -36741,6 +37437,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 980.0,
+        "unit": "each",
+        "norm_price": 980.0,
+        "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 980.0,
         "unit": "each",
         "norm_price": 980.0,
@@ -38265,7 +38969,7 @@ window.PRODUCT_DATA = {
     "id": "pureit_classic_germ_kill_kit_1500_ltr",
     "name": "Pureit Classic Germ Kill Kit",
     "image": "https://i.chaldn.com/_mpimage/pureit-classic-germ-kill-kit-1500-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D177904&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Appliances",
+    "category": "Water",
     "current_price": 800.0,
     "current_unit": "1500 ltr",
     "history": [
@@ -39117,6 +39821,14 @@ window.PRODUCT_DATA = {
         "unit": "100 gm",
         "norm_price": 990.0,
         "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 99.0,
+        "unit": "100 gm",
+        "norm_price": 990.0,
+        "norm_unit": "1 kg"
       }
     ],
     "norm_price_display": "990.0 / 1 kg"
@@ -39132,6 +39844,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 150.0,
+        "unit": "170 gm",
+        "norm_price": 882.35,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 150.0,
         "unit": "170 gm",
         "norm_price": 882.35,
@@ -39155,6 +39875,14 @@ window.PRODUCT_DATA = {
         "unit": "40 gm",
         "norm_price": 3725.0,
         "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 149.0,
+        "unit": "40 gm",
+        "norm_price": 3725.0,
+        "norm_unit": "1 kg"
       }
     ],
     "norm_price_display": "3725.0 / 1 kg"
@@ -39170,6 +39898,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 149.0,
+        "unit": "40 gm",
+        "norm_price": 3725.0,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 149.0,
         "unit": "40 gm",
         "norm_price": 3725.0,
@@ -39193,6 +39929,14 @@ window.PRODUCT_DATA = {
         "unit": "40 gm",
         "norm_price": 4225.0,
         "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 169.0,
+        "unit": "40 gm",
+        "norm_price": 4225.0,
+        "norm_unit": "1 kg"
       }
     ],
     "norm_price_display": "4225.0 / 1 kg"
@@ -39208,6 +39952,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 259.0,
+        "unit": "165 gm",
+        "norm_price": 1569.7,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 259.0,
         "unit": "165 gm",
         "norm_price": 1569.7,
@@ -39231,6 +39983,14 @@ window.PRODUCT_DATA = {
         "unit": "250\u00a0gm",
         "norm_price": 760.0,
         "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 190.0,
+        "unit": "250\u00a0gm",
+        "norm_price": 760.0,
+        "norm_unit": "1 kg"
       }
     ],
     "norm_price_display": "760.0 / 1 kg"
@@ -39239,13 +39999,21 @@ window.PRODUCT_DATA = {
     "id": "royal_gardens_salted_cashews_100_gm",
     "name": "Royal Gardens Salted Cashews",
     "image": "https://i.chaldn.com/_mpimage/royal-gardens-salted-cashews-100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D138791&q=best&v=1&m=400&webp=1",
-    "category": "Nuts & Dried Fruits",
+    "category": "Popcorn & Nuts",
     "current_price": 435.0,
     "current_unit": "100 gm",
     "history": [
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 435.0,
+        "unit": "100 gm",
+        "norm_price": 4350.0,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 435.0,
         "unit": "100 gm",
         "norm_price": 4350.0,
@@ -39258,13 +40026,21 @@ window.PRODUCT_DATA = {
     "id": "almonds_kath_badam__100_gm",
     "name": "Almonds (Kath Badam)",
     "image": "https://i.chaldn.com/_mpimage/almonds-kath-badam-100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D184611&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Nuts & Dried Fruits",
+    "category": "Popcorn & Nuts",
     "current_price": 159.0,
     "current_unit": "100 gm",
     "history": [
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 159.0,
+        "unit": "100 gm",
+        "norm_price": 1590.0,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 159.0,
         "unit": "100 gm",
         "norm_price": 1590.0,
@@ -39288,6 +40064,14 @@ window.PRODUCT_DATA = {
         "unit": "500 gm",
         "norm_price": 1518.0,
         "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 759.0,
+        "unit": "500 gm",
+        "norm_price": 1518.0,
+        "norm_unit": "1 kg"
       }
     ],
     "norm_price_display": "1518.0 / 1 kg"
@@ -39303,6 +40087,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 240.0,
+        "unit": "165 gm",
+        "norm_price": 1454.55,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 240.0,
         "unit": "165 gm",
         "norm_price": 1454.55,
@@ -39326,6 +40118,14 @@ window.PRODUCT_DATA = {
         "unit": "150 gm",
         "norm_price": 4333.33,
         "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 650.0,
+        "unit": "150 gm",
+        "norm_price": 4333.33,
+        "norm_unit": "1 kg"
       }
     ],
     "norm_price_display": "4333.33 / 1 kg"
@@ -39341,6 +40141,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 185.0,
+        "unit": "40 gm",
+        "norm_price": 4625.0,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 185.0,
         "unit": "40 gm",
         "norm_price": 4625.0,
@@ -39364,6 +40172,14 @@ window.PRODUCT_DATA = {
         "unit": "220 gm",
         "norm_price": 1363.64,
         "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 300.0,
+        "unit": "220 gm",
+        "norm_price": 1363.64,
+        "norm_unit": "1 kg"
       }
     ],
     "norm_price_display": "1363.64 / 1 kg"
@@ -39383,6 +40199,14 @@ window.PRODUCT_DATA = {
         "unit": "220 gm",
         "norm_price": 1659.09,
         "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 365.0,
+        "unit": "220 gm",
+        "norm_price": 1659.09,
+        "norm_unit": "1 kg"
       }
     ],
     "norm_price_display": "1659.09 / 1 kg"
@@ -39391,13 +40215,21 @@ window.PRODUCT_DATA = {
     "id": "royal_gardens_masala_cashews_150_gm",
     "name": "Royal Gardens Masala Cashews",
     "image": "https://i.chaldn.com/_mpimage/royal-gardens-masala-cashews-150-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D137047&q=best&v=1&m=400&webp=1",
-    "category": "Nuts & Dried Fruits",
+    "category": "Popcorn & Nuts",
     "current_price": 695.0,
     "current_unit": "150 gm",
     "history": [
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 695.0,
+        "unit": "150 gm",
+        "norm_price": 4633.33,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 695.0,
         "unit": "150 gm",
         "norm_price": 4633.33,
@@ -39421,6 +40253,14 @@ window.PRODUCT_DATA = {
         "unit": "250 gm",
         "norm_price": 1520.0,
         "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 380.0,
+        "unit": "250 gm",
+        "norm_price": 1520.0,
+        "norm_unit": "1 kg"
       }
     ],
     "norm_price_display": "1520.0 / 1 kg"
@@ -39429,13 +40269,21 @@ window.PRODUCT_DATA = {
     "id": "blue_diamond_almonds_bold_habanero_bbq_170_gm",
     "name": "Blue Diamond Almonds Bold Habanero BBQ",
     "image": "https://i.chaldn.com/_mpimage/blue-diamond-almonds-bold-habanero-bbq-170-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D125844&q=best&v=1&m=400&webp=1",
-    "category": "Nuts & Dried Fruits",
+    "category": "Popcorn & Nuts",
     "current_price": 850.0,
     "current_unit": "170 gm",
     "history": [
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 850.0,
+        "unit": "170 gm",
+        "norm_price": 5000.0,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 850.0,
         "unit": "170 gm",
         "norm_price": 5000.0,
@@ -39448,13 +40296,21 @@ window.PRODUCT_DATA = {
     "id": "blue_diamond_almonds_honey_roasted_170_gm",
     "name": "Blue Diamond Almonds Honey Roasted",
     "image": "https://i.chaldn.com/_mpimage/blue-diamond-almonds-honey-roasted-170-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D125854&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Nuts & Dried Fruits",
+    "category": "Popcorn & Nuts",
     "current_price": 850.0,
     "current_unit": "170 gm",
     "history": [
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 850.0,
+        "unit": "170 gm",
+        "norm_price": 5000.0,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 850.0,
         "unit": "170 gm",
         "norm_price": 5000.0,
@@ -39467,13 +40323,21 @@ window.PRODUCT_DATA = {
     "id": "blue_diamond_almonds_bold_wasabi_soy_sauce_170_gm",
     "name": "Blue Diamond Almonds Bold Wasabi & Soy Sauce",
     "image": "https://i.chaldn.com/_mpimage/blue-diamond-almonds-bold-wasabi-soy-sauce-170-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D125848&q=best&v=1&m=400&webp=1",
-    "category": "Nuts & Dried Fruits",
+    "category": "Popcorn & Nuts",
     "current_price": 850.0,
     "current_unit": "170 gm",
     "history": [
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 850.0,
+        "unit": "170 gm",
+        "norm_price": 5000.0,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 850.0,
         "unit": "170 gm",
         "norm_price": 5000.0,
@@ -39486,13 +40350,21 @@ window.PRODUCT_DATA = {
     "id": "fit_food_honey_roasted_almond_125_gm",
     "name": "Fit Food Honey Roasted Almond",
     "image": "https://i.chaldn.com/_mpimage/fit-food-honey-roasted-almond-125-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128533&q=best&v=1&m=400&webp=1",
-    "category": "Nuts & Dried Fruits",
+    "category": "Popcorn & Nuts",
     "current_price": 260.0,
     "current_unit": "125 gm",
     "history": [
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 260.0,
+        "unit": "125 gm",
+        "norm_price": 2080.0,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 260.0,
         "unit": "125 gm",
         "norm_price": 2080.0,
@@ -39505,13 +40377,21 @@ window.PRODUCT_DATA = {
     "id": "noi_salted_peanuts_110_gm",
     "name": "Noi Salted Peanuts",
     "image": "https://i.chaldn.com/_mpimage/noi-salted-peanuts-110-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D131449&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Nuts & Dried Fruits",
+    "category": "Popcorn & Nuts",
     "current_price": 352.0,
     "current_unit": "110 gm",
     "history": [
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 352.0,
+        "unit": "110 gm",
+        "norm_price": 3200.0,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 352.0,
         "unit": "110 gm",
         "norm_price": 3200.0,
@@ -39524,13 +40404,21 @@ window.PRODUCT_DATA = {
     "id": "nut_candy_salted_cashew_nuts_kaju_badam__140_gm",
     "name": "Nut Candy Salted Cashew Nuts (Kaju Badam)",
     "image": "https://i.chaldn.com/_mpimage/nut-candy-salted-cashew-nuts-kaju-badam-140-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D115732&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Nuts & Dried Fruits",
+    "category": "Popcorn & Nuts",
     "current_price": 989.0,
     "current_unit": "140 gm",
     "history": [
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 989.0,
+        "unit": "140 gm",
+        "norm_price": 7064.29,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 989.0,
         "unit": "140 gm",
         "norm_price": 7064.29,
@@ -39543,13 +40431,21 @@ window.PRODUCT_DATA = {
     "id": "nut_candy_salted_peanuts_150_gm",
     "name": "Nut Candy Salted Peanuts",
     "image": "https://i.chaldn.com/_mpimage/nut-candy-salted-peanuts-150-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D131466&q=best&v=1&m=400&webp=1",
-    "category": "Nuts & Dried Fruits",
+    "category": "Popcorn & Nuts",
     "current_price": 490.0,
     "current_unit": "150 gm",
     "history": [
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 490.0,
+        "unit": "150 gm",
+        "norm_price": 3266.67,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 490.0,
         "unit": "150 gm",
         "norm_price": 3266.67,
@@ -39562,13 +40458,21 @@ window.PRODUCT_DATA = {
     "id": "tong_garden_salted_almonds_35_gm",
     "name": "Tong Garden Salted Almonds",
     "image": "https://i.chaldn.com/_mpimage/tong-garden-salted-almonds-35-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D50020&q=best&v=1&m=400&webp=1",
-    "category": "Nuts & Dried Fruits",
+    "category": "Popcorn & Nuts",
     "current_price": 239.0,
     "current_unit": "35 gm",
     "history": [
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 239.0,
+        "unit": "35 gm",
+        "norm_price": 6828.57,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 239.0,
         "unit": "35 gm",
         "norm_price": 6828.57,
@@ -39581,13 +40485,21 @@ window.PRODUCT_DATA = {
     "id": "tong_garden_japanese_rice_cracker_mixed_coated_peanut_150_gm",
     "name": "Tong Garden Japanese Rice Cracker Mixed Coated Peanut",
     "image": "https://i.chaldn.com/_mpimage/tong-garden-japanese-rice-cracker-mixed-coated-peanut-150-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D73990&q=best&v=1&m=400&webp=1",
-    "category": "Nuts & Dried Fruits",
+    "category": "Popcorn & Nuts",
     "current_price": 675.0,
     "current_unit": "150 gm",
     "history": [
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 675.0,
+        "unit": "150 gm",
+        "norm_price": 4500.0,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 675.0,
         "unit": "150 gm",
         "norm_price": 4500.0,
@@ -39600,13 +40512,21 @@ window.PRODUCT_DATA = {
     "id": "crunchos_assorted_mix_nuts_tin_350_gm",
     "name": "Crunchos Assorted Mix Nuts Tin",
     "image": "https://i.chaldn.com/_mpimage/crunchos-assorted-mix-nuts-tin-350-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D127237&q=best&v=1&m=400&webp=1",
-    "category": "Nuts & Dried Fruits",
+    "category": "Popcorn & Nuts",
     "current_price": 1619.0,
     "current_unit": "350 gm",
     "history": [
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 1619.0,
+        "unit": "350 gm",
+        "norm_price": 4625.71,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 1619.0,
         "unit": "350 gm",
         "norm_price": 4625.71,
@@ -39630,6 +40550,14 @@ window.PRODUCT_DATA = {
         "unit": "500 gm",
         "norm_price": 358.0,
         "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 179.0,
+        "unit": "500 gm",
+        "norm_price": 358.0,
+        "norm_unit": "1 kg"
       }
     ],
     "norm_price_display": "358.0 / 1 kg"
@@ -39638,13 +40566,21 @@ window.PRODUCT_DATA = {
     "id": "tong_garden_salted_pistachio_pesta_badam__130_gm",
     "name": "Tong Garden Salted Pistachio (Pesta Badam)",
     "image": "https://i.chaldn.com/_mpimage/tong-garden-salted-pistachio-pesta-badam-130-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D136480&q=best&v=1&m=400&webp=1",
-    "category": "Nuts & Dried Fruits",
+    "category": "Popcorn & Nuts",
     "current_price": 995.0,
     "current_unit": "130 gm",
     "history": [
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 995.0,
+        "unit": "130 gm",
+        "norm_price": 7653.85,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 995.0,
         "unit": "130 gm",
         "norm_price": 7653.85,
@@ -39657,13 +40593,21 @@ window.PRODUCT_DATA = {
     "id": "tong_garden_salted_almonds_140_gm",
     "name": "Tong Garden Salted Almonds",
     "image": "https://i.chaldn.com/_mpimage/tong-garden-salted-almonds-140-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D136415&q=best&v=1&m=400&webp=1",
-    "category": "Nuts & Dried Fruits",
+    "category": "Popcorn & Nuts",
     "current_price": 995.0,
     "current_unit": "140 gm",
     "history": [
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 995.0,
+        "unit": "140 gm",
+        "norm_price": 7107.14,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 995.0,
         "unit": "140 gm",
         "norm_price": 7107.14,
@@ -39676,13 +40620,21 @@ window.PRODUCT_DATA = {
     "id": "tong_garden_salted_cocktail_nuts_160_gm",
     "name": "Tong Garden Salted Cocktail Nuts",
     "image": "https://i.chaldn.com/_mpimage/tong-garden-salted-cocktail-nuts-160-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D136419&q=best&v=1&m=400&webp=1",
-    "category": "Nuts & Dried Fruits",
+    "category": "Popcorn & Nuts",
     "current_price": 995.0,
     "current_unit": "160 gm",
     "history": [
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 995.0,
+        "unit": "160 gm",
+        "norm_price": 6218.75,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 995.0,
         "unit": "160 gm",
         "norm_price": 6218.75,
@@ -39695,13 +40647,21 @@ window.PRODUCT_DATA = {
     "id": "tong_garden_salted_cashew_nuts_can_150_gm",
     "name": "Tong Garden Salted Cashew Nuts Can",
     "image": "https://i.chaldn.com/_mpimage/tong-garden-salted-cashew-nuts-can-150-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D136418&q=best&v=1&m=400&webp=1",
-    "category": "Nuts & Dried Fruits",
+    "category": "Popcorn & Nuts",
     "current_price": 995.0,
     "current_unit": "150 gm",
     "history": [
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 995.0,
+        "unit": "150 gm",
+        "norm_price": 6633.33,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 995.0,
         "unit": "150 gm",
         "norm_price": 6633.33,
@@ -39725,6 +40685,14 @@ window.PRODUCT_DATA = {
         "unit": "100 gm",
         "norm_price": 3990.0,
         "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 399.0,
+        "unit": "100 gm",
+        "norm_price": 3990.0,
+        "norm_unit": "1 kg"
       }
     ],
     "norm_price_display": "3990.0 / 1 kg"
@@ -39740,6 +40708,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 130.0,
+        "unit": "2 kg",
+        "norm_price": 65.0,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 130.0,
         "unit": "2 kg",
         "norm_price": 65.0,
@@ -39763,6 +40739,14 @@ window.PRODUCT_DATA = {
         "unit": "500 gm",
         "norm_price": 138.0,
         "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 69.0,
+        "unit": "500 gm",
+        "norm_price": 138.0,
+        "norm_unit": "1 kg"
       }
     ],
     "norm_price_display": "138.0 / 1 kg"
@@ -39778,6 +40762,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 110.0,
+        "unit": "1 kg",
+        "norm_price": 110.0,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 110.0,
         "unit": "1 kg",
         "norm_price": 110.0,
@@ -39801,6 +40793,14 @@ window.PRODUCT_DATA = {
         "unit": "1 kg",
         "norm_price": 59.0,
         "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 59.0,
+        "unit": "1 kg",
+        "norm_price": 59.0,
+        "norm_unit": "1 kg"
       }
     ],
     "norm_price_display": "59.0 / 1 kg"
@@ -39816,6 +40816,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 49.0,
+        "unit": "1 kg",
+        "norm_price": 49.0,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 49.0,
         "unit": "1 kg",
         "norm_price": 49.0,
@@ -39839,6 +40847,14 @@ window.PRODUCT_DATA = {
         "unit": "2 kg",
         "norm_price": 65.0,
         "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 130.0,
+        "unit": "2 kg",
+        "norm_price": 65.0,
+        "norm_unit": "1 kg"
       }
     ],
     "norm_price_display": "65.0 / 1 kg"
@@ -39854,6 +40870,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 140.0,
+        "unit": "2 kg",
+        "norm_price": 70.0,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 140.0,
         "unit": "2 kg",
         "norm_price": 70.0,
@@ -39877,6 +40901,14 @@ window.PRODUCT_DATA = {
         "unit": "2 kg",
         "norm_price": 70.0,
         "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 140.0,
+        "unit": "2 kg",
+        "norm_price": 70.0,
+        "norm_unit": "1 kg"
       }
     ],
     "norm_price_display": "70.0 / 1 kg"
@@ -39892,6 +40924,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 70.0,
+        "unit": "1 kg",
+        "norm_price": 70.0,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 70.0,
         "unit": "1 kg",
         "norm_price": 70.0,
@@ -39915,6 +40955,14 @@ window.PRODUCT_DATA = {
         "unit": "2 kg",
         "norm_price": 65.0,
         "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 130.0,
+        "unit": "2 kg",
+        "norm_price": 65.0,
+        "norm_unit": "1 kg"
       }
     ],
     "norm_price_display": "65.0 / 1 kg"
@@ -39930,6 +40978,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 130.0,
+        "unit": "2 kg",
+        "norm_price": 65.0,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 130.0,
         "unit": "2 kg",
         "norm_price": 65.0,
@@ -39953,6 +41009,14 @@ window.PRODUCT_DATA = {
         "unit": "500 gm",
         "norm_price": 138.0,
         "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 69.0,
+        "unit": "500 gm",
+        "norm_price": 138.0,
+        "norm_unit": "1 kg"
       }
     ],
     "norm_price_display": "138.0 / 1 kg"
@@ -39968,6 +41032,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 130.0,
+        "unit": "2 kg",
+        "norm_price": 65.0,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 130.0,
         "unit": "2 kg",
         "norm_price": 65.0,
@@ -39991,6 +41063,14 @@ window.PRODUCT_DATA = {
         "unit": "2 kg",
         "norm_price": 70.0,
         "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 140.0,
+        "unit": "2 kg",
+        "norm_price": 70.0,
+        "norm_unit": "1 kg"
       }
     ],
     "norm_price_display": "70.0 / 1 kg"
@@ -40006,6 +41086,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 110.0,
+        "unit": "1 kg",
+        "norm_price": 110.0,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 110.0,
         "unit": "1 kg",
         "norm_price": 110.0,
@@ -40029,6 +41117,14 @@ window.PRODUCT_DATA = {
         "unit": "2 kg",
         "norm_price": 72.0,
         "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 144.0,
+        "unit": "2 kg",
+        "norm_price": 72.0,
+        "norm_unit": "1 kg"
       }
     ],
     "norm_price_display": "72.0 / 1 kg"
@@ -40048,6 +41144,14 @@ window.PRODUCT_DATA = {
         "unit": "250 gm",
         "norm_price": 480.0,
         "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 120.0,
+        "unit": "250 gm",
+        "norm_price": 480.0,
+        "norm_unit": "1 kg"
       }
     ],
     "norm_price_display": "480.0 / 1 kg"
@@ -40063,6 +41167,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-13",
         "timestamp": "2026-08-13T23:36:36.490501+06:00",
+        "price": 275.0,
+        "unit": "500 gm",
+        "norm_price": 550.0,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
         "price": 275.0,
         "unit": "500 gm",
         "norm_price": 550.0,
@@ -42122,5 +43234,12051 @@ window.PRODUCT_DATA = {
       }
     ],
     "norm_price_display": "850.0 / each"
+  },
+  "partex_cleen_toilet_tissue_4_pcs": {
+    "id": "partex_cleen_toilet_tissue_4_pcs",
+    "name": "Partex Cleen Toilet Tissue",
+    "image": "https://i.chaldn.com/_mpimage/partex-cleen-toilet-tissue-4-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D122615&q=best&v=1&m=400&webp=1",
+    "category": "Napkins & Paper Products",
+    "current_price": 95.0,
+    "current_unit": "4 pcs",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 95.0,
+        "unit": "4 pcs",
+        "norm_price": 23.75,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "23.75 / 1 pc"
+  },
+  "bashundhara_toilet_tissue_white_extra_savings_pack_4_pcs": {
+    "id": "bashundhara_toilet_tissue_white_extra_savings_pack_4_pcs",
+    "name": "Bashundhara Toilet Tissue White Extra Savings Pack",
+    "image": "https://i.chaldn.com/_mpimage/bashundhara-toilet-tissue-white-extra-savings-pack-4-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D100127&q=best&v=1&m=400&webp=1",
+    "category": "Napkins & Paper Products",
+    "current_price": 100.0,
+    "current_unit": "4 pcs",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 100.0,
+        "unit": "4 pcs",
+        "norm_price": 25.0,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "25.0 / 1 pc"
+  },
+  "bashundhara_facial_tissue_perfumed_120_x_2_ply_each": {
+    "id": "bashundhara_facial_tissue_perfumed_120_x_2_ply_each",
+    "name": "Bashundhara Facial Tissue Perfumed (120 X 2) ply",
+    "image": "https://i.chaldn.com/_mpimage/bashundhara-facial-tissue-perfumed-120-x-2-ply-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D100126&q=best&v=1&m=400&webp=1",
+    "category": "Napkins & Paper Products",
+    "current_price": 85.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 85.0,
+        "unit": "each",
+        "norm_price": 85.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "85.0 / each"
+  },
+  "fresh_hand_towel_200_sheet_each": {
+    "id": "fresh_hand_towel_200_sheet_each",
+    "name": "Fresh hand towel 200 Sheet",
+    "image": "https://i.chaldn.com/_mpimage/fresh-hand-towel-200-sheet-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D176852&q=best&v=1&m=400&webp=1",
+    "category": "Napkins & Paper Products",
+    "current_price": 95.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 95.0,
+        "unit": "each",
+        "norm_price": 95.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "95.0 / each"
+  },
+  "fresh_hand_towel_250_sheet_each": {
+    "id": "fresh_hand_towel_250_sheet_each",
+    "name": "Fresh hand towel 250 Sheet",
+    "image": "https://i.chaldn.com/_mpimage/fresh-hand-towel-250-sheet-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D176851&q=best&v=1&m=400&webp=1",
+    "category": "Napkins & Paper Products",
+    "current_price": 110.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 110.0,
+        "unit": "each",
+        "norm_price": 110.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "110.0 / each"
+  },
+  "bashundhara_hand_towel_white_200_x_1_ply_box_each": {
+    "id": "bashundhara_hand_towel_white_200_x_1_ply_box_each",
+    "name": "Bashundhara Hand Towel White (200 X 1) ply Box",
+    "image": "https://i.chaldn.com/_mpimage/bashundhara-hand-towel-white-200-x-1-ply-box-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D178620&q=best&v=1&m=400&webp=1",
+    "category": "Napkins & Paper Products",
+    "current_price": 100.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 100.0,
+        "unit": "each",
+        "norm_price": 100.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "100.0 / each"
+  },
+  "partex_cleen_toilet_tissue_2_pcs": {
+    "id": "partex_cleen_toilet_tissue_2_pcs",
+    "name": "Partex Cleen Toilet Tissue",
+    "image": "https://i.chaldn.com/_mpimage/partex-cleen-toilet-tissue-2-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D168869&q=best&v=1&m=400&webp=1",
+    "category": "Napkins & Paper Products",
+    "current_price": 46.0,
+    "current_unit": "2 pcs",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 46.0,
+        "unit": "2 pcs",
+        "norm_price": 23.0,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "23.0 / 1 pc"
+  },
+  "partex_cleen_toilet_tissue_12_pcs": {
+    "id": "partex_cleen_toilet_tissue_12_pcs",
+    "name": "Partex Cleen Toilet Tissue",
+    "image": "https://i.chaldn.com/_mpimage/partex-cleen-toilet-tissue-12-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D168870&q=best&v=1&m=400&webp=1",
+    "category": "Napkins & Paper Products",
+    "current_price": 285.0,
+    "current_unit": "12 pcs",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 285.0,
+        "unit": "12 pcs",
+        "norm_price": 23.75,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "23.75 / 1 pc"
+  },
+  "partex_cleen_toilet_tissue_each": {
+    "id": "partex_cleen_toilet_tissue_each",
+    "name": "Partex Cleen Toilet Tissue",
+    "image": "https://i.chaldn.com/_mpimage/partex-cleen-toilet-tissue-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D168868&q=best&v=1&m=400&webp=1",
+    "category": "Napkins & Paper Products",
+    "current_price": 28.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 28.0,
+        "unit": "each",
+        "norm_price": 28.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "28.0 / each"
+  },
+  "jhatpot_deshi_paratha_650_gm_10_pcs": {
+    "id": "jhatpot_deshi_paratha_650_gm_10_pcs",
+    "name": "Jhatpot Deshi Paratha 650 gm",
+    "image": "https://i.chaldn.com/_mpimage/jhatpot-deshi-paratha-650-gm-10-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D112588&q=best&v=1&m=400&webp=1",
+    "category": "Frozen Parathas & Roti",
+    "current_price": 170.0,
+    "current_unit": "10 pcs",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 170.0,
+        "unit": "10 pcs",
+        "norm_price": 17.0,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "17.0 / 1 pc"
+  },
+  "jhatpot_low_fat_paratha_1200_gm_20_pcs": {
+    "id": "jhatpot_low_fat_paratha_1200_gm_20_pcs",
+    "name": "Jhatpot Low Fat Paratha 1200 gm",
+    "image": "https://i.chaldn.com/_mpimage/jhatpot-low-fat-paratha-1200-gm-20-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D112589&q=best&v=1&m=400&webp=1",
+    "category": "Frozen Parathas & Roti",
+    "current_price": 250.0,
+    "current_unit": "20 pcs",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 250.0,
+        "unit": "20 pcs",
+        "norm_price": 12.5,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "12.5 / 1 pc"
+  },
+  "golden_harvest_premium_deshi_paratha_20_pcs_1300_gm": {
+    "id": "golden_harvest_premium_deshi_paratha_20_pcs_1300_gm",
+    "name": "Golden Harvest Premium Deshi Paratha 20 pcs",
+    "image": "https://i.chaldn.com/_mpimage/golden-harvest-premium-deshi-paratha-20-pcs-1300-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D177582&q=best&v=1&m=400&webp=1",
+    "category": "Local Breakfast",
+    "current_price": 320.0,
+    "current_unit": "1300 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 320.0,
+        "unit": "1300 gm",
+        "norm_price": 246.15,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "246.15 / 1 kg"
+  },
+  "golden_harvest_mega_deshi_paratha_1600_gm_20_pcs": {
+    "id": "golden_harvest_mega_deshi_paratha_1600_gm_20_pcs",
+    "name": "Golden Harvest Mega Deshi Paratha 1600 gm",
+    "image": "https://i.chaldn.com/_mpimage/golden-harvest-mega-deshi-paratha-1600-gm-20-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D168990&q=best&v=1&m=400&webp=1",
+    "category": "Local Breakfast",
+    "current_price": 380.0,
+    "current_unit": "20 pcs",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 380.0,
+        "unit": "20 pcs",
+        "norm_price": 19.0,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "19.0 / 1 pc"
+  },
+  "kazi_farms_kitchen_plain_paratha_family_1300_gm_20_pcs": {
+    "id": "kazi_farms_kitchen_plain_paratha_family_1300_gm_20_pcs",
+    "name": "Kazi Farms Kitchen Plain Paratha Family 1300 gm",
+    "image": "https://i.chaldn.com/_mpimage/kazi-farms-kitchen-plain-paratha-family-1300-gm-20-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D109153&q=best&v=1&m=400&webp=1",
+    "category": "Frozen Parathas & Roti",
+    "current_price": 320.0,
+    "current_unit": "20 pcs",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 320.0,
+        "unit": "20 pcs",
+        "norm_price": 16.0,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "16.0 / 1 pc"
+  },
+  "kazi_farms_kitchen_plain_paratha_10_pcs_650_gm": {
+    "id": "kazi_farms_kitchen_plain_paratha_10_pcs_650_gm",
+    "name": "Kazi Farms Kitchen Plain Paratha 10 pcs",
+    "image": "https://i.chaldn.com/_mpimage/kazi-farms-kitchen-plain-paratha-10-pcs-650-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D124551&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Frozen Parathas & Roti",
+    "current_price": 170.0,
+    "current_unit": "650 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 170.0,
+        "unit": "650 gm",
+        "norm_price": 261.54,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "261.54 / 1 kg"
+  },
+  "jhatpot_paratha_low_fat_600_gm_10_pcs": {
+    "id": "jhatpot_paratha_low_fat_600_gm_10_pcs",
+    "name": "Jhatpot Paratha Low Fat 600 gm",
+    "image": "https://i.chaldn.com/_mpimage/jhatpot-paratha-low-fat-600-gm-10-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D129587&q=best&v=1&m=400&webp=1",
+    "category": "Frozen Parathas & Roti",
+    "current_price": 130.0,
+    "current_unit": "10 pcs",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 130.0,
+        "unit": "10 pcs",
+        "norm_price": 13.0,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "13.0 / 1 pc"
+  },
+  "quality_plain_paratha_600_gm_10_pcs": {
+    "id": "quality_plain_paratha_600_gm_10_pcs",
+    "name": "Quality Plain Paratha 600 gm",
+    "image": "https://i.chaldn.com/_mpimage/quality-plain-paratha-600-gm-10-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D113407&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Frozen Parathas & Roti",
+    "current_price": 155.0,
+    "current_unit": "10 pcs",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 155.0,
+        "unit": "10 pcs",
+        "norm_price": 15.5,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "15.5 / 1 pc"
+  },
+  "jhatpot_deshi_paratha_family_pack_1300_gm_20_pcs": {
+    "id": "jhatpot_deshi_paratha_family_pack_1300_gm_20_pcs",
+    "name": "Jhatpot Deshi Paratha Family Pack 1300 gm",
+    "image": "https://i.chaldn.com/_mpimage/jhatpot-deshi-paratha-family-pack-1300-gm-20-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D96024&q=best&v=1&m=400&webp=1",
+    "category": "Frozen Parathas & Roti",
+    "current_price": 320.0,
+    "current_unit": "20 pcs",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 320.0,
+        "unit": "20 pcs",
+        "norm_price": 16.0,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "16.0 / 1 pc"
+  },
+  "goalini_plus_condensed_milk_400_gm": {
+    "id": "goalini_plus_condensed_milk_400_gm",
+    "name": "Goalini Plus Condensed Milk",
+    "image": "https://i.chaldn.com/_mpimage/goalini-plus-condensed-milk-400-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D114901&q=best&v=1&m=400&webp=1",
+    "category": "Condensed Milk & Cream",
+    "current_price": 105.0,
+    "current_unit": "400 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 105.0,
+        "unit": "400 gm",
+        "norm_price": 262.5,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "262.5 / 1 kg"
+  },
+  "foster_clark_s_corn_flour_400_gm": {
+    "id": "foster_clark_s_corn_flour_400_gm",
+    "name": "Foster Clark's Corn Flour",
+    "image": "https://i.chaldn.com/_mpimage/foster-clarks-corn-flour-400-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D173671&q=best&v=1&m=400&webp=1",
+    "category": "Baking Ingredients",
+    "current_price": 360.0,
+    "current_unit": "400 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 360.0,
+        "unit": "400 gm",
+        "norm_price": 900.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "900.0 / 1 kg"
+  },
+  "hershey_s_chocolate_syrup_623_gm": {
+    "id": "hershey_s_chocolate_syrup_623_gm",
+    "name": "Hershey's Chocolate Syrup",
+    "image": "https://i.chaldn.com/_mpimage/hersheys-chocolate-syrup-623-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D103086&q=best&v=1&m=400&webp=1",
+    "category": "Dips, Spreads & Syrups",
+    "current_price": 1029.0,
+    "current_unit": "623 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 1029.0,
+        "unit": "623 gm",
+        "norm_price": 1651.69,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1651.69 / 1 kg"
+  },
+  "baking_soda_100_gm": {
+    "id": "baking_soda_100_gm",
+    "name": "Baking Soda",
+    "image": "https://i.chaldn.com/_mpimage/baking-soda-100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D47984&q=low&v=1&m=400&webp=1",
+    "category": "Baking Ingredients",
+    "current_price": 25.0,
+    "current_unit": "100 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 25.0,
+        "unit": "100 gm",
+        "norm_price": 250.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "250.0 / 1 kg"
+  },
+  "anchor_yeast_35_gm": {
+    "id": "anchor_yeast_35_gm",
+    "name": "Anchor Yeast",
+    "image": "https://i.chaldn.com/_mpimage/anchor-yeast-35-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D176952&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Baking Ingredients",
+    "current_price": 60.0,
+    "current_unit": "35 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 60.0,
+        "unit": "35 gm",
+        "norm_price": 1714.29,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1714.29 / 1 kg"
+  },
+  "sugar_candy_tal_misri__200_gm": {
+    "id": "sugar_candy_tal_misri__200_gm",
+    "name": "Sugar Candy (Tal Misri)",
+    "image": "https://i.chaldn.com/_mpimage/sugar-candy-tal-misri-200-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D48011&q=best&v=1&m=400&webp=1",
+    "category": "Baking Ingredients",
+    "current_price": 39.0,
+    "current_unit": "200 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 39.0,
+        "unit": "200 gm",
+        "norm_price": 195.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "195.0 / 1 kg"
+  },
+  "chocolate_chips_dark_250_gm": {
+    "id": "chocolate_chips_dark_250_gm",
+    "name": "Chocolate Chips Dark",
+    "image": "https://i.chaldn.com/_mpimage/chocolate-chips-dark-250-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D98037&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Baking Ingredients",
+    "current_price": 439.0,
+    "current_unit": "250 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 439.0,
+        "unit": "250 gm",
+        "norm_price": 1756.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1756.0 / 1 kg"
+  },
+  "chocolate_chips_white_250_gm": {
+    "id": "chocolate_chips_white_250_gm",
+    "name": "Chocolate Chips White",
+    "image": "https://i.chaldn.com/_mpimage/chocolate-chips-white-250-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D98036&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Baking Ingredients",
+    "current_price": 429.0,
+    "current_unit": "250 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 429.0,
+        "unit": "250 gm",
+        "norm_price": 1716.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1716.0 / 1 kg"
+  },
+  "silver_edible_paper_tobok__25_gm": {
+    "id": "silver_edible_paper_tobok__25_gm",
+    "name": "Silver Edible Paper (Tobok)",
+    "image": "https://i.chaldn.com/_mpimage/silver-edible-paper-tobok-25-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D73694&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Baking Ingredients",
+    "current_price": 549.0,
+    "current_unit": "25 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 549.0,
+        "unit": "25 gm",
+        "norm_price": 21960.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "21960.0 / 1 kg"
+  },
+  "golden_edible_paper_tobok__25_gm": {
+    "id": "golden_edible_paper_tobok__25_gm",
+    "name": "Golden Edible Paper (Tobok)",
+    "image": "https://i.chaldn.com/_mpimage/golden-edible-paper-tobok-25-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128924&q=best&v=1&m=400&webp=1",
+    "category": "Baking Ingredients",
+    "current_price": 549.0,
+    "current_unit": "25 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 549.0,
+        "unit": "25 gm",
+        "norm_price": 21960.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "21960.0 / 1 kg"
+  },
+  "sweet_ball_golden_150_gm": {
+    "id": "sweet_ball_golden_150_gm",
+    "name": "Sweet Ball Golden",
+    "image": "https://i.chaldn.com/_mpimage/sweet-ball-golden-150-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D131363&q=best&v=1&m=400&webp=1",
+    "category": "Baking Ingredients",
+    "current_price": 520.0,
+    "current_unit": "150 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 520.0,
+        "unit": "150 gm",
+        "norm_price": 3466.67,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "3466.67 / 1 kg"
+  },
+  "sweet_ball_white_150_gm": {
+    "id": "sweet_ball_white_150_gm",
+    "name": "Sweet Ball White",
+    "image": "https://i.chaldn.com/_mpimage/sweet-ball-white-150-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D131362&q=best&v=1&m=400&webp=1",
+    "category": "Baking Ingredients",
+    "current_price": 375.0,
+    "current_unit": "150 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 375.0,
+        "unit": "150 gm",
+        "norm_price": 2500.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2500.0 / 1 kg"
+  },
+  "saad_monosodium_glutamate_50_gm": {
+    "id": "saad_monosodium_glutamate_50_gm",
+    "name": "Saad Monosodium Glutamate",
+    "image": "https://i.chaldn.com/_mpimage/saad-monosodium-glutamate-50-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D72067&q=best&v=1&m=400&webp=1",
+    "category": "Baking Ingredients",
+    "current_price": 25.0,
+    "current_unit": "50 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 25.0,
+        "unit": "50 gm",
+        "norm_price": 500.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "500.0 / 1 kg"
+  },
+  "foster_clark_s_culinary_essence_rose_28_ml": {
+    "id": "foster_clark_s_culinary_essence_rose_28_ml",
+    "name": "Foster Clark's Culinary Essence Rose",
+    "image": "https://i.chaldn.com/_mpimage/foster-clarks-culinary-essence-rose-28-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D110786&q=best&v=1&m=400&webp=1",
+    "category": "Baking Ingredients",
+    "current_price": 140.0,
+    "current_unit": "28 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 140.0,
+        "unit": "28 ml",
+        "norm_price": 5000.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "5000.0 / 1 L"
+  },
+  "bread_crumbs_loose_200_gm": {
+    "id": "bread_crumbs_loose_200_gm",
+    "name": "Bread Crumbs Loose",
+    "image": "https://i.chaldn.com/_mpimage/bread-crumbs-loose-200-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D126244&q=best&v=1&m=400&webp=1",
+    "category": "Baking Ingredients",
+    "current_price": 45.0,
+    "current_unit": "200 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 45.0,
+        "unit": "200 gm",
+        "norm_price": 225.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "225.0 / 1 kg"
+  },
+  "hershey_s_strawberry_syrup_623_gm": {
+    "id": "hershey_s_strawberry_syrup_623_gm",
+    "name": "Hershey's Strawberry Syrup",
+    "image": "https://i.chaldn.com/_mpimage/hersheys-strawberry-syrup-623-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D174494&q=best&v=1&m=400&webp=1",
+    "category": "Syrups & Powder Drinks",
+    "current_price": 939.0,
+    "current_unit": "623 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 939.0,
+        "unit": "623 gm",
+        "norm_price": 1507.22,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1507.22 / 1 kg"
+  },
+  "sis_white_sugar_cube_454_gm": {
+    "id": "sis_white_sugar_cube_454_gm",
+    "name": "Sis White Sugar Cube",
+    "image": "https://i.chaldn.com/_mpimage/sis-white-sugar-cube-454-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D176580&q=best&v=1&m=400&webp=1",
+    "category": "Baking Ingredients",
+    "current_price": 500.0,
+    "current_unit": "454 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 500.0,
+        "unit": "454 gm",
+        "norm_price": 1101.32,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1101.32 / 1 kg"
+  },
+  "foster_clark_s_food_colour_red__28_ml": {
+    "id": "foster_clark_s_food_colour_red__28_ml",
+    "name": "Foster Clark's Food Colour (Red)",
+    "image": "https://i.chaldn.com/_mpimage/foster-clarks-food-colour-red-28-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D112888&q=best&v=1&m=400&webp=1",
+    "category": "Baking Ingredients",
+    "current_price": 140.0,
+    "current_unit": "28 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 140.0,
+        "unit": "28 ml",
+        "norm_price": 5000.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "5000.0 / 1 L"
+  },
+  "ion_alkaline_drinking_water_650_ml": {
+    "id": "ion_alkaline_drinking_water_650_ml",
+    "name": "Ion Alkaline Drinking Water",
+    "image": "https://i.chaldn.com/_mpimage/ion-alkaline-drinking-water-650-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D165725&q=best&v=1&m=400&webp=1",
+    "category": "Water",
+    "current_price": 65.0,
+    "current_unit": "650 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 65.0,
+        "unit": "650 ml",
+        "norm_price": 100.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "100.0 / 1 L"
+  },
+  "ion_alkaline_drinking_water_330_ml": {
+    "id": "ion_alkaline_drinking_water_330_ml",
+    "name": "Ion Alkaline Drinking Water",
+    "image": "https://i.chaldn.com/_mpimage/ion-alkaline-drinking-water-330-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D165724&q=best&v=1&m=400&webp=1",
+    "category": "Water",
+    "current_price": 35.0,
+    "current_unit": "330 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 35.0,
+        "unit": "330 ml",
+        "norm_price": 106.06,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "106.06 / 1 L"
+  },
+  "aquafina_drinking_water_1_ltr": {
+    "id": "aquafina_drinking_water_1_ltr",
+    "name": "Aquafina Drinking Water",
+    "image": "https://i.chaldn.com/_mpimage/aquafina-drinking-water-1-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D123470&q=best&v=1&m=400&webp=1",
+    "category": "Water",
+    "current_price": 30.0,
+    "current_unit": "1 ltr",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 30.0,
+        "unit": "1 ltr",
+        "norm_price": 30.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "30.0 / 1 L"
+  },
+  "mum_drinking_water_500_ml": {
+    "id": "mum_drinking_water_500_ml",
+    "name": "Mum Drinking Water",
+    "image": "https://i.chaldn.com/_mpimage/mum-drinking-water-500-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130960&q=best&v=1&m=400&webp=1",
+    "category": "Water",
+    "current_price": 20.0,
+    "current_unit": "500 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 20.0,
+        "unit": "500 ml",
+        "norm_price": 40.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "40.0 / 1 L"
+  },
+  "super_fresh_drinking_water_500_ml": {
+    "id": "super_fresh_drinking_water_500_ml",
+    "name": "Super Fresh Drinking Water",
+    "image": "https://i.chaldn.com/_mpimage/super-fresh-drinking-water-500-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D136952&q=best&v=1&m=400&webp=1",
+    "category": "Water",
+    "current_price": 20.0,
+    "current_unit": "500 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 20.0,
+        "unit": "500 ml",
+        "norm_price": 40.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "40.0 / 1 L"
+  },
+  "mum_drinking_water_5_ltr": {
+    "id": "mum_drinking_water_5_ltr",
+    "name": "Mum Drinking Water",
+    "image": "https://i.chaldn.com/_mpimage/mum-drinking-water-5-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D94763&q=best&v=1&m=400&webp=1",
+    "category": "Water",
+    "current_price": 100.0,
+    "current_unit": "5 ltr",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 100.0,
+        "unit": "5 ltr",
+        "norm_price": 20.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "20.0 / 1 L"
+  },
+  "mum_drinking_water_2_ltr": {
+    "id": "mum_drinking_water_2_ltr",
+    "name": "Mum Drinking Water",
+    "image": "https://i.chaldn.com/_mpimage/mum-drinking-water-2-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D141345&q=best&v=1&m=400&webp=1",
+    "category": "Water",
+    "current_price": 45.0,
+    "current_unit": "2 ltr",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 45.0,
+        "unit": "2 ltr",
+        "norm_price": 22.5,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "22.5 / 1 L"
+  },
+  "aquafina_drinking_water_500_ml": {
+    "id": "aquafina_drinking_water_500_ml",
+    "name": "Aquafina Drinking Water",
+    "image": "https://i.chaldn.com/_mpimage/aquafina-drinking-water-500-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D123471&q=best&v=1&m=400&webp=1",
+    "category": "Water",
+    "current_price": 20.0,
+    "current_unit": "500 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 20.0,
+        "unit": "500 ml",
+        "norm_price": 40.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "40.0 / 1 L"
+  },
+  "mum_drinking_water_330_ml": {
+    "id": "mum_drinking_water_330_ml",
+    "name": "Mum Drinking Water",
+    "image": "https://i.chaldn.com/_mpimage/mum-drinking-water-330-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130959&q=best&v=1&m=400&webp=1",
+    "category": "Water",
+    "current_price": 15.0,
+    "current_unit": "330 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 15.0,
+        "unit": "330 ml",
+        "norm_price": 45.45,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "45.45 / 1 L"
+  },
+  "muskan_drinking_water_500_ml": {
+    "id": "muskan_drinking_water_500_ml",
+    "name": "Muskan Drinking Water",
+    "image": "https://i.chaldn.com/_mpimage/muskan-drinking-water-500-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130991&q=best&v=1&m=400&webp=1",
+    "category": "Water",
+    "current_price": 20.0,
+    "current_unit": "500 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 20.0,
+        "unit": "500 ml",
+        "norm_price": 40.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "40.0 / 1 L"
+  },
+  "muskan_drinking_water_2_ltr": {
+    "id": "muskan_drinking_water_2_ltr",
+    "name": "Muskan Drinking Water",
+    "image": "https://i.chaldn.com/_mpimage/muskan-drinking-water-2-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D94892&q=best&v=1&m=400&webp=1",
+    "category": "Water",
+    "current_price": 40.0,
+    "current_unit": "2 ltr",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 40.0,
+        "unit": "2 ltr",
+        "norm_price": 20.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "20.0 / 1 L"
+  },
+  "kinley_drinking_water_500_ml": {
+    "id": "kinley_drinking_water_500_ml",
+    "name": "Kinley Drinking Water",
+    "image": "https://i.chaldn.com/_mpimage/kinley-drinking-water-500-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D148086&q=best&v=1&m=400&webp=1",
+    "category": "Water",
+    "current_price": 20.0,
+    "current_unit": "500 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 20.0,
+        "unit": "500 ml",
+        "norm_price": 40.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "40.0 / 1 L"
+  },
+  "perrier_mineral_water_750_ml": {
+    "id": "perrier_mineral_water_750_ml",
+    "name": "Perrier Mineral Water",
+    "image": "https://i.chaldn.com/_mpimage/perrier-mineral-water-750-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D70056&q=best&v=1&m=400&webp=1",
+    "category": "Water",
+    "current_price": 550.0,
+    "current_unit": "750 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 550.0,
+        "unit": "750 ml",
+        "norm_price": 733.33,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "733.33 / 1 L"
+  },
+  "mum_drinking_water_1_5_ltr": {
+    "id": "mum_drinking_water_1_5_ltr",
+    "name": "Mum Drinking Water",
+    "image": "https://i.chaldn.com/_mpimage/mum-drinking-water-15-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130958&q=best&v=1&m=400&webp=1",
+    "category": "Water",
+    "current_price": 35.0,
+    "current_unit": "1.5 ltr",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 35.0,
+        "unit": "1.5 ltr",
+        "norm_price": 23.33,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "23.33 / 1 L"
+  },
+  "smc_plus_lemon_electrolyte_drink_250_ml_combo_pack__6_pcs": {
+    "id": "smc_plus_lemon_electrolyte_drink_250_ml_combo_pack__6_pcs",
+    "name": "SMC Plus Lemon Electrolyte Drink 250 ml (Combo Pack)",
+    "image": "https://i.chaldn.com/_mpimage/smc-plus-lemon-electrolyte-drink-250-ml-combo-pack-6-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D90869&q=best&v=1&m=400&webp=1",
+    "category": "Juice",
+    "current_price": 270.0,
+    "current_unit": "6 pcs",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 270.0,
+        "unit": "6 pcs",
+        "norm_price": 45.0,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "45.0 / 1 pc"
+  },
+  "bruvana_sports_electrolyte_beverage_mango_flavor__250_ml": {
+    "id": "bruvana_sports_electrolyte_beverage_mango_flavor__250_ml",
+    "name": "Bruvana Sports+ Electrolyte Beverage (Mango Flavor)",
+    "image": "https://i.chaldn.com/_mpimage/bruvana-sports-electrolyte-beverage-mango-flavor-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D138827&q=best&v=1&m=400&webp=1",
+    "category": "Juice",
+    "current_price": 40.0,
+    "current_unit": "250 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 40.0,
+        "unit": "250 ml",
+        "norm_price": 160.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "160.0 / 1 L"
+  },
+  "malee_lychee_juice_1_ltr": {
+    "id": "malee_lychee_juice_1_ltr",
+    "name": "Malee Lychee Juice",
+    "image": "https://i.chaldn.com/_mpimage/malee-lychee-juice-1-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D160707&q=best&v=1&m=400&webp=1",
+    "category": "Juice",
+    "current_price": 630.0,
+    "current_unit": "1 ltr",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 630.0,
+        "unit": "1 ltr",
+        "norm_price": 630.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "630.0 / 1 L"
+  },
+  "smc_plus_orange_electrolyte_drink_250_ml_combo_pack__6_pcs": {
+    "id": "smc_plus_orange_electrolyte_drink_250_ml_combo_pack__6_pcs",
+    "name": "SMC Plus Orange Electrolyte Drink 250 ml (Combo Pack)",
+    "image": "https://i.chaldn.com/_mpimage/smc-plus-orange-electrolyte-drink-250-ml-combo-pack-6-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D90868&q=best&v=1&m=400&webp=1",
+    "category": "Juice",
+    "current_price": 270.0,
+    "current_unit": "6 pcs",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 270.0,
+        "unit": "6 pcs",
+        "norm_price": 45.0,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "45.0 / 1 pc"
+  },
+  "pran_drinko_litchi_juice_250_ml": {
+    "id": "pran_drinko_litchi_juice_250_ml",
+    "name": "Pran Drinko Litchi Juice",
+    "image": "https://i.chaldn.com/_mpimage/pran-drinko-litchi-juice-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D108139&q=best&v=1&m=400&webp=1",
+    "category": "Juice",
+    "current_price": 30.0,
+    "current_unit": "250 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 30.0,
+        "unit": "250 ml",
+        "norm_price": 120.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "120.0 / 1 L"
+  },
+  "pran_frooto_mango_fruit_drink_250_ml": {
+    "id": "pran_frooto_mango_fruit_drink_250_ml",
+    "name": "Pran Frooto Mango Fruit Drink",
+    "image": "https://i.chaldn.com/_mpimage/pran-frooto-mango-fruit-drink-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D135903&q=best&v=1&m=400&webp=1",
+    "category": "Juice",
+    "current_price": 25.0,
+    "current_unit": "250 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 25.0,
+        "unit": "250 ml",
+        "norm_price": 100.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "100.0 / 1 L"
+  },
+  "pran_frooto_mango_fruit_drink_500_ml": {
+    "id": "pran_frooto_mango_fruit_drink_500_ml",
+    "name": "Pran Frooto Mango Fruit Drink",
+    "image": "https://i.chaldn.com/_mpimage/pran-frooto-mango-fruit-drink-500-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D135904&q=best&v=1&m=400&webp=1",
+    "category": "Juice",
+    "current_price": 45.0,
+    "current_unit": "500 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 45.0,
+        "unit": "500 ml",
+        "norm_price": 90.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "90.0 / 1 L"
+  },
+  "frutika_mango_juice_1_ltr": {
+    "id": "frutika_mango_juice_1_ltr",
+    "name": "Frutika Mango Juice",
+    "image": "https://i.chaldn.com/_mpimage/frutika-mango-juice-1-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D97206&q=best&v=1&m=400&webp=1",
+    "category": "Juice",
+    "current_price": 90.0,
+    "current_unit": "1 ltr",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 90.0,
+        "unit": "1 ltr",
+        "norm_price": 90.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "90.0 / 1 L"
+  },
+  "sunquick_orange_fruit_drink_1_ltr": {
+    "id": "sunquick_orange_fruit_drink_1_ltr",
+    "name": "Sunquick Orange Fruit Drink",
+    "image": "https://i.chaldn.com/_mpimage/sunquick-orange-fruit-drink-1-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D174242&q=best&v=1&m=400&webp=1",
+    "category": "Juice",
+    "current_price": 140.0,
+    "current_unit": "1 ltr",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 140.0,
+        "unit": "1 ltr",
+        "norm_price": 140.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "140.0 / 1 L"
+  },
+  "sunquick_mango_fruit_drink_1_ltr": {
+    "id": "sunquick_mango_fruit_drink_1_ltr",
+    "name": "Sunquick Mango Fruit Drink",
+    "image": "https://i.chaldn.com/_mpimage/sunquick-mango-fruit-drink-1-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D174240&q=best&v=1&m=400&webp=1",
+    "category": "Juice",
+    "current_price": 120.0,
+    "current_unit": "1 ltr",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 120.0,
+        "unit": "1 ltr",
+        "norm_price": 120.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "120.0 / 1 L"
+  },
+  "malee_100_pomegranate_mixed_fruit_juice_1_ltr": {
+    "id": "malee_100_pomegranate_mixed_fruit_juice_1_ltr",
+    "name": "Malee 100% Pomegranate & Mixed Fruit Juice",
+    "image": "https://i.chaldn.com/_mpimage/malee-100-pomegranate-mixed-fruit-juice-1-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D158494&q=best&v=1&m=400&webp=1",
+    "category": "Juice",
+    "current_price": 630.0,
+    "current_unit": "1 ltr",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 630.0,
+        "unit": "1 ltr",
+        "norm_price": 630.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "630.0 / 1 L"
+  },
+  "malee_100_pineapple_juice_1_ltr": {
+    "id": "malee_100_pineapple_juice_1_ltr",
+    "name": "Malee 100% Pineapple Juice",
+    "image": "https://i.chaldn.com/_mpimage/malee-100-pineapple-juice-1-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D158493&q=best&v=1&m=400&webp=1",
+    "category": "Juice",
+    "current_price": 630.0,
+    "current_unit": "1 ltr",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 630.0,
+        "unit": "1 ltr",
+        "norm_price": 630.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "630.0 / 1 L"
+  },
+  "mr_shammi_strawberry_juice_250_ml": {
+    "id": "mr_shammi_strawberry_juice_250_ml",
+    "name": "Mr. Shammi Strawberry Juice",
+    "image": "https://i.chaldn.com/_mpimage/mr-shammi-strawberry-juice-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D153794&q=best&v=1&m=400&webp=1",
+    "category": "Juice",
+    "current_price": 190.0,
+    "current_unit": "250 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 190.0,
+        "unit": "250 ml",
+        "norm_price": 760.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "760.0 / 1 L"
+  },
+  "bruvana_sports_electrolyte_beverage_pineapple_flavor__250_ml": {
+    "id": "bruvana_sports_electrolyte_beverage_pineapple_flavor__250_ml",
+    "name": "Bruvana Sports+ Electrolyte Beverage (Pineapple Flavor)",
+    "image": "https://i.chaldn.com/_mpimage/bruvana-sports-electrolyte-beverage-pineapple-flavor-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D148922&q=best&v=1&m=400&webp=1",
+    "category": "Juice",
+    "current_price": 40.0,
+    "current_unit": "250 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 40.0,
+        "unit": "250 ml",
+        "norm_price": 160.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "160.0 / 1 L"
+  },
+  "pran_pomegranate_fruit_drinks_200_ml": {
+    "id": "pran_pomegranate_fruit_drinks_200_ml",
+    "name": "Pran Pomegranate Fruit Drinks",
+    "image": "https://i.chaldn.com/_mpimage/pran-pomegranate-fruit-drinks-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D146277&q=best&v=1&m=400&webp=1",
+    "category": "Juice",
+    "current_price": 25.0,
+    "current_unit": "200 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 25.0,
+        "unit": "200 ml",
+        "norm_price": 125.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "125.0 / 1 L"
+  },
+  "sunquick_apple_drink_concentrate_300_ml": {
+    "id": "sunquick_apple_drink_concentrate_300_ml",
+    "name": "Sunquick Apple-Drink Concentrate",
+    "image": "https://i.chaldn.com/_mpimage/sunquick-apple-drink-concentrate-300-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D173375&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Juice",
+    "current_price": 375.0,
+    "current_unit": "300 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 375.0,
+        "unit": "300 ml",
+        "norm_price": 1250.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1250.0 / 1 L"
+  },
+  "sunquick_pink_guava_strawberry_drink_concentrate_300_ml": {
+    "id": "sunquick_pink_guava_strawberry_drink_concentrate_300_ml",
+    "name": "Sunquick Pink Guava & Strawberry-Drink Concentrate",
+    "image": "https://i.chaldn.com/_mpimage/sunquick-pink-guava-strawberry-drink-concentrate-300-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D173379&q=best&v=1&m=400&webp=1",
+    "category": "Juice",
+    "current_price": 495.0,
+    "current_unit": "300 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 495.0,
+        "unit": "300 ml",
+        "norm_price": 1650.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1650.0 / 1 L"
+  },
+  "sunquick_fruit_cocktail_drink_concentrate_300_ml": {
+    "id": "sunquick_fruit_cocktail_drink_concentrate_300_ml",
+    "name": "Sunquick Fruit Cocktail-Drink Concentrate",
+    "image": "https://i.chaldn.com/_mpimage/sunquick-fruit-cocktail-drink-concentrate-300-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D173377&q=best&v=1&m=400&webp=1",
+    "category": "Juice",
+    "current_price": 450.0,
+    "current_unit": "300 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 450.0,
+        "unit": "300 ml",
+        "norm_price": 1500.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1500.0 / 1 L"
+  },
+  "frutika_mango_drinks_250_ml": {
+    "id": "frutika_mango_drinks_250_ml",
+    "name": "Frutika Mango Drinks",
+    "image": "https://i.chaldn.com/_mpimage/frutika-mango-drinks-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D154633&q=best&v=1&m=400&webp=1",
+    "category": "Juice",
+    "current_price": 30.0,
+    "current_unit": "250 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 30.0,
+        "unit": "250 ml",
+        "norm_price": 120.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "120.0 / 1 L"
+  },
+  "latina_100_juice_mango__1_ltr": {
+    "id": "latina_100_juice_mango__1_ltr",
+    "name": "Latina 100 % Juice (Mango)",
+    "image": "https://i.chaldn.com/_mpimage/latina-100-juice-mango-1-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D94934&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Juice",
+    "current_price": 200.0,
+    "current_unit": "1 ltr",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 200.0,
+        "unit": "1 ltr",
+        "norm_price": 200.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "200.0 / 1 L"
+  },
+  "nutrilife_guava_juice_160_ml": {
+    "id": "nutrilife_guava_juice_160_ml",
+    "name": "Nutrilife Guava Juice",
+    "image": "https://i.chaldn.com/_mpimage/nutrilife-guava-juice-160-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D148683&q=best&v=1&m=400&webp=1",
+    "category": "Juice",
+    "current_price": 45.0,
+    "current_unit": "160 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 45.0,
+        "unit": "160 ml",
+        "norm_price": 281.25,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "281.25 / 1 L"
+  },
+  "nutrilife_orange_juice_160_ml": {
+    "id": "nutrilife_orange_juice_160_ml",
+    "name": "Nutrilife Orange Juice",
+    "image": "https://i.chaldn.com/_mpimage/nutrilife-orange-juice-160-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D148777&q=best&v=1&m=400&webp=1",
+    "category": "Juice",
+    "current_price": 45.0,
+    "current_unit": "160 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 45.0,
+        "unit": "160 ml",
+        "norm_price": 281.25,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "281.25 / 1 L"
+  },
+  "nutrilife_apple_juice_160_ml": {
+    "id": "nutrilife_apple_juice_160_ml",
+    "name": "Nutrilife Apple Juice",
+    "image": "https://i.chaldn.com/_mpimage/nutrilife-apple-juice-160-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D148679&q=best&v=1&m=400&webp=1",
+    "category": "Juice",
+    "current_price": 45.0,
+    "current_unit": "160 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 45.0,
+        "unit": "160 ml",
+        "norm_price": 281.25,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "281.25 / 1 L"
+  },
+  "fontana_mango_juice_1_ltr": {
+    "id": "fontana_mango_juice_1_ltr",
+    "name": "Fontana Mango Juice",
+    "image": "https://i.chaldn.com/_mpimage/fontana-mango-juice-1-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D152958&q=best&v=1&m=400&webp=1",
+    "category": "Juice",
+    "current_price": 550.0,
+    "current_unit": "1 ltr",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 550.0,
+        "unit": "1 ltr",
+        "norm_price": 550.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "550.0 / 1 L"
+  },
+  "pran_drinko_mango_juice_250_ml": {
+    "id": "pran_drinko_mango_juice_250_ml",
+    "name": "Pran Drinko Mango Juice",
+    "image": "https://i.chaldn.com/_mpimage/pran-drinko-mango-juice-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D108140&q=best&v=1&m=400&webp=1",
+    "category": "Juice",
+    "current_price": 30.0,
+    "current_unit": "250 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 30.0,
+        "unit": "250 ml",
+        "norm_price": 120.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "120.0 / 1 L"
+  },
+  "nestle_fruita_vitals_chaunsa_mango_juice_1_ltr": {
+    "id": "nestle_fruita_vitals_chaunsa_mango_juice_1_ltr",
+    "name": "Nestle Fruita Vitals Chaunsa Mango Juice",
+    "image": "https://i.chaldn.com/_mpimage/nestle-fruita-vitals-chaunsa-mango-juice-1-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D69609&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Juice",
+    "current_price": 354.0,
+    "current_unit": "1 ltr",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 354.0,
+        "unit": "1 ltr",
+        "norm_price": 354.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "354.0 / 1 L"
+  },
+  "nestle_fruita_vitals_apple_juice_1_ltr": {
+    "id": "nestle_fruita_vitals_apple_juice_1_ltr",
+    "name": "Nestle Fruita Vitals Apple Juice",
+    "image": "https://i.chaldn.com/_mpimage/nestle-fruita-vitals-apple-juice-1-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D69608&q=low&v=1&m=400&m=400&webp=1",
+    "category": "Juice",
+    "current_price": 354.0,
+    "current_unit": "1 ltr",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 354.0,
+        "unit": "1 ltr",
+        "norm_price": 354.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "354.0 / 1 L"
+  },
+  "cyprina_mango_nectar_1_ltr": {
+    "id": "cyprina_mango_nectar_1_ltr",
+    "name": "Cyprina Mango Nectar",
+    "image": "https://i.chaldn.com/_mpimage/cyprina-mango-nectar-1-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D119735&q=best&v=1&m=400&webp=1",
+    "category": "Juice",
+    "current_price": 560.0,
+    "current_unit": "1 ltr",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 560.0,
+        "unit": "1 ltr",
+        "norm_price": 560.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "560.0 / 1 L"
+  },
+  "aaram_juice_orange_1_ltr": {
+    "id": "aaram_juice_orange_1_ltr",
+    "name": "Aaram Juice Orange",
+    "image": "https://i.chaldn.com/_mpimage/aaram-juice-orange-1-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D138439&q=best&v=1&m=400&webp=1",
+    "category": "Juice",
+    "current_price": 415.0,
+    "current_unit": "1 ltr",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 415.0,
+        "unit": "1 ltr",
+        "norm_price": 415.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "415.0 / 1 L"
+  },
+  "aaram_juice_apple_1_ltr": {
+    "id": "aaram_juice_apple_1_ltr",
+    "name": "Aaram Juice Apple",
+    "image": "https://i.chaldn.com/_mpimage/aaram-juice-apple-1-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D138438&q=best&v=1&m=400&webp=1",
+    "category": "Juice",
+    "current_price": 415.0,
+    "current_unit": "1 ltr",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 415.0,
+        "unit": "1 ltr",
+        "norm_price": 415.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "415.0 / 1 L"
+  },
+  "aaram_juice_mango_1_ltr": {
+    "id": "aaram_juice_mango_1_ltr",
+    "name": "Aaram Juice Mango",
+    "image": "https://i.chaldn.com/_mpimage/aaram-juice-mango-1-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D101232&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Juice",
+    "current_price": 415.0,
+    "current_unit": "1 ltr",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 415.0,
+        "unit": "1 ltr",
+        "norm_price": 415.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "415.0 / 1 L"
+  },
+  "nutrilife_orange_juice_1_ltr": {
+    "id": "nutrilife_orange_juice_1_ltr",
+    "name": "Nutrilife Orange Juice",
+    "image": "https://i.chaldn.com/_mpimage/nutrilife-orange-juice-1-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D148780&q=best&v=1&m=400&webp=1",
+    "category": "Juice",
+    "current_price": 295.0,
+    "current_unit": "1 ltr",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 295.0,
+        "unit": "1 ltr",
+        "norm_price": 295.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "295.0 / 1 L"
+  },
+  "nutrilife_guava_juice_1_ltr": {
+    "id": "nutrilife_guava_juice_1_ltr",
+    "name": "Nutrilife Guava Juice",
+    "image": "https://i.chaldn.com/_mpimage/nutrilife-guava-juice-1-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D153632&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Juice",
+    "current_price": 295.0,
+    "current_unit": "1 ltr",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 295.0,
+        "unit": "1 ltr",
+        "norm_price": 295.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "295.0 / 1 L"
+  },
+  "pran_drinko_pineapple_juice_250_ml": {
+    "id": "pran_drinko_pineapple_juice_250_ml",
+    "name": "Pran Drinko Pineapple Juice",
+    "image": "https://i.chaldn.com/_mpimage/pran-drinko-pineapple-juice-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D108141&q=best&v=1&m=400&webp=1",
+    "category": "Juice",
+    "current_price": 30.0,
+    "current_unit": "250 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 30.0,
+        "unit": "250 ml",
+        "norm_price": 120.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "120.0 / 1 L"
+  },
+  "shezan_mango_fruit_drink_500_ml": {
+    "id": "shezan_mango_fruit_drink_500_ml",
+    "name": "Shezan Mango Fruit Drink",
+    "image": "https://i.chaldn.com/_mpimage/shezan-mango-fruit-drink-500-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D133635&q=best&v=1&m=400&webp=1",
+    "category": "Juice",
+    "current_price": 45.0,
+    "current_unit": "500 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 45.0,
+        "unit": "500 ml",
+        "norm_price": 90.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "90.0 / 1 L"
+  },
+  "ribena_blackcurrant_juice_850_ml": {
+    "id": "ribena_blackcurrant_juice_850_ml",
+    "name": "Ribena Blackcurrant Juice",
+    "image": "https://i.chaldn.com/_mpimage/ribena-blackcurrant-juice-850-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132899&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Juice",
+    "current_price": 1075.0,
+    "current_unit": "850 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 1075.0,
+        "unit": "850 ml",
+        "norm_price": 1264.71,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1264.71 / 1 L"
+  },
+  "sunquick_blackcurrant_juice_700_ml": {
+    "id": "sunquick_blackcurrant_juice_700_ml",
+    "name": "Sunquick Blackcurrant Juice",
+    "image": "https://i.chaldn.com/_mpimage/sunquick-blackcurrant-juice-700-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D174225&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Juice",
+    "current_price": 750.0,
+    "current_unit": "700 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 750.0,
+        "unit": "700 ml",
+        "norm_price": 1071.43,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1071.43 / 1 L"
+  },
+  "shezan_mango_fruit_drinks_1_ltr": {
+    "id": "shezan_mango_fruit_drinks_1_ltr",
+    "name": "Shezan Mango Fruit Drinks",
+    "image": "https://i.chaldn.com/_mpimage/shezan-mango-fruit-drinks-1-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D133636&q=best&v=1&m=400&webp=1",
+    "category": "Juice",
+    "current_price": 85.0,
+    "current_unit": "1 ltr",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 85.0,
+        "unit": "1 ltr",
+        "norm_price": 85.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "85.0 / 1 L"
+  },
+  "nutrilife_pomegranate_juice_1_ltr": {
+    "id": "nutrilife_pomegranate_juice_1_ltr",
+    "name": "Nutrilife Pomegranate Juice",
+    "image": "https://i.chaldn.com/_mpimage/nutrilife-pomegranate-juice-1-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D153633&q=best&v=1&m=400&webp=1",
+    "category": "Juice",
+    "current_price": 350.0,
+    "current_unit": "1 ltr",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 350.0,
+        "unit": "1 ltr",
+        "norm_price": 350.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "350.0 / 1 L"
+  },
+  "nutrilife_apple_juice_1_ltr": {
+    "id": "nutrilife_apple_juice_1_ltr",
+    "name": "Nutrilife Apple Juice",
+    "image": "https://i.chaldn.com/_mpimage/nutrilife-apple-juice-1-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130918&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Juice",
+    "current_price": 295.0,
+    "current_unit": "1 ltr",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 295.0,
+        "unit": "1 ltr",
+        "norm_price": 295.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "295.0 / 1 L"
+  },
+  "sunquick_orange_drink_concentrate_700_ml": {
+    "id": "sunquick_orange_drink_concentrate_700_ml",
+    "name": "Sunquick Orange-Drink Concentrate",
+    "image": "https://i.chaldn.com/_mpimage/sunquick-orange-drink-concentrate-700-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D174228&q=best&v=1&m=400&webp=1",
+    "category": "Juice",
+    "current_price": 890.0,
+    "current_unit": "700 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 890.0,
+        "unit": "700 ml",
+        "norm_price": 1271.43,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1271.43 / 1 L"
+  },
+  "frutika_mango_juice_500_ml": {
+    "id": "frutika_mango_juice_500_ml",
+    "name": "Frutika Mango Juice",
+    "image": "https://i.chaldn.com/_mpimage/frutika-mango-juice-500-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128677&q=best&v=1&m=400&webp=1",
+    "category": "Juice",
+    "current_price": 55.0,
+    "current_unit": "500 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 55.0,
+        "unit": "500 ml",
+        "norm_price": 110.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "110.0 / 1 L"
+  },
+  "smc_taste_me_orange_instant_drink_powder_200_gm": {
+    "id": "smc_taste_me_orange_instant_drink_powder_200_gm",
+    "name": "SMC Taste Me Orange Instant Drink Powder",
+    "image": "https://i.chaldn.com/_mpimage/smc-taste-me-orange-instant-drink-powder-200-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D134858&q=best&v=1&m=400&webp=1",
+    "category": "Syrups & Powder Drinks",
+    "current_price": 120.0,
+    "current_unit": "200 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 120.0,
+        "unit": "200 gm",
+        "norm_price": 600.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "600.0 / 1 kg"
+  },
+  "latina_100_juice_orange__1_ltr": {
+    "id": "latina_100_juice_orange__1_ltr",
+    "name": "Latina 100 % Juice (Orange)",
+    "image": "https://i.chaldn.com/_mpimage/latina-100-juice-orange-1-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D45878&q=best&v=1&m=400&webp=1",
+    "category": "Juice",
+    "current_price": 285.0,
+    "current_unit": "1 ltr",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 285.0,
+        "unit": "1 ltr",
+        "norm_price": 285.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "285.0 / 1 L"
+  },
+  "smc_bolt_glucose_powder_200_gm": {
+    "id": "smc_bolt_glucose_powder_200_gm",
+    "name": "SMC BOLT Glucose Powder",
+    "image": "https://i.chaldn.com/_mpimage/smc-bolt-glucose-powder-200-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D149442&q=best&v=1&m=400&webp=1",
+    "category": "Syrups & Powder Drinks",
+    "current_price": 85.0,
+    "current_unit": "200 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 85.0,
+        "unit": "200 gm",
+        "norm_price": 425.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "425.0 / 1 kg"
+  },
+  "latina_100_juice_apple__1_ltr": {
+    "id": "latina_100_juice_apple__1_ltr",
+    "name": "Latina 100 % Juice (Apple)",
+    "image": "https://i.chaldn.com/_mpimage/latina-100-juice-apple-1-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D45877&q=best&v=1&m=400&webp=1",
+    "category": "Juice",
+    "current_price": 285.0,
+    "current_unit": "1 ltr",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 285.0,
+        "unit": "1 ltr",
+        "norm_price": 285.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "285.0 / 1 L"
+  },
+  "dekko_fruit_funda_soft_drink_powder_orange__250_gm": {
+    "id": "dekko_fruit_funda_soft_drink_powder_orange__250_gm",
+    "name": "Dekko Fruit Funda Soft Drink Powder (Orange)",
+    "image": "https://i.chaldn.com/_mpimage/dekko-fruit-funda-soft-drink-powder-orange-250-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D186987&q=best&v=1&m=400&webp=1",
+    "category": "Syrups & Powder Drinks",
+    "current_price": 127.0,
+    "current_unit": "250 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 127.0,
+        "unit": "250 gm",
+        "norm_price": 508.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "508.0 / 1 kg"
+  },
+  "cyprina_grape_juice_1_ltr": {
+    "id": "cyprina_grape_juice_1_ltr",
+    "name": "Cyprina Grape Juice",
+    "image": "https://i.chaldn.com/_mpimage/cyprina-grape-juice-1-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D127353&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Juice",
+    "current_price": 560.0,
+    "current_unit": "1 ltr",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 560.0,
+        "unit": "1 ltr",
+        "norm_price": 560.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "560.0 / 1 L"
+  },
+  "dekko_fruit_funda_mango_instant_drink_powder_250_gm": {
+    "id": "dekko_fruit_funda_mango_instant_drink_powder_250_gm",
+    "name": "Dekko Fruit Funda Mango Instant Drink Powder",
+    "image": "https://i.chaldn.com/_mpimage/dekko-fruit-funda-mango-instant-drink-powder-250-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D187023&q=best&v=1&m=400&webp=1",
+    "category": "Syrups & Powder Drinks",
+    "current_price": 127.0,
+    "current_unit": "250 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 127.0,
+        "unit": "250 gm",
+        "norm_price": 508.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "508.0 / 1 kg"
+  },
+  "sammi_orange_juice_can_240_ml": {
+    "id": "sammi_orange_juice_can_240_ml",
+    "name": "Sammi Orange Juice Can",
+    "image": "https://i.chaldn.com/_mpimage/sammi-orange-juice-can-240-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D103600&q=best&v=1&m=400&webp=1",
+    "category": "Juice",
+    "current_price": 180.0,
+    "current_unit": "240 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 180.0,
+        "unit": "240 ml",
+        "norm_price": 750.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "750.0 / 1 L"
+  },
+  "dekko_fruit_funda_soft_drink_powder_mango_free_orange_drink_powder_125_gm__500_gm": {
+    "id": "dekko_fruit_funda_soft_drink_powder_mango_free_orange_drink_powder_125_gm__500_gm",
+    "name": "Dekko Fruit Funda Soft Drink Powder Mango (Free Orange Drink Powder 125 gm)",
+    "image": "https://i.chaldn.com/_mpimage/dekko-fruit-funda-soft-drink-powder-mango-free-orange-drink-powder-125-gm-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D186988&q=best&v=1&m=400&webp=1",
+    "category": "Syrups & Powder Drinks",
+    "current_price": 280.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 280.0,
+        "unit": "500 gm",
+        "norm_price": 560.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "560.0 / 1 kg"
+  },
+  "masafi_orange_juice_2_ltr": {
+    "id": "masafi_orange_juice_2_ltr",
+    "name": "Masafi Orange Juice",
+    "image": "https://i.chaldn.com/_mpimage/masafi-orange-juice-2-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130628&q=best&v=1&m=400&webp=1",
+    "category": "Juice",
+    "current_price": 1120.0,
+    "current_unit": "2 ltr",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 1120.0,
+        "unit": "2 ltr",
+        "norm_price": 560.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "560.0 / 1 L"
+  },
+  "tang_mango_instant_drink_powder_bib_500_gm": {
+    "id": "tang_mango_instant_drink_powder_bib_500_gm",
+    "name": "Tang Mango Instant Drink Powder BIB",
+    "image": "https://i.chaldn.com/_mpimage/tang-mango-instant-drink-powder-bib-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D169510&q=best&v=1&m=400&webp=1",
+    "category": "Syrups & Powder Drinks",
+    "current_price": 425.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 425.0,
+        "unit": "500 gm",
+        "norm_price": 850.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "850.0 / 1 kg"
+  },
+  "sammi_strawberry_juice_can_250_ml": {
+    "id": "sammi_strawberry_juice_can_250_ml",
+    "name": "Sammi Strawberry Juice Can",
+    "image": "https://i.chaldn.com/_mpimage/sammi-strawberry-juice-can-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D103604&q=best&v=1&m=400&webp=1",
+    "category": "Juice",
+    "current_price": 190.0,
+    "current_unit": "250 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 190.0,
+        "unit": "250 ml",
+        "norm_price": 760.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "760.0 / 1 L"
+  },
+  "dekko_fruit_funda_soft_drink_powder_orange__125_gm": {
+    "id": "dekko_fruit_funda_soft_drink_powder_orange__125_gm",
+    "name": "Dekko Fruit Funda Soft Drink Powder (Orange)",
+    "image": "https://i.chaldn.com/_mpimage/dekko-fruit-funda-soft-drink-powder-orange-125-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D186986&q=best&v=1&m=400&webp=1",
+    "category": "Syrups & Powder Drinks",
+    "current_price": 80.0,
+    "current_unit": "125 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 80.0,
+        "unit": "125 gm",
+        "norm_price": 640.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "640.0 / 1 kg"
+  },
+  "fontana_grape_juice_1_ltr": {
+    "id": "fontana_grape_juice_1_ltr",
+    "name": "Fontana Grape Juice",
+    "image": "https://i.chaldn.com/_mpimage/fontana-grape-juice-1-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132302&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Juice",
+    "current_price": 639.0,
+    "current_unit": "1 ltr",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 639.0,
+        "unit": "1 ltr",
+        "norm_price": 639.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "639.0 / 1 L"
+  },
+  "dekko_fruit_funda_soft_drink_powder_mango__125_gm": {
+    "id": "dekko_fruit_funda_soft_drink_powder_mango__125_gm",
+    "name": "Dekko Fruit Funda Soft Drink Powder (Mango)",
+    "image": "https://i.chaldn.com/_mpimage/dekko-fruit-funda-soft-drink-powder-mango-125-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D186985&q=best&v=1&m=400&webp=1",
+    "category": "Syrups & Powder Drinks",
+    "current_price": 80.0,
+    "current_unit": "125 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 80.0,
+        "unit": "125 gm",
+        "norm_price": 640.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "640.0 / 1 kg"
+  },
+  "fontana_apple_juice_1_ltr": {
+    "id": "fontana_apple_juice_1_ltr",
+    "name": "Fontana Apple Juice",
+    "image": "https://i.chaldn.com/_mpimage/fontana-apple-juice-1-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D138444&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Juice",
+    "current_price": 475.0,
+    "current_unit": "1 ltr",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 475.0,
+        "unit": "1 ltr",
+        "norm_price": 475.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "475.0 / 1 L"
+  },
+  "sammi_red_grape_juice_can_240_ml": {
+    "id": "sammi_red_grape_juice_can_240_ml",
+    "name": "Sammi Red Grape Juice Can",
+    "image": "https://i.chaldn.com/_mpimage/sammi-red-grape-juice-can-240-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D103601&q=best&v=1&m=400&webp=1",
+    "category": "Juice",
+    "current_price": 195.0,
+    "current_unit": "240 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 195.0,
+        "unit": "240 ml",
+        "norm_price": 812.5,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "812.5 / 1 L"
+  },
+  "ispi_mango_instant_powder_drink_750_gm": {
+    "id": "ispi_mango_instant_powder_drink_750_gm",
+    "name": "ISPI Mango Instant Powder Drink",
+    "image": "https://i.chaldn.com/_mpimage/ispi-mango-instant-powder-drink-750-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D169984&q=best&v=1&m=400&webp=1",
+    "category": "Syrups & Powder Drinks",
+    "current_price": 450.0,
+    "current_unit": "750 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 450.0,
+        "unit": "750 gm",
+        "norm_price": 600.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "600.0 / 1 kg"
+  },
+  "pran_frooto_mango_fruit_drink_1_ltr": {
+    "id": "pran_frooto_mango_fruit_drink_1_ltr",
+    "name": "Pran Frooto Mango Fruit Drink",
+    "image": "https://i.chaldn.com/_mpimage/pran-frooto-mango-fruit-drink-1-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D135902&q=best&v=1&m=400&webp=1",
+    "category": "Juice",
+    "current_price": 80.0,
+    "current_unit": "1 ltr",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 80.0,
+        "unit": "1 ltr",
+        "norm_price": 80.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "80.0 / 1 L"
+  },
+  "ispi_orange_instant_powder_drink_250_gm": {
+    "id": "ispi_orange_instant_powder_drink_250_gm",
+    "name": "ISPI Orange Instant Powder Drink",
+    "image": "https://i.chaldn.com/_mpimage/ispi-orange-instant-powder-drink-250-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D169985&q=best&v=1&m=400&webp=1",
+    "category": "Syrups & Powder Drinks",
+    "current_price": 160.0,
+    "current_unit": "250 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 160.0,
+        "unit": "250 gm",
+        "norm_price": 640.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "640.0 / 1 kg"
+  },
+  "cyprina_orange_juice_1_ltr": {
+    "id": "cyprina_orange_juice_1_ltr",
+    "name": "Cyprina Orange Juice",
+    "image": "https://i.chaldn.com/_mpimage/cyprina-orange-juice-1-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D154583&q=best&v=1&m=400&webp=1",
+    "category": "Juice",
+    "current_price": 560.0,
+    "current_unit": "1 ltr",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 560.0,
+        "unit": "1 ltr",
+        "norm_price": 560.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "560.0 / 1 L"
+  },
+  "tang_orange_flavoured_instant_drink_powder_jar_750_gm": {
+    "id": "tang_orange_flavoured_instant_drink_powder_jar_750_gm",
+    "name": "Tang Orange Flavoured Instant Drink Powder Jar",
+    "image": "https://i.chaldn.com/_mpimage/tang-orange-flavoured-instant-drink-powder-jar-750-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D157572&q=best&v=1&m=400&webp=1",
+    "category": "Syrups & Powder Drinks",
+    "current_price": 780.0,
+    "current_unit": "750 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 780.0,
+        "unit": "750 gm",
+        "norm_price": 1040.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1040.0 / 1 kg"
+  },
+  "tang_mango_flavoured_instant_drink_powder_jar_750_gm": {
+    "id": "tang_mango_flavoured_instant_drink_powder_jar_750_gm",
+    "name": "Tang Mango Flavoured Instant Drink Powder Jar",
+    "image": "https://i.chaldn.com/_mpimage/tang-mango-flavoured-instant-drink-powder-jar-750-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D157573&q=best&v=1&m=400&webp=1",
+    "category": "Syrups & Powder Drinks",
+    "current_price": 780.0,
+    "current_unit": "750 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 780.0,
+        "unit": "750 gm",
+        "norm_price": 1040.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1040.0 / 1 kg"
+  },
+  "tang_orange_instant_drink_powder_bib_75_gm": {
+    "id": "tang_orange_instant_drink_powder_bib_75_gm",
+    "name": "Tang Orange Instant Drink Powder BIB",
+    "image": "https://i.chaldn.com/_mpimage/tang-orange-instant-drink-powder-bib-75-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D136046&q=best&v=1&m=400&webp=1",
+    "category": "Syrups & Powder Drinks",
+    "current_price": 100.0,
+    "current_unit": "75 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 100.0,
+        "unit": "75 gm",
+        "norm_price": 1333.33,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1333.33 / 1 kg"
+  },
+  "tang_orange_instant_drink_powder_bib_500_gm": {
+    "id": "tang_orange_instant_drink_powder_bib_500_gm",
+    "name": "Tang Orange Instant Drink Powder BIB",
+    "image": "https://i.chaldn.com/_mpimage/tang-orange-instant-drink-powder-bib-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D169511&q=best&v=1&m=400&webp=1",
+    "category": "Syrups & Powder Drinks",
+    "current_price": 425.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 425.0,
+        "unit": "500 gm",
+        "norm_price": 850.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "850.0 / 1 kg"
+  },
+  "tang_orange_instant_drink_powder_bib_200_gm": {
+    "id": "tang_orange_instant_drink_powder_bib_200_gm",
+    "name": "Tang Orange Instant Drink Powder BIB",
+    "image": "https://i.chaldn.com/_mpimage/tang-orange-instant-drink-powder-bib-200-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D129382&q=best&v=1&m=400&webp=1",
+    "category": "Syrups & Powder Drinks",
+    "current_price": 200.0,
+    "current_unit": "200 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 200.0,
+        "unit": "200 gm",
+        "norm_price": 1000.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1000.0 / 1 kg"
+  },
+  "tang_mango_instant_drink_powder_bib_200_gm": {
+    "id": "tang_mango_instant_drink_powder_bib_200_gm",
+    "name": "Tang Mango Instant Drink Powder BIB",
+    "image": "https://i.chaldn.com/_mpimage/tang-mango-instant-drink-powder-bib-200-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D169218&q=best&v=1&m=400&webp=1",
+    "category": "Syrups & Powder Drinks",
+    "current_price": 200.0,
+    "current_unit": "200 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 200.0,
+        "unit": "200 gm",
+        "norm_price": 1000.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1000.0 / 1 kg"
+  },
+  "shokti_orange_soft_drinks_powder_500_gm": {
+    "id": "shokti_orange_soft_drinks_powder_500_gm",
+    "name": "Shokti+ Orange Soft Drinks Powder",
+    "image": "https://i.chaldn.com/_mpimage/shokti-orange-soft-drinks-powder-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D168319&q=best&v=1&m=400&webp=1",
+    "category": "Syrups & Powder Drinks",
+    "current_price": 400.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 400.0,
+        "unit": "500 gm",
+        "norm_price": 800.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "800.0 / 1 kg"
+  },
+  "shokti_mango_soft_drinks_powder_500_gm": {
+    "id": "shokti_mango_soft_drinks_powder_500_gm",
+    "name": "Shokti+ Mango Soft Drinks Powder",
+    "image": "https://i.chaldn.com/_mpimage/shokti-mango-soft-drinks-powder-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D168318&q=best&v=1&m=400&webp=1",
+    "category": "Syrups & Powder Drinks",
+    "current_price": 400.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 400.0,
+        "unit": "500 gm",
+        "norm_price": 800.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "800.0 / 1 kg"
+  },
+  "foster_clark_s_pineapple_instant_drink_powder_450_gm": {
+    "id": "foster_clark_s_pineapple_instant_drink_powder_450_gm",
+    "name": "Foster Clark's Pineapple Instant Drink Powder",
+    "image": "https://i.chaldn.com/_mpimage/foster-clarks-pineapple-instant-drink-powder-450-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D129814&q=best&v=1&m=400&webp=1",
+    "category": "Syrups & Powder Drinks",
+    "current_price": 500.0,
+    "current_unit": "450 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 500.0,
+        "unit": "450 gm",
+        "norm_price": 1111.11,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1111.11 / 1 kg"
+  },
+  "tang_orange_flavoured_instant_drink_powder_tub_2_kg": {
+    "id": "tang_orange_flavoured_instant_drink_powder_tub_2_kg",
+    "name": "Tang Orange Flavoured Instant Drink Powder Tub",
+    "image": "https://i.chaldn.com/_mpimage/tang-orange-flavoured-instant-drink-powder-tub-2-kg?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D157574&q=best&v=1&m=400&webp=1",
+    "category": "Syrups & Powder Drinks",
+    "current_price": 1900.0,
+    "current_unit": "2 kg",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 1900.0,
+        "unit": "2 kg",
+        "norm_price": 950.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "950.0 / 1 kg"
+  },
+  "tang_mango_flavoured_instant_drink_powder_tub_2_kg": {
+    "id": "tang_mango_flavoured_instant_drink_powder_tub_2_kg",
+    "name": "Tang Mango Flavoured Instant Drink Powder Tub",
+    "image": "https://i.chaldn.com/_mpimage/tang-mango-flavoured-instant-drink-powder-tub-2-kg?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D153841&q=best&v=1&m=400&webp=1",
+    "category": "Syrups & Powder Drinks",
+    "current_price": 1900.0,
+    "current_unit": "2 kg",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 1900.0,
+        "unit": "2 kg",
+        "norm_price": 950.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "950.0 / 1 kg"
+  },
+  "nutri_juicee_orange_fortified_soft_drink_powder_500_gm": {
+    "id": "nutri_juicee_orange_fortified_soft_drink_powder_500_gm",
+    "name": "Nutri+ Juicee+ Orange Fortified Soft Drink Powder",
+    "image": "https://i.chaldn.com/_mpimage/nutri-juicee-orange-fortified-soft-drink-powder-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D169518&q=best&v=1&m=400&webp=1",
+    "category": "Syrups & Powder Drinks",
+    "current_price": 280.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 280.0,
+        "unit": "500 gm",
+        "norm_price": 560.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "560.0 / 1 kg"
+  },
+  "nutri_juicee_mango_fortified_soft_drink_powder_250_gm": {
+    "id": "nutri_juicee_mango_fortified_soft_drink_powder_250_gm",
+    "name": "Nutri+ Juicee+ Mango Fortified Soft Drink Powder",
+    "image": "https://i.chaldn.com/_mpimage/nutri-juicee-mango-fortified-soft-drink-powder-250-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D127275&q=best&v=1&m=400&webp=1",
+    "category": "Syrups & Powder Drinks",
+    "current_price": 150.0,
+    "current_unit": "250 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 150.0,
+        "unit": "250 gm",
+        "norm_price": 600.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "600.0 / 1 kg"
+  },
+  "foster_clark_s_mango_instant_drink_powder_450_gm": {
+    "id": "foster_clark_s_mango_instant_drink_powder_450_gm",
+    "name": "Foster Clark's Mango Instant Drink Powder",
+    "image": "https://i.chaldn.com/_mpimage/foster-clarks-mango-instant-drink-powder-450-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128582&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Syrups & Powder Drinks",
+    "current_price": 530.0,
+    "current_unit": "450 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 530.0,
+        "unit": "450 gm",
+        "norm_price": 1177.78,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1177.78 / 1 kg"
+  },
+  "american_garden_pancake_syrup_original_710_ml": {
+    "id": "american_garden_pancake_syrup_original_710_ml",
+    "name": "American Garden Pancake Syrup Original",
+    "image": "https://i.chaldn.com/_mpimage/american-garden-pancake-syrup-original-710-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D177293&q=best&v=1&m=400&webp=1",
+    "category": "Dips, Spreads & Syrups",
+    "current_price": 1215.0,
+    "current_unit": "710 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 1215.0,
+        "unit": "710 ml",
+        "norm_price": 1711.27,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1711.27 / 1 L"
+  },
+  "country_time_pink_lemonade_powder_drink_538_gm": {
+    "id": "country_time_pink_lemonade_powder_drink_538_gm",
+    "name": "Country Time Pink lemonade Powder Drink",
+    "image": "https://i.chaldn.com/_mpimage/country-time-pink-lemonade-powder-drink-538-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D60535&q=low&v=1&m=400&webp=1",
+    "category": "Syrups & Powder Drinks",
+    "current_price": 1500.0,
+    "current_unit": "538 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 1500.0,
+        "unit": "538 gm",
+        "norm_price": 2788.1,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2788.1 / 1 kg"
+  },
+  "country_time_lemonade_powder_drink_538_gm": {
+    "id": "country_time_lemonade_powder_drink_538_gm",
+    "name": "Country Time lemonade Powder Drink",
+    "image": "https://i.chaldn.com/_mpimage/country-time-lemonade-powder-drink-538-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D60536&q=low&v=1&m=400&webp=1",
+    "category": "Syrups & Powder Drinks",
+    "current_price": 1550.0,
+    "current_unit": "538 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 1550.0,
+        "unit": "538 gm",
+        "norm_price": 2881.04,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2881.04 / 1 kg"
+  },
+  "ovaltine_power_10_chocolate_drink_jar_400_gm": {
+    "id": "ovaltine_power_10_chocolate_drink_jar_400_gm",
+    "name": "Ovaltine Power 10 Chocolate Drink Jar",
+    "image": "https://i.chaldn.com/_mpimage/ovaltine-power-10-chocolate-drink-jar-400-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D131786&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Energy Boosters",
+    "current_price": 1000.0,
+    "current_unit": "400 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 1000.0,
+        "unit": "400 gm",
+        "norm_price": 2500.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2500.0 / 1 kg"
+  },
+  "ispi_orange_instant_powder_drink_500_gm": {
+    "id": "ispi_orange_instant_powder_drink_500_gm",
+    "name": "ISPI Orange Instant Powder Drink",
+    "image": "https://i.chaldn.com/_mpimage/ispi-orange-instant-powder-drink-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D169986&q=best&v=1&m=400&webp=1",
+    "category": "Syrups & Powder Drinks",
+    "current_price": 280.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 280.0,
+        "unit": "500 gm",
+        "norm_price": 560.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "560.0 / 1 kg"
+  },
+  "ispi_mango_instant_powder_drink_500_gm": {
+    "id": "ispi_mango_instant_powder_drink_500_gm",
+    "name": "ISPI Mango Instant Powder Drink",
+    "image": "https://i.chaldn.com/_mpimage/ispi-mango-instant-powder-drink-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D169983&q=best&v=1&m=400&webp=1",
+    "category": "Syrups & Powder Drinks",
+    "current_price": 280.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 280.0,
+        "unit": "500 gm",
+        "norm_price": 560.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "560.0 / 1 kg"
+  },
+  "ispi_mango_instant_powder_drink_250_gm": {
+    "id": "ispi_mango_instant_powder_drink_250_gm",
+    "name": "ISPI Mango Instant Powder Drink",
+    "image": "https://i.chaldn.com/_mpimage/ispi-mango-instant-powder-drink-250-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D169982&q=best&v=1&m=400&webp=1",
+    "category": "Syrups & Powder Drinks",
+    "current_price": 160.0,
+    "current_unit": "250 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 160.0,
+        "unit": "250 gm",
+        "norm_price": 640.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "640.0 / 1 kg"
+  },
+  "foster_clark_s_pineapple_instant_drink_powder_750_gm": {
+    "id": "foster_clark_s_pineapple_instant_drink_powder_750_gm",
+    "name": "Foster Clark's Pineapple Instant Drink Powder",
+    "image": "https://i.chaldn.com/_mpimage/foster-clarks-pineapple-instant-drink-powder-750-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D153895&q=best&v=1&m=400&webp=1",
+    "category": "Syrups & Powder Drinks",
+    "current_price": 840.0,
+    "current_unit": "750 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 840.0,
+        "unit": "750 gm",
+        "norm_price": 1120.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1120.0 / 1 kg"
+  },
+  "foster_clark_s_mango_instant_drink_powder_750_gm": {
+    "id": "foster_clark_s_mango_instant_drink_powder_750_gm",
+    "name": "Foster Clark's Mango Instant Drink Powder",
+    "image": "https://i.chaldn.com/_mpimage/foster-clarks-mango-instant-drink-powder-750-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128583&q=best&v=1&m=400&webp=1",
+    "category": "Syrups & Powder Drinks",
+    "current_price": 840.0,
+    "current_unit": "750 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 840.0,
+        "unit": "750 gm",
+        "norm_price": 1120.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1120.0 / 1 kg"
+  },
+  "foster_clark_s_mandarin_instant_drink_powder_750_gm": {
+    "id": "foster_clark_s_mandarin_instant_drink_powder_750_gm",
+    "name": "Foster Clark's Mandarin Instant Drink Powder",
+    "image": "https://i.chaldn.com/_mpimage/foster-clarks-mandarin-instant-drink-powder-750-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D45990&q=best&v=1&m=400&webp=1",
+    "category": "Syrups & Powder Drinks",
+    "current_price": 840.0,
+    "current_unit": "750 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 840.0,
+        "unit": "750 gm",
+        "norm_price": 1120.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1120.0 / 1 kg"
+  },
+  "coca_cola_1_ltr": {
+    "id": "coca_cola_1_ltr",
+    "name": "Coca-Cola",
+    "image": "https://i.chaldn.com/_mpimage/coca-cola-1-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D164611&q=best&v=1&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 79.0,
+    "current_unit": "1 ltr",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 79.0,
+        "unit": "1 ltr",
+        "norm_price": 79.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "79.0 / 1 L"
+  },
+  "sprite_250_ml": {
+    "id": "sprite_250_ml",
+    "name": "Sprite",
+    "image": "https://i.chaldn.com/_mpimage/sprite-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D146689&q=best&v=1&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 23.0,
+    "current_unit": "250 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 23.0,
+        "unit": "250 ml",
+        "norm_price": 92.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "92.0 / 1 L"
+  },
+  "coca_cola_400_ml": {
+    "id": "coca_cola_400_ml",
+    "name": "Coca-Cola",
+    "image": "https://i.chaldn.com/_mpimage/coca-cola-400-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D186629&q=best&v=1&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 38.0,
+    "current_unit": "400 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 38.0,
+        "unit": "400 ml",
+        "norm_price": 95.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "95.0 / 1 L"
+  },
+  "rc_q_lemon_pet_250_ml": {
+    "id": "rc_q_lemon_pet_250_ml",
+    "name": "RC Q Lemon Pet",
+    "image": "https://i.chaldn.com/_mpimage/rc-q-lemon-pet-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D71331&q=best&v=1&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 25.0,
+    "current_unit": "250 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 25.0,
+        "unit": "250 ml",
+        "norm_price": 100.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "100.0 / 1 L"
+  },
+  "rooh_afza_free_ispaghol_bhusi_20_gm__750_ml": {
+    "id": "rooh_afza_free_ispaghol_bhusi_20_gm__750_ml",
+    "name": "Rooh Afza (Free Ispaghol Bhusi 20 gm)",
+    "image": "https://i.chaldn.com/_mpimage/rooh-afza-free-ispaghol-bhusi-20-gm-750-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D170046&q=best&v=1&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 550.0,
+    "current_unit": "750 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 550.0,
+        "unit": "750 ml",
+        "norm_price": 733.33,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "733.33 / 1 L"
+  },
+  "fanta_orange_flavored_400_ml": {
+    "id": "fanta_orange_flavored_400_ml",
+    "name": "Fanta Orange Flavored",
+    "image": "https://i.chaldn.com/_mpimage/fanta-orange-flavored-400-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D186631&q=best&v=1&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 38.0,
+    "current_unit": "400 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 38.0,
+        "unit": "400 ml",
+        "norm_price": 95.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "95.0 / 1 L"
+  },
+  "fanta_orange_flavored_250_ml": {
+    "id": "fanta_orange_flavored_250_ml",
+    "name": "Fanta Orange Flavored",
+    "image": "https://i.chaldn.com/_mpimage/fanta-orange-flavored-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D146710&q=best&v=1&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 23.0,
+    "current_unit": "250 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 23.0,
+        "unit": "250 ml",
+        "norm_price": 92.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "92.0 / 1 L"
+  },
+  "fresh_mojito_250_ml": {
+    "id": "fresh_mojito_250_ml",
+    "name": "Fresh Mojito",
+    "image": "https://i.chaldn.com/_mpimage/fresh-mojito-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D121077&q=best&v=1&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 25.0,
+    "current_unit": "250 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 25.0,
+        "unit": "250 ml",
+        "norm_price": 100.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "100.0 / 1 L"
+  },
+  "rooh_afza_300_ml": {
+    "id": "rooh_afza_300_ml",
+    "name": "Rooh Afza",
+    "image": "https://i.chaldn.com/_mpimage/rooh-afza-300-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D133032&q=best&v=1&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 300.0,
+    "current_unit": "300 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 300.0,
+        "unit": "300 ml",
+        "norm_price": 1000.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1000.0 / 1 L"
+  },
+  "rooh_afza_750_ml": {
+    "id": "rooh_afza_750_ml",
+    "name": "Rooh Afza",
+    "image": "https://i.chaldn.com/_mpimage/rooh-afza-750-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D101117&q=best&v=1&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 550.0,
+    "current_unit": "750 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 550.0,
+        "unit": "750 ml",
+        "norm_price": 733.33,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "733.33 / 1 L"
+  },
+  "sprite_can_250_ml": {
+    "id": "sprite_can_250_ml",
+    "name": "Sprite Can",
+    "image": "https://i.chaldn.com/_mpimage/sprite-can-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D176552&q=best&v=1&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 65.0,
+    "current_unit": "250 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 65.0,
+        "unit": "250 ml",
+        "norm_price": 260.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "260.0 / 1 L"
+  },
+  "sprite_1_ltr": {
+    "id": "sprite_1_ltr",
+    "name": "Sprite",
+    "image": "https://i.chaldn.com/_mpimage/sprite-1-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D164609&q=best&v=1&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 79.0,
+    "current_unit": "1 ltr",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 79.0,
+        "unit": "1 ltr",
+        "norm_price": 79.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "79.0 / 1 L"
+  },
+  "fanta_can_orange_flavored_250_ml": {
+    "id": "fanta_can_orange_flavored_250_ml",
+    "name": "Fanta Can Orange Flavored",
+    "image": "https://i.chaldn.com/_mpimage/fanta-can-orange-flavored-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D109107&q=best&v=1&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 65.0,
+    "current_unit": "250 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 65.0,
+        "unit": "250 ml",
+        "norm_price": 260.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "260.0 / 1 L"
+  },
+  "fanta_orange_flavored_1_ltr": {
+    "id": "fanta_orange_flavored_1_ltr",
+    "name": "Fanta Orange Flavored",
+    "image": "https://i.chaldn.com/_mpimage/fanta-orange-flavored-1-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D164610&q=best&v=1&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 79.0,
+    "current_unit": "1 ltr",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 79.0,
+        "unit": "1 ltr",
+        "norm_price": 79.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "79.0 / 1 L"
+  },
+  "coca_cola_zero_sugar_250_ml": {
+    "id": "coca_cola_zero_sugar_250_ml",
+    "name": "Coca-Cola Zero Sugar",
+    "image": "https://i.chaldn.com/_mpimage/coca-cola-zero-sugar-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D186630&q=best&v=1&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 20.0,
+    "current_unit": "250 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 20.0,
+        "unit": "250 ml",
+        "norm_price": 80.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "80.0 / 1 L"
+  },
+  "mojo_pet_250_ml": {
+    "id": "mojo_pet_250_ml",
+    "name": "Mojo Pet",
+    "image": "https://i.chaldn.com/_mpimage/mojo-pet-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D161183&q=best&v=1&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 20.0,
+    "current_unit": "250 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 20.0,
+        "unit": "250 ml",
+        "norm_price": 80.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "80.0 / 1 L"
+  },
+  "mojo_soft_drink_2_ltr": {
+    "id": "mojo_soft_drink_2_ltr",
+    "name": "Mojo Soft Drink",
+    "image": "https://i.chaldn.com/_mpimage/mojo-soft-drink-2-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130804&q=best&v=1&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 110.0,
+    "current_unit": "2 ltr",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 110.0,
+        "unit": "2 ltr",
+        "norm_price": 55.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "55.0 / 1 L"
+  },
+  "sprite_1_75_ltr": {
+    "id": "sprite_1_75_ltr",
+    "name": "Sprite",
+    "image": "https://i.chaldn.com/_mpimage/sprite-175-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D174766&q=best&v=1&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 140.0,
+    "current_unit": "1.75 ltr",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 140.0,
+        "unit": "1.75 ltr",
+        "norm_price": 80.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "80.0 / 1 L"
+  },
+  "mountain_dew_500_ml": {
+    "id": "mountain_dew_500_ml",
+    "name": "Mountain Dew",
+    "image": "https://i.chaldn.com/_mpimage/mountain-dew-500-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D163559&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 50.0,
+    "current_unit": "500 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 50.0,
+        "unit": "500 ml",
+        "norm_price": 100.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "100.0 / 1 L"
+  },
+  "coca_cola_1_75_ltr": {
+    "id": "coca_cola_1_75_ltr",
+    "name": "Coca-Cola",
+    "image": "https://i.chaldn.com/_mpimage/coca-cola-175-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D174770&q=best&v=1&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 140.0,
+    "current_unit": "1.75 ltr",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 140.0,
+        "unit": "1.75 ltr",
+        "norm_price": 80.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "80.0 / 1 L"
+  },
+  "mojo_pet_1_ltr": {
+    "id": "mojo_pet_1_ltr",
+    "name": "Mojo Pet",
+    "image": "https://i.chaldn.com/_mpimage/mojo-pet-1-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130803&q=best&v=1&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 60.0,
+    "current_unit": "1 ltr",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 60.0,
+        "unit": "1 ltr",
+        "norm_price": 60.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "60.0 / 1 L"
+  },
+  "maxx_cola_2_ltr": {
+    "id": "maxx_cola_2_ltr",
+    "name": "Maxx Cola",
+    "image": "https://i.chaldn.com/_mpimage/maxx-cola-2-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D181219&q=best&v=1&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 100.0,
+    "current_unit": "2 ltr",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 100.0,
+        "unit": "2 ltr",
+        "norm_price": 50.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "50.0 / 1 L"
+  },
+  "maxx_cola_500_ml": {
+    "id": "maxx_cola_500_ml",
+    "name": "Maxx Cola",
+    "image": "https://i.chaldn.com/_mpimage/maxx-cola-500-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D180306&q=best&v=1&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 35.0,
+    "current_unit": "500 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 35.0,
+        "unit": "500 ml",
+        "norm_price": 70.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "70.0 / 1 L"
+  },
+  "fresh_cola_500_ml": {
+    "id": "fresh_cola_500_ml",
+    "name": "Fresh Cola",
+    "image": "https://i.chaldn.com/_mpimage/fresh-cola-500-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D184880&q=best&v=1&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 40.0,
+    "current_unit": "500 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 40.0,
+        "unit": "500 ml",
+        "norm_price": 80.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "80.0 / 1 L"
+  },
+  "clemon_mojito_can_250_ml": {
+    "id": "clemon_mojito_can_250_ml",
+    "name": "Clemon Mojito Can",
+    "image": "https://i.chaldn.com/_mpimage/clemon-mojito-can-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D161303&q=best&v=1&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 50.0,
+    "current_unit": "250 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 50.0,
+        "unit": "250 ml",
+        "norm_price": 200.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "200.0 / 1 L"
+  },
+  "sunquick_orange_fruit_drink_250_ml": {
+    "id": "sunquick_orange_fruit_drink_250_ml",
+    "name": "Sunquick Orange Fruit Drink",
+    "image": "https://i.chaldn.com/_mpimage/sunquick-orange-fruit-drink-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D180815&q=best&v=1&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 40.0,
+    "current_unit": "250 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 40.0,
+        "unit": "250 ml",
+        "norm_price": 160.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "160.0 / 1 L"
+  },
+  "sunquick_mango_fruit_drink_250_ml": {
+    "id": "sunquick_mango_fruit_drink_250_ml",
+    "name": "Sunquick Mango Fruit Drink",
+    "image": "https://i.chaldn.com/_mpimage/sunquick-mango-fruit-drink-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D180814&q=best&v=1&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 35.0,
+    "current_unit": "250 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 35.0,
+        "unit": "250 ml",
+        "norm_price": 140.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "140.0 / 1 L"
+  },
+  "rc_cola_250_ml": {
+    "id": "rc_cola_250_ml",
+    "name": "RC Cola",
+    "image": "https://i.chaldn.com/_mpimage/rc-cola-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D151176&q=best&v=1&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 20.0,
+    "current_unit": "250 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 20.0,
+        "unit": "250 ml",
+        "norm_price": 80.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "80.0 / 1 L"
+  },
+  "fresh_googly_250_ml": {
+    "id": "fresh_googly_250_ml",
+    "name": "Fresh Googly",
+    "image": "https://i.chaldn.com/_mpimage/fresh-googly-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D127682&q=best&v=1&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 20.0,
+    "current_unit": "250 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 20.0,
+        "unit": "250 ml",
+        "norm_price": 80.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "80.0 / 1 L"
+  },
+  "tata_tea_premium_400_gm": {
+    "id": "tata_tea_premium_400_gm",
+    "name": "Tata Tea Premium",
+    "image": "https://i.chaldn.com/_mpimage/tata-tea-premium-400-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D161107&q=best&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 149.0,
+    "current_unit": "400 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 149.0,
+        "unit": "400 gm",
+        "norm_price": 372.5,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "372.5 / 1 kg"
+  },
+  "pepsi_1_75_ltr": {
+    "id": "pepsi_1_75_ltr",
+    "name": "Pepsi",
+    "image": "https://i.chaldn.com/_mpimage/pepsi-175-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D177196&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 150.0,
+    "current_unit": "1.75 ltr",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 150.0,
+        "unit": "1.75 ltr",
+        "norm_price": 85.71,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "85.71 / 1 L"
+  },
+  "dilmah_ceylon_moroccan_mint_green_tea_40_gm": {
+    "id": "dilmah_ceylon_moroccan_mint_green_tea_40_gm",
+    "name": "Dilmah Ceylon Moroccan Mint Green Tea",
+    "image": "https://i.chaldn.com/_mpimage/dilmah-ceylon-moroccan-mint-green-tea-40-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D177291&q=best&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 549.0,
+    "current_unit": "40 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 549.0,
+        "unit": "40 gm",
+        "norm_price": 13725.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "13725.0 / 1 kg"
+  },
+  "houston_soft_drink_can_250_ml": {
+    "id": "houston_soft_drink_can_250_ml",
+    "name": "Houston Soft Drink Can",
+    "image": "https://i.chaldn.com/_mpimage/houston-soft-drink-can-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D97110&q=best&v=1&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 40.0,
+    "current_unit": "250 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 40.0,
+        "unit": "250 ml",
+        "norm_price": 160.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "160.0 / 1 L"
+  },
+  "ispahani_mirzapore_best_leaf_tea_500_gm": {
+    "id": "ispahani_mirzapore_best_leaf_tea_500_gm",
+    "name": "Ispahani Mirzapore Best Leaf Tea",
+    "image": "https://i.chaldn.com/_mpimage/ispahani-mirzapore-best-leaf-tea-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D124592&q=best&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 270.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 270.0,
+        "unit": "500 gm",
+        "norm_price": 540.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "540.0 / 1 kg"
+  },
+  "rc_q_orange_pet_250_ml": {
+    "id": "rc_q_orange_pet_250_ml",
+    "name": "RC Q Orange Pet",
+    "image": "https://i.chaldn.com/_mpimage/rc-q-orange-pet-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D142016&q=best&v=1&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 20.0,
+    "current_unit": "250 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 20.0,
+        "unit": "250 ml",
+        "norm_price": 80.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "80.0 / 1 L"
+  },
+  "seylon_family_blend_black_tea_400_gm": {
+    "id": "seylon_family_blend_black_tea_400_gm",
+    "name": "Seylon Family Blend Black Tea",
+    "image": "https://i.chaldn.com/_mpimage/seylon-family-blend-black-tea-400-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D131441&q=best&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 225.0,
+    "current_unit": "400 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 225.0,
+        "unit": "400 gm",
+        "norm_price": 562.5,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "562.5 / 1 kg"
+  },
+  "fresh_cola_1_ltr": {
+    "id": "fresh_cola_1_ltr",
+    "name": "Fresh Cola",
+    "image": "https://i.chaldn.com/_mpimage/fresh-cola-1-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D141596&q=best&v=1&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 60.0,
+    "current_unit": "1 ltr",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 60.0,
+        "unit": "1 ltr",
+        "norm_price": 60.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "60.0 / 1 L"
+  },
+  "dilmah_premium_ceylon_tea_50_gm_25_pcs": {
+    "id": "dilmah_premium_ceylon_tea_50_gm_25_pcs",
+    "name": "Dilmah Premium Ceylon Tea 50 gm",
+    "image": "https://i.chaldn.com/_mpimage/dilmah-premium-ceylon-tea-50-gm-25-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D180154&q=low&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 480.0,
+    "current_unit": "25 pcs",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 480.0,
+        "unit": "25 pcs",
+        "norm_price": 19.2,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "19.2 / 1 pc"
+  },
+  "pran_up_500_ml": {
+    "id": "pran_up_500_ml",
+    "name": "Pran Up",
+    "image": "https://i.chaldn.com/_mpimage/pran-up-500-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132339&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 35.0,
+    "current_unit": "500 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 35.0,
+        "unit": "500 ml",
+        "norm_price": 70.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "70.0 / 1 L"
+  },
+  "kazi_kazi_organic_moringa_herbal_infusion_tea_25_pcs_37_5_gm": {
+    "id": "kazi_kazi_organic_moringa_herbal_infusion_tea_25_pcs_37_5_gm",
+    "name": "Kazi & Kazi Organic Moringa Herbal Infusion Tea 25 pcs",
+    "image": "https://i.chaldn.com/_mpimage/kazi-kazi-organic-moringa-herbal-infusion-tea-25-pcs-375-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D167914&q=best&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 290.0,
+    "current_unit": "37.5 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 290.0,
+        "unit": "37.5 gm",
+        "norm_price": 7733.33,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "7733.33 / 1 kg"
+  },
+  "fresh_cola_250_ml": {
+    "id": "fresh_cola_250_ml",
+    "name": "Fresh Cola",
+    "image": "https://i.chaldn.com/_mpimage/fresh-cola-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D184879&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 20.0,
+    "current_unit": "250 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 20.0,
+        "unit": "250 ml",
+        "norm_price": 80.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "80.0 / 1 L"
+  },
+  "kazi_kazi_organic_lemongrass_pyramid_herbal_infusion_tea_20_pcs_30_gm": {
+    "id": "kazi_kazi_organic_lemongrass_pyramid_herbal_infusion_tea_20_pcs_30_gm",
+    "name": "Kazi & Kazi Organic Lemongrass Pyramid Herbal Infusion Tea 20 pcs",
+    "image": "https://i.chaldn.com/_mpimage/kazi-kazi-organic-lemongrass-pyramid-herbal-infusion-tea-20-pcs-30-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D167910&q=best&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 210.0,
+    "current_unit": "30 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 210.0,
+        "unit": "30 gm",
+        "norm_price": 7000.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "7000.0 / 1 kg"
+  },
+  "seylon_family_blend_black_tea_200_gm": {
+    "id": "seylon_family_blend_black_tea_200_gm",
+    "name": "Seylon Family Blend Black Tea",
+    "image": "https://i.chaldn.com/_mpimage/seylon-family-blend-black-tea-200-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D131443&q=best&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 120.0,
+    "current_unit": "200 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 120.0,
+        "unit": "200 gm",
+        "norm_price": 600.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "600.0 / 1 kg"
+  },
+  "speed_can_250_ml": {
+    "id": "speed_can_250_ml",
+    "name": "Speed Can",
+    "image": "https://i.chaldn.com/_mpimage/speed-can-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D134962&q=best&v=1&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 50.0,
+    "current_unit": "250 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 50.0,
+        "unit": "250 ml",
+        "norm_price": 200.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "200.0 / 1 L"
+  },
+  "dilmah_ceylon_green_tea_with_cardamom_40_gm": {
+    "id": "dilmah_ceylon_green_tea_with_cardamom_40_gm",
+    "name": "Dilmah Ceylon Green Tea With Cardamom",
+    "image": "https://i.chaldn.com/_mpimage/dilmah-ceylon-green-tea-with-cardamom-40-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D177292&q=best&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 715.0,
+    "current_unit": "40 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 715.0,
+        "unit": "40 gm",
+        "norm_price": 17875.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "17875.0 / 1 kg"
+  },
+  "clemon_can_250_ml": {
+    "id": "clemon_can_250_ml",
+    "name": "Clemon Can",
+    "image": "https://i.chaldn.com/_mpimage/clemon-can-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D126978&q=best&v=1&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 40.0,
+    "current_unit": "250 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 40.0,
+        "unit": "250 ml",
+        "norm_price": 160.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "160.0 / 1 L"
+  },
+  "mojo_can_250_ml": {
+    "id": "mojo_can_250_ml",
+    "name": "Mojo Can",
+    "image": "https://i.chaldn.com/_mpimage/mojo-can-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130799&q=best&v=1&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 40.0,
+    "current_unit": "250 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 40.0,
+        "unit": "250 ml",
+        "norm_price": 160.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "160.0 / 1 L"
+  },
+  "fresh_premium_tea_bag_100_gm": {
+    "id": "fresh_premium_tea_bag_100_gm",
+    "name": "Fresh Premium Tea Bag",
+    "image": "https://i.chaldn.com/_mpimage/fresh-premium-tea-bag-100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128650&q=best&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 95.0,
+    "current_unit": "100 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 95.0,
+        "unit": "100 gm",
+        "norm_price": 950.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "950.0 / 1 kg"
+  },
+  "dolphin_nata_de_coco_lychee_drink_350_ml": {
+    "id": "dolphin_nata_de_coco_lychee_drink_350_ml",
+    "name": "Dolphin Nata De Coco Lychee Drink",
+    "image": "https://i.chaldn.com/_mpimage/dolphin-nata-de-coco-lychee-drink-350-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D127803&q=best&v=1&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 280.0,
+    "current_unit": "350 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 280.0,
+        "unit": "350 ml",
+        "norm_price": 800.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "800.0 / 1 L"
+  },
+  "lipton_green_tea_bag_honey_and_lemon_25_pcs": {
+    "id": "lipton_green_tea_bag_honey_and_lemon_25_pcs",
+    "name": "Lipton Green Tea Bag Honey and Lemon",
+    "image": "https://i.chaldn.com/_mpimage/lipton-green-tea-bag-honey-and-lemon-25-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D163955&q=best&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 170.0,
+    "current_unit": "25 pcs",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 170.0,
+        "unit": "25 pcs",
+        "norm_price": 6.8,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "6.8 / 1 pc"
+  },
+  "basil_seed_drink_mixed_fruit__290_ml": {
+    "id": "basil_seed_drink_mixed_fruit__290_ml",
+    "name": "Basil Seed Drink (Mixed Fruit)",
+    "image": "https://i.chaldn.com/_mpimage/basil-seed-drink-mixed-fruit-290-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D125535&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 270.0,
+    "current_unit": "290 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 270.0,
+        "unit": "290 ml",
+        "norm_price": 931.03,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "931.03 / 1 L"
+  },
+  "tetley_green_tea_bag_pure_and_original_25_pcs_32_5_gm": {
+    "id": "tetley_green_tea_bag_pure_and_original_25_pcs_32_5_gm",
+    "name": "Tetley Green Tea Bag Pure and Original 25 pcs",
+    "image": "https://i.chaldn.com/_mpimage/tetley-green-tea-bag-pure-and-original-25-pcs-325-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D161034&q=best&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 140.0,
+    "current_unit": "32.5 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 140.0,
+        "unit": "32.5 gm",
+        "norm_price": 4307.69,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "4307.69 / 1 kg"
+  },
+  "basil_seed_drink_white_grape__290_ml": {
+    "id": "basil_seed_drink_white_grape__290_ml",
+    "name": "Basil Seed Drink (White Grape)",
+    "image": "https://i.chaldn.com/_mpimage/basil-seed-drink-white-grape-290-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D125539&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 270.0,
+    "current_unit": "290 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 270.0,
+        "unit": "290 ml",
+        "norm_price": 931.03,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "931.03 / 1 L"
+  },
+  "seylon_instant_milk_tea_3_in_1_15_gm": {
+    "id": "seylon_instant_milk_tea_3_in_1_15_gm",
+    "name": "Seylon Instant Milk Tea 3 in 1",
+    "image": "https://i.chaldn.com/_mpimage/seylon-instant-milk-tea-3-in-1-15-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D160877&q=best&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 10.0,
+    "current_unit": "15 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 10.0,
+        "unit": "15 gm",
+        "norm_price": 666.67,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "666.67 / 1 kg"
+  },
+  "basil_seed_drink_lychee__290_ml": {
+    "id": "basil_seed_drink_lychee__290_ml",
+    "name": "Basil Seed Drink (Lychee)",
+    "image": "https://i.chaldn.com/_mpimage/basil-seed-drink-lychee-290-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D125533&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 270.0,
+    "current_unit": "290 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 270.0,
+        "unit": "290 ml",
+        "norm_price": 931.03,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "931.03 / 1 L"
+  },
+  "ispahani_mirzapore_tea_bag_50_pcs": {
+    "id": "ispahani_mirzapore_tea_bag_50_pcs",
+    "name": "Ispahani Mirzapore Tea Bag",
+    "image": "https://i.chaldn.com/_mpimage/ispahani-mirzapore-tea-bag-50-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D107252&q=best&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 100.0,
+    "current_unit": "50 pcs",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 100.0,
+        "unit": "50 pcs",
+        "norm_price": 2.0,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "2.0 / 1 pc"
+  },
+  "pepsi_can_imported__330_ml": {
+    "id": "pepsi_can_imported__330_ml",
+    "name": "Pepsi Can (Imported)",
+    "image": "https://i.chaldn.com/_mpimage/pepsi-can-imported-330-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D109595&q=best&v=1&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 300.0,
+    "current_unit": "330 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 300.0,
+        "unit": "330 ml",
+        "norm_price": 909.09,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "909.09 / 1 L"
+  },
+  "ispahani_mirzapore_best_leaf_tea_400_gm": {
+    "id": "ispahani_mirzapore_best_leaf_tea_400_gm",
+    "name": "Ispahani Mirzapore Best Leaf Tea",
+    "image": "https://i.chaldn.com/_mpimage/ispahani-mirzapore-best-leaf-tea-400-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D107236&q=best&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 230.0,
+    "current_unit": "400 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 230.0,
+        "unit": "400 gm",
+        "norm_price": 575.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "575.0 / 1 kg"
+  },
+  "7_up_can_250_ml": {
+    "id": "7_up_can_250_ml",
+    "name": "7 Up Can",
+    "image": "https://i.chaldn.com/_mpimage/7-up-can-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D169160&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 70.0,
+    "current_unit": "250 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 70.0,
+        "unit": "250 ml",
+        "norm_price": 280.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "280.0 / 1 L"
+  },
+  "ispahani_mirzapore_best_leaf_tea_200_gm": {
+    "id": "ispahani_mirzapore_best_leaf_tea_200_gm",
+    "name": "Ispahani Mirzapore Best Leaf Tea",
+    "image": "https://i.chaldn.com/_mpimage/ispahani-mirzapore-best-leaf-tea-200-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D129554&q=best&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 116.0,
+    "current_unit": "200 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 116.0,
+        "unit": "200 gm",
+        "norm_price": 580.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "580.0 / 1 kg"
+  },
+  "sprite_can_imported__320_ml": {
+    "id": "sprite_can_imported__320_ml",
+    "name": "Sprite Can (Imported)",
+    "image": "https://i.chaldn.com/_mpimage/sprite-can-imported-320-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D158025&q=best&v=1&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 349.0,
+    "current_unit": "320 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 349.0,
+        "unit": "320 ml",
+        "norm_price": 1090.62,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1090.62 / 1 L"
+  },
+  "pepsi_can_250_ml": {
+    "id": "pepsi_can_250_ml",
+    "name": "Pepsi Can",
+    "image": "https://i.chaldn.com/_mpimage/pepsi-can-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D177363&q=best&v=1&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 70.0,
+    "current_unit": "250 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 70.0,
+        "unit": "250 ml",
+        "norm_price": 280.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "280.0 / 1 L"
+  },
+  "seylon_gold_tea_500_gm": {
+    "id": "seylon_gold_tea_500_gm",
+    "name": "Seylon Gold Tea",
+    "image": "https://i.chaldn.com/_mpimage/seylon-gold-tea-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D78089&q=best&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 240.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 240.0,
+        "unit": "500 gm",
+        "norm_price": 480.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "480.0 / 1 kg"
+  },
+  "mountain_dew_can_250_ml": {
+    "id": "mountain_dew_can_250_ml",
+    "name": "Mountain Dew Can",
+    "image": "https://i.chaldn.com/_mpimage/mountain-dew-can-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130891&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 70.0,
+    "current_unit": "250 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 70.0,
+        "unit": "250 ml",
+        "norm_price": 280.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "280.0 / 1 L"
+  },
+  "mirinda_can_250_ml": {
+    "id": "mirinda_can_250_ml",
+    "name": "Mirinda Can",
+    "image": "https://i.chaldn.com/_mpimage/mirinda-can-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D177362&q=best&v=1&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 70.0,
+    "current_unit": "250 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 70.0,
+        "unit": "250 ml",
+        "norm_price": 280.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "280.0 / 1 L"
+  },
+  "brooke_bond_taaza_black_tea_200_gm": {
+    "id": "brooke_bond_taaza_black_tea_200_gm",
+    "name": "Brooke Bond Taaza Black Tea",
+    "image": "https://i.chaldn.com/_mpimage/brooke-bond-taaza-black-tea-200-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D162454&q=best&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 130.0,
+    "current_unit": "200 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 130.0,
+        "unit": "200 gm",
+        "norm_price": 650.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "650.0 / 1 kg"
+  },
+  "pepsi_1_ltr": {
+    "id": "pepsi_1_ltr",
+    "name": "Pepsi",
+    "image": "https://i.chaldn.com/_mpimage/pepsi-1-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D174300&q=best&v=1&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 80.0,
+    "current_unit": "1 ltr",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 80.0,
+        "unit": "1 ltr",
+        "norm_price": 80.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "80.0 / 1 L"
+  },
+  "dilmah_geen_tea_with_jasmine_40_gm_20_pcs": {
+    "id": "dilmah_geen_tea_with_jasmine_40_gm_20_pcs",
+    "name": "Dilmah Geen Tea with Jasmine 40 gm",
+    "image": "https://i.chaldn.com/_mpimage/dilmah-geen-tea-with-jasmine-40-gm-20-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D180151&q=best&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 595.0,
+    "current_unit": "20 pcs",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 595.0,
+        "unit": "20 pcs",
+        "norm_price": 29.75,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "29.75 / 1 pc"
+  },
+  "7_up_500_ml": {
+    "id": "7_up_500_ml",
+    "name": "7 Up",
+    "image": "https://i.chaldn.com/_mpimage/7-up-500-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D163563&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 50.0,
+    "current_unit": "500 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 50.0,
+        "unit": "500 ml",
+        "norm_price": 100.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "100.0 / 1 L"
+  },
+  "dilmah_green_tea_with_camomile_30_gm_20_pcs": {
+    "id": "dilmah_green_tea_with_camomile_30_gm_20_pcs",
+    "name": "Dilmah Green Tea with Camomile 30 gm",
+    "image": "https://i.chaldn.com/_mpimage/dilmah-green-tea-with-camomile-30-gm-20-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D180150&q=best&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 630.0,
+    "current_unit": "20 pcs",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 630.0,
+        "unit": "20 pcs",
+        "norm_price": 31.5,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "31.5 / 1 pc"
+  },
+  "7_up_1_ltr": {
+    "id": "7_up_1_ltr",
+    "name": "7 Up",
+    "image": "https://i.chaldn.com/_mpimage/7-up-1-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D122690&q=best&v=1&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 80.0,
+    "current_unit": "1 ltr",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 80.0,
+        "unit": "1 ltr",
+        "norm_price": 80.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "80.0 / 1 L"
+  },
+  "dilmah_darjeeling_tea_50_gm_25_pcs": {
+    "id": "dilmah_darjeeling_tea_50_gm_25_pcs",
+    "name": "Dilmah Darjeeling Tea 50 gm",
+    "image": "https://i.chaldn.com/_mpimage/dilmah-darjeeling-tea-50-gm-25-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D180128&q=best&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 790.0,
+    "current_unit": "25 pcs",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 790.0,
+        "unit": "25 pcs",
+        "norm_price": 31.6,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "31.6 / 1 pc"
+  },
+  "clemon_2_ltr": {
+    "id": "clemon_2_ltr",
+    "name": "Clemon",
+    "image": "https://i.chaldn.com/_mpimage/clemon-2-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D126976&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 110.0,
+    "current_unit": "2 ltr",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 110.0,
+        "unit": "2 ltr",
+        "norm_price": 55.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "55.0 / 1 L"
+  },
+  "pepsi_500_ml": {
+    "id": "pepsi_500_ml",
+    "name": "Pepsi",
+    "image": "https://i.chaldn.com/_mpimage/pepsi-500-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D163558&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 50.0,
+    "current_unit": "500 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 50.0,
+        "unit": "500 ml",
+        "norm_price": 100.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "100.0 / 1 L"
+  },
+  "seylon_instant_milk_tea_3_in_1_stick_pouch_25_pcs": {
+    "id": "seylon_instant_milk_tea_3_in_1_stick_pouch_25_pcs",
+    "name": "Seylon Instant Milk Tea 3 in 1 Stick Pouch",
+    "image": "https://i.chaldn.com/_mpimage/seylon-instant-milk-tea-3-in-1-stick-pouch-25-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D175818&q=best&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 250.0,
+    "current_unit": "25 pcs",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 250.0,
+        "unit": "25 pcs",
+        "norm_price": 10.0,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "10.0 / 1 pc"
+  },
+  "mojo_pet_500_ml": {
+    "id": "mojo_pet_500_ml",
+    "name": "Mojo Pet",
+    "image": "https://i.chaldn.com/_mpimage/mojo-pet-500-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130802&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 40.0,
+    "current_unit": "500 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 40.0,
+        "unit": "500 ml",
+        "norm_price": 80.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "80.0 / 1 L"
+  },
+  "kazi_kazi_organic_orthodox_pyramid_black_tea_20_pcs_40_gm": {
+    "id": "kazi_kazi_organic_orthodox_pyramid_black_tea_20_pcs_40_gm",
+    "name": "Kazi & Kazi Organic Orthodox Pyramid Black Tea 20 pcs",
+    "image": "https://i.chaldn.com/_mpimage/kazi-kazi-organic-orthodox-pyramid-black-tea-20-pcs-40-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D167925&q=best&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 190.0,
+    "current_unit": "40 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 190.0,
+        "unit": "40 gm",
+        "norm_price": 4750.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "4750.0 / 1 kg"
+  },
+  "coca_cola_can_imported__320_ml": {
+    "id": "coca_cola_can_imported__320_ml",
+    "name": "Coca-Cola Can (Imported)",
+    "image": "https://i.chaldn.com/_mpimage/coca-cola-can-imported-320-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D127011&q=best&v=1&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 299.0,
+    "current_unit": "320 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 299.0,
+        "unit": "320 ml",
+        "norm_price": 934.38,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "934.38 / 1 L"
+  },
+  "kazi_kazi_organic_luxury_black_tea_400_gm": {
+    "id": "kazi_kazi_organic_luxury_black_tea_400_gm",
+    "name": "Kazi & Kazi Organic Luxury Black Tea",
+    "image": "https://i.chaldn.com/_mpimage/kazi-kazi-organic-luxury-black-tea-400-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D167924&q=best&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 345.0,
+    "current_unit": "400 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 345.0,
+        "unit": "400 gm",
+        "norm_price": 862.5,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "862.5 / 1 kg"
+  },
+  "mirinda_orange_500_ml": {
+    "id": "mirinda_orange_500_ml",
+    "name": "Mirinda Orange",
+    "image": "https://i.chaldn.com/_mpimage/mirinda-orange-500-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D163669&q=best&v=1&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 50.0,
+    "current_unit": "500 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 50.0,
+        "unit": "500 ml",
+        "norm_price": 100.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "100.0 / 1 L"
+  },
+  "kazi_kazi_organic_luxury_black_tea_200_gm": {
+    "id": "kazi_kazi_organic_luxury_black_tea_200_gm",
+    "name": "Kazi & Kazi Organic Luxury Black Tea",
+    "image": "https://i.chaldn.com/_mpimage/kazi-kazi-organic-luxury-black-tea-200-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D167921&q=best&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 180.0,
+    "current_unit": "200 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 180.0,
+        "unit": "200 gm",
+        "norm_price": 900.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "900.0 / 1 kg"
+  },
+  "coca_cola_can_250_ml": {
+    "id": "coca_cola_can_250_ml",
+    "name": "Coca-Cola Can",
+    "image": "https://i.chaldn.com/_mpimage/coca-cola-can-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D146657&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Soft Drinks",
+    "current_price": 70.0,
+    "current_unit": "250 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 70.0,
+        "unit": "250 ml",
+        "norm_price": 280.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "280.0 / 1 L"
+  },
+  "kazi_kazi_organic_chamomile_herbal_infusion_tea_25_pcs_37_5_gm": {
+    "id": "kazi_kazi_organic_chamomile_herbal_infusion_tea_25_pcs_37_5_gm",
+    "name": "Kazi & Kazi Organic Chamomile Herbal Infusion Tea 25 pcs",
+    "image": "https://i.chaldn.com/_mpimage/kazi-kazi-organic-chamomile-herbal-infusion-tea-25-pcs-375-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D167913&q=best&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 490.0,
+    "current_unit": "37.5 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 490.0,
+        "unit": "37.5 gm",
+        "norm_price": 13066.67,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "13066.67 / 1 kg"
+  },
+  "kazi_kazi_organic_sleepy_tea_25_pcs_37_5_gm": {
+    "id": "kazi_kazi_organic_sleepy_tea_25_pcs_37_5_gm",
+    "name": "Kazi & Kazi Organic Sleepy Tea 25 pcs",
+    "image": "https://i.chaldn.com/_mpimage/kazi-kazi-organic-sleepy-tea-25-pcs-375-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D167912&q=best&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 490.0,
+    "current_unit": "37.5 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 490.0,
+        "unit": "37.5 gm",
+        "norm_price": 13066.67,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "13066.67 / 1 kg"
+  },
+  "kazi_kazi_organic_orthodox_pyramid_oolong_tea_20_pcs_40_gm": {
+    "id": "kazi_kazi_organic_orthodox_pyramid_oolong_tea_20_pcs_40_gm",
+    "name": "Kazi & Kazi Organic Orthodox Pyramid Oolong Tea 20 pcs",
+    "image": "https://i.chaldn.com/_mpimage/kazi-kazi-organic-orthodox-pyramid-oolong-tea-20-pcs-40-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D167909&q=best&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 210.0,
+    "current_unit": "40 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 210.0,
+        "unit": "40 gm",
+        "norm_price": 5250.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "5250.0 / 1 kg"
+  },
+  "kazi_kazi_organic_orthodox_pyramid_green_tea_20_pcs_30_gm": {
+    "id": "kazi_kazi_organic_orthodox_pyramid_green_tea_20_pcs_30_gm",
+    "name": "Kazi & Kazi Organic Orthodox Pyramid Green Tea 20 pcs",
+    "image": "https://i.chaldn.com/_mpimage/kazi-kazi-organic-orthodox-pyramid-green-tea-20-pcs-30-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D167908&q=best&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 210.0,
+    "current_unit": "30 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 210.0,
+        "unit": "30 gm",
+        "norm_price": 7000.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "7000.0 / 1 kg"
+  },
+  "brooke_bond_taaza_tea_500_gm": {
+    "id": "brooke_bond_taaza_tea_500_gm",
+    "name": "Brooke Bond Taaza Tea",
+    "image": "https://i.chaldn.com/_mpimage/brooke-bond-taaza-tea-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D177075&q=best&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 250.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 250.0,
+        "unit": "500 gm",
+        "norm_price": 500.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "500.0 / 1 kg"
+  },
+  "revival_lemon_green_tea_45_gm": {
+    "id": "revival_lemon_green_tea_45_gm",
+    "name": "Revival Lemon Green Tea",
+    "image": "https://i.chaldn.com/_mpimage/revival-lemon-green-tea-45-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D136907&q=best&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 160.0,
+    "current_unit": "45 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 160.0,
+        "unit": "45 gm",
+        "norm_price": 3555.56,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "3555.56 / 1 kg"
+  },
+  "yummy_black_tea_500_gm": {
+    "id": "yummy_black_tea_500_gm",
+    "name": "Yummy Black Tea",
+    "image": "https://i.chaldn.com/_mpimage/yummy-black-tea-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D134013&q=best&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 400.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 400.0,
+        "unit": "500 gm",
+        "norm_price": 800.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "800.0 / 1 kg"
+  },
+  "zealcafe_instant_masala_tea_red_tea__1_kg": {
+    "id": "zealcafe_instant_masala_tea_red_tea__1_kg",
+    "name": "ZealCafe Instant Masala Tea (Red Tea)",
+    "image": "https://i.chaldn.com/_mpimage/zealcafe-instant-masala-tea-red-tea-1-kg?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D131151&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 360.0,
+    "current_unit": "1 kg",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 360.0,
+        "unit": "1 kg",
+        "norm_price": 360.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "360.0 / 1 kg"
+  },
+  "kd_herbal_tea_100_gm": {
+    "id": "kd_herbal_tea_100_gm",
+    "name": "Kd Herbal Tea",
+    "image": "https://i.chaldn.com/_mpimage/kd-herbal-tea-100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D124546&q=best&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 620.0,
+    "current_unit": "100 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 620.0,
+        "unit": "100 gm",
+        "norm_price": 6200.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "6200.0 / 1 kg"
+  },
+  "halda_valley_red_robe_oolong_tea_45_gm": {
+    "id": "halda_valley_red_robe_oolong_tea_45_gm",
+    "name": "Halda Valley Red Robe Oolong Tea",
+    "image": "https://i.chaldn.com/_mpimage/halda-valley-red-robe-oolong-tea-45-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D169857&q=best&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 245.0,
+    "current_unit": "45 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 245.0,
+        "unit": "45 gm",
+        "norm_price": 5444.44,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "5444.44 / 1 kg"
+  },
+  "revival_karak_masala_tea_200_gm": {
+    "id": "revival_karak_masala_tea_200_gm",
+    "name": "Revival Karak Masala Tea",
+    "image": "https://i.chaldn.com/_mpimage/revival-karak-masala-tea-200-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D100508&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 220.0,
+    "current_unit": "200 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 220.0,
+        "unit": "200 gm",
+        "norm_price": 1100.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1100.0 / 1 kg"
+  },
+  "dr_h_h_slimming_tea_bags_30_pcs_60_gm": {
+    "id": "dr_h_h_slimming_tea_bags_30_pcs_60_gm",
+    "name": "Dr. H&H Slimming Tea Bags 30 pcs",
+    "image": "https://i.chaldn.com/_mpimage/dr-hh-slimming-tea-bags-30-pcs-60-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D174212&q=best&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 400.0,
+    "current_unit": "60 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 400.0,
+        "unit": "60 gm",
+        "norm_price": 6666.67,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "6666.67 / 1 kg"
+  },
+  "kericho_gold_round_tea_bag_50_pcs_100_gm": {
+    "id": "kericho_gold_round_tea_bag_50_pcs_100_gm",
+    "name": "Kericho Gold Round Tea Bag 50 pcs",
+    "image": "https://i.chaldn.com/_mpimage/kericho-gold-round-tea-bag-50-pcs-100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D96121&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 329.0,
+    "current_unit": "100 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 329.0,
+        "unit": "100 gm",
+        "norm_price": 3290.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "3290.0 / 1 kg"
+  },
+  "acme_tea_premium_gold_200_gm": {
+    "id": "acme_tea_premium_gold_200_gm",
+    "name": "ACME Tea Premium Gold",
+    "image": "https://i.chaldn.com/_mpimage/acme-tea-premium-gold-200-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D122878&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 110.0,
+    "current_unit": "200 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 110.0,
+        "unit": "200 gm",
+        "norm_price": 550.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "550.0 / 1 kg"
+  },
+  "dilmah_ginger_honey_black_tea_30_gm": {
+    "id": "dilmah_ginger_honey_black_tea_30_gm",
+    "name": "Dilmah Ginger & Honey Black Tea",
+    "image": "https://i.chaldn.com/_mpimage/dilmah-ginger-honey-black-tea-30-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D106758&q=best&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 405.0,
+    "current_unit": "30 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 405.0,
+        "unit": "30 gm",
+        "norm_price": 13500.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "13500.0 / 1 kg"
+  },
+  "kazi_kazi_organic_tea_turmeric_infusion_40_pcs_60_gm": {
+    "id": "kazi_kazi_organic_tea_turmeric_infusion_40_pcs_60_gm",
+    "name": "Kazi\u00a0&\u00a0Kazi Organic Tea Turmeric Infusion 40 pcs",
+    "image": "https://i.chaldn.com/_mpimage/kazikazi-organic-tea-turmeric-infusion-40-pcs-60-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D108235&q=best&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 295.0,
+    "current_unit": "60 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 295.0,
+        "unit": "60 gm",
+        "norm_price": 4916.67,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "4916.67 / 1 kg"
+  },
+  "halda_valley_golden_eyebrow_black_tea_50_gm": {
+    "id": "halda_valley_golden_eyebrow_black_tea_50_gm",
+    "name": "Halda Valley Golden Eyebrow Black Tea",
+    "image": "https://i.chaldn.com/_mpimage/halda-valley-golden-eyebrow-black-tea-50-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128985&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 500.0,
+    "current_unit": "50 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 500.0,
+        "unit": "50 gm",
+        "norm_price": 10000.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "10000.0 / 1 kg"
+  },
+  "dilmah_ceylon_green_tea_with_ceylon_cinnamon_40_gm": {
+    "id": "dilmah_ceylon_green_tea_with_ceylon_cinnamon_40_gm",
+    "name": "Dilmah Ceylon Green Tea With Ceylon Cinnamon",
+    "image": "https://i.chaldn.com/_mpimage/dilmah-ceylon-green-tea-with-ceylon-cinnamon-40-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D177290&q=best&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 715.0,
+    "current_unit": "40 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 715.0,
+        "unit": "40 gm",
+        "norm_price": 17875.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "17875.0 / 1 kg"
+  },
+  "kazi_kazi_organic_green_mint_tea_25_pcs_37_5_gm": {
+    "id": "kazi_kazi_organic_green_mint_tea_25_pcs_37_5_gm",
+    "name": "Kazi & Kazi Organic Green Mint Tea 25 pcs",
+    "image": "https://i.chaldn.com/_mpimage/kazi-kazi-organic-green-mint-tea-25-pcs-375-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D158244&q=best&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 295.0,
+    "current_unit": "37.5 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 295.0,
+        "unit": "37.5 gm",
+        "norm_price": 7866.67,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "7866.67 / 1 kg"
+  },
+  "paragon_hajinagar_pd_tea_500_gm": {
+    "id": "paragon_hajinagar_pd_tea_500_gm",
+    "name": "Paragon Hajinagar PD Tea",
+    "image": "https://i.chaldn.com/_mpimage/paragon-hajinagar-pd-tea-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D115939&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 225.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 225.0,
+        "unit": "500 gm",
+        "norm_price": 450.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "450.0 / 1 kg"
+  },
+  "paragon_hajinagar_bop_tea_500_gm": {
+    "id": "paragon_hajinagar_bop_tea_500_gm",
+    "name": "Paragon Hajinagar BOP Tea",
+    "image": "https://i.chaldn.com/_mpimage/paragon-hajinagar-bop-tea-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D115938&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 220.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 220.0,
+        "unit": "500 gm",
+        "norm_price": 440.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "440.0 / 1 kg"
+  },
+  "kazi_kazi_organic_green_lemongrass_tea_40_pcs_60_gm": {
+    "id": "kazi_kazi_organic_green_lemongrass_tea_40_pcs_60_gm",
+    "name": "Kazi & Kazi Organic Green Lemongrass Tea 40 pcs",
+    "image": "https://i.chaldn.com/_mpimage/kazi-kazi-organic-green-lemongrass-tea-40-pcs-60-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D108204&q=best&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 220.0,
+    "current_unit": "60 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 220.0,
+        "unit": "60 gm",
+        "norm_price": 3666.67,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "3666.67 / 1 kg"
+  },
+  "lipton_green_tea_pure_and_light_50_pcs": {
+    "id": "lipton_green_tea_pure_and_light_50_pcs",
+    "name": "Lipton Green Tea Pure And Light",
+    "image": "https://i.chaldn.com/_mpimage/lipton-green-tea-pure-and-light-50-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D93650&q=best&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 280.0,
+    "current_unit": "50 pcs",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 280.0,
+        "unit": "50 pcs",
+        "norm_price": 5.6,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "5.6 / 1 pc"
+  },
+  "jafflong_green_tea_bag_in_bag_100_gm": {
+    "id": "jafflong_green_tea_bag_in_bag_100_gm",
+    "name": "Jafflong Green Tea Bag In Bag",
+    "image": "https://i.chaldn.com/_mpimage/jafflong-green-tea-bag-in-bag-100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D107299&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 230.0,
+    "current_unit": "100 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 230.0,
+        "unit": "100 gm",
+        "norm_price": 2300.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2300.0 / 1 kg"
+  },
+  "ispahani_blender_s_choice_premium_black_tea_400_gm": {
+    "id": "ispahani_blender_s_choice_premium_black_tea_400_gm",
+    "name": "Ispahani Blender's Choice Premium Black Tea",
+    "image": "https://i.chaldn.com/_mpimage/ispahani-blenders-choice-premium-black-tea-400-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D160152&q=best&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 310.0,
+    "current_unit": "400 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 310.0,
+        "unit": "400 gm",
+        "norm_price": 775.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "775.0 / 1 kg"
+  },
+  "kazi_kazi_organic_lemongrass_herbal_infusion_50_gm": {
+    "id": "kazi_kazi_organic_lemongrass_herbal_infusion_50_gm",
+    "name": "Kazi & Kazi Organic Lemongrass Herbal Infusion",
+    "image": "https://i.chaldn.com/_mpimage/kazi-kazi-organic-lemongrass-herbal-infusion-50-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D108213&q=best&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 195.0,
+    "current_unit": "50 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 195.0,
+        "unit": "50 gm",
+        "norm_price": 3900.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "3900.0 / 1 kg"
+  },
+  "finlay_natural_green_tea_bags_25_pcs_50_gm": {
+    "id": "finlay_natural_green_tea_bags_25_pcs_50_gm",
+    "name": "Finlay Natural Green Tea Bags 25 pcs",
+    "image": "https://i.chaldn.com/_mpimage/finlay-natural-green-tea-bags-25-pcs-50-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D168161&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 140.0,
+    "current_unit": "50 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 140.0,
+        "unit": "50 gm",
+        "norm_price": 2800.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2800.0 / 1 kg"
+  },
+  "ispahani_mirzapore_bop_tea_500_gm": {
+    "id": "ispahani_mirzapore_bop_tea_500_gm",
+    "name": "Ispahani Mirzapore BOP Tea",
+    "image": "https://i.chaldn.com/_mpimage/ispahani-mirzapore-bop-tea-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D107244&q=best&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 240.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 240.0,
+        "unit": "500 gm",
+        "norm_price": 480.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "480.0 / 1 kg"
+  },
+  "tata_tea_premium_200_gm": {
+    "id": "tata_tea_premium_200_gm",
+    "name": "Tata Tea Premium",
+    "image": "https://i.chaldn.com/_mpimage/tata-tea-premium-200-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D161029&q=best&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 110.0,
+    "current_unit": "200 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 110.0,
+        "unit": "200 gm",
+        "norm_price": 550.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "550.0 / 1 kg"
+  },
+  "twinings_earl_grey_green_25_tea_bags_each": {
+    "id": "twinings_earl_grey_green_25_tea_bags_each",
+    "name": "Twinings Earl Grey Green 25 Tea bags",
+    "image": "https://i.chaldn.com/_mpimage/twinings-earl-grey-green-25-tea-bags-1-pack?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D119267&q=best&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 975.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 975.0,
+        "unit": "each",
+        "norm_price": 975.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "975.0 / each"
+  },
+  "finlay_gold_tea_200_gm": {
+    "id": "finlay_gold_tea_200_gm",
+    "name": "Finlay Gold Tea",
+    "image": "https://i.chaldn.com/_mpimage/finlay-gold-tea-200-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D129548&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 110.0,
+    "current_unit": "200 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 110.0,
+        "unit": "200 gm",
+        "norm_price": 550.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "550.0 / 1 kg"
+  },
+  "finlay_premium_tea_200_gm": {
+    "id": "finlay_premium_tea_200_gm",
+    "name": "Finlay Premium Tea",
+    "image": "https://i.chaldn.com/_mpimage/finlay-premium-tea-200-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D168987&q=best&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 150.0,
+    "current_unit": "200 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 150.0,
+        "unit": "200 gm",
+        "norm_price": 750.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "750.0 / 1 kg"
+  },
+  "ispahani_mirzapore_red_dust_rd_tea_400_gm": {
+    "id": "ispahani_mirzapore_red_dust_rd_tea_400_gm",
+    "name": "Ispahani Mirzapore Red Dust (RD) Tea",
+    "image": "https://i.chaldn.com/_mpimage/ispahani-mirzapore-red-dust-rd-tea-400-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D107248&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 185.0,
+    "current_unit": "400 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 185.0,
+        "unit": "400 gm",
+        "norm_price": 462.5,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "462.5 / 1 kg"
+  },
+  "ispahani_blender_s_choice_black_tea_400_gm": {
+    "id": "ispahani_blender_s_choice_black_tea_400_gm",
+    "name": "Ispahani Blender's Choice Black Tea",
+    "image": "https://i.chaldn.com/_mpimage/ispahani-blenders-choice-black-tea-400-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D107144&q=best&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 310.0,
+    "current_unit": "400 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 310.0,
+        "unit": "400 gm",
+        "norm_price": 775.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "775.0 / 1 kg"
+  },
+  "seylon_family_blend_tea_poly_400_gm": {
+    "id": "seylon_family_blend_tea_poly_400_gm",
+    "name": "Seylon Family Blend Tea Poly",
+    "image": "https://i.chaldn.com/_mpimage/seylon-family-blend-tea-poly-400-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D78088&q=best&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 225.0,
+    "current_unit": "400 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 225.0,
+        "unit": "400 gm",
+        "norm_price": 562.5,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "562.5 / 1 kg"
+  },
+  "kazi_kazi_organic_orthodox_green_tea_100_gm": {
+    "id": "kazi_kazi_organic_orthodox_green_tea_100_gm",
+    "name": "Kazi & Kazi Organic Orthodox Green Tea",
+    "image": "https://i.chaldn.com/_mpimage/kazi-kazi-organic-orthodox-green-tea-100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D108231&q=best&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 215.0,
+    "current_unit": "100 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 215.0,
+        "unit": "100 gm",
+        "norm_price": 2150.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2150.0 / 1 kg"
+  },
+  "kazi_kazi_organic_orthodox_black_tea_100_gm": {
+    "id": "kazi_kazi_organic_orthodox_black_tea_100_gm",
+    "name": "Kazi & Kazi Organic Orthodox Black Tea",
+    "image": "https://i.chaldn.com/_mpimage/kazi-kazi-organic-orthodox-black-tea-100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D108230&q=best&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 190.0,
+    "current_unit": "100 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 190.0,
+        "unit": "100 gm",
+        "norm_price": 1900.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1900.0 / 1 kg"
+  },
+  "kazi_kazi_organic_pristine_black_tea_200_gm": {
+    "id": "kazi_kazi_organic_pristine_black_tea_200_gm",
+    "name": "Kazi & Kazi Organic Pristine Black Tea",
+    "image": "https://i.chaldn.com/_mpimage/kazi-kazi-organic-pristine-black-tea-200-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D108233&q=best&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 140.0,
+    "current_unit": "200 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 140.0,
+        "unit": "200 gm",
+        "norm_price": 700.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "700.0 / 1 kg"
+  },
+  "ispahani_blender_s_choice_premium_black_tea_200_gm": {
+    "id": "ispahani_blender_s_choice_premium_black_tea_200_gm",
+    "name": "Ispahani Blender's Choice Premium Black Tea",
+    "image": "https://i.chaldn.com/_mpimage/ispahani-blenders-choice-premium-black-tea-200-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D95167&q=best&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 160.0,
+    "current_unit": "200 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 160.0,
+        "unit": "200 gm",
+        "norm_price": 800.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "800.0 / 1 kg"
+  },
+  "kazi_kazi_organic_tulsi_tea_40_pcs_60_gm": {
+    "id": "kazi_kazi_organic_tulsi_tea_40_pcs_60_gm",
+    "name": "Kazi & Kazi Organic Tulsi Tea 40 pcs",
+    "image": "https://i.chaldn.com/_mpimage/kazi-kazi-organic-tulsi-tea-40-pcs-60-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D108234&q=best&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 195.0,
+    "current_unit": "60 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 195.0,
+        "unit": "60 gm",
+        "norm_price": 3250.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "3250.0 / 1 kg"
+  },
+  "kazi_kazi_organic_jasmine_green_tea_40_pcs_60_gm": {
+    "id": "kazi_kazi_organic_jasmine_green_tea_40_pcs_60_gm",
+    "name": "Kazi & Kazi Organic Jasmine Green Tea 40 pcs",
+    "image": "https://i.chaldn.com/_mpimage/kazi-kazi-organic-jasmine-green-tea-40-pcs-60-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D108207&q=best&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 215.0,
+    "current_unit": "60 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 215.0,
+        "unit": "60 gm",
+        "norm_price": 3583.33,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "3583.33 / 1 kg"
+  },
+  "kazi_kazi_organic_ginger_tea_40_pcs_60_gm": {
+    "id": "kazi_kazi_organic_ginger_tea_40_pcs_60_gm",
+    "name": "Kazi & Kazi Organic Ginger Tea 40 pcs",
+    "image": "https://i.chaldn.com/_mpimage/kazi-kazi-organic-ginger-tea-40-pcs-60-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D108203&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 215.0,
+    "current_unit": "60 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 215.0,
+        "unit": "60 gm",
+        "norm_price": 3583.33,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "3583.33 / 1 kg"
+  },
+  "kazi_kazi_organic_black_tea_40_pcs_80_gm": {
+    "id": "kazi_kazi_organic_black_tea_40_pcs_80_gm",
+    "name": "Kazi & Kazi Organic Black Tea 40 pcs",
+    "image": "https://i.chaldn.com/_mpimage/kazi-kazi-organic-black-tea-40-pcs-80-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D129668&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 125.0,
+    "current_unit": "80 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 125.0,
+        "unit": "80 gm",
+        "norm_price": 1562.5,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1562.5 / 1 kg"
+  },
+  "brooke_bond_taaza_tea_bag_50_pcs_95_gm": {
+    "id": "brooke_bond_taaza_tea_bag_50_pcs_95_gm",
+    "name": "Brooke Bond Taaza Tea Bag 50 pcs",
+    "image": "https://i.chaldn.com/_mpimage/brooke-bond-taaza-tea-bag-50-pcs-95-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D162456&q=best&v=1&m=400&webp=1",
+    "category": "Tea",
+    "current_price": 95.0,
+    "current_unit": "95 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 95.0,
+        "unit": "95 gm",
+        "norm_price": 1000.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1000.0 / 1 kg"
+  },
+  "bragg_organic_apple_cider_vinegar_946_ml": {
+    "id": "bragg_organic_apple_cider_vinegar_946_ml",
+    "name": "Bragg Organic Apple Cider Vinegar",
+    "image": "https://i.chaldn.com/_mpimage/bragg-organic-apple-cider-vinegar-946-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D126229&q=best&v=1&m=400&webp=1",
+    "category": "Salad Dressing",
+    "current_price": 1499.0,
+    "current_unit": "946 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 1499.0,
+        "unit": "946 ml",
+        "norm_price": 1584.57,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1584.57 / 1 L"
+  },
+  "pran_synthetic_vinegar_650_ml": {
+    "id": "pran_synthetic_vinegar_650_ml",
+    "name": "Pran Synthetic Vinegar",
+    "image": "https://i.chaldn.com/_mpimage/pran-synthetic-vinegar-650-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D158547&q=best&v=1&m=400&webp=1",
+    "category": "Salad Dressing",
+    "current_price": 55.0,
+    "current_unit": "650 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 55.0,
+        "unit": "650 ml",
+        "norm_price": 84.62,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "84.62 / 1 L"
+  },
+  "ahmed_white_vinegar_500_ml": {
+    "id": "ahmed_white_vinegar_500_ml",
+    "name": "Ahmed White Vinegar",
+    "image": "https://i.chaldn.com/_mpimage/ahmed-white-vinegar-500-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D123201&q=best&v=1&m=400&webp=1",
+    "category": "Salad Dressing",
+    "current_price": 70.0,
+    "current_unit": "500 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 70.0,
+        "unit": "500 ml",
+        "norm_price": 140.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "140.0 / 1 L"
+  },
+  "american_garden_real_mayonnaise_887_ml": {
+    "id": "american_garden_real_mayonnaise_887_ml",
+    "name": "American Garden Real Mayonnaise",
+    "image": "https://i.chaldn.com/_mpimage/american-garden-real-mayonnaise-887-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D180140&q=best&v=1&m=400&webp=1",
+    "category": "Salad Dressing",
+    "current_price": 1535.0,
+    "current_unit": "887 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 1535.0,
+        "unit": "887 ml",
+        "norm_price": 1730.55,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1730.55 / 1 L"
+  },
+  "kewpie_dressing_roasted_sesame_salad_210_ml": {
+    "id": "kewpie_dressing_roasted_sesame_salad_210_ml",
+    "name": "Kewpie Dressing Roasted Sesame Salad",
+    "image": "https://i.chaldn.com/_mpimage/kewpie-dressing-roasted-sesame-salad-210-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D108599&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Salad Dressing",
+    "current_price": 365.0,
+    "current_unit": "210 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 365.0,
+        "unit": "210 ml",
+        "norm_price": 1738.1,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1738.1 / 1 L"
+  },
+  "herman_garlic_mayonnaise_500_gm": {
+    "id": "herman_garlic_mayonnaise_500_gm",
+    "name": "Herman Garlic Mayonnaise",
+    "image": "https://i.chaldn.com/_mpimage/herman-garlic-mayonnaise-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D129214&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Dips, Spreads & Syrups",
+    "current_price": 520.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 520.0,
+        "unit": "500 gm",
+        "norm_price": 1040.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1040.0 / 1 kg"
+  },
+  "american_garden_real_mayonnaise_473_ml": {
+    "id": "american_garden_real_mayonnaise_473_ml",
+    "name": "American Garden Real Mayonnaise",
+    "image": "https://i.chaldn.com/_mpimage/american-garden-real-mayonnaise-473-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D177296&q=best&v=1&m=400&webp=1",
+    "category": "Dips, Spreads & Syrups",
+    "current_price": 965.0,
+    "current_unit": "473 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 965.0,
+        "unit": "473 ml",
+        "norm_price": 2040.17,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "2040.17 / 1 L"
+  },
+  "american_garden_pizza_sauce_classic_397_ml": {
+    "id": "american_garden_pizza_sauce_classic_397_ml",
+    "name": "American Garden Pizza Sauce Classic",
+    "image": "https://i.chaldn.com/_mpimage/american-garden-pizza-sauce-classic-397-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D177295&q=best&v=1&m=400&webp=1",
+    "category": "Cooking Sauces",
+    "current_price": 670.0,
+    "current_unit": "397 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 670.0,
+        "unit": "397 ml",
+        "norm_price": 1687.66,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1687.66 / 1 L"
+  },
+  "thai_choice_som_tum_salad_dressing_200_ml": {
+    "id": "thai_choice_som_tum_salad_dressing_200_ml",
+    "name": "Thai Choice Som Tum Salad Dressing",
+    "image": "https://i.chaldn.com/_mpimage/thai-choice-som-tum-salad-dressing-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D46868&q=best&v=1&m=400&webp=1",
+    "category": "Salad Dressing",
+    "current_price": 275.0,
+    "current_unit": "200 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 275.0,
+        "unit": "200 ml",
+        "norm_price": 1375.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1375.0 / 1 L"
+  },
+  "remia_salad_dressing_garlic_250_ml": {
+    "id": "remia_salad_dressing_garlic_250_ml",
+    "name": "Remia Salad Dressing Garlic",
+    "image": "https://i.chaldn.com/_mpimage/remia-salad-dressing-garlic-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132687&q=best&v=1&m=400&webp=1",
+    "category": "Salad Dressing",
+    "current_price": 330.0,
+    "current_unit": "250 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 330.0,
+        "unit": "250 ml",
+        "norm_price": 1320.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1320.0 / 1 L"
+  },
+  "saporito_red_grape_vinegar_500_ml": {
+    "id": "saporito_red_grape_vinegar_500_ml",
+    "name": "Saporito Red Grape Vinegar",
+    "image": "https://i.chaldn.com/_mpimage/saporito-red-grape-vinegar-500-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D133149&q=best&v=1&m=400&webp=1",
+    "category": "Salad Dressing",
+    "current_price": 619.0,
+    "current_unit": "500 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 619.0,
+        "unit": "500 ml",
+        "norm_price": 1238.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1238.0 / 1 L"
+  },
+  "ahmed_white_vinegar_325_ml": {
+    "id": "ahmed_white_vinegar_325_ml",
+    "name": "Ahmed White Vinegar",
+    "image": "https://i.chaldn.com/_mpimage/ahmed-white-vinegar-325-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D123202&q=best&v=1&m=400&webp=1",
+    "category": "Salad Dressing",
+    "current_price": 58.0,
+    "current_unit": "325 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 58.0,
+        "unit": "325 ml",
+        "norm_price": 178.46,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "178.46 / 1 L"
+  },
+  "remia_salad_cream_250_ml": {
+    "id": "remia_salad_cream_250_ml",
+    "name": "Remia Salad Cream",
+    "image": "https://i.chaldn.com/_mpimage/remia-salad-cream-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132686&q=best&v=1&m=400&webp=1",
+    "category": "Salad Dressing",
+    "current_price": 330.0,
+    "current_unit": "250 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 330.0,
+        "unit": "250 ml",
+        "norm_price": 1320.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1320.0 / 1 L"
+  },
+  "olympic_first_choice_salted_biscuits_80_gm": {
+    "id": "olympic_first_choice_salted_biscuits_80_gm",
+    "name": "Olympic First Choice Salted Biscuits",
+    "image": "https://i.chaldn.com/_mpimage/olympic-first-choice-salted-biscuits-80-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D183202&q=best&v=1&m=400&webp=1",
+    "category": "Salted Biscuits",
+    "current_price": 20.0,
+    "current_unit": "80 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 20.0,
+        "unit": "80 gm",
+        "norm_price": 250.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "250.0 / 1 kg"
+  },
+  "bangas_grand_choice_salted_biscuit_70_gm": {
+    "id": "bangas_grand_choice_salted_biscuit_70_gm",
+    "name": "Bangas Grand Choice Salted Biscuit",
+    "image": "https://i.chaldn.com/_mpimage/bangas-grand-choice-salted-biscuit-70-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D125359&q=best&v=1&m=400&webp=1",
+    "category": "Salted Biscuits",
+    "current_price": 20.0,
+    "current_unit": "70 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 20.0,
+        "unit": "70 gm",
+        "norm_price": 285.71,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "285.71 / 1 kg"
+  },
+  "olympic_tip_crispy_salted_biscuits_60_gm": {
+    "id": "olympic_tip_crispy_salted_biscuits_60_gm",
+    "name": "Olympic Tip Crispy Salted Biscuits",
+    "image": "https://i.chaldn.com/_mpimage/olympic-tip-crispy-salted-biscuits-60-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D131561&q=best&v=1&m=400&webp=1",
+    "category": "Salted Biscuits",
+    "current_price": 15.0,
+    "current_unit": "60 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 15.0,
+        "unit": "60 gm",
+        "norm_price": 250.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "250.0 / 1 kg"
+  },
+  "fresh_healthy_choice_salted_biscuit_80_gm": {
+    "id": "fresh_healthy_choice_salted_biscuit_80_gm",
+    "name": "Fresh Healthy Choice Salted Biscuit",
+    "image": "https://i.chaldn.com/_mpimage/fresh-healthy-choice-salted-biscuit-80-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D120593&q=best&v=1&m=400&webp=1",
+    "category": "Salted Biscuits",
+    "current_price": 20.0,
+    "current_unit": "80 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 20.0,
+        "unit": "80 gm",
+        "norm_price": 250.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "250.0 / 1 kg"
+  },
+  "funtastic_nimok_halal_salted_biscuit_200_gm": {
+    "id": "funtastic_nimok_halal_salted_biscuit_200_gm",
+    "name": "Funtastic Nimok Halal Salted Biscuit",
+    "image": "https://i.chaldn.com/_mpimage/funtastic-nimok-halal-salted-biscuit-200-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D133435&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Salted Biscuits",
+    "current_price": 50.0,
+    "current_unit": "200 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 50.0,
+        "unit": "200 gm",
+        "norm_price": 250.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "250.0 / 1 kg"
+  },
+  "olympic_saltes_biscuit_200_gm": {
+    "id": "olympic_saltes_biscuit_200_gm",
+    "name": "Olympic Saltes Biscuit",
+    "image": "https://i.chaldn.com/_mpimage/olympic-saltes-biscuit-200-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D183210&q=best&v=1&m=400&webp=1",
+    "category": "Salted Biscuits",
+    "current_price": 60.0,
+    "current_unit": "200 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 60.0,
+        "unit": "200 gm",
+        "norm_price": 300.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "300.0 / 1 kg"
+  },
+  "ramisa_fried_nut_white_jar_200_gm": {
+    "id": "ramisa_fried_nut_white_jar_200_gm",
+    "name": "Ramisa Fried Nut (White) Jar",
+    "image": "https://i.chaldn.com/_mpimage/ramisa-fried-nut-white-jar-200-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D186472&q=best&v=1&m=400&webp=1",
+    "category": "Popcorn & Nuts",
+    "current_price": 160.0,
+    "current_unit": "200 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 160.0,
+        "unit": "200 gm",
+        "norm_price": 800.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "800.0 / 1 kg"
+  },
+  "pran_badam_bhaja_18_gm_4_pcs": {
+    "id": "pran_badam_bhaja_18_gm_4_pcs",
+    "name": "Pran Badam Bhaja 18 gm",
+    "image": "https://i.chaldn.com/_mpimage/pran-badam-bhaja-18-gm-4-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D108073&q=best&v=1&m=400&webp=1",
+    "category": "Popcorn & Nuts",
+    "current_price": 40.0,
+    "current_unit": "4 pcs",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 40.0,
+        "unit": "4 pcs",
+        "norm_price": 10.0,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "10.0 / 1 pc"
+  },
+  "fresh_garden_love_plum_200_gm": {
+    "id": "fresh_garden_love_plum_200_gm",
+    "name": "Fresh Garden Love Plum",
+    "image": "https://i.chaldn.com/_mpimage/fresh-garden-love-plum-200-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128630&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Popcorn & Nuts",
+    "current_price": 345.0,
+    "current_unit": "200 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 345.0,
+        "unit": "200 gm",
+        "norm_price": 1725.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1725.0 / 1 kg"
+  },
+  "golden_garden_roasted_peanut_kernels_500_gm": {
+    "id": "golden_garden_roasted_peanut_kernels_500_gm",
+    "name": "Golden Garden Roasted Peanut Kernels",
+    "image": "https://i.chaldn.com/_mpimage/golden-garden-roasted-peanut-kernels-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D95969&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Popcorn & Nuts",
+    "current_price": 350.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 350.0,
+        "unit": "500 gm",
+        "norm_price": 700.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "700.0 / 1 kg"
+  },
+  "victoria_chick_peas_400_gm": {
+    "id": "victoria_chick_peas_400_gm",
+    "name": "Victoria Chick Peas",
+    "image": "https://i.chaldn.com/_mpimage/victoria-chick-peas-400-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D100959&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Popcorn & Nuts",
+    "current_price": 119.0,
+    "current_unit": "400 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 119.0,
+        "unit": "400 gm",
+        "norm_price": 297.5,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "297.5 / 1 kg"
+  },
+  "thai_park_roseberry_plum_200_gm": {
+    "id": "thai_park_roseberry_plum_200_gm",
+    "name": "Thai Park Roseberry Plum",
+    "image": "https://i.chaldn.com/_mpimage/thai-park-roseberry-plum-200-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D75367&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Popcorn & Nuts",
+    "current_price": 260.0,
+    "current_unit": "200 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 260.0,
+        "unit": "200 gm",
+        "norm_price": 1300.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1300.0 / 1 kg"
+  },
+  "noi_party_snack_128_gm": {
+    "id": "noi_party_snack_128_gm",
+    "name": "Noi Party Snack",
+    "image": "https://i.chaldn.com/_mpimage/noi-party-snack-128-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D115710&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Popcorn & Nuts",
+    "current_price": 350.0,
+    "current_unit": "128 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 350.0,
+        "unit": "128 gm",
+        "norm_price": 2734.38,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2734.38 / 1 kg"
+  },
+  "noi_cuttlefish_coated_green_peas_128_gm": {
+    "id": "noi_cuttlefish_coated_green_peas_128_gm",
+    "name": "Noi Cuttlefish Coated Green Peas",
+    "image": "https://i.chaldn.com/_mpimage/noi-cuttlefish-coated-green-peas-128-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D115709&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Popcorn & Nuts",
+    "current_price": 318.0,
+    "current_unit": "128 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 318.0,
+        "unit": "128 gm",
+        "norm_price": 2484.38,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2484.38 / 1 kg"
+  },
+  "kolson_macaroni_pasta_screw_400_gm": {
+    "id": "kolson_macaroni_pasta_screw_400_gm",
+    "name": "Kolson Macaroni Pasta Screw",
+    "image": "https://i.chaldn.com/_mpimage/kolson-macaroni-pasta-screw-400-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D131775&q=best&v=1&m=400&webp=1",
+    "category": "Pasta & Macaroni",
+    "current_price": 85.0,
+    "current_unit": "400 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 85.0,
+        "unit": "400 gm",
+        "norm_price": 212.5,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "212.5 / 1 kg"
+  },
+  "nestle_maggi_healthy_soup_corn_with_chicken_25_gm_4_pcs": {
+    "id": "nestle_maggi_healthy_soup_corn_with_chicken_25_gm_4_pcs",
+    "name": "Nestle Maggi Healthy Soup Corn With Chicken 25 gm",
+    "image": "https://i.chaldn.com/_mpimage/nestle-maggi-healthy-soup-corn-with-chicken-25-gm-4-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D133888&q=best&v=1&m=400&webp=1",
+    "category": "Soups",
+    "current_price": 220.0,
+    "current_unit": "4 pcs",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 220.0,
+        "unit": "4 pcs",
+        "norm_price": 55.0,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "55.0 / 1 pc"
+  },
+  "nestle_maggi_healthy_soup_thai_sachet_35_gm": {
+    "id": "nestle_maggi_healthy_soup_thai_sachet_35_gm",
+    "name": "Nestle Maggi Healthy Soup Thai Sachet",
+    "image": "https://i.chaldn.com/_mpimage/nestle-maggi-healthy-soup-thai-sachet-35-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D133890&q=best&v=1&m=400&webp=1",
+    "category": "Soups",
+    "current_price": 55.0,
+    "current_unit": "35 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 55.0,
+        "unit": "35 gm",
+        "norm_price": 1571.43,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1571.43 / 1 kg"
+  },
+  "nestle_maggi_healthy_soup_corn_with_chicken_25_gm": {
+    "id": "nestle_maggi_healthy_soup_corn_with_chicken_25_gm",
+    "name": "Nestle Maggi Healthy Soup Corn With Chicken",
+    "image": "https://i.chaldn.com/_mpimage/nestle-maggi-healthy-soup-corn-with-chicken-25-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D135319&q=best&v=1&m=400&webp=1",
+    "category": "Soups",
+    "current_price": 55.0,
+    "current_unit": "25 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 55.0,
+        "unit": "25 gm",
+        "norm_price": 2200.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2200.0 / 1 kg"
+  },
+  "knorr_soup_chicken_corn_24_gm_5_pcs": {
+    "id": "knorr_soup_chicken_corn_24_gm_5_pcs",
+    "name": "Knorr Soup Chicken Corn 24 gm",
+    "image": "https://i.chaldn.com/_mpimage/knorr-soup-chicken-corn-24-gm-5-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D110440&q=best&v=1&m=400&webp=1",
+    "category": "Soups",
+    "current_price": 275.0,
+    "current_unit": "5 pcs",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 275.0,
+        "unit": "5 pcs",
+        "norm_price": 55.0,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "55.0 / 1 pc"
+  },
+  "knorr_soup_thai_28_gm_5_pcs": {
+    "id": "knorr_soup_thai_28_gm_5_pcs",
+    "name": "Knorr Soup Thai 28 gm",
+    "image": "https://i.chaldn.com/_mpimage/knorr-soup-thai-28-gm-5-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D77513&q=best&v=1&m=400&webp=1",
+    "category": "Soups",
+    "current_price": 250.0,
+    "current_unit": "5 pcs",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 250.0,
+        "unit": "5 pcs",
+        "norm_price": 50.0,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "50.0 / 1 pc"
+  },
+  "knorr_soup_thai_28_gm": {
+    "id": "knorr_soup_thai_28_gm",
+    "name": "Knorr Soup Thai",
+    "image": "https://i.chaldn.com/_mpimage/knorr-soup-thai-28-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128272&q=best&v=1&m=400&webp=1",
+    "category": "Soups",
+    "current_price": 55.0,
+    "current_unit": "28 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 55.0,
+        "unit": "28 gm",
+        "norm_price": 1964.29,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1964.29 / 1 kg"
+  },
+  "kolson_macaroni_shell_400_gm": {
+    "id": "kolson_macaroni_shell_400_gm",
+    "name": "Kolson Macaroni Shell",
+    "image": "https://i.chaldn.com/_mpimage/kolson-macaroni-shell-400-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D113045&q=best&v=1&m=400&webp=1",
+    "category": "Pasta & Macaroni",
+    "current_price": 85.0,
+    "current_unit": "400 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 85.0,
+        "unit": "400 gm",
+        "norm_price": 212.5,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "212.5 / 1 kg"
+  },
+  "knorr_soup_chicken_corn_24_gm": {
+    "id": "knorr_soup_chicken_corn_24_gm",
+    "name": "Knorr Soup Chicken Corn",
+    "image": "https://i.chaldn.com/_mpimage/knorr-soup-chicken-corn-24-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128269&q=best&v=1&m=400&webp=1",
+    "category": "Soups",
+    "current_price": 55.0,
+    "current_unit": "24 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 55.0,
+        "unit": "24 gm",
+        "norm_price": 2291.67,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2291.67 / 1 kg"
+  },
+  "farina_macaroni_premium_quality_500_gm": {
+    "id": "farina_macaroni_premium_quality_500_gm",
+    "name": "Farina Macaroni Premium Quality",
+    "image": "https://i.chaldn.com/_mpimage/farina-macaroni-premium-quality-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D185301&q=best&v=1&m=400&webp=1",
+    "category": "Pasta & Macaroni",
+    "current_price": 110.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 110.0,
+        "unit": "500 gm",
+        "norm_price": 220.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "220.0 / 1 kg"
+  },
+  "nestle_maggi_healthy_soup_vegetables_sachet_25_gm_4_pcs": {
+    "id": "nestle_maggi_healthy_soup_vegetables_sachet_25_gm_4_pcs",
+    "name": "Nestle Maggi Healthy Soup Vegetables Sachet 25 gm",
+    "image": "https://i.chaldn.com/_mpimage/nestle-maggi-healthy-soup-vegetables-sachet-25-gm-4-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D133889&q=best&v=1&m=400&webp=1",
+    "category": "Soups",
+    "current_price": 200.0,
+    "current_unit": "4 pcs",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 200.0,
+        "unit": "4 pcs",
+        "norm_price": 50.0,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "50.0 / 1 pc"
+  },
+  "nestle_maggi_healthy_soup_thai_sachet_35_gm_4_pcs": {
+    "id": "nestle_maggi_healthy_soup_thai_sachet_35_gm_4_pcs",
+    "name": "Nestle Maggi Healthy Soup Thai Sachet 35 gm",
+    "image": "https://i.chaldn.com/_mpimage/nestle-maggi-healthy-soup-thai-sachet-35-gm-4-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D133887&q=best&v=1&m=400&webp=1",
+    "category": "Soups",
+    "current_price": 220.0,
+    "current_unit": "4 pcs",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 220.0,
+        "unit": "4 pcs",
+        "norm_price": 55.0,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "55.0 / 1 pc"
+  },
+  "farina_macaroni_400_gm": {
+    "id": "farina_macaroni_400_gm",
+    "name": "Farina Macaroni",
+    "image": "https://i.chaldn.com/_mpimage/farina-macaroni-400-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D185298&q=best&v=1&m=400&webp=1",
+    "category": "Pasta & Macaroni",
+    "current_price": 90.0,
+    "current_unit": "400 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 90.0,
+        "unit": "400 gm",
+        "norm_price": 225.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "225.0 / 1 kg"
+  },
+  "farina_macaroni_200_gm": {
+    "id": "farina_macaroni_200_gm",
+    "name": "Farina Macaroni",
+    "image": "https://i.chaldn.com/_mpimage/farina-macaroni-200-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D185297&q=best&v=1&m=400&webp=1",
+    "category": "Pasta & Macaroni",
+    "current_price": 50.0,
+    "current_unit": "200 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 50.0,
+        "unit": "200 gm",
+        "norm_price": 250.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "250.0 / 1 kg"
+  },
+  "kolson_macaroni_bamboo_400_gm": {
+    "id": "kolson_macaroni_bamboo_400_gm",
+    "name": "Kolson Macaroni Bamboo",
+    "image": "https://i.chaldn.com/_mpimage/kolson-macaroni-bamboo-400-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D131774&q=best&v=1&m=400&webp=1",
+    "category": "Pasta & Macaroni",
+    "current_price": 85.0,
+    "current_unit": "400 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 85.0,
+        "unit": "400 gm",
+        "norm_price": 212.5,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "212.5 / 1 kg"
+  },
+  "mr_pasta_macaroni_shells_400_gm": {
+    "id": "mr_pasta_macaroni_shells_400_gm",
+    "name": "Mr. Pasta Macaroni Shells",
+    "image": "https://i.chaldn.com/_mpimage/mr-pasta-macaroni-shells-400-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D174427&q=best&v=1&m=400&webp=1",
+    "category": "Pasta & Macaroni",
+    "current_price": 90.0,
+    "current_unit": "400 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 90.0,
+        "unit": "400 gm",
+        "norm_price": 225.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "225.0 / 1 kg"
+  },
+  "farmer_s_gold_pasta_400_gm": {
+    "id": "farmer_s_gold_pasta_400_gm",
+    "name": "Farmer's Gold Pasta",
+    "image": "https://i.chaldn.com/_mpimage/farmers-gold-pasta-400-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D149085&q=best&v=1&m=400&webp=1",
+    "category": "Pasta & Macaroni",
+    "current_price": 180.0,
+    "current_unit": "400 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 180.0,
+        "unit": "400 gm",
+        "norm_price": 450.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "450.0 / 1 kg"
+  },
+  "barilla_classic_spaghettoni_n_7_pasta_500_gm": {
+    "id": "barilla_classic_spaghettoni_n_7_pasta_500_gm",
+    "name": "Barilla Classic Spaghettoni N.7 Pasta",
+    "image": "https://i.chaldn.com/_mpimage/barilla-classic-spaghettoni-n7-pasta-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D127431&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Pasta & Macaroni",
+    "current_price": 395.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 395.0,
+        "unit": "500 gm",
+        "norm_price": 790.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "790.0 / 1 kg"
+  },
+  "emirates_macaroni_penne_rigate_pasta_400_gm": {
+    "id": "emirates_macaroni_penne_rigate_pasta_400_gm",
+    "name": "Emirates Macaroni Penne Rigate Pasta",
+    "image": "https://i.chaldn.com/_mpimage/emirates-macaroni-penne-rigate-pasta-400-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D92046&q=best&v=1&m=400&webp=1",
+    "category": "Pasta & Macaroni",
+    "current_price": 195.0,
+    "current_unit": "400 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 195.0,
+        "unit": "400 gm",
+        "norm_price": 487.5,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "487.5 / 1 kg"
+  },
+  "emirates_macaroni_corni_corrugated_pasta_400_gm": {
+    "id": "emirates_macaroni_corni_corrugated_pasta_400_gm",
+    "name": "Emirates Macaroni Corni Corrugated Pasta",
+    "image": "https://i.chaldn.com/_mpimage/emirates-macaroni-corni-corrugated-pasta-400-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D92043&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Pasta & Macaroni",
+    "current_price": 195.0,
+    "current_unit": "400 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 195.0,
+        "unit": "400 gm",
+        "norm_price": 487.5,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "487.5 / 1 kg"
+  },
+  "reggia_pasta_penne_mez_500_gm": {
+    "id": "reggia_pasta_penne_mez_500_gm",
+    "name": "Reggia Pasta Penne Mez",
+    "image": "https://i.chaldn.com/_mpimage/reggia-pasta-penne-mez-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132657&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Pasta & Macaroni",
+    "current_price": 265.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 265.0,
+        "unit": "500 gm",
+        "norm_price": 530.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "530.0 / 1 kg"
+  },
+  "barilla_fusilli_n_98_pasta_500_gm": {
+    "id": "barilla_fusilli_n_98_pasta_500_gm",
+    "name": "Barilla Fusilli N.98 Pasta",
+    "image": "https://i.chaldn.com/_mpimage/barilla-fusilli-n98-pasta-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D153065&q=best&v=1&m=400&webp=1",
+    "category": "Pasta & Macaroni",
+    "current_price": 449.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 449.0,
+        "unit": "500 gm",
+        "norm_price": 898.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "898.0 / 1 kg"
+  },
+  "barilla_spaghetti_n_5_pasta_500_gm": {
+    "id": "barilla_spaghetti_n_5_pasta_500_gm",
+    "name": "Barilla Spaghetti N.5 Pasta",
+    "image": "https://i.chaldn.com/_mpimage/barilla-spaghetti-n5-pasta-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D153064&q=best&v=1&m=400&webp=1",
+    "category": "Pasta & Macaroni",
+    "current_price": 449.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 449.0,
+        "unit": "500 gm",
+        "norm_price": 898.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "898.0 / 1 kg"
+  },
+  "barilla_angel_hair_n_1_pasta_500_gm": {
+    "id": "barilla_angel_hair_n_1_pasta_500_gm",
+    "name": "Barilla Angel Hair N.1 Pasta",
+    "image": "https://i.chaldn.com/_mpimage/barilla-angel-hair-n1-pasta-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D153063&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Pasta & Macaroni",
+    "current_price": 360.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 360.0,
+        "unit": "500 gm",
+        "norm_price": 720.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "720.0 / 1 kg"
+  },
+  "barilla_pasta_sauce_jar_napoletana_400_gm": {
+    "id": "barilla_pasta_sauce_jar_napoletana_400_gm",
+    "name": "Barilla Pasta Sauce Jar Napoletana",
+    "image": "https://i.chaldn.com/_mpimage/barilla-pasta-sauce-jar-napoletana-400-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D125437&q=best&v=1&m=400&webp=1",
+    "category": "Other Table Sauces",
+    "current_price": 599.0,
+    "current_unit": "400 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 599.0,
+        "unit": "400 gm",
+        "norm_price": 1497.5,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1497.5 / 1 kg"
+  },
+  "barilla_pasta_sauce_jar_arrabbiata_400_gm": {
+    "id": "barilla_pasta_sauce_jar_arrabbiata_400_gm",
+    "name": "Barilla Pasta Sauce Jar Arrabbiata",
+    "image": "https://i.chaldn.com/_mpimage/barilla-pasta-sauce-jar-arrabbiata-400-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D125435&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Other Table Sauces",
+    "current_price": 599.0,
+    "current_unit": "400 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 599.0,
+        "unit": "400 gm",
+        "norm_price": 1497.5,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1497.5 / 1 kg"
+  },
+  "barilla_pasta_sauce_jar_basilico_400_gm": {
+    "id": "barilla_pasta_sauce_jar_basilico_400_gm",
+    "name": "Barilla Pasta Sauce Jar Basilico",
+    "image": "https://i.chaldn.com/_mpimage/barilla-pasta-sauce-jar-basilico-400-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D125436&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Other Table Sauces",
+    "current_price": 599.0,
+    "current_unit": "400 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 599.0,
+        "unit": "400 gm",
+        "norm_price": 1497.5,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1497.5 / 1 kg"
+  },
+  "pastiano_spiralli_pasta_500_gm": {
+    "id": "pastiano_spiralli_pasta_500_gm",
+    "name": "Pastiano Spiralli Pasta",
+    "image": "https://i.chaldn.com/_mpimage/pastiano-spiralli-pasta-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132016&q=best&v=1&m=400&webp=1",
+    "category": "Pasta & Macaroni",
+    "current_price": 240.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 240.0,
+        "unit": "500 gm",
+        "norm_price": 480.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "480.0 / 1 kg"
+  },
+  "pastiano_penne_pasta_500_gm": {
+    "id": "pastiano_penne_pasta_500_gm",
+    "name": "Pastiano Penne Pasta",
+    "image": "https://i.chaldn.com/_mpimage/pastiano-penne-pasta-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132015&q=best&v=1&m=400&webp=1",
+    "category": "Pasta & Macaroni",
+    "current_price": 240.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 240.0,
+        "unit": "500 gm",
+        "norm_price": 480.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "480.0 / 1 kg"
+  },
+  "barilla_farfalle_pasta_436__500_gm": {
+    "id": "barilla_farfalle_pasta_436__500_gm",
+    "name": "Barilla Farfalle Pasta (436)",
+    "image": "https://i.chaldn.com/_mpimage/barilla-farfalle-pasta-436-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D125430&q=best&v=1&m=400&webp=1",
+    "category": "Pasta & Macaroni",
+    "current_price": 449.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 449.0,
+        "unit": "500 gm",
+        "norm_price": 898.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "898.0 / 1 kg"
+  },
+  "barilla_penne_rigate_pasta_n_437__500_gm": {
+    "id": "barilla_penne_rigate_pasta_n_437__500_gm",
+    "name": "Barilla Penne Rigate Pasta (N.437)",
+    "image": "https://i.chaldn.com/_mpimage/barilla-penne-rigate-pasta-n437-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D125440&q=best&v=1&m=400&webp=1",
+    "category": "Pasta & Macaroni",
+    "current_price": 449.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 449.0,
+        "unit": "500 gm",
+        "norm_price": 898.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "898.0 / 1 kg"
+  },
+  "dekko_oyster_pasta_200_gm": {
+    "id": "dekko_oyster_pasta_200_gm",
+    "name": "Dekko Oyster Pasta",
+    "image": "https://i.chaldn.com/_mpimage/dekko-oyster-pasta-200-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D103582&q=best&v=1&m=400&webp=1",
+    "category": "Pasta & Macaroni",
+    "current_price": 60.0,
+    "current_unit": "200 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 60.0,
+        "unit": "200 gm",
+        "norm_price": 300.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "300.0 / 1 kg"
+  },
+  "hat_macaroni_penne_pasta_500_gm": {
+    "id": "hat_macaroni_penne_pasta_500_gm",
+    "name": "Hat Macaroni Penne Pasta",
+    "image": "https://i.chaldn.com/_mpimage/hat-macaroni-penne-pasta-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D98836&q=best&v=1&m=400&webp=1",
+    "category": "Pasta & Macaroni",
+    "current_price": 235.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 235.0,
+        "unit": "500 gm",
+        "norm_price": 470.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "470.0 / 1 kg"
+  },
+  "kolson_macaroni_assorted_pack_500_gm": {
+    "id": "kolson_macaroni_assorted_pack_500_gm",
+    "name": "Kolson Macaroni Assorted Pack",
+    "image": "https://i.chaldn.com/_mpimage/kolson-macaroni-assorted-pack-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D113040&q=best&v=1&m=400&webp=1",
+    "category": "Pasta & Macaroni",
+    "current_price": 120.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 120.0,
+        "unit": "500 gm",
+        "norm_price": 240.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "240.0 / 1 kg"
+  },
+  "cocola_champion_chocolate_cream_biscuit_65_gm": {
+    "id": "cocola_champion_chocolate_cream_biscuit_65_gm",
+    "name": "Cocola Champion Chocolate Cream Biscuit",
+    "image": "https://i.chaldn.com/_mpimage/cocola-champion-chocolate-cream-biscuit-65-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D91752&q=best&v=1&m=400&webp=1",
+    "category": "Cream Biscuits",
+    "current_price": 20.0,
+    "current_unit": "65 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 20.0,
+        "unit": "65 gm",
+        "norm_price": 307.69,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "307.69 / 1 kg"
+  },
+  "bisk_club_shero_cream_biscuit_85_gm": {
+    "id": "bisk_club_shero_cream_biscuit_85_gm",
+    "name": "Bisk Club Shero Cream Biscuit",
+    "image": "https://i.chaldn.com/_mpimage/bisk-club-shero-cream-biscuit-85-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D98743&q=best&v=1&m=400&webp=1",
+    "category": "Cream Biscuits",
+    "current_price": 30.0,
+    "current_unit": "85 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 30.0,
+        "unit": "85 gm",
+        "norm_price": 352.94,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "352.94 / 1 kg"
+  },
+  "haque_milk_chocolate_digestive_biscuit_137_gm": {
+    "id": "haque_milk_chocolate_digestive_biscuit_137_gm",
+    "name": "Haque Milk Chocolate Digestive Biscuit",
+    "image": "https://i.chaldn.com/_mpimage/haque-milk-chocolate-digestive-biscuit-137-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D129111&q=best&v=1&m=400&webp=1",
+    "category": "Cream Biscuits",
+    "current_price": 40.0,
+    "current_unit": "137 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 40.0,
+        "unit": "137 gm",
+        "norm_price": 291.97,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "291.97 / 1 kg"
+  },
+  "fresh_fantasy_chocolate_filled_cookies_biscuit_175_gm": {
+    "id": "fresh_fantasy_chocolate_filled_cookies_biscuit_175_gm",
+    "name": "Fresh Fantasy Chocolate Filled Cookies Biscuit",
+    "image": "https://i.chaldn.com/_mpimage/fresh-fantasy-chocolate-filled-cookies-biscuit-175-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128620&q=best&v=1&m=400&webp=1",
+    "category": "Cookies",
+    "current_price": 150.0,
+    "current_unit": "175 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 150.0,
+        "unit": "175 gm",
+        "norm_price": 857.14,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "857.14 / 1 kg"
+  },
+  "olympic_pineapple_cream_biscuits_40_gm": {
+    "id": "olympic_pineapple_cream_biscuits_40_gm",
+    "name": "Olympic Pineapple Cream Biscuits",
+    "image": "https://i.chaldn.com/_mpimage/olympic-pineapple-cream-biscuits-40-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D123549&q=best&v=1&m=400&webp=1",
+    "category": "Cream Biscuits",
+    "current_price": 10.0,
+    "current_unit": "40 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 10.0,
+        "unit": "40 gm",
+        "norm_price": 250.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "250.0 / 1 kg"
+  },
+  "olympic_tim_tim_orange_biscuit_40_gm": {
+    "id": "olympic_tim_tim_orange_biscuit_40_gm",
+    "name": "Olympic Tim Tim Orange Biscuit",
+    "image": "https://i.chaldn.com/_mpimage/olympic-tim-tim-orange-biscuit-40-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D101046&q=best&v=1&m=400&webp=1",
+    "category": "Cream Biscuits",
+    "current_price": 10.0,
+    "current_unit": "40 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 10.0,
+        "unit": "40 gm",
+        "norm_price": 250.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "250.0 / 1 kg"
+  },
+  "fresh_fun_fill_sandwich_chocolate_cream_biscuit_34_gm": {
+    "id": "fresh_fun_fill_sandwich_chocolate_cream_biscuit_34_gm",
+    "name": "Fresh Fun Fill Sandwich Chocolate Cream Biscuit",
+    "image": "https://i.chaldn.com/_mpimage/fresh-fun-fill-sandwich-chocolate-cream-biscuit-34-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D158415&q=best&v=1&m=400&webp=1",
+    "category": "Cream Biscuits",
+    "current_price": 10.0,
+    "current_unit": "34 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 10.0,
+        "unit": "34 gm",
+        "norm_price": 294.12,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "294.12 / 1 kg"
+  },
+  "olympic_premium_toast_biscuit_185_gm": {
+    "id": "olympic_premium_toast_biscuit_185_gm",
+    "name": "Olympic Premium Toast Biscuit",
+    "image": "https://i.chaldn.com/_mpimage/olympic-premium-toast-biscuit-185-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D100990&q=best&v=1&m=400&webp=1",
+    "category": "Toast & Bakery Biscuits",
+    "current_price": 60.0,
+    "current_unit": "185 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 60.0,
+        "unit": "185 gm",
+        "norm_price": 324.32,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "324.32 / 1 kg"
+  },
+  "tiffany_crunch_n_cream_vanilla_wafers_135_gm": {
+    "id": "tiffany_crunch_n_cream_vanilla_wafers_135_gm",
+    "name": "Tiffany Crunch 'n' Cream Vanilla Wafers",
+    "image": "https://i.chaldn.com/_mpimage/tiffany-crunch-n-cream-vanilla-wafers-135-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D94249&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Cream Biscuits",
+    "current_price": 320.0,
+    "current_unit": "135 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 320.0,
+        "unit": "135 gm",
+        "norm_price": 2370.37,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2370.37 / 1 kg"
+  },
+  "munchy_s_topmix_assorted_biscuits_295_gm": {
+    "id": "munchy_s_topmix_assorted_biscuits_295_gm",
+    "name": "Munchy's Topmix Assorted Biscuits",
+    "image": "https://i.chaldn.com/_mpimage/munchys-topmix-assorted-biscuits-295-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D141634&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Cream Biscuits",
+    "current_price": 580.0,
+    "current_unit": "295 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 580.0,
+        "unit": "295 gm",
+        "norm_price": 1966.1,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1966.1 / 1 kg"
+  },
+  "olympic_dry_cake_biscuit_290_gm": {
+    "id": "olympic_dry_cake_biscuit_290_gm",
+    "name": "Olympic Dry Cake Biscuit",
+    "image": "https://i.chaldn.com/_mpimage/olympic-dry-cake-biscuit-290-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D183198&q=best&v=1&m=400&webp=1",
+    "category": "Toast & Bakery Biscuits",
+    "current_price": 150.0,
+    "current_unit": "290 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 150.0,
+        "unit": "290 gm",
+        "norm_price": 517.24,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "517.24 / 1 kg"
+  },
+  "munchy_s_lexus_cheese_cream_sandwich_cracker_biscuit_225_gm": {
+    "id": "munchy_s_lexus_cheese_cream_sandwich_cracker_biscuit_225_gm",
+    "name": "Munchy's Lexus Cheese Cream Sandwich Cracker Biscuit",
+    "image": "https://i.chaldn.com/_mpimage/munchys-lexus-cheese-cream-sandwich-cracker-biscuit-225-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D101662&q=best&v=1&m=400&webp=1",
+    "category": "Cream Biscuits",
+    "current_price": 490.0,
+    "current_unit": "225 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 490.0,
+        "unit": "225 gm",
+        "norm_price": 2177.78,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2177.78 / 1 kg"
+  },
+  "pran_special_toast_biscuit_250_gm": {
+    "id": "pran_special_toast_biscuit_250_gm",
+    "name": "Pran Special Toast Biscuit",
+    "image": "https://i.chaldn.com/_mpimage/pran-special-toast-biscuit-250-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132330&q=best&v=1&m=400&webp=1",
+    "category": "Toast & Bakery Biscuits",
+    "current_price": 60.0,
+    "current_unit": "250 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 60.0,
+        "unit": "250 gm",
+        "norm_price": 240.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "240.0 / 1 kg"
+  },
+  "tiffany_delights_bourbon_creams_200_gm": {
+    "id": "tiffany_delights_bourbon_creams_200_gm",
+    "name": "Tiffany Delights Bourbon Creams",
+    "image": "https://i.chaldn.com/_mpimage/tiffany-delights-bourbon-creams-200-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D47454&q=best&v=1&m=400&webp=1",
+    "category": "Cream Biscuits",
+    "current_price": 470.0,
+    "current_unit": "200 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 470.0,
+        "unit": "200 gm",
+        "norm_price": 2350.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2350.0 / 1 kg"
+  },
+  "fresh_butter_cookies_biscuit_jar_750_gm": {
+    "id": "fresh_butter_cookies_biscuit_jar_750_gm",
+    "name": "Fresh Butter Cookies Biscuit Jar",
+    "image": "https://i.chaldn.com/_mpimage/fresh-butter-cookies-biscuit-jar-750-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D169151&q=best&v=1&m=400&webp=1",
+    "category": "Cookies",
+    "current_price": 200.0,
+    "current_unit": "750 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 200.0,
+        "unit": "750 gm",
+        "norm_price": 266.67,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "266.67 / 1 kg"
+  },
+  "parle_hide_seek_black_bourbon_choco_creme_biscuit_100_gm": {
+    "id": "parle_hide_seek_black_bourbon_choco_creme_biscuit_100_gm",
+    "name": "Parle Hide & Seek Black Bourbon Choco Creme Biscuit",
+    "image": "https://i.chaldn.com/_mpimage/parle-hide-seek-black-bourbon-choco-creme-biscuit-100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D109112&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Cream Biscuits",
+    "current_price": 195.0,
+    "current_unit": "100 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 195.0,
+        "unit": "100 gm",
+        "norm_price": 1950.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1950.0 / 1 kg"
+  },
+  "ifad_butter_delight_biscuit_150_gm": {
+    "id": "ifad_butter_delight_biscuit_150_gm",
+    "name": "Ifad Butter Delight Biscuit",
+    "image": "https://i.chaldn.com/_mpimage/ifad-butter-delight-biscuit-150-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D163562&q=best&v=1&m=400&webp=1",
+    "category": "Cream Biscuits",
+    "current_price": 50.0,
+    "current_unit": "150 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 50.0,
+        "unit": "150 gm",
+        "norm_price": 333.33,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "333.33 / 1 kg"
+  },
+  "ifad_orange_delight_biscuit_140_gm": {
+    "id": "ifad_orange_delight_biscuit_140_gm",
+    "name": "Ifad Orange Delight Biscuit",
+    "image": "https://i.chaldn.com/_mpimage/ifad-orange-delight-biscuit-140-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D169203&q=best&v=1&m=400&webp=1",
+    "category": "Cream Biscuits",
+    "current_price": 40.0,
+    "current_unit": "140 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 40.0,
+        "unit": "140 gm",
+        "norm_price": 285.71,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "285.71 / 1 kg"
+  },
+  "munchy_s_lexus_choco_coated_chocolate_cream_biscuit_200_gm": {
+    "id": "munchy_s_lexus_choco_coated_chocolate_cream_biscuit_200_gm",
+    "name": "Munchy's Lexus Choco Coated Chocolate Cream Biscuit",
+    "image": "https://i.chaldn.com/_mpimage/munchys-lexus-choco-coated-chocolate-cream-biscuit-200-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D112885&q=best&v=1&m=400&webp=1",
+    "category": "Cream Biscuits",
+    "current_price": 480.0,
+    "current_unit": "200 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 480.0,
+        "unit": "200 gm",
+        "norm_price": 2400.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2400.0 / 1 kg"
+  },
+  "bisk_club_rusk_premium_bake_biscuit_250_gm": {
+    "id": "bisk_club_rusk_premium_bake_biscuit_250_gm",
+    "name": "Bisk Club Rusk Premium Bake Biscuit",
+    "image": "https://i.chaldn.com/_mpimage/bisk-club-rusk-premium-bake-biscuit-250-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D161802&q=best&v=1&m=400&webp=1",
+    "category": "Toast & Bakery Biscuits",
+    "current_price": 70.0,
+    "current_unit": "250 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 70.0,
+        "unit": "250 gm",
+        "norm_price": 280.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "280.0 / 1 kg"
+  },
+  "munchy_s_topmix_assorted_biscuits_tin_700_gm": {
+    "id": "munchy_s_topmix_assorted_biscuits_tin_700_gm",
+    "name": "Munchy's Topmix Assorted Biscuits Tin",
+    "image": "https://i.chaldn.com/_mpimage/munchys-topmix-assorted-biscuits-tin-700-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D101740&q=best&v=1&m=400&webp=1",
+    "category": "Cream Biscuits",
+    "current_price": 1870.0,
+    "current_unit": "700 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 1870.0,
+        "unit": "700 gm",
+        "norm_price": 2671.43,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2671.43 / 1 kg"
+  },
+  "ispahani_premium_toast_biscuit_185_gm": {
+    "id": "ispahani_premium_toast_biscuit_185_gm",
+    "name": "Ispahani Premium Toast Biscuit",
+    "image": "https://i.chaldn.com/_mpimage/ispahani-premium-toast-biscuit-185-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D169991&q=best&v=1&m=400&webp=1",
+    "category": "Toast & Bakery Biscuits",
+    "current_price": 50.0,
+    "current_unit": "185 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 50.0,
+        "unit": "185 gm",
+        "norm_price": 270.27,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "270.27 / 1 kg"
+  },
+  "dekko_sweet_toast_biscuit_300_gm": {
+    "id": "dekko_sweet_toast_biscuit_300_gm",
+    "name": "Dekko Sweet Toast Biscuit",
+    "image": "https://i.chaldn.com/_mpimage/dekko-sweet-toast-biscuit-300-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D103587&q=best&v=1&m=400&webp=1",
+    "category": "Toast & Bakery Biscuits",
+    "current_price": 80.0,
+    "current_unit": "300 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 80.0,
+        "unit": "300 gm",
+        "norm_price": 266.67,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "266.67 / 1 kg"
+  },
+  "ifad_plain_toast_biscuit_350_gm": {
+    "id": "ifad_plain_toast_biscuit_350_gm",
+    "name": "Ifad Plain Toast Biscuit",
+    "image": "https://i.chaldn.com/_mpimage/ifad-plain-toast-biscuit-350-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D96840&q=best&v=1&m=400&webp=1",
+    "category": "Toast & Bakery Biscuits",
+    "current_price": 100.0,
+    "current_unit": "350 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 100.0,
+        "unit": "350 gm",
+        "norm_price": 285.71,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "285.71 / 1 kg"
+  },
+  "ifad_eggy_stix_bar_b_q_chips_16_gm": {
+    "id": "ifad_eggy_stix_bar_b_q_chips_16_gm",
+    "name": "Ifad Eggy Stix Bar-B-Q Chips",
+    "image": "https://i.chaldn.com/_mpimage/ifad-eggy-stix-bar-b-q-chips-16-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D107019&q=best&v=1&m=400&webp=1",
+    "category": "Chips & Pretzels",
+    "current_price": 10.0,
+    "current_unit": "16 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 10.0,
+        "unit": "16 gm",
+        "norm_price": 625.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "625.0 / 1 kg"
+  },
+  "bombay_sweets_potato_crackers_28_gm": {
+    "id": "bombay_sweets_potato_crackers_28_gm",
+    "name": "Bombay Sweets Potato Crackers",
+    "image": "https://i.chaldn.com/_mpimage/bombay-sweets-potato-crackers-28-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D177259&q=best&v=1&m=400&webp=1",
+    "category": "Chips & Pretzels",
+    "current_price": 20.0,
+    "current_unit": "28 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 20.0,
+        "unit": "28 gm",
+        "norm_price": 714.29,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "714.29 / 1 kg"
+  },
+  "kurkure_naughty_tomato_chips_70_gm": {
+    "id": "kurkure_naughty_tomato_chips_70_gm",
+    "name": "Kurkure Naughty Tomato\u00a0Chips",
+    "image": "https://i.chaldn.com/_mpimage/kurkure-naughty-tomatochips-70-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D170338&q=best&v=1&m=400&webp=1",
+    "category": "Chips & Pretzels",
+    "current_price": 50.0,
+    "current_unit": "70 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 50.0,
+        "unit": "70 gm",
+        "norm_price": 714.29,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "714.29 / 1 kg"
+  },
+  "sun_chips_tomato_tango_35_gm": {
+    "id": "sun_chips_tomato_tango_35_gm",
+    "name": "Sun Chips Tomato Tango",
+    "image": "https://i.chaldn.com/_mpimage/sun-chips-tomato-tango-35-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D168334&q=best&v=1&m=400&webp=1",
+    "category": "Chips & Pretzels",
+    "current_price": 30.0,
+    "current_unit": "35 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 30.0,
+        "unit": "35 gm",
+        "norm_price": 857.14,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "857.14 / 1 kg"
+  },
+  "cheese_puff_14_gm": {
+    "id": "cheese_puff_14_gm",
+    "name": "Cheese Puff",
+    "image": "https://i.chaldn.com/_mpimage/cheese-puff-14-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D155069&q=best&v=1&m=400&webp=1",
+    "category": "Chips & Pretzels",
+    "current_price": 10.0,
+    "current_unit": "14 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 10.0,
+        "unit": "14 gm",
+        "norm_price": 714.29,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "714.29 / 1 kg"
+  },
+  "bombay_sweets_mr_twist_22_gm": {
+    "id": "bombay_sweets_mr_twist_22_gm",
+    "name": "Bombay Sweets Mr. Twist",
+    "image": "https://i.chaldn.com/_mpimage/bombay-sweets-mr-twist-22-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D169042&q=best&v=1&m=400&webp=1",
+    "category": "Chips & Pretzels",
+    "current_price": 25.0,
+    "current_unit": "22 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 25.0,
+        "unit": "22 gm",
+        "norm_price": 1136.36,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1136.36 / 1 kg"
+  },
+  "bombay_sweets_ring_chips_25_gm": {
+    "id": "bombay_sweets_ring_chips_25_gm",
+    "name": "Bombay Sweets Ring Chips",
+    "image": "https://i.chaldn.com/_mpimage/bombay-sweets-ring-chips-25-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D172191&q=best&v=1&m=400&webp=1",
+    "category": "Chips & Pretzels",
+    "current_price": 20.0,
+    "current_unit": "25 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 20.0,
+        "unit": "25 gm",
+        "norm_price": 800.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "800.0 / 1 kg"
+  },
+  "sun_chips_mix_masala_20_gm": {
+    "id": "sun_chips_mix_masala_20_gm",
+    "name": "Sun Chips Mix Masala",
+    "image": "https://i.chaldn.com/_mpimage/sun-chips-mix-masala-20-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D168336&q=best&v=1&m=400&webp=1",
+    "category": "Chips & Pretzels",
+    "current_price": 20.0,
+    "current_unit": "20 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 20.0,
+        "unit": "20 gm",
+        "norm_price": 1000.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1000.0 / 1 kg"
+  },
+  "sun_chips_tomato_tango_20_gm": {
+    "id": "sun_chips_tomato_tango_20_gm",
+    "name": "Sun Chips Tomato Tango",
+    "image": "https://i.chaldn.com/_mpimage/sun-chips-tomato-tango-20-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D168335&q=best&v=1&m=400&webp=1",
+    "category": "Chips & Pretzels",
+    "current_price": 20.0,
+    "current_unit": "20 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 20.0,
+        "unit": "20 gm",
+        "norm_price": 1000.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1000.0 / 1 kg"
+  },
+  "kurkure_american_style_cream_onion_chips_25_gm": {
+    "id": "kurkure_american_style_cream_onion_chips_25_gm",
+    "name": "Kurkure American Style Cream & Onion Chips",
+    "image": "https://i.chaldn.com/_mpimage/kurkure-american-style-cream-onion-chips-25-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D168936&q=best&v=1&m=400&webp=1",
+    "category": "Chips & Pretzels",
+    "current_price": 20.0,
+    "current_unit": "25 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 20.0,
+        "unit": "25 gm",
+        "norm_price": 800.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "800.0 / 1 kg"
+  },
+  "bombay_sweets_cheese_ball_cheezee_corn_snacks_10_gm": {
+    "id": "bombay_sweets_cheese_ball_cheezee_corn_snacks_10_gm",
+    "name": "Bombay Sweets Cheese Ball Cheezee Corn Snacks",
+    "image": "https://i.chaldn.com/_mpimage/bombay-sweets-cheese-ball-cheezee-corn-snacks-10-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D184850&q=best&v=1&m=400&webp=1",
+    "category": "Chips & Pretzels",
+    "current_price": 10.0,
+    "current_unit": "10 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 10.0,
+        "unit": "10 gm",
+        "norm_price": 1000.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1000.0 / 1 kg"
+  },
+  "pran_potato_cracker_15_gm": {
+    "id": "pran_potato_cracker_15_gm",
+    "name": "Pran Potato Cracker",
+    "image": "https://i.chaldn.com/_mpimage/pran-potato-cracker-15-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D152284&q=best&v=1&m=400&webp=1",
+    "category": "Chips & Pretzels",
+    "current_price": 10.0,
+    "current_unit": "15 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 10.0,
+        "unit": "15 gm",
+        "norm_price": 666.67,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "666.67 / 1 kg"
+  },
+  "kurkure_chilli_chatka_chips_25_gm": {
+    "id": "kurkure_chilli_chatka_chips_25_gm",
+    "name": "Kurkure Chilli Chatka Chips",
+    "image": "https://i.chaldn.com/_mpimage/kurkure-chilli-chatka-chips-25-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D169908&q=best&v=1&m=400&webp=1",
+    "category": "Chips & Pretzels",
+    "current_price": 20.0,
+    "current_unit": "25 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 20.0,
+        "unit": "25 gm",
+        "norm_price": 800.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "800.0 / 1 kg"
+  },
+  "bombay_sweets_nachoz_chutney_lime_30_gm": {
+    "id": "bombay_sweets_nachoz_chutney_lime_30_gm",
+    "name": "Bombay Sweets Nachoz Chutney & Lime",
+    "image": "https://i.chaldn.com/_mpimage/bombay-sweets-nachoz-chutney-lime-30-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D169044&q=best&v=1&m=400&webp=1",
+    "category": "Chips & Pretzels",
+    "current_price": 20.0,
+    "current_unit": "30 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 20.0,
+        "unit": "30 gm",
+        "norm_price": 666.67,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "666.67 / 1 kg"
+  },
+  "bombay_sweets_alooz_spanish_tomato_flavor_20_gm": {
+    "id": "bombay_sweets_alooz_spanish_tomato_flavor_20_gm",
+    "name": "Bombay Sweets Alooz Spanish Tomato Flavor",
+    "image": "https://i.chaldn.com/_mpimage/bombay-sweets-alooz-spanish-tomato-flavor-20-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D176977&q=best&v=1&m=400&webp=1",
+    "category": "Chips & Pretzels",
+    "current_price": 20.0,
+    "current_unit": "20 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 20.0,
+        "unit": "20 gm",
+        "norm_price": 1000.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1000.0 / 1 kg"
+  },
+  "pringles_saucy_bbq_potato_chips_134_gm": {
+    "id": "pringles_saucy_bbq_potato_chips_134_gm",
+    "name": "Pringles Saucy BBQ Potato Chips",
+    "image": "https://i.chaldn.com/_mpimage/pringles-saucy-bbq-potato-chips-134-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D178932&q=best&v=1&m=400&webp=1",
+    "category": "Chips & Pretzels",
+    "current_price": 350.0,
+    "current_unit": "134 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 350.0,
+        "unit": "134 gm",
+        "norm_price": 2611.94,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2611.94 / 1 kg"
+  },
+  "kurkure_masala_munch_chips_70_gm": {
+    "id": "kurkure_masala_munch_chips_70_gm",
+    "name": "Kurkure Masala Munch Chips",
+    "image": "https://i.chaldn.com/_mpimage/kurkure-masala-munch-chips-70-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D168937&q=best&v=1&m=400&webp=1",
+    "category": "Chips & Pretzels",
+    "current_price": 50.0,
+    "current_unit": "70 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 50.0,
+        "unit": "70 gm",
+        "norm_price": 714.29,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "714.29 / 1 kg"
+  },
+  "mister_potato_hot_spicy_crisps_100_gm": {
+    "id": "mister_potato_hot_spicy_crisps_100_gm",
+    "name": "Mister Potato Hot & Spicy Crisps",
+    "image": "https://i.chaldn.com/_mpimage/mister-potato-hot-spicy-crisps-100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130783&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Chips & Pretzels",
+    "current_price": 310.0,
+    "current_unit": "100 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 310.0,
+        "unit": "100 gm",
+        "norm_price": 3100.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "3100.0 / 1 kg"
+  },
+  "mister_potato_bbq_crisps_100_gm": {
+    "id": "mister_potato_bbq_crisps_100_gm",
+    "name": "Mister Potato BBQ Crisps",
+    "image": "https://i.chaldn.com/_mpimage/mister-potato-bbq-crisps-100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130785&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Chips & Pretzels",
+    "current_price": 275.0,
+    "current_unit": "100 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 275.0,
+        "unit": "100 gm",
+        "norm_price": 2750.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2750.0 / 1 kg"
+  },
+  "pringles_cheddar_cheese_potato_chips_158_gm": {
+    "id": "pringles_cheddar_cheese_potato_chips_158_gm",
+    "name": "Pringles Cheddar Cheese Potato Chips",
+    "image": "https://i.chaldn.com/_mpimage/pringles-cheddar-cheese-potato-chips-158-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D114801&q=best&v=1&m=400&webp=1",
+    "category": "Chips & Pretzels",
+    "current_price": 510.0,
+    "current_unit": "158 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 510.0,
+        "unit": "158 gm",
+        "norm_price": 3227.85,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "3227.85 / 1 kg"
+  },
+  "sun_chips_tomato_tango_75_gm": {
+    "id": "sun_chips_tomato_tango_75_gm",
+    "name": "Sun Chips Tomato Tango",
+    "image": "https://i.chaldn.com/_mpimage/sun-chips-tomato-tango-75-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D168339&q=best&v=1&m=400&webp=1",
+    "category": "Chips & Pretzels",
+    "current_price": 60.0,
+    "current_unit": "75 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 60.0,
+        "unit": "75 gm",
+        "norm_price": 800.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "800.0 / 1 kg"
+  },
+  "sun_chips_mix_masala_75_gm": {
+    "id": "sun_chips_mix_masala_75_gm",
+    "name": "Sun Chips Mix Masala",
+    "image": "https://i.chaldn.com/_mpimage/sun-chips-mix-masala-75-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D168338&q=best&v=1&m=400&webp=1",
+    "category": "Chips & Pretzels",
+    "current_price": 60.0,
+    "current_unit": "75 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 60.0,
+        "unit": "75 gm",
+        "norm_price": 800.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "800.0 / 1 kg"
+  },
+  "pringles_potato_chips_sour_cream_onion_158_gm": {
+    "id": "pringles_potato_chips_sour_cream_onion_158_gm",
+    "name": "Pringles Potato Chips Sour Cream & Onion",
+    "image": "https://i.chaldn.com/_mpimage/pringles-potato-chips-sour-cream-onion-158-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132368&q=best&v=1&m=400&webp=1",
+    "category": "Chips & Pretzels",
+    "current_price": 439.0,
+    "current_unit": "158 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 439.0,
+        "unit": "158 gm",
+        "norm_price": 2778.48,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2778.48 / 1 kg"
+  },
+  "olympic_lexus_vegetable_crackers_biscuits_216_gm": {
+    "id": "olympic_lexus_vegetable_crackers_biscuits_216_gm",
+    "name": "Olympic Lexus Vegetable Crackers Biscuits",
+    "image": "https://i.chaldn.com/_mpimage/olympic-lexus-vegetable-crackers-biscuits-216-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D115564&q=best&v=1&m=400&webp=1",
+    "category": "Cookies",
+    "current_price": 100.0,
+    "current_unit": "216 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 100.0,
+        "unit": "216 gm",
+        "norm_price": 462.96,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "462.96 / 1 kg"
+  },
+  "haque_mr_cookie_butter_coconut_biscuit_175_gm": {
+    "id": "haque_mr_cookie_butter_coconut_biscuit_175_gm",
+    "name": "Haque Mr. Cookie Butter Coconut Biscuit",
+    "image": "https://i.chaldn.com/_mpimage/haque-mr-cookie-butter-coconut-biscuit-175-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D129113&q=best&v=1&m=400&webp=1",
+    "category": "Cookies",
+    "current_price": 50.0,
+    "current_unit": "175 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 50.0,
+        "unit": "175 gm",
+        "norm_price": 285.71,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "285.71 / 1 kg"
+  },
+  "haque_la_kokonat_cookies_biscuit_100_gm": {
+    "id": "haque_la_kokonat_cookies_biscuit_100_gm",
+    "name": "Haque La Kokonat Cookies Biscuit",
+    "image": "https://i.chaldn.com/_mpimage/haque-la-kokonat-cookies-biscuit-100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D177144&q=best&v=1&m=400&webp=1",
+    "category": "Cookies",
+    "current_price": 30.0,
+    "current_unit": "100 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 30.0,
+        "unit": "100 gm",
+        "norm_price": 300.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "300.0 / 1 kg"
+  },
+  "kishwan_ovaltine_biscuit_250_gm": {
+    "id": "kishwan_ovaltine_biscuit_250_gm",
+    "name": "Kishwan Ovaltine Biscuit",
+    "image": "https://i.chaldn.com/_mpimage/kishwan-ovaltine-biscuit-250-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132360&q=best&v=1&m=400&webp=1",
+    "category": "Cookies",
+    "current_price": 70.0,
+    "current_unit": "250 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 70.0,
+        "unit": "250 gm",
+        "norm_price": 280.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "280.0 / 1 kg"
+  },
+  "ifad_nutri_bite_vegetable_crackers_biscuit_180_gm": {
+    "id": "ifad_nutri_bite_vegetable_crackers_biscuit_180_gm",
+    "name": "Ifad Nutri Bite Vegetable Crackers Biscuit",
+    "image": "https://i.chaldn.com/_mpimage/ifad-nutri-bite-vegetable-crackers-biscuit-180-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D165424&q=best&v=1&m=400&webp=1",
+    "category": "Cookies",
+    "current_price": 100.0,
+    "current_unit": "180 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 100.0,
+        "unit": "180 gm",
+        "norm_price": 555.56,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "555.56 / 1 kg"
+  },
+  "haque_mr_cookie_butter_coconut_biscuit_35_gm": {
+    "id": "haque_mr_cookie_butter_coconut_biscuit_35_gm",
+    "name": "Haque Mr. Cookie Butter Coconut Biscuit",
+    "image": "https://i.chaldn.com/_mpimage/haque-mr-cookie-butter-coconut-biscuit-35-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D140369&q=best&v=1&m=400&webp=1",
+    "category": "Cookies",
+    "current_price": 10.0,
+    "current_unit": "35 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 10.0,
+        "unit": "35 gm",
+        "norm_price": 285.71,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "285.71 / 1 kg"
+  },
+  "danish_lexus_vegetable_cracker_biscuit_180_gm": {
+    "id": "danish_lexus_vegetable_cracker_biscuit_180_gm",
+    "name": "Danish Lexus Vegetable Cracker Biscuit",
+    "image": "https://i.chaldn.com/_mpimage/danish-lexus-vegetable-cracker-biscuit-180-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D124076&q=best&v=1&m=400&webp=1",
+    "category": "Cookies",
+    "current_price": 100.0,
+    "current_unit": "180 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 100.0,
+        "unit": "180 gm",
+        "norm_price": 555.56,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "555.56 / 1 kg"
+  },
+  "dekko_kheer_cookies_biscuit_family_pack_265_gm": {
+    "id": "dekko_kheer_cookies_biscuit_family_pack_265_gm",
+    "name": "Dekko Kheer Cookies Biscuit Family Pack",
+    "image": "https://i.chaldn.com/_mpimage/dekko-kheer-cookies-biscuit-family-pack-265-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D103393&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Cookies",
+    "current_price": 70.0,
+    "current_unit": "265 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 70.0,
+        "unit": "265 gm",
+        "norm_price": 264.15,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "264.15 / 1 kg"
+  },
+  "kishwan_magica_choco_filled_cookies_180_gm": {
+    "id": "kishwan_magica_choco_filled_cookies_180_gm",
+    "name": "Kishwan Magica Choco Filled Cookies",
+    "image": "https://i.chaldn.com/_mpimage/kishwan-magica-choco-filled-cookies-180-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D75185&q=best&v=1&m=400&webp=1",
+    "category": "Cookies",
+    "current_price": 150.0,
+    "current_unit": "180 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 150.0,
+        "unit": "180 gm",
+        "norm_price": 833.33,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "833.33 / 1 kg"
+  },
+  "kishwan_horlicks_biscuit_250_gm": {
+    "id": "kishwan_horlicks_biscuit_250_gm",
+    "name": "Kishwan Horlicks Biscuit",
+    "image": "https://i.chaldn.com/_mpimage/kishwan-horlicks-biscuit-250-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132361&q=best&v=1&m=400&webp=1",
+    "category": "Cookies",
+    "current_price": 70.0,
+    "current_unit": "250 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 70.0,
+        "unit": "250 gm",
+        "norm_price": 280.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "280.0 / 1 kg"
+  },
+  "all_time_roma_chocolate_cookies_150_gm": {
+    "id": "all_time_roma_chocolate_cookies_150_gm",
+    "name": "All Time Roma Chocolate Cookies",
+    "image": "https://i.chaldn.com/_mpimage/all-time-roma-chocolate-cookies-150-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D101626&q=best&v=1&m=400&webp=1",
+    "category": "Cookies",
+    "current_price": 150.0,
+    "current_unit": "150 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 150.0,
+        "unit": "150 gm",
+        "norm_price": 1000.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1000.0 / 1 kg"
+  },
+  "kishwan_butter_cookies_biscuit_200_gm": {
+    "id": "kishwan_butter_cookies_biscuit_200_gm",
+    "name": "Kishwan Butter Cookies Biscuit",
+    "image": "https://i.chaldn.com/_mpimage/kishwan-butter-cookies-biscuit-200-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D129015&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Cookies",
+    "current_price": 60.0,
+    "current_unit": "200 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 60.0,
+        "unit": "200 gm",
+        "norm_price": 300.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "300.0 / 1 kg"
+  },
+  "dekko_bhalobasa_chocolate_milk_cookies_88_gm": {
+    "id": "dekko_bhalobasa_chocolate_milk_cookies_88_gm",
+    "name": "Dekko Bhalobasa Chocolate Milk Cookies",
+    "image": "https://i.chaldn.com/_mpimage/dekko-bhalobasa-chocolate-milk-cookies-88-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128207&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Cookies",
+    "current_price": 50.0,
+    "current_unit": "88 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 50.0,
+        "unit": "88 gm",
+        "norm_price": 568.18,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "568.18 / 1 kg"
+  },
+  "dekko_chocomalt_chocolate_cookies_biscuit_235_gm": {
+    "id": "dekko_chocomalt_chocolate_cookies_biscuit_235_gm",
+    "name": "Dekko Chocomalt Chocolate Cookies Biscuit",
+    "image": "https://i.chaldn.com/_mpimage/dekko-chocomalt-chocolate-cookies-biscuit-235-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D126066&q=best&v=1&m=400&webp=1",
+    "category": "Cookies",
+    "current_price": 70.0,
+    "current_unit": "235 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 70.0,
+        "unit": "235 gm",
+        "norm_price": 297.87,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "297.87 / 1 kg"
+  },
+  "dekko_honey_kalo_zeera_biscuit_150_gm": {
+    "id": "dekko_honey_kalo_zeera_biscuit_150_gm",
+    "name": "Dekko Honey & Kalo Zeera Biscuit",
+    "image": "https://i.chaldn.com/_mpimage/dekko-honey-kalo-zeera-biscuit-150-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D126065&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Cookies",
+    "current_price": 50.0,
+    "current_unit": "150 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 50.0,
+        "unit": "150 gm",
+        "norm_price": 333.33,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "333.33 / 1 kg"
+  },
+  "meena_sweets_butter_shortbread_cookies_250_gm": {
+    "id": "meena_sweets_butter_shortbread_cookies_250_gm",
+    "name": "Meena Sweets Butter Shortbread cookies",
+    "image": "https://i.chaldn.com/_mpimage/meena-sweets-butter-shortbread-cookies-250-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130672&q=best&v=1&m=400&webp=1",
+    "category": "Cookies",
+    "current_price": 340.0,
+    "current_unit": "250 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 340.0,
+        "unit": "250 gm",
+        "norm_price": 1360.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1360.0 / 1 kg"
+  },
+  "bakeman_s_coconut_craze_cookies_biscuit_185_gm": {
+    "id": "bakeman_s_coconut_craze_cookies_biscuit_185_gm",
+    "name": "Bakeman's Coconut Craze Cookies Biscuit",
+    "image": "https://i.chaldn.com/_mpimage/bakemans-coconut-craze-cookies-biscuit-185-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D172139&q=best&v=1&m=400&webp=1",
+    "category": "Cookies",
+    "current_price": 60.0,
+    "current_unit": "185 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 60.0,
+        "unit": "185 gm",
+        "norm_price": 324.32,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "324.32 / 1 kg"
+  },
+  "bakeman_s_bahtar_butter_cookies_185_gm": {
+    "id": "bakeman_s_bahtar_butter_cookies_185_gm",
+    "name": "Bakeman's Bahtar Butter Cookies",
+    "image": "https://i.chaldn.com/_mpimage/bakemans-bahtar-butter-cookies-185-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D169095&q=best&v=1&m=400&webp=1",
+    "category": "Cookies",
+    "current_price": 50.0,
+    "current_unit": "185 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 50.0,
+        "unit": "185 gm",
+        "norm_price": 270.27,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "270.27 / 1 kg"
+  },
+  "dan_cake_danish_butter_cookies_150_gm": {
+    "id": "dan_cake_danish_butter_cookies_150_gm",
+    "name": "Dan Cake Danish Butter Cookies",
+    "image": "https://i.chaldn.com/_mpimage/dan-cake-danish-butter-cookies-150-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D169222&q=best&v=1&m=400&webp=1",
+    "category": "Cookies",
+    "current_price": 170.0,
+    "current_unit": "150 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 170.0,
+        "unit": "150 gm",
+        "norm_price": 1133.33,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1133.33 / 1 kg"
+  },
+  "dan_cake_oats_cookies_150_gm": {
+    "id": "dan_cake_oats_cookies_150_gm",
+    "name": "Dan Cake Oats Cookies",
+    "image": "https://i.chaldn.com/_mpimage/dan-cake-oats-cookies-150-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D169224&q=best&v=1&m=400&webp=1",
+    "category": "Cookies",
+    "current_price": 170.0,
+    "current_unit": "150 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 170.0,
+        "unit": "150 gm",
+        "norm_price": 1133.33,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1133.33 / 1 kg"
+  },
+  "bakeman_s_ovaltine_cookies_biscuit_250_gm": {
+    "id": "bakeman_s_ovaltine_cookies_biscuit_250_gm",
+    "name": "Bakeman's Ovaltine Cookies Biscuit",
+    "image": "https://i.chaldn.com/_mpimage/bakemans-ovaltine-cookies-biscuit-250-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D138712&q=best&v=1&m=400&webp=1",
+    "category": "Cookies",
+    "current_price": 60.0,
+    "current_unit": "250 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 60.0,
+        "unit": "250 gm",
+        "norm_price": 240.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "240.0 / 1 kg"
+  },
+  "munchy_s_oat_krunch_nutty_chocolate_cookies_208_gm": {
+    "id": "munchy_s_oat_krunch_nutty_chocolate_cookies_208_gm",
+    "name": "Munchy's Oat Krunch Nutty Chocolate Cookies",
+    "image": "https://i.chaldn.com/_mpimage/munchys-oat-krunch-nutty-chocolate-cookies-208-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D141621&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Cookies",
+    "current_price": 550.0,
+    "current_unit": "208 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 550.0,
+        "unit": "208 gm",
+        "norm_price": 2644.23,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2644.23 / 1 kg"
+  },
+  "olympic_hilux_vegetable_crackers_biscuits_216_gm": {
+    "id": "olympic_hilux_vegetable_crackers_biscuits_216_gm",
+    "name": "Olympic Hilux Vegetable Crackers Biscuits",
+    "image": "https://i.chaldn.com/_mpimage/olympic-hilux-vegetable-crackers-biscuits-216-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D101172&q=best&v=1&m=400&webp=1",
+    "category": "Cookies",
+    "current_price": 100.0,
+    "current_unit": "216 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 100.0,
+        "unit": "216 gm",
+        "norm_price": 462.96,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "462.96 / 1 kg"
+  },
+  "olympic_hello_cookies_biscuits_165_gm": {
+    "id": "olympic_hello_cookies_biscuits_165_gm",
+    "name": "Olympic Hello Cookies Biscuits",
+    "image": "https://i.chaldn.com/_mpimage/olympic-hello-cookies-biscuits-165-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D183208&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Cookies",
+    "current_price": 50.0,
+    "current_unit": "165 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 50.0,
+        "unit": "165 gm",
+        "norm_price": 303.03,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "303.03 / 1 kg"
+  },
+  "olympic_biscotti_cookies_biscuit_160_gm": {
+    "id": "olympic_biscotti_cookies_biscuit_160_gm",
+    "name": "Olympic Biscotti Cookies Biscuit",
+    "image": "https://i.chaldn.com/_mpimage/olympic-biscotti-cookies-biscuit-160-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D183207&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Cookies",
+    "current_price": 50.0,
+    "current_unit": "160 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 50.0,
+        "unit": "160 gm",
+        "norm_price": 312.5,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "312.5 / 1 kg"
+  },
+  "dekko_pick_star_cookies_biscuit_175_gm": {
+    "id": "dekko_pick_star_cookies_biscuit_175_gm",
+    "name": "Dekko Pick Star Cookies Biscuit",
+    "image": "https://i.chaldn.com/_mpimage/dekko-pick-star-cookies-biscuit-175-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D118898&q=best&v=1&m=400&webp=1",
+    "category": "Cookies",
+    "current_price": 60.0,
+    "current_unit": "175 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 60.0,
+        "unit": "175 gm",
+        "norm_price": 342.86,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "342.86 / 1 kg"
+  },
+  "weetabix_original_biscuit_215_gm": {
+    "id": "weetabix_original_biscuit_215_gm",
+    "name": "Weetabix Original Biscuit",
+    "image": "https://i.chaldn.com/_mpimage/weetabix-original-biscuit-215-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D137094&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Cookies",
+    "current_price": 725.0,
+    "current_unit": "215 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 725.0,
+        "unit": "215 gm",
+        "norm_price": 3372.09,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "3372.09 / 1 kg"
+  },
+  "fit_masala_biscuit_60_gm": {
+    "id": "fit_masala_biscuit_60_gm",
+    "name": "Fit Masala Biscuit",
+    "image": "https://i.chaldn.com/_mpimage/fit-masala-biscuit-60-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D161800&q=best&v=1&m=400&webp=1",
+    "category": "Cookies",
+    "current_price": 20.0,
+    "current_unit": "60 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 20.0,
+        "unit": "60 gm",
+        "norm_price": 333.33,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "333.33 / 1 kg"
+  },
+  "goldmark_original_fruit_cookies_200_gm": {
+    "id": "goldmark_original_fruit_cookies_200_gm",
+    "name": "Goldmark Original Fruit Cookies",
+    "image": "https://i.chaldn.com/_mpimage/goldmark-original-fruit-cookies-200-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D115554&q=best&v=1&m=400&webp=1",
+    "category": "Cookies",
+    "current_price": 60.0,
+    "current_unit": "200 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 60.0,
+        "unit": "200 gm",
+        "norm_price": 300.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "300.0 / 1 kg"
+  },
+  "goldmark_butter_cookies_210_gm": {
+    "id": "goldmark_butter_cookies_210_gm",
+    "name": "Goldmark Butter Cookies",
+    "image": "https://i.chaldn.com/_mpimage/goldmark-butter-cookies-210-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D103302&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Cookies",
+    "current_price": 60.0,
+    "current_unit": "210 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 60.0,
+        "unit": "210 gm",
+        "norm_price": 285.71,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "285.71 / 1 kg"
+  },
+  "cocola_egg_noodles_125_gm": {
+    "id": "cocola_egg_noodles_125_gm",
+    "name": "Cocola Egg Noodles",
+    "image": "https://i.chaldn.com/_mpimage/cocola-egg-noodles-125-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D127029&q=best&v=1&m=400&webp=1",
+    "category": "Noodles",
+    "current_price": 20.0,
+    "current_unit": "125 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 20.0,
+        "unit": "125 gm",
+        "norm_price": 160.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "160.0 / 1 kg"
+  },
+  "nestle_maggi_2_minute_masala_instant_noodles_16_pack": {
+    "id": "nestle_maggi_2_minute_masala_instant_noodles_16_pack",
+    "name": "Nestle Maggi 2 Minute Masala Instant Noodles",
+    "image": "https://i.chaldn.com/_mpimage/nestle-maggi-2-minute-masala-instant-noodles-16-pack?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D153592&q=best&v=1&m=400&webp=1",
+    "category": "Noodles",
+    "current_price": 340.0,
+    "current_unit": "16 pack",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 340.0,
+        "unit": "16 pack",
+        "norm_price": 340.0,
+        "norm_unit": "16 pack"
+      }
+    ],
+    "norm_price_display": "340.0 / 16 pack"
+  },
+  "nestle_maggi_2_minute_masala_instant_noodles_4_pack": {
+    "id": "nestle_maggi_2_minute_masala_instant_noodles_4_pack",
+    "name": "Nestle Maggi 2-Minute Masala Instant Noodles",
+    "image": "https://i.chaldn.com/_mpimage/nestle-maggi-2-minute-masala-instant-noodles-4-pack?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D153594&q=best&v=1&m=400&webp=1",
+    "category": "Noodles",
+    "current_price": 95.0,
+    "current_unit": "4 pack",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 95.0,
+        "unit": "4 pack",
+        "norm_price": 95.0,
+        "norm_unit": "4 pack"
+      }
+    ],
+    "norm_price_display": "95.0 / 4 pack"
+  },
+  "cocola_chicken_masala_noodles_150_gm": {
+    "id": "cocola_chicken_masala_noodles_150_gm",
+    "name": "Cocola Chicken Masala Noodles",
+    "image": "https://i.chaldn.com/_mpimage/cocola-chicken-masala-noodles-150-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D127018&q=best&v=1&m=400&webp=1",
+    "category": "Noodles",
+    "current_price": 25.0,
+    "current_unit": "150 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 25.0,
+        "unit": "150 gm",
+        "norm_price": 166.67,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "166.67 / 1 kg"
+  },
+  "samyang_hot_chicken_ramen_jjajang_flavor_noodles_140_gm": {
+    "id": "samyang_hot_chicken_ramen_jjajang_flavor_noodles_140_gm",
+    "name": "Samyang Hot Chicken Ramen Jjajang Flavor Noodles",
+    "image": "https://i.chaldn.com/_mpimage/samyang-hot-chicken-ramen-jjajang-flavor-noodles-140-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D133125&q=best&v=1&m=400&webp=1",
+    "category": "Noodles",
+    "current_price": 239.0,
+    "current_unit": "140 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 239.0,
+        "unit": "140 gm",
+        "norm_price": 1707.14,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1707.14 / 1 kg"
+  },
+  "samyang_hot_chicken_ramen_noodles_2x_spicy_140_gm": {
+    "id": "samyang_hot_chicken_ramen_noodles_2x_spicy_140_gm",
+    "name": "Samyang Hot Chicken Ramen Noodles 2X Spicy",
+    "image": "https://i.chaldn.com/_mpimage/samyang-hot-chicken-ramen-noodles-2x-spicy-140-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D47022&q=best&v=1&m=400&webp=1",
+    "category": "Noodles",
+    "current_price": 239.0,
+    "current_unit": "140 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 239.0,
+        "unit": "140 gm",
+        "norm_price": 1707.14,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1707.14 / 1 kg"
+  },
+  "mr_noodles_rice_stick_noodles_454_gm": {
+    "id": "mr_noodles_rice_stick_noodles_454_gm",
+    "name": "Mr. Noodles Rice Stick Noodles",
+    "image": "https://i.chaldn.com/_mpimage/mr-noodles-rice-stick-noodles-454-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130948&q=best&v=1&m=400&webp=1",
+    "category": "Noodles",
+    "current_price": 370.0,
+    "current_unit": "454 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 370.0,
+        "unit": "454 gm",
+        "norm_price": 814.98,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "814.98 / 1 kg"
+  },
+  "cocola_egg_chicken_masala_noodles_150_gm": {
+    "id": "cocola_egg_chicken_masala_noodles_150_gm",
+    "name": "Cocola Egg & Chicken Masala Noodles",
+    "image": "https://i.chaldn.com/_mpimage/cocola-egg-chicken-masala-noodles-150-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D127028&q=best&v=1&m=400&webp=1",
+    "category": "Noodles",
+    "current_price": 25.0,
+    "current_unit": "150 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 25.0,
+        "unit": "150 gm",
+        "norm_price": 166.67,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "166.67 / 1 kg"
+  },
+  "nestle_maggi_2_minute_masala_instant_noodles_8_pack": {
+    "id": "nestle_maggi_2_minute_masala_instant_noodles_8_pack",
+    "name": "Nestle Maggi 2-Minute Masala Instant Noodles",
+    "image": "https://i.chaldn.com/_mpimage/nestle-maggi-2-minute-masala-instant-noodles-8-pack?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D153591&q=best&v=1&m=400&webp=1",
+    "category": "Noodles",
+    "current_price": 180.0,
+    "current_unit": "8 pack",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 180.0,
+        "unit": "8 pack",
+        "norm_price": 180.0,
+        "norm_unit": "8 pack"
+      }
+    ],
+    "norm_price_display": "180.0 / 8 pack"
+  },
+  "mr_noodles_magic_masala_easy_instant_496_gm": {
+    "id": "mr_noodles_magic_masala_easy_instant_496_gm",
+    "name": "Mr.Noodles Magic Masala Easy Instant",
+    "image": "https://i.chaldn.com/_mpimage/mrnoodles-magic-masala-easy-instant-496-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D175133&q=best&v=1&m=400&webp=1",
+    "category": "Noodles",
+    "current_price": 170.0,
+    "current_unit": "496 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 170.0,
+        "unit": "496 gm",
+        "norm_price": 342.74,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "342.74 / 1 kg"
+  },
+  "mr_noodles_cup_noodles_magic_masala_40_gm": {
+    "id": "mr_noodles_cup_noodles_magic_masala_40_gm",
+    "name": "Mr. Noodles Cup Noodles Magic Masala",
+    "image": "https://i.chaldn.com/_mpimage/mr-noodles-cup-noodles-magic-masala-40-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130935&q=best&v=1&m=400&webp=1",
+    "category": "Noodles",
+    "current_price": 35.0,
+    "current_unit": "40 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 35.0,
+        "unit": "40 gm",
+        "norm_price": 875.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "875.0 / 1 kg"
+  },
+  "mr_noodles_korean_super_spicy_496_gm": {
+    "id": "mr_noodles_korean_super_spicy_496_gm",
+    "name": "Mr. Noodles Korean Super Spicy",
+    "image": "https://i.chaldn.com/_mpimage/mr-noodles-korean-super-spicy-496-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130938&q=best&v=1&m=400&webp=1",
+    "category": "Noodles",
+    "current_price": 210.0,
+    "current_unit": "496 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 210.0,
+        "unit": "496 gm",
+        "norm_price": 423.39,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "423.39 / 1 kg"
+  },
+  "mama_noodles_hot_and_spicy_flavour_10_pcs_620_gm": {
+    "id": "mama_noodles_hot_and_spicy_flavour_10_pcs_620_gm",
+    "name": "Mama Noodles (Hot And Spicy Flavour) 10 pcs",
+    "image": "https://i.chaldn.com/_mpimage/mama-noodles-hot-and-spicy-flavour-10-pcs-620-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D88573&q=best&v=1&m=400&webp=1",
+    "category": "Noodles",
+    "current_price": 220.0,
+    "current_unit": "620 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 220.0,
+        "unit": "620 gm",
+        "norm_price": 354.84,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "354.84 / 1 kg"
+  },
+  "maggi_hot_spicy_blast_noodles_8_pack": {
+    "id": "maggi_hot_spicy_blast_noodles_8_pack",
+    "name": "MAGGI Hot & Spicy Blast Noodles",
+    "image": "https://i.chaldn.com/_mpimage/maggi-hot-spicy-blast-noodles-8-pack?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D180296&q=best&v=1&m=400&webp=1",
+    "category": "Noodles",
+    "current_price": 200.0,
+    "current_unit": "8 pack",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 200.0,
+        "unit": "8 pack",
+        "norm_price": 200.0,
+        "norm_unit": "8 pack"
+      }
+    ],
+    "norm_price_display": "200.0 / 8 pack"
+  },
+  "chopstick_instant_noodles_masala_delight_496_gm_8_pack": {
+    "id": "chopstick_instant_noodles_masala_delight_496_gm_8_pack",
+    "name": "Chopstick Instant Noodles Masala Delight 496 gm",
+    "image": "https://i.chaldn.com/_mpimage/chopstick-instant-noodles-masala-delight-496-gm-8-pack?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D154825&q=best&v=1&m=400&webp=1",
+    "category": "Noodles",
+    "current_price": 175.0,
+    "current_unit": "8 pack",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 175.0,
+        "unit": "8 pack",
+        "norm_price": 175.0,
+        "norm_unit": "8 pack"
+      }
+    ],
+    "norm_price_display": "175.0 / 8 pack"
+  },
+  "dragon_brand_noodles_300_gm": {
+    "id": "dragon_brand_noodles_300_gm",
+    "name": "Dragon Brand Noodles",
+    "image": "https://i.chaldn.com/_mpimage/dragon-brand-noodles-300-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D127964&q=best&v=1&m=400&webp=1",
+    "category": "Noodles",
+    "current_price": 60.0,
+    "current_unit": "300 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 60.0,
+        "unit": "300 gm",
+        "norm_price": 200.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "200.0 / 1 kg"
+  },
+  "nestle_maggi_2_minute_masala_instant_noodles_12_pack": {
+    "id": "nestle_maggi_2_minute_masala_instant_noodles_12_pack",
+    "name": "Nestle Maggi 2-Minute Masala Instant Noodles",
+    "image": "https://i.chaldn.com/_mpimage/nestle-maggi-2-minute-masala-instant-noodles-12-pack?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D153593&q=best&v=1&m=400&webp=1",
+    "category": "Noodles",
+    "current_price": 265.0,
+    "current_unit": "12 pack",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 265.0,
+        "unit": "12 pack",
+        "norm_price": 265.0,
+        "norm_unit": "12 pack"
+      }
+    ],
+    "norm_price_display": "265.0 / 12 pack"
+  },
+  "mama_noodles_chicken_flavour_8_pcs_496_gm": {
+    "id": "mama_noodles_chicken_flavour_8_pcs_496_gm",
+    "name": "Mama Noodles (Chicken Flavour) 8 pcs",
+    "image": "https://i.chaldn.com/_mpimage/mama-noodles-chicken-flavour-8-pcs-496-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D131895&q=best&v=1&m=400&webp=1",
+    "category": "Noodles",
+    "current_price": 175.0,
+    "current_unit": "496 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 175.0,
+        "unit": "496 gm",
+        "norm_price": 352.82,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "352.82 / 1 kg"
+  },
+  "mr_noodles_korean_super_spicy_248_gm": {
+    "id": "mr_noodles_korean_super_spicy_248_gm",
+    "name": "Mr. Noodles Korean Super Spicy",
+    "image": "https://i.chaldn.com/_mpimage/mr-noodles-korean-super-spicy-248-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130937&q=best&v=1&m=400&webp=1",
+    "category": "Noodles",
+    "current_price": 110.0,
+    "current_unit": "248 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 110.0,
+        "unit": "248 gm",
+        "norm_price": 443.55,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "443.55 / 1 kg"
+  },
+  "mr_noodles_korean_kimchi_ramen_8_pcs_480_gm": {
+    "id": "mr_noodles_korean_kimchi_ramen_8_pcs_480_gm",
+    "name": "Mr. Noodles Korean Kimchi Ramen 8 pcs",
+    "image": "https://i.chaldn.com/_mpimage/mr-noodles-korean-kimchi-ramen-8-pcs-480-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D136538&q=best&v=1&m=400&webp=1",
+    "category": "Noodles",
+    "current_price": 210.0,
+    "current_unit": "480 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 210.0,
+        "unit": "480 gm",
+        "norm_price": 437.5,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "437.5 / 1 kg"
+  },
+  "chopstick_ramen_hot_chicken_instant_noodles_8_pack_640_gm": {
+    "id": "chopstick_ramen_hot_chicken_instant_noodles_8_pack_640_gm",
+    "name": "Chopstick Ramen Hot Chicken Instant Noodles 8 pack",
+    "image": "https://i.chaldn.com/_mpimage/chopstick-ramen-hot-chicken-instant-noodles-8-pack-640-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D158297&q=best&v=1&m=400&webp=1",
+    "category": "Noodles",
+    "current_price": 650.0,
+    "current_unit": "640 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 650.0,
+        "unit": "640 gm",
+        "norm_price": 1015.62,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1015.62 / 1 kg"
+  },
+  "chopstick_ramen_hot_cheese_instant_noodles_8_pack_640_gm": {
+    "id": "chopstick_ramen_hot_cheese_instant_noodles_8_pack_640_gm",
+    "name": "Chopstick Ramen Hot Cheese Instant Noodles 8 pack",
+    "image": "https://i.chaldn.com/_mpimage/chopstick-ramen-hot-cheese-instant-noodles-8-pack-640-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D158256&q=best&v=1&m=400&webp=1",
+    "category": "Noodles",
+    "current_price": 650.0,
+    "current_unit": "640 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 650.0,
+        "unit": "640 gm",
+        "norm_price": 1015.62,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1015.62 / 1 kg"
+  },
+  "samyang_hot_chicken_ramen_3x_spicy_140_gm": {
+    "id": "samyang_hot_chicken_ramen_3x_spicy_140_gm",
+    "name": "Samyang Hot Chicken Ramen 3X Spicy",
+    "image": "https://i.chaldn.com/_mpimage/samyang-hot-chicken-ramen-3x-spicy-140-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D181514&q=best&v=1&m=400&webp=1",
+    "category": "Noodles",
+    "current_price": 199.0,
+    "current_unit": "140 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 199.0,
+        "unit": "140 gm",
+        "norm_price": 1421.43,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1421.43 / 1 kg"
+  },
+  "nongshim_chapagetti_original_noodles_140_gm": {
+    "id": "nongshim_chapagetti_original_noodles_140_gm",
+    "name": "Nongshim Chapagetti Original Noodles",
+    "image": "https://i.chaldn.com/_mpimage/nongshim-chapagetti-original-noodles-140-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D115718&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Noodles",
+    "current_price": 175.0,
+    "current_unit": "140 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 175.0,
+        "unit": "140 gm",
+        "norm_price": 1250.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1250.0 / 1 kg"
+  },
+  "mama_noodles_chicken_flavour_10_pcs_620_gm": {
+    "id": "mama_noodles_chicken_flavour_10_pcs_620_gm",
+    "name": "Mama Noodles (Chicken Flavour) 10 pcs",
+    "image": "https://i.chaldn.com/_mpimage/mama-noodles-chicken-flavour-10-pcs-620-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130552&q=best&v=1&m=400&webp=1",
+    "category": "Noodles",
+    "current_price": 220.0,
+    "current_unit": "620 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 220.0,
+        "unit": "620 gm",
+        "norm_price": 354.84,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "354.84 / 1 kg"
+  },
+  "samyang_hot_chicken_ramen_2x_spicy_cup_noodles_70_gm": {
+    "id": "samyang_hot_chicken_ramen_2x_spicy_cup_noodles_70_gm",
+    "name": "Samyang Hot Chicken Ramen 2X Spicy Cup Noodles",
+    "image": "https://i.chaldn.com/_mpimage/samyang-hot-chicken-ramen-2x-spicy-cup-noodles-70-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D133122&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Noodles",
+    "current_price": 160.0,
+    "current_unit": "70 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 160.0,
+        "unit": "70 gm",
+        "norm_price": 2285.71,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2285.71 / 1 kg"
+  },
+  "samyang_hot_chicken_ramen_stew_noodles_145_gm": {
+    "id": "samyang_hot_chicken_ramen_stew_noodles_145_gm",
+    "name": "Samyang Hot Chicken Ramen Stew Noodles",
+    "image": "https://i.chaldn.com/_mpimage/samyang-hot-chicken-ramen-stew-noodles-145-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D133129&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Noodles",
+    "current_price": 239.0,
+    "current_unit": "145 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 239.0,
+        "unit": "145 gm",
+        "norm_price": 1648.28,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1648.28 / 1 kg"
+  },
+  "samyang_hot_chicken_ramen_cheese_noodles_140_gm": {
+    "id": "samyang_hot_chicken_ramen_cheese_noodles_140_gm",
+    "name": "Samyang Hot Chicken Ramen Cheese Noodles",
+    "image": "https://i.chaldn.com/_mpimage/samyang-hot-chicken-ramen-cheese-noodles-140-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D133124&q=best&v=1&m=400&webp=1",
+    "category": "Noodles",
+    "current_price": 239.0,
+    "current_unit": "140 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 239.0,
+        "unit": "140 gm",
+        "norm_price": 1707.14,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1707.14 / 1 kg"
+  },
+  "how_how_rice_stick_noodles_500_gm": {
+    "id": "how_how_rice_stick_noodles_500_gm",
+    "name": "How How Rice Stick Noodles",
+    "image": "https://i.chaldn.com/_mpimage/how-how-rice-stick-noodles-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D129352&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Noodles",
+    "current_price": 369.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 369.0,
+        "unit": "500 gm",
+        "norm_price": 738.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "738.0 / 1 kg"
+  },
+  "nissin_cup_noodles_japanese_style_beef_66_gm": {
+    "id": "nissin_cup_noodles_japanese_style_beef_66_gm",
+    "name": "Nissin Cup Noodles Japanese Style Beef",
+    "image": "https://i.chaldn.com/_mpimage/nissin-cup-noodles-japanese-style-beef-66-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D131406&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Noodles",
+    "current_price": 109.0,
+    "current_unit": "66 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 109.0,
+        "unit": "66 gm",
+        "norm_price": 1651.52,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1651.52 / 1 kg"
+  },
+  "nissin_cup_noodles_japanese_style_chicken_67_gm": {
+    "id": "nissin_cup_noodles_japanese_style_chicken_67_gm",
+    "name": "Nissin Cup Noodles Japanese Style Chicken",
+    "image": "https://i.chaldn.com/_mpimage/nissin-cup-noodles-japanese-style-chicken-67-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D106548&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Noodles",
+    "current_price": 109.0,
+    "current_unit": "67 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 109.0,
+        "unit": "67 gm",
+        "norm_price": 1626.87,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1626.87 / 1 kg"
+  },
+  "mama_ok_instant_noodles_fried_shrimp_tom_yum_flavor_85_gm": {
+    "id": "mama_ok_instant_noodles_fried_shrimp_tom_yum_flavor_85_gm",
+    "name": "Mama OK Instant Noodles Fried Shrimp Tom Yum Flavor",
+    "image": "https://i.chaldn.com/_mpimage/mama-ok-instant-noodles-fried-shrimp-tom-yum-flavor-85-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130556&q=best&v=1&m=400&webp=1",
+    "category": "Noodles",
+    "current_price": 140.0,
+    "current_unit": "85 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 140.0,
+        "unit": "85 gm",
+        "norm_price": 1647.06,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1647.06 / 1 kg"
+  },
+  "samyang_hot_chicken_cheese_noodles_700_gm": {
+    "id": "samyang_hot_chicken_cheese_noodles_700_gm",
+    "name": "Samyang Hot Chicken Cheese Noodles",
+    "image": "https://i.chaldn.com/_mpimage/samyang-hot-chicken-cheese-noodles-700-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D103608&q=best&v=1&m=400&webp=1",
+    "category": "Noodles",
+    "current_price": 1050.0,
+    "current_unit": "700 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 1050.0,
+        "unit": "700 gm",
+        "norm_price": 1500.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1500.0 / 1 kg"
+  },
+  "samyang_jjajang_hot_chicken_noodles_700_gm": {
+    "id": "samyang_jjajang_hot_chicken_noodles_700_gm",
+    "name": "Samyang Jjajang Hot Chicken Noodles",
+    "image": "https://i.chaldn.com/_mpimage/samyang-jjajang-hot-chicken-noodles-700-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D103612&q=best&v=1&m=400&webp=1",
+    "category": "Noodles",
+    "current_price": 1240.0,
+    "current_unit": "700 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 1240.0,
+        "unit": "700 gm",
+        "norm_price": 1771.43,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1771.43 / 1 kg"
+  },
+  "samyang_hot_chicken_karba_noodles_650_gm": {
+    "id": "samyang_hot_chicken_karba_noodles_650_gm",
+    "name": "Samyang Hot Chicken Karba Noodles",
+    "image": "https://i.chaldn.com/_mpimage/samyang-hot-chicken-karba-noodles-650-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D103611&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Noodles",
+    "current_price": 1075.0,
+    "current_unit": "650 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 1075.0,
+        "unit": "650 gm",
+        "norm_price": 1653.85,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1653.85 / 1 kg"
+  },
+  "mama_cup_noodles_hot_spicy_flavour_62_gm_each": {
+    "id": "mama_cup_noodles_hot_spicy_flavour_62_gm_each",
+    "name": "Mama Cup Noodles (Hot & Spicy Flavour) 62 gm",
+    "image": "https://i.chaldn.com/_mpimage/mama-cup-noodles-hot-spicy-flavour-62-gm-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130527&q=best&v=1&m=400&webp=1",
+    "category": "Noodles",
+    "current_price": 110.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 110.0,
+        "unit": "each",
+        "norm_price": 110.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "110.0 / each"
+  },
+  "nestle_maggi_2_minute_noodles_masala_12_pack": {
+    "id": "nestle_maggi_2_minute_noodles_masala_12_pack",
+    "name": "Nestle Maggi 2-Minute Noodles Masala",
+    "image": "https://i.chaldn.com/_mpimage/nestle-maggi-2-minute-noodles-masala-12-pack?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D67318&q=best&v=1&m=400&webp=1",
+    "category": "Noodles",
+    "current_price": 265.0,
+    "current_unit": "12 pack",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 265.0,
+        "unit": "12 pack",
+        "norm_price": 265.0,
+        "norm_unit": "12 pack"
+      }
+    ],
+    "norm_price_display": "265.0 / 12 pack"
+  },
+  "mama_cup_noodles_instant_shrimp_tom_yum_each": {
+    "id": "mama_cup_noodles_instant_shrimp_tom_yum_each",
+    "name": "Mama Cup Noodles Instant Shrimp Tom Yum",
+    "image": "https://i.chaldn.com/_mpimage/mama-cup-noodles-instant-shrimp-tom-yum-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130524&q=best&v=1&m=400&webp=1",
+    "category": "Noodles",
+    "current_price": 190.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 190.0,
+        "unit": "each",
+        "norm_price": 190.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "190.0 / each"
+  },
+  "imee_chicken_curry_instant_noodles_65_gm": {
+    "id": "imee_chicken_curry_instant_noodles_65_gm",
+    "name": "Imee Chicken Curry Instant Noodles",
+    "image": "https://i.chaldn.com/_mpimage/imee-chicken-curry-instant-noodles-65-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D107043&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Noodles",
+    "current_price": 175.0,
+    "current_unit": "65 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 175.0,
+        "unit": "65 gm",
+        "norm_price": 2692.31,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2692.31 / 1 kg"
+  },
+  "ifad_eggy_instant_masala_noodles_4_pcs_300_gm": {
+    "id": "ifad_eggy_instant_masala_noodles_4_pcs_300_gm",
+    "name": "Ifad Eggy Instant Masala Noodles 4 pcs",
+    "image": "https://i.chaldn.com/_mpimage/ifad-eggy-instant-masala-noodles-4-pcs-300-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D129434&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Noodles",
+    "current_price": 90.0,
+    "current_unit": "300 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 90.0,
+        "unit": "300 gm",
+        "norm_price": 300.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "300.0 / 1 kg"
+  },
+  "mama_instant_noodles_hot_spicy_flavour_4_pcs_248_gm": {
+    "id": "mama_instant_noodles_hot_spicy_flavour_4_pcs_248_gm",
+    "name": "Mama Instant Noodles (Hot & Spicy Flavour) 4 pcs",
+    "image": "https://i.chaldn.com/_mpimage/mama-instant-noodles-hot-spicy-flavour-4-pcs-248-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130546&q=best&v=1&m=400&webp=1",
+    "category": "Noodles",
+    "current_price": 95.0,
+    "current_unit": "248 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 95.0,
+        "unit": "248 gm",
+        "norm_price": 383.06,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "383.06 / 1 kg"
+  },
+  "mama_noodles_hot_spicy_flavour_8_pcs_496_gm": {
+    "id": "mama_noodles_hot_spicy_flavour_8_pcs_496_gm",
+    "name": "Mama Noodles (Hot & Spicy Flavour) 8 pcs",
+    "image": "https://i.chaldn.com/_mpimage/mama-noodles-hot-spicy-flavour-8-pcs-496-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130547&q=best&v=1&m=400&webp=1",
+    "category": "Noodles",
+    "current_price": 175.0,
+    "current_unit": "496 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 175.0,
+        "unit": "496 gm",
+        "norm_price": 352.82,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "352.82 / 1 kg"
+  },
+  "mama_cup_noodles_shrimp_tomyum_flavour_62_gm_each": {
+    "id": "mama_cup_noodles_shrimp_tomyum_flavour_62_gm_each",
+    "name": "Mama Cup Noodles (Shrimp Tomyum Flavour) 62 gm",
+    "image": "https://i.chaldn.com/_mpimage/mama-cup-noodles-shrimp-tomyum-flavour-62-gm-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130525&q=best&v=1&m=400&webp=1",
+    "category": "Noodles",
+    "current_price": 110.0,
+    "current_unit": "each",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 110.0,
+        "unit": "each",
+        "norm_price": 110.0,
+        "norm_unit": "each"
+      }
+    ],
+    "norm_price_display": "110.0 / each"
+  },
+  "erko_mallow_world_mmas_180_gm": {
+    "id": "erko_mallow_world_mmas_180_gm",
+    "name": "Erko Mallow World Mmas",
+    "image": "https://i.chaldn.com/_mpimage/erko-mallow-world-mmas-180-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D108674&q=best&v=1&m=400&webp=1",
+    "category": "Chocolates",
+    "current_price": 395.0,
+    "current_unit": "180 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 395.0,
+        "unit": "180 gm",
+        "norm_price": 2194.44,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2194.44 / 1 kg"
+  },
+  "erko_mallow_world_blue_white_mallow_100_gm": {
+    "id": "erko_mallow_world_blue_white_mallow_100_gm",
+    "name": "Erko Mallow World Blue & White Mallow",
+    "image": "https://i.chaldn.com/_mpimage/erko-mallow-world-blue-white-mallow-100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D108672&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Chocolates",
+    "current_price": 209.0,
+    "current_unit": "100 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 209.0,
+        "unit": "100 gm",
+        "norm_price": 2090.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2090.0 / 1 kg"
+  },
+  "erko_marshmallow_plus_stick_2_pcs_40_gm": {
+    "id": "erko_marshmallow_plus_stick_2_pcs_40_gm",
+    "name": "Erko Marshmallow Plus Stick 2 pcs",
+    "image": "https://i.chaldn.com/_mpimage/erko-marshmallow-plus-stick-2-pcs-40-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D108677&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Jellies & Marshmallows",
+    "current_price": 109.0,
+    "current_unit": "40 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 109.0,
+        "unit": "40 gm",
+        "norm_price": 2725.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2725.0 / 1 kg"
+  },
+  "erko_mallow_plus_twist_mallow_180_gm": {
+    "id": "erko_mallow_plus_twist_mallow_180_gm",
+    "name": "Erko Mallow Plus Twist Mallow",
+    "image": "https://i.chaldn.com/_mpimage/erko-mallow-plus-twist-mallow-180-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D108671&q=best&v=1&m=400&webp=1",
+    "category": "Chocolates",
+    "current_price": 395.0,
+    "current_unit": "180 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 395.0,
+        "unit": "180 gm",
+        "norm_price": 2194.44,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2194.44 / 1 kg"
+  },
+  "alpenliebe_juzt_jelly_chutney_170_pcs": {
+    "id": "alpenliebe_juzt_jelly_chutney_170_pcs",
+    "name": "Alpenliebe Juzt Jelly Chutney",
+    "image": "https://i.chaldn.com/_mpimage/alpenliebe-juzt-jelly-chutney-170-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D62900&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Jellies & Marshmallows",
+    "current_price": 340.0,
+    "current_unit": "170 pcs",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 340.0,
+        "unit": "170 pcs",
+        "norm_price": 2.0,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "2.0 / 1 pc"
+  },
+  "tic_tac_mint_mouth_freshener_13_gm": {
+    "id": "tic_tac_mint_mouth_freshener_13_gm",
+    "name": "Tic Tac Mint Mouth Freshener",
+    "image": "https://i.chaldn.com/_mpimage/tic-tac-mint-mouth-freshener-13-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D177540&q=best&v=1&m=400&webp=1",
+    "category": "Gums, Mints & Mouth Fresheners",
+    "current_price": 50.0,
+    "current_unit": "13 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 50.0,
+        "unit": "13 gm",
+        "norm_price": 3846.15,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "3846.15 / 1 kg"
+  },
+  "sargam_royal_crispy_mouth_freshener_40_gm": {
+    "id": "sargam_royal_crispy_mouth_freshener_40_gm",
+    "name": "Sargam Royal Crispy Mouth Freshener",
+    "image": "https://i.chaldn.com/_mpimage/sargam-royal-crispy-mouth-freshener-40-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D133158&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Gums, Mints & Mouth Fresheners",
+    "current_price": 100.0,
+    "current_unit": "40 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 100.0,
+        "unit": "40 gm",
+        "norm_price": 2500.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2500.0 / 1 kg"
+  },
+  "mentos_pure_fresh_chewing_sugarfree_gum_b_lime_mint_29_7_gm": {
+    "id": "mentos_pure_fresh_chewing_sugarfree_gum_b_lime_mint_29_7_gm",
+    "name": "Mentos Pure Fresh Chewing Sugarfree Gum B.Lime Mint",
+    "image": "https://i.chaldn.com/_mpimage/mentos-pure-fresh-chewing-sugarfree-gum-blime-mint-297-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130740&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Gums, Mints & Mouth Fresheners",
+    "current_price": 200.0,
+    "current_unit": "29.7 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 200.0,
+        "unit": "29.7 gm",
+        "norm_price": 6734.01,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "6734.01 / 1 kg"
+  },
+  "cocola_chocolate_wafer_roll_jar_170_gm": {
+    "id": "cocola_chocolate_wafer_roll_jar_170_gm",
+    "name": "Cocola Chocolate Wafer Roll Jar",
+    "image": "https://i.chaldn.com/_mpimage/cocola-chocolate-wafer-roll-jar-170-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D153402&q=best&v=1&m=400&webp=1",
+    "category": "Wafers",
+    "current_price": 70.0,
+    "current_unit": "170 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 70.0,
+        "unit": "170 gm",
+        "norm_price": 411.76,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "411.76 / 1 kg"
+  },
+  "nestle_kitkat_2_finger_chocolate_covered_wafer_bar_dubai__17_7_gm": {
+    "id": "nestle_kitkat_2_finger_chocolate_covered_wafer_bar_dubai__17_7_gm",
+    "name": "Nestle KitKat 2 Finger Chocolate Covered Wafer Bar (Dubai)",
+    "image": "https://i.chaldn.com/_mpimage/nestle-kitkat-2-finger-chocolate-covered-wafer-bar-dubai-177-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D109917&q=best&v=1&m=400&webp=1",
+    "category": "Wafers",
+    "current_price": 60.0,
+    "current_unit": "17.7 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 60.0,
+        "unit": "17.7 gm",
+        "norm_price": 3389.83,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "3389.83 / 1 kg"
+  },
+  "nestle_kitkat_chunky_milk_chocolate_wafer_bar_40_gm": {
+    "id": "nestle_kitkat_chunky_milk_chocolate_wafer_bar_40_gm",
+    "name": "Nestle KitKat Chunky Milk Chocolate Wafer Bar",
+    "image": "https://i.chaldn.com/_mpimage/nestle-kitkat-chunky-milk-chocolate-wafer-bar-40-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D120932&q=best&v=1&m=400&webp=1",
+    "category": "Wafers",
+    "current_price": 120.0,
+    "current_unit": "40 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 120.0,
+        "unit": "40 gm",
+        "norm_price": 3000.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "3000.0 / 1 kg"
+  },
+  "nestle_kitkat_2_finger_chocolate_wafer_india__19_gm": {
+    "id": "nestle_kitkat_2_finger_chocolate_wafer_india__19_gm",
+    "name": "Nestle KitKat 2 Finger Chocolate Wafer (India)",
+    "image": "https://i.chaldn.com/_mpimage/nestle-kitkat-2-finger-chocolate-wafer-india-19-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D120408&q=best&v=1&m=400&webp=1",
+    "category": "Wafers",
+    "current_price": 50.0,
+    "current_unit": "19 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 50.0,
+        "unit": "19 gm",
+        "norm_price": 2631.58,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2631.58 / 1 kg"
+  },
+  "nestle_kitkat_4_finger_chocolate_wafer_india__36_5_gm": {
+    "id": "nestle_kitkat_4_finger_chocolate_wafer_india__36_5_gm",
+    "name": "Nestle KitKat 4 Finger Chocolate Wafer (India)",
+    "image": "https://i.chaldn.com/_mpimage/nestle-kitkat-4-finger-chocolate-wafer-india-365-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D123178&q=best&v=1&m=400&webp=1",
+    "category": "Wafers",
+    "current_price": 80.0,
+    "current_unit": "36.5 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 80.0,
+        "unit": "36.5 gm",
+        "norm_price": 2191.78,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2191.78 / 1 kg"
+  },
+  "kinder_joy_girls__20_gm": {
+    "id": "kinder_joy_girls__20_gm",
+    "name": "Kinder Joy (Girls)",
+    "image": "https://i.chaldn.com/_mpimage/kinder-joy-girls-20-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D178902&q=best&v=1&m=400&webp=1",
+    "category": "Chocolates",
+    "current_price": 120.0,
+    "current_unit": "20 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 120.0,
+        "unit": "20 gm",
+        "norm_price": 6000.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "6000.0 / 1 kg"
+  },
+  "cadbury_dairy_milk_chocolate_bar_12_gm": {
+    "id": "cadbury_dairy_milk_chocolate_bar_12_gm",
+    "name": "Cadbury Dairy Milk Chocolate Bar",
+    "image": "https://i.chaldn.com/_mpimage/cadbury-dairy-milk-chocolate-bar-12-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128477&q=best&v=1&m=400&webp=1",
+    "category": "Chocolates",
+    "current_price": 45.0,
+    "current_unit": "12 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 45.0,
+        "unit": "12 gm",
+        "norm_price": 3750.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "3750.0 / 1 kg"
+  },
+  "kinder_joy_boys__20_gm": {
+    "id": "kinder_joy_boys__20_gm",
+    "name": "Kinder Joy (Boys)",
+    "image": "https://i.chaldn.com/_mpimage/kinder-joy-boys-20-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D178894&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Chocolates",
+    "current_price": 120.0,
+    "current_unit": "20 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 120.0,
+        "unit": "20 gm",
+        "norm_price": 6000.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "6000.0 / 1 kg"
+  },
+  "cadbury_dairy_milk_silk_plain_chocolate_40_gm": {
+    "id": "cadbury_dairy_milk_silk_plain_chocolate_40_gm",
+    "name": "Cadbury Dairy Milk Silk Plain Chocolate",
+    "image": "https://i.chaldn.com/_mpimage/cadbury-dairy-milk-silk-plain-chocolate-40-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D178547&q=best&v=1&m=400&webp=1",
+    "category": "Chocolates",
+    "current_price": 180.0,
+    "current_unit": "40 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 180.0,
+        "unit": "40 gm",
+        "norm_price": 4500.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "4500.0 / 1 kg"
+  },
+  "ferrero_rocher_collection_pralines_269_4_gm_24_pcs": {
+    "id": "ferrero_rocher_collection_pralines_269_4_gm_24_pcs",
+    "name": "Ferrero Rocher Collection Pralines 269.4 gm",
+    "image": "https://i.chaldn.com/_mpimage/ferrero-rocher-collection-pralines-2694-gm-24-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D177531&q=best&v=1&m=400&webp=1",
+    "category": "Chocolates",
+    "current_price": 1800.0,
+    "current_unit": "24 pcs",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 1800.0,
+        "unit": "24 pcs",
+        "norm_price": 75.0,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "75.0 / 1 pc"
+  },
+  "cadbury_dairy_milk_silk_roast_almond_chocolate_bar_143_gm": {
+    "id": "cadbury_dairy_milk_silk_roast_almond_chocolate_bar_143_gm",
+    "name": "Cadbury Dairy Milk Silk Roast Almond Chocolate Bar",
+    "image": "https://i.chaldn.com/_mpimage/cadbury-dairy-milk-silk-roast-almond-chocolate-bar-143-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128513&q=best&v=1&m=400&webp=1",
+    "category": "Chocolates",
+    "current_price": 550.0,
+    "current_unit": "143 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 550.0,
+        "unit": "143 gm",
+        "norm_price": 3846.15,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "3846.15 / 1 kg"
+  },
+  "divino_chocolate_little_angel_120_gm": {
+    "id": "divino_chocolate_little_angel_120_gm",
+    "name": "Divino Chocolate Little Angel",
+    "image": "https://i.chaldn.com/_mpimage/divino-chocolate-little-angel-120-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D169407&q=best&v=1&m=400&webp=1",
+    "category": "Chocolates",
+    "current_price": 160.0,
+    "current_unit": "120 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 160.0,
+        "unit": "120 gm",
+        "norm_price": 1333.33,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1333.33 / 1 kg"
+  },
+  "kind_salted_caramel_dark_chocolate_40_gm": {
+    "id": "kind_salted_caramel_dark_chocolate_40_gm",
+    "name": "Kind Salted Caramel Dark Chocolate",
+    "image": "https://i.chaldn.com/_mpimage/kind-salted-caramel-dark-chocolate-40-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D98390&q=best&v=1&m=400&webp=1",
+    "category": "Chocolates",
+    "current_price": 295.0,
+    "current_unit": "40 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 295.0,
+        "unit": "40 gm",
+        "norm_price": 7375.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "7375.0 / 1 kg"
+  },
+  "cadbury_celebrations_230_gm": {
+    "id": "cadbury_celebrations_230_gm",
+    "name": "Cadbury Celebrations",
+    "image": "https://i.chaldn.com/_mpimage/cadbury-celebrations-230-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D140724&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Chocolates",
+    "current_price": 850.0,
+    "current_unit": "230 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 850.0,
+        "unit": "230 gm",
+        "norm_price": 3695.65,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "3695.65 / 1 kg"
+  },
+  "first_choice_whipped_topping_mixed_72_gm": {
+    "id": "first_choice_whipped_topping_mixed_72_gm",
+    "name": "First Choice Whipped Topping Mixed",
+    "image": "https://i.chaldn.com/_mpimage/first-choice-whipped-topping-mixed-72-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D86908&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Chocolates",
+    "current_price": 250.0,
+    "current_unit": "72 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 250.0,
+        "unit": "72 gm",
+        "norm_price": 3472.22,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "3472.22 / 1 kg"
+  },
+  "bluebell_premium_dark_compound_baking_chocolate_500_gm": {
+    "id": "bluebell_premium_dark_compound_baking_chocolate_500_gm",
+    "name": "Bluebell Premium Dark Compound Baking Chocolate",
+    "image": "https://i.chaldn.com/_mpimage/bluebell-premium-dark-compound-baking-chocolate-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D125859&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Chocolates",
+    "current_price": 360.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 360.0,
+        "unit": "500 gm",
+        "norm_price": 720.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "720.0 / 1 kg"
+  },
+  "cadbury_dairy_milk_silk_chocolate_family_pack_123_gm": {
+    "id": "cadbury_dairy_milk_silk_chocolate_family_pack_123_gm",
+    "name": "Cadbury Dairy Milk Silk Chocolate Family Pack",
+    "image": "https://i.chaldn.com/_mpimage/cadbury-dairy-milk-silk-chocolate-family-pack-123-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D178909&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Chocolates",
+    "current_price": 500.0,
+    "current_unit": "123 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 500.0,
+        "unit": "123 gm",
+        "norm_price": 4065.04,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "4065.04 / 1 kg"
+  },
+  "cadbury_dairy_milk_silk_fruit_nut_chocolate_bar_137_gm": {
+    "id": "cadbury_dairy_milk_silk_fruit_nut_chocolate_bar_137_gm",
+    "name": "Cadbury Dairy Milk Silk Fruit & Nut Chocolate Bar",
+    "image": "https://i.chaldn.com/_mpimage/cadbury-dairy-milk-silk-fruit-nut-chocolate-bar-137-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128485&q=best&v=1&m=400&webp=1",
+    "category": "Chocolates",
+    "current_price": 580.0,
+    "current_unit": "137 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 580.0,
+        "unit": "137 gm",
+        "norm_price": 4233.58,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "4233.58 / 1 kg"
+  },
+  "cadbury_dairy_milk_silk_roast_almond_chocolate_bar_52_gm": {
+    "id": "cadbury_dairy_milk_silk_roast_almond_chocolate_bar_52_gm",
+    "name": "Cadbury Dairy Milk Silk Roast Almond Chocolate Bar",
+    "image": "https://i.chaldn.com/_mpimage/cadbury-dairy-milk-silk-roast-almond-chocolate-bar-52-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128497&q=best&v=1&m=400&webp=1",
+    "category": "Chocolates",
+    "current_price": 250.0,
+    "current_unit": "52 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 250.0,
+        "unit": "52 gm",
+        "norm_price": 4807.69,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "4807.69 / 1 kg"
+  },
+  "cadbury_dairy_milk_silk_plain_chocolate_bar_140_gm": {
+    "id": "cadbury_dairy_milk_silk_plain_chocolate_bar_140_gm",
+    "name": "Cadbury Dairy Milk Silk Plain Chocolate Bar",
+    "image": "https://i.chaldn.com/_mpimage/cadbury-dairy-milk-silk-plain-chocolate-bar-140-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D178908&q=best&v=1&m=400&webp=1",
+    "category": "Chocolates",
+    "current_price": 580.0,
+    "current_unit": "140 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 580.0,
+        "unit": "140 gm",
+        "norm_price": 4142.86,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "4142.86 / 1 kg"
+  },
+  "cadbury_dairy_milk_silk_fruit_nut_chocolate_bar_51_gm": {
+    "id": "cadbury_dairy_milk_silk_fruit_nut_chocolate_bar_51_gm",
+    "name": "Cadbury Dairy Milk Silk Fruit & Nut Chocolate Bar",
+    "image": "https://i.chaldn.com/_mpimage/cadbury-dairy-milk-silk-fruit-nut-chocolate-bar-51-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128494&q=best&v=1&m=400&webp=1",
+    "category": "Chocolates",
+    "current_price": 240.0,
+    "current_unit": "51 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 240.0,
+        "unit": "51 gm",
+        "norm_price": 4705.88,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "4705.88 / 1 kg"
+  },
+  "cadbury_dairy_milk_silk_bubbly_chocolate_120_gm": {
+    "id": "cadbury_dairy_milk_silk_bubbly_chocolate_120_gm",
+    "name": "Cadbury Dairy Milk Silk Bubbly Chocolate",
+    "image": "https://i.chaldn.com/_mpimage/cadbury-dairy-milk-silk-bubbly-chocolate-120-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128491&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Chocolates",
+    "current_price": 550.0,
+    "current_unit": "120 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 550.0,
+        "unit": "120 gm",
+        "norm_price": 4583.33,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "4583.33 / 1 kg"
+  },
+  "amul_happy_birthday_milk_chocolate_150_gm": {
+    "id": "amul_happy_birthday_milk_chocolate_150_gm",
+    "name": "Amul Happy Birthday Milk Chocolate",
+    "image": "https://i.chaldn.com/_mpimage/amul-happy-birthday-milk-chocolate-150-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D72214&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Chocolates",
+    "current_price": 555.0,
+    "current_unit": "150 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 555.0,
+        "unit": "150 gm",
+        "norm_price": 3700.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "3700.0 / 1 kg"
+  },
+  "amul_i_love_you_fruit_n_nut_chocolate_150_gm": {
+    "id": "amul_i_love_you_fruit_n_nut_chocolate_150_gm",
+    "name": "Amul I love You Fruit N Nut Chocolate",
+    "image": "https://i.chaldn.com/_mpimage/amul-i-love-you-fruit-n-nut-chocolate-150-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D72212&q=best&v=1&m=400&webp=1",
+    "category": "Chocolates",
+    "current_price": 470.0,
+    "current_unit": "150 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 470.0,
+        "unit": "150 gm",
+        "norm_price": 3133.33,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "3133.33 / 1 kg"
+  },
+  "amul_dark_chocolate_150_gm": {
+    "id": "amul_dark_chocolate_150_gm",
+    "name": "Amul Dark Chocolate",
+    "image": "https://i.chaldn.com/_mpimage/amul-dark-chocolate-150-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D72155&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Chocolates",
+    "current_price": 570.0,
+    "current_unit": "150 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 570.0,
+        "unit": "150 gm",
+        "norm_price": 3800.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "3800.0 / 1 kg"
+  },
+  "cadbury_dairy_milk_silk_plain_chocolate_60_gm": {
+    "id": "cadbury_dairy_milk_silk_plain_chocolate_60_gm",
+    "name": "Cadbury Dairy Milk Silk Plain Chocolate",
+    "image": "https://i.chaldn.com/_mpimage/cadbury-dairy-milk-silk-plain-chocolate-60-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D126420&q=best&v=1&m=400&webp=1",
+    "category": "Chocolates",
+    "current_price": 249.0,
+    "current_unit": "60 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 249.0,
+        "unit": "60 gm",
+        "norm_price": 4150.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "4150.0 / 1 kg"
+  },
+  "amul_dark_chocolate_bar_125_gm": {
+    "id": "amul_dark_chocolate_bar_125_gm",
+    "name": "Amul Dark Chocolate Bar",
+    "image": "https://i.chaldn.com/_mpimage/amul-dark-chocolate-bar-125-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D109914&q=best&v=1&m=400&webp=1",
+    "category": "Chocolates",
+    "current_price": 459.0,
+    "current_unit": "125 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 459.0,
+        "unit": "125 gm",
+        "norm_price": 3672.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "3672.0 / 1 kg"
+  },
+  "munchy_s_oat_krunch_dark_chocolate_cookies_208_gm": {
+    "id": "munchy_s_oat_krunch_dark_chocolate_cookies_208_gm",
+    "name": "Munchy's Oat Krunch Dark Chocolate Cookies",
+    "image": "https://i.chaldn.com/_mpimage/munchys-oat-krunch-dark-chocolate-cookies-208-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D141630&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Chocolates",
+    "current_price": 480.0,
+    "current_unit": "208 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 480.0,
+        "unit": "208 gm",
+        "norm_price": 2307.69,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2307.69 / 1 kg"
+  },
+  "cavendish_harvey_mango_kiwi_drops_200_gm": {
+    "id": "cavendish_harvey_mango_kiwi_drops_200_gm",
+    "name": "Cavendish & Harvey Mango Kiwi Drops",
+    "image": "https://i.chaldn.com/_mpimage/cavendish-harvey-mango-kiwi-drops-200-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D126603&q=best&v=1&m=400&webp=1",
+    "category": "Chocolates",
+    "current_price": 399.0,
+    "current_unit": "200 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 399.0,
+        "unit": "200 gm",
+        "norm_price": 1995.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1995.0 / 1 kg"
+  },
+  "cadbury_dairy_milk_silk_fruit_nut_55_gm": {
+    "id": "cadbury_dairy_milk_silk_fruit_nut_55_gm",
+    "name": "Cadbury Dairy Milk Silk Fruit & Nut",
+    "image": "https://i.chaldn.com/_mpimage/cadbury-dairy-milk-silk-fruit-nut-55-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D126375&q=best&v=1&m=400&webp=1",
+    "category": "Chocolates",
+    "current_price": 240.0,
+    "current_unit": "55 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 240.0,
+        "unit": "55 gm",
+        "norm_price": 4363.64,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "4363.64 / 1 kg"
+  },
+  "ferrero_rocher_premium_chocolates_16_pcs_200_gm": {
+    "id": "ferrero_rocher_premium_chocolates_16_pcs_200_gm",
+    "name": "Ferrero Rocher Premium Chocolates 16 Pcs",
+    "image": "https://i.chaldn.com/_mpimage/ferrero-rocher-premium-chocolates-16-pcs-200-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D65345&q=best&v=1&m=400&webp=1",
+    "category": "Chocolates",
+    "current_price": 1100.0,
+    "current_unit": "200 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 1100.0,
+        "unit": "200 gm",
+        "norm_price": 5500.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "5500.0 / 1 kg"
+  },
+  "cadbury_dairy_milk_silk_chocolate_60_gm": {
+    "id": "cadbury_dairy_milk_silk_chocolate_60_gm",
+    "name": "Cadbury Dairy Milk Silk Chocolate",
+    "image": "https://i.chaldn.com/_mpimage/cadbury-dairy-milk-silk-chocolate-60-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D178892&q=best&v=1&m=400&webp=1",
+    "category": "Chocolates",
+    "current_price": 240.0,
+    "current_unit": "60 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 240.0,
+        "unit": "60 gm",
+        "norm_price": 4000.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "4000.0 / 1 kg"
+  },
+  "complan_chocolate_pack_350_gm": {
+    "id": "complan_chocolate_pack_350_gm",
+    "name": "Complan Chocolate Pack",
+    "image": "https://i.chaldn.com/_mpimage/complan-chocolate-pack-350-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D139050&q=best&v=1&m=400&webp=1",
+    "category": "Energy Boosters",
+    "current_price": 405.0,
+    "current_unit": "350 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 405.0,
+        "unit": "350 gm",
+        "norm_price": 1157.14,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1157.14 / 1 kg"
+  },
+  "milk_vita_butter_200_gm": {
+    "id": "milk_vita_butter_200_gm",
+    "name": "Milk Vita Butter",
+    "image": "https://i.chaldn.com/_mpimage/milk-vita-butter-200-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D137235&q=best&v=1&m=400&webp=1",
+    "category": "Butter & Sour Cream",
+    "current_price": 270.0,
+    "current_unit": "200 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 270.0,
+        "unit": "200 gm",
+        "norm_price": 1350.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1350.0 / 1 kg"
+  },
+  "american_garden_strawberry_pie_filling_595_gm": {
+    "id": "american_garden_strawberry_pie_filling_595_gm",
+    "name": "American Garden Strawberry Pie Filling",
+    "image": "https://i.chaldn.com/_mpimage/american-garden-strawberry-pie-filling-595-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D180141&q=best&v=1&m=400&webp=1",
+    "category": "Dips, Spreads & Syrups",
+    "current_price": 1360.0,
+    "current_unit": "595 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 1360.0,
+        "unit": "595 gm",
+        "norm_price": 2285.71,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2285.71 / 1 kg"
+  },
+  "american_garden_blueberry_pie_filling_595_gm": {
+    "id": "american_garden_blueberry_pie_filling_595_gm",
+    "name": "American Garden Blueberry Pie Filling",
+    "image": "https://i.chaldn.com/_mpimage/american-garden-blueberry-pie-filling-595-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D180139&q=best&v=1&m=400&webp=1",
+    "category": "Dips, Spreads & Syrups",
+    "current_price": 1360.0,
+    "current_unit": "595 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 1360.0,
+        "unit": "595 gm",
+        "norm_price": 2285.71,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2285.71 / 1 kg"
+  },
+  "aarong_dairy_cream_cheese_spread_180_gm": {
+    "id": "aarong_dairy_cream_cheese_spread_180_gm",
+    "name": "Aarong Dairy Cream Cheese Spread",
+    "image": "https://i.chaldn.com/_mpimage/aarong-dairy-cream-cheese-spread-180-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D135802&q=best&v=1&m=400&webp=1",
+    "category": "Dips, Spreads & Syrups",
+    "current_price": 500.0,
+    "current_unit": "180 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 500.0,
+        "unit": "180 gm",
+        "norm_price": 2777.78,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2777.78 / 1 kg"
+  },
+  "naples_mayonnaise_475_ml": {
+    "id": "naples_mayonnaise_475_ml",
+    "name": "Naples Mayonnaise",
+    "image": "https://i.chaldn.com/_mpimage/naples-mayonnaise-475-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D124900&q=best&v=1&m=400&webp=1",
+    "category": "Dips, Spreads & Syrups",
+    "current_price": 275.0,
+    "current_unit": "475 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 275.0,
+        "unit": "475 ml",
+        "norm_price": 578.95,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "578.95 / 1 L"
+  },
+  "naples_mayonnaise_170_ml": {
+    "id": "naples_mayonnaise_170_ml",
+    "name": "Naples Mayonnaise",
+    "image": "https://i.chaldn.com/_mpimage/naples-mayonnaise-170-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D124899&q=best&v=1&m=400&webp=1",
+    "category": "Dips, Spreads & Syrups",
+    "current_price": 140.0,
+    "current_unit": "170 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 140.0,
+        "unit": "170 ml",
+        "norm_price": 823.53,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "823.53 / 1 L"
+  },
+  "nucella_chocolate_bread_spread_cocoa_almond_230_gm": {
+    "id": "nucella_chocolate_bread_spread_cocoa_almond_230_gm",
+    "name": "Nucella+ Chocolate Bread Spread Cocoa & Almond",
+    "image": "https://i.chaldn.com/_mpimage/nucella-chocolate-bread-spread-cocoa-almond-230-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D176633&q=best&v=1&m=400&webp=1",
+    "category": "Dips, Spreads & Syrups",
+    "current_price": 380.0,
+    "current_unit": "230 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 380.0,
+        "unit": "230 gm",
+        "norm_price": 1652.17,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1652.17 / 1 kg"
+  },
+  "nocilla_two_flavor_cocoa_spread_190_gm": {
+    "id": "nocilla_two_flavor_cocoa_spread_190_gm",
+    "name": "Nocilla Two Flavor Cocoa Spread",
+    "image": "https://i.chaldn.com/_mpimage/nocilla-two-flavor-cocoa-spread-190-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D115708&q=best&v=1&m=400&webp=1",
+    "category": "Dips, Spreads & Syrups",
+    "current_price": 750.0,
+    "current_unit": "190 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 750.0,
+        "unit": "190 gm",
+        "norm_price": 3947.37,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "3947.37 / 1 kg"
+  },
+  "nutella_hazelnut_cocoa_spread_750_gm": {
+    "id": "nutella_hazelnut_cocoa_spread_750_gm",
+    "name": "Nutella Hazelnut Cocoa Spread",
+    "image": "https://i.chaldn.com/_mpimage/nutella-hazelnut-cocoa-spread-750-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D146945&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Dips, Spreads & Syrups",
+    "current_price": 2200.0,
+    "current_unit": "750 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 2200.0,
+        "unit": "750 gm",
+        "norm_price": 2933.33,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2933.33 / 1 kg"
+  },
+  "almarai_spreadable_cream_cheese_500_gm": {
+    "id": "almarai_spreadable_cream_cheese_500_gm",
+    "name": "Almarai spreadable Cream Cheese",
+    "image": "https://i.chaldn.com/_mpimage/almarai-spreadable-cream-cheese-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D175499&q=best&v=1&m=400&webp=1",
+    "category": "Dips, Spreads & Syrups",
+    "current_price": 1290.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 1290.0,
+        "unit": "500 gm",
+        "norm_price": 2580.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2580.0 / 1 kg"
+  },
+  "lurpak_butter_unsalted_200_gm": {
+    "id": "lurpak_butter_unsalted_200_gm",
+    "name": "Lurpak Butter Unsalted",
+    "image": "https://i.chaldn.com/_mpimage/lurpak-butter-unsalted-200-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130418&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Butter & Sour Cream",
+    "current_price": 880.0,
+    "current_unit": "200 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 880.0,
+        "unit": "200 gm",
+        "norm_price": 4400.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "4400.0 / 1 kg"
+  },
+  "nutella_hazelnut_cocoa_spread_350_gm": {
+    "id": "nutella_hazelnut_cocoa_spread_350_gm",
+    "name": "Nutella Hazelnut Cocoa Spread",
+    "image": "https://i.chaldn.com/_mpimage/nutella-hazelnut-cocoa-spread-350-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D178895&q=best&v=1&m=400&webp=1",
+    "category": "Dips, Spreads & Syrups",
+    "current_price": 1150.0,
+    "current_unit": "350 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 1150.0,
+        "unit": "350 gm",
+        "norm_price": 3285.71,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "3285.71 / 1 kg"
+  },
+  "ruchi_orange_jam_500_gm": {
+    "id": "ruchi_orange_jam_500_gm",
+    "name": "Ruchi Orange Jam",
+    "image": "https://i.chaldn.com/_mpimage/ruchi-orange-jam-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D152964&q=best&v=1&m=400&webp=1",
+    "category": "Dips, Spreads & Syrups",
+    "current_price": 220.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 220.0,
+        "unit": "500 gm",
+        "norm_price": 440.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "440.0 / 1 kg"
+  },
+  "lurpak_salted_spreadable_butter_250_gm": {
+    "id": "lurpak_salted_spreadable_butter_250_gm",
+    "name": "Lurpak Salted Spreadable Butter",
+    "image": "https://i.chaldn.com/_mpimage/lurpak-salted-spreadable-butter-250-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D66078&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Butter & Sour Cream",
+    "current_price": 990.0,
+    "current_unit": "250 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 990.0,
+        "unit": "250 gm",
+        "norm_price": 3960.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "3960.0 / 1 kg"
+  },
+  "crown_peanut_butter_smooth_creamy_510_gm": {
+    "id": "crown_peanut_butter_smooth_creamy_510_gm",
+    "name": "Crown Peanut Butter Smooth & Creamy",
+    "image": "https://i.chaldn.com/_mpimage/crown-peanut-butter-smooth-creamy-510-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D101142&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Dips, Spreads & Syrups",
+    "current_price": 850.0,
+    "current_unit": "510 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 850.0,
+        "unit": "510 gm",
+        "norm_price": 1666.67,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1666.67 / 1 kg"
+  },
+  "crown_peanut_butter_chunky_510_gm": {
+    "id": "crown_peanut_butter_chunky_510_gm",
+    "name": "Crown Peanut Butter Chunky",
+    "image": "https://i.chaldn.com/_mpimage/crown-peanut-butter-chunky-510-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D127235&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Dips, Spreads & Syrups",
+    "current_price": 750.0,
+    "current_unit": "510 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 750.0,
+        "unit": "510 gm",
+        "norm_price": 1470.59,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1470.59 / 1 kg"
+  },
+  "alfa_mayonnaise_473_ml": {
+    "id": "alfa_mayonnaise_473_ml",
+    "name": "Alfa Mayonnaise",
+    "image": "https://i.chaldn.com/_mpimage/alfa-mayonnaise-473-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D123215&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Dips, Spreads & Syrups",
+    "current_price": 335.0,
+    "current_unit": "473 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 335.0,
+        "unit": "473 ml",
+        "norm_price": 708.25,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "708.25 / 1 L"
+  },
+  "golden_grain_puffed_rice_hand_made__400_gm": {
+    "id": "golden_grain_puffed_rice_hand_made__400_gm",
+    "name": "Golden Grain Puffed Rice (Hand Made)",
+    "image": "https://i.chaldn.com/_mpimage/golden-grain-puffed-rice-hand-made-400-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D167642&q=best&v=1&m=400&webp=1",
+    "category": "Local Breakfast",
+    "current_price": 75.0,
+    "current_unit": "400 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 75.0,
+        "unit": "400 gm",
+        "norm_price": 187.5,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "187.5 / 1 kg"
+  },
+  "pran_puffed_rice_muri__500_gm": {
+    "id": "pran_puffed_rice_muri__500_gm",
+    "name": "Pran Puffed Rice (Muri)",
+    "image": "https://i.chaldn.com/_mpimage/pran-puffed-rice-muri-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132327&q=best&v=1&m=400&webp=1",
+    "category": "Local Breakfast",
+    "current_price": 75.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 75.0,
+        "unit": "500 gm",
+        "norm_price": 150.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "150.0 / 1 kg"
+  },
+  "bread_pit_white_bread_500_gm": {
+    "id": "bread_pit_white_bread_500_gm",
+    "name": "Bread Pit White Bread",
+    "image": "https://i.chaldn.com/_mpimage/bread-pit-white-bread-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D70765&q=best&v=1&m=400&webp=1",
+    "category": "Breads",
+    "current_price": 110.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 110.0,
+        "unit": "500 gm",
+        "norm_price": 220.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "220.0 / 1 kg"
+  },
+  "ruchi_puffed_rice_muri__400_gm": {
+    "id": "ruchi_puffed_rice_muri__400_gm",
+    "name": "Ruchi Puffed Rice (Muri)",
+    "image": "https://i.chaldn.com/_mpimage/ruchi-puffed-rice-muri-400-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D127589&q=best&v=1&m=400&webp=1",
+    "category": "Local Breakfast",
+    "current_price": 65.0,
+    "current_unit": "400 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 65.0,
+        "unit": "400 gm",
+        "norm_price": 162.5,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "162.5 / 1 kg"
+  },
+  "pran_flattened_rice_chira__500_gm": {
+    "id": "pran_flattened_rice_chira__500_gm",
+    "name": "Pran Flattened Rice (Chira)",
+    "image": "https://i.chaldn.com/_mpimage/pran-flattened-rice-chira-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D163265&q=best&v=1&m=400&webp=1",
+    "category": "Local Breakfast",
+    "current_price": 70.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 70.0,
+        "unit": "500 gm",
+        "norm_price": 140.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "140.0 / 1 kg"
+  },
+  "white_bread_500_gm": {
+    "id": "white_bread_500_gm",
+    "name": "White Bread",
+    "image": "https://i.chaldn.com/_mpimage/white-bread-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D114580&q=best&v=1&m=400&webp=1",
+    "category": "Breads",
+    "current_price": 70.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 70.0,
+        "unit": "500 gm",
+        "norm_price": 140.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "140.0 / 1 kg"
+  },
+  "ruchi_puffed_rice_muri__200_gm": {
+    "id": "ruchi_puffed_rice_muri__200_gm",
+    "name": "Ruchi Puffed Rice (Muri)",
+    "image": "https://i.chaldn.com/_mpimage/ruchi-puffed-rice-muri-200-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D133077&q=best&v=1&m=400&webp=1",
+    "category": "Local Breakfast",
+    "current_price": 35.0,
+    "current_unit": "200 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 35.0,
+        "unit": "200 gm",
+        "norm_price": 175.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "175.0 / 1 kg"
+  },
+  "bread_pit_milk_bread_300_gm": {
+    "id": "bread_pit_milk_bread_300_gm",
+    "name": "Bread Pit Milk Bread",
+    "image": "https://i.chaldn.com/_mpimage/bread-pit-milk-bread-300-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D114581&q=best&v=1&m=400&webp=1",
+    "category": "Breads",
+    "current_price": 120.0,
+    "current_unit": "300 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 120.0,
+        "unit": "300 gm",
+        "norm_price": 400.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "400.0 / 1 kg"
+  },
+  "pran_puffed_rice_muri__250_gm": {
+    "id": "pran_puffed_rice_muri__250_gm",
+    "name": "Pran Puffed Rice (Muri)",
+    "image": "https://i.chaldn.com/_mpimage/pran-puffed-rice-muri-250-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132326&q=best&v=1&m=400&webp=1",
+    "category": "Local Breakfast",
+    "current_price": 40.0,
+    "current_unit": "250 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 40.0,
+        "unit": "250 gm",
+        "norm_price": 160.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "160.0 / 1 kg"
+  },
+  "ispahani_bakery_fresh_dry_cake_300_gm": {
+    "id": "ispahani_bakery_fresh_dry_cake_300_gm",
+    "name": "Ispahani Bakery Fresh Dry Cake",
+    "image": "https://i.chaldn.com/_mpimage/ispahani-bakery-fresh-dry-cake-300-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D176305&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Local Breakfast",
+    "current_price": 150.0,
+    "current_unit": "300 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 150.0,
+        "unit": "300 gm",
+        "norm_price": 500.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "500.0 / 1 kg"
+  },
+  "bread_pit_multigrain_bread_300_gm": {
+    "id": "bread_pit_multigrain_bread_300_gm",
+    "name": "Bread Pit Multigrain Bread",
+    "image": "https://i.chaldn.com/_mpimage/bread-pit-multigrain-bread-300-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D82293&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Breads",
+    "current_price": 149.0,
+    "current_unit": "300 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 149.0,
+        "unit": "300 gm",
+        "norm_price": 496.67,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "496.67 / 1 kg"
+  },
+  "farmer_s_gold_white_flattened_rice_sada_chira__1_kg": {
+    "id": "farmer_s_gold_white_flattened_rice_sada_chira__1_kg",
+    "name": "Farmer's Gold White Flattened Rice (Sada Chira)",
+    "image": "https://i.chaldn.com/_mpimage/farmers-gold-white-flattened-rice-sada-chira-1-kg?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D131682&q=best&v=1&m=400&webp=1",
+    "category": "Local Breakfast",
+    "current_price": 120.0,
+    "current_unit": "1 kg",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 120.0,
+        "unit": "1 kg",
+        "norm_price": 120.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "120.0 / 1 kg"
+  },
+  "bpm_homemade_puffed_rice_muri__500_gm": {
+    "id": "bpm_homemade_puffed_rice_muri__500_gm",
+    "name": "BPM Homemade Puffed Rice (Muri)",
+    "image": "https://i.chaldn.com/_mpimage/bpm-homemade-puffed-rice-muri-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D127330&q=best&v=1&m=400&webp=1",
+    "category": "Local Breakfast",
+    "current_price": 135.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 135.0,
+        "unit": "500 gm",
+        "norm_price": 270.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "270.0 / 1 kg"
+  },
+  "tiffany_crunch_n_cream_orange_wafers_65_gm": {
+    "id": "tiffany_crunch_n_cream_orange_wafers_65_gm",
+    "name": "Tiffany Crunch 'n' Cream Orange Wafers",
+    "image": "https://i.chaldn.com/_mpimage/tiffany-crunch-n-cream-orange-wafers-65-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D136241&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Local Breakfast",
+    "current_price": 250.0,
+    "current_unit": "65 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 250.0,
+        "unit": "65 gm",
+        "norm_price": 3846.15,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "3846.15 / 1 kg"
+  },
+  "bread_pit_burger_bun_4_pcs": {
+    "id": "bread_pit_burger_bun_4_pcs",
+    "name": "Bread Pit Burger Bun",
+    "image": "https://i.chaldn.com/_mpimage/bread-pit-burger-bun-4-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D47937&q=best&v=1&m=400&webp=1",
+    "category": "Breads",
+    "current_price": 90.0,
+    "current_unit": "4 pcs",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 90.0,
+        "unit": "4 pcs",
+        "norm_price": 22.5,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "22.5 / 1 pc"
+  },
+  "aarong_dairy_butter_200_gm": {
+    "id": "aarong_dairy_butter_200_gm",
+    "name": "Aarong Dairy Butter",
+    "image": "https://i.chaldn.com/_mpimage/aarong-dairy-butter-200-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D46787&q=best&v=1&m=400&webp=1",
+    "category": "Butter & Sour Cream",
+    "current_price": 270.0,
+    "current_unit": "200 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 270.0,
+        "unit": "200 gm",
+        "norm_price": 1350.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1350.0 / 1 kg"
+  },
+  "pran_butter_fresco_container__200_gm": {
+    "id": "pran_butter_fresco_container__200_gm",
+    "name": "Pran Butter (Fresco Container)",
+    "image": "https://i.chaldn.com/_mpimage/pran-butter-fresco-container-200-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D108099&q=best&v=1&m=400&webp=1",
+    "category": "Butter & Sour Cream",
+    "current_price": 280.0,
+    "current_unit": "200 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 280.0,
+        "unit": "200 gm",
+        "norm_price": 1400.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1400.0 / 1 kg"
+  },
+  "starship_condensed_milk_400_gm": {
+    "id": "starship_condensed_milk_400_gm",
+    "name": "Starship Condensed Milk",
+    "image": "https://i.chaldn.com/_mpimage/starship-condensed-milk-400-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D135316&q=best&v=1&m=400&webp=1",
+    "category": "Condensed Milk & Cream",
+    "current_price": 105.0,
+    "current_unit": "400 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 105.0,
+        "unit": "400 gm",
+        "norm_price": 262.5,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "262.5 / 1 kg"
+  },
+  "no_1_condensed_milk_400_gm": {
+    "id": "no_1_condensed_milk_400_gm",
+    "name": "No 1. Condensed Milk",
+    "image": "https://i.chaldn.com/_mpimage/no-1-condensed-milk-400-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D131446&q=best&v=1&m=400&webp=1",
+    "category": "Condensed Milk & Cream",
+    "current_price": 105.0,
+    "current_unit": "400 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 105.0,
+        "unit": "400 gm",
+        "norm_price": 262.5,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "262.5 / 1 kg"
+  },
+  "danish_condensed_filled_milk_397_gm": {
+    "id": "danish_condensed_filled_milk_397_gm",
+    "name": "Danish Condensed Filled Milk",
+    "image": "https://i.chaldn.com/_mpimage/danish-condensed-filled-milk-397-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D127453&q=best&v=1&m=400&webp=1",
+    "category": "Condensed Milk & Cream",
+    "current_price": 105.0,
+    "current_unit": "397 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 105.0,
+        "unit": "397 gm",
+        "norm_price": 264.48,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "264.48 / 1 kg"
+  },
+  "nestle_coffee_mate_coffee_creamer_box_450_gm": {
+    "id": "nestle_coffee_mate_coffee_creamer_box_450_gm",
+    "name": "Nestle Coffee Mate Coffee Creamer Box",
+    "image": "https://i.chaldn.com/_mpimage/nestle-coffee-mate-coffee-creamer-box-450-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D123151&q=best&v=1&m=400&webp=1",
+    "category": "Condensed Milk & Cream",
+    "current_price": 380.0,
+    "current_unit": "450 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 380.0,
+        "unit": "450 gm",
+        "norm_price": 844.44,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "844.44 / 1 kg"
+  },
+  "nestle_coffee_mate_creamer_1_kg": {
+    "id": "nestle_coffee_mate_creamer_1_kg",
+    "name": "Nestle Coffee Mate Creamer",
+    "image": "https://i.chaldn.com/_mpimage/nestle-coffee-mate-creamer-1-kg?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D45914&q=low&v=1&m=400&webp=1",
+    "category": "Condensed Milk & Cream",
+    "current_price": 850.0,
+    "current_unit": "1 kg",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 850.0,
+        "unit": "1 kg",
+        "norm_price": 850.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "850.0 / 1 kg"
+  },
+  "nestle_coffee_mate_coffee_creamer_jar_400_gm": {
+    "id": "nestle_coffee_mate_coffee_creamer_jar_400_gm",
+    "name": "Nestle Coffee Mate Coffee Creamer Jar",
+    "image": "https://i.chaldn.com/_mpimage/nestle-coffee-mate-coffee-creamer-jar-400-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D123152&q=best&v=1&m=400&webp=1",
+    "category": "Condensed Milk & Cream",
+    "current_price": 400.0,
+    "current_unit": "400 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 400.0,
+        "unit": "400 gm",
+        "norm_price": 1000.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1000.0 / 1 kg"
+  },
+  "aarong_dairy_low_fat_yogurt_sour__500_gm": {
+    "id": "aarong_dairy_low_fat_yogurt_sour__500_gm",
+    "name": "Aarong Dairy Low Fat Yogurt (Sour)",
+    "image": "https://i.chaldn.com/_mpimage/aarong-dairy-low-fat-yogurt-sour-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D70197&q=best&v=1&m=400&webp=1",
+    "category": "Yogurt & Sweets",
+    "current_price": 110.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 110.0,
+        "unit": "500 gm",
+        "norm_price": 220.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "220.0 / 1 kg"
+  },
+  "aarong_dairy_sweetened_yogurt_500_gm": {
+    "id": "aarong_dairy_sweetened_yogurt_500_gm",
+    "name": "Aarong Dairy Sweetened Yogurt",
+    "image": "https://i.chaldn.com/_mpimage/aarong-dairy-sweetened-yogurt-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D122759&q=best&v=1&m=400&webp=1",
+    "category": "Yogurt & Sweets",
+    "current_price": 150.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 150.0,
+        "unit": "500 gm",
+        "norm_price": 300.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "300.0 / 1 kg"
+  },
+  "pran_sour_curd_500_ml": {
+    "id": "pran_sour_curd_500_ml",
+    "name": "Pran Sour Curd",
+    "image": "https://i.chaldn.com/_mpimage/pran-sour-curd-500-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132328&q=best&v=1&m=400&webp=1",
+    "category": "Yogurt & Sweets",
+    "current_price": 120.0,
+    "current_unit": "500 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 120.0,
+        "unit": "500 ml",
+        "norm_price": 240.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "240.0 / 1 L"
+  },
+  "shokti_mishti_doi_75_gm": {
+    "id": "shokti_mishti_doi_75_gm",
+    "name": "Shokti+ Mishti Doi",
+    "image": "https://i.chaldn.com/_mpimage/shokti-mishti-doi-75-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D133646&q=best&v=1&m=400&webp=1",
+    "category": "Yogurt & Sweets",
+    "current_price": 25.0,
+    "current_unit": "75 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 25.0,
+        "unit": "75 gm",
+        "norm_price": 333.33,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "333.33 / 1 kg"
+  },
+  "pran_drinking_yogurt_200_ml": {
+    "id": "pran_drinking_yogurt_200_ml",
+    "name": "Pran Drinking Yogurt",
+    "image": "https://i.chaldn.com/_mpimage/pran-drinking-yogurt-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D118710&q=best&v=1&m=400&webp=1",
+    "category": "Yogurt & Sweets",
+    "current_price": 30.0,
+    "current_unit": "200 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 30.0,
+        "unit": "200 ml",
+        "norm_price": 150.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "150.0 / 1 L"
+  },
+  "pran_sweetened_yogurt_100_gm": {
+    "id": "pran_sweetened_yogurt_100_gm",
+    "name": "Pran Sweetened Yogurt",
+    "image": "https://i.chaldn.com/_mpimage/pran-sweetened-yogurt-100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D108654&q=best&v=1&m=400&webp=1",
+    "category": "Yogurt & Sweets",
+    "current_price": 30.0,
+    "current_unit": "100 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 30.0,
+        "unit": "100 gm",
+        "norm_price": 300.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "300.0 / 1 kg"
+  },
+  "aarong_dairy_pantoa_600_gm": {
+    "id": "aarong_dairy_pantoa_600_gm",
+    "name": "Aarong Dairy Pantoa",
+    "image": "https://i.chaldn.com/_mpimage/aarong-dairy-pantoa-600-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D122752&q=best&v=1&m=400&webp=1",
+    "category": "Yogurt & Sweets",
+    "current_price": 210.0,
+    "current_unit": "600 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 210.0,
+        "unit": "600 gm",
+        "norm_price": 350.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "350.0 / 1 kg"
+  },
+  "aarong_dairy_roshogolla_600_gm": {
+    "id": "aarong_dairy_roshogolla_600_gm",
+    "name": "Aarong Dairy Roshogolla",
+    "image": "https://i.chaldn.com/_mpimage/aarong-dairy-roshogolla-600-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D122754&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Yogurt & Sweets",
+    "current_price": 200.0,
+    "current_unit": "600 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 200.0,
+        "unit": "600 gm",
+        "norm_price": 333.33,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "333.33 / 1 kg"
+  },
+  "aarong_dairy_roshogolla_20_2_pcs__1_kg": {
+    "id": "aarong_dairy_roshogolla_20_2_pcs__1_kg",
+    "name": "Aarong Dairy Roshogolla (20\u00b12 pcs)",
+    "image": "https://i.chaldn.com/_mpimage/aarong-dairy-roshogolla-202-pcs-1-kg?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D122755&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Yogurt & Sweets",
+    "current_price": 350.0,
+    "current_unit": "1 kg",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 350.0,
+        "unit": "1 kg",
+        "norm_price": 350.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "350.0 / 1 kg"
+  },
+  "aarong_dairy_pasteurized_liquid_milk_1_ltr": {
+    "id": "aarong_dairy_pasteurized_liquid_milk_1_ltr",
+    "name": "Aarong Dairy Pasteurized Liquid Milk",
+    "image": "https://i.chaldn.com/_mpimage/aarong-dairy-pasteurized-liquid-milk-1-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D119561&q=best&v=1&m=400&webp=1",
+    "category": "Liquid & UHT Milk",
+    "current_price": 105.0,
+    "current_unit": "1 ltr",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 105.0,
+        "unit": "1 ltr",
+        "norm_price": 105.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "105.0 / 1 L"
+  },
+  "pran_pasteurized_full_cream_liquid_milk_1_ltr": {
+    "id": "pran_pasteurized_full_cream_liquid_milk_1_ltr",
+    "name": "Pran Pasteurized Full Cream Liquid Milk",
+    "image": "https://i.chaldn.com/_mpimage/pran-pasteurized-full-cream-liquid-milk-1-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132322&q=best&v=1&m=400&webp=1",
+    "category": "Liquid & UHT Milk",
+    "current_price": 100.0,
+    "current_unit": "1 ltr",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 100.0,
+        "unit": "1 ltr",
+        "norm_price": 100.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "100.0 / 1 L"
+  },
+  "aarong_dairy_laban_500_ml": {
+    "id": "aarong_dairy_laban_500_ml",
+    "name": "Aarong Dairy Laban",
+    "image": "https://i.chaldn.com/_mpimage/aarong-dairy-laban-500-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D74142&q=best&v=1&m=400&webp=1",
+    "category": "Liquid & UHT Milk",
+    "current_price": 75.0,
+    "current_unit": "500 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 75.0,
+        "unit": "500 ml",
+        "norm_price": 150.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "150.0 / 1 L"
+  },
+  "danish_ayran_pasteurized_full_cream_liquid_milk_1_ltr": {
+    "id": "danish_ayran_pasteurized_full_cream_liquid_milk_1_ltr",
+    "name": "Danish Ayran Pasteurized Full Cream Liquid Milk",
+    "image": "https://i.chaldn.com/_mpimage/danish-ayran-pasteurized-full-cream-liquid-milk-1-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D127452&q=best&v=1&m=400&webp=1",
+    "category": "Liquid & UHT Milk",
+    "current_price": 140.0,
+    "current_unit": "1 ltr",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 140.0,
+        "unit": "1 ltr",
+        "norm_price": 140.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "140.0 / 1 L"
+  },
+  "aarong_dairy_matha_200_ml": {
+    "id": "aarong_dairy_matha_200_ml",
+    "name": "Aarong Dairy Matha",
+    "image": "https://i.chaldn.com/_mpimage/aarong-dairy-matha-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D74143&q=best&v=1&m=400&webp=1",
+    "category": "Liquid & UHT Milk",
+    "current_price": 35.0,
+    "current_unit": "200 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 35.0,
+        "unit": "200 ml",
+        "norm_price": 175.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "175.0 / 1 L"
+  },
+  "danish_ayran_pasteurized_full_cream_liquid_milk_2_ltr": {
+    "id": "danish_ayran_pasteurized_full_cream_liquid_milk_2_ltr",
+    "name": "Danish Ayran Pasteurized Full Cream Liquid Milk",
+    "image": "https://i.chaldn.com/_mpimage/danish-ayran-pasteurized-full-cream-liquid-milk-2-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D101671&q=best&v=1&m=400&webp=1",
+    "category": "Liquid & UHT Milk",
+    "current_price": 255.0,
+    "current_unit": "2 ltr",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 255.0,
+        "unit": "2 ltr",
+        "norm_price": 127.5,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "127.5 / 1 L"
+  },
+  "pran_mango_flavored_milk_pouch__150_ml": {
+    "id": "pran_mango_flavored_milk_pouch__150_ml",
+    "name": "Pran Mango Flavored Milk (Pouch)",
+    "image": "https://i.chaldn.com/_mpimage/pran-mango-flavored-milk-pouch-150-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D175235&q=best&v=1&m=400&webp=1",
+    "category": "Liquid & UHT Milk",
+    "current_price": 25.0,
+    "current_unit": "150 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 25.0,
+        "unit": "150 ml",
+        "norm_price": 166.67,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "166.67 / 1 L"
+  },
+  "pran_chocolate_flavored_milk_pouch__150_ml": {
+    "id": "pran_chocolate_flavored_milk_pouch__150_ml",
+    "name": "Pran Chocolate Flavored Milk (Pouch)",
+    "image": "https://i.chaldn.com/_mpimage/pran-chocolate-flavored-milk-pouch-150-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D175234&q=best&v=1&m=400&webp=1",
+    "category": "Liquid & UHT Milk",
+    "current_price": 25.0,
+    "current_unit": "150 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 25.0,
+        "unit": "150 ml",
+        "norm_price": 166.67,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "166.67 / 1 L"
+  },
+  "aarong_dairy_uht_milk_500_ml": {
+    "id": "aarong_dairy_uht_milk_500_ml",
+    "name": "Aarong Dairy UHT Milk",
+    "image": "https://i.chaldn.com/_mpimage/aarong-dairy-uht-milk-500-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D125267&q=best&v=1&m=400&webp=1",
+    "category": "Liquid & UHT Milk",
+    "current_price": 60.0,
+    "current_unit": "500 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 60.0,
+        "unit": "500 ml",
+        "norm_price": 120.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "120.0 / 1 L"
+  },
+  "pran_uht_milk_1_ltr": {
+    "id": "pran_uht_milk_1_ltr",
+    "name": "Pran UHT Milk",
+    "image": "https://i.chaldn.com/_mpimage/pran-uht-milk-1-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132338&q=best&v=1&m=400&webp=1",
+    "category": "Liquid & UHT Milk",
+    "current_price": 130.0,
+    "current_unit": "1 ltr",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 130.0,
+        "unit": "1 ltr",
+        "norm_price": 130.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "130.0 / 1 L"
+  },
+  "aarong_dairy_chocolate_milk_drink_uht_200_ml": {
+    "id": "aarong_dairy_chocolate_milk_drink_uht_200_ml",
+    "name": "Aarong Dairy Chocolate Milk Drink UHT",
+    "image": "https://i.chaldn.com/_mpimage/aarong-dairy-chocolate-milk-drink-uht-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D101665&q=best&v=1&m=400&webp=1",
+    "category": "Liquid & UHT Milk",
+    "current_price": 35.0,
+    "current_unit": "200 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 35.0,
+        "unit": "200 ml",
+        "norm_price": 175.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "175.0 / 1 L"
+  },
+  "pran_uht_milk_200_ml": {
+    "id": "pran_uht_milk_200_ml",
+    "name": "Pran UHT Milk",
+    "image": "https://i.chaldn.com/_mpimage/pran-uht-milk-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D186721&q=best&v=1&m=400&webp=1",
+    "category": "Liquid & UHT Milk",
+    "current_price": 30.0,
+    "current_unit": "200 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 30.0,
+        "unit": "200 ml",
+        "norm_price": 150.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "150.0 / 1 L"
+  },
+  "aarong_dairy_full_cream_milk_powder_500_gm": {
+    "id": "aarong_dairy_full_cream_milk_powder_500_gm",
+    "name": "Aarong Dairy Full Cream Milk Powder",
+    "image": "https://i.chaldn.com/_mpimage/aarong-dairy-full-cream-milk-powder-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D174739&q=best&v=1&m=400&webp=1",
+    "category": "Liquid & UHT Milk",
+    "current_price": 460.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 460.0,
+        "unit": "500 gm",
+        "norm_price": 920.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "920.0 / 1 kg"
+  },
+  "cowhead_pure_uht_milk_1_ltr": {
+    "id": "cowhead_pure_uht_milk_1_ltr",
+    "name": "Cowhead Pure UHT Milk",
+    "image": "https://i.chaldn.com/_mpimage/cowhead-pure-uht-milk-1-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D127198&q=best&v=1&m=400&webp=1",
+    "category": "Liquid & UHT Milk",
+    "current_price": 449.0,
+    "current_unit": "1 ltr",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 449.0,
+        "unit": "1 ltr",
+        "norm_price": 449.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "449.0 / 1 L"
+  },
+  "farm_fresh_uht_milk_500_ml": {
+    "id": "farm_fresh_uht_milk_500_ml",
+    "name": "Farm Fresh UHT Milk",
+    "image": "https://i.chaldn.com/_mpimage/farm-fresh-uht-milk-500-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D160156&q=best&v=1&m=400&webp=1",
+    "category": "Liquid & UHT Milk",
+    "current_price": 60.0,
+    "current_unit": "500 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 60.0,
+        "unit": "500 ml",
+        "norm_price": 120.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "120.0 / 1 L"
+  },
+  "pran_uht_milk_500_ml": {
+    "id": "pran_uht_milk_500_ml",
+    "name": "Pran UHT Milk",
+    "image": "https://i.chaldn.com/_mpimage/pran-uht-milk-500-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D186720&q=best&v=1&m=400&webp=1",
+    "category": "Liquid & UHT Milk",
+    "current_price": 60.0,
+    "current_unit": "500 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 60.0,
+        "unit": "500 ml",
+        "norm_price": 120.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "120.0 / 1 L"
+  },
+  "aarong_dairy_lassi_200_ml": {
+    "id": "aarong_dairy_lassi_200_ml",
+    "name": "Aarong Dairy Lassi",
+    "image": "https://i.chaldn.com/_mpimage/aarong-dairy-lassi-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D176341&q=best&v=1&m=400&webp=1",
+    "category": "Liquid & UHT Milk",
+    "current_price": 40.0,
+    "current_unit": "200 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 40.0,
+        "unit": "200 ml",
+        "norm_price": 200.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "200.0 / 1 L"
+  },
+  "marks_active_school_belgian_chocolate_flavour_milk_shake_200_ml": {
+    "id": "marks_active_school_belgian_chocolate_flavour_milk_shake_200_ml",
+    "name": "Marks Active School Belgian Chocolate Flavour Milk Shake",
+    "image": "https://i.chaldn.com/_mpimage/marks-active-school-belgian-chocolate-flavour-milk-shake-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D120533&q=best&v=1&m=400&webp=1",
+    "category": "Liquid & UHT Milk",
+    "current_price": 40.0,
+    "current_unit": "200 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 40.0,
+        "unit": "200 ml",
+        "norm_price": 200.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "200.0 / 1 L"
+  },
+  "aarong_dairy_mango_milk_drink_uht_200_ml": {
+    "id": "aarong_dairy_mango_milk_drink_uht_200_ml",
+    "name": "Aarong Dairy Mango Milk Drink UHT",
+    "image": "https://i.chaldn.com/_mpimage/aarong-dairy-mango-milk-drink-uht-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D99536&q=best&v=1&m=400&webp=1",
+    "category": "Liquid & UHT Milk",
+    "current_price": 35.0,
+    "current_unit": "200 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 35.0,
+        "unit": "200 ml",
+        "norm_price": 175.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "175.0 / 1 L"
+  },
+  "pran_kulfi_milk_drink_200_ml": {
+    "id": "pran_kulfi_milk_drink_200_ml",
+    "name": "Pran Kulfi Milk Drink",
+    "image": "https://i.chaldn.com/_mpimage/pran-kulfi-milk-drink-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D136224&q=best&v=1&m=400&webp=1",
+    "category": "Liquid & UHT Milk",
+    "current_price": 30.0,
+    "current_unit": "200 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 30.0,
+        "unit": "200 ml",
+        "norm_price": 150.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "150.0 / 1 L"
+  },
+  "pran_badam_milk_drink_200_ml": {
+    "id": "pran_badam_milk_drink_200_ml",
+    "name": "Pran Badam Milk Drink",
+    "image": "https://i.chaldn.com/_mpimage/pran-badam-milk-drink-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D136223&q=best&v=1&m=400&webp=1",
+    "category": "Liquid & UHT Milk",
+    "current_price": 30.0,
+    "current_unit": "200 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 30.0,
+        "unit": "200 ml",
+        "norm_price": 150.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "150.0 / 1 L"
+  },
+  "pran_chocolate_milk_drink_200_ml": {
+    "id": "pran_chocolate_milk_drink_200_ml",
+    "name": "Pran Chocolate Milk Drink",
+    "image": "https://i.chaldn.com/_mpimage/pran-chocolate-milk-drink-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D136222&q=best&v=1&m=400&webp=1",
+    "category": "Liquid & UHT Milk",
+    "current_price": 30.0,
+    "current_unit": "200 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 30.0,
+        "unit": "200 ml",
+        "norm_price": 150.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "150.0 / 1 L"
+  },
+  "pran_mango_milk_drink_180_ml": {
+    "id": "pran_mango_milk_drink_180_ml",
+    "name": "Pran Mango Milk Drink",
+    "image": "https://i.chaldn.com/_mpimage/pran-mango-milk-drink-180-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D97866&q=best&v=1&m=400&webp=1",
+    "category": "Liquid & UHT Milk",
+    "current_price": 30.0,
+    "current_unit": "180 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 30.0,
+        "unit": "180 ml",
+        "norm_price": 166.67,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "166.67 / 1 L"
+  },
+  "cowhead_uht_pure_milk_omega_3__1_ltr": {
+    "id": "cowhead_uht_pure_milk_omega_3__1_ltr",
+    "name": "Cowhead UHT Pure Milk (Omega-3)",
+    "image": "https://i.chaldn.com/_mpimage/cowhead-uht-pure-milk-omega-3-1-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D127201&q=best&v=1&m=400&webp=1",
+    "category": "Liquid & UHT Milk",
+    "current_price": 490.0,
+    "current_unit": "1 ltr",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 490.0,
+        "unit": "1 ltr",
+        "norm_price": 490.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "490.0 / 1 L"
+  },
+  "cowhead_uht_milk_low_fat_1_ltr": {
+    "id": "cowhead_uht_milk_low_fat_1_ltr",
+    "name": "Cowhead UHT Milk Low Fat",
+    "image": "https://i.chaldn.com/_mpimage/cowhead-uht-milk-low-fat-1-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D174493&q=best&v=1&m=400&webp=1",
+    "category": "Liquid & UHT Milk",
+    "current_price": 459.0,
+    "current_unit": "1 ltr",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 459.0,
+        "unit": "1 ltr",
+        "norm_price": 459.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "459.0 / 1 L"
+  },
+  "starship_full_cream_milk_powder_500_gm": {
+    "id": "starship_full_cream_milk_powder_500_gm",
+    "name": "Starship Full Cream Milk Powder",
+    "image": "https://i.chaldn.com/_mpimage/starship-full-cream-milk-powder-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D152337&q=best&v=1&m=400&webp=1",
+    "category": "Powder Milk",
+    "current_price": 375.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 375.0,
+        "unit": "500 gm",
+        "norm_price": 750.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "750.0 / 1 kg"
+  },
+  "starship_full_cream_milk_powder_1_kg": {
+    "id": "starship_full_cream_milk_powder_1_kg",
+    "name": "Starship Full Cream Milk Powder",
+    "image": "https://i.chaldn.com/_mpimage/starship-full-cream-milk-powder-1-kg?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D152338&q=best&v=1&m=400&webp=1",
+    "category": "Powder Milk",
+    "current_price": 770.0,
+    "current_unit": "1 kg",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 770.0,
+        "unit": "1 kg",
+        "norm_price": 770.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "770.0 / 1 kg"
+  },
+  "marks_full_cream_milk_powder_poly_500_gm": {
+    "id": "marks_full_cream_milk_powder_poly_500_gm",
+    "name": "Marks Full Cream Milk Powder Poly",
+    "image": "https://i.chaldn.com/_mpimage/marks-full-cream-milk-powder-poly-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130615&q=best&v=1&m=400&webp=1",
+    "category": "Powder Milk",
+    "current_price": 480.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 480.0,
+        "unit": "500 gm",
+        "norm_price": 960.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "960.0 / 1 kg"
+  },
+  "marks_full_cream_milk_powder_poly_1_kg": {
+    "id": "marks_full_cream_milk_powder_poly_1_kg",
+    "name": "Marks Full Cream Milk Powder Poly",
+    "image": "https://i.chaldn.com/_mpimage/marks-full-cream-milk-powder-poly-1-kg?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D59268&q=best&v=1&m=400&webp=1",
+    "category": "Powder Milk",
+    "current_price": 950.0,
+    "current_unit": "1 kg",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 950.0,
+        "unit": "1 kg",
+        "norm_price": 950.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "950.0 / 1 kg"
+  },
+  "dano_daily_pushti_milk_powder_1_kg": {
+    "id": "dano_daily_pushti_milk_powder_1_kg",
+    "name": "Dano Daily Pushti Milk Powder",
+    "image": "https://i.chaldn.com/_mpimage/dano-daily-pushti-milk-powder-1-kg?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D169269&q=best&v=1&m=400&webp=1",
+    "category": "Powder Milk",
+    "current_price": 770.0,
+    "current_unit": "1 kg",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 770.0,
+        "unit": "1 kg",
+        "norm_price": 770.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "770.0 / 1 kg"
+  },
+  "dano_daily_pushti_milk_powder_500_gm": {
+    "id": "dano_daily_pushti_milk_powder_500_gm",
+    "name": "Dano Daily Pushti Milk Powder",
+    "image": "https://i.chaldn.com/_mpimage/dano-daily-pushti-milk-powder-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D180158&q=best&v=1&m=400&webp=1",
+    "category": "Powder Milk",
+    "current_price": 400.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 400.0,
+        "unit": "500 gm",
+        "norm_price": 800.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "800.0 / 1 kg"
+  },
+  "dano_delight_full_cream_milk_powder_500_gm": {
+    "id": "dano_delight_full_cream_milk_powder_500_gm",
+    "name": "Dano Delight Full Cream Milk Powder",
+    "image": "https://i.chaldn.com/_mpimage/dano-delight-full-cream-milk-powder-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D161828&q=best&v=1&m=400&webp=1",
+    "category": "Powder Milk",
+    "current_price": 480.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 480.0,
+        "unit": "500 gm",
+        "norm_price": 960.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "960.0 / 1 kg"
+  },
+  "fresh_instant_full_cream_milk_powder_500_gm": {
+    "id": "fresh_instant_full_cream_milk_powder_500_gm",
+    "name": "Fresh Instant Full Cream Milk Powder",
+    "image": "https://i.chaldn.com/_mpimage/fresh-instant-full-cream-milk-powder-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D126002&q=best&v=1&m=400&webp=1",
+    "category": "Powder Milk",
+    "current_price": 480.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 480.0,
+        "unit": "500 gm",
+        "norm_price": 960.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "960.0 / 1 kg"
+  },
+  "dano_power_full_cream_milk_powder_500_gm": {
+    "id": "dano_power_full_cream_milk_powder_500_gm",
+    "name": "Dano Power Full Cream Milk Powder",
+    "image": "https://i.chaldn.com/_mpimage/dano-power-full-cream-milk-powder-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D187004&q=best&v=1&m=400&webp=1",
+    "category": "Powder Milk",
+    "current_price": 480.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 480.0,
+        "unit": "500 gm",
+        "norm_price": 960.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "960.0 / 1 kg"
+  },
+  "dano_power_full_cream_milk_powder_1_kg": {
+    "id": "dano_power_full_cream_milk_powder_1_kg",
+    "name": "Dano Power Full Cream Milk Powder",
+    "image": "https://i.chaldn.com/_mpimage/dano-power-full-cream-milk-powder-1-kg?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D187005&q=best&v=1&m=400&webp=1",
+    "category": "Powder Milk",
+    "current_price": 950.0,
+    "current_unit": "1 kg",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 950.0,
+        "unit": "1 kg",
+        "norm_price": 950.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "950.0 / 1 kg"
+  },
+  "nestle_nido_family_choice_milk_powder_pouch_500_gm": {
+    "id": "nestle_nido_family_choice_milk_powder_pouch_500_gm",
+    "name": "Nestle Nido Family Choice Milk Powder Pouch",
+    "image": "https://i.chaldn.com/_mpimage/nestle-nido-family-choice-milk-powder-pouch-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D166792&q=best&v=1&m=400&webp=1",
+    "category": "Powder Milk",
+    "current_price": 490.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 490.0,
+        "unit": "500 gm",
+        "norm_price": 980.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "980.0 / 1 kg"
+  },
+  "fresh_instant_full_cream_milk_powder_1_kg": {
+    "id": "fresh_instant_full_cream_milk_powder_1_kg",
+    "name": "Fresh Instant Full Cream Milk Powder",
+    "image": "https://i.chaldn.com/_mpimage/fresh-instant-full-cream-milk-powder-1-kg?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130892&q=best&v=1&m=400&webp=1",
+    "category": "Powder Milk",
+    "current_price": 950.0,
+    "current_unit": "1 kg",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 950.0,
+        "unit": "1 kg",
+        "norm_price": 950.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "950.0 / 1 kg"
+  },
+  "nestle_nido_fortigrow_full_cream_milk_powder_tin_1_kg": {
+    "id": "nestle_nido_fortigrow_full_cream_milk_powder_tin_1_kg",
+    "name": "Nestle Nido Fortigrow Full Cream Milk Powder Tin",
+    "image": "https://i.chaldn.com/_mpimage/nestle-nido-fortigrow-full-cream-milk-powder-tin-1-kg?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D131372&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Powder Milk",
+    "current_price": 1400.0,
+    "current_unit": "1 kg",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 1400.0,
+        "unit": "1 kg",
+        "norm_price": 1400.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1400.0 / 1 kg"
+  },
+  "ama_full_cream_milk_powder_500_gm": {
+    "id": "ama_full_cream_milk_powder_500_gm",
+    "name": "AMA Full Cream Milk Powder",
+    "image": "https://i.chaldn.com/_mpimage/ama-full-cream-milk-powder-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D97595&q=best&v=1&m=400&webp=1",
+    "category": "Powder Milk",
+    "current_price": 440.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 440.0,
+        "unit": "500 gm",
+        "norm_price": 880.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "880.0 / 1 kg"
+  },
+  "farm_fresh_full_cream_milk_powder_500_gm": {
+    "id": "farm_fresh_full_cream_milk_powder_500_gm",
+    "name": "Farm Fresh Full Cream Milk Powder",
+    "image": "https://i.chaldn.com/_mpimage/farm-fresh-full-cream-milk-powder-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D160172&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Powder Milk",
+    "current_price": 475.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 475.0,
+        "unit": "500 gm",
+        "norm_price": 950.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "950.0 / 1 kg"
+  },
+  "fresh_dessert_milk_powder_1_kg": {
+    "id": "fresh_dessert_milk_powder_1_kg",
+    "name": "Fresh Dessert Milk Powder",
+    "image": "https://i.chaldn.com/_mpimage/fresh-dessert-milk-powder-1-kg?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D113108&q=best&v=1&m=400&webp=1",
+    "category": "Powder Milk",
+    "current_price": 750.0,
+    "current_unit": "1 kg",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 750.0,
+        "unit": "1 kg",
+        "norm_price": 750.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "750.0 / 1 kg"
+  },
+  "goalini_full_cream_milk_powder_1_kg": {
+    "id": "goalini_full_cream_milk_powder_1_kg",
+    "name": "Goalini Full Cream Milk Powder",
+    "image": "https://i.chaldn.com/_mpimage/goalini-full-cream-milk-powder-1-kg?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D114899&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Powder Milk",
+    "current_price": 910.0,
+    "current_unit": "1 kg",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 910.0,
+        "unit": "1 kg",
+        "norm_price": 910.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "910.0 / 1 kg"
+  },
+  "marks_milk_powder_tin_1_kg": {
+    "id": "marks_milk_powder_tin_1_kg",
+    "name": "Marks Milk Powder Tin",
+    "image": "https://i.chaldn.com/_mpimage/marks-milk-powder-tin-1-kg?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130616&q=best&v=1&m=400&webp=1",
+    "category": "Powder Milk",
+    "current_price": 1300.0,
+    "current_unit": "1 kg",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 1300.0,
+        "unit": "1 kg",
+        "norm_price": 1300.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1300.0 / 1 kg"
+  },
+  "cowhead_instant_milk_powder_1_8_kg": {
+    "id": "cowhead_instant_milk_powder_1_8_kg",
+    "name": "Cowhead Instant Milk Powder",
+    "image": "https://i.chaldn.com/_mpimage/cowhead-instant-milk-powder-18-kg?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D58937&q=best&v=1&m=400&webp=1",
+    "category": "Powder Milk",
+    "current_price": 3700.0,
+    "current_unit": "1.8 kg",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 3700.0,
+        "unit": "1.8 kg",
+        "norm_price": 2055.56,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2055.56 / 1 kg"
+  },
+  "fresh_insta_milk_powder_500_gm": {
+    "id": "fresh_insta_milk_powder_500_gm",
+    "name": "Fresh Insta Milk Powder",
+    "image": "https://i.chaldn.com/_mpimage/fresh-insta-milk-powder-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128636&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Powder Milk",
+    "current_price": 480.0,
+    "current_unit": "500 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 480.0,
+        "unit": "500 gm",
+        "norm_price": 960.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "960.0 / 1 kg"
+  },
+  "pran_full_cream_milk_powder_1_kg": {
+    "id": "pran_full_cream_milk_powder_1_kg",
+    "name": "Pran Full Cream Milk Powder",
+    "image": "https://i.chaldn.com/_mpimage/pran-full-cream-milk-powder-1-kg?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D108313&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Powder Milk",
+    "current_price": 840.0,
+    "current_unit": "1 kg",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 840.0,
+        "unit": "1 kg",
+        "norm_price": 840.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "840.0 / 1 kg"
+  },
+  "marks_young_star_16_40_years__400_gm": {
+    "id": "marks_young_star_16_40_years__400_gm",
+    "name": "Marks Young Star (16-40 years)",
+    "image": "https://i.chaldn.com/_mpimage/marks-young-star-16-40-years-400-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130618&q=best&v=1&m=400&webp=1",
+    "category": "Powder Milk",
+    "current_price": 425.0,
+    "current_unit": "400 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 425.0,
+        "unit": "400 gm",
+        "norm_price": 1062.5,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1062.5 / 1 kg"
+  },
+  "shape_up_non_fat_high_protein_milk_powder_400_gm": {
+    "id": "shape_up_non_fat_high_protein_milk_powder_400_gm",
+    "name": "Shape Up Non Fat High Protein Milk Powder",
+    "image": "https://i.chaldn.com/_mpimage/shape-up-non-fat-high-protein-milk-powder-400-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D175835&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Powder Milk",
+    "current_price": 490.0,
+    "current_unit": "400 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 490.0,
+        "unit": "400 gm",
+        "norm_price": 1225.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1225.0 / 1 kg"
+  },
+  "nestle_nido_fortigrow_full_cream_milk_powder_tin_2_5_kg": {
+    "id": "nestle_nido_fortigrow_full_cream_milk_powder_tin_2_5_kg",
+    "name": "Nestle Nido Fortigrow Full Cream Milk Powder Tin",
+    "image": "https://i.chaldn.com/_mpimage/nestle-nido-fortigrow-full-cream-milk-powder-tin-25-kg?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D131373&q=best&v=1&m=400&webp=1",
+    "category": "Powder Milk",
+    "current_price": 3400.0,
+    "current_unit": "2.5 kg",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 3400.0,
+        "unit": "2.5 kg",
+        "norm_price": 1360.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1360.0 / 1 kg"
+  },
+  "chicken_eggs_layer__12_pcs": {
+    "id": "chicken_eggs_layer__12_pcs",
+    "name": "Chicken Eggs (Layer)",
+    "image": "https://i.chaldn.com/_mpimage/chicken-eggs-layer-12-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D79219&q=best&v=1&m=400&webp=1",
+    "category": "Eggs",
+    "current_price": 145.0,
+    "current_unit": "12 pcs",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 145.0,
+        "unit": "12 pcs",
+        "norm_price": 12.08,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "12.08 / 1 pc"
+  },
+  "chicken_eggs_layer_white__12_pcs": {
+    "id": "chicken_eggs_layer_white__12_pcs",
+    "name": "Chicken Eggs Layer (White)",
+    "image": "https://i.chaldn.com/_mpimage/chicken-eggs-layer-white-12-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D165811&q=best&v=1&m=400&webp=1",
+    "category": "Eggs",
+    "current_price": 135.0,
+    "current_unit": "12 pcs",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 135.0,
+        "unit": "12 pcs",
+        "norm_price": 11.25,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "11.25 / 1 pc"
+  },
+  "chicken_eggs_deshi__6_pcs": {
+    "id": "chicken_eggs_deshi__6_pcs",
+    "name": "Chicken Eggs (Deshi)",
+    "image": "https://i.chaldn.com/_mpimage/chicken-eggs-deshi-6-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D79976&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Eggs",
+    "current_price": 119.0,
+    "current_unit": "6 pcs",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 119.0,
+        "unit": "6 pcs",
+        "norm_price": 19.83,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "19.83 / 1 pc"
+  },
+  "chicken_eggs_layer__6_pcs": {
+    "id": "chicken_eggs_layer__6_pcs",
+    "name": "Chicken Eggs (Layer)",
+    "image": "https://i.chaldn.com/_mpimage/chicken-eggs-layer-6-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D182905&q=best&v=1&m=400&webp=1",
+    "category": "Eggs",
+    "current_price": 75.0,
+    "current_unit": "6 pcs",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 75.0,
+        "unit": "6 pcs",
+        "norm_price": 12.5,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "12.5 / 1 pc"
+  },
+  "chicken_eggs_layer_white__6_pcs": {
+    "id": "chicken_eggs_layer_white__6_pcs",
+    "name": "Chicken Eggs Layer (White)",
+    "image": "https://i.chaldn.com/_mpimage/chicken-eggs-layer-white-6-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D165810&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Eggs",
+    "current_price": 69.0,
+    "current_unit": "6 pcs",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 69.0,
+        "unit": "6 pcs",
+        "norm_price": 11.5,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "11.5 / 1 pc"
+  },
+  "paragon_omega_3_eggs_12_pcs": {
+    "id": "paragon_omega_3_eggs_12_pcs",
+    "name": "Paragon Omega 3+ Eggs",
+    "image": "https://i.chaldn.com/_mpimage/paragon-omega-3-eggs-12-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D131999&q=best&v=1&m=400&webp=1",
+    "category": "Eggs",
+    "current_price": 265.0,
+    "current_unit": "12 pcs",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 265.0,
+        "unit": "12 pcs",
+        "norm_price": 22.08,
+        "norm_unit": "1 pc"
+      }
+    ],
+    "norm_price_display": "22.08 / 1 pc"
+  },
+  "ching_s_red_chilli_sauce_200_gm": {
+    "id": "ching_s_red_chilli_sauce_200_gm",
+    "name": "Ching's Red Chilli Sauce",
+    "image": "https://i.chaldn.com/_mpimage/chings-red-chilli-sauce-200-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D177101&q=best&v=1&m=400&webp=1",
+    "category": "Other Table Sauces",
+    "current_price": 160.0,
+    "current_unit": "200 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 160.0,
+        "unit": "200 gm",
+        "norm_price": 800.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "800.0 / 1 kg"
+  },
+  "ching_s_green_chilli_sauce_680_gm": {
+    "id": "ching_s_green_chilli_sauce_680_gm",
+    "name": "Ching's Green Chilli Sauce",
+    "image": "https://i.chaldn.com/_mpimage/chings-green-chilli-sauce-680-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D177093&q=best&v=1&m=400&webp=1",
+    "category": "Cooking Sauces",
+    "current_price": 350.0,
+    "current_unit": "680 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 350.0,
+        "unit": "680 gm",
+        "norm_price": 514.71,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "514.71 / 1 kg"
+  },
+  "ching_s_green_chilli_sauce_190_gm": {
+    "id": "ching_s_green_chilli_sauce_190_gm",
+    "name": "Ching's Green Chilli Sauce",
+    "image": "https://i.chaldn.com/_mpimage/chings-green-chilli-sauce-190-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D177092&q=best&v=1&m=400&webp=1",
+    "category": "Cooking Sauces",
+    "current_price": 150.0,
+    "current_unit": "190 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 150.0,
+        "unit": "190 gm",
+        "norm_price": 789.47,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "789.47 / 1 kg"
+  },
+  "ching_s_chilli_sauce_680_gm": {
+    "id": "ching_s_chilli_sauce_680_gm",
+    "name": "Ching's Chilli Sauce",
+    "image": "https://i.chaldn.com/_mpimage/chings-chilli-sauce-680-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D177091&q=best&v=1&m=400&webp=1",
+    "category": "Cooking Sauces",
+    "current_price": 350.0,
+    "current_unit": "680 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 350.0,
+        "unit": "680 gm",
+        "norm_price": 514.71,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "514.71 / 1 kg"
+  },
+  "saad_sweet_chilli_sauce_340_gm": {
+    "id": "saad_sweet_chilli_sauce_340_gm",
+    "name": "Saad Sweet Chilli Sauce",
+    "image": "https://i.chaldn.com/_mpimage/saad-sweet-chilli-sauce-340-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D126528&q=best&v=1&m=400&webp=1",
+    "category": "Cooking Sauces",
+    "current_price": 150.0,
+    "current_unit": "340 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 150.0,
+        "unit": "340 gm",
+        "norm_price": 441.18,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "441.18 / 1 kg"
+  },
+  "ruchi_sweet_chilli_sauce_350_gm": {
+    "id": "ruchi_sweet_chilli_sauce_350_gm",
+    "name": "Ruchi Sweet Chilli Sauce",
+    "image": "https://i.chaldn.com/_mpimage/ruchi-sweet-chilli-sauce-350-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D133079&q=best&v=1&m=400&webp=1",
+    "category": "Other Table Sauces",
+    "current_price": 130.0,
+    "current_unit": "350 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 130.0,
+        "unit": "350 gm",
+        "norm_price": 371.43,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "371.43 / 1 kg"
+  },
+  "ahmed_hot_chilli_sauce_340_gm": {
+    "id": "ahmed_hot_chilli_sauce_340_gm",
+    "name": "Ahmed Hot Chilli Sauce",
+    "image": "https://i.chaldn.com/_mpimage/ahmed-hot-chilli-sauce-340-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D122992&q=best&v=1&m=400&webp=1",
+    "category": "Other Table Sauces",
+    "current_price": 129.0,
+    "current_unit": "340 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 129.0,
+        "unit": "340 gm",
+        "norm_price": 379.41,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "379.41 / 1 kg"
+  },
+  "ahmed_green_chilli_sauce_340_gm": {
+    "id": "ahmed_green_chilli_sauce_340_gm",
+    "name": "Ahmed Green Chilli Sauce",
+    "image": "https://i.chaldn.com/_mpimage/ahmed-green-chilli-sauce-340-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D122990&q=best&v=1&m=400&webp=1",
+    "category": "Other Table Sauces",
+    "current_price": 115.0,
+    "current_unit": "340 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 115.0,
+        "unit": "340 gm",
+        "norm_price": 338.24,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "338.24 / 1 kg"
+  },
+  "pran_chilli_sauce_340_gm": {
+    "id": "pran_chilli_sauce_340_gm",
+    "name": "Pran Chilli Sauce",
+    "image": "https://i.chaldn.com/_mpimage/pran-chilli-sauce-340-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D169408&q=best&v=1&m=400&webp=1",
+    "category": "Other Table Sauces",
+    "current_price": 150.0,
+    "current_unit": "340 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 150.0,
+        "unit": "340 gm",
+        "norm_price": 441.18,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "441.18 / 1 kg"
+  },
+  "nando_s_peri_peri_hot_sauce_250_gm": {
+    "id": "nando_s_peri_peri_hot_sauce_250_gm",
+    "name": "Nando's Peri Peri Hot Sauce",
+    "image": "https://i.chaldn.com/_mpimage/nandos-peri-peri-hot-sauce-250-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D131212&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Other Table Sauces",
+    "current_price": 549.0,
+    "current_unit": "250 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 549.0,
+        "unit": "250 gm",
+        "norm_price": 2196.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2196.0 / 1 kg"
+  },
+  "teo_tak_seng_silver_pomfret_fish_sauce_750_cc_": {
+    "id": "teo_tak_seng_silver_pomfret_fish_sauce_750_cc_",
+    "name": "Teo Tak Seng Silver Pomfret Fish Sauce 750 cc",
+    "image": "https://i.chaldn.com/_mpimage/teo-tak-seng-silver-pomfret-fish-sauce-750-cc?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D136112&q=best&v=1&m=400&webp=1",
+    "category": "Other Table Sauces",
+    "current_price": 495.0,
+    "current_unit": "",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 495.0,
+        "unit": "",
+        "norm_price": 495.0,
+        "norm_unit": ""
+      }
+    ],
+    "norm_price_display": "495.0 / "
+  },
+  "ahmed_sweet_chilli_sauce_340_gm": {
+    "id": "ahmed_sweet_chilli_sauce_340_gm",
+    "name": "Ahmed Sweet Chilli Sauce",
+    "image": "https://i.chaldn.com/_mpimage/ahmed-sweet-chilli-sauce-340-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D123016&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Other Table Sauces",
+    "current_price": 140.0,
+    "current_unit": "340 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 140.0,
+        "unit": "340 gm",
+        "norm_price": 411.76,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "411.76 / 1 kg"
+  },
+  "ruchi_sweet_chili_sauce_200_gm": {
+    "id": "ruchi_sweet_chili_sauce_200_gm",
+    "name": "Ruchi Sweet Chili Sauce",
+    "image": "https://i.chaldn.com/_mpimage/ruchi-sweet-chili-sauce-200-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D176909&q=best&v=1&m=400&webp=1",
+    "category": "Cooking Sauces",
+    "current_price": 90.0,
+    "current_unit": "200 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 90.0,
+        "unit": "200 gm",
+        "norm_price": 450.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "450.0 / 1 kg"
+  },
+  "ruchi_bbq_sauce_200_gm": {
+    "id": "ruchi_bbq_sauce_200_gm",
+    "name": "Ruchi BBQ Sauce",
+    "image": "https://i.chaldn.com/_mpimage/ruchi-bbq-sauce-200-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D176905&q=best&v=1&m=400&webp=1",
+    "category": "Cooking Sauces",
+    "current_price": 150.0,
+    "current_unit": "200 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 150.0,
+        "unit": "200 gm",
+        "norm_price": 750.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "750.0 / 1 kg"
+  },
+  "pran_green_chilli_sauce_340_gm": {
+    "id": "pran_green_chilli_sauce_340_gm",
+    "name": "Pran Green Chilli Sauce",
+    "image": "https://i.chaldn.com/_mpimage/pran-green-chilli-sauce-340-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D162464&q=best&v=1&m=400&webp=1",
+    "category": "Other Table Sauces",
+    "current_price": 130.0,
+    "current_unit": "340 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 130.0,
+        "unit": "340 gm",
+        "norm_price": 382.35,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "382.35 / 1 kg"
+  },
+  "kishwan_hot_chilli_sauce_340_gm": {
+    "id": "kishwan_hot_chilli_sauce_340_gm",
+    "name": "Kishwan Hot Chilli Sauce",
+    "image": "https://i.chaldn.com/_mpimage/kishwan-hot-chilli-sauce-340-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D93436&q=best&v=1&m=400&webp=1",
+    "category": "Other Table Sauces",
+    "current_price": 120.0,
+    "current_unit": "340 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 120.0,
+        "unit": "340 gm",
+        "norm_price": 352.94,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "352.94 / 1 kg"
+  },
+  "mr_hung_sweet_chilli_sauce_700_ml": {
+    "id": "mr_hung_sweet_chilli_sauce_700_ml",
+    "name": "Mr. Hung Sweet Chilli Sauce",
+    "image": "https://i.chaldn.com/_mpimage/mr-hung-sweet-chilli-sauce-700-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130934&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Other Table Sauces",
+    "current_price": 500.0,
+    "current_unit": "700 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 500.0,
+        "unit": "700 ml",
+        "norm_price": 714.29,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "714.29 / 1 L"
+  },
+  "sriracha_hot_chilli_sauce_482_gm": {
+    "id": "sriracha_hot_chilli_sauce_482_gm",
+    "name": "Sriracha Hot Chilli Sauce",
+    "image": "https://i.chaldn.com/_mpimage/sriracha-hot-chilli-sauce-482-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D134985&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Other Table Sauces",
+    "current_price": 1200.0,
+    "current_unit": "482 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 1200.0,
+        "unit": "482 gm",
+        "norm_price": 2489.63,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2489.63 / 1 kg"
+  },
+  "acme_sweet_chilli_sauce_340_gm": {
+    "id": "acme_sweet_chilli_sauce_340_gm",
+    "name": "ACME Sweet Chilli Sauce",
+    "image": "https://i.chaldn.com/_mpimage/acme-sweet-chilli-sauce-340-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D103137&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Other Table Sauces",
+    "current_price": 120.0,
+    "current_unit": "340 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 120.0,
+        "unit": "340 gm",
+        "norm_price": 352.94,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "352.94 / 1 kg"
+  },
+  "ahmed_tamarind_sauce_340_gm": {
+    "id": "ahmed_tamarind_sauce_340_gm",
+    "name": "Ahmed Tamarind Sauce",
+    "image": "https://i.chaldn.com/_mpimage/ahmed-tamarind-sauce-340-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D123190&q=best&v=1&m=400&webp=1",
+    "category": "Other Table Sauces",
+    "current_price": 130.0,
+    "current_unit": "340 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 130.0,
+        "unit": "340 gm",
+        "norm_price": 382.35,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "382.35 / 1 kg"
+  },
+  "ahmed_garlic_sauce_340_gm": {
+    "id": "ahmed_garlic_sauce_340_gm",
+    "name": "Ahmed Garlic Sauce",
+    "image": "https://i.chaldn.com/_mpimage/ahmed-garlic-sauce-340-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D122987&q=best&v=1&m=400&webp=1",
+    "category": "Cooking Sauces",
+    "current_price": 140.0,
+    "current_unit": "340 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 140.0,
+        "unit": "340 gm",
+        "norm_price": 411.76,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "411.76 / 1 kg"
+  },
+  "ahmed_chilli_sauce_340_gm": {
+    "id": "ahmed_chilli_sauce_340_gm",
+    "name": "Ahmed Chilli Sauce",
+    "image": "https://i.chaldn.com/_mpimage/ahmed-chilli-sauce-340-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D122979&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Other Table Sauces",
+    "current_price": 150.0,
+    "current_unit": "340 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 150.0,
+        "unit": "340 gm",
+        "norm_price": 441.18,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "441.18 / 1 kg"
+  },
+  "nando_s_peri_peri_mild_sauce_250_gm": {
+    "id": "nando_s_peri_peri_mild_sauce_250_gm",
+    "name": "Nando's Peri Peri Mild Sauce",
+    "image": "https://i.chaldn.com/_mpimage/nandos-peri-peri-mild-sauce-250-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D174492&q=best&v=1&m=400&webp=1",
+    "category": "Other Table Sauces",
+    "current_price": 579.0,
+    "current_unit": "250 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 579.0,
+        "unit": "250 gm",
+        "norm_price": 2316.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2316.0 / 1 kg"
+  },
+  "ruchi_red_chilli_sauce_360_gm": {
+    "id": "ruchi_red_chilli_sauce_360_gm",
+    "name": "Ruchi Red Chilli Sauce",
+    "image": "https://i.chaldn.com/_mpimage/ruchi-red-chilli-sauce-360-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D133078&q=best&v=1&m=400&webp=1",
+    "category": "Other Table Sauces",
+    "current_price": 150.0,
+    "current_unit": "360 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 150.0,
+        "unit": "360 gm",
+        "norm_price": 416.67,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "416.67 / 1 kg"
+  },
+  "nando_s_pepper_sauce_x_mild_250_gm": {
+    "id": "nando_s_pepper_sauce_x_mild_250_gm",
+    "name": "Nando's Pepper Sauce X-mild",
+    "image": "https://i.chaldn.com/_mpimage/nandos-pepper-sauce-x-mild-250-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D115876&q=best&v=1&m=400&webp=1",
+    "category": "Other Table Sauces",
+    "current_price": 550.0,
+    "current_unit": "250 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 550.0,
+        "unit": "250 gm",
+        "norm_price": 2200.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2200.0 / 1 kg"
+  },
+  "nando_s_extra_extra_hot_peri_peri_sauce_250_gm": {
+    "id": "nando_s_extra_extra_hot_peri_peri_sauce_250_gm",
+    "name": "Nando's Extra Extra Hot Peri Peri Sauce",
+    "image": "https://i.chaldn.com/_mpimage/nandos-extra-extra-hot-peri-peri-sauce-250-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D131081&q=best&v=1&m=400&webp=1",
+    "category": "Other Table Sauces",
+    "current_price": 550.0,
+    "current_unit": "250 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 550.0,
+        "unit": "250 gm",
+        "norm_price": 2200.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2200.0 / 1 kg"
+  },
+  "nando_s_peri_peri_wild_herb_sauce_250_gm": {
+    "id": "nando_s_peri_peri_wild_herb_sauce_250_gm",
+    "name": "Nando's Peri Peri Wild Herb Sauce",
+    "image": "https://i.chaldn.com/_mpimage/nandos-peri-peri-wild-herb-sauce-250-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D131218&q=best&v=1&m=400&webp=1",
+    "category": "Other Table Sauces",
+    "current_price": 549.0,
+    "current_unit": "250 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 549.0,
+        "unit": "250 gm",
+        "norm_price": 2196.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2196.0 / 1 kg"
+  },
+  "nando_s_garlic_sauce_250_gm": {
+    "id": "nando_s_garlic_sauce_250_gm",
+    "name": "Nando's Garlic Sauce",
+    "image": "https://i.chaldn.com/_mpimage/nandos-garlic-sauce-250-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D131207&q=best&v=1&m=400&webp=1",
+    "category": "Cooking Sauces",
+    "current_price": 550.0,
+    "current_unit": "250 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 550.0,
+        "unit": "250 gm",
+        "norm_price": 2200.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "2200.0 / 1 kg"
+  },
+  "umami_bbq_sauce_300_ml": {
+    "id": "umami_bbq_sauce_300_ml",
+    "name": "Umami BBQ Sauce",
+    "image": "https://i.chaldn.com/_mpimage/umami-bbq-sauce-300-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D136613&q=best&v=1&m=400&webp=1",
+    "category": "Cooking Sauces",
+    "current_price": 275.0,
+    "current_unit": "300 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 275.0,
+        "unit": "300 ml",
+        "norm_price": 916.67,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "916.67 / 1 L"
+  },
+  "king_bell_chilli_sauce_300_ml": {
+    "id": "king_bell_chilli_sauce_300_ml",
+    "name": "King Bell Chilli Sauce",
+    "image": "https://i.chaldn.com/_mpimage/king-bell-chilli-sauce-300-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D109798&q=best&v=1&m=400&webp=1",
+    "category": "Other Table Sauces",
+    "current_price": 190.0,
+    "current_unit": "300 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 190.0,
+        "unit": "300 ml",
+        "norm_price": 633.33,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "633.33 / 1 L"
+  },
+  "life_oriental_barbecue_sauce_250_gm": {
+    "id": "life_oriental_barbecue_sauce_250_gm",
+    "name": "Life Oriental Barbecue Sauce",
+    "image": "https://i.chaldn.com/_mpimage/life-oriental-barbecue-sauce-250-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D169231&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Other Table Sauces",
+    "current_price": 223.0,
+    "current_unit": "250 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 223.0,
+        "unit": "250 gm",
+        "norm_price": 892.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "892.0 / 1 kg"
+  },
+  "american_garden_bbq_sauce_original_510_gm": {
+    "id": "american_garden_bbq_sauce_original_510_gm",
+    "name": "American Garden BBQ Sauce Original",
+    "image": "https://i.chaldn.com/_mpimage/american-garden-bbq-sauce-original-510-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D180813&q=best&v=1&m=400&webp=1",
+    "category": "Cooking Sauces",
+    "current_price": 639.0,
+    "current_unit": "510 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 639.0,
+        "unit": "510 gm",
+        "norm_price": 1252.94,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "1252.94 / 1 kg"
+  },
+  "remia_garlic_sauce_250_ml": {
+    "id": "remia_garlic_sauce_250_ml",
+    "name": "Remia Garlic Sauce",
+    "image": "https://i.chaldn.com/_mpimage/remia-garlic-sauce-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D155042&q=best&v=1&m=400&webp=1",
+    "category": "Cooking Sauces",
+    "current_price": 299.0,
+    "current_unit": "250 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 299.0,
+        "unit": "250 ml",
+        "norm_price": 1196.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1196.0 / 1 L"
+  },
+  "best_s_chilli_garlic_sauce_320_gm": {
+    "id": "best_s_chilli_garlic_sauce_320_gm",
+    "name": "Best's Chilli & Garlic Sauce",
+    "image": "https://i.chaldn.com/_mpimage/bests-chilli-garlic-sauce-320-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D125672&q=best&v=1&m=400&webp=1",
+    "category": "Cooking Sauces",
+    "current_price": 210.0,
+    "current_unit": "320 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 210.0,
+        "unit": "320 gm",
+        "norm_price": 656.25,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "656.25 / 1 kg"
+  },
+  "maekrua_oyster_sauce_600_ml": {
+    "id": "maekrua_oyster_sauce_600_ml",
+    "name": "Maekrua Oyster Sauce",
+    "image": "https://i.chaldn.com/_mpimage/maekrua-oyster-sauce-600-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D47535&q=best&v=1&m=400&webp=1",
+    "category": "Cooking Sauces",
+    "current_price": 639.0,
+    "current_unit": "600 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 639.0,
+        "unit": "600 ml",
+        "norm_price": 1065.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1065.0 / 1 L"
+  },
+  "kikkoman_premium_soy_sauce_600_ml": {
+    "id": "kikkoman_premium_soy_sauce_600_ml",
+    "name": "Kikkoman Premium Soy Sauce",
+    "image": "https://i.chaldn.com/_mpimage/kikkoman-premium-soy-sauce-600-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D109792&q=best&v=1&m=400&webp=1",
+    "category": "Cooking Sauces",
+    "current_price": 679.0,
+    "current_unit": "600 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 679.0,
+        "unit": "600 ml",
+        "norm_price": 1131.67,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1131.67 / 1 L"
+  },
+  "sajeeb_soya_sauce_300_ml": {
+    "id": "sajeeb_soya_sauce_300_ml",
+    "name": "Sajeeb Soya Sauce",
+    "image": "https://i.chaldn.com/_mpimage/sajeeb-soya-sauce-300-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D133113&q=best&v=1&m=400&webp=1",
+    "category": "Cooking Sauces",
+    "current_price": 100.0,
+    "current_unit": "300 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 100.0,
+        "unit": "300 ml",
+        "norm_price": 333.33,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "333.33 / 1 L"
+  },
+  "best_s_tomato_puree_400_gm": {
+    "id": "best_s_tomato_puree_400_gm",
+    "name": "Best's Tomato Puree",
+    "image": "https://i.chaldn.com/_mpimage/bests-tomato-puree-400-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D154143&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Cooking Sauces",
+    "current_price": 174.0,
+    "current_unit": "400 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 174.0,
+        "unit": "400 gm",
+        "norm_price": 435.0,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "435.0 / 1 kg"
+  },
+  "kikkoman_soy_sauce_1_ltr": {
+    "id": "kikkoman_soy_sauce_1_ltr",
+    "name": "Kikkoman Soy Sauce",
+    "image": "https://i.chaldn.com/_mpimage/kikkoman-soy-sauce-1-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D180155&q=best&v=1&m=400&webp=1",
+    "category": "Cooking Sauces",
+    "current_price": 1499.0,
+    "current_unit": "1 ltr",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 1499.0,
+        "unit": "1 ltr",
+        "norm_price": 1499.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1499.0 / 1 L"
+  },
+  "blossoms_dark_soya_sauce_500_ml": {
+    "id": "blossoms_dark_soya_sauce_500_ml",
+    "name": "Blossoms Dark Soya Sauce",
+    "image": "https://i.chaldn.com/_mpimage/blossoms-dark-soya-sauce-500-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D148502&q=best&v=1&m=400&webp=1",
+    "category": "Cooking Sauces",
+    "current_price": 429.0,
+    "current_unit": "500 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 429.0,
+        "unit": "500 ml",
+        "norm_price": 858.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "858.0 / 1 L"
+  },
+  "chef_le_dark_soya_sauce_500_ml": {
+    "id": "chef_le_dark_soya_sauce_500_ml",
+    "name": "Chef Le Dark Soya Sauce",
+    "image": "https://i.chaldn.com/_mpimage/chef-le-dark-soya-sauce-500-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D88028&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Cooking Sauces",
+    "current_price": 310.0,
+    "current_unit": "500 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 310.0,
+        "unit": "500 ml",
+        "norm_price": 620.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "620.0 / 1 L"
+  },
+  "chef_le_dark_soya_sauce_250_ml": {
+    "id": "chef_le_dark_soya_sauce_250_ml",
+    "name": "Chef Le Dark Soya Sauce",
+    "image": "https://i.chaldn.com/_mpimage/chef-le-dark-soya-sauce-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D88027&q=best&v=1&m=400&webp=1",
+    "category": "Cooking Sauces",
+    "current_price": 174.0,
+    "current_unit": "250 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 174.0,
+        "unit": "250 ml",
+        "norm_price": 696.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "696.0 / 1 L"
+  },
+  "chef_le_light_soya_sauce_500_ml": {
+    "id": "chef_le_light_soya_sauce_500_ml",
+    "name": "Chef Le Light Soya Sauce",
+    "image": "https://i.chaldn.com/_mpimage/chef-le-light-soya-sauce-500-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D88026&q=best&v=1&m=400&webp=1",
+    "category": "Cooking Sauces",
+    "current_price": 294.0,
+    "current_unit": "500 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 294.0,
+        "unit": "500 ml",
+        "norm_price": 588.0,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "588.0 / 1 L"
+  },
+  "bachun_oyster_sauce_350_ml": {
+    "id": "bachun_oyster_sauce_350_ml",
+    "name": "Bachun Oyster Sauce",
+    "image": "https://i.chaldn.com/_mpimage/bachun-oyster-sauce-350-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D125329&q=best&v=1&m=400&webp=1",
+    "category": "Cooking Sauces",
+    "current_price": 450.0,
+    "current_unit": "350 ml",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 450.0,
+        "unit": "350 ml",
+        "norm_price": 1285.71,
+        "norm_unit": "1 L"
+      }
+    ],
+    "norm_price_display": "1285.71 / 1 L"
+  },
+  "life_oyster_flavoured_sauce_510_gm": {
+    "id": "life_oyster_flavoured_sauce_510_gm",
+    "name": "Life Oyster Flavoured Sauce",
+    "image": "https://i.chaldn.com/_mpimage/life-oyster-flavoured-sauce-510-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130069&q=best&v=1&m=400&m=400&webp=1",
+    "category": "Cooking Sauces",
+    "current_price": 382.0,
+    "current_unit": "510 gm",
+    "history": [
+      {
+        "date": "2026-08-14",
+        "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 382.0,
+        "unit": "510 gm",
+        "norm_price": 749.02,
+        "norm_unit": "1 kg"
+      }
+    ],
+    "norm_price_display": "749.02 / 1 kg"
   }
 };
