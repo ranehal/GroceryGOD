@@ -252,8 +252,8 @@
       switch (state.sort) {
         case "discount": return b.discount - a.discount;
         case "drop": return ma.change - mb.change;
-        case "price-asc": return a.price - b.price;
-        case "price-desc": return b.price - a.price;
+        case "price-asc": { const av=Number(a.price),bv=Number(b.price); const am=!(av>0)||Number.isNaN(av); const bm=!(bv>0)||Number.isNaN(bv); if(am&&bm)return 0; if(am)return 1; if(bm)return -1; return av-bv; }
+        case "price-desc": { const av=Number(a.price),bv=Number(b.price); const am=!(av>0)||Number.isNaN(av); const bm=!(bv>0)||Number.isNaN(bv); if(am&&bm)return 0; if(am)return 1; if(bm)return -1; return bv-av; }
         case "unit-asc": return a.unitPrice - b.unitPrice;
         case "name": return a.name.localeCompare(b.name);
         default: {

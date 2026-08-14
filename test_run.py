@@ -1093,8 +1093,10 @@ if __name__ == '__main__':
     p12 = multiprocessing.Process(target=run_scheduled_repo, args=('https://github.com/ranehal/DARAZ-analytics.git', 'scraper.py', ' DARAZ Analytics', GITHUB_PAT))
     p13 = multiprocessing.Process(target=run_scheduled_repo, args=('https://github.com/ranehal/MEEnaBAzar-analylics.git', 'scraper.py', ' Meena Bazar Analytics', GITHUB_PAT))
     
-    p1.start()
     p2.start()
+    print("⏳ Sleeping 10 minutes (600s) before starting p1 & p3-p13 to sync Kaggle Netherlands/UTC time with Dhaka date...")
+    time.sleep(600)
+    p1.start()
     p3.start()
     p4.start()
     p5.start()

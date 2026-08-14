@@ -1,3 +1,10 @@
+import sys
+try:
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+    sys.stderr.reconfigure(encoding='utf-8', errors='replace')
+except Exception:
+    pass
+
 def safe_load_json(filepath, default=None):
     if default is None: default = {}
     if not os.path.exists(filepath): return default
@@ -527,9 +534,9 @@ def load_othoba():
                 print(f"Error reading Othoba DB fallback: {e}")
 
         products = {v["id"]: v for v in products_by_name.values()}
-        for v in products.values(): v.pop("_src", None)
         stats["web_selected"] = sum(1 for v in products_by_name.values() if v.get("_src") == "web")
         stats["app_selected"] = sum(1 for v in products_by_name.values() if v.get("_src") == "app")
+        for v in products.values(): v.pop("_src", None)
         stats["combined"] = len(products)
         stats["web"] = stats["web_scraped"]; stats["app"] = stats["app_scraped"]
         print(f"Othoba Stats -> Web scraped: {stats['web_scraped']}, Web selected: {stats['web_selected']}, "

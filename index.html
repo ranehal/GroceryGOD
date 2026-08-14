@@ -12,10 +12,12 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
 
-<link href="style.css?v=20260729a" rel="stylesheet"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="style.css?v=20260729b" rel="stylesheet"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
 </head>
 <body class="pitch-black theme-amoled">
-<script>window.GOD_ASSET_VERSION = '20260729a'; window.GOD_ALLOW_LEGACY_DATA = false;</script>
+<script>window.GOD_ASSET_VERSION = '20260729b'; window.GOD_ALLOW_LEGACY_DATA = false;</script>
 <div class="spinner-container" id="loading-spinner">
 <div class="spinner"></div>
 <span style="color:var(--accent-color); font-weight:800;">Loading: <span id="loading-percent">0</span>%</span>
@@ -86,7 +88,7 @@
 <label class="check-pill"><input checked="" type="checkbox" value="kg"/> KG</label>
 <label class="check-pill"><input checked="" type="checkbox" value="liter"/> LTR</label>
 <label class="check-pill"><input checked="" type="checkbox" value="piece"/> PCS</label>
-<label class="check-pill" style="margin-left:10px; border-left:1px solid #333; padding-left:10px; display:flex; align-items:center; gap:4px;"><i class="fas fa-clock" style="font-size:0.7rem; color:#f59e0b;"></i><input id="new-days-header" type="number" min="1" max="90" value="7" style="width:38px; background:transparent; color:#f59e0b; border:none; font-weight:700; font-size:0.75rem; text-align:center;"/> <span style="font-size:0.7rem; color:#999;">days</span></label>
+<label class="check-pill" style="margin-left:10px; border-left:1px solid #333; padding-left:10px; display:flex; align-items:center; gap:4px;" title="Toggle max age filter"><input id="new-days-toggle" type="checkbox" style="cursor:pointer; accent-color:#f59e0b;"/><i class="fas fa-clock" style="font-size:0.7rem; color:#f59e0b;"></i><input id="new-days-header" type="number" min="1" max="90" value="7" style="width:34px; background:transparent; color:#f59e0b; border:none; font-weight:700; font-size:0.75rem; text-align:center;"/> <span style="font-size:0.7rem; color:#999;">days</span></label>
 </div>
 <select class="search-input" id="sort-options">
 <option value="name_asc">Name A-Z</option>
@@ -495,7 +497,7 @@
 <script type="module">import * as duckdb from '@duckdb/duckdb-wasm'; window.duckdb=duckdb; window.__duckdb_ready?.();</script>
 <script src="shwapno_manifest.js?v=20260729a"></script><script src="chaldal_manifest.js?v=20260729a"></script><script src="meenabazar_manifest.js?v=20260729a"></script><script src="othoba_manifest.js?v=20260729a"></script><script src="metromart_manifest.js?v=20260729a"></script><script src="unimart_manifest.js?v=20260729a"></script><script src="shotejbazar_manifest.js?v=20260729a"></script><script src="foodi_manifest.js?v=20260729a"></script>
 
-<script src="script.js?v=20260729a"></script>
+<script src="script.js?v=20260729b"></script>
 <footer style="text-align:center;padding:12px 0;font-size:12px;color:#555;font-family:'Quicksand',sans-serif;background:transparent;">ভালোবাসা অবিরাম - NEHAL 💖</footer>
 </body>
 </html>

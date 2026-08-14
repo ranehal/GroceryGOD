@@ -601,8 +601,8 @@ function renderProducts() {
         switch (sortOption) {
             case 'name_asc': return a.name.localeCompare(b.name);
             case 'name_desc': return b.name.localeCompare(a.name);
-            case 'price_asc': return (a.normalized_price || 0) - (b.normalized_price || 0);
-            case 'price_desc': return (b.normalized_price || 0) - (a.normalized_price || 0);
+            case 'price_asc': { const av=Number(a.normalized_price),bv=Number(b.normalized_price); const am=!(av>0)||Number.isNaN(av); const bm=!(bv>0)||Number.isNaN(bv); if(am&&bm)return 0; if(am)return 1; if(bm)return -1; return av-bv; }
+            case 'price_desc': { const av=Number(a.normalized_price),bv=Number(b.normalized_price); const am=!(av>0)||Number.isNaN(av); const bm=!(bv>0)||Number.isNaN(bv); if(am&&bm)return 0; if(am)return 1; if(bm)return -1; return bv-av; }
             case 'savings_desc': return (b.avgPrice - b.normalized_price) - (a.avgPrice - a.normalized_price);
             case 'change_desc': return (a.priceChange || 0) - (b.priceChange || 0);
             case 'change_asc': return (b.priceChange || 0) - (a.priceChange || 0);

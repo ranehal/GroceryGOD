@@ -346,8 +346,8 @@ function renderProducts() {
     }
 
     // Sort
-    if (sortMode === 'priceAsc') filtered.sort((a,b) => window.normalizeProduct(a).price - window.normalizeProduct(b).price);
-    else if (sortMode === 'priceDesc') filtered.sort((a,b) => window.normalizeProduct(b).price - window.normalizeProduct(a).price);
+    if (sortMode === 'priceAsc') filtered.sort((a,b) => { const av=Number(window.normalizeProduct(a).price),bv=Number(window.normalizeProduct(b).price); const am=!(av>0)||Number.isNaN(av); const bm=!(bv>0)||Number.isNaN(bv); if(am&&bm)return 0; if(am)return 1; if(bm)return -1; return av-bv; });
+    else if (sortMode === 'priceDesc') filtered.sort((a,b) => { const av=Number(window.normalizeProduct(a).price),bv=Number(window.normalizeProduct(b).price); const am=!(av>0)||Number.isNaN(av); const bm=!(bv>0)||Number.isNaN(bv); if(am&&bm)return 0; if(am)return 1; if(bm)return -1; return bv-av; });
     else if (sortMode === 'fav') filtered.sort((a,b) => (favorites.has(b.id)?1:0) - (favorites.has(a.id)?1:0));
     else filtered.sort((a,b) => a.name.localeCompare(b.name));
 

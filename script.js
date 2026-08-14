@@ -30,6 +30,7 @@ let currentFilteredProducts = [];
 const PAGE_SIZE = 50;
 let visiblePages = 2;
 let showAllProducts = false;
+let gridSentinelObserver = null;
 
 let searchQuery = '';
 let activeUnitFilters = new Set(['kg', 'liter', 'piece']);
@@ -47,6 +48,7 @@ window.loadedStores = new Set(['shwapno']);
 let greatDealThreshold = 0.85;
 let goodBuyThreshold = 0.95;
 let recentDaysFilter = parseInt(safeStorage.getItem('god_new_days') || '7');
+let enableRecentDaysFilter = safeStorage.getItem('god_enable_recent_days') === '1';
 let customOverrides = JSON.parse(safeStorage.getItem('god_custom_overrides') || '{}');
 let priceChangeDays = 7;
 let priceChangeMode = 'pct';
@@ -166,6 +168,7 @@ function loadDemoData() {
         metadata.stores[store] = { total: storeProducts.length, date_range: `${storeProducts[0].oldest_date} to ${todayStr}` };
     });
     window.loadedStores = new Set(Object.keys(STORE_CONFIG));
+    activeShopFilters = new Set(['shwapno']);
     activeIntelFilter = 'all';
     sortOption = 'name_asc';
 }
@@ -180,6 +183,14 @@ function toDhaka(date) {
 function dhakaTodayStr() {
     const d = toDhaka();
     return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+}
+
+function debounce(fn, wait) {
+    let t;
+    return function (...a) {
+        clearTimeout(t);
+        t = setTimeout(() => fn.apply(this, a), wait);
+    };
 }
 
 function fmt(num) {
@@ -370,6 +381,7 @@ async function loadAllFromParquet() {
     }
 
     window.loadedStores = new Set(storesList);
+    activeShopFilters = new Set(['shwapno']);
     const elapsed = ((performance.now()-t0)/1000).toFixed(1);
     log(`DONE — ${allProducts.length} products loaded in ${elapsed}s`);
 }
@@ -563,13 +575,21 @@ function processData() {
     todayStr = dhakaTodayStr();
     const today = new Date(todayStr + 'T12:00:00');
 
+    let maxDatasetDate = '';
+    allProducts.forEach(p => {
+        if (p.newest_date && p.newest_date > maxDatasetDate) {
+            maxDatasetDate = p.newest_date;
+        }
+    });
+    const activeThresholdDate = maxDatasetDate || todayStr;
+
     allProducts.forEach(p => {
         if (customOverrides[p.id]) {
             Object.assign(p, customOverrides[p.id]);
         }
 
         p.hasPriceHistory = p.hist_count > 1 && (p.maxPrice > p.minPrice);
-        p.hasPriceToday = p.newest_date != null && p.newest_date >= todayStr;
+        p.hasPriceToday = p.newest_date != null && p.newest_date >= activeThresholdDate && Number(p.current_price) > 0;
         p.isFavorite = favorites.includes(p.id);
         p.priceChangePercent = 0;
 
@@ -771,12 +791,12 @@ function renderProducts() {
         if (showFavoritesOnly && !p.isFavorite) return false;
         if (searchQuery && !p.name.toLowerCase().includes(searchQuery) && !p.category.toLowerCase().includes(searchQuery)) return false;
         if (!activeUnitFilters.has(p.unit_type)) return false;
-        if (recentDaysFilter > 0 && p.ageDays > recentDaysFilter) return false;
+        if (enableRecentDaysFilter && recentDaysFilter > 0 && p.ageDays > recentDaysFilter) return false;
         if (activeIntelFilter === 'great') return p.normalized_price < (p.avgPrice * greatDealThreshold);
         if (activeIntelFilter === 'good') return p.normalized_price < (p.avgPrice * goodBuyThreshold);
         if (activeIntelFilter === 'customdrop') return p.avgPrice > 0 && p.normalized_price <= (p.avgPrice * (1 - customDropThreshold / 100));
         if (activeIntelFilter === 'wait') return p.normalized_price > (p.avgPrice * 1.05);
-        if (activeIntelFilter === 'low') return p.hist_count >= 1 && p.maxPrice > p.minPrice && p.normalized_price <= (p.minPrice + 0.01) && p.hasPriceToday;
+        if (activeIntelFilter === 'low') return p.hist_count >= 1 && p.normalized_price <= (p.minPrice + 0.01) && p.hasPriceToday && Number(p.normalized_price) > 0;
         if (activeIntelFilter === 'new') return p.isNew;
         if (activeIntelFilter === 'pricechange') {
             if (p._pcDiff === undefined) return false;
@@ -788,11 +808,16 @@ function renderProducts() {
         return true;
     });
 
+    const noPrice = p => (!p.hasPriceToday || !(Number(p.current_price) > 0));
     currentFilteredProducts.sort((a, b) => {
         if (sortOption === 'name_asc') return a.name.localeCompare(b.name);
-        if (sortOption === 'unit_price_asc') return a.normalized_price - b.normalized_price;
-        if (sortOption === 'unit_price_desc') return b.normalized_price - a.normalized_price;
-        if (sortOption === 'actual_price_asc') return a.current_price - b.current_price;
+        // For every price-based sort, push no-price/out-of-stock items to the end
+        // regardless of asc/desc ordering, then fall back to the original comparison.
+        const npDiff = (noPrice(a) ? 1 : 0) - (noPrice(b) ? 1 : 0);
+        if (npDiff !== 0) return npDiff;
+        if (sortOption === 'unit_price_asc') { const av=Number(a.normalized_price),bv=Number(b.normalized_price); const am=!(av>0)||Number.isNaN(av); const bm=!(bv>0)||Number.isNaN(bv); if(am&&bm)return 0; if(am)return 1; if(bm)return -1; return av-bv; }
+        if (sortOption === 'unit_price_desc') { const av=Number(a.normalized_price),bv=Number(b.normalized_price); const am=!(av>0)||Number.isNaN(av); const bm=!(bv>0)||Number.isNaN(bv); if(am&&bm)return 0; if(am)return 1; if(bm)return -1; return bv-av; }
+        if (sortOption === 'actual_price_asc') { const av=Number(a.current_price),bv=Number(b.current_price); const am=!(av>0)||Number.isNaN(av); const bm=!(bv>0)||Number.isNaN(bv); if(am&&bm)return 0; if(am)return 1; if(bm)return -1; return av-bv; }
         if (sortOption === 'drop_desc') return a.priceChangePercent - b.priceChangePercent;
         return 0;
     });
@@ -833,24 +858,64 @@ function renderProducts() {
         return;
     }
 
+    // One delegated click listener on the grid handles all card interactions.
+    // Guarded so it is attached only once across renders.
+    if (!grid.dataset.delegated) {
+        grid.dataset.delegated = '1';
+        grid.addEventListener('click', (e) => {
+            const card = e.target.closest('.p-item-sh');
+            if (!card) return;
+            const id = card.dataset.productId;
+            if (e.target.closest('.fav-btn')) {
+                toggleFavorite(e, id);
+            } else if (e.target.closest('.alert-quick-btn')) {
+                openAlertForProduct(e, id);
+            } else if (compareModeActive) {
+                toggleComparisonItem(id);
+            } else {
+                const product = currentFilteredProducts.find(p => p.id === id) || allProducts.find(p => p.id === id);
+                if (product) openDetailedChart(product);
+            }
+        });
+    }
+
     const frag = document.createDocumentFragment();
     const limit = showAllProducts ? currentFilteredProducts.length : visiblePages * PAGE_SIZE;
     currentFilteredProducts.slice(0, limit).forEach(p => frag.appendChild(createProductCard(p)));
     grid.appendChild(frag);
 
-    const existingBtn = document.getElementById('load-more-container');
-    if (existingBtn) existingBtn.remove();
-    if (limit < currentFilteredProducts.length) {
-        const remaining = currentFilteredProducts.length - limit;
-        const container = document.createElement('div');
-        container.id = 'load-more-container';
-        container.style.cssText = 'text-align:center; padding:20px;';
-        container.innerHTML = `<button id="load-more-btn" style="padding:10px 28px; border-radius:8px; border:1px solid var(--accent-color); background:var(--bg-card); color:var(--accent-color); cursor:pointer; font-weight:700; font-size:0.85rem;">Load More (${remaining} remaining)</button>`;
-        grid.parentNode.insertBefore(container, grid.nextSibling);
-        document.getElementById('load-more-btn').addEventListener('click', () => {
-            visiblePages++;
-            renderProducts();
-        });
+    // Clean up any prior infinite-scroll observer + leftover DOM to avoid duplicates/leaks.
+    if (gridSentinelObserver) { gridSentinelObserver.disconnect(); gridSentinelObserver = null; }
+    document.getElementById('load-more-container')?.remove();
+    document.getElementById('grid-sentinel')?.remove();
+
+    if (limit < currentFilteredProducts.length && !showAllProducts) {
+        if (window.IntersectionObserver) {
+            // Infinite scroll: reveal the next page when the sentinel enters view.
+            const sentinel = document.createElement('div');
+            sentinel.id = 'grid-sentinel';
+            sentinel.style.cssText = 'grid-column:1/-1; height:1px;';
+            grid.appendChild(sentinel);
+            gridSentinelObserver = new IntersectionObserver((entries) => {
+                if (entries.some(entry => entry.isIntersecting)) {
+                    visiblePages++;
+                    renderProducts();
+                }
+            }, { root: null, rootMargin: '400px 0px', threshold: 0 });
+            gridSentinelObserver.observe(sentinel);
+        } else {
+            // Graceful fallback: classic Load More button.
+            const remaining = currentFilteredProducts.length - limit;
+            const container = document.createElement('div');
+            container.id = 'load-more-container';
+            container.style.cssText = 'text-align:center; padding:20px;';
+            container.innerHTML = `<button id="load-more-btn" style="padding:10px 28px; border-radius:8px; border:1px solid var(--accent-color); background:var(--bg-card); color:var(--accent-color); cursor:pointer; font-weight:700; font-size:0.85rem;">Load More (${remaining} remaining)</button>`;
+            grid.parentNode.insertBefore(container, grid.nextSibling);
+            document.getElementById('load-more-btn').addEventListener('click', () => {
+                visiblePages++;
+                renderProducts();
+            });
+        }
     }
 }
 
@@ -901,6 +966,13 @@ function createProductCard(p) {
         </div>
     ` : '';
 
+    const isLow = p.hist_count >= 1 && p.normalized_price <= (p.minPrice + 0.01) && p.hasPriceToday && Number(p.normalized_price) > 0;
+    const lowBadge = isLow ? `
+        <div style="position:absolute; top:35px; ${p.isNew ? 'right:44px;' : 'right:8px;'} font-size:0.55rem; font-weight:900; background:#f59e0b; padding:1px 5px; border-radius:3px; color:#000; z-index:11;">
+            LOW
+        </div>
+    ` : '';
+
     const pcBadge = (activeIntelFilter === 'pricechange' && p._pcDiff !== undefined) ? (() => {
         const diff = p._pcDiff;
         const diffPct = p._pcDiffPct;
@@ -915,24 +987,25 @@ function createProductCard(p) {
 
     card.innerHTML = `
         <div class="store-badge" style="background:${storeColor}">${p.store}</div>
-        <div class="fav-btn ${p.isFavorite ? 'active' : ''}" onclick="toggleFavorite(event, '${p.id}')">
+        <div class="fav-btn ${p.isFavorite ? 'active' : ''}">
             <i class="fas fa-star"></i>
         </div>
-        <button class="alert-quick-btn ${hasActiveAlert(p.id) ? 'active' : ''}" type="button" title="Create price alert" aria-label="Create price alert for ${escapeAttribute(p.name)}" onclick="openAlertForProduct(event, '${p.id}')"><i class="fas fa-bell"></i></button>
+        <button class="alert-quick-btn ${hasActiveAlert(p.id) ? 'active' : ''}" type="button" title="Create price alert" aria-label="Create price alert for ${escapeAttribute(p.name)}"><i class="fas fa-bell"></i></button>
         <div class="compare-check" aria-hidden="true"><i class="fas ${selectedForComparison.includes(p.id) ? 'fa-check' : 'fa-plus'}"></i></div>
         ${trend}
         ${newBadge}
+        ${lowBadge}
         ${pcBadge}
         ${!p.hasPriceToday ? '<div style="position:absolute; bottom:8px; left:8px; font-size:0.5rem; font-weight:900; background:var(--danger); padding:1px 5px; border-radius:3px; color:#fff; z-index:11;">OS</div>' : ''}
         <div class="p-img-box">
             <img src="${p.image}" class="product-image" loading="lazy" onerror="this.src='https://placehold.co/200x200/000/fff?text=NO_SIGNAL'">
-            <div class="price-tag">${Math.round(p.current_price)}</div>
+            <div class="price-tag">${(!p.hasPriceToday || !(Number(p.current_price) > 0)) ? '—' : Math.round(p.current_price)}</div>
         </div>
         <div class="p-detail-sh">
             <div class="product-name" title="${p.name}" style="${!p.hasPriceToday ? 'font-style:italic; opacity:0.6;' : ''}">${p.name}</div>
             <div class="product-meta">
                 <div class="meta-row">
-                    <span class="price-main" style="color:${storeColor}">${fmt(p.normalized_price)} <span class="unit-label">/${p.unit_type}</span></span>
+                    <span class="price-main" style="color:${storeColor}">${(!p.hasPriceToday || !(Number(p.current_price) > 0)) ? 'Out of stock' : `${fmt(p.normalized_price)} <span class="unit-label">/${p.unit_type}</span>`}</span>
                     <span class="cat-tag">${p.category}</span>
                 </div>
                 <div class="meta-row">
@@ -942,14 +1015,7 @@ function createProductCard(p) {
         </div>
     `;
     
-    card.onclick = (e) => {
-        if (e.target.closest('.fav-btn, .alert-quick-btn')) return;
-        if (compareModeActive) {
-            toggleComparisonItem(p.id);
-        } else {
-            openDetailedChart(p);
-        }
-    };
+    // Click handling is done via a single delegated listener on #sh-grid (see renderProducts).
     return card;
 }
 
@@ -1127,11 +1193,12 @@ function setupEventListeners() {
     document.getElementById('sidebar-close')?.addEventListener('click', () => setSidebarExpanded(false));
     overlay.onclick = () => setSidebarExpanded(false);
 
+    const debouncedSearchRender = debounce((q) => { updateSuggestions(q); renderProducts(); }, 180);
     searchInput.oninput = (e) => {
         searchQuery = e.target.value.toLowerCase();
         visiblePages = 2;
         document.getElementById('clear-search').classList.toggle('visible', searchQuery.length > 0);
-        updateSuggestions(searchQuery); renderProducts();
+        debouncedSearchRender(searchQuery);
     };
 
     document.getElementById('clear-search').onclick = () => {
@@ -1197,6 +1264,16 @@ function setupEventListeners() {
             recentDaysFilter = parseInt(e.target.value) || 0;
             safeStorage.setItem('god_new_days', recentDaysFilter);
             visiblePages = 2;
+            renderProducts();
+        };
+    }
+
+    const newDaysToggle = document.getElementById('new-days-toggle');
+    if (newDaysToggle) {
+        newDaysToggle.checked = enableRecentDaysFilter;
+        newDaysToggle.onchange = (e) => {
+            enableRecentDaysFilter = e.target.checked;
+            safeStorage.setItem('god_enable_recent_days', enableRecentDaysFilter ? '1' : '0');
             renderProducts();
         };
     }
@@ -3051,7 +3128,10 @@ function setPremiumUnlocked(unlocked, persist = true) {
     const mobileAnalytics = document.querySelector('#mobile-analytics-btn i');
     if (mobileAnalytics) mobileAnalytics.className = premiumUnlocked ? 'fas fa-chart-line' : 'fas fa-lock';
     const lowButton = document.querySelector('.intel-btn[data-filter="low"]');
-    if (lowButton) lowButton.textContent = premiumUnlocked ? 'All Time Low' : '7-Day Low';
+    if (lowButton) {
+        lowButton.textContent = 'All Time Low';
+        lowButton.title = premiumUnlocked ? 'Current price is the lowest recorded (All history)' : 'Current price is the lowest recorded (7-day window)';
+    }
 }
 
 function buildHistoryView(product) {

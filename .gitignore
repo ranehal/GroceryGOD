@@ -11,3 +11,9 @@ encrypt_repo.py
 decrypt_repo.py
 update_premium_key.py
 decrypt_premium.py
+
+# Secret token files
+token.txt
+refresh_token.txt
+**/token.txt
+**/refresh_token.txt

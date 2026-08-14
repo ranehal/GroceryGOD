@@ -877,9 +877,9 @@ function renderProducts() {
 
     currentFilteredProducts.sort((a, b) => {
         if (sortOption === 'name_asc') return a.name.localeCompare(b.name);
-        if (sortOption === 'unit_price_asc') return a.normalized_price - b.normalized_price;
-        if (sortOption === 'unit_price_desc') return b.normalized_price - a.normalized_price;
-        if (sortOption === 'actual_price_asc') return a.current_price - b.current_price;
+        if (sortOption === 'unit_price_asc') { const av=Number(a.normalized_price),bv=Number(b.normalized_price); const am=!(av>0)||Number.isNaN(av); const bm=!(bv>0)||Number.isNaN(bv); if(am&&bm)return 0; if(am)return 1; if(bm)return -1; return av-bv; }
+        if (sortOption === 'unit_price_desc') { const av=Number(a.normalized_price),bv=Number(b.normalized_price); const am=!(av>0)||Number.isNaN(av); const bm=!(bv>0)||Number.isNaN(bv); if(am&&bm)return 0; if(am)return 1; if(bm)return -1; return bv-av; }
+        if (sortOption === 'actual_price_asc') { const av=Number(a.current_price),bv=Number(b.current_price); const am=!(av>0)||Number.isNaN(av); const bm=!(bv>0)||Number.isNaN(bv); if(am&&bm)return 0; if(am)return 1; if(bm)return -1; return av-bv; }
         if (sortOption === 'drop_desc') return a.priceChangePercent - b.priceChangePercent;
         return 0;
     });

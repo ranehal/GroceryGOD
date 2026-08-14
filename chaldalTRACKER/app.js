@@ -372,8 +372,8 @@ function getProductsForView() {
 
   // Sort
   switch (State.sortBy) {
-    case 'price-asc':  prods.sort((a,b) => a.price - b.price); break;
-    case 'price-desc': prods.sort((a,b) => b.price - a.price); break;
+    case 'price-asc':  prods.sort((a,b) => { const av=Number(a.price),bv=Number(b.price); const am=!(av>0)||Number.isNaN(av); const bm=!(bv>0)||Number.isNaN(bv); if(am&&bm)return 0; if(am)return 1; if(bm)return -1; return av-bv; }); break;
+    case 'price-desc': prods.sort((a,b) => { const av=Number(a.price),bv=Number(b.price); const am=!(av>0)||Number.isNaN(av); const bm=!(bv>0)||Number.isNaN(bv); if(am&&bm)return 0; if(am)return 1; if(bm)return -1; return bv-av; }); break;
     case 'drop':
       prods.sort((a,b) => {
         const ca = getPriceChange(a.id), cb = getPriceChange(b.id);
