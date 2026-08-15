@@ -11,6 +11,7 @@ import traceback
 import json
 import html
 import shutil
+import re
 import concurrent.futures
 import platform
 from datetime import datetime, timedelta, timezone
@@ -820,9 +821,9 @@ def run_grocery_god(github_pat):
             print(err_msg)
             tg_send(err_msg)
         
-        log.info(f"✅ Cycle {cycle_count} Sequence Finished. Sleeping for 8 hours...")
-        #####################################################################################_sleep_end = time.time() + 8*3600
-        _sleep_end = time.time() + 8*3600
+        log.info(f"✅ Cycle {cycle_count} Sequence Finished. Sleeping for 12 hours...")
+        #####################################################################################_sleep_end = time.time() + 12*3600
+        _sleep_end = time.time() + 12*3600
         while time.time() < _sleep_end:
             _remaining = int(_sleep_end - time.time())
             _hrs = _remaining // 3600
@@ -907,10 +908,24 @@ def format_clean_status(label, elapsed, line_count, tail_lines, summary_log=None
         
     return msg
 
-def run_scheduled_repo(repo_url, script_name, label, github_pat):
+def _extract_scraper_counts(text):
+    """Best-effort parse of product counts from a scraper's output."""
+    counts = {}
+    _t = re.search(r'\((\d+)\s*total products\)', text, re.IGNORECASE)
+    if not _t:
+        _t = re.search(r'Total [Scraped|Products]*:\s*(\d+)', text, re.IGNORECASE)
+    if _t: counts['total'] = int(_t.group(1))
+    _s = re.search(r'Scraped\s+(\d+)\s+unique products', text, re.IGNORECASE)
+    if not _s:
+        _s = re.search(r'Unique Products:\s*(\d+)', text, re.IGNORECASE)
+    if not _s:
+        _s = re.search(r'Scraped\s+(\d+)\s+products', text, re.IGNORECASE)
+    if _s: counts['scraped'] = int(_s.group(1))
+    return counts
 
-    print(f"[{label}] Process Started.")
-
+def _send_p14_summary(results_store, repo_list):
+    """Send ONE consolidated Telegram summary after all scheduled repos finish.
+    Per repo: scrape time, counts, url + detailed error log if any; then aggregator summary."""
     def tg_send(text, silent=False):
         if not TELEGRAM_BOT_TOKEN or TELEGRAM_BOT_TOKEN.strip() == "": return
         TG_API = f'https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}'
@@ -918,10 +933,79 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat):
             requests.post(f'{TG_API}/sendMessage', json={'chat_id': TELEGRAM_CHAT_ID, 'text': text, 'parse_mode': 'HTML', 'disable_notification': silent}, timeout=15)
         except: pass
 
+    lines = ["📊 <b>Scheduled Repos (p14) — Finished</b>"]
+    ok = fail = 0
+    for label, url in repo_list:
+        rec = {}
+        try:
+            rec = results_store.get(label, {}) if results_store is not None else {}
+        except Exception:
+            pass
+        if rec.get('status') == 'ok':
+            ok += 1
+            elapsed = int(rec.get('elapsed', 0))
+            _m, _s = divmod(elapsed, 60)
+            counts = rec.get('counts') or {}
+            _c = f" | {counts.get('scraped', '?')} scraped" if counts.get('scraped') else ""
+            _t = f" ({counts.get('total', '?')} total)" if counts.get('total') else ""
+            lines.append(f"✅ {label} — {_m}m {_s}s{_t}{_c} — {rec.get('url') or url}")
+        else:
+            fail += 1
+            elapsed = int(rec.get('elapsed', 0))
+            _m, _s = divmod(elapsed, 60)
+            lines.append(f"❌ {label} — FAILED after {_m}m {_s}s")
+            err = rec.get('error') or 'unknown error'
+            lines.append(f"<pre>{html.escape(str(err)[:800])}</pre>")
+            tb = rec.get('error_tb')
+            if tb:
+                lines.append(f"<pre>{html.escape(tb)[:600]}</pre>")
+    lines.insert(1, f"✅ OK: {ok} | ❌ Failed: {fail} | Total: {len(repo_list)}")
+
+    lines.append("")
+    lines.append("📊 <b>Aggregator Summary</b>")
+    agg_summary = _read_aggregator_summary()
+    if not agg_summary:
+        print("⏳ Aggregator not finished yet — waiting up to 20 min for its summary...")
+        for _ in range(60):
+            time.sleep(20)
+            agg_summary = _read_aggregator_summary()
+            if agg_summary:
+                break
+    if agg_summary:
+        lines.append(f"<pre>{html.escape(agg_summary[:2000])}</pre>")
+    else:
+        lines.append("(aggregator summary not available yet)")
+
+    tg_send("\n".join(lines[:60]))
+
+def _read_aggregator_summary():
+    """Read the aggregator.py summary from its shared output file (empty string if absent)."""
+    try:
+        _p = '/tmp/aggregator_summary.txt'
+        if os.path.exists(_p):
+            with open(_p, 'r', encoding='utf-8', errors='replace') as f:
+                return f.read().strip()
+    except Exception:
+        pass
+    return ""
+
+def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=None):
+
+    print(f"[{label}] Process Started.")
+
+    _p14_record = {}
+    def _store_result():
+        if results_store is not None:
+            try:
+                results_store[label] = _p14_record
+            except Exception:
+                pass
+
     if not github_pat or github_pat.strip() == "":
         err_pat = f"GITHUB_PAT is missing or empty for {label}. Git push will fail."
         print(f"❌ [{label}] {err_pat}")
-        tg_send(f"❌ <b>{label}</b> — {err_pat}")
+        _p14_record.update(status='failed', error=err_pat, elapsed=0, url='')
+        _store_result()
         return
 
     os.chdir('/kaggle/working')
@@ -1038,7 +1122,8 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat):
                 else:
                     err_msg = f"No executable python script found in {repo_name} (expected '{script_name}')."
                     print(f"❌ [{label}] {err_msg}")
-                    tg_send(f"⚠️ <b>{label}</b> — {err_msg}", silent=True)
+                    _p14_record.update(status='failed', error=err_msg, elapsed=0, url='')
+                    _store_result()
                     return
             print(f"[{label}] Target script auto-resolved to: {script_name}")
 
@@ -1065,6 +1150,7 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat):
         script_dir = os.path.dirname(script_abs_path)
         script_file = os.path.basename(script_abs_path)
 
+        _t0 = time.time()
         max_script_retries = 3
         for _attempt in range(1, max_script_retries + 1):
             print(f"[{label}] Executing {script_file} in {script_dir} (attempt {_attempt}/{max_script_retries})...")
@@ -1120,12 +1206,15 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat):
         if not push_success:
             raise RuntimeError(f"Git push failed: {push_res.stderr[:300]}")
 
-        tg_send(f"🔗 https://ranehal.github.io/{repo_name}/")
+        _p14_record.update(status='ok', elapsed=int(time.time() - _t0), url=f"https://ranehal.github.io/{repo_name}/")
+        _p14_record['counts'] = _extract_scraper_counts((res.stdout or "") + (res.stderr or ""))
+        _store_result()
     except Exception as e:
         safe_tb = html.escape(traceback.format_exc()[-500:])
-        err_msg = f"❌ <b>{label} FAILED!</b>\nError: {html.escape(str(e))}\n<pre>{safe_tb}</pre>"
+        err_msg = f"Error: {html.escape(str(e))}\n<pre>{safe_tb}</pre>"
         print(err_msg)
-        tg_send(err_msg)
+        _p14_record.update(status='failed', error=str(e), error_tb=safe_tb, elapsed=int(time.time() - _t0) if '_t0' in dir() else 0, url='')
+        _store_result()
 
 # MASTER ORCHESTRATOR LOOP
 # ============================================================
@@ -1134,20 +1223,39 @@ if __name__ == '__main__':
     
     print("🚀 Launching BOTH pipelines in Parallel...")
     
+    _manager = multiprocessing.Manager()
+    _p14_results = _manager.dict()
+
+    _scheduled_repos = [
+        ('https://github.com/ranehal/FooDIE-RESTaurant-Analytics.git', 'scrape_menus.py', ' FooDIE Restaurant Analytics'),
+        ('https://github.com/ranehal/FoodPANDA-RESTaurant-ANALytics.git', 'scrape_menus.py', ' FoodPANDA Restaurant Analytics'),
+        ('https://github.com/ranehal/FooDIE-mart-Analytics.git', 'scraper.py', ' FooDIE Mart Analytics'),
+        ('https://github.com/ranehal/SHWAPNO-analylics.git', 'scraper.py', ' Shwapno Analytics'),
+        ('https://github.com/ranehal/Othoba-analytics.git', 'scraper.py', ' Othoba Analytics'),
+        ('https://github.com/ranehal/CARTup-analytics.git', 'scraper.py', ' CARTup Analytics'),
+        ('https://github.com/ranehal/CHALdal-analytics.git', 'scraper.py', ' Chaldal Analytics'),
+        ('https://github.com/ranehal/COOKup-analytics.git', 'scraper.py', ' COOKup Analytics'),
+        ('https://github.com/ranehal/PICAboo-analytics.git', 'scraper.py', ' PICAboo Analytics'),
+        ('https://github.com/ranehal/DARAZ-analytics.git', 'scraper.py', ' DARAZ Analytics'),
+        ('https://github.com/ranehal/MEEnaBAzar-analylics.git', 'scraper.py', ' Meena Bazar Analytics'),
+        ('https://github.com/ranehal/sharedeal.git', 'scraper.py', ' ShareDeal Analytics'),
+    ]
+    _repo_pages = [f"https://ranehal.github.io/{u.split('/')[-1].replace('.git','')}/" for u, _, _ in _scheduled_repos]
+
     p1 = multiprocessing.Process(target=run_grocery_god, args=(GITHUB_PAT,))
     p2 = multiprocessing.Process(target=run_gitw)
-    p3 = multiprocessing.Process(target=run_scheduled_repo, args=('https://github.com/ranehal/FooDIE-RESTaurant-Analytics.git', 'scrape_menus.py', ' FooDIE Restaurant Analytics', GITHUB_PAT))
-    p4 = multiprocessing.Process(target=run_scheduled_repo, args=('https://github.com/ranehal/FoodPANDA-RESTaurant-ANALytics.git', 'scrape_menus.py', ' FoodPANDA Restaurant Analytics', GITHUB_PAT))
-    p5 = multiprocessing.Process(target=run_scheduled_repo, args=('https://github.com/ranehal/FooDIE-mart-Analytics.git', 'scraper.py', ' FooDIE Mart Analytics', GITHUB_PAT))
-    p6 = multiprocessing.Process(target=run_scheduled_repo, args=('https://github.com/ranehal/SHWAPNO-analylics.git', 'scraper.py', ' Shwapno Analytics', GITHUB_PAT))
-    p7 = multiprocessing.Process(target=run_scheduled_repo, args=('https://github.com/ranehal/Othoba-analytics.git', 'scraper.py', ' Othoba Analytics', GITHUB_PAT))
-    p8 = multiprocessing.Process(target=run_scheduled_repo, args=('https://github.com/ranehal/CARTup-analytics.git', 'scraper.py', ' CARTup Analytics', GITHUB_PAT))
-    p9 = multiprocessing.Process(target=run_scheduled_repo, args=('https://github.com/ranehal/CHALdal-analytics.git', 'scraper.py', ' Chaldal Analytics', GITHUB_PAT))
-    p10 = multiprocessing.Process(target=run_scheduled_repo, args=('https://github.com/ranehal/COOKup-analytics.git', 'scraper.py', ' COOKup Analytics', GITHUB_PAT))
-    p11 = multiprocessing.Process(target=run_scheduled_repo, args=('https://github.com/ranehal/PICAboo-analytics.git', 'scraper.py', ' PICAboo Analytics', GITHUB_PAT))
-    p12 = multiprocessing.Process(target=run_scheduled_repo, args=('https://github.com/ranehal/DARAZ-analytics.git', 'scraper.py', ' DARAZ Analytics', GITHUB_PAT))
-    p13 = multiprocessing.Process(target=run_scheduled_repo, args=('https://github.com/ranehal/MEEnaBAzar-analylics.git', 'scraper.py', ' Meena Bazar Analytics', GITHUB_PAT))
-    p14 = multiprocessing.Process(target=run_scheduled_repo, args=('https://github.com/ranehal/sharedeal.git', 'scraper.py', ' ShareDeal Analytics', GITHUB_PAT))
+    p3 = multiprocessing.Process(target=run_scheduled_repo, args=(*_scheduled_repos[0], GITHUB_PAT, _p14_results))
+    p4 = multiprocessing.Process(target=run_scheduled_repo, args=(*_scheduled_repos[1], GITHUB_PAT, _p14_results))
+    p5 = multiprocessing.Process(target=run_scheduled_repo, args=(*_scheduled_repos[2], GITHUB_PAT, _p14_results))
+    p6 = multiprocessing.Process(target=run_scheduled_repo, args=(*_scheduled_repos[3], GITHUB_PAT, _p14_results))
+    p7 = multiprocessing.Process(target=run_scheduled_repo, args=(*_scheduled_repos[4], GITHUB_PAT, _p14_results))
+    p8 = multiprocessing.Process(target=run_scheduled_repo, args=(*_scheduled_repos[5], GITHUB_PAT, _p14_results))
+    p9 = multiprocessing.Process(target=run_scheduled_repo, args=(*_scheduled_repos[6], GITHUB_PAT, _p14_results))
+    p10 = multiprocessing.Process(target=run_scheduled_repo, args=(*_scheduled_repos[7], GITHUB_PAT, _p14_results))
+    p11 = multiprocessing.Process(target=run_scheduled_repo, args=(*_scheduled_repos[8], GITHUB_PAT, _p14_results))
+    p12 = multiprocessing.Process(target=run_scheduled_repo, args=(*_scheduled_repos[9], GITHUB_PAT, _p14_results))
+    p13 = multiprocessing.Process(target=run_scheduled_repo, args=(*_scheduled_repos[10], GITHUB_PAT, _p14_results))
+    p14 = multiprocessing.Process(target=run_scheduled_repo, args=(*_scheduled_repos[11], GITHUB_PAT, _p14_results))
     
     p2.start()
     print("⏳ Sleeping 10 minutes (600s) before starting p1 & p3-p13 to sync Kaggle Netherlands/UTC time with Dhaka date...")
@@ -1168,11 +1276,16 @@ if __name__ == '__main__':
     
     start_time = time.time()
     timeout_seconds = (11 * 3600) + (50 * 60) 
+    _p14_done = False
 
     while time.time() - start_time < timeout_seconds:
         if not any(p.is_alive() for p in [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14]):
             print("\n✅ Both parallel pipelines finished ahead of schedule!")
             break
+        if not _p14_done and not any(p.is_alive() for p in [p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14]):
+            _p14_done = True
+            print("🟢 All scheduled repos (p3-p14) finished. Sending consolidated Telegram summary...")
+            _send_p14_summary(_p14_results, list(zip([lbl for _, _, lbl in _scheduled_repos], _repo_pages)))
         time.sleep(30)
     else:
         print("\n⏳ Time limit threshold reached (11h 30m).")

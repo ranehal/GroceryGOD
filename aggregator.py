@@ -928,10 +928,10 @@ def main():
         }
     print_failure_diagnostics(scraper_logs, agg_results)
     
-    # Telegram Notification
+    # Telegram Notification + shared summary file (consumed by the orchestrator's consolidated p14 message)
     tg_token = os.environ.get("TELEGRAM_BOT_TOKEN")
     tg_chat = os.environ.get("TELEGRAM_CHAT_ID")
-    if tg_token and tg_chat and summaries:
+    if summaries:
         import requests
         msg = "📊 <b>Aggregator Complete</b>\n\n" + "\n".join(summaries)
         try:
@@ -940,6 +940,13 @@ def main():
             print("Telegram summary sent.")
         except Exception as e:
             print(f"Failed to send Telegram summary: {e}")
+        try:
+            _agg_share = '/tmp/aggregator_summary.txt'
+            with open(_agg_share, 'w', encoding='utf-8') as f:
+                f.write(msg)
+            print(f"Shared aggregator summary written: {_agg_share}")
+        except Exception as e:
+            print(f"Failed to write shared aggregator summary: {e}")
 
 if __name__ == "__main__": main()
 
