@@ -720,15 +720,22 @@ def load_foodi():
                 "current_price": curr_p, "normalized_price": norm_p, "image": img, "history": new_history, "first_seen": first_seen
             }
         conn.close()
-        stats = {"web_scraped": len(products), "app_scraped": 0, "web_selected": len(products),
-                 "app_selected": 0, "dropped": 0, "web": len(products), "app": 0, "combined": len(products)}
-        print(f"Foodi Stats -> Web scraped: {stats['web_scraped']}, Web selected: {stats['web_selected']}, "
-              f"App scraped: 0, App selected: 0, Combined Unique: {stats['combined']}")
+        stats = {"web_scraped": 0, "app_scraped": len(products), "web_selected": 0,
+                 "app_selected": len(products), "dropped": 0, "web": 0, "app": len(products), "combined": len(products)}
+        print(f"Foodi Stats -> App scraped: {stats['app_scraped']}, App selected: {stats['app_selected']}, "
+              f"Combined Unique: {stats['combined']}")
         return products, (f"{min(all_dates)} to {max(all_dates)}" if all_dates else "N/A"), stats
     except Exception as e:
         print(f"Error Foodi: {e}"); return None, None
 
 # --- ATOMIC CHUNKING ENGINE ---
+# Which data source(s) each store actually scrapes: web-only, app-only, or both.
+# foodi = app API only; metromart/unimart/shotejbazar = web only; rest = both.
+STORE_SOURCES = {
+    'shwapno': 'both', 'chaldal': 'both', 'meenabazar': 'both', 'othoba': 'both',
+    'metromart': 'web', 'unimart': 'web', 'shotejbazar': 'web', 'foodi': 'app',
+}
+
 def save_store_data(name, data_tuple):
     if not data_tuple: return None
     
@@ -741,8 +748,13 @@ def save_store_data(name, data_tuple):
     if not products:
         summary = f"📦 <b>{name.title()}</b>: 0 items"
         if scraper_stats:
-            summary += f"\n   ├ Web scraped: {scraper_stats.get('web_scraped', 0)} | Web selected: {scraper_stats.get('web_selected', 0)}"
-            summary += f"\n   ├ App scraped: {scraper_stats.get('app_scraped', 0)} | App selected: {scraper_stats.get('app_selected', 0)}"
+            _mode = STORE_SOURCES.get(name, 'both')
+            if _mode in ('web', 'both'):
+                summary += f"\n   ├ Web scraped: {scraper_stats.get('web_scraped', 0)} | Web selected: {scraper_stats.get('web_selected', 0)}"
+            if _mode in ('app', 'both'):
+                summary += f"\n   ├ App scraped: {scraper_stats.get('app_scraped', 0)} | App selected: {scraper_stats.get('app_selected', 0)}"
+            if date_range:
+                summary += f"\n   ├ 📅 Price data: {date_range}"
         print(f"Saved {name:15} | Items:     0 | Chunks:  0 | Safe Under {MAX_FILE_SIZE_MB}MB")
         return summary
 
@@ -804,10 +816,15 @@ def save_store_data(name, data_tuple):
             
     summary = f"📦 <b>{name.title()}</b>: {total_items} items ({total_chunks} chunks)"
     if scraper_stats:
-        summary += f"\n   ├ Web scraped: {scraper_stats.get('web_scraped', 0)} | Web selected: {scraper_stats.get('web_selected', 0)}"
-        summary += f"\n   ├ App scraped: {scraper_stats.get('app_scraped', 0)} | App selected: {scraper_stats.get('app_selected', 0)}"
+        _mode = STORE_SOURCES.get(name, 'both')
+        if _mode in ('web', 'both'):
+            summary += f"\n   ├ Web scraped: {scraper_stats.get('web_scraped', 0)} | Web selected: {scraper_stats.get('web_selected', 0)}"
+        if _mode in ('app', 'both'):
+            summary += f"\n   ├ App scraped: {scraper_stats.get('app_scraped', 0)} | App selected: {scraper_stats.get('app_selected', 0)}"
         if scraper_stats.get('dropped'):
             summary += f"\n   ├ Dropped (dup/higher price): {scraper_stats['dropped']}"
+    if date_range:
+        summary += f"\n   ├ 📅 Price data: {date_range}"
         
     print(f"Saved {name:15} | Items: {total_items:5} | Chunks: {total_chunks:2} | Safe Under {MAX_FILE_SIZE_MB}MB")
     return summary
@@ -928,18 +945,9 @@ def main():
         }
     print_failure_diagnostics(scraper_logs, agg_results)
     
-    # Telegram Notification + shared summary file (consumed by the orchestrator's consolidated p14 message)
-    tg_token = os.environ.get("TELEGRAM_BOT_TOKEN")
-    tg_chat = os.environ.get("TELEGRAM_CHAT_ID")
+    # Shared summary file only (consumed by the orchestrator's consolidated p14 message — no own TG send to avoid spam)
     if summaries:
-        import requests
         msg = "📊 <b>Aggregator Complete</b>\n\n" + "\n".join(summaries)
-        try:
-            requests.post(f"https://api.telegram.org/bot{tg_token}/sendMessage", 
-                          json={"chat_id": tg_chat, "text": msg, "parse_mode": "HTML"}, timeout=10)
-            print("Telegram summary sent.")
-        except Exception as e:
-            print(f"Failed to send Telegram summary: {e}")
         try:
             _agg_share = '/tmp/aggregator_summary.txt'
             with open(_agg_share, 'w', encoding='utf-8') as f:

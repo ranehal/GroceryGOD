@@ -810,7 +810,6 @@ def run_grocery_god(github_pat):
                 _report_path = "/tmp/grocerygod_cycle_report.txt"
                 with open(_report_path, "w", encoding="utf-8") as _fh:
                     _fh.write("\n".join(_report))
-                tg_send_file(_report_path, f"📊 Cycle {cycle_count} Report")
             except Exception as _re:
                 log.warning(f"Failed to send detailed cycle report: {_re}")
 
