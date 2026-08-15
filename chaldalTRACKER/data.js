@@ -3,7 +3,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_super_hero_tiffin_box_each",
     "name": "RFL Super Hero Tiffin Box",
     "image": "https://i.chaldn.com/_mpimage/rfl-super-hero-tiffin-box-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D96365&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Box & Container",
+    "category": "Kitchen Accessories",
     "current_price": 100.0,
     "current_unit": "each",
     "history": [
@@ -38,7 +38,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_winner_tiffin_box_rectangular_each",
     "name": "RFL Winner Tiffin Box Rectangular",
     "image": "https://i.chaldn.com/_mpimage/rfl-winner-tiffin-box-rectangular-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132894&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Box & Container",
+    "category": "Kitchen Accessories",
     "current_price": 150.0,
     "current_unit": "each",
     "history": [
@@ -73,7 +73,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_cherry_container_trans_set_3_pcs",
     "name": "RFL Cherry Container Trans Set",
     "image": "https://i.chaldn.com/_mpimage/rfl-cherry-container-trans-set-3-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132706&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Box & Container",
+    "category": "Kitchen Accessories",
     "current_price": 310.0,
     "current_unit": "3 pcs",
     "history": [
@@ -108,7 +108,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_classic_round_container_trans_set_5_pcs",
     "name": "RFL Classic Round Container Trans Set",
     "image": "https://i.chaldn.com/_mpimage/rfl-classic-round-container-trans-set-5-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132708&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Box & Container",
+    "category": "Kitchen Accessories",
     "current_price": 190.0,
     "current_unit": "5 pcs",
     "history": [
@@ -143,7 +143,7 @@ window.PRODUCT_DATA = {
     "id": "npoly_round_food_box_3_pcs",
     "name": "Npoly Round Food Box",
     "image": "https://i.chaldn.com/_mpimage/npoly-round-food-box-3-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D148458&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Box & Container",
+    "category": "Kitchen Accessories",
     "current_price": 255.0,
     "current_unit": "3 pcs",
     "history": [
@@ -248,7 +248,7 @@ window.PRODUCT_DATA = {
     "id": "colgate_plax_peppermint_mouth_wash_750_ml",
     "name": "Colgate Plax Peppermint Mouth Wash",
     "image": "https://i.chaldn.com/_mpimage/colgate-plax-peppermint-mouth-wash-750-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D127132&q=best&v=1&m=400&webp=1",
-    "category": "Mouthwash & Others",
+    "category": "Mouthwashes, Inhaler & Balm",
     "current_price": 1160.0,
     "current_unit": "750 ml",
     "history": [
@@ -283,7 +283,7 @@ window.PRODUCT_DATA = {
     "id": "colgate_plax_peppermint_mouth_wash_500_ml",
     "name": "Colgate Plax Peppermint Mouth Wash",
     "image": "https://i.chaldn.com/_mpimage/colgate-plax-peppermint-mouth-wash-500-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D127133&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Mouthwash & Others",
+    "category": "Mouthwashes, Inhaler & Balm",
     "current_price": 585.0,
     "current_unit": "500 ml",
     "history": [
@@ -318,7 +318,7 @@ window.PRODUCT_DATA = {
     "id": "colgate_plax_herbal_salt_mouth_wash_500_ml",
     "name": "Colgate Plax Herbal Salt Mouth Wash",
     "image": "https://i.chaldn.com/_mpimage/colgate-plax-herbal-salt-mouth-wash-500-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D135607&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Mouthwash & Others",
+    "category": "Mouthwashes, Inhaler & Balm",
     "current_price": 1260.0,
     "current_unit": "500 ml",
     "history": [
@@ -353,7 +353,7 @@ window.PRODUCT_DATA = {
     "id": "colgate_plax_freshmint_mouth_wash_750_ml",
     "name": "Colgate Plax Freshmint Mouth Wash",
     "image": "https://i.chaldn.com/_mpimage/colgate-plax-freshmint-mouth-wash-750-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D127087&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Mouthwash & Others",
+    "category": "Mouthwashes, Inhaler & Balm",
     "current_price": 815.0,
     "current_unit": "750 ml",
     "history": [
@@ -843,7 +843,7 @@ window.PRODUCT_DATA = {
     "id": "sirona_oxo_biodegradable_tampon_condom_disposal_bag_50_pcs",
     "name": "Sirona Oxo-Biodegradable Tampon & Condom Disposal Bag",
     "image": "https://i.chaldn.com/_mpimage/sirona-oxo-biodegradable-tampon-condom-disposal-bag-50-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D168380&q=best&v=1&m=400&webp=1",
-    "category": "Family Planning",
+    "category": "Feminine Care",
     "current_price": 350.0,
     "current_unit": "50 pcs",
     "history": [
@@ -1508,7 +1508,7 @@ window.PRODUCT_DATA = {
     "id": "standard_horlicks_health_and_nutrition_drink_jar_250_gm",
     "name": "Standard Horlicks Health And Nutrition Drink Jar",
     "image": "https://i.chaldn.com/_mpimage/standard-horlicks-health-and-nutrition-drink-jar-250-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D163368&q=best&v=1&m=400&webp=1",
-    "category": "Syrups & Powder Drinks",
+    "category": "Food Supplements",
     "current_price": 280.0,
     "current_unit": "250 gm",
     "history": [
@@ -1613,7 +1613,7 @@ window.PRODUCT_DATA = {
     "id": "mother_s_horlicks_health_and_nutrition_drink_bib_350_gm",
     "name": "Mother's Horlicks Health and Nutrition Drink BIB",
     "image": "https://i.chaldn.com/_mpimage/mothers-horlicks-health-and-nutrition-drink-bib-350-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128293&q=best&v=1&m=400&webp=1",
-    "category": "Syrups & Powder Drinks",
+    "category": "Food Supplements",
     "current_price": 620.0,
     "current_unit": "350 gm",
     "history": [
@@ -1648,7 +1648,7 @@ window.PRODUCT_DATA = {
     "id": "horlicks_chocolate_flavour_jar_500_gm",
     "name": "Horlicks Chocolate Flavour Jar",
     "image": "https://i.chaldn.com/_mpimage/horlicks-chocolate-flavour-jar-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D163350&q=best&v=1&m=400&webp=1",
-    "category": "Syrups & Powder Drinks",
+    "category": "Food Supplements",
     "current_price": 550.0,
     "current_unit": "500 gm",
     "history": [
@@ -1683,7 +1683,7 @@ window.PRODUCT_DATA = {
     "id": "junior_horlicks_health_and_nutrition_drink_container_stage_2_500_gm",
     "name": "Junior Horlicks Health And Nutrition Drink Container Stage-2",
     "image": "https://i.chaldn.com/_mpimage/junior-horlicks-health-and-nutrition-drink-container-stage-2-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D168999&q=best&v=1&m=400&webp=1",
-    "category": "Syrups & Powder Drinks",
+    "category": "Food Supplements",
     "current_price": 550.0,
     "current_unit": "500 gm",
     "history": [
@@ -1753,7 +1753,7 @@ window.PRODUCT_DATA = {
     "id": "maltova_health_and_nutrition_drink_bib_400_gm",
     "name": "Maltova Health And Nutrition Drink BIB",
     "image": "https://i.chaldn.com/_mpimage/maltova-health-and-nutrition-drink-bib-400-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128292&q=best&v=1&m=400&webp=1",
-    "category": "Syrups & Powder Drinks",
+    "category": "Food Supplements",
     "current_price": 550.0,
     "current_unit": "400 gm",
     "history": [
@@ -1788,7 +1788,7 @@ window.PRODUCT_DATA = {
     "id": "boost_chocolate_jar_400_gm",
     "name": "Boost Chocolate Jar",
     "image": "https://i.chaldn.com/_mpimage/boost-chocolate-jar-400-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D173037&q=best&v=1&m=400&webp=1",
-    "category": "Syrups & Powder Drinks",
+    "category": "Food Supplements",
     "current_price": 550.0,
     "current_unit": "400 gm",
     "history": [
@@ -1823,7 +1823,7 @@ window.PRODUCT_DATA = {
     "id": "women_s_plus_horlicks_health_and_nutrition_drink_jar_400_gm",
     "name": "Women's Plus Horlicks Health And Nutrition Drink Jar",
     "image": "https://i.chaldn.com/_mpimage/womens-plus-horlicks-health-and-nutrition-drink-jar-400-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128374&q=best&v=1&m=400&webp=1",
-    "category": "Syrups & Powder Drinks",
+    "category": "Food Supplements",
     "current_price": 600.0,
     "current_unit": "400 gm",
     "history": [
@@ -1858,7 +1858,7 @@ window.PRODUCT_DATA = {
     "id": "horlicks_lite_health_and_nutrition_drink_jar_400_gm",
     "name": "Horlicks Lite Health And Nutrition Drink Jar",
     "image": "https://i.chaldn.com/_mpimage/horlicks-lite-health-and-nutrition-drink-jar-400-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D155022&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Syrups & Powder Drinks",
+    "category": "Food Supplements",
     "current_price": 650.0,
     "current_unit": "400 gm",
     "history": [
@@ -2593,7 +2593,7 @@ window.PRODUCT_DATA = {
     "id": "hexisol_hand_rub_50_ml",
     "name": "Hexisol Hand Rub",
     "image": "https://i.chaldn.com/_mpimage/hexisol-hand-rub-50-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D129219&q=best&v=1&m=400&webp=1",
-    "category": "Antiseptics",
+    "category": "Handwash & Handrub",
     "current_price": 55.0,
     "current_unit": "50 ml",
     "history": [
@@ -2628,7 +2628,7 @@ window.PRODUCT_DATA = {
     "id": "hexisol_hand_rub_250_ml",
     "name": "Hexisol Hand Rub",
     "image": "https://i.chaldn.com/_mpimage/hexisol-hand-rub-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D103093&q=best&v=1&m=400&webp=1",
-    "category": "Antiseptics",
+    "category": "Handwash & Handrub",
     "current_price": 140.0,
     "current_unit": "250 ml",
     "history": [
@@ -2768,7 +2768,7 @@ window.PRODUCT_DATA = {
     "id": "golden_grain_white_sesame_seed_til__100_gm",
     "name": "Golden Grain White Sesame Seed (Til)",
     "image": "https://i.chaldn.com/_mpimage/golden-grain-white-sesame-seed-til-100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D187935&q=best&v=1&m=400&webp=1",
-    "category": "Nuts & Dried Fruits",
+    "category": "Keto Food",
     "current_price": 85.0,
     "current_unit": "100 gm",
     "history": [
@@ -3013,7 +3013,7 @@ window.PRODUCT_DATA = {
     "id": "best_s_mushroom_choice_whole_tin_425_gm",
     "name": "Best's Mushroom Choice Whole Tin",
     "image": "https://i.chaldn.com/_mpimage/bests-mushroom-choice-whole-tin-425-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D125750&q=best&v=1&m=400&webp=1",
-    "category": "Mushroom Cans",
+    "category": "Keto Food",
     "current_price": 182.0,
     "current_unit": "425 gm",
     "history": [
@@ -3083,7 +3083,7 @@ window.PRODUCT_DATA = {
     "id": "walnuts_akhrot__100_gm",
     "name": "Walnuts (Akhrot)",
     "image": "https://i.chaldn.com/_mpimage/walnuts-akhrot-100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D184610&q=best&v=1&m=400&webp=1",
-    "category": "Nuts & Dried Fruits",
+    "category": "Keto Food",
     "current_price": 179.0,
     "current_unit": "100 gm",
     "history": [
@@ -3118,7 +3118,7 @@ window.PRODUCT_DATA = {
     "id": "peanut_peeled_vaja_cheena_badam__100_gm",
     "name": "Peanut Peeled (Vaja Cheena Badam)",
     "image": "https://i.chaldn.com/_mpimage/peanut-peeled-vaja-cheena-badam-100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D184613&q=best&v=1&m=400&webp=1",
-    "category": "Nuts & Dried Fruits",
+    "category": "Keto Food",
     "current_price": 45.0,
     "current_unit": "100 gm",
     "history": [
@@ -3153,7 +3153,7 @@ window.PRODUCT_DATA = {
     "id": "cashew_nut_kaju_badam__100_gm",
     "name": "Cashew Nut (Kaju Badam)",
     "image": "https://i.chaldn.com/_mpimage/cashew-nut-kaju-badam-100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D184612&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Nuts & Dried Fruits",
+    "category": "Keto Food",
     "current_price": 189.0,
     "current_unit": "100 gm",
     "history": [
@@ -3188,7 +3188,7 @@ window.PRODUCT_DATA = {
     "id": "brooke_bond_taaza_black_tea_400_gm",
     "name": "Brooke Bond Taaza Black Tea",
     "image": "https://i.chaldn.com/_mpimage/brooke-bond-taaza-black-tea-400-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D162455&q=best&v=1&m=400&webp=1",
-    "category": "Tea",
+    "category": "Keto Food",
     "current_price": 250.0,
     "current_unit": "400 gm",
     "history": [
@@ -3293,7 +3293,7 @@ window.PRODUCT_DATA = {
     "id": "kazi_kazi_organic_green_tea_40_pcs_60_gm",
     "name": "Kazi & Kazi Organic Green Tea 40 pcs",
     "image": "https://i.chaldn.com/_mpimage/kazi-kazi-organic-green-tea-40-pcs-60-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D108206&q=best&v=1&m=400&webp=1",
-    "category": "Tea",
+    "category": "Keto Food",
     "current_price": 215.0,
     "current_unit": "60 gm",
     "history": [
@@ -3328,7 +3328,7 @@ window.PRODUCT_DATA = {
     "id": "white_sesame_seed_til__100_gm",
     "name": "White Sesame Seed (Til)",
     "image": "https://i.chaldn.com/_mpimage/white-sesame-seed-til-100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D184017&q=best&v=1&m=400&webp=1",
-    "category": "Nuts & Dried Fruits",
+    "category": "Keto Food",
     "current_price": 49.0,
     "current_unit": "100 gm",
     "history": [
@@ -3468,7 +3468,7 @@ window.PRODUCT_DATA = {
     "id": "vivo_ambient_whip_topping_with_vegetable_fat_1100_gm",
     "name": "Vivo Ambient Whip Topping with Vegetable Fat",
     "image": "https://i.chaldn.com/_mpimage/vivo-ambient-whip-topping-with-vegetable-fat-1100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D137073&q=best&v=1&m=400&webp=1",
-    "category": "Baking Ingredients",
+    "category": "Keto Food",
     "current_price": 736.0,
     "current_unit": "1100 gm",
     "history": [
@@ -3643,7 +3643,7 @@ window.PRODUCT_DATA = {
     "id": "ispahani_blender_s_choice_premium_green_tea_bag_70_gm_50_pcs",
     "name": "Ispahani Blender's Choice Premium Green Tea Bag 70 gm",
     "image": "https://i.chaldn.com/_mpimage/ispahani-blenders-choice-premium-green-tea-bag-70-gm-50-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D107163&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Tea",
+    "category": "Keto Food",
     "current_price": 205.0,
     "current_unit": "50 pcs",
     "history": [
@@ -3678,7 +3678,7 @@ window.PRODUCT_DATA = {
     "id": "ceylon_organic_extra_virgin_coconut_oil_500_ml",
     "name": "Ceylon Organic Extra Virgin Coconut Oil",
     "image": "https://i.chaldn.com/_mpimage/ceylon-organic-extra-virgin-coconut-oil-500-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D126647&q=best&v=1&m=400&webp=1",
-    "category": "Hair Care",
+    "category": "Keto Food",
     "current_price": 1590.0,
     "current_unit": "500 ml",
     "history": [
@@ -3713,7 +3713,7 @@ window.PRODUCT_DATA = {
     "id": "hibiscus_premium_whole_baby_corn_in_brine_425_gm",
     "name": "Hibiscus Premium Whole Baby Corn In Brine",
     "image": "https://i.chaldn.com/_mpimage/hibiscus-premium-whole-baby-corn-in-brine-425-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D103095&q=best&v=1&m=400&webp=1",
-    "category": "Vegetable Cans",
+    "category": "Keto Food",
     "current_price": 360.0,
     "current_unit": "425 gm",
     "history": [
@@ -3748,7 +3748,7 @@ window.PRODUCT_DATA = {
     "id": "welcome_light_meat_tuna_in_sunflower_oil_flake__170_gm",
     "name": "Welcome Light Meat Tuna In Sunflower Oil (Flake)",
     "image": "https://i.chaldn.com/_mpimage/welcome-light-meat-tuna-in-sunflower-oil-flake-170-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D60408&q=low&v=1&m=400&m=400&webp=1",
-    "category": "Fish Cans",
+    "category": "Keto Food",
     "current_price": 190.0,
     "current_unit": "170 gm",
     "history": [
@@ -3783,7 +3783,7 @@ window.PRODUCT_DATA = {
     "id": "bpm_white_till_200_gm",
     "name": "BPM White Till",
     "image": "https://i.chaldn.com/_mpimage/bpm-white-till-200-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D52502&q=best&v=1&m=400&webp=1",
-    "category": "Nuts & Dried Fruits",
+    "category": "Keto Food",
     "current_price": 90.0,
     "current_unit": "200 gm",
     "history": [
@@ -3853,7 +3853,7 @@ window.PRODUCT_DATA = {
     "id": "lipton_green_tea_bag_honey_and_lemon_50_pcs",
     "name": "Lipton Green Tea Bag Honey and Lemon",
     "image": "https://i.chaldn.com/_mpimage/lipton-green-tea-bag-honey-and-lemon-50-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D93326&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Tea",
+    "category": "Keto Food",
     "current_price": 150.0,
     "current_unit": "50 pcs",
     "history": [
@@ -3958,7 +3958,7 @@ window.PRODUCT_DATA = {
     "id": "hosen_mushroom_choice_whole_can_425_gm",
     "name": "Hosen Mushroom Choice Whole Can",
     "image": "https://i.chaldn.com/_mpimage/hosen-mushroom-choice-whole-can-425-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D92521&q=best&v=1&m=400&webp=1",
-    "category": "Mushroom Cans",
+    "category": "Keto Food",
     "current_price": 350.0,
     "current_unit": "425 gm",
     "history": [
@@ -3993,7 +3993,7 @@ window.PRODUCT_DATA = {
     "id": "hosen_green_peas_choice_whole_can_397_gm",
     "name": "Hosen Green Peas Choice Whole Can",
     "image": "https://i.chaldn.com/_mpimage/hosen-green-peas-choice-whole-can-397-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D129337&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Vegetable Cans",
+    "category": "Keto Food",
     "current_price": 200.0,
     "current_unit": "397 gm",
     "history": [
@@ -4028,7 +4028,7 @@ window.PRODUCT_DATA = {
     "id": "ispahani_blender_s_choice_premium_green_tea_35_gm_25_pcs",
     "name": "Ispahani Blender's Choice Premium Green Tea 35 gm",
     "image": "https://i.chaldn.com/_mpimage/ispahani-blenders-choice-premium-green-tea-35-gm-25-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D107156&q=best&v=1&m=400&webp=1",
-    "category": "Tea",
+    "category": "Keto Food",
     "current_price": 110.0,
     "current_unit": "25 pcs",
     "history": [
@@ -4133,7 +4133,7 @@ window.PRODUCT_DATA = {
     "id": "twinings_green_tea_lemon_25_tea_bags_each",
     "name": "Twinings Green Tea & Lemon 25 Tea bags",
     "image": "https://i.chaldn.com/_mpimage/twinings-green-tea-lemon-25-tea-bags-1-pack?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D136601&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Tea",
+    "category": "Keto Food",
     "current_price": 850.0,
     "current_unit": "each",
     "history": [
@@ -4203,7 +4203,7 @@ window.PRODUCT_DATA = {
     "id": "figaro_pitted_black_olive_340_gm",
     "name": "Figaro Pitted Black Olive",
     "image": "https://i.chaldn.com/_mpimage/figaro-pitted-black-olive-340-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D109282&q=best&v=1&m=400&webp=1",
-    "category": "Canned Fruits & Sweets",
+    "category": "Keto Food",
     "current_price": 395.0,
     "current_unit": "340 gm",
     "history": [
@@ -4273,7 +4273,7 @@ window.PRODUCT_DATA = {
     "id": "tong_garden_salted_peanuts_can_150_gm",
     "name": "Tong Garden Salted Peanuts Can",
     "image": "https://i.chaldn.com/_mpimage/tong-garden-salted-peanuts-can-150-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D136479&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Nuts & Dried Fruits",
+    "category": "Keto Food",
     "current_price": 695.0,
     "current_unit": "150 gm",
     "history": [
@@ -4308,7 +4308,7 @@ window.PRODUCT_DATA = {
     "id": "nautilus_lite_tuna_chunk_soybean_oil_165_gm",
     "name": "Nautilus Lite Tuna Chunk Soybean Oil",
     "image": "https://i.chaldn.com/_mpimage/nautilus-lite-tuna-chunk-soybean-oil-165-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D175007&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Fish Cans",
+    "category": "Keto Food",
     "current_price": 319.0,
     "current_unit": "165 gm",
     "history": [
@@ -4343,7 +4343,7 @@ window.PRODUCT_DATA = {
     "id": "hibiscus_mushrooms_choice_whole_can_425_gm",
     "name": "Hibiscus Mushrooms Choice Whole Can",
     "image": "https://i.chaldn.com/_mpimage/hibiscus-mushrooms-choice-whole-can-425-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D129220&q=best&v=1&m=400&webp=1",
-    "category": "Mushroom Cans",
+    "category": "Keto Food",
     "current_price": 229.0,
     "current_unit": "425 gm",
     "history": [
@@ -5132,6 +5132,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 49.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
+        "price": 49.0,
+        "unit": "each",
+        "norm_price": 49.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "49.0 / each"
@@ -5140,7 +5148,7 @@ window.PRODUCT_DATA = {
     "id": "matador_i_teen_aroma_ball_pen_black_ink_6_pcs",
     "name": "Matador i-teen Aroma Ball Pen Black Ink",
     "image": "https://i.chaldn.com/_mpimage/matador-i-teen-aroma-ball-pen-black-ink-6-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D88577&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Diaries & Notebooks (School)",
+    "category": "Pens",
     "current_price": 73.0,
     "current_unit": "6 pcs",
     "history": [
@@ -5194,6 +5202,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 80.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
+        "price": 80.0,
+        "unit": "each",
+        "norm_price": 80.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "80.0 / each"
@@ -5217,6 +5233,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-14",
         "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 100.0,
+        "unit": "10 pcs",
+        "norm_price": 10.0,
+        "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
         "price": 100.0,
         "unit": "10 pcs",
         "norm_price": 10.0,
@@ -5248,6 +5272,14 @@ window.PRODUCT_DATA = {
         "unit": "6 pcs",
         "norm_price": 26.5,
         "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
+        "price": 159.0,
+        "unit": "6 pcs",
+        "norm_price": 26.5,
+        "norm_unit": "1 pc"
       }
     ],
     "norm_price_display": "26.5 / 1 pc"
@@ -5271,6 +5303,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-14",
         "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 70.0,
+        "unit": "6 pcs",
+        "norm_price": 11.67,
+        "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
         "price": 70.0,
         "unit": "6 pcs",
         "norm_price": 11.67,
@@ -5771,6 +5811,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 159.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
+        "price": 159.0,
+        "unit": "each",
+        "norm_price": 159.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "159.0 / each"
@@ -5794,6 +5842,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-14",
         "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 60.0,
+        "unit": "each",
+        "norm_price": 60.0,
+        "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
         "price": 60.0,
         "unit": "each",
         "norm_price": 60.0,
@@ -5825,6 +5881,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 180.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
+        "price": 180.0,
+        "unit": "each",
+        "norm_price": 180.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "180.0 / each"
@@ -5848,6 +5912,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-14",
         "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 100.0,
+        "unit": "each",
+        "norm_price": 100.0,
+        "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
         "price": 100.0,
         "unit": "each",
         "norm_price": 100.0,
@@ -5879,6 +5951,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 199.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
+        "price": 199.0,
+        "unit": "each",
+        "norm_price": 199.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "199.0 / each"
@@ -5902,6 +5982,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-14",
         "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 129.0,
+        "unit": "each",
+        "norm_price": 129.0,
+        "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
         "price": 129.0,
         "unit": "each",
         "norm_price": 129.0,
@@ -5933,6 +6021,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 198.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
+        "price": 198.0,
+        "unit": "each",
+        "norm_price": 198.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "198.0 / each"
@@ -5956,6 +6052,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-14",
         "timestamp": "2026-08-14T20:35:36.615311+06:00",
+        "price": 45.0,
+        "unit": "10 pcs",
+        "norm_price": 4.5,
+        "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
         "price": 45.0,
         "unit": "10 pcs",
         "norm_price": 4.5,
@@ -6703,7 +6807,7 @@ window.PRODUCT_DATA = {
     "id": "bigen_hair_color_conditioner_light_brown__80_gm",
     "name": "Bigen Hair Color & Conditioner (Light Brown)",
     "image": "https://i.chaldn.com/_mpimage/bigen-hair-color-conditioner-light-brown-80-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D125773&q=best&v=1&m=400&webp=1",
-    "category": "Hair Care",
+    "category": "Hair Color",
     "current_price": 750.0,
     "current_unit": "80 gm",
     "history": [
@@ -6738,7 +6842,7 @@ window.PRODUCT_DATA = {
     "id": "bigen_hair_color_conditioner_natural_brown__80_gm",
     "name": "Bigen Hair Color & Conditioner (Natural Brown)",
     "image": "https://i.chaldn.com/_mpimage/bigen-hair-color-conditioner-natural-brown-80-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D71945&q=best&v=1&m=400&webp=1",
-    "category": "Hair Care",
+    "category": "Hair Color",
     "current_price": 700.0,
     "current_unit": "80 gm",
     "history": [
@@ -6773,7 +6877,7 @@ window.PRODUCT_DATA = {
     "id": "bigen_hair_color_conditioner_dark_brown__80_gm",
     "name": "Bigen Hair Color & Conditioner (Dark Brown)",
     "image": "https://i.chaldn.com/_mpimage/bigen-hair-color-conditioner-dark-brown-80-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D71944&q=best&v=1&m=400&webp=1",
-    "category": "Hair Care",
+    "category": "Hair Color",
     "current_price": 700.0,
     "current_unit": "80 gm",
     "history": [
@@ -6808,7 +6912,7 @@ window.PRODUCT_DATA = {
     "id": "bigen_hair_color_conditioner_natural_black__80_gm",
     "name": "Bigen Hair Color & Conditioner (Natural Black)",
     "image": "https://i.chaldn.com/_mpimage/bigen-hair-color-conditioner-natural-black-80-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D125774&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Hair Care",
+    "category": "Hair Color",
     "current_price": 700.0,
     "current_unit": "80 gm",
     "history": [
@@ -7543,7 +7647,7 @@ window.PRODUCT_DATA = {
     "id": "ujjwala_care_anti_hairfall_herbal_hair_oil_100_ml",
     "name": "Ujjwala Care Anti Hairfall Herbal Hair Oil",
     "image": "https://i.chaldn.com/_mpimage/ujjwala-care-anti-hairfall-herbal-hair-oil-100-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D177342&q=best&v=1&m=400&webp=1",
-    "category": "Hair Care",
+    "category": "Body & Hair Oil",
     "current_price": 200.0,
     "current_unit": "100 ml",
     "history": [
@@ -8103,7 +8207,7 @@ window.PRODUCT_DATA = {
     "id": "parachute_advansed_aloe_vera_hair_oil_250_ml_2_pcs",
     "name": "Parachute Advansed Aloe Vera Hair Oil 250 ml",
     "image": "https://i.chaldn.com/_mpimage/parachute-advansed-aloe-vera-hair-oil-250-ml-2-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D109555&q=best&v=1&m=400&webp=1",
-    "category": "Hair Care",
+    "category": "Body & Hair Oil",
     "current_price": 640.0,
     "current_unit": "2 pcs",
     "history": [
@@ -8138,7 +8242,7 @@ window.PRODUCT_DATA = {
     "id": "livon_hair_serum_50_ml",
     "name": "Livon Hair Serum",
     "image": "https://i.chaldn.com/_mpimage/livon-hair-serum-50-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130306&q=best&v=1&m=400&webp=1",
-    "category": "Hair Care",
+    "category": "Body & Hair Oil",
     "current_price": 300.0,
     "current_unit": "50 ml",
     "history": [
@@ -8208,7 +8312,7 @@ window.PRODUCT_DATA = {
     "id": "meril_olive_oil_tin_jar_150_ml",
     "name": "Meril Olive Oil Tin Jar",
     "image": "https://i.chaldn.com/_mpimage/meril-olive-oil-tin-jar-150-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D185676&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Hair Care",
+    "category": "Body & Hair Oil",
     "current_price": 450.0,
     "current_unit": "150 ml",
     "history": [
@@ -8243,7 +8347,7 @@ window.PRODUCT_DATA = {
     "id": "himani_navaratna_cool_ayurvedic_hair_oil_200_ml",
     "name": "Himani Navaratna Cool Ayurvedic Hair Oil",
     "image": "https://i.chaldn.com/_mpimage/himani-navaratna-cool-ayurvedic-hair-oil-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D103607&q=best&v=1&m=400&webp=1",
-    "category": "Hair Care",
+    "category": "Body & Hair Oil",
     "current_price": 280.0,
     "current_unit": "200 ml",
     "history": [
@@ -12338,7 +12442,7 @@ window.PRODUCT_DATA = {
     "id": "fresh_hand_towel_250x1_ply__each",
     "name": "Fresh Hand Towel (250X1 Ply)",
     "image": "https://i.chaldn.com/_mpimage/fresh-hand-towel-250x1-ply-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D113119&q=best&v=1&m=400&webp=1",
-    "category": "Napkins & Paper Products",
+    "category": "Kitchen Accessories",
     "current_price": 100.0,
     "current_unit": "each",
     "history": [
@@ -12408,7 +12512,7 @@ window.PRODUCT_DATA = {
     "id": "fresh_paper_napkins_13_perfumed_100x1_ply__each",
     "name": "Fresh Paper Napkins 13\" Perfumed (100X1 Ply)",
     "image": "https://i.chaldn.com/_mpimage/fresh-paper-napkins-13-perfumed-100x1-ply-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D113125&q=best&v=1&m=400&webp=1",
-    "category": "Napkins & Paper Products",
+    "category": "Kitchen Accessories",
     "current_price": 75.0,
     "current_unit": "each",
     "history": [
@@ -12513,7 +12617,7 @@ window.PRODUCT_DATA = {
     "id": "bashundhara_paper_napkins_13_unscented_100_pcs",
     "name": "Bashundhara Paper Napkins 13\" Unscented",
     "image": "https://i.chaldn.com/_mpimage/bashundhara-paper-napkins-13-unscented-100-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D164084&q=best&v=1&m=400&webp=1",
-    "category": "Napkins & Paper Products",
+    "category": "Kitchen Accessories",
     "current_price": 75.0,
     "current_unit": "100 pcs",
     "history": [
@@ -12793,7 +12897,7 @@ window.PRODUCT_DATA = {
     "id": "comely_shower_gel_sunshine_garden__350_ml",
     "name": "Comely Shower Gel (Sunshine Garden)",
     "image": "https://i.chaldn.com/_mpimage/comely-shower-gel-sunshine-garden-350-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D186422&q=best&v=1&m=400&webp=1",
-    "category": "Women's Shower Gel",
+    "category": "Men's Shower Gels",
     "current_price": 300.0,
     "current_unit": "350 ml",
     "history": [
@@ -12828,7 +12932,7 @@ window.PRODUCT_DATA = {
     "id": "the_dermalix_rose_soothing_shower_gel_250_ml",
     "name": "The Dermalix Rose Soothing Shower Gel",
     "image": "https://i.chaldn.com/_mpimage/the-dermalix-rose-soothing-shower-gel-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D183903&q=best&v=1&m=400&webp=1",
-    "category": "Women's Shower Gel",
+    "category": "Men's Shower Gels",
     "current_price": 350.0,
     "current_unit": "250 ml",
     "history": [
@@ -12863,7 +12967,7 @@ window.PRODUCT_DATA = {
     "id": "dettol_skincare_bodywash_250_ml",
     "name": "Dettol Skincare Bodywash",
     "image": "https://i.chaldn.com/_mpimage/dettol-skincare-bodywash-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D149404&q=best&v=1&m=400&webp=1",
-    "category": "Women's Shower Gel",
+    "category": "Men's Soaps",
     "current_price": 225.0,
     "current_unit": "250 ml",
     "history": [
@@ -12898,7 +13002,7 @@ window.PRODUCT_DATA = {
     "id": "lux_body_wash_french_rose_almond_oil_245_ml",
     "name": "Lux Body Wash French Rose & Almond Oil",
     "image": "https://i.chaldn.com/_mpimage/lux-body-wash-french-rose-almond-oil-245-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D177276&q=best&v=1&m=400&webp=1",
-    "category": "Women's Shower Gel",
+    "category": "Men's Shower Gels",
     "current_price": 220.0,
     "current_unit": "245 ml",
     "history": [
@@ -12933,7 +13037,7 @@ window.PRODUCT_DATA = {
     "id": "dettol_aloe_vera_bodywash_250_ml",
     "name": "Dettol Aloe Vera Bodywash",
     "image": "https://i.chaldn.com/_mpimage/dettol-aloe-vera-bodywash-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D163292&q=best&v=1&m=400&webp=1",
-    "category": "Women's Shower Gel",
+    "category": "Men's Shower Gels",
     "current_price": 225.0,
     "current_unit": "250 ml",
     "history": [
@@ -12968,7 +13072,7 @@ window.PRODUCT_DATA = {
     "id": "dettol_cool_bodywash_250_ml",
     "name": "Dettol Cool Bodywash",
     "image": "https://i.chaldn.com/_mpimage/dettol-cool-bodywash-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D163291&q=best&v=1&m=400&webp=1",
-    "category": "Women's Shower Gel",
+    "category": "Men's Shower Gels",
     "current_price": 225.0,
     "current_unit": "250 ml",
     "history": [
@@ -13003,7 +13107,7 @@ window.PRODUCT_DATA = {
     "id": "dettol_skincare_bodywash_refill_170_ml",
     "name": "Dettol Skincare Bodywash Refill",
     "image": "https://i.chaldn.com/_mpimage/dettol-skincare-bodywash-refill-170-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D153114&q=best&v=1&m=400&webp=1",
-    "category": "Women's Shower Gel",
+    "category": "Men's Shower Gels",
     "current_price": 125.0,
     "current_unit": "170 ml",
     "history": [
@@ -13038,7 +13142,7 @@ window.PRODUCT_DATA = {
     "id": "dettol_lasting_fresh_bodywash_refill_170_ml",
     "name": "Dettol Lasting Fresh Bodywash Refill",
     "image": "https://i.chaldn.com/_mpimage/dettol-lasting-fresh-bodywash-refill-170-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D153113&q=best&v=1&m=400&webp=1",
-    "category": "Women's Shower Gel",
+    "category": "Men's Shower Gels",
     "current_price": 125.0,
     "current_unit": "170 ml",
     "history": [
@@ -13073,7 +13177,7 @@ window.PRODUCT_DATA = {
     "id": "dettol_original_bodywash_250_ml",
     "name": "Dettol Original Bodywash",
     "image": "https://i.chaldn.com/_mpimage/dettol-original-bodywash-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D149403&q=best&v=1&m=400&webp=1",
-    "category": "Women's Shower Gel",
+    "category": "Men's Soaps",
     "current_price": 200.0,
     "current_unit": "250 ml",
     "history": [
@@ -13108,7 +13212,7 @@ window.PRODUCT_DATA = {
     "id": "dettol_fresh_antibacterial_bodywash_citrus_orange_blossom_250_ml",
     "name": "Dettol Fresh Antibacterial Bodywash Citrus & Orange Blossom",
     "image": "https://i.chaldn.com/_mpimage/dettol-fresh-antibacterial-bodywash-citrus-orange-blossom-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D104957&q=best&v=1&m=400&webp=1",
-    "category": "Women's Shower Gel",
+    "category": "Men's Soaps",
     "current_price": 350.0,
     "current_unit": "250 ml",
     "history": [
@@ -13213,7 +13317,7 @@ window.PRODUCT_DATA = {
     "id": "biore_mens_hygienic_energy_shower_gel_250_ml",
     "name": "Biore Mens Hygienic Energy Shower Gel",
     "image": "https://i.chaldn.com/_mpimage/biore-mens-hygienic-energy-shower-gel-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D116352&q=best&v=1&m=400&webp=1",
-    "category": "Women's Shower Gel",
+    "category": "Men's Shower Gels",
     "current_price": 750.0,
     "current_unit": "250 ml",
     "history": [
@@ -13248,7 +13352,7 @@ window.PRODUCT_DATA = {
     "id": "biore_mens_cool_energy_shower_gel_250_ml",
     "name": "Biore Mens Cool Energy Shower Gel",
     "image": "https://i.chaldn.com/_mpimage/biore-mens-cool-energy-shower-gel-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D116351&q=best&v=1&m=400&webp=1",
-    "category": "Women's Shower Gel",
+    "category": "Men's Shower Gels",
     "current_price": 750.0,
     "current_unit": "250 ml",
     "history": [
@@ -13283,7 +13387,7 @@ window.PRODUCT_DATA = {
     "id": "st_ives_fresh_skin_apricot_body_wash_400_ml",
     "name": "St. Ives Fresh Skin Apricot Body Wash",
     "image": "https://i.chaldn.com/_mpimage/st-ives-fresh-skin-apricot-body-wash-400-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D134993&q=best&v=1&m=400&webp=1",
-    "category": "Women's Shower Gel",
+    "category": "Men's Shower Gels",
     "current_price": 850.0,
     "current_unit": "400 ml",
     "history": [
@@ -13563,7 +13667,7 @@ window.PRODUCT_DATA = {
     "id": "ujjwala_care_gloss_hair_serum_100_ml",
     "name": "Ujjwala Care Gloss Hair Serum",
     "image": "https://i.chaldn.com/_mpimage/ujjwala-care-gloss-hair-serum-100-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D177345&q=best&v=1&m=400&webp=1",
-    "category": "Men's Hair Care",
+    "category": "Serum, Oil & Toners",
     "current_price": 490.0,
     "current_unit": "100 ml",
     "history": [
@@ -14228,7 +14332,7 @@ window.PRODUCT_DATA = {
     "id": "layer_r_wottagirl_secret_crush_body_spray_135_ml",
     "name": "Layer'r Wottagirl Secret Crush Body Spray",
     "image": "https://i.chaldn.com/_mpimage/layerr-wottagirl-secret-crush-body-spray-135-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D94025&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 595.0,
     "current_unit": "135 ml",
     "history": [
@@ -14263,7 +14367,7 @@ window.PRODUCT_DATA = {
     "id": "layer_r_shot_red_stallion_body_spray_135_ml",
     "name": "Layer'r Shot Red Stallion Body Spray",
     "image": "https://i.chaldn.com/_mpimage/layerr-shot-red-stallion-body-spray-135-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D94024&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 595.0,
     "current_unit": "135 ml",
     "history": [
@@ -14298,7 +14402,7 @@ window.PRODUCT_DATA = {
     "id": "layer_r_shot_power_play_body_spray_135_ml",
     "name": "Layer'r Shot Power Play Body Spray",
     "image": "https://i.chaldn.com/_mpimage/layerr-shot-power-play-body-spray-135-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D93993&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 595.0,
     "current_unit": "135 ml",
     "history": [
@@ -16188,7 +16292,7 @@ window.PRODUCT_DATA = {
     "id": "head_shoulders_smooth_silky_anti_dandruff_shampoo_1_ltr",
     "name": "Head & Shoulders Smooth & Silky Anti Dandruff Shampoo",
     "image": "https://i.chaldn.com/_mpimage/head-shoulders-smooth-silky-anti-dandruff-shampoo-1-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D160232&q=best&v=1&m=400&webp=1",
-    "category": "Women's Shampoos & Conditioners",
+    "category": "Men's Shampoos & Conditioners",
     "current_price": 2799.0,
     "current_unit": "1 ltr",
     "history": [
@@ -16363,7 +16467,7 @@ window.PRODUCT_DATA = {
     "id": "herbal_essences_white_strawberry_sweet_mint_conditioner_400_ml",
     "name": "Herbal Essences White Strawberry & Sweet Mint Conditioner",
     "image": "https://i.chaldn.com/_mpimage/herbal-essences-white-strawberry-sweet-mint-conditioner-400-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D89837&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Women's Shampoos & Conditioners",
+    "category": "Men's Shampoos & Conditioners",
     "current_price": 775.0,
     "current_unit": "400 ml",
     "history": [
@@ -16398,7 +16502,7 @@ window.PRODUCT_DATA = {
     "id": "herbal_essences_strength_whipped_cocoa_butter_conditioner_400_ml",
     "name": "Herbal Essences Strength Whipped Cocoa Butter Conditioner",
     "image": "https://i.chaldn.com/_mpimage/herbal-essences-strength-whipped-cocoa-butter-conditioner-400-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D89831&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Women's Shampoos & Conditioners",
+    "category": "Men's Shampoos & Conditioners",
     "current_price": 775.0,
     "current_unit": "400 ml",
     "history": [
@@ -16433,7 +16537,7 @@ window.PRODUCT_DATA = {
     "id": "head_shoulders_cool_menthol_anti_dandruff_shampoo_1_ltr",
     "name": "Head & Shoulders Cool Menthol Anti Dandruff Shampoo",
     "image": "https://i.chaldn.com/_mpimage/head-shoulders-cool-menthol-anti-dandruff-shampoo-1-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D89811&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Women's Shampoos & Conditioners",
+    "category": "Men's Shampoos & Conditioners",
     "current_price": 1800.0,
     "current_unit": "1 ltr",
     "history": [
@@ -16468,7 +16572,7 @@ window.PRODUCT_DATA = {
     "id": "head_shoulders_smooth_silky_anti_dandruff_shampoo_340_ml",
     "name": "Head & Shoulders Smooth & Silky Anti Dandruff Shampoo",
     "image": "https://i.chaldn.com/_mpimage/head-shoulders-smooth-silky-anti-dandruff-shampoo-340-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D160229&q=best&v=1&m=400&webp=1",
-    "category": "Women's Shampoos & Conditioners",
+    "category": "Men's Shampoos & Conditioners",
     "current_price": 990.0,
     "current_unit": "340 ml",
     "history": [
@@ -16503,7 +16607,7 @@ window.PRODUCT_DATA = {
     "id": "head_shoulders_2_in_1_cool_menthol_anti_dandruff_shampoo_conditioner_340_ml",
     "name": "Head & Shoulders 2 in 1 Cool Menthol Anti Dandruff Shampoo + Conditioner",
     "image": "https://i.chaldn.com/_mpimage/head-shoulders-cool-menthol-anti-dandruff-shampoo-conditioner-340-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D89699&q=best&v=1&m=400&webp=1",
-    "category": "Women's Shampoos & Conditioners",
+    "category": "Men's Shampoos & Conditioners",
     "current_price": 1200.0,
     "current_unit": "340 ml",
     "history": [
@@ -16538,7 +16642,7 @@ window.PRODUCT_DATA = {
     "id": "head_shoulders_2_in_1_smooth_silky_shampoo_conditioner_180_ml",
     "name": "Head & Shoulders 2 in 1 Smooth & Silky Shampoo + Conditioner",
     "image": "https://i.chaldn.com/_mpimage/head-shoulders-2-in-1-smooth-silky-shampoo-conditioner-180-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D129162&q=best&v=1&m=400&webp=1",
-    "category": "Women's Shampoos & Conditioners",
+    "category": "Men's Shampoos & Conditioners",
     "current_price": 650.0,
     "current_unit": "180 ml",
     "history": [
@@ -19338,7 +19442,7 @@ window.PRODUCT_DATA = {
     "id": "colour_me_women_s_body_spray_pink_150_ml",
     "name": "Colour Me Women's Body Spray Pink",
     "image": "https://i.chaldn.com/_mpimage/colour-me-womens-body-spray-pink-150-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D127151&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 775.0,
     "current_unit": "150 ml",
     "history": [
@@ -19373,7 +19477,7 @@ window.PRODUCT_DATA = {
     "id": "lafz_premium_body_spray_dariush_120_ml",
     "name": "Lafz Premium Body Spray Dariush",
     "image": "https://i.chaldn.com/_mpimage/lafz-premium-body-spray-dariush-120-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D92073&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 390.0,
     "current_unit": "120 ml",
     "history": [
@@ -19408,7 +19512,7 @@ window.PRODUCT_DATA = {
     "id": "fa_roll_on_aqua_auatic_fresh_50_ml",
     "name": "Fa Roll On Aqua Auatic Fresh",
     "image": "https://i.chaldn.com/_mpimage/fa-roll-on-aqua-auatic-fresh-50-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D127270&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 289.0,
     "current_unit": "50 ml",
     "history": [
@@ -19443,7 +19547,7 @@ window.PRODUCT_DATA = {
     "id": "fa_roll_on_sport_50_ml",
     "name": "Fa Roll On Sport",
     "image": "https://i.chaldn.com/_mpimage/fa-roll-on-sport-50-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D109050&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 279.0,
     "current_unit": "50 ml",
     "history": [
@@ -19478,7 +19582,7 @@ window.PRODUCT_DATA = {
     "id": "fa_roll_on_caribbean_lemon_50_ml",
     "name": "Fa Roll On Caribbean Lemon",
     "image": "https://i.chaldn.com/_mpimage/fa-roll-on-caribbean-lemon-50-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D135825&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 299.0,
     "current_unit": "50 ml",
     "history": [
@@ -19513,7 +19617,7 @@ window.PRODUCT_DATA = {
     "id": "ca_active_women_body_spray_200_ml",
     "name": "CA Active Women Body Spray",
     "image": "https://i.chaldn.com/_mpimage/ca-active-women-body-spray-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D126337&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 680.0,
     "current_unit": "200 ml",
     "history": [
@@ -19548,7 +19652,7 @@ window.PRODUCT_DATA = {
     "id": "lafz_ibadet_body_spray_90_ml",
     "name": "Lafz Ibadet Body Spray",
     "image": "https://i.chaldn.com/_mpimage/lafz-ibadet-body-spray-90-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D74551&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 300.0,
     "current_unit": "90 ml",
     "history": [
@@ -19583,7 +19687,7 @@ window.PRODUCT_DATA = {
     "id": "lafz_gul_wissal_body_spray_100_ml",
     "name": "Lafz Gul Wissal Body Spray",
     "image": "https://i.chaldn.com/_mpimage/lafz-gul-wissal-body-spray-100-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D74548&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 294.0,
     "current_unit": "100 ml",
     "history": [
@@ -19618,7 +19722,7 @@ window.PRODUCT_DATA = {
     "id": "enchanteur_pocket_perfume_romantic_18_ml",
     "name": "Enchanteur Pocket Perfume Romantic",
     "image": "https://i.chaldn.com/_mpimage/enchanteur-pocket-perfume-romantic-18-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D108631&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 350.0,
     "current_unit": "18 ml",
     "history": [
@@ -19653,7 +19757,7 @@ window.PRODUCT_DATA = {
     "id": "enchanteur_pocket_perfume_charming_18_ml",
     "name": "Enchanteur Pocket Perfume Charming",
     "image": "https://i.chaldn.com/_mpimage/enchanteur-pocket-perfume-charming-18-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D108595&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 300.0,
     "current_unit": "18 ml",
     "history": [
@@ -19688,7 +19792,7 @@ window.PRODUCT_DATA = {
     "id": "enchanteur_perfumed_deo_roll_on_alluring_50_ml",
     "name": "Enchanteur Perfumed Deo Roll On Alluring",
     "image": "https://i.chaldn.com/_mpimage/enchanteur-perfumed-deo-roll-on-alluring-50-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128211&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 500.0,
     "current_unit": "50 ml",
     "history": [
@@ -19723,7 +19827,7 @@ window.PRODUCT_DATA = {
     "id": "royal_mirage_sport_perfume_120_ml",
     "name": "Royal Mirage Sport Perfume",
     "image": "https://i.chaldn.com/_mpimage/royal-mirage-sport-perfume-120-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D133053&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 1750.0,
     "current_unit": "120 ml",
     "history": [
@@ -19758,7 +19862,7 @@ window.PRODUCT_DATA = {
     "id": "royal_mirage_sport_body_spray_150_ml",
     "name": "Royal Mirage Sport Body Spray",
     "image": "https://i.chaldn.com/_mpimage/royal-mirage-sport-body-spray-150-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D60455&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 620.0,
     "current_unit": "150 ml",
     "history": [
@@ -19793,7 +19897,7 @@ window.PRODUCT_DATA = {
     "id": "eternal_love_xlouis_women_body_spray_200_ml",
     "name": "Eternal Love Xlouis Women Body Spray",
     "image": "https://i.chaldn.com/_mpimage/eternal-love-xlouis-women-body-spray-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D108698&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 780.0,
     "current_unit": "200 ml",
     "history": [
@@ -19828,7 +19932,7 @@ window.PRODUCT_DATA = {
     "id": "layer_r_wottagirl_pure_paradise_body_spray_135_ml",
     "name": "Layer'r Wottagirl Pure Paradise Body Spray",
     "image": "https://i.chaldn.com/_mpimage/layerr-wottagirl-pure-paradise-body-spray-135-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130002&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 545.0,
     "current_unit": "135 ml",
     "history": [
@@ -19863,7 +19967,7 @@ window.PRODUCT_DATA = {
     "id": "layer_r_wottagirl_pink_angel_body_spray_135_ml",
     "name": "Layer'r Wottagirl Pink Angel Body Spray",
     "image": "https://i.chaldn.com/_mpimage/layerr-wottagirl-pink-angel-body-spray-135-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130001&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 595.0,
     "current_unit": "135 ml",
     "history": [
@@ -19898,7 +20002,7 @@ window.PRODUCT_DATA = {
     "id": "ossum_body_spray_teaser_120_ml",
     "name": "Ossum Body Spray Teaser",
     "image": "https://i.chaldn.com/_mpimage/ossum-body-spray-teaser-120-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D115532&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 550.0,
     "current_unit": "120 ml",
     "history": [
@@ -19933,7 +20037,7 @@ window.PRODUCT_DATA = {
     "id": "ossum_body_spray_desire_120_ml",
     "name": "Ossum Body Spray Desire",
     "image": "https://i.chaldn.com/_mpimage/ossum-body-spray-desire-120-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D115531&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 550.0,
     "current_unit": "120 ml",
     "history": [
@@ -19968,7 +20072,7 @@ window.PRODUCT_DATA = {
     "id": "ossum_body_spray_cherish_120_ml",
     "name": "Ossum Body Spray Cherish",
     "image": "https://i.chaldn.com/_mpimage/ossum-body-spray-cherish-120-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D115530&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 550.0,
     "current_unit": "120 ml",
     "history": [
@@ -20030,7 +20134,7 @@ window.PRODUCT_DATA = {
     "id": "ossum_body_spray_appeal_120_ml",
     "name": "Ossum Body Spray Appeal",
     "image": "https://i.chaldn.com/_mpimage/ossum-body-spray-appeal-120-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D115529&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 550.0,
     "current_unit": "120 ml",
     "history": [
@@ -20092,7 +20196,7 @@ window.PRODUCT_DATA = {
     "id": "ossum_body_mist_pleasere_115_ml",
     "name": "Ossum Body Mist Pleasere",
     "image": "https://i.chaldn.com/_mpimage/ossum-body-mist-pleasere-115-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D115525&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 580.0,
     "current_unit": "115 ml",
     "history": [
@@ -20127,7 +20231,7 @@ window.PRODUCT_DATA = {
     "id": "ossum_body_mist_blossom_115_ml",
     "name": "Ossum Body Mist Blossom",
     "image": "https://i.chaldn.com/_mpimage/ossum-body-mist-blossom-115-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D115524&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 670.0,
     "current_unit": "115 ml",
     "history": [
@@ -20189,7 +20293,7 @@ window.PRODUCT_DATA = {
     "id": "enchanteur_perfumed_deo_spary_gorgeous_150_ml",
     "name": "Enchanteur Perfumed Deo Spary Gorgeous",
     "image": "https://i.chaldn.com/_mpimage/enchanteur-perfumed-deo-spary-gorgeous-150-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D169088&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 400.0,
     "current_unit": "150 ml",
     "history": [
@@ -20251,7 +20355,7 @@ window.PRODUCT_DATA = {
     "id": "enchanteur_perfumed_deo_spary_charming_150_ml",
     "name": "Enchanteur Perfumed Deo Spary Charming",
     "image": "https://i.chaldn.com/_mpimage/enchanteur-perfumed-deo-spary-charming-150-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D169087&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 400.0,
     "current_unit": "150 ml",
     "history": [
@@ -20340,7 +20444,7 @@ window.PRODUCT_DATA = {
     "id": "colour_me_perfume_volt_50_ml",
     "name": "Colour Me Perfume Volt",
     "image": "https://i.chaldn.com/_mpimage/colour-me-perfume-volt-50-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D127148&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 625.0,
     "current_unit": "50 ml",
     "history": [
@@ -20375,7 +20479,7 @@ window.PRODUCT_DATA = {
     "id": "ossum_perfumed_body_mist_delight_115_ml",
     "name": "Ossum Perfumed Body Mist Delight",
     "image": "https://i.chaldn.com/_mpimage/ossum-perfumed-body-mist-delight-115-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D115533&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 750.0,
     "current_unit": "115 ml",
     "history": [
@@ -20437,7 +20541,7 @@ window.PRODUCT_DATA = {
     "id": "ossum_perfumed_body_mist_romance_115_ml",
     "name": "Ossum Perfumed Body Mist Romance",
     "image": "https://i.chaldn.com/_mpimage/ossum-perfumed-body-mist-romance-115-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D115534&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 750.0,
     "current_unit": "115 ml",
     "history": [
@@ -20499,7 +20603,7 @@ window.PRODUCT_DATA = {
     "id": "fogg_scent_women_i_am_queen__100_ml",
     "name": "Fogg Scent Women (I Am Queen)",
     "image": "https://i.chaldn.com/_mpimage/fogg-scent-women-i-am-queen-100-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D60061&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 900.0,
     "current_unit": "100 ml",
     "history": [
@@ -20561,7 +20665,7 @@ window.PRODUCT_DATA = {
     "id": "layer_r_wattagirl_fresh_citrus_body_spray_135_ml",
     "name": "Layer'r Wattagirl Fresh Citrus Body Spray",
     "image": "https://i.chaldn.com/_mpimage/layerr-wattagirl-fresh-citrus-body-spray-135-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D129999&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 699.0,
     "current_unit": "135 ml",
     "history": [
@@ -20642,6 +20746,14 @@ window.PRODUCT_DATA = {
         "unit": "50 ml",
         "norm_price": 4800.0,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
+        "price": 240.0,
+        "unit": "50 ml",
+        "norm_price": 4800.0,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "4800.0 / 1 L"
@@ -20677,7 +20789,7 @@ window.PRODUCT_DATA = {
     "id": "enchanteur_perfumed_deo_spary_romantic_150_ml",
     "name": "Enchanteur Perfumed Deo Spary Romantic",
     "image": "https://i.chaldn.com/_mpimage/enchanteur-perfumed-deo-spary-romantic-150-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D169084&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 450.0,
     "current_unit": "150 ml",
     "history": [
@@ -20739,7 +20851,7 @@ window.PRODUCT_DATA = {
     "id": "enchanteur_perfumed_deo_roll_on_romantic_50_ml",
     "name": "Enchanteur Perfumed Deo Roll On Romantic",
     "image": "https://i.chaldn.com/_mpimage/enchanteur-perfumed-deo-roll-on-romantic-50-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D108626&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Female Deo",
     "current_price": 319.0,
     "current_unit": "50 ml",
     "history": [
@@ -25566,7 +25678,7 @@ window.PRODUCT_DATA = {
     "id": "one_time_packaging_tray_100_pcs",
     "name": "One Time Packaging Tray",
     "image": "https://i.chaldn.com/_mpimage/one-time-packaging-tray-100-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D108017&q=best&v=1&m=400&webp=1",
-    "category": "Disposables",
+    "category": "Kitchen Accessories",
     "current_price": 299.0,
     "current_unit": "100 pcs",
     "history": [
@@ -25881,7 +25993,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_magic_clean_bucket_with_mop_green__each",
     "name": "RFL Magic Clean Bucket With Mop (Green)",
     "image": "https://i.chaldn.com/_mpimage/rfl-magic-clean-bucket-with-mop-green-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D113150&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Basket & Bucket",
+    "category": "Cleaning Accessories",
     "current_price": 2000.0,
     "current_unit": "each",
     "history": [
@@ -26161,7 +26273,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_glass_cleaner_wiper_each",
     "name": "RFL Glass Cleaner Wiper",
     "image": "https://i.chaldn.com/_mpimage/rfl-glass-cleaner-wiper-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132761&q=best&v=1&m=400&webp=1",
-    "category": "Floor & Glass Cleaners",
+    "category": "Cleaning Accessories",
     "current_price": 65.0,
     "current_unit": "each",
     "history": [
@@ -28256,6 +28368,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 85.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
+        "price": 85.0,
+        "unit": "each",
+        "norm_price": 85.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "85.0 / each"
@@ -28279,6 +28399,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-14",
         "timestamp": "2026-08-14T03:17:10.950405+06:00",
+        "price": 175.0,
+        "unit": "each",
+        "norm_price": 175.0,
+        "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
         "price": 175.0,
         "unit": "each",
         "norm_price": 175.0,
@@ -28310,6 +28438,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 60.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
+        "price": 60.0,
+        "unit": "each",
+        "norm_price": 60.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "60.0 / each"
@@ -28333,6 +28469,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-14",
         "timestamp": "2026-08-14T03:17:10.950405+06:00",
+        "price": 825.0,
+        "unit": "each",
+        "norm_price": 825.0,
+        "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
         "price": 825.0,
         "unit": "each",
         "norm_price": 825.0,
@@ -28364,6 +28508,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 355.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
+        "price": 355.0,
+        "unit": "each",
+        "norm_price": 355.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "355.0 / each"
@@ -28387,6 +28539,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-14",
         "timestamp": "2026-08-14T03:17:10.950405+06:00",
+        "price": 300.0,
+        "unit": "each",
+        "norm_price": 300.0,
+        "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
         "price": 300.0,
         "unit": "each",
         "norm_price": 300.0,
@@ -28418,6 +28578,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 300.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
+        "price": 300.0,
+        "unit": "each",
+        "norm_price": 300.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "300.0 / each"
@@ -28441,6 +28609,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-14",
         "timestamp": "2026-08-14T03:17:10.950405+06:00",
+        "price": 400.0,
+        "unit": "",
+        "norm_price": 400.0,
+        "norm_unit": ""
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
         "price": 400.0,
         "unit": "",
         "norm_price": 400.0,
@@ -28472,6 +28648,14 @@ window.PRODUCT_DATA = {
         "unit": "",
         "norm_price": 400.0,
         "norm_unit": ""
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
+        "price": 400.0,
+        "unit": "",
+        "norm_price": 400.0,
+        "norm_unit": ""
       }
     ],
     "norm_price_display": "400.0 / "
@@ -28495,6 +28679,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-14",
         "timestamp": "2026-08-14T03:17:10.950405+06:00",
+        "price": 525.0,
+        "unit": "each",
+        "norm_price": 525.0,
+        "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
         "price": 525.0,
         "unit": "each",
         "norm_price": 525.0,
@@ -28526,6 +28718,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 440.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
+        "price": 440.0,
+        "unit": "each",
+        "norm_price": 440.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "440.0 / each"
@@ -28553,6 +28753,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 525.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
+        "price": 525.0,
+        "unit": "each",
+        "norm_price": 525.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "525.0 / each"
@@ -28561,7 +28769,7 @@ window.PRODUCT_DATA = {
     "id": "bashundhara_kitchen_towel_rolls_2_pcs",
     "name": "Bashundhara Kitchen Towel Rolls",
     "image": "https://i.chaldn.com/_mpimage/bashundhara-kitchen-towel-rolls-2-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D99748&q=best&v=1&m=400&webp=1",
-    "category": "Napkins & Paper Products",
+    "category": "Kitchen Accessories",
     "current_price": 160.0,
     "current_unit": "2 pcs",
     "history": [
@@ -28596,7 +28804,7 @@ window.PRODUCT_DATA = {
     "id": "bashundhara_kitchen_towel_rolls_each",
     "name": "Bashundhara Kitchen Towel Rolls",
     "image": "https://i.chaldn.com/_mpimage/bashundhara-kitchen-towel-rolls-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D124786&q=best&v=1&m=400&webp=1",
-    "category": "Napkins & Paper Products",
+    "category": "Kitchen Accessories",
     "current_price": 85.0,
     "current_unit": "each",
     "history": [
@@ -28631,7 +28839,7 @@ window.PRODUCT_DATA = {
     "id": "fresh_kitchen_towel_roll_each",
     "name": "Fresh kitchen Towel Roll",
     "image": "https://i.chaldn.com/_mpimage/fresh-kitchen-towel-roll-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D49743&q=best&v=1&m=400&webp=1",
-    "category": "Napkins & Paper Products",
+    "category": "Kitchen Accessories",
     "current_price": 85.0,
     "current_unit": "each",
     "history": [
@@ -29331,7 +29539,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_deluxe_bowl_red_8_ltr_each",
     "name": "RFL Deluxe Bowl Red 8 ltr",
     "image": "https://i.chaldn.com/_mpimage/rfl-deluxe-bowl-red-8-ltr-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D153301&q=best&v=1&m=400&webp=1",
-    "category": "Basket & Bucket",
+    "category": "Kitchen Accessories",
     "current_price": 140.0,
     "current_unit": "each",
     "history": [
@@ -29366,7 +29574,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_deluxe_bowl_red_3_ltr_each",
     "name": "RFL Deluxe Bowl Red 3 ltr",
     "image": "https://i.chaldn.com/_mpimage/rfl-deluxe-bowl-red-3-ltr-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D153299&q=best&v=1&m=400&webp=1",
-    "category": "Basket & Bucket",
+    "category": "Kitchen Accessories",
     "current_price": 80.0,
     "current_unit": "each",
     "history": [
@@ -29716,7 +29924,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_family_basket_each",
     "name": "RFL Family Basket",
     "image": "https://i.chaldn.com/_mpimage/rfl-family-basket-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132758&q=best&v=1&m=400&webp=1",
-    "category": "Basket & Bucket",
+    "category": "Kitchen Accessories",
     "current_price": 520.0,
     "current_unit": "each",
     "history": [
@@ -30031,7 +30239,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_deluxe_bucket_15_ltr_red__each",
     "name": "RFL Deluxe Bucket 15 ltr (Red)",
     "image": "https://i.chaldn.com/_mpimage/rfl-deluxe-bucket-15-ltr-red-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D95523&q=best&v=1&m=400&webp=1",
-    "category": "Basket & Bucket",
+    "category": "Kitchen Accessories",
     "current_price": 240.0,
     "current_unit": "each",
     "history": [
@@ -30066,7 +30274,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_design_bucket_20_ltr_sm_blue__each",
     "name": "RFL Design Bucket 20 ltr (SM Blue)",
     "image": "https://i.chaldn.com/_mpimage/rfl-design-bucket-20-ltr-sm-blue-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132750&q=best&v=1&m=400&webp=1",
-    "category": "Basket & Bucket",
+    "category": "Kitchen Accessories",
     "current_price": 300.0,
     "current_unit": "each",
     "history": [
@@ -30101,7 +30309,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_design_bucket_25_ltr_red__each",
     "name": "RFL Design Bucket 25 ltr (Red)",
     "image": "https://i.chaldn.com/_mpimage/rfl-design-bucket-25-ltr-red-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D153302&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Basket & Bucket",
+    "category": "Kitchen Accessories",
     "current_price": 300.0,
     "current_unit": "each",
     "history": [
@@ -30136,7 +30344,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_design_bucket_25_ltr_sm_blue__each",
     "name": "RFL Design Bucket 25 ltr (SM Blue)",
     "image": "https://i.chaldn.com/_mpimage/rfl-design-bucket-25-ltr-sm-blue-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132749&q=best&v=1&m=400&webp=1",
-    "category": "Basket & Bucket",
+    "category": "Kitchen Accessories",
     "current_price": 350.0,
     "current_unit": "each",
     "history": [
@@ -30171,7 +30379,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_design_bucket_8_ltr_sm_blue__each",
     "name": "RFL Design Bucket 8 ltr (SM Blue)",
     "image": "https://i.chaldn.com/_mpimage/rfl-design-bucket-8-ltr-sm-blue-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132751&q=best&v=1&m=400&webp=1",
-    "category": "Basket & Bucket",
+    "category": "Kitchen Accessories",
     "current_price": 150.0,
     "current_unit": "each",
     "history": [
@@ -30206,7 +30414,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_design_bucket_8_ltr_red__each",
     "name": "RFL Design Bucket 8 ltr (Red)",
     "image": "https://i.chaldn.com/_mpimage/rfl-design-bucket-8-ltr-red-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D153304&q=best&v=1&m=400&webp=1",
-    "category": "Basket & Bucket",
+    "category": "Kitchen Accessories",
     "current_price": 150.0,
     "current_unit": "each",
     "history": [
@@ -30241,7 +30449,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_design_bucket_5_ltr_sm_blue__each",
     "name": "RFL Design Bucket 5 ltr (SM Blue)",
     "image": "https://i.chaldn.com/_mpimage/rfl-design-bucket-5-ltr-sm-blue-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132752&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Basket & Bucket",
+    "category": "Kitchen Accessories",
     "current_price": 120.0,
     "current_unit": "each",
     "history": [
@@ -30276,7 +30484,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_design_bowl_8_ltr_blue__each",
     "name": "RFL Design Bowl 8 ltr (Blue)",
     "image": "https://i.chaldn.com/_mpimage/rfl-design-bowl-8-ltr-blue-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D95935&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Basket & Bucket",
+    "category": "Kitchen Accessories",
     "current_price": 120.0,
     "current_unit": "each",
     "history": [
@@ -30311,7 +30519,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_design_bowl_8_ltr_red__each",
     "name": "RFL Design Bowl 8 ltr (Red)",
     "image": "https://i.chaldn.com/_mpimage/rfl-design-bowl-8-ltr-red-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132745&q=best&v=1&m=400&webp=1",
-    "category": "Basket & Bucket",
+    "category": "Kitchen Accessories",
     "current_price": 150.0,
     "current_unit": "each",
     "history": [
@@ -30346,7 +30554,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_design_bowl_3_ltr_red__each",
     "name": "RFL Design Bowl 3 ltr (Red)",
     "image": "https://i.chaldn.com/_mpimage/rfl-design-bowl-3-ltr-red-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132743&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Basket & Bucket",
+    "category": "Kitchen Accessories",
     "current_price": 80.0,
     "current_unit": "each",
     "history": [
@@ -30381,7 +30589,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_design_bowl_3_ltr_blue__each",
     "name": "RFL Design Bowl 3 ltr (Blue)",
     "image": "https://i.chaldn.com/_mpimage/rfl-design-bowl-3-ltr-blue-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132742&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Basket & Bucket",
+    "category": "Kitchen Accessories",
     "current_price": 80.0,
     "current_unit": "each",
     "history": [
@@ -30416,7 +30624,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_design_bowl_5_ltr_red__each",
     "name": "RFL Design Bowl 5 ltr (Red)",
     "image": "https://i.chaldn.com/_mpimage/rfl-design-bowl-5-ltr-red-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132744&q=best&v=1&m=400&webp=1",
-    "category": "Basket & Bucket",
+    "category": "Kitchen Accessories",
     "current_price": 110.0,
     "current_unit": "each",
     "history": [
@@ -30451,7 +30659,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_design_bowl_5_ltr_blue__each",
     "name": "RFL Design Bowl 5 ltr (Blue)",
     "image": "https://i.chaldn.com/_mpimage/rfl-design-bowl-5-ltr-blue-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D95475&q=best&v=1&m=400&webp=1",
-    "category": "Basket & Bucket",
+    "category": "Kitchen Accessories",
     "current_price": 110.0,
     "current_unit": "each",
     "history": [
@@ -31046,7 +31254,7 @@ window.PRODUCT_DATA = {
     "id": "manual_stainless_stell_hand_mixer_each",
     "name": "Manual Stainless Stell Hand Mixer",
     "image": "https://i.chaldn.com/_mpimage/manual-stainless-stell-hand-mixer-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130596&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Appliances",
+    "category": "Kitchen Accessories",
     "current_price": 169.0,
     "current_unit": "each",
     "history": [
@@ -31116,7 +31324,7 @@ window.PRODUCT_DATA = {
     "id": "npoly_design_bucket_with_lead_red__25_ltr",
     "name": "Npoly Design Bucket With Lead (Red)",
     "image": "https://i.chaldn.com/_mpimage/npoly-design-bucket-with-lead-red-25-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D131458&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Basket & Bucket",
+    "category": "Kitchen Accessories",
     "current_price": 445.0,
     "current_unit": "25 ltr",
     "history": [
@@ -31221,7 +31429,7 @@ window.PRODUCT_DATA = {
     "id": "meat_tenderizer_2_5_x_8_inch_china_each",
     "name": "Meat Tenderizer (2.5 x 8 inch) China",
     "image": "https://i.chaldn.com/_mpimage/meat-tenderizer-25-x-8-inch-china-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130655&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Appliances",
+    "category": "Kitchen Accessories",
     "current_price": 629.0,
     "current_unit": "each",
     "history": [
@@ -31256,7 +31464,7 @@ window.PRODUCT_DATA = {
     "id": "hualanz_flask_500_ml__each",
     "name": "Hualanz Flask (500 ml)",
     "image": "https://i.chaldn.com/_mpimage/hualanz-flask-500-ml-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D95800&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Appliances",
+    "category": "Kitchen Accessories",
     "current_price": 559.0,
     "current_unit": "each",
     "history": [
@@ -31326,7 +31534,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_topper_nonstick_fry_pan_lid_red_24_cm_each",
     "name": "RFL Topper NonStick Fry Pan & Lid Red 24 cm",
     "image": "https://i.chaldn.com/_mpimage/rfl-topper-nonstick-fry-pan-lid-red-24-cm-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D113257&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Appliances",
+    "category": "Kitchen Accessories",
     "current_price": 1170.0,
     "current_unit": "each",
     "history": [
@@ -31396,7 +31604,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_topper_nonstick_glamour_fry_pan_with_lid_red_26_cm_each",
     "name": "RFL Topper Nonstick Glamour Fry Pan with Lid (Red) 26 cm",
     "image": "https://i.chaldn.com/_mpimage/rfl-topper-nonstick-glamour-fry-pan-with-lid-red-26-cm-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D113254&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Appliances",
+    "category": "Kitchen Accessories",
     "current_price": 1405.0,
     "current_unit": "each",
     "history": [
@@ -31431,7 +31639,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_topper_nonstick_cassrole_lid_red_26_cm_each",
     "name": "RFL Topper NonStick Cassrole & Lid Red 26 cm",
     "image": "https://i.chaldn.com/_mpimage/rfl-topper-nonstick-cassrole-lid-red-26-cm-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D113253&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Appliances",
+    "category": "Kitchen Accessories",
     "current_price": 1940.0,
     "current_unit": "each",
     "history": [
@@ -31466,7 +31674,7 @@ window.PRODUCT_DATA = {
     "id": "rfl_topper_silver_pressure_cooker_5_ltr_each",
     "name": "RFL Topper Silver Pressure Cooker 5 ltr",
     "image": "https://chaldn.com/_mpimage/rfl-topper-silver-pressure-cooker-5-ltr-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D113266&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Appliances",
+    "category": "Kitchen Accessories",
     "current_price": 1900.0,
     "current_unit": "each",
     "history": [
@@ -38122,7 +38330,7 @@ window.PRODUCT_DATA = {
     "id": "savlon_instant_hand_sanitizer_200_ml",
     "name": "Savlon Instant Hand Sanitizer",
     "image": "https://i.chaldn.com/_mpimage/savlon-instant-hand-sanitizer-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D75306&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Hand Sanitizer",
+    "category": "Handwash & Handrub",
     "current_price": 200.0,
     "current_unit": "200 ml",
     "history": [
@@ -38157,7 +38365,7 @@ window.PRODUCT_DATA = {
     "id": "savlon_hand_sanitizer_50_ml",
     "name": "Savlon Hand Sanitizer",
     "image": "https://i.chaldn.com/_mpimage/savlon-hand-sanitizer-50-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D133231&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Hand Sanitizer",
+    "category": "Handwash & Handrub",
     "current_price": 80.0,
     "current_unit": "50 ml",
     "history": [
@@ -38227,7 +38435,7 @@ window.PRODUCT_DATA = {
     "id": "sepnil_instant_hand_sanitizer_40_ml",
     "name": "Sepnil Instant Hand Sanitizer",
     "image": "https://i.chaldn.com/_mpimage/sepnil-instant-hand-sanitizer-40-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D60016&q=best&v=1&m=400&webp=1",
-    "category": "Hand Sanitizer",
+    "category": "Handwash & Handrub",
     "current_price": 80.0,
     "current_unit": "40 ml",
     "history": [
@@ -38332,7 +38540,7 @@ window.PRODUCT_DATA = {
     "id": "sepnil_instant_hand_sanitizer_200_ml",
     "name": "Sepnil Instant Hand Sanitizer",
     "image": "https://i.chaldn.com/_mpimage/sepnil-instant-hand-sanitizer-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D178322&q=best&v=1&m=400&webp=1",
-    "category": "Hand Sanitizer",
+    "category": "Handwash & Handrub",
     "current_price": 250.0,
     "current_unit": "200 ml",
     "history": [
@@ -38507,7 +38715,7 @@ window.PRODUCT_DATA = {
     "id": "university_khata_300_pages_each",
     "name": "University khata 300 Pages",
     "image": "https://i.chaldn.com/_mpimage/university-khata-300-pages-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D114550&q=best&v=1&m=400&webp=1",
-    "category": "Diaries & Notebooks (School)",
+    "category": "Diaries & Notebooks",
     "current_price": 169.0,
     "current_unit": "each",
     "history": [
@@ -43594,7 +43802,7 @@ window.PRODUCT_DATA = {
       },
       {
         "date": "2026-08-15",
-        "timestamp": "2026-08-15T11:54:40.566891+06:00",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
         "price": 550.0,
         "unit": "100 ml",
         "norm_price": 5500.0,
@@ -43731,6 +43939,14 @@ window.PRODUCT_DATA = {
         "unit": "100 gm",
         "norm_price": 3500.0,
         "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
+        "price": 350.0,
+        "unit": "100 gm",
+        "norm_price": 3500.0,
+        "norm_unit": "1 kg"
       }
     ],
     "norm_price_display": "3500.0 / 1 kg"
@@ -43754,6 +43970,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-14",
         "timestamp": "2026-08-14T03:17:10.950405+06:00",
+        "price": 65.0,
+        "unit": "",
+        "norm_price": 65.0,
+        "norm_unit": ""
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
         "price": 65.0,
         "unit": "",
         "norm_price": 65.0,
@@ -43785,6 +44009,14 @@ window.PRODUCT_DATA = {
         "unit": "25 pcs",
         "norm_price": 9.8,
         "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
+        "price": 245.0,
+        "unit": "25 pcs",
+        "norm_price": 9.8,
+        "norm_unit": "1 pc"
       }
     ],
     "norm_price_display": "9.8 / 1 pc"
@@ -43808,6 +44040,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-14",
         "timestamp": "2026-08-14T03:17:10.950405+06:00",
+        "price": 250.0,
+        "unit": "8 pcs",
+        "norm_price": 31.25,
+        "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
         "price": 250.0,
         "unit": "8 pcs",
         "norm_price": 31.25,
@@ -43839,6 +44079,14 @@ window.PRODUCT_DATA = {
         "unit": "10 pcs",
         "norm_price": 15.0,
         "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
+        "price": 150.0,
+        "unit": "10 pcs",
+        "norm_price": 15.0,
+        "norm_unit": "1 pc"
       }
     ],
     "norm_price_display": "15.0 / 1 pc"
@@ -43862,6 +44110,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-14",
         "timestamp": "2026-08-14T03:17:10.950405+06:00",
+        "price": 110.0,
+        "unit": "25 gm",
+        "norm_price": 4400.0,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
         "price": 110.0,
         "unit": "25 gm",
         "norm_price": 4400.0,
@@ -43893,6 +44149,14 @@ window.PRODUCT_DATA = {
         "unit": "100 gm",
         "norm_price": 3500.0,
         "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
+        "price": 350.0,
+        "unit": "100 gm",
+        "norm_price": 3500.0,
+        "norm_unit": "1 kg"
       }
     ],
     "norm_price_display": "3500.0 / 1 kg"
@@ -43916,6 +44180,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-14",
         "timestamp": "2026-08-14T03:17:10.950405+06:00",
+        "price": 110.0,
+        "unit": "25 gm",
+        "norm_price": 4400.0,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
         "price": 110.0,
         "unit": "25 gm",
         "norm_price": 4400.0,
@@ -43947,6 +44219,14 @@ window.PRODUCT_DATA = {
         "unit": "",
         "norm_price": 110.0,
         "norm_unit": ""
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
+        "price": 110.0,
+        "unit": "",
+        "norm_price": 110.0,
+        "norm_unit": ""
       }
     ],
     "norm_price_display": "110.0 / "
@@ -43970,6 +44250,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-14",
         "timestamp": "2026-08-14T03:17:10.950405+06:00",
+        "price": 120.0,
+        "unit": "8 pcs",
+        "norm_price": 15.0,
+        "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
         "price": 120.0,
         "unit": "8 pcs",
         "norm_price": 15.0,
@@ -44001,6 +44289,14 @@ window.PRODUCT_DATA = {
         "unit": "6 pcs",
         "norm_price": 33.33,
         "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
+        "price": 200.0,
+        "unit": "6 pcs",
+        "norm_price": 33.33,
+        "norm_unit": "1 pc"
       }
     ],
     "norm_price_display": "33.33 / 1 pc"
@@ -44024,6 +44320,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-14",
         "timestamp": "2026-08-14T03:17:10.950405+06:00",
+        "price": 3200.0,
+        "unit": "",
+        "norm_price": 3200.0,
+        "norm_unit": ""
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
         "price": 3200.0,
         "unit": "",
         "norm_price": 3200.0,
@@ -44055,6 +44359,14 @@ window.PRODUCT_DATA = {
         "unit": "50 gm",
         "norm_price": 4000.0,
         "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
+        "price": 200.0,
+        "unit": "50 gm",
+        "norm_price": 4000.0,
+        "norm_unit": "1 kg"
       }
     ],
     "norm_price_display": "4000.0 / 1 kg"
@@ -44078,6 +44390,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-14",
         "timestamp": "2026-08-14T03:17:10.950405+06:00",
+        "price": 70.0,
+        "unit": "8 pcs",
+        "norm_price": 8.75,
+        "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
         "price": 70.0,
         "unit": "8 pcs",
         "norm_price": 8.75,
@@ -44109,6 +44429,14 @@ window.PRODUCT_DATA = {
         "unit": "8 pcs",
         "norm_price": 7.5,
         "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
+        "price": 60.0,
+        "unit": "8 pcs",
+        "norm_price": 7.5,
+        "norm_unit": "1 pc"
       }
     ],
     "norm_price_display": "7.5 / 1 pc"
@@ -44132,6 +44460,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-14",
         "timestamp": "2026-08-14T03:17:10.950405+06:00",
+        "price": 110.0,
+        "unit": "15 pcs",
+        "norm_price": 7.33,
+        "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
         "price": 110.0,
         "unit": "15 pcs",
         "norm_price": 7.33,
@@ -44163,6 +44499,14 @@ window.PRODUCT_DATA = {
         "unit": "15 pcs",
         "norm_price": 8.0,
         "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
+        "price": 120.0,
+        "unit": "15 pcs",
+        "norm_price": 8.0,
+        "norm_unit": "1 pc"
       }
     ],
     "norm_price_display": "8.0 / 1 pc"
@@ -44186,6 +44530,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-14",
         "timestamp": "2026-08-14T03:17:10.950405+06:00",
+        "price": 100.0,
+        "unit": "25 gm",
+        "norm_price": 4000.0,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
         "price": 100.0,
         "unit": "25 gm",
         "norm_price": 4000.0,
@@ -44217,6 +44569,14 @@ window.PRODUCT_DATA = {
         "unit": "7 pcs",
         "norm_price": 22.86,
         "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
+        "price": 160.0,
+        "unit": "7 pcs",
+        "norm_price": 22.86,
+        "norm_unit": "1 pc"
       }
     ],
     "norm_price_display": "22.86 / 1 pc"
@@ -44240,6 +44600,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-14",
         "timestamp": "2026-08-14T03:17:10.950405+06:00",
+        "price": 360.0,
+        "unit": "15 pcs",
+        "norm_price": 24.0,
+        "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
         "price": 360.0,
         "unit": "15 pcs",
         "norm_price": 24.0,
@@ -44271,6 +44639,14 @@ window.PRODUCT_DATA = {
         "unit": "100 ml",
         "norm_price": 5270.0,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
+        "price": 527.0,
+        "unit": "100 ml",
+        "norm_price": 5270.0,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "5270.0 / 1 L"
@@ -44294,6 +44670,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-14",
         "timestamp": "2026-08-14T03:17:10.950405+06:00",
+        "price": 170.0,
+        "unit": "20 pcs",
+        "norm_price": 8.5,
+        "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
         "price": 170.0,
         "unit": "20 pcs",
         "norm_price": 8.5,
@@ -44325,6 +44709,14 @@ window.PRODUCT_DATA = {
         "unit": "36 pcs",
         "norm_price": 5.25,
         "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
+        "price": 189.0,
+        "unit": "36 pcs",
+        "norm_price": 5.25,
+        "norm_unit": "1 pc"
       }
     ],
     "norm_price_display": "5.25 / 1 pc"
@@ -44348,6 +44740,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-14",
         "timestamp": "2026-08-14T03:17:10.950405+06:00",
+        "price": 350.0,
+        "unit": "",
+        "norm_price": 350.0,
+        "norm_unit": ""
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
         "price": 350.0,
         "unit": "",
         "norm_price": 350.0,
@@ -44379,6 +44779,14 @@ window.PRODUCT_DATA = {
         "unit": "20 pcs",
         "norm_price": 34.0,
         "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
+        "price": 680.0,
+        "unit": "20 pcs",
+        "norm_price": 34.0,
+        "norm_unit": "1 pc"
       }
     ],
     "norm_price_display": "34.0 / 1 pc"
@@ -44402,6 +44810,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-14",
         "timestamp": "2026-08-14T03:17:10.950405+06:00",
+        "price": 60.0,
+        "unit": "8 pcs",
+        "norm_price": 7.5,
+        "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
         "price": 60.0,
         "unit": "8 pcs",
         "norm_price": 7.5,
@@ -44433,6 +44849,14 @@ window.PRODUCT_DATA = {
         "unit": "10 pcs",
         "norm_price": 10.0,
         "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
+        "price": 100.0,
+        "unit": "10 pcs",
+        "norm_price": 10.0,
+        "norm_unit": "1 pc"
       }
     ],
     "norm_price_display": "10.0 / 1 pc"
@@ -44456,6 +44880,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-14",
         "timestamp": "2026-08-14T03:17:10.950405+06:00",
+        "price": 130.0,
+        "unit": "15 pcs",
+        "norm_price": 8.67,
+        "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
         "price": 130.0,
         "unit": "15 pcs",
         "norm_price": 8.67,
@@ -44487,6 +44919,14 @@ window.PRODUCT_DATA = {
         "unit": "10 pcs",
         "norm_price": 12.0,
         "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
+        "price": 120.0,
+        "unit": "10 pcs",
+        "norm_price": 12.0,
+        "norm_unit": "1 pc"
       }
     ],
     "norm_price_display": "12.0 / 1 pc"
@@ -44495,7 +44935,7 @@ window.PRODUCT_DATA = {
     "id": "veet_hair_removal_cream_normal_skin_with_lotus_milk_50_gm",
     "name": "Veet Hair Removal Cream Normal Skin With Lotus Milk",
     "image": "https://i.chaldn.com/_mpimage/veet-hair-removal-cream-normal-skin-with-lotus-milk-50-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D136999&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Hair Care",
+    "category": "Feminine Care",
     "current_price": 200.0,
     "current_unit": "50 gm",
     "history": [
@@ -44545,6 +44985,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-14",
         "timestamp": "2026-08-14T03:17:10.950405+06:00",
+        "price": 100.0,
+        "unit": "",
+        "norm_price": 100.0,
+        "norm_unit": ""
+      },
+      {
+        "date": "2026-08-15",
+        "timestamp": "2026-08-15T13:33:01.734792+06:00",
         "price": 100.0,
         "unit": "",
         "norm_price": 100.0,
@@ -45421,7 +45869,7 @@ window.PRODUCT_DATA = {
     "id": "disposable_head_cover_100_pcs",
     "name": "Disposable Head Cover",
     "image": "https://i.chaldn.com/_mpimage/disposable-head-cover-100-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D79813&q=best&v=1&m=400&webp=1",
-    "category": "Hair Care",
+    "category": "Disposables & Trash Bags",
     "current_price": 489.0,
     "current_unit": "100 pcs",
     "history": [
