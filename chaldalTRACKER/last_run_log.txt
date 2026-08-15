@@ -1,19 +1,19 @@
-Last Run: 2026-08-15 13:48:31
+Last Run: 2026-08-15 22:20:01
 ------------------------------
-Total Scraped: 5445
-Web Scraped: 5445
+Total Scraped: 5467
+Web Scraped: 5467
 App API Scraped: 0
-Combined Unique: 5445
+Combined Unique: 5467
 ------------------------------
 Categories:
 - General: 3382
-- Kitchen Accessories: 103
-- Tea: 63
-- Hair Care: 60
-- Men's Deodorants: 54
+- Kitchen Accessories: 87
+- Tea: 67
+- Hair Care: 57
+- Women's Soaps: 55
 - Liquid Handwash: 53
-- Men's Soaps: 51
+- Men's Perfume: 48
 - Air Fresheners: 47
 - Juice: 45
-- Keto Food: 42
-... and 123 more.
+- Soft Drinks: 42
+... and 127 more.
