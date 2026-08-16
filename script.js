@@ -198,6 +198,27 @@ function fmt(num) {
     return Number.isInteger(num) ? num.toString() : num.toFixed(1).replace(/\.0$/, '');
 }
 
+function unitTypeLabel(ut) {
+    const t = String(ut || '').toLowerCase();
+    if (['liter', 'ltr', 'l'].includes(t)) return 'L';
+    if (['kg', 'g', 'gm'].includes(t)) return 'kg';
+    if (['piece', 'pcs', 'each', 'pc'].includes(t)) return 'pc';
+    return t || '';
+}
+
+function formatPackUnit(unit) {
+    if (!unit) return 'N/A';
+    const m = String(unit).trim().match(/^(\d+(?:\.\d+)?)\s*(ml|milliliter|millilitre|cl)\b/i);
+    if (m) {
+        let val = parseFloat(m[1]);
+        const u = m[2].toLowerCase();
+        if (u === 'ml') val = val / 1000;
+        else if (u === 'cl') val = val / 100;
+        return fmt(val) + ' L';
+    }
+    return String(unit);
+}
+
 const MONTH_NAMES_SHORT = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 function formatChartDateItem(dateStr, includeYear = false) {
@@ -1005,11 +1026,11 @@ function createProductCard(p) {
             <div class="product-name" title="${p.name}" style="${!p.hasPriceToday ? 'font-style:italic; opacity:0.6;' : ''}">${p.name}</div>
             <div class="product-meta">
                 <div class="meta-row">
-                    <span class="price-main" style="color:${storeColor}">${(!p.hasPriceToday || !(Number(p.current_price) > 0)) ? 'Out of stock' : `${fmt(p.normalized_price)} <span class="unit-label">/${p.unit_type}</span>`}</span>
+                    <span class="price-main" style="color:${storeColor}">${(!p.hasPriceToday || !(Number(p.current_price) > 0)) ? 'Out of stock' : `${fmt(p.normalized_price)} <span class="unit-label">/${unitTypeLabel(p.unit_type)}</span>`}</span>
                     <span class="cat-tag">${p.category}</span>
                 </div>
                 <div class="meta-row">
-                    <span class="pack-info">Pack: ${p.unit || 'N/A'}</span>
+                    <span class="pack-info">Pack: ${formatPackUnit(p.unit)}</span>
                 </div>
             </div>
         </div>
@@ -1422,6 +1443,16 @@ function setupEventListeners() {
             cycleProduct(dx < 0 ? 1 : -1);
         }
     }, { passive: true });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key !== 'Escape' && e.key !== ' ') return;
+        const m = document.getElementById('chart-modal');
+        if (!m || m.classList.contains('hidden') || m.style.display === 'none') return;
+        const tag = (e.target && e.target.tagName) || '';
+        if (['INPUT', 'TEXTAREA', 'SELECT'].includes(tag)) return;
+        e.preventDefault();
+        closeModal();
+    });
 }
 
 function cycleProduct(dir) {
@@ -3514,3 +3545,565 @@ document.addEventListener('DOMContentLoaded',()=>{
         });
     }
 });
+
+// ============ GroceryGOD Assistant (chatbot) ============
+// Tier 0: offline rule-based answers over the in-browser DuckDB parquet knowledge base.
+// Tier 1: free-tier Gemini (user-supplied API key, stored ONLY in localStorage) with
+//         function calling — the model emits tool calls, we run them on local data,
+//         and only aggregates ever leave the browser. The key is never committed to GitHub.
+const CHAT_GEMINI_MODEL = 'gemini-2.5-flash';
+const CHAT_KEY_STORAGE = 'god_gemini_key';
+const CHAT_STORE_ALIASES = {
+    'shwapno': 'shwapno', 'swapno': 'shwapno', 'shwapno super shop': 'shwapno',
+    'chaldal': 'chaldal', 'chaldal.com': 'chaldal',
+    'meena': 'meenabazar', 'meenabazar': 'meenabazar', 'meena bazar': 'meenabazar',
+    'othoba': 'othoba', 'othoba.com': 'othoba',
+    'metro': 'metromart', 'metromart': 'metromart', 'metro mart': 'metromart',
+    'unimart': 'unimart', 'uni mart': 'unimart',
+    'shotej': 'shotejbazar', 'shotejbazar': 'shotejbazar', 'shotej bazar': 'shotejbazar',
+    'foodi': 'foodi', 'foodie': 'foodi'
+};
+let chatOpen = false;
+let chatBusy = false;
+let chatKey = safeStorage.getItem(CHAT_KEY_STORAGE) || '';
+let chatTurnCount = 0;
+
+function chatStoreIdFromText(text) {
+    const t = text.toLowerCase();
+    for (const alias of Object.keys(CHAT_STORE_ALIASES)) {
+        if (t.includes(alias)) return CHAT_STORE_ALIASES[alias];
+    }
+    return null;
+}
+
+function chatStoreName(sid) {
+    return (STORE_CONFIG[sid] && STORE_CONFIG[sid].name) || sid;
+}
+
+function chatFindProducts(query, storeId) {
+    const terms = String(query || '').toLowerCase().split(/\s+/).filter(w => w.length > 1);
+    let list = allProducts;
+    if (storeId) list = list.filter(p => p.store === storeId);
+    if (terms.length) {
+        list = list.filter(p => {
+            const hay = `${p.name} ${p.category} ${p.store}`.toLowerCase();
+            return terms.every(w => hay.includes(w));
+        });
+    }
+    return list.slice(0, 60);
+}
+
+function chatRanked(q, storeId, limit) {
+    const found = chatFindProducts(q, storeId);
+    const seen = new Set();
+    const out = [];
+    for (const p of found) {
+        const key = `${p.name}|${p.store}|${p.unit_type}`;
+        if (seen.has(key)) continue;
+        seen.add(key);
+        out.push(p);
+        if (out.length >= (limit || 5)) break;
+    }
+    return out;
+}
+
+function chatPriceLine(p, showStore) {
+    const store = showStore ? ` [${chatStoreName(p.store)}]` : '';
+    const price = (p.hasPriceToday === false || !(Number(p.current_price) > 0)) ? 'Out of stock' : `${fmt(p.normalized_price)}/${unitTypeLabel(p.unit_type)}`;
+    return `• ${p.name} — ${price}${store}`;
+}
+
+async function chatHistorySummary(productId, label) {
+    const h = await loadProductHistory(productId);
+    if (!h.length) return `No price history found for "${label}".`;
+    const prices = h.map(x => Number(x.normalized_price)).filter(v => v > 0);
+    if (!prices.length) return `No price history found for "${label}".`;
+    const p = allProducts.find(x => x.id === productId);
+    const unitLabel = p ? unitTypeLabel(p.unit_type) : 'unit';
+    const min = Math.min(...prices), max = Math.max(...prices);
+    const avg = prices.reduce((a, b) => a + b, 0) / prices.length;
+    const curr = prices[prices.length - 1];
+    const prev = prices.length > 1 ? prices[prices.length - 2] : curr;
+    const chg = prev > 0 ? ((curr - prev) / prev * 100) : 0;
+    const sign = chg > 0.005 ? '▲' : chg < -0.005 ? '▼' : '—';
+    return `📈 ${label} (${h[0].date.slice(0,10)} → ${h[h.length-1].date.slice(0,10)}):\n` +
+        `Current ${fmt(curr)}/${unitLabel} · Min ${fmt(min)} · Max ${fmt(max)} · Avg ${fmt(avg)}\n` +
+        `Latest change: ${sign} ${Math.abs(chg).toFixed(1)}% (last ${prices.length} price points)`;
+}
+
+function chatLocalAnswer(text) {
+    const t = text.toLowerCase().trim();
+    if (!t) return null;
+    if (t === 'help' || t === 'hi' || t === 'hello' || t === 'সালাম' || t === 'help me') {
+        return `I can answer price questions about ${Object.values(STORE_CONFIG).map(s => s.name).join(', ')} from live parquet data. Try:\n` +
+            `• "cheapest rice" — cheapest across all stores\n` +
+            `• "cheapest milk in chaldal"\n` +
+            `• "compare shwapno vs chaldal chicken"\n` +
+            `• "price of 1kg sugar"\n` +
+            `• "history of sunflower oil"\n` +
+            `• "how many products in othoba"\n` +
+            `• "which store sells eggs"`;
+    }
+    if (t.includes('how many products')) {
+        const sid = chatStoreIdFromText(t);
+        const rows = Object.entries(metadata.stores || {}).filter(([k]) => !sid || k === sid);
+        if (!rows.length) {
+            const known = Object.keys(metadata.stores || {});
+            return known.length
+                ? `No stats for that store yet. Known stores: ${known.map(chatStoreName).join(', ')}.`
+                : 'No store stats loaded yet.';
+        }
+        return rows.map(([k, v]) => `${chatStoreName(k)}: ${v.total || 0} products`).join('\n') +
+            `\n📅 Date ranges per store: ${rows.map(([k, v]) => `${chatStoreName(k)} ${v.date_range || 'N/A'}`).join(' · ')}`;
+    }
+    if (t.includes('categories') || t.includes('category')) {
+        const counts = {};
+        allProducts.forEach(p => { counts[p.category] = (counts[p.category] || 0) + 1; });
+        const top = Object.entries(counts).sort((a, b) => b[1] - a[1]).slice(0, 12);
+        return `Top categories:\n${top.map(([c, n]) => `• ${c} — ${n} products`).join('\n')}`;
+    }
+    const compareMatch = t.match(/(?:compare|which is cheaper|difference)\s+([\w\s]+?)\s+(?:vs|vs\.|versus|and|between)\s+([\w\s]+?)\s+(?:for\s+|:)?(.+)/);
+    const sidA = compareMatch ? chatStoreIdFromText(compareMatch[1]) : null;
+    const sidB = compareMatch ? chatStoreIdFromText(compareMatch[2]) : null;
+    const compareQ = compareMatch ? compareMatch[3] : null;
+    if (compareMatch && sidA && sidB && compareQ) {
+        const a = chatRanked(compareQ, sidA, 3);
+        const b = chatRanked(compareQ, sidB, 3);
+        if (!a.length && !b.length) return `No "${compareQ.trim()}" found in ${chatStoreName(sidA)} or ${chatStoreName(sidB)}.`;
+        const lines = [`⚖️ ${compareQ.trim()} — ${chatStoreName(sidA)} vs ${chatStoreName(sidB)}:`];
+        if (a.length) lines.push(`${chatStoreName(sidA)}:`, ...a.map(p => chatPriceLine(p, false)));
+        else lines.push(`${chatStoreName(sidA)}: nothing in stock`);
+        if (b.length) lines.push(`${chatStoreName(sidB)}:`, ...b.map(p => chatPriceLine(p, false)));
+        else lines.push(`${chatStoreName(sidB)}: nothing in stock`);
+        const aP = a.length ? Number(a[0].normalized_price) : Infinity;
+        const bP = b.length ? Number(b[0].normalized_price) : Infinity;
+        if (isFinite(aP) && isFinite(bP)) {
+            lines.push(aP < bP ? `🟢 ${chatStoreName(sidA)} is cheaper by ${((bP - aP) / bP * 100).toFixed(1)}%` :
+                bP < aP ? `🟢 ${chatStoreName(sidB)} is cheaper by ${((aP - bP) / aP * 100).toFixed(1)}%` : 'Both are priced the same.');
+        }
+        return lines.join('\n');
+    }
+    const historyMatch = t.match(/(?:history|trend|price history|chart)\s+(?:of\s+|for\s+)?(.+)/);
+    if (historyMatch) {
+        const p = chatRanked(historyMatch[1], chatStoreIdFromText(t), 1)[0];
+        if (!p) return `No product found matching "${historyMatch[1]}".`;
+        return chatHistorySummary(p.id, p.name);
+    }
+    const priceMatch = t.match(/(?:price|cost|rate|value)\s+(?:of\s+|for\s+)?(.+)/) ||
+                       t.match(/(?:how much (?:is|does))\s+(.+?)\s+(?:cost|worth|sell)/);
+    if (priceMatch) {
+        const sid = chatStoreIdFromText(t);
+        const found = chatRanked(priceMatch[1], sid, 5);
+        if (!found.length) return `No products found matching "${priceMatch[1]}".`;
+        return found.map(p => chatPriceLine(p, !sid)).join('\n');
+    }
+    const whichStore = t.match(/(?:which store|where|who)\s+(?:sells|has|carries|stocks)\s+(.+)/);
+    if (whichStore) {
+        const found = chatFindProducts(whichStore[1], null);
+        if (!found.length) return `No products found matching "${whichStore[1]}".`;
+        const byStore = {};
+        found.forEach(p => {
+            if (!byStore[p.store] || Number(p.normalized_price) < Number(byStore[p.store].normalized_price)) byStore[p.store] = p;
+        });
+        return Object.values(byStore).sort((a, b) => Number(a.normalized_price) - Number(b.normalized_price))
+            .map(p => chatPriceLine(p, true)).join('\n');
+    }
+    const cheapestMatch = t.match(/(?:cheapest|lowest price|best price|cheaper|most affordable|সস্তা|কম দাম)\s+(?:is\s+|for\s+|of\s+)?(.+)/) ||
+                          t.match(/(?:cheap|lowest|best)\s+(.+)/);
+    if (cheapestMatch) {
+        const sid = chatStoreIdFromText(t);
+        const found = chatRanked(cheapestMatch[1], sid, 5);
+        if (!found.length) return `No products found matching "${cheapestMatch[1]}".`;
+        const scope = sid ? ` in ${chatStoreName(sid)}` : ' across all stores';
+        return `🏷️ Cheapest "${cheapestMatch[1].trim()}"${scope}:\n` + found.map(p => chatPriceLine(p, !sid)).join('\n');
+    }
+    const sid = chatStoreIdFromText(t);
+    if (t.includes('in ') && sid) {
+        const q = t.replace(/^(what is|whats|tell me about|show me)\s*/, '').replace(/\s+in\s+.*$/, '').trim();
+        if (q.length > 2) {
+            const found = chatRanked(q, sid, 5);
+            if (found.length) return `🏷️ "${q}" in ${chatStoreName(sid)}:\n` + found.map(p => chatPriceLine(p, false)).join('\n');
+        }
+    }
+    return null;
+}
+
+// ---- Gemini tier: function calling over local data ----
+const CHAT_TOOLS = [
+    {
+        name: 'search_products',
+        description: 'Search the local grocery database for products by name/category. Returns rows with id, name, store, category, unit, unit_type, current price, normalized unit price (BDT/kg, BDT/L or BDT/pc) and price-change indicators. Use this for "cheapest X", "price of X", "compare X", "which store sells X".',
+        parameters: {
+            type: 'object',
+            properties: {
+                query: { type: 'string', description: 'Product name or category keywords, e.g. "rice", "milk", "sugar", "cooking oil"' },
+                store: { type: 'string', description: 'Optional store id: shwapno, chaldal, meenabazar, othoba, metromart, unimart, shotejbazar, foodi' },
+                sort: { type: 'string', enum: ['cheapest', 'expensive', 'name'], default: 'cheapest' },
+                limit: { type: 'integer', default: 5, description: 'Max rows (1-10)' }
+            },
+            required: ['query']
+        }
+    },
+    {
+        name: 'get_price_history',
+        description: 'Get aggregate price statistics for one product: min/max/average/current normalized price, date range and latest % change. Only aggregates are returned, never raw rows.',
+        parameters: {
+            type: 'object',
+            properties: {
+                product_id: { type: 'string', description: 'Product id from search_products' }
+            },
+            required: ['product_id']
+        }
+    },
+    {
+        name: 'get_store_stats',
+        description: 'Get per-store product counts and data date ranges.',
+        parameters: { type: 'object', properties: {} }
+    },
+    {
+        name: 'compare_across_stores',
+        description: 'For a product query, find the cheapest matching product in each store that carries it, and return the winner store + % saving.',
+        parameters: {
+            type: 'object',
+            properties: { query: { type: 'string' } },
+            required: ['query']
+        }
+    }
+];
+
+const CHAT_TOOL_HINTS = {
+    search_products: 'Try store="shwapno" for Shwapno, "chaldal" for Chaldal. Normalized price is per kg/L/pc — always compare that, not the raw pack price.',
+    get_price_history: 'Aggregate stats only: min, max, avg, current, date range, latest change %.',
+    get_store_stats: 'Product counts + date range per store.',
+    compare_across_stores: 'Return the store with the cheapest normalized unit price and the % difference.'
+};
+
+async function chatToolSearch(args) {
+    const query = String(args.query || '').trim();
+    const store = args.store ? String(args.store).toLowerCase() : null;
+    const limit = Math.max(1, Math.min(10, Number(args.limit) || 5));
+    const found = chatFindProducts(query, store).slice(0, 60);
+    const seen = new Set();
+    const rows = [];
+    for (const p of found) {
+        const key = `${p.name}|${p.store}|${p.unit_type}`;
+        if (seen.has(key)) continue;
+        seen.add(key);
+        rows.push({
+            id: p.id,
+            name: p.name,
+            store: p.store,
+            category: p.category,
+            unit: p.unit,
+            unit_type: p.unit_type,
+            current_price: p.current_price,
+            normalized_price: p.normalized_price,
+            has_price_today: !(p.hasPriceToday === false) && Number(p.current_price) > 0,
+            price_change_7d_pct: p.priceChangePercent != null ? Number(p.priceChangePercent).toFixed(1) : null,
+            seen_since: p.first_seen || null
+        });
+        if (rows.length >= limit) break;
+    }
+    if (!rows.length) return { message: 'No matching products found. Try broader keywords or a different store.' };
+    const sort = String(args.sort || 'cheapest');
+    if (sort === 'expensive') rows.sort((a, b) => b.normalized_price - a.normalized_price);
+    else if (sort === 'name') rows.sort((a, b) => a.name.localeCompare(b.name));
+    else rows.sort((a, b) => a.normalized_price - b.normalized_price);
+    return { results: rows };
+}
+
+async function chatToolHistory(args) {
+    const pid = String(args.product_id || '');
+    if (!pid) return { message: 'Missing product_id. Run search_products first.' };
+    const p = allProducts.find(x => x.id === pid);
+    const h = await loadProductHistory(pid);
+    if (!h.length) return { message: 'No price history found for this product.' };
+    const prices = h.map(x => Number(x.normalized_price)).filter(v => v > 0);
+    if (!prices.length) return { message: 'No price history found for this product.' };
+    const min = Math.min(...prices), max = Math.max(...prices);
+    const avg = prices.reduce((a, b) => a + b, 0) / prices.length;
+    const curr = prices[prices.length - 1];
+    const prev = prices.length > 1 ? prices[prices.length - 2] : curr;
+    return {
+        product_id: pid,
+        name: p ? p.name : pid,
+        store: p ? p.store : null,
+        unit: p ? p.unit : null,
+        unit_type: p ? p.unit_type : null,
+        current_normalized_price: curr,
+        min_normalized_price: min,
+        max_normalized_price: max,
+        avg_normalized_price: avg,
+        date_range: `${h[0].date.slice(0,10)} → ${h[h.length-1].date.slice(0,10)}`,
+        num_price_points: prices.length,
+        latest_change_pct: prev > 0 ? Number(((curr - prev) / prev * 100).toFixed(1)) : null,
+        has_price_today: p ? !(p.hasPriceToday === false) && Number(p.current_price) > 0 : true
+    };
+}
+
+async function chatToolStoreStats() {
+    const stores = Object.entries(metadata.stores || {});
+    if (!stores.length) return { message: 'Store stats not loaded yet.' };
+    return {
+        stores: stores.map(([k, v]) => ({ store: k, product_count: v.total || 0, date_range: v.date_range || null }))
+    };
+}
+
+async function chatToolCompare(args) {
+    const q = String(args.query || '').trim();
+    if (!q) return { message: 'Missing query.' };
+    const found = chatFindProducts(q, null);
+    if (!found.length) return { message: 'No products found for comparison.' };
+    const byStore = {};
+    found.forEach(p => {
+        if (!byStore[p.store] || Number(p.normalized_price) < Number(byStore[p.store].normalized_price)) byStore[p.store] = p;
+    });
+    const list = Object.values(byStore).sort((a, b) => Number(a.normalized_price) - Number(b.normalized_price));
+    const winner = list[0];
+    return {
+        query: q,
+        stores_carrying: list.length,
+        cheapest: winner ? {
+            store: winner.store,
+            name: winner.name,
+            normalized_price: winner.normalized_price,
+            unit_type: winner.unit_type,
+            url: winner.url || null
+        } : null,
+        per_store: list.map(p => ({
+            store: p.store,
+            name: p.name,
+            normalized_price: p.normalized_price,
+            unit_type: p.unit_type
+        }))
+    };
+}
+
+const CHAT_TOOL_EXECUTORS = {
+    search_products: chatToolSearch,
+    get_price_history: chatToolHistory,
+    get_store_stats: chatToolStoreStats,
+    compare_across_stores: chatToolCompare
+};
+
+async function chatGeminiRound(contents) {
+    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${CHAT_GEMINI_MODEL}:generateContent?key=${encodeURIComponent(chatKey)}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            contents,
+            systemInstruction: { parts: [{ text: CHAT_SYSTEM_PROMPT }] },
+            tools: [{ functionDeclarations: CHAT_TOOLS }],
+            toolConfig: { functionCallingConfig: { mode: 'AUTO' } },
+            generationConfig: { temperature: 0.3, maxOutputTokens: 900 }
+        })
+    });
+    if (!res.ok) {
+        const body = await res.text().catch(() => '');
+        if (res.status === 400 && /API key not valid|API_KEY_INVALID/.test(body)) {
+            throw new Error('AI_KEY_INVALID');
+        }
+        throw new Error(`Gemini HTTP ${res.status}: ${body.slice(0, 160)}`);
+    }
+    const data = await res.json();
+    const cand = data.candidates && data.candidates[0];
+    if (!cand || !cand.content) throw new Error('Gemini returned an empty response.');
+    return cand.content.parts || [];
+}
+
+async function chatGeminiAsk(text) {
+    const history = [];
+    const messages = document.querySelectorAll('#god-chat-messages .god-chat-msg[data-role]');
+    messages.forEach(m => {
+        const role = m.dataset.role === 'user' ? 'user' : 'model';
+        const body = m.dataset.text || m.textContent || '';
+        if (!body.trim() || m.dataset.role === 'system') return;
+        history.push({ role, parts: [{ text: body.slice(0, 800) }] });
+    });
+    history.push({ role: 'user', parts: [{ text }] });
+    history.splice(0, Math.max(0, history.length - 12));
+    let contents = history;
+    for (let round = 0; round < 4; round++) {
+        const parts = await chatGeminiRound(contents);
+        const calls = parts.filter(p => p.functionCall);
+        const texts = parts.filter(p => p.text).map(p => p.text).join('').trim();
+        if (!calls.length) {
+            if (texts) return texts;
+            throw new Error('Gemini returned no answer.');
+        }
+        const toolParts = [];
+        for (const call of calls) {
+            const name = call.functionCall.name;
+            const fn = CHAT_TOOL_EXECUTORS[name];
+            let response;
+            try {
+                if (!fn) throw new Error(`Unknown tool ${name}`);
+                response = await fn(call.functionCall.args || {});
+            } catch (e) {
+                response = { error: String(e.message || e) };
+            }
+            toolParts.push({ functionResponse: { name, response } });
+        }
+        contents = contents.concat([{ role: 'model', parts }, { role: 'user', parts: toolParts }]);
+    }
+    throw new Error('Too many tool rounds.');
+}
+
+const CHAT_SYSTEM_PROMPT =
+    'You are GroceryGOD Assistant, a price-intelligence chatbot for Bangladeshi grocery stores ' +
+    '(Shwapno, Chaldal, Meena Bazar, Othoba, Metro Mart, Unimart, ShotejBazar, Foodi). ' +
+    'You answer from a local database using the provided tools — NEVER invent prices, products or stores. ' +
+    'Prices are normalized per unit: BDT/kg, BDT/L or BDT/pc — compare normalized prices, never raw pack prices. ' +
+    'Answer concisely (under 12 lines), in Bangla or English following the user\'s language. ' +
+    'Use search_products for "cheapest/price of/which store sells", compare_across_stores for cross-store questions, ' +
+    'get_price_history for trends (use the aggregates returned — do not fabricate dates), get_store_stats for counts. ' +
+    'If a tool returns nothing, say so plainly and suggest a broader search. Prefer showing 2-5 results with store names.';
+
+function chatAppendMsg(role, text, kind) {
+    const box = document.getElementById('god-chat-messages');
+    if (!box) return;
+    const div = document.createElement('div');
+    div.className = `god-chat-msg ${kind || role}`;
+    div.dataset.role = role;
+    div.dataset.text = text;
+    div.textContent = text;
+    box.appendChild(div);
+    box.scrollTop = box.scrollHeight;
+    chatUpdateMode();
+}
+
+function chatTyping(on) {
+    const box = document.getElementById('god-chat-messages');
+    if (!box) return;
+    let el = document.querySelector('#god-chat-messages .god-chat-msg.typing');
+    if (on) {
+        if (!el) {
+            el = document.createElement('div');
+            el.className = 'god-chat-msg typing';
+            el.textContent = '…';
+            box.appendChild(el);
+        }
+    } else if (el) {
+        el.remove();
+    }
+    box.scrollTop = box.scrollHeight;
+}
+
+function chatUpdateMode() {
+    const label = document.getElementById('god-chat-mode');
+    if (label) label.textContent = chatKey ? `AI mode · ${CHAT_GEMINI_MODEL}` : 'offline mode · add Gemini key for AI answers';
+}
+
+function chatSuggestChips() {
+    const chips = document.getElementById('god-chat-chips');
+    if (!chips) return;
+    const ideas = ['cheapest rice', 'compare chaldal vs shwapno chicken', 'history of sunflower oil', 'how many products in othoba', 'which store sells eggs'];
+    chips.innerHTML = '';
+    ideas.forEach(idea => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'god-chat-chip';
+        b.textContent = idea;
+        b.addEventListener('click', () => {
+            const input = document.getElementById('god-chat-input');
+            if (input) { input.value = idea; input.focus(); }
+        });
+        chips.appendChild(b);
+    });
+}
+
+async function chatSend(text) {
+    if (chatBusy) return;
+    const q = String(text || '').trim();
+    if (!q) return;
+    chatBusy = true;
+    const sendBtn = document.querySelector('.god-chat-send');
+    if (sendBtn) sendBtn.disabled = true;
+    chatAppendMsg('user', q);
+    chatTyping(true);
+    try {
+        let answer = null;
+        let usedAI = false;
+        if (chatKey) {
+            try {
+                answer = await chatGeminiAsk(q);
+                usedAI = true;
+            } catch (e) {
+                if (String(e.message || '').includes('AI_KEY_INVALID')) {
+                    chatKey = '';
+                    safeStorage.removeItem(CHAT_KEY_STORAGE);
+                    const keyInput = document.getElementById('god-chat-key');
+                    if (keyInput) keyInput.value = '';
+                    chatUpdateMode();
+                    answer = '⚠️ That API key was rejected by Gemini (it may be invalid or out of quota). I removed it and fell back to offline mode: ' + (await chatLocalAnswer(q) || 'try rephrasing your question.');
+                } else {
+                    console.warn('[CHAT] Gemini failed, falling back to offline:', e);
+                    answer = await chatLocalAnswer(q);
+                    if (answer) answer = answer + '\n\n(Online AI answer failed — showing offline result.)';
+                }
+            }
+        }
+        if (!answer && !usedAI) answer = await chatLocalAnswer(q);
+        if (!answer) {
+            answer = chatKey
+                ? 'I could not find a confident answer for that. Try asking about a specific product, store, or comparison.'
+                : 'I could not answer that in offline mode. Add a free Gemini API key above (it stays only in your browser) for natural-language questions, or try "cheapest rice", "history of milk", "how many products in othoba".';
+        }
+        chatAppendMsg('bot', answer);
+    } catch (e) {
+        console.error('[CHAT] Error:', e);
+        chatAppendMsg('bot', `Something went wrong: ${e.message}`, 'error');
+    } finally {
+        chatTyping(false);
+        chatBusy = false;
+        if (sendBtn) sendBtn.disabled = false;
+    }
+}
+
+function chatTogglePanel(forceOpen) {
+    const panel = document.getElementById('god-chat-panel');
+    if (!panel) return;
+    chatOpen = forceOpen !== undefined ? forceOpen : !chatOpen;
+    panel.classList.toggle('hidden', !chatOpen);
+    if (chatOpen) {
+        chatUpdateMode();
+        const input = document.getElementById('god-chat-input');
+        if (input) setTimeout(() => input.focus(), 80);
+    }
+}
+
+function initChatbot() {
+    const toggle = document.getElementById('god-chat-toggle');
+    const closeBtn = document.getElementById('god-chat-close');
+    const form = document.getElementById('god-chat-form');
+    const input = document.getElementById('god-chat-input');
+    const keyInput = document.getElementById('god-chat-key');
+    const keySave = document.getElementById('god-chat-key-save');
+    const keyClear = document.getElementById('god-chat-key-clear');
+    chatKey = safeStorage.getItem(CHAT_KEY_STORAGE) || '';
+    if (keyInput) keyInput.value = chatKey ? '••••••••••••••••' : '';
+    if (toggle) toggle.addEventListener('click', () => chatTogglePanel());
+    if (closeBtn) closeBtn.addEventListener('click', () => chatTogglePanel(false));
+    if (form) form.addEventListener('submit', (e) => { e.preventDefault(); chatSend(input ? input.value : ''); if (input) input.value = ''; });
+    if (keySave) keySave.addEventListener('click', () => {
+        const v = (keyInput ? keyInput.value : '').trim();
+        if (!v || v.includes('•')) return;
+        chatKey = v;
+        safeStorage.setItem(CHAT_KEY_STORAGE, v);
+        if (keyInput) keyInput.value = '••••••••••••••••';
+        chatUpdateMode();
+        chatAppendMsg('system', 'AI mode enabled — your key is stored only in this browser (localStorage), never on GitHub.');
+    });
+    if (keyClear) keyClear.addEventListener('click', () => {
+        chatKey = '';
+        safeStorage.removeItem(CHAT_KEY_STORAGE);
+        if (keyInput) keyInput.value = '';
+        chatUpdateMode();
+        chatAppendMsg('system', 'API key removed. Back to offline mode.');
+    });
+    chatSuggestChips();
+    chatAppendMsg('system', `🛒 GroceryGOD Assistant ready — live data for ${Object.values(STORE_CONFIG).map(s => s.name).join(', ')}.\n` +
+        (chatKey ? 'AI mode is ON.' : 'Tip: paste a free Gemini API key above (stored only in your browser) for full AI answers.'));
+}
+
+document.addEventListener('DOMContentLoaded', () => { try { initChatbot(); } catch (e) { console.error('[CHAT] init failed:', e); } });
