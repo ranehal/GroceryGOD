@@ -932,12 +932,29 @@ def _send_p14_summary(results_store, repo_list):
             requests.post(f'{TG_API}/sendMessage', json={'chat_id': TELEGRAM_CHAT_ID, 'text': text, 'parse_mode': 'HTML', 'disable_notification': silent}, timeout=15)
         except: pass
 
+    # File-based results are the source of truth (Manager dict proxies can silently fail on Kaggle).
+    file_results = {}
+    try:
+        import glob as _glob
+        for _f in _glob.glob('/tmp/p14_result_*.json'):
+            try:
+                with open(_f, 'r', encoding='utf-8') as fh:
+                    _r = json.load(fh)
+                if isinstance(_r, dict) and _r.get('label'):
+                    file_results[_r['label']] = _r
+            except Exception:
+                pass
+    except Exception:
+        pass
+
     lines = ["📊 <b>Scheduled Repos (p14) — Finished</b>"]
     ok = fail = 0
     for label, url in repo_list:
         rec = {}
         try:
-            rec = results_store.get(label, {}) if results_store is not None else {}
+            rec = file_results.get(label) or {}
+            if not rec and results_store is not None:
+                rec = results_store.get(label, {})
         except Exception:
             pass
         if rec.get('status') == 'ok':
@@ -993,7 +1010,14 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
     print(f"[{label}] Process Started.")
 
     _p14_record = {}
+    _p14_file = os.path.join('/tmp', f"p14_result_{re.sub(r'[^A-Za-z0-9]+', '_', label.strip().lower()).strip('_')}.json")
     def _store_result():
+        _p14_record['label'] = label
+        try:
+            with open(_p14_file, 'w', encoding='utf-8') as _f:
+                json.dump(_p14_record, _f)
+        except Exception:
+            pass
         if results_store is not None:
             try:
                 results_store[label] = _p14_record
@@ -1224,6 +1248,13 @@ if __name__ == '__main__':
     
     _manager = multiprocessing.Manager()
     _p14_results = _manager.dict()
+    try:
+        import glob as _glob
+        for _f in _glob.glob('/tmp/p14_result_*.json'):
+            try: os.remove(_f)
+            except Exception: pass
+    except Exception:
+        pass
 
     _scheduled_repos = [
         ('https://github.com/ranehal/FooDIE-RESTaurant-Analytics.git', 'scrape_menus.py', ' FooDIE Restaurant Analytics'),
