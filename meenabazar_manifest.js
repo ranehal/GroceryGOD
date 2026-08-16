@@ -1,0 +1,1 @@
+window.meenabazarManifest = {"metadata":{"last_update":"2026-08-16 14:40:43","total":15269,"date_range":"2026-08-13 to 2026-08-16","total_chunks":4,"chunk_size":5000,"scraper_stats":{"web_scraped":5001,"app_scraped":10268,"web_selected":5001,"app_selected":10268,"dropped":0,"web":5001,"app":10268,"combined":15269}}};
