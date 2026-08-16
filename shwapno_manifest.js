@@ -1,1 +1,0 @@
-window.shwapnoManifest = {"metadata":{"last_update":"2026-08-16 10:17:16","total":4301,"date_range":"2026-07-31 to 2026-08-16","total_chunks":1,"chunk_size":5000,"scraper_stats":{"web_scraped":4560,"app_scraped":3463,"web_selected":4041,"app_selected":260,"dropped":3203,"web":4560,"app":3463,"combined":4301}}};
