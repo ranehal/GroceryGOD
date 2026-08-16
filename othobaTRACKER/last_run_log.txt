@@ -1,14 +1,14 @@
-Last Run: 2026-08-16 03:39:12
+Last Run: 2026-08-16 10:08:45
 ------------------------------
-Total Scraped: 70699
-Web Scraped: 42996
-App API Scraped: 44875
-Combined Unique: 70699
+Total Scraped: 70704
+Web Scraped: 43029
+App API Scraped: 44876
+Combined Unique: 70704
 ------------------------------
 Categories:
 - Books: 992
 - Home Improvement: 947
-- Lawn & Gardening: 929
+- Lawn & Gardening: 928
 - Smartwatches & Accessories: 924
 - Furniture: 908
 - Biking & Accessories: 882

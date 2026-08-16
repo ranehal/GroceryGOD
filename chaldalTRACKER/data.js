@@ -939,7 +939,7 @@ window.PRODUCT_DATA = {
     "id": "sirona_oxo_biodegradable_tampon_condom_disposal_bag_50_pcs",
     "name": "Sirona Oxo-Biodegradable Tampon & Condom Disposal Bag",
     "image": "https://i.chaldn.com/_mpimage/sirona-oxo-biodegradable-tampon-condom-disposal-bag-50-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D168380&q=best&v=1&m=400&webp=1",
-    "category": "Family Planning",
+    "category": "Feminine Care",
     "current_price": 350.0,
     "current_unit": "50 pcs",
     "history": [
@@ -962,6 +962,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 350.0,
+        "unit": "50 pcs",
+        "norm_price": 7.0,
+        "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 350.0,
         "unit": "50 pcs",
         "norm_price": 7.0,
@@ -1421,6 +1429,14 @@ window.PRODUCT_DATA = {
         "unit": "50 pcs",
         "norm_price": 6.4,
         "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 320.0,
+        "unit": "50 pcs",
+        "norm_price": 6.4,
+        "norm_unit": "1 pc"
       }
     ],
     "norm_price_display": "6.4 / 1 pc"
@@ -1452,6 +1468,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 630.0,
+        "unit": "400 gm",
+        "norm_price": 1575.0,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 630.0,
         "unit": "400 gm",
         "norm_price": 1575.0,
@@ -1491,6 +1515,14 @@ window.PRODUCT_DATA = {
         "unit": "50 pcs",
         "norm_price": 6.4,
         "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 320.0,
+        "unit": "50 pcs",
+        "norm_price": 6.4,
+        "norm_unit": "1 pc"
       }
     ],
     "norm_price_display": "6.4 / 1 pc"
@@ -1522,6 +1554,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 280.0,
+        "unit": "100 pcs",
+        "norm_price": 2.8,
+        "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 280.0,
         "unit": "100 pcs",
         "norm_price": 2.8,
@@ -1561,6 +1601,14 @@ window.PRODUCT_DATA = {
         "unit": "2 pcs",
         "norm_price": 125.0,
         "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 250.0,
+        "unit": "2 pcs",
+        "norm_price": 125.0,
+        "norm_unit": "1 pc"
       }
     ],
     "norm_price_display": "125.0 / 1 pc"
@@ -1596,6 +1644,14 @@ window.PRODUCT_DATA = {
         "unit": "50 pcs",
         "norm_price": 10.0,
         "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 500.0,
+        "unit": "50 pcs",
+        "norm_price": 10.0,
+        "norm_unit": "1 pc"
       }
     ],
     "norm_price_display": "10.0 / 1 pc"
@@ -1604,7 +1660,7 @@ window.PRODUCT_DATA = {
     "id": "standard_horlicks_health_and_nutrition_drink_jar_250_gm",
     "name": "Standard Horlicks Health And Nutrition Drink Jar",
     "image": "https://i.chaldn.com/_mpimage/standard-horlicks-health-and-nutrition-drink-jar-250-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D163368&q=best&v=1&m=400&webp=1",
-    "category": "Syrups & Powder Drinks",
+    "category": "Food Supplements",
     "current_price": 280.0,
     "current_unit": "250 gm",
     "history": [
@@ -1674,6 +1730,14 @@ window.PRODUCT_DATA = {
         "unit": "50 pcs",
         "norm_price": 6.4,
         "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 320.0,
+        "unit": "50 pcs",
+        "norm_price": 6.4,
+        "norm_unit": "1 pc"
       }
     ],
     "norm_price_display": "6.4 / 1 pc"
@@ -1709,6 +1773,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 199.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 199.0,
+        "unit": "each",
+        "norm_price": 199.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "199.0 / each"
@@ -1717,7 +1789,7 @@ window.PRODUCT_DATA = {
     "id": "mother_s_horlicks_health_and_nutrition_drink_bib_350_gm",
     "name": "Mother's Horlicks Health and Nutrition Drink BIB",
     "image": "https://i.chaldn.com/_mpimage/mothers-horlicks-health-and-nutrition-drink-bib-350-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128293&q=best&v=1&m=400&webp=1",
-    "category": "Syrups & Powder Drinks",
+    "category": "Food Supplements",
     "current_price": 620.0,
     "current_unit": "350 gm",
     "history": [
@@ -1760,7 +1832,7 @@ window.PRODUCT_DATA = {
     "id": "horlicks_chocolate_flavour_jar_500_gm",
     "name": "Horlicks Chocolate Flavour Jar",
     "image": "https://i.chaldn.com/_mpimage/horlicks-chocolate-flavour-jar-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D163350&q=best&v=1&m=400&webp=1",
-    "category": "Syrups & Powder Drinks",
+    "category": "Food Supplements",
     "current_price": 550.0,
     "current_unit": "500 gm",
     "history": [
@@ -1803,7 +1875,7 @@ window.PRODUCT_DATA = {
     "id": "junior_horlicks_health_and_nutrition_drink_container_stage_2_500_gm",
     "name": "Junior Horlicks Health And Nutrition Drink Container Stage-2",
     "image": "https://i.chaldn.com/_mpimage/junior-horlicks-health-and-nutrition-drink-container-stage-2-500-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D168999&q=best&v=1&m=400&webp=1",
-    "category": "Syrups & Powder Drinks",
+    "category": "Food Supplements",
     "current_price": 550.0,
     "current_unit": "500 gm",
     "history": [
@@ -1873,6 +1945,14 @@ window.PRODUCT_DATA = {
         "unit": "500 gm",
         "norm_price": 1000.0,
         "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 500.0,
+        "unit": "500 gm",
+        "norm_price": 1000.0,
+        "norm_unit": "1 kg"
       }
     ],
     "norm_price_display": "1000.0 / 1 kg"
@@ -1881,7 +1961,7 @@ window.PRODUCT_DATA = {
     "id": "maltova_health_and_nutrition_drink_bib_400_gm",
     "name": "Maltova Health And Nutrition Drink BIB",
     "image": "https://i.chaldn.com/_mpimage/maltova-health-and-nutrition-drink-bib-400-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128292&q=best&v=1&m=400&webp=1",
-    "category": "Syrups & Powder Drinks",
+    "category": "Food Supplements",
     "current_price": 550.0,
     "current_unit": "400 gm",
     "history": [
@@ -1924,7 +2004,7 @@ window.PRODUCT_DATA = {
     "id": "boost_chocolate_jar_400_gm",
     "name": "Boost Chocolate Jar",
     "image": "https://i.chaldn.com/_mpimage/boost-chocolate-jar-400-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D173037&q=best&v=1&m=400&webp=1",
-    "category": "Syrups & Powder Drinks",
+    "category": "Food Supplements",
     "current_price": 550.0,
     "current_unit": "400 gm",
     "history": [
@@ -1967,7 +2047,7 @@ window.PRODUCT_DATA = {
     "id": "women_s_plus_horlicks_health_and_nutrition_drink_jar_400_gm",
     "name": "Women's Plus Horlicks Health And Nutrition Drink Jar",
     "image": "https://i.chaldn.com/_mpimage/womens-plus-horlicks-health-and-nutrition-drink-jar-400-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128374&q=best&v=1&m=400&webp=1",
-    "category": "Syrups & Powder Drinks",
+    "category": "Food Supplements",
     "current_price": 600.0,
     "current_unit": "400 gm",
     "history": [
@@ -2010,7 +2090,7 @@ window.PRODUCT_DATA = {
     "id": "horlicks_lite_health_and_nutrition_drink_jar_400_gm",
     "name": "Horlicks Lite Health And Nutrition Drink Jar",
     "image": "https://i.chaldn.com/_mpimage/horlicks-lite-health-and-nutrition-drink-jar-400-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D155022&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Syrups & Powder Drinks",
+    "category": "Food Supplements",
     "current_price": 650.0,
     "current_unit": "400 gm",
     "history": [
@@ -2076,6 +2156,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 3385.0,
+        "unit": "1 kg",
+        "norm_price": 3385.0,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 3385.0,
         "unit": "1 kg",
         "norm_price": 3385.0,
@@ -3421,7 +3509,7 @@ window.PRODUCT_DATA = {
     "id": "best_s_mushroom_choice_whole_tin_425_gm",
     "name": "Best's Mushroom Choice Whole Tin",
     "image": "https://i.chaldn.com/_mpimage/bests-mushroom-choice-whole-tin-425-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D125750&q=best&v=1&m=400&webp=1",
-    "category": "Mushroom Cans",
+    "category": "Keto Food",
     "current_price": 182.0,
     "current_unit": "425 gm",
     "history": [
@@ -3636,7 +3724,7 @@ window.PRODUCT_DATA = {
     "id": "brooke_bond_taaza_black_tea_400_gm",
     "name": "Brooke Bond Taaza Black Tea",
     "image": "https://i.chaldn.com/_mpimage/brooke-bond-taaza-black-tea-400-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D162455&q=best&v=1&m=400&webp=1",
-    "category": "Tea",
+    "category": "Keto Food",
     "current_price": 250.0,
     "current_unit": "400 gm",
     "history": [
@@ -3679,7 +3767,7 @@ window.PRODUCT_DATA = {
     "id": "nestle_nescafe_classic_instant_coffee_jar_45_gm",
     "name": "Nestle Nescafe Classic Instant Coffee Jar",
     "image": "https://i.chaldn.com/_mpimage/nestle-nescafe-classic-instant-coffee-jar-45-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D161347&q=best&v=1&m=400&webp=1",
-    "category": "Coffee",
+    "category": "Keto Food",
     "current_price": 275.0,
     "current_unit": "45 gm",
     "history": [
@@ -3765,7 +3853,7 @@ window.PRODUCT_DATA = {
     "id": "kazi_kazi_organic_green_tea_40_pcs_60_gm",
     "name": "Kazi & Kazi Organic Green Tea 40 pcs",
     "image": "https://i.chaldn.com/_mpimage/kazi-kazi-organic-green-tea-40-pcs-60-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D108206&q=best&v=1&m=400&webp=1",
-    "category": "Tea",
+    "category": "Keto Food",
     "current_price": 215.0,
     "current_unit": "60 gm",
     "history": [
@@ -3980,7 +4068,7 @@ window.PRODUCT_DATA = {
     "id": "vivo_ambient_whip_topping_with_vegetable_fat_1100_gm",
     "name": "Vivo Ambient Whip Topping with Vegetable Fat",
     "image": "https://i.chaldn.com/_mpimage/vivo-ambient-whip-topping-with-vegetable-fat-1100-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D137073&q=best&v=1&m=400&webp=1",
-    "category": "Baking Ingredients",
+    "category": "Keto Food",
     "current_price": 736.0,
     "current_unit": "1100 gm",
     "history": [
@@ -4195,7 +4283,7 @@ window.PRODUCT_DATA = {
     "id": "ispahani_blender_s_choice_premium_green_tea_bag_70_gm_50_pcs",
     "name": "Ispahani Blender's Choice Premium Green Tea Bag 70 gm",
     "image": "https://i.chaldn.com/_mpimage/ispahani-blenders-choice-premium-green-tea-bag-70-gm-50-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D107163&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Tea",
+    "category": "Keto Food",
     "current_price": 205.0,
     "current_unit": "50 pcs",
     "history": [
@@ -4281,7 +4369,7 @@ window.PRODUCT_DATA = {
     "id": "hibiscus_premium_whole_baby_corn_in_brine_425_gm",
     "name": "Hibiscus Premium Whole Baby Corn In Brine",
     "image": "https://i.chaldn.com/_mpimage/hibiscus-premium-whole-baby-corn-in-brine-425-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D103095&q=best&v=1&m=400&webp=1",
-    "category": "Vegetable Cans",
+    "category": "Keto Food",
     "current_price": 360.0,
     "current_unit": "425 gm",
     "history": [
@@ -4453,7 +4541,7 @@ window.PRODUCT_DATA = {
     "id": "lipton_green_tea_bag_honey_and_lemon_50_pcs",
     "name": "Lipton Green Tea Bag Honey and Lemon",
     "image": "https://i.chaldn.com/_mpimage/lipton-green-tea-bag-honey-and-lemon-50-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D93326&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Tea",
+    "category": "Keto Food",
     "current_price": 150.0,
     "current_unit": "50 pcs",
     "history": [
@@ -4582,7 +4670,7 @@ window.PRODUCT_DATA = {
     "id": "hosen_mushroom_choice_whole_can_425_gm",
     "name": "Hosen Mushroom Choice Whole Can",
     "image": "https://i.chaldn.com/_mpimage/hosen-mushroom-choice-whole-can-425-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D92521&q=best&v=1&m=400&webp=1",
-    "category": "Mushroom Cans",
+    "category": "Keto Food",
     "current_price": 350.0,
     "current_unit": "425 gm",
     "history": [
@@ -4625,7 +4713,7 @@ window.PRODUCT_DATA = {
     "id": "hosen_green_peas_choice_whole_can_397_gm",
     "name": "Hosen Green Peas Choice Whole Can",
     "image": "https://i.chaldn.com/_mpimage/hosen-green-peas-choice-whole-can-397-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D129337&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Vegetable Cans",
+    "category": "Keto Food",
     "current_price": 200.0,
     "current_unit": "397 gm",
     "history": [
@@ -4668,7 +4756,7 @@ window.PRODUCT_DATA = {
     "id": "ispahani_blender_s_choice_premium_green_tea_35_gm_25_pcs",
     "name": "Ispahani Blender's Choice Premium Green Tea 35 gm",
     "image": "https://i.chaldn.com/_mpimage/ispahani-blenders-choice-premium-green-tea-35-gm-25-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D107156&q=best&v=1&m=400&webp=1",
-    "category": "Tea",
+    "category": "Keto Food",
     "current_price": 110.0,
     "current_unit": "25 pcs",
     "history": [
@@ -4781,6 +4869,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 450.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 450.0,
+        "unit": "each",
+        "norm_price": 450.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "450.0 / each"
@@ -4789,7 +4885,7 @@ window.PRODUCT_DATA = {
     "id": "twinings_green_tea_lemon_25_tea_bags_each",
     "name": "Twinings Green Tea & Lemon 25 Tea bags",
     "image": "https://i.chaldn.com/_mpimage/twinings-green-tea-lemon-25-tea-bags-1-pack?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D136601&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Tea",
+    "category": "Keto Food",
     "current_price": 850.0,
     "current_unit": "each",
     "history": [
@@ -4859,6 +4955,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 909.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 909.0,
+        "unit": "each",
+        "norm_price": 909.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "909.0 / each"
@@ -4867,7 +4971,7 @@ window.PRODUCT_DATA = {
     "id": "figaro_pitted_black_olive_340_gm",
     "name": "Figaro Pitted Black Olive",
     "image": "https://i.chaldn.com/_mpimage/figaro-pitted-black-olive-340-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D109282&q=best&v=1&m=400&webp=1",
-    "category": "Canned Fruits & Sweets",
+    "category": "Keto Food",
     "current_price": 395.0,
     "current_unit": "340 gm",
     "history": [
@@ -5039,7 +5143,7 @@ window.PRODUCT_DATA = {
     "id": "hibiscus_mushrooms_choice_whole_can_425_gm",
     "name": "Hibiscus Mushrooms Choice Whole Can",
     "image": "https://i.chaldn.com/_mpimage/hibiscus-mushrooms-choice-whole-can-425-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D129220&q=best&v=1&m=400&webp=1",
-    "category": "Mushroom Cans",
+    "category": "Keto Food",
     "current_price": 229.0,
     "current_unit": "425 gm",
     "history": [
@@ -5152,6 +5256,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 1375.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 1375.0,
+        "unit": "each",
+        "norm_price": 1375.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "1375.0 / each"
@@ -5183,6 +5295,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 1090.0,
+        "unit": "each",
+        "norm_price": 1090.0,
+        "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 1090.0,
         "unit": "each",
         "norm_price": 1090.0,
@@ -5222,6 +5342,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 870.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 870.0,
+        "unit": "each",
+        "norm_price": 870.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "870.0 / each"
@@ -5253,6 +5381,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 990.0,
+        "unit": "each",
+        "norm_price": 990.0,
+        "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 990.0,
         "unit": "each",
         "norm_price": 990.0,
@@ -5292,6 +5428,14 @@ window.PRODUCT_DATA = {
         "unit": "20 pcs",
         "norm_price": 7.5,
         "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 150.0,
+        "unit": "20 pcs",
+        "norm_price": 7.5,
+        "norm_unit": "1 pc"
       }
     ],
     "norm_price_display": "7.5 / 1 pc"
@@ -5323,6 +5467,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 500.0,
+        "unit": "12 pcs",
+        "norm_price": 41.67,
+        "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 500.0,
         "unit": "12 pcs",
         "norm_price": 41.67,
@@ -5362,6 +5514,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 259.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 259.0,
+        "unit": "each",
+        "norm_price": 259.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "259.0 / each"
@@ -5393,6 +5553,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T11:54:40.566891+06:00",
+        "price": 140.0,
+        "unit": "each",
+        "norm_price": 140.0,
+        "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 140.0,
         "unit": "each",
         "norm_price": 140.0,
@@ -5432,6 +5600,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 115.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 115.0,
+        "unit": "each",
+        "norm_price": 115.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "115.0 / each"
@@ -5463,6 +5639,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T11:54:40.566891+06:00",
+        "price": 119.0,
+        "unit": "12 pcs",
+        "norm_price": 9.92,
+        "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 119.0,
         "unit": "12 pcs",
         "norm_price": 9.92,
@@ -5502,6 +5686,14 @@ window.PRODUCT_DATA = {
         "unit": "24 pcs",
         "norm_price": 5.21,
         "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 125.0,
+        "unit": "24 pcs",
+        "norm_price": 5.21,
+        "norm_unit": "1 pc"
       }
     ],
     "norm_price_display": "5.21 / 1 pc"
@@ -5533,6 +5725,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T11:54:40.566891+06:00",
+        "price": 140.0,
+        "unit": "12 pcs",
+        "norm_price": 11.67,
+        "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 140.0,
         "unit": "12 pcs",
         "norm_price": 11.67,
@@ -5572,6 +5772,14 @@ window.PRODUCT_DATA = {
         "unit": "12 pcs",
         "norm_price": 20.75,
         "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 249.0,
+        "unit": "12 pcs",
+        "norm_price": 20.75,
+        "norm_unit": "1 pc"
       }
     ],
     "norm_price_display": "20.75 / 1 pc"
@@ -5603,6 +5811,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T11:54:40.566891+06:00",
+        "price": 369.0,
+        "unit": "12 pcs",
+        "norm_price": 30.75,
+        "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 369.0,
         "unit": "12 pcs",
         "norm_price": 30.75,
@@ -5642,6 +5858,14 @@ window.PRODUCT_DATA = {
         "unit": "12 pcs",
         "norm_price": 10.42,
         "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 125.0,
+        "unit": "12 pcs",
+        "norm_price": 10.42,
+        "norm_unit": "1 pc"
       }
     ],
     "norm_price_display": "10.42 / 1 pc"
@@ -5673,6 +5897,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 320.0,
+        "unit": "12 pcs",
+        "norm_price": 26.67,
+        "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 320.0,
         "unit": "12 pcs",
         "norm_price": 26.67,
@@ -5712,6 +5944,14 @@ window.PRODUCT_DATA = {
         "unit": "12 pcs",
         "norm_price": 13.0,
         "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 156.0,
+        "unit": "12 pcs",
+        "norm_price": 13.0,
+        "norm_unit": "1 pc"
       }
     ],
     "norm_price_display": "13.0 / 1 pc"
@@ -5743,6 +5983,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 120.0,
+        "unit": "12 pcs",
+        "norm_price": 10.0,
+        "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 120.0,
         "unit": "12 pcs",
         "norm_price": 10.0,
@@ -5782,6 +6030,14 @@ window.PRODUCT_DATA = {
         "unit": "12 pcs",
         "norm_price": 10.0,
         "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 120.0,
+        "unit": "12 pcs",
+        "norm_price": 10.0,
+        "norm_unit": "1 pc"
       }
     ],
     "norm_price_display": "10.0 / 1 pc"
@@ -5790,7 +6046,7 @@ window.PRODUCT_DATA = {
     "id": "faber_castell_hb_pencil_with_eraser__12_pcs",
     "name": "Faber Castell HB pencil (with Eraser)",
     "image": "https://i.chaldn.com/_mpimage/faber-castell-hb-pencil-with-eraser-12-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128271&q=best&v=1&m=400&webp=1",
-    "category": "Diaries & Notebooks (School)",
+    "category": "Pencils",
     "current_price": 249.0,
     "current_unit": "12 pcs",
     "history": [
@@ -7983,7 +8239,7 @@ window.PRODUCT_DATA = {
     "id": "bigen_hair_color_conditioner_light_brown__80_gm",
     "name": "Bigen Hair Color & Conditioner (Light Brown)",
     "image": "https://i.chaldn.com/_mpimage/bigen-hair-color-conditioner-light-brown-80-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D125773&q=best&v=1&m=400&webp=1",
-    "category": "Hair Color",
+    "category": "Men's Hair Care",
     "current_price": 750.0,
     "current_unit": "80 gm",
     "history": [
@@ -8026,7 +8282,7 @@ window.PRODUCT_DATA = {
     "id": "bigen_hair_color_conditioner_natural_brown__80_gm",
     "name": "Bigen Hair Color & Conditioner (Natural Brown)",
     "image": "https://i.chaldn.com/_mpimage/bigen-hair-color-conditioner-natural-brown-80-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D71945&q=best&v=1&m=400&webp=1",
-    "category": "Hair Color",
+    "category": "Men's Hair Care",
     "current_price": 700.0,
     "current_unit": "80 gm",
     "history": [
@@ -8069,7 +8325,7 @@ window.PRODUCT_DATA = {
     "id": "bigen_hair_color_conditioner_dark_brown__80_gm",
     "name": "Bigen Hair Color & Conditioner (Dark Brown)",
     "image": "https://i.chaldn.com/_mpimage/bigen-hair-color-conditioner-dark-brown-80-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D71944&q=best&v=1&m=400&webp=1",
-    "category": "Hair Color",
+    "category": "Men's Hair Care",
     "current_price": 700.0,
     "current_unit": "80 gm",
     "history": [
@@ -8112,7 +8368,7 @@ window.PRODUCT_DATA = {
     "id": "bigen_hair_color_conditioner_natural_black__80_gm",
     "name": "Bigen Hair Color & Conditioner (Natural Black)",
     "image": "https://i.chaldn.com/_mpimage/bigen-hair-color-conditioner-natural-black-80-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D125774&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Hair Color",
+    "category": "Men's Hair Care",
     "current_price": 700.0,
     "current_unit": "80 gm",
     "history": [
@@ -9703,7 +9959,7 @@ window.PRODUCT_DATA = {
     "id": "parachute_advansed_aloe_vera_hair_oil_250_ml_2_pcs",
     "name": "Parachute Advansed Aloe Vera Hair Oil 250 ml",
     "image": "https://i.chaldn.com/_mpimage/parachute-advansed-aloe-vera-hair-oil-250-ml-2-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D109555&q=best&v=1&m=400&webp=1",
-    "category": "Body & Hair Oil",
+    "category": "Men's Hair Care",
     "current_price": 640.0,
     "current_unit": "2 pcs",
     "history": [
@@ -9746,7 +10002,7 @@ window.PRODUCT_DATA = {
     "id": "livon_hair_serum_50_ml",
     "name": "Livon Hair Serum",
     "image": "https://i.chaldn.com/_mpimage/livon-hair-serum-50-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130306&q=best&v=1&m=400&webp=1",
-    "category": "Body & Hair Oil",
+    "category": "Men's Hair Care",
     "current_price": 300.0,
     "current_unit": "50 ml",
     "history": [
@@ -9945,6 +10201,14 @@ window.PRODUCT_DATA = {
         "unit": "200 ml",
         "norm_price": 5000.0,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 1000.0,
+        "unit": "200 ml",
+        "norm_price": 5000.0,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "5000.0 / 1 L"
@@ -9980,6 +10244,14 @@ window.PRODUCT_DATA = {
         "unit": "150 ml",
         "norm_price": 1833.33,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 275.0,
+        "unit": "150 ml",
+        "norm_price": 1833.33,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "1833.33 / 1 L"
@@ -9988,7 +10260,7 @@ window.PRODUCT_DATA = {
     "id": "parachute_skinpure_aloe_vera_gel_100_ml",
     "name": "Parachute SkinPure Aloe Vera Gel",
     "image": "https://i.chaldn.com/_mpimage/parachute-skinpure-aloe-vera-gel-100-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D131962&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Female Moisturizer",
+    "category": "Cream & Lotion",
     "current_price": 205.0,
     "current_unit": "100 ml",
     "history": [
@@ -10058,6 +10330,14 @@ window.PRODUCT_DATA = {
         "unit": "200 ml",
         "norm_price": 1775.0,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 355.0,
+        "unit": "200 ml",
+        "norm_price": 1775.0,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "1775.0 / 1 L"
@@ -10066,7 +10346,7 @@ window.PRODUCT_DATA = {
     "id": "parachute_skinpure_aloe_vera_gel_50_ml",
     "name": "Parachute SkinPure Aloe Vera Gel",
     "image": "https://i.chaldn.com/_mpimage/parachute-skinpure-aloe-vera-gel-50-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D131963&q=best&v=1&m=400&webp=1",
-    "category": "Female Moisturizer",
+    "category": "Cream & Lotion",
     "current_price": 120.0,
     "current_unit": "50 ml",
     "history": [
@@ -10109,7 +10389,7 @@ window.PRODUCT_DATA = {
     "id": "garnier_skin_naturals_light_complete_serum_mask_each",
     "name": "Garnier Skin Naturals Light Complete Serum Mask",
     "image": "https://i.chaldn.com/_mpimage/garnier-skin-naturals-light-complete-serum-mask-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D60891&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Masks & Cleansers",
+    "category": "Serum, Oil & Toners",
     "current_price": 135.0,
     "current_unit": "each",
     "history": [
@@ -10179,6 +10459,14 @@ window.PRODUCT_DATA = {
         "unit": "100 gm",
         "norm_price": 7000.0,
         "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 700.0,
+        "unit": "100 gm",
+        "norm_price": 7000.0,
+        "norm_unit": "1 kg"
       }
     ],
     "norm_price_display": "7000.0 / 1 kg"
@@ -10210,6 +10498,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 199.0,
+        "unit": "100 ml",
+        "norm_price": 1990.0,
+        "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 199.0,
         "unit": "100 ml",
         "norm_price": 1990.0,
@@ -10249,6 +10545,14 @@ window.PRODUCT_DATA = {
         "unit": "100 ml",
         "norm_price": 6500.0,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 650.0,
+        "unit": "100 ml",
+        "norm_price": 6500.0,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "6500.0 / 1 L"
@@ -10280,6 +10584,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 230.0,
+        "unit": "100 ml",
+        "norm_price": 2300.0,
+        "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 230.0,
         "unit": "100 ml",
         "norm_price": 2300.0,
@@ -10362,6 +10674,14 @@ window.PRODUCT_DATA = {
         "unit": "100 gm",
         "norm_price": 1500.0,
         "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 150.0,
+        "unit": "100 gm",
+        "norm_price": 1500.0,
+        "norm_unit": "1 kg"
       }
     ],
     "norm_price_display": "1500.0 / 1 kg"
@@ -10393,6 +10713,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 23.0,
+        "unit": "15 ml",
+        "norm_price": 1533.33,
+        "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 23.0,
         "unit": "15 ml",
         "norm_price": 1533.33,
@@ -10432,6 +10760,14 @@ window.PRODUCT_DATA = {
         "unit": "100 gm",
         "norm_price": 1500.0,
         "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 150.0,
+        "unit": "100 gm",
+        "norm_price": 1500.0,
+        "norm_unit": "1 kg"
       }
     ],
     "norm_price_display": "1500.0 / 1 kg"
@@ -10463,6 +10799,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 140.0,
+        "unit": "125 ml",
+        "norm_price": 1120.0,
+        "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 140.0,
         "unit": "125 ml",
         "norm_price": 1120.0,
@@ -10502,6 +10846,14 @@ window.PRODUCT_DATA = {
         "unit": "250 ml",
         "norm_price": 3800.0,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 950.0,
+        "unit": "250 ml",
+        "norm_price": 3800.0,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "3800.0 / 1 L"
@@ -10533,6 +10885,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 299.0,
+        "unit": "50 ml",
+        "norm_price": 5980.0,
+        "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 299.0,
         "unit": "50 ml",
         "norm_price": 5980.0,
@@ -10572,6 +10932,14 @@ window.PRODUCT_DATA = {
         "unit": "250 ml",
         "norm_price": 3520.0,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 880.0,
+        "unit": "250 ml",
+        "norm_price": 3520.0,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "3520.0 / 1 L"
@@ -10603,6 +10971,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 50.0,
+        "unit": "60 ml",
+        "norm_price": 833.33,
+        "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 50.0,
         "unit": "60 ml",
         "norm_price": 833.33,
@@ -10642,6 +11018,14 @@ window.PRODUCT_DATA = {
         "unit": "50 gm",
         "norm_price": 1400.0,
         "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 70.0,
+        "unit": "50 gm",
+        "norm_price": 1400.0,
+        "norm_unit": "1 kg"
       }
     ],
     "norm_price_display": "1400.0 / 1 kg"
@@ -10673,6 +11057,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 110.0,
+        "unit": "100 ml",
+        "norm_price": 1100.0,
+        "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 110.0,
         "unit": "100 ml",
         "norm_price": 1100.0,
@@ -10712,6 +11104,14 @@ window.PRODUCT_DATA = {
         "unit": "100 ml",
         "norm_price": 1100.0,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 110.0,
+        "unit": "100 ml",
+        "norm_price": 1100.0,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "1100.0 / 1 L"
@@ -10743,6 +11143,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 65.0,
+        "unit": "50 ml",
+        "norm_price": 1300.0,
+        "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 65.0,
         "unit": "50 ml",
         "norm_price": 1300.0,
@@ -10782,6 +11190,14 @@ window.PRODUCT_DATA = {
         "unit": "100 ml",
         "norm_price": 2500.0,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 250.0,
+        "unit": "100 ml",
+        "norm_price": 2500.0,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "2500.0 / 1 L"
@@ -10813,6 +11229,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 115.0,
+        "unit": "120 gm",
+        "norm_price": 958.33,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 115.0,
         "unit": "120 gm",
         "norm_price": 958.33,
@@ -10852,6 +11276,14 @@ window.PRODUCT_DATA = {
         "unit": "125 gm",
         "norm_price": 920.0,
         "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 115.0,
+        "unit": "125 gm",
+        "norm_price": 920.0,
+        "norm_unit": "1 kg"
       }
     ],
     "norm_price_display": "920.0 / 1 kg"
@@ -10883,6 +11315,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 25.0,
+        "unit": "5.5 ml",
+        "norm_price": 4545.45,
+        "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 25.0,
         "unit": "5.5 ml",
         "norm_price": 4545.45,
@@ -10922,6 +11362,14 @@ window.PRODUCT_DATA = {
         "unit": "50 ml",
         "norm_price": 1300.0,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 65.0,
+        "unit": "50 ml",
+        "norm_price": 1300.0,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "1300.0 / 1 L"
@@ -10957,6 +11405,14 @@ window.PRODUCT_DATA = {
         "unit": "50 ml",
         "norm_price": 1300.0,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 65.0,
+        "unit": "50 ml",
+        "norm_price": 1300.0,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "1300.0 / 1 L"
@@ -10965,7 +11421,7 @@ window.PRODUCT_DATA = {
     "id": "nivea_express_hydration_body_lotion_380_ml",
     "name": "Nivea Express Hydration Body Lotion",
     "image": "https://i.chaldn.com/_mpimage/nivea-express-hydration-body-lotion-380-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D159834&q=best&v=1&m=400&webp=1",
-    "category": "Female Moisturizer",
+    "category": "Lotions",
     "current_price": 1250.0,
     "current_unit": "380 ml",
     "history": [
@@ -11008,7 +11464,7 @@ window.PRODUCT_DATA = {
     "id": "enchanteur_perfumed_body_lotion_charming_satin_smooth_500_ml",
     "name": "Enchanteur Perfumed Body Lotion Charming Satin Smooth",
     "image": "https://i.chaldn.com/_mpimage/enchanteur-perfumed-body-lotion-charming-satin-smooth-500-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D169085&q=best&v=1&m=400&webp=1",
-    "category": "Female Moisturizer",
+    "category": "Cream & Lotion",
     "current_price": 1700.0,
     "current_unit": "500 ml",
     "history": [
@@ -11078,6 +11534,14 @@ window.PRODUCT_DATA = {
         "unit": "200 ml",
         "norm_price": 1350.0,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 270.0,
+        "unit": "200 ml",
+        "norm_price": 1350.0,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "1350.0 / 1 L"
@@ -11109,6 +11573,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 1480.0,
+        "unit": "400 gm",
+        "norm_price": 3700.0,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 1480.0,
         "unit": "400 gm",
         "norm_price": 3700.0,
@@ -11148,6 +11620,14 @@ window.PRODUCT_DATA = {
         "unit": "100 ml",
         "norm_price": 3800.0,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 380.0,
+        "unit": "100 ml",
+        "norm_price": 3800.0,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "3800.0 / 1 L"
@@ -11183,6 +11663,14 @@ window.PRODUCT_DATA = {
         "unit": "200 ml",
         "norm_price": 1325.0,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 265.0,
+        "unit": "200 ml",
+        "norm_price": 1325.0,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "1325.0 / 1 L"
@@ -11191,7 +11679,7 @@ window.PRODUCT_DATA = {
     "id": "vaseline_intensive_care_cocoa_radiant_lotion_200_ml",
     "name": "Vaseline Intensive Care Cocoa Radiant Lotion",
     "image": "https://i.chaldn.com/_mpimage/vaseline-intensive-care-cocoa-radiant-lotion-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D136923&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Female Moisturizer",
+    "category": "Lotions",
     "current_price": 425.0,
     "current_unit": "200 ml",
     "history": [
@@ -11234,7 +11722,7 @@ window.PRODUCT_DATA = {
     "id": "vaseline_intensive_care_advance_strength_lotion_400_ml",
     "name": "Vaseline Intensive Care Advance Strength Lotion",
     "image": "https://i.chaldn.com/_mpimage/vaseline-intensive-care-advance-strength-lotion-400-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D136680&q=best&v=1&m=400&webp=1",
-    "category": "Female Moisturizer",
+    "category": "Lotions",
     "current_price": 825.0,
     "current_unit": "400 ml",
     "history": [
@@ -11277,7 +11765,7 @@ window.PRODUCT_DATA = {
     "id": "parachute_skinpure_skin_lotion_natural_moisture_200_ml",
     "name": "Parachute SkinPure Skin Lotion Natural Moisture",
     "image": "https://i.chaldn.com/_mpimage/parachute-skinpure-skin-lotion-natural-moisture-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D131976&q=best&v=1&m=400&webp=1",
-    "category": "Female Moisturizer",
+    "category": "Lotions",
     "current_price": 250.0,
     "current_unit": "200 ml",
     "history": [
@@ -11320,7 +11808,7 @@ window.PRODUCT_DATA = {
     "id": "parachute_skinpure_skin_lotion_natural_white_200_ml",
     "name": "Parachute SkinPure Skin Lotion Natural White",
     "image": "https://i.chaldn.com/_mpimage/parachute-skinpure-skin-lotion-natural-white-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D131981&q=best&v=1&m=400&webp=1",
-    "category": "Female Moisturizer",
+    "category": "Lotions",
     "current_price": 260.0,
     "current_unit": "200 ml",
     "history": [
@@ -11363,7 +11851,7 @@ window.PRODUCT_DATA = {
     "id": "parachute_skinpure_skin_lotion_natural_moisture_300_ml",
     "name": "Parachute SkinPure Skin Lotion Natural Moisture",
     "image": "https://i.chaldn.com/_mpimage/parachute-skinpure-skin-lotion-natural-moisture-300-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D107062&q=best&v=1&m=400&webp=1",
-    "category": "Female Moisturizer",
+    "category": "Lotions",
     "current_price": 340.0,
     "current_unit": "300 ml",
     "history": [
@@ -11406,7 +11894,7 @@ window.PRODUCT_DATA = {
     "id": "parachute_skinpure_skin_lotion_natural_white_100_ml",
     "name": "Parachute SkinPure Skin Lotion Natural White",
     "image": "https://i.chaldn.com/_mpimage/parachute-skinpure-skin-lotion-natural-white-100-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D131983&q=best&v=1&m=400&webp=1",
-    "category": "Female Moisturizer",
+    "category": "Lotions",
     "current_price": 160.0,
     "current_unit": "100 ml",
     "history": [
@@ -11449,7 +11937,7 @@ window.PRODUCT_DATA = {
     "id": "parachute_skinpure_skin_lotion_natural_moisture_100_ml",
     "name": "Parachute SkinPure Skin Lotion Natural Moisture",
     "image": "https://i.chaldn.com/_mpimage/parachute-skinpure-skin-lotion-natural-moisture-100-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D131977&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Female Moisturizer",
+    "category": "Lotions",
     "current_price": 150.0,
     "current_unit": "100 ml",
     "history": [
@@ -11492,7 +11980,7 @@ window.PRODUCT_DATA = {
     "id": "boots_cocoa_butter_body_lotion_390_ml",
     "name": "Boots Cocoa Butter Body Lotion",
     "image": "https://i.chaldn.com/_mpimage/boots-cocoa-butter-body-lotion-390-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D52083&q=best&v=1&m=400&webp=1",
-    "category": "Female Moisturizer",
+    "category": "Lotions",
     "current_price": 1550.0,
     "current_unit": "390 ml",
     "history": [
@@ -11535,7 +12023,7 @@ window.PRODUCT_DATA = {
     "id": "dove_nourishing_body_care_intensive_body_lotion_400_ml",
     "name": "Dove Nourishing Body Care Intensive Body Lotion",
     "image": "https://i.chaldn.com/_mpimage/dove-nourishing-body-care-intensive-body-lotion-400-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D127865&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Female Moisturizer",
+    "category": "Lotions",
     "current_price": 715.0,
     "current_unit": "400 ml",
     "history": [
@@ -11578,7 +12066,7 @@ window.PRODUCT_DATA = {
     "id": "enchanteur_perfumed_body_lotion_gorgeous_satin_smooth_500_ml",
     "name": "Enchanteur Perfumed Body Lotion Gorgeous Satin Smooth",
     "image": "https://i.chaldn.com/_mpimage/enchanteur-perfumed-body-lotion-gorgeous-500-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D169086&q=best&v=1&m=400&webp=1",
-    "category": "Female Moisturizer",
+    "category": "Lotions",
     "current_price": 1500.0,
     "current_unit": "500 ml",
     "history": [
@@ -11664,7 +12152,7 @@ window.PRODUCT_DATA = {
     "id": "boroplus_moisturising_lotion_aloe_vera_milk_300_ml",
     "name": "Boroplus Moisturising Lotion Aloe Vera & Milk",
     "image": "https://i.chaldn.com/_mpimage/boroplus-moisturising-lotion-aloe-vera-milk-300-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D60404&q=best&v=1&m=400&webp=1",
-    "category": "Female Moisturizer",
+    "category": "Lotions",
     "current_price": 390.0,
     "current_unit": "300 ml",
     "history": [
@@ -11734,6 +12222,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 550.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 550.0,
+        "unit": "each",
+        "norm_price": 550.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "550.0 / each"
@@ -11769,6 +12265,14 @@ window.PRODUCT_DATA = {
         "unit": "400 ml",
         "norm_price": 3125.0,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 1250.0,
+        "unit": "400 ml",
+        "norm_price": 3125.0,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "3125.0 / 1 L"
@@ -11777,7 +12281,7 @@ window.PRODUCT_DATA = {
     "id": "enchanteur_perfumed_body_lotion_romantic_satin_smooth_500_ml",
     "name": "Enchanteur Perfumed Body Lotion Romantic Satin Smooth",
     "image": "https://i.chaldn.com/_mpimage/enchanteur-perfumed-body-lotion-romantic-500-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D169083&q=best&v=1&m=400&webp=1",
-    "category": "Female Moisturizer",
+    "category": "Lotions",
     "current_price": 1150.0,
     "current_unit": "500 ml",
     "history": [
@@ -11820,7 +12324,7 @@ window.PRODUCT_DATA = {
     "id": "revive_moisturizing_lotion_200_ml",
     "name": "Revive Moisturizing Lotion",
     "image": "https://i.chaldn.com/_mpimage/revive-moisturizing-lotion-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D185465&q=best&v=1&m=400&webp=1",
-    "category": "Female Moisturizer",
+    "category": "Lotions",
     "current_price": 260.0,
     "current_unit": "200 ml",
     "history": [
@@ -11863,7 +12367,7 @@ window.PRODUCT_DATA = {
     "id": "vaseline_lotion_deep_restore_400_ml",
     "name": "Vaseline Lotion Deep Restore",
     "image": "https://i.chaldn.com/_mpimage/vaseline-lotion-deep-restore-400-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D136939&q=best&v=1&m=400&webp=1",
-    "category": "Female Moisturizer",
+    "category": "Lotions",
     "current_price": 850.0,
     "current_unit": "400 ml",
     "history": [
@@ -11906,7 +12410,7 @@ window.PRODUCT_DATA = {
     "id": "vaseline_lotion_healthy_bright_100_ml",
     "name": "Vaseline Lotion Healthy Bright",
     "image": "https://i.chaldn.com/_mpimage/vaseline-lotion-healthy-bright-100-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D180804&q=best&v=1&m=400&webp=1",
-    "category": "Female Moisturizer",
+    "category": "Lotions",
     "current_price": 190.0,
     "current_unit": "100 ml",
     "history": [
@@ -11949,7 +12453,7 @@ window.PRODUCT_DATA = {
     "id": "vaseline_lotion_healthy_bright_200_ml",
     "name": "Vaseline Lotion Healthy Bright",
     "image": "https://i.chaldn.com/_mpimage/vaseline-lotion-healthy-bright-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D181182&q=best&v=1&m=400&webp=1",
-    "category": "Female Moisturizer",
+    "category": "Lotions",
     "current_price": 300.0,
     "current_unit": "200 ml",
     "history": [
@@ -11992,7 +12496,7 @@ window.PRODUCT_DATA = {
     "id": "vaseline_lotion_healthy_bright_300_ml",
     "name": "Vaseline Lotion Healthy Bright",
     "image": "https://i.chaldn.com/_mpimage/vaseline-lotion-healthy-bright-300-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D181181&q=best&v=1&m=400&webp=1",
-    "category": "Female Moisturizer",
+    "category": "Lotions",
     "current_price": 420.0,
     "current_unit": "300 ml",
     "history": [
@@ -12035,7 +12539,7 @@ window.PRODUCT_DATA = {
     "id": "nivea_intensive_moisture_body_milk_lotion_250_ml",
     "name": "Nivea Intensive Moisture Body Milk Lotion",
     "image": "https://i.chaldn.com/_mpimage/nivea-intensive-moisture-body-milk-lotion-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D103640&q=best&v=1&m=400&webp=1",
-    "category": "Female Moisturizer",
+    "category": "Lotions",
     "current_price": 725.0,
     "current_unit": "250 ml",
     "history": [
@@ -14442,7 +14946,7 @@ window.PRODUCT_DATA = {
     "id": "fresh_hand_towel_250x1_ply__each",
     "name": "Fresh Hand Towel (250X1 Ply)",
     "image": "https://i.chaldn.com/_mpimage/fresh-hand-towel-250x1-ply-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D113119&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Napkins & Paper Products",
     "current_price": 100.0,
     "current_unit": "each",
     "history": [
@@ -14528,7 +15032,7 @@ window.PRODUCT_DATA = {
     "id": "fresh_paper_napkins_13_perfumed_100x1_ply__each",
     "name": "Fresh Paper Napkins 13\" Perfumed (100X1 Ply)",
     "image": "https://i.chaldn.com/_mpimage/fresh-paper-napkins-13-perfumed-100x1-ply-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D113125&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Napkins & Paper Products",
     "current_price": 75.0,
     "current_unit": "each",
     "history": [
@@ -14657,7 +15161,7 @@ window.PRODUCT_DATA = {
     "id": "bashundhara_paper_napkins_13_unscented_100_pcs",
     "name": "Bashundhara Paper Napkins 13\" Unscented",
     "image": "https://i.chaldn.com/_mpimage/bashundhara-paper-napkins-13-unscented-100-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D164084&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Napkins & Paper Products",
     "current_price": 75.0,
     "current_unit": "100 pcs",
     "history": [
@@ -15001,7 +15505,7 @@ window.PRODUCT_DATA = {
     "id": "comely_shower_gel_sunshine_garden__350_ml",
     "name": "Comely Shower Gel (Sunshine Garden)",
     "image": "https://i.chaldn.com/_mpimage/comely-shower-gel-sunshine-garden-350-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D186422&q=best&v=1&m=400&webp=1",
-    "category": "Women's Shower Gel",
+    "category": "Men's Shower Gels",
     "current_price": 300.0,
     "current_unit": "350 ml",
     "history": [
@@ -15044,7 +15548,7 @@ window.PRODUCT_DATA = {
     "id": "the_dermalix_rose_soothing_shower_gel_250_ml",
     "name": "The Dermalix Rose Soothing Shower Gel",
     "image": "https://i.chaldn.com/_mpimage/the-dermalix-rose-soothing-shower-gel-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D183903&q=best&v=1&m=400&webp=1",
-    "category": "Women's Shower Gel",
+    "category": "Men's Shower Gels",
     "current_price": 350.0,
     "current_unit": "250 ml",
     "history": [
@@ -15087,7 +15591,7 @@ window.PRODUCT_DATA = {
     "id": "dettol_skincare_bodywash_250_ml",
     "name": "Dettol Skincare Bodywash",
     "image": "https://i.chaldn.com/_mpimage/dettol-skincare-bodywash-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D149404&q=best&v=1&m=400&webp=1",
-    "category": "Women's Shower Gel",
+    "category": "Men's Shower Gels",
     "current_price": 225.0,
     "current_unit": "250 ml",
     "history": [
@@ -15130,7 +15634,7 @@ window.PRODUCT_DATA = {
     "id": "lux_body_wash_french_rose_almond_oil_245_ml",
     "name": "Lux Body Wash French Rose & Almond Oil",
     "image": "https://i.chaldn.com/_mpimage/lux-body-wash-french-rose-almond-oil-245-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D177276&q=best&v=1&m=400&webp=1",
-    "category": "Women's Shower Gel",
+    "category": "Men's Shower Gels",
     "current_price": 220.0,
     "current_unit": "245 ml",
     "history": [
@@ -15173,7 +15677,7 @@ window.PRODUCT_DATA = {
     "id": "dettol_aloe_vera_bodywash_250_ml",
     "name": "Dettol Aloe Vera Bodywash",
     "image": "https://i.chaldn.com/_mpimage/dettol-aloe-vera-bodywash-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D163292&q=best&v=1&m=400&webp=1",
-    "category": "Women's Shower Gel",
+    "category": "Men's Shower Gels",
     "current_price": 225.0,
     "current_unit": "250 ml",
     "history": [
@@ -15216,7 +15720,7 @@ window.PRODUCT_DATA = {
     "id": "dettol_cool_bodywash_250_ml",
     "name": "Dettol Cool Bodywash",
     "image": "https://i.chaldn.com/_mpimage/dettol-cool-bodywash-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D163291&q=best&v=1&m=400&webp=1",
-    "category": "Women's Shower Gel",
+    "category": "Men's Shower Gels",
     "current_price": 225.0,
     "current_unit": "250 ml",
     "history": [
@@ -15259,7 +15763,7 @@ window.PRODUCT_DATA = {
     "id": "dettol_skincare_bodywash_refill_170_ml",
     "name": "Dettol Skincare Bodywash Refill",
     "image": "https://i.chaldn.com/_mpimage/dettol-skincare-bodywash-refill-170-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D153114&q=best&v=1&m=400&webp=1",
-    "category": "Women's Shower Gel",
+    "category": "Men's Shower Gels",
     "current_price": 125.0,
     "current_unit": "170 ml",
     "history": [
@@ -15302,7 +15806,7 @@ window.PRODUCT_DATA = {
     "id": "dettol_lasting_fresh_bodywash_refill_170_ml",
     "name": "Dettol Lasting Fresh Bodywash Refill",
     "image": "https://i.chaldn.com/_mpimage/dettol-lasting-fresh-bodywash-refill-170-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D153113&q=best&v=1&m=400&webp=1",
-    "category": "Women's Shower Gel",
+    "category": "Men's Shower Gels",
     "current_price": 125.0,
     "current_unit": "170 ml",
     "history": [
@@ -15345,7 +15849,7 @@ window.PRODUCT_DATA = {
     "id": "dettol_original_bodywash_250_ml",
     "name": "Dettol Original Bodywash",
     "image": "https://i.chaldn.com/_mpimage/dettol-original-bodywash-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D149403&q=best&v=1&m=400&webp=1",
-    "category": "Women's Shower Gel",
+    "category": "Men's Shower Gels",
     "current_price": 200.0,
     "current_unit": "250 ml",
     "history": [
@@ -15388,7 +15892,7 @@ window.PRODUCT_DATA = {
     "id": "dettol_fresh_antibacterial_bodywash_citrus_orange_blossom_250_ml",
     "name": "Dettol Fresh Antibacterial Bodywash Citrus & Orange Blossom",
     "image": "https://i.chaldn.com/_mpimage/dettol-fresh-antibacterial-bodywash-citrus-orange-blossom-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D104957&q=best&v=1&m=400&webp=1",
-    "category": "Women's Shower Gel",
+    "category": "Men's Shower Gels",
     "current_price": 350.0,
     "current_unit": "250 ml",
     "history": [
@@ -15458,6 +15962,14 @@ window.PRODUCT_DATA = {
         "unit": "250 ml",
         "norm_price": 2800.0,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 700.0,
+        "unit": "250 ml",
+        "norm_price": 2800.0,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "2800.0 / 1 L"
@@ -15493,6 +16005,14 @@ window.PRODUCT_DATA = {
         "unit": "250 ml",
         "norm_price": 2600.0,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 650.0,
+        "unit": "250 ml",
+        "norm_price": 2600.0,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "2600.0 / 1 L"
@@ -15501,7 +16021,7 @@ window.PRODUCT_DATA = {
     "id": "biore_mens_hygienic_energy_shower_gel_250_ml",
     "name": "Biore Mens Hygienic Energy Shower Gel",
     "image": "https://i.chaldn.com/_mpimage/biore-mens-hygienic-energy-shower-gel-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D116352&q=best&v=1&m=400&webp=1",
-    "category": "Women's Shower Gel",
+    "category": "Men's Shower Gels",
     "current_price": 750.0,
     "current_unit": "250 ml",
     "history": [
@@ -15544,7 +16064,7 @@ window.PRODUCT_DATA = {
     "id": "biore_mens_cool_energy_shower_gel_250_ml",
     "name": "Biore Mens Cool Energy Shower Gel",
     "image": "https://i.chaldn.com/_mpimage/biore-mens-cool-energy-shower-gel-250-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D116351&q=best&v=1&m=400&webp=1",
-    "category": "Women's Shower Gel",
+    "category": "Men's Shower Gels",
     "current_price": 750.0,
     "current_unit": "250 ml",
     "history": [
@@ -15587,7 +16107,7 @@ window.PRODUCT_DATA = {
     "id": "st_ives_fresh_skin_apricot_body_wash_400_ml",
     "name": "St. Ives Fresh Skin Apricot Body Wash",
     "image": "https://i.chaldn.com/_mpimage/st-ives-fresh-skin-apricot-body-wash-400-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D134993&q=best&v=1&m=400&webp=1",
-    "category": "Women's Shower Gel",
+    "category": "Men's Shower Gels",
     "current_price": 850.0,
     "current_unit": "400 ml",
     "history": [
@@ -15657,6 +16177,14 @@ window.PRODUCT_DATA = {
         "unit": "125 gm",
         "norm_price": 1960.0,
         "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 245.0,
+        "unit": "125 gm",
+        "norm_price": 1960.0,
+        "norm_unit": "1 kg"
       }
     ],
     "norm_price_display": "1960.0 / 1 kg"
@@ -15688,6 +16216,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 650.0,
+        "unit": "250 ml",
+        "norm_price": 2600.0,
+        "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 650.0,
         "unit": "250 ml",
         "norm_price": 2600.0,
@@ -15727,6 +16263,14 @@ window.PRODUCT_DATA = {
         "unit": "250 ml",
         "norm_price": 2600.0,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 650.0,
+        "unit": "250 ml",
+        "norm_price": 2600.0,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "2600.0 / 1 L"
@@ -15758,6 +16302,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 650.0,
+        "unit": "250 ml",
+        "norm_price": 2600.0,
+        "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 650.0,
         "unit": "250 ml",
         "norm_price": 2600.0,
@@ -15797,6 +16349,14 @@ window.PRODUCT_DATA = {
         "unit": "100 ml",
         "norm_price": 1390.0,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 139.0,
+        "unit": "100 ml",
+        "norm_price": 1390.0,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "1390.0 / 1 L"
@@ -15828,6 +16388,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 50.0,
+        "unit": "",
+        "norm_price": 50.0,
+        "norm_unit": ""
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 50.0,
         "unit": "",
         "norm_price": 50.0,
@@ -15996,6 +16564,14 @@ window.PRODUCT_DATA = {
         "unit": "100 ml",
         "norm_price": 2000.0,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 200.0,
+        "unit": "100 ml",
+        "norm_price": 2000.0,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "2000.0 / 1 L"
@@ -16027,6 +16603,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 1099.0,
+        "unit": "50 gm",
+        "norm_price": 21980.0,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 1099.0,
         "unit": "50 gm",
         "norm_price": 21980.0,
@@ -16066,6 +16650,14 @@ window.PRODUCT_DATA = {
         "unit": "200 ml",
         "norm_price": 1400.0,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 280.0,
+        "unit": "200 ml",
+        "norm_price": 1400.0,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "1400.0 / 1 L"
@@ -16074,7 +16666,7 @@ window.PRODUCT_DATA = {
     "id": "eunyul_tomato_soothing_gel_300_gm",
     "name": "Eunyul Tomato Soothing Gel",
     "image": "https://i.chaldn.com/_mpimage/eunyul-tomato-soothing-gel-300-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D108991&q=best&v=1&m=400&webp=1",
-    "category": "Female Moisturizer",
+    "category": "Cream & Lotion",
     "current_price": 1400.0,
     "current_unit": "300 gm",
     "history": [
@@ -16160,7 +16752,7 @@ window.PRODUCT_DATA = {
     "id": "tibet_pomade_50_ml",
     "name": "Tibet Pomade",
     "image": "https://i.chaldn.com/_mpimage/tibet-pomade-50-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D136217&q=best&v=1&m=400&webp=1",
-    "category": "Female Moisturizer",
+    "category": "Cream & Lotion",
     "current_price": 70.0,
     "current_unit": "50 ml",
     "history": [
@@ -16203,7 +16795,7 @@ window.PRODUCT_DATA = {
     "id": "livon_hair_serum_18_ml",
     "name": "Livon Hair Serum",
     "image": "https://i.chaldn.com/_mpimage/livon-hair-serum-18-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130305&q=best&v=1&m=400&webp=1",
-    "category": "Hair Care",
+    "category": "Men's Hair Care",
     "current_price": 140.0,
     "current_unit": "18 ml",
     "history": [
@@ -16226,6 +16818,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 140.0,
+        "unit": "18 ml",
+        "norm_price": 7777.78,
+        "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 140.0,
         "unit": "18 ml",
         "norm_price": 7777.78,
@@ -16265,6 +16865,14 @@ window.PRODUCT_DATA = {
         "unit": "150 gm",
         "norm_price": 3460.0,
         "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 519.0,
+        "unit": "150 gm",
+        "norm_price": 3460.0,
+        "norm_unit": "1 kg"
       }
     ],
     "norm_price_display": "3460.0 / 1 kg"
@@ -16273,7 +16881,7 @@ window.PRODUCT_DATA = {
     "id": "gillette_blue_2_disposable_razor_each",
     "name": "Gillette Blue 2 Disposable Razor",
     "image": "https://i.chaldn.com/_mpimage/gillette-blue-2-disposable-razor-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D114759&q=best&v=1&m=400&webp=1",
-    "category": "Beard Grooming",
+    "category": "Shaving Needs",
     "current_price": 55.0,
     "current_unit": "each",
     "history": [
@@ -16300,6 +16908,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 55.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 55.0,
+        "unit": "each",
+        "norm_price": 55.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "55.0 / each"
@@ -16308,7 +16924,7 @@ window.PRODUCT_DATA = {
     "id": "gillette_guard_cartridges_single_cartridge_each",
     "name": "Gillette Guard Cartridges Single Cartridge",
     "image": "https://i.chaldn.com/_mpimage/gillette-guard-cartridges-single-cartridge-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128790&q=best&v=1&m=400&webp=1",
-    "category": "Beard Grooming",
+    "category": "Shaving Needs",
     "current_price": 30.0,
     "current_unit": "each",
     "history": [
@@ -16335,6 +16951,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 30.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 30.0,
+        "unit": "each",
+        "norm_price": 30.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "30.0 / each"
@@ -16343,7 +16967,7 @@ window.PRODUCT_DATA = {
     "id": "gillette_mach3_turbo_men_s_shaving_razor_each",
     "name": "Gillette Mach3 Turbo Men's Shaving Razor",
     "image": "https://i.chaldn.com/_mpimage/gillette-mach3-turbo-mens-shaving-razor-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D128800&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Razors & Blades",
+    "category": "Shaving Needs",
     "current_price": 665.0,
     "current_unit": "each",
     "history": [
@@ -16370,6 +16994,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 665.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 665.0,
+        "unit": "each",
+        "norm_price": 665.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "665.0 / each"
@@ -16378,7 +17010,7 @@ window.PRODUCT_DATA = {
     "id": "gillette_proglide_men_s_grooming_razor_with_flexible_technology_each",
     "name": "Gillette Proglide Men's Grooming Razor With Flexible Technology",
     "image": "https://i.chaldn.com/_mpimage/gillette-proglide-mens-grooming-razor-with-flexible-technology-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D146408&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Razors & Blades",
+    "category": "Shaving Needs",
     "current_price": 1090.0,
     "current_unit": "each",
     "history": [
@@ -16405,6 +17037,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 1090.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 1090.0,
+        "unit": "each",
+        "norm_price": 1090.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "1090.0 / each"
@@ -16413,7 +17053,7 @@ window.PRODUCT_DATA = {
     "id": "gillette_mach3_new_blade_razor_each",
     "name": "Gillette Mach3 New Blade Razor",
     "image": "https://i.chaldn.com/_mpimage/gillette-mach3-new-blade-razor-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D181489&q=best&v=1&m=400&webp=1",
-    "category": "Beard Grooming",
+    "category": "Shaving Needs",
     "current_price": 655.0,
     "current_unit": "each",
     "history": [
@@ -16440,6 +17080,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 655.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 655.0,
+        "unit": "each",
+        "norm_price": 655.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "655.0 / each"
@@ -16448,7 +17096,7 @@ window.PRODUCT_DATA = {
     "id": "gillette_fusion_manual_razor_each",
     "name": "Gillette Fusion Manual Razor",
     "image": "https://i.chaldn.com/_mpimage/gillette-fusion-manual-razor-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D146407&q=best&v=1&m=400&webp=1",
-    "category": "Beard Grooming",
+    "category": "Shaving Needs",
     "current_price": 1090.0,
     "current_unit": "each",
     "history": [
@@ -16475,6 +17123,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 1090.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 1090.0,
+        "unit": "each",
+        "norm_price": 1090.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "1090.0 / each"
@@ -16483,7 +17139,7 @@ window.PRODUCT_DATA = {
     "id": "fogg_body_spray_royal_120_ml",
     "name": "Fogg Body spray Royal",
     "image": "https://i.chaldn.com/_mpimage/fogg-body-spray-royal-120-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D109952&q=best&v=1&m=400&webp=1",
-    "category": "Men's Deodorants",
+    "category": "Men's Perfume",
     "current_price": 520.0,
     "current_unit": "120 ml",
     "history": [
@@ -16506,6 +17162,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 520.0,
+        "unit": "120 ml",
+        "norm_price": 4333.33,
+        "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 520.0,
         "unit": "120 ml",
         "norm_price": 4333.33,
@@ -16545,6 +17209,14 @@ window.PRODUCT_DATA = {
         "unit": "",
         "norm_price": 604.0,
         "norm_unit": ""
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 604.0,
+        "unit": "",
+        "norm_price": 604.0,
+        "norm_unit": ""
       }
     ],
     "norm_price_display": "604.0 / "
@@ -16553,7 +17225,7 @@ window.PRODUCT_DATA = {
     "id": "kool_deodorant_body_spray_storm__150_ml",
     "name": "Kool Deodorant Body Spray (Storm)",
     "image": "https://i.chaldn.com/_mpimage/kool-deodorant-body-spray-storm-150-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D138949&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Men's Deodorants",
+    "category": "Men's Perfume",
     "current_price": 325.0,
     "current_unit": "150 ml",
     "history": [
@@ -16580,6 +17252,14 @@ window.PRODUCT_DATA = {
         "unit": "150 ml",
         "norm_price": 2166.67,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 325.0,
+        "unit": "150 ml",
+        "norm_price": 2166.67,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "2166.67 / 1 L"
@@ -16588,7 +17268,7 @@ window.PRODUCT_DATA = {
     "id": "layer_r_wottagirl_secret_crush_body_spray_135_ml",
     "name": "Layer'r Wottagirl Secret Crush Body Spray",
     "image": "https://i.chaldn.com/_mpimage/layerr-wottagirl-secret-crush-body-spray-135-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D94025&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Female Deo",
+    "category": "Men's Deodorants",
     "current_price": 595.0,
     "current_unit": "135 ml",
     "history": [
@@ -16631,7 +17311,7 @@ window.PRODUCT_DATA = {
     "id": "layer_r_shot_red_stallion_body_spray_135_ml",
     "name": "Layer'r Shot Red Stallion Body Spray",
     "image": "https://i.chaldn.com/_mpimage/layerr-shot-red-stallion-body-spray-135-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D94024&q=best&v=1&m=400&webp=1",
-    "category": "Female Deo",
+    "category": "Men's Perfume",
     "current_price": 595.0,
     "current_unit": "135 ml",
     "history": [
@@ -16674,7 +17354,7 @@ window.PRODUCT_DATA = {
     "id": "layer_r_shot_power_play_body_spray_135_ml",
     "name": "Layer'r Shot Power Play Body Spray",
     "image": "https://i.chaldn.com/_mpimage/layerr-shot-power-play-body-spray-135-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D93993&q=best&v=1&m=400&webp=1",
-    "category": "Female Deo",
+    "category": "Men's Perfume",
     "current_price": 595.0,
     "current_unit": "135 ml",
     "history": [
@@ -16744,6 +17424,14 @@ window.PRODUCT_DATA = {
         "unit": "50 ml",
         "norm_price": 5580.0,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 279.0,
+        "unit": "50 ml",
+        "norm_price": 5580.0,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "5580.0 / 1 L"
@@ -16752,7 +17440,7 @@ window.PRODUCT_DATA = {
     "id": "denim_musk_deodorant_body_spray_150_ml",
     "name": "Denim Musk Deodorant Body Spray",
     "image": "https://i.chaldn.com/_mpimage/denim-musk-deodorant-body-spray-150-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D127620&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Men's Deodorants",
+    "category": "Men's Perfume",
     "current_price": 625.0,
     "current_unit": "150 ml",
     "history": [
@@ -16779,6 +17467,14 @@ window.PRODUCT_DATA = {
         "unit": "150 ml",
         "norm_price": 4166.67,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 625.0,
+        "unit": "150 ml",
+        "norm_price": 4166.67,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "4166.67 / 1 L"
@@ -16787,7 +17483,7 @@ window.PRODUCT_DATA = {
     "id": "rasasi_relation_men_body_spray_200_ml",
     "name": "Rasasi Relation Men Body Spray",
     "image": "https://i.chaldn.com/_mpimage/rasasi-relation-men-body-spray-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132572&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Men's Deodorants",
+    "category": "Men's Perfume",
     "current_price": 530.0,
     "current_unit": "200 ml",
     "history": [
@@ -16814,6 +17510,14 @@ window.PRODUCT_DATA = {
         "unit": "200 ml",
         "norm_price": 2650.0,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 530.0,
+        "unit": "200 ml",
+        "norm_price": 2650.0,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "2650.0 / 1 L"
@@ -16822,7 +17526,7 @@ window.PRODUCT_DATA = {
     "id": "lafz_kaveh_body_spray_100_ml",
     "name": "Lafz Kaveh Body Spray",
     "image": "https://i.chaldn.com/_mpimage/lafz-kaveh-body-spray-100-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D74543&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Men's Deodorants",
+    "category": "Men's Perfume",
     "current_price": 350.0,
     "current_unit": "100 ml",
     "history": [
@@ -16849,6 +17553,14 @@ window.PRODUCT_DATA = {
         "unit": "100 ml",
         "norm_price": 3500.0,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 350.0,
+        "unit": "100 ml",
+        "norm_price": 3500.0,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "3500.0 / 1 L"
@@ -16857,7 +17569,7 @@ window.PRODUCT_DATA = {
     "id": "beverly_hills_polo_club_eight_men_s_body_spray_175_ml",
     "name": "Beverly Hills Polo Club Eight Men's Body Spray",
     "image": "https://i.chaldn.com/_mpimage/beverly-hills-polo-club-eight-mens-body-spray-175-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D125753&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Men's Deodorants",
+    "category": "Men's Perfume",
     "current_price": 750.0,
     "current_unit": "175 ml",
     "history": [
@@ -16884,6 +17596,14 @@ window.PRODUCT_DATA = {
         "unit": "175 ml",
         "norm_price": 4285.71,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 750.0,
+        "unit": "175 ml",
+        "norm_price": 4285.71,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "4285.71 / 1 L"
@@ -16892,7 +17612,7 @@ window.PRODUCT_DATA = {
     "id": "layer_r_shot_royal_jade_men_s_body_spray_135_ml",
     "name": "Layer'r Shot Royal Jade Men's Body Spray",
     "image": "https://i.chaldn.com/_mpimage/layerr-shot-royal-jade-mens-body-spray-135-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D73736&q=best&v=1&m=400&webp=1",
-    "category": "Men's Deodorants",
+    "category": "Men's Perfume",
     "current_price": 595.0,
     "current_unit": "135 ml",
     "history": [
@@ -16915,6 +17635,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 595.0,
+        "unit": "135 ml",
+        "norm_price": 4407.41,
+        "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 595.0,
         "unit": "135 ml",
         "norm_price": 4407.41,
@@ -16927,7 +17655,7 @@ window.PRODUCT_DATA = {
     "id": "layer_r_shot_deep_desire_men_s_body_spray_135_ml",
     "name": "Layer'r Shot Deep Desire Men's Body Spray",
     "image": "https://i.chaldn.com/_mpimage/layerr-shot-deep-desire-mens-body-spray-135-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D130004&q=best&v=1&m=400&webp=1",
-    "category": "Men's Deodorants",
+    "category": "Men's Perfume",
     "current_price": 595.0,
     "current_unit": "135 ml",
     "history": [
@@ -16954,6 +17682,14 @@ window.PRODUCT_DATA = {
         "unit": "135 ml",
         "norm_price": 4407.41,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 595.0,
+        "unit": "135 ml",
+        "norm_price": 4407.41,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "4407.41 / 1 L"
@@ -16962,7 +17698,7 @@ window.PRODUCT_DATA = {
     "id": "wild_stone_pocket_perfume_charge__18_ml",
     "name": "Wild Stone Pocket Perfume (Charge)",
     "image": "https://i.chaldn.com/_mpimage/wild-stone-pocket-perfume-charge-18-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D72008&q=best&v=1&m=400&webp=1",
-    "category": "Men's Deodorants",
+    "category": "Men's Perfume",
     "current_price": 150.0,
     "current_unit": "18 ml",
     "history": [
@@ -16985,6 +17721,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 150.0,
+        "unit": "18 ml",
+        "norm_price": 8333.33,
+        "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 150.0,
         "unit": "18 ml",
         "norm_price": 8333.33,
@@ -16997,7 +17741,7 @@ window.PRODUCT_DATA = {
     "id": "wild_stone_pocket_perfume_blast__18_ml",
     "name": "Wild Stone Pocket Perfume (Blast)",
     "image": "https://i.chaldn.com/_mpimage/wild-stone-pocket-perfume-blast-18-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D72006&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Men's Deodorants",
+    "category": "Men's Perfume",
     "current_price": 150.0,
     "current_unit": "18 ml",
     "history": [
@@ -17020,6 +17764,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 150.0,
+        "unit": "18 ml",
+        "norm_price": 8333.33,
+        "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 150.0,
         "unit": "18 ml",
         "norm_price": 8333.33,
@@ -17032,7 +17784,7 @@ window.PRODUCT_DATA = {
     "id": "wild_stone_pocket_perfume_fresh__18_ml",
     "name": "Wild Stone Pocket Perfume (Fresh)",
     "image": "https://i.chaldn.com/_mpimage/wild-stone-pocket-perfume-fresh-18-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D72001&q=best&v=1&m=400&webp=1",
-    "category": "Men's Deodorants",
+    "category": "Men's Perfume",
     "current_price": 150.0,
     "current_unit": "18 ml",
     "history": [
@@ -17059,6 +17811,14 @@ window.PRODUCT_DATA = {
         "unit": "18 ml",
         "norm_price": 8333.33,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 150.0,
+        "unit": "18 ml",
+        "norm_price": 8333.33,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "8333.33 / 1 L"
@@ -17067,7 +17827,7 @@ window.PRODUCT_DATA = {
     "id": "fogg_scent_czar_30_ml",
     "name": "Fogg Scent Czar",
     "image": "https://i.chaldn.com/_mpimage/fogg-scent-czar-30-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D71844&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Men's Deodorants",
+    "category": "Men's Perfume",
     "current_price": 680.0,
     "current_unit": "30 ml",
     "history": [
@@ -17094,6 +17854,14 @@ window.PRODUCT_DATA = {
         "unit": "30 ml",
         "norm_price": 22666.67,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 680.0,
+        "unit": "30 ml",
+        "norm_price": 22666.67,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "22666.67 / 1 L"
@@ -17102,7 +17870,7 @@ window.PRODUCT_DATA = {
     "id": "fogg_body_spray_absolute_120_ml",
     "name": "Fogg Body Spray Absolute",
     "image": "https://i.chaldn.com/_mpimage/fogg-body-spray-absolute-120-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D71843&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Men's Deodorants",
+    "category": "Men's Perfume",
     "current_price": 530.0,
     "current_unit": "120 ml",
     "history": [
@@ -17129,6 +17897,14 @@ window.PRODUCT_DATA = {
         "unit": "120 ml",
         "norm_price": 4416.67,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 530.0,
+        "unit": "120 ml",
+        "norm_price": 4416.67,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "4416.67 / 1 L"
@@ -17137,7 +17913,7 @@ window.PRODUCT_DATA = {
     "id": "fogg_body_spray_fresh_fougere_120_ml",
     "name": "Fogg Body Spray Fresh Fougere",
     "image": "https://i.chaldn.com/_mpimage/fogg-body-spray-fresh-fougere-120-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D71842&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Men's Deodorants",
+    "category": "Men's Perfume",
     "current_price": 555.0,
     "current_unit": "120 ml",
     "history": [
@@ -17164,6 +17940,14 @@ window.PRODUCT_DATA = {
         "unit": "120 ml",
         "norm_price": 4625.0,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 555.0,
+        "unit": "120 ml",
+        "norm_price": 4625.0,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "4625.0 / 1 L"
@@ -17172,7 +17956,7 @@ window.PRODUCT_DATA = {
     "id": "clariss_note_men_perfume_120_ml",
     "name": "Clariss Note Men Perfume",
     "image": "https://i.chaldn.com/_mpimage/clariss-note-men-perfume-120-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D126783&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Men's Deodorants",
+    "category": "Men's Perfume",
     "current_price": 295.0,
     "current_unit": "120 ml",
     "history": [
@@ -17195,6 +17979,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 295.0,
+        "unit": "120 ml",
+        "norm_price": 2458.33,
+        "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 295.0,
         "unit": "120 ml",
         "norm_price": 2458.33,
@@ -17234,6 +18026,14 @@ window.PRODUCT_DATA = {
         "unit": "50 ml",
         "norm_price": 5200.0,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 260.0,
+        "unit": "50 ml",
+        "norm_price": 5200.0,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "5200.0 / 1 L"
@@ -17269,6 +18069,14 @@ window.PRODUCT_DATA = {
         "unit": "50 ml",
         "norm_price": 4800.0,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 240.0,
+        "unit": "50 ml",
+        "norm_price": 4800.0,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "4800.0 / 1 L"
@@ -17277,7 +18085,7 @@ window.PRODUCT_DATA = {
     "id": "axe_signature_intense_body_perfume_ticket_17_ml",
     "name": "Axe Signature Intense Body Perfume Ticket",
     "image": "https://i.chaldn.com/_mpimage/axe-signature-intense-body-perfume-ticket-17-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D125311&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Men's Deodorants",
+    "category": "Men's Perfume",
     "current_price": 220.0,
     "current_unit": "17 ml",
     "history": [
@@ -17304,6 +18112,14 @@ window.PRODUCT_DATA = {
         "unit": "17 ml",
         "norm_price": 12941.18,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 220.0,
+        "unit": "17 ml",
+        "norm_price": 12941.18,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "12941.18 / 1 L"
@@ -17312,7 +18128,7 @@ window.PRODUCT_DATA = {
     "id": "axe_signature_champion_body_perfume_ticket_17_ml",
     "name": "Axe Signature Champion Body Perfume Ticket",
     "image": "https://i.chaldn.com/_mpimage/axe-signature-champion-body-perfume-ticket-17-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D61449&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Men's Deodorants",
+    "category": "Men's Perfume",
     "current_price": 211.0,
     "current_unit": "17 ml",
     "history": [
@@ -17339,6 +18155,14 @@ window.PRODUCT_DATA = {
         "unit": "17 ml",
         "norm_price": 12411.76,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 211.0,
+        "unit": "17 ml",
+        "norm_price": 12411.76,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "12411.76 / 1 L"
@@ -17347,7 +18171,7 @@ window.PRODUCT_DATA = {
     "id": "eternal_love_xlouis_men_body_spray_200_ml",
     "name": "Eternal Love Xlouis Men Body Spray",
     "image": "https://i.chaldn.com/_mpimage/eternal-love-xlouis-men-body-spray-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D108697&q=best&v=1&m=400&webp=1",
-    "category": "Men's Deodorants",
+    "category": "Men's Perfume",
     "current_price": 453.0,
     "current_unit": "200 ml",
     "history": [
@@ -17374,6 +18198,14 @@ window.PRODUCT_DATA = {
         "unit": "200 ml",
         "norm_price": 2265.0,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 453.0,
+        "unit": "200 ml",
+        "norm_price": 2265.0,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "2265.0 / 1 L"
@@ -17382,7 +18214,7 @@ window.PRODUCT_DATA = {
     "id": "eternal_love_men_body_spray_for_men_200_ml",
     "name": "Eternal Love Men Body Spray For Men",
     "image": "https://i.chaldn.com/_mpimage/eternal-love-men-body-spray-for-men-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D108695&q=best&v=1&m=400&webp=1",
-    "category": "Men's Deodorants",
+    "category": "Men's Perfume",
     "current_price": 750.0,
     "current_unit": "200 ml",
     "history": [
@@ -17409,6 +18241,14 @@ window.PRODUCT_DATA = {
         "unit": "200 ml",
         "norm_price": 3750.0,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 750.0,
+        "unit": "200 ml",
+        "norm_price": 3750.0,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "3750.0 / 1 L"
@@ -17417,7 +18257,7 @@ window.PRODUCT_DATA = {
     "id": "nivea_fresh_natural_body_spray_150_ml",
     "name": "Nivea Fresh Natural Body Spray",
     "image": "https://i.chaldn.com/_mpimage/nivea-fresh-natural-body-spray-150-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D103636&q=best&v=1&m=400&webp=1",
-    "category": "Men's Soaps",
+    "category": "Men's Perfume",
     "current_price": 525.0,
     "current_unit": "150 ml",
     "history": [
@@ -17460,7 +18300,7 @@ window.PRODUCT_DATA = {
     "id": "wild_stone_p_b_s_iron_perfume_120_ml",
     "name": "Wild Stone P.B.S Iron Perfume",
     "image": "https://i.chaldn.com/_mpimage/wild-stone-pbs-iron-perfume-120-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D138331&q=best&v=1&m=400&webp=1",
-    "category": "Men's Deodorants",
+    "category": "Men's Perfume",
     "current_price": 710.0,
     "current_unit": "120 ml",
     "history": [
@@ -17483,6 +18323,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 710.0,
+        "unit": "120 ml",
+        "norm_price": 5916.67,
+        "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 710.0,
         "unit": "120 ml",
         "norm_price": 5916.67,
@@ -17495,7 +18343,7 @@ window.PRODUCT_DATA = {
     "id": "wild_stone_p_b_s_bronze_perfume_120_ml",
     "name": "Wild Stone P.B.S Bronze Perfume",
     "image": "https://i.chaldn.com/_mpimage/wild-stone-pbs-bronze-perfume-120-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D59144&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Men's Deodorants",
+    "category": "Men's Perfume",
     "current_price": 710.0,
     "current_unit": "120 ml",
     "history": [
@@ -17522,6 +18370,14 @@ window.PRODUCT_DATA = {
         "unit": "120 ml",
         "norm_price": 5916.67,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 710.0,
+        "unit": "120 ml",
+        "norm_price": 5916.67,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "5916.67 / 1 L"
@@ -17530,7 +18386,7 @@ window.PRODUCT_DATA = {
     "id": "wild_stone_p_b_s_chrome_perfume_120_ml",
     "name": "Wild Stone P.B.S Chrome Perfume",
     "image": "https://i.chaldn.com/_mpimage/wild-stone-pbs-chrome-perfume-120-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D59143&q=best&v=1&m=400&webp=1",
-    "category": "Men's Deodorants",
+    "category": "Men's Perfume",
     "current_price": 660.0,
     "current_unit": "120 ml",
     "history": [
@@ -17557,6 +18413,14 @@ window.PRODUCT_DATA = {
         "unit": "120 ml",
         "norm_price": 5500.0,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 660.0,
+        "unit": "120 ml",
+        "norm_price": 5500.0,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "5500.0 / 1 L"
@@ -17565,7 +18429,7 @@ window.PRODUCT_DATA = {
     "id": "red_hunt_savage_storm_body_spray_125_ml",
     "name": "Red Hunt Savage Storm Body Spray",
     "image": "https://i.chaldn.com/_mpimage/red-hunt-savage-storm-body-spray-125-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D115655&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Men's Deodorants",
+    "category": "Men's Perfume",
     "current_price": 500.0,
     "current_unit": "125 ml",
     "history": [
@@ -17592,6 +18456,14 @@ window.PRODUCT_DATA = {
         "unit": "125 ml",
         "norm_price": 4000.0,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 500.0,
+        "unit": "125 ml",
+        "norm_price": 4000.0,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "4000.0 / 1 L"
@@ -17600,7 +18472,7 @@ window.PRODUCT_DATA = {
     "id": "red_hunt_rain_forest_body_spray_125_ml",
     "name": "Red Hunt Rain Forest Body Spray",
     "image": "https://i.chaldn.com/_mpimage/red-hunt-rain-forest-body-spray-125-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D115654&q=best&v=1&m=400&webp=1",
-    "category": "Men's Deodorants",
+    "category": "Men's Perfume",
     "current_price": 490.0,
     "current_unit": "125 ml",
     "history": [
@@ -17627,6 +18499,14 @@ window.PRODUCT_DATA = {
         "unit": "125 ml",
         "norm_price": 3920.0,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 490.0,
+        "unit": "125 ml",
+        "norm_price": 3920.0,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "3920.0 / 1 L"
@@ -17635,7 +18515,7 @@ window.PRODUCT_DATA = {
     "id": "red_hunt_wild_chase_body_spray_125_ml",
     "name": "Red Hunt Wild Chase Body Spray",
     "image": "https://i.chaldn.com/_mpimage/red-hunt-wild-chase-body-spray-125-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132635&q=best&v=1&m=400&webp=1",
-    "category": "Men's Deodorants",
+    "category": "Men's Perfume",
     "current_price": 402.0,
     "current_unit": "125 ml",
     "history": [
@@ -17662,6 +18542,14 @@ window.PRODUCT_DATA = {
         "unit": "125 ml",
         "norm_price": 3216.0,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 402.0,
+        "unit": "125 ml",
+        "norm_price": 3216.0,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "3216.0 / 1 L"
@@ -17670,7 +18558,7 @@ window.PRODUCT_DATA = {
     "id": "red_hunt_premium_alpha_tribe_body_spray_125_ml",
     "name": "Red Hunt Premium Alpha Tribe Body Spray",
     "image": "https://i.chaldn.com/_mpimage/red-hunt-premium-alpha-tribe-body-spray-125-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D132632&q=best&v=1&m=400&webp=1",
-    "category": "Men's Deodorants",
+    "category": "Men's Perfume",
     "current_price": 490.0,
     "current_unit": "125 ml",
     "history": [
@@ -17693,6 +18581,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 490.0,
+        "unit": "125 ml",
+        "norm_price": 3920.0,
+        "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 490.0,
         "unit": "125 ml",
         "norm_price": 3920.0,
@@ -17732,6 +18628,14 @@ window.PRODUCT_DATA = {
         "unit": "50 ml",
         "norm_price": 6000.0,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 300.0,
+        "unit": "50 ml",
+        "norm_price": 6000.0,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "6000.0 / 1 L"
@@ -17740,7 +18644,7 @@ window.PRODUCT_DATA = {
     "id": "colour_me_black_man_deo_spray_150_ml",
     "name": "Colour Me Black Man Deo Spray",
     "image": "https://i.chaldn.com/_mpimage/colour-me-black-man-deo-spray-150-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D127143&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Men's Deodorants",
+    "category": "Men's Perfume",
     "current_price": 590.0,
     "current_unit": "150 ml",
     "history": [
@@ -17767,6 +18671,14 @@ window.PRODUCT_DATA = {
         "unit": "150 ml",
         "norm_price": 3933.33,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 590.0,
+        "unit": "150 ml",
+        "norm_price": 3933.33,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "3933.33 / 1 L"
@@ -17775,7 +18687,7 @@ window.PRODUCT_DATA = {
     "id": "he_advanced_grooming_power_body_perfume_120_ml",
     "name": "HE Advanced Grooming Power Body Perfume",
     "image": "https://i.chaldn.com/_mpimage/he-advanced-grooming-power-body-perfume-120-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D101663&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Men's Deodorants",
+    "category": "Men's Perfume",
     "current_price": 500.0,
     "current_unit": "120 ml",
     "history": [
@@ -17802,6 +18714,14 @@ window.PRODUCT_DATA = {
         "unit": "120 ml",
         "norm_price": 4166.67,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 500.0,
+        "unit": "120 ml",
+        "norm_price": 4166.67,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "4166.67 / 1 L"
@@ -17810,7 +18730,7 @@ window.PRODUCT_DATA = {
     "id": "engage_on_man_pocket_perfume_classic_woody__18_ml",
     "name": "Engage On Man Pocket Perfume (Classic Woody)",
     "image": "https://i.chaldn.com/_mpimage/engage-on-man-pocket-perfume-classic-woody-18-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D108635&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Men's Deodorants",
+    "category": "Men's Perfume",
     "current_price": 170.0,
     "current_unit": "18 ml",
     "history": [
@@ -17837,6 +18757,14 @@ window.PRODUCT_DATA = {
         "unit": "18 ml",
         "norm_price": 9444.44,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 170.0,
+        "unit": "18 ml",
+        "norm_price": 9444.44,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "9444.44 / 1 L"
@@ -17845,7 +18773,7 @@ window.PRODUCT_DATA = {
     "id": "fogg_scent_men_impressio_100_ml",
     "name": "Fogg Scent Men Impressio",
     "image": "https://i.chaldn.com/_mpimage/fogg-scent-men-impressio-100-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D109964&q=best&v=1&m=400&webp=1",
-    "category": "Men's Deodorants",
+    "category": "Men's Perfume",
     "current_price": 1450.0,
     "current_unit": "100 ml",
     "history": [
@@ -17872,6 +18800,14 @@ window.PRODUCT_DATA = {
         "unit": "100 ml",
         "norm_price": 14500.0,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 1450.0,
+        "unit": "100 ml",
+        "norm_price": 14500.0,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "14500.0 / 1 L"
@@ -17880,7 +18816,7 @@ window.PRODUCT_DATA = {
     "id": "fogg_body_spray_victor_120_ml",
     "name": "Fogg Body spray Victor",
     "image": "https://i.chaldn.com/_mpimage/fogg-body-spray-victor-120-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D109955&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Men's Deodorants",
+    "category": "Men's Perfume",
     "current_price": 520.0,
     "current_unit": "120 ml",
     "history": [
@@ -17907,6 +18843,14 @@ window.PRODUCT_DATA = {
         "unit": "120 ml",
         "norm_price": 4333.33,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 520.0,
+        "unit": "120 ml",
+        "norm_price": 4333.33,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "4333.33 / 1 L"
@@ -17915,7 +18859,7 @@ window.PRODUCT_DATA = {
     "id": "he_advanced_grooming_innovator_perfumed_body_spray_150_ml",
     "name": "HE Advanced Grooming Innovator Perfumed Body Spray",
     "image": "https://i.chaldn.com/_mpimage/he-advanced-grooming-innovator-perfumed-body-spray-150-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D101656&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Men's Deodorants",
+    "category": "Men's Perfume",
     "current_price": 400.0,
     "current_unit": "150 ml",
     "history": [
@@ -17942,6 +18886,14 @@ window.PRODUCT_DATA = {
         "unit": "150 ml",
         "norm_price": 2666.67,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 400.0,
+        "unit": "150 ml",
+        "norm_price": 2666.67,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "2666.67 / 1 L"
@@ -17950,7 +18902,7 @@ window.PRODUCT_DATA = {
     "id": "wild_stone_body_perfume_steel_120_ml",
     "name": "Wild Stone Body Perfume Steel",
     "image": "https://i.chaldn.com/_mpimage/wild-stone-body-perfume-steel-120-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D41573&q=best&v=1&m=400&webp=1",
-    "category": "Men's Deodorants",
+    "category": "Men's Perfume",
     "current_price": 699.0,
     "current_unit": "120 ml",
     "history": [
@@ -17977,6 +18929,14 @@ window.PRODUCT_DATA = {
         "unit": "120 ml",
         "norm_price": 5825.0,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 699.0,
+        "unit": "120 ml",
+        "norm_price": 5825.0,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "5825.0 / 1 L"
@@ -17985,7 +18945,7 @@ window.PRODUCT_DATA = {
     "id": "wild_stone_body_perfume_titanium_120_ml",
     "name": "Wild Stone Body Perfume Titanium",
     "image": "https://i.chaldn.com/_mpimage/wild-stone-body-perfume-titanium-120-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D138328&q=best&v=1&m=400&webp=1",
-    "category": "Men's Deodorants",
+    "category": "Men's Perfume",
     "current_price": 650.0,
     "current_unit": "120 ml",
     "history": [
@@ -18012,6 +18972,14 @@ window.PRODUCT_DATA = {
         "unit": "120 ml",
         "norm_price": 5416.67,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 650.0,
+        "unit": "120 ml",
+        "norm_price": 5416.67,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "5416.67 / 1 L"
@@ -18020,7 +18988,7 @@ window.PRODUCT_DATA = {
     "id": "denim_original_body_spray_150_ml",
     "name": "Denim Original Body Spray",
     "image": "https://i.chaldn.com/_mpimage/denim-original-body-spray-150-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D104928&q=best&v=1&m=400&webp=1",
-    "category": "Men's Deodorants",
+    "category": "Men's Perfume",
     "current_price": 625.0,
     "current_unit": "150 ml",
     "history": [
@@ -18047,6 +19015,14 @@ window.PRODUCT_DATA = {
         "unit": "150 ml",
         "norm_price": 4166.67,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 625.0,
+        "unit": "150 ml",
+        "norm_price": 4166.67,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "4166.67 / 1 L"
@@ -18055,7 +19031,7 @@ window.PRODUCT_DATA = {
     "id": "wild_stone_legend_body_deodorant_150_ml",
     "name": "Wild Stone Legend Body Deodorant",
     "image": "https://i.chaldn.com/_mpimage/wild-stone-legend-body-deodorant-150-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D31635&q=best&v=1&m=400&webp=1",
-    "category": "Men's Deodorants",
+    "category": "Men's Perfume",
     "current_price": 450.0,
     "current_unit": "150 ml",
     "history": [
@@ -18082,6 +19058,14 @@ window.PRODUCT_DATA = {
         "unit": "150 ml",
         "norm_price": 3000.0,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 450.0,
+        "unit": "150 ml",
+        "norm_price": 3000.0,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "3000.0 / 1 L"
@@ -18090,7 +19074,7 @@ window.PRODUCT_DATA = {
     "id": "wild_stone_forest_spice_deodorant_150_ml",
     "name": "Wild Stone Forest Spice Deodorant",
     "image": "https://i.chaldn.com/_mpimage/wild-stone-forest-spice-deodorant-150-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D138329&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Men's Deodorants",
+    "category": "Men's Perfume",
     "current_price": 650.0,
     "current_unit": "150 ml",
     "history": [
@@ -18117,6 +19101,14 @@ window.PRODUCT_DATA = {
         "unit": "150 ml",
         "norm_price": 4333.33,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 650.0,
+        "unit": "150 ml",
+        "norm_price": 4333.33,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "4333.33 / 1 L"
@@ -18125,7 +19117,7 @@ window.PRODUCT_DATA = {
     "id": "fogg_body_spray_fresh_spicy_120_ml",
     "name": "Fogg Body Spray Fresh Spicy",
     "image": "https://i.chaldn.com/_mpimage/fogg-body-spray-fresh-spicy-120-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D109961&q=best&v=1&m=400&webp=1",
-    "category": "Men's Deodorants",
+    "category": "Men's Perfume",
     "current_price": 555.0,
     "current_unit": "120 ml",
     "history": [
@@ -18148,6 +19140,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 555.0,
+        "unit": "120 ml",
+        "norm_price": 4625.0,
+        "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 555.0,
         "unit": "120 ml",
         "norm_price": 4625.0,
@@ -18160,7 +19160,7 @@ window.PRODUCT_DATA = {
     "id": "fogg_body_spray_fresh_aqua_120_ml",
     "name": "Fogg Body Spray Fresh Aqua",
     "image": "https://i.chaldn.com/_mpimage/fogg-body-spray-fresh-aqua-120-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D109958&q=best&v=1&m=400&webp=1",
-    "category": "Men's Deodorants",
+    "category": "Men's Perfume",
     "current_price": 555.0,
     "current_unit": "120 ml",
     "history": [
@@ -18187,6 +19187,14 @@ window.PRODUCT_DATA = {
         "unit": "120 ml",
         "norm_price": 4625.0,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 555.0,
+        "unit": "120 ml",
+        "norm_price": 4625.0,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "4625.0 / 1 L"
@@ -18195,7 +19203,7 @@ window.PRODUCT_DATA = {
     "id": "wild_stone_red_body_deodorant_150_ml",
     "name": "Wild Stone Red Body Deodorant",
     "image": "https://i.chaldn.com/_mpimage/wild-stone-red-body-deodorant-150-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D138332&q=best&v=1&m=400&webp=1",
-    "category": "Men's Deodorants",
+    "category": "Men's Perfume",
     "current_price": 530.0,
     "current_unit": "150 ml",
     "history": [
@@ -18222,6 +19230,14 @@ window.PRODUCT_DATA = {
         "unit": "150 ml",
         "norm_price": 3533.33,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 530.0,
+        "unit": "150 ml",
+        "norm_price": 3533.33,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "3533.33 / 1 L"
@@ -18230,7 +19246,7 @@ window.PRODUCT_DATA = {
     "id": "kool_deodorant_body_spray_blue__150_ml",
     "name": "Kool Deodorant Body Spray (Blue)",
     "image": "https://i.chaldn.com/_mpimage/kool-deodorant-body-spray-blue-150-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D152119&q=best&v=1&m=400&webp=1",
-    "category": "Men's Deodorants",
+    "category": "Men's Perfume",
     "current_price": 325.0,
     "current_unit": "150 ml",
     "history": [
@@ -18253,6 +19269,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 325.0,
+        "unit": "150 ml",
+        "norm_price": 2166.67,
+        "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 325.0,
         "unit": "150 ml",
         "norm_price": 2166.67,
@@ -18265,7 +19289,7 @@ window.PRODUCT_DATA = {
     "id": "kool_classic_deodorant_body_spray_150_ml",
     "name": "Kool Classic Deodorant Body Spray",
     "image": "https://i.chaldn.com/_mpimage/kool-classic-deodorant-body-spray-150-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D113316&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Men's Deodorants",
+    "category": "Men's Perfume",
     "current_price": 325.0,
     "current_unit": "150 ml",
     "history": [
@@ -18292,6 +19316,14 @@ window.PRODUCT_DATA = {
         "unit": "150 ml",
         "norm_price": 2166.67,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 325.0,
+        "unit": "150 ml",
+        "norm_price": 2166.67,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "2166.67 / 1 L"
@@ -18300,7 +19332,7 @@ window.PRODUCT_DATA = {
     "id": "nivea_men_body_spray_cool_kick_extra_dry_150_ml",
     "name": "Nivea Men Body Spray Cool Kick Extra Dry",
     "image": "https://i.chaldn.com/_mpimage/nivea-men-body-spray-cool-kick-extra-dry-150-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D137183&q=best&v=1&m=400&webp=1",
-    "category": "Men's Deodorants",
+    "category": "Men's Perfume",
     "current_price": 450.0,
     "current_unit": "150 ml",
     "history": [
@@ -18327,6 +19359,14 @@ window.PRODUCT_DATA = {
         "unit": "150 ml",
         "norm_price": 3000.0,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 450.0,
+        "unit": "150 ml",
+        "norm_price": 3000.0,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "3000.0 / 1 L"
@@ -18335,7 +19375,7 @@ window.PRODUCT_DATA = {
     "id": "nivea_men_body_spray_fresh_active_150_ml",
     "name": "Nivea Men Body Spray Fresh Active",
     "image": "https://i.chaldn.com/_mpimage/nivea-men-body-spray-fresh-active-150-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D103662&q=best&v=1&m=400&webp=1",
-    "category": "Men's Deodorants",
+    "category": "Men's Perfume",
     "current_price": 530.0,
     "current_unit": "150 ml",
     "history": [
@@ -18362,6 +19402,14 @@ window.PRODUCT_DATA = {
         "unit": "150 ml",
         "norm_price": 3533.33,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 530.0,
+        "unit": "150 ml",
+        "norm_price": 3533.33,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "3533.33 / 1 L"
@@ -18370,7 +19418,7 @@ window.PRODUCT_DATA = {
     "id": "fogg_body_spray_blue_forest_120_ml",
     "name": "Fogg Body Spray Blue Forest",
     "image": "https://i.chaldn.com/_mpimage/fogg-body-spray-blue-forest-120-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D109890&q=best&v=1&m=400&webp=1",
-    "category": "Men's Deodorants",
+    "category": "Men's Perfume",
     "current_price": 575.0,
     "current_unit": "120 ml",
     "history": [
@@ -18393,6 +19441,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 575.0,
+        "unit": "120 ml",
+        "norm_price": 4791.67,
+        "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 575.0,
         "unit": "120 ml",
         "norm_price": 4791.67,
@@ -18432,6 +19488,14 @@ window.PRODUCT_DATA = {
         "unit": "50 ml",
         "norm_price": 14200.0,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 710.0,
+        "unit": "50 ml",
+        "norm_price": 14200.0,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "14200.0 / 1 L"
@@ -18440,7 +19504,7 @@ window.PRODUCT_DATA = {
     "id": "fogg_body_spray_marco_120_ml",
     "name": "Fogg Body Spray Marco",
     "image": "https://i.chaldn.com/_mpimage/fogg-body-spray-marco-120-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D109947&q=best&v=1&m=400&webp=1",
-    "category": "Men's Deodorants",
+    "category": "Men's Perfume",
     "current_price": 530.0,
     "current_unit": "120 ml",
     "history": [
@@ -18467,6 +19531,14 @@ window.PRODUCT_DATA = {
         "unit": "120 ml",
         "norm_price": 4416.67,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 530.0,
+        "unit": "120 ml",
+        "norm_price": 4416.67,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "4416.67 / 1 L"
@@ -18475,7 +19547,7 @@ window.PRODUCT_DATA = {
     "id": "fogg_body_spray_napoleon_120_ml",
     "name": "Fogg Body Spray Napoleon",
     "image": "https://i.chaldn.com/_mpimage/fogg-body-spray-napoleon-120-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D109949&q=best&v=1&m=400&webp=1",
-    "category": "Men's Deodorants",
+    "category": "Men's Perfume",
     "current_price": 520.0,
     "current_unit": "120 ml",
     "history": [
@@ -18502,6 +19574,14 @@ window.PRODUCT_DATA = {
         "unit": "120 ml",
         "norm_price": 4333.33,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 520.0,
+        "unit": "120 ml",
+        "norm_price": 4333.33,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "4333.33 / 1 L"
@@ -18510,7 +19590,7 @@ window.PRODUCT_DATA = {
     "id": "do_it_deodorant_spray_200_ml",
     "name": "Do It! Deodorant Spray",
     "image": "https://i.chaldn.com/_mpimage/do-it-deodorant-spray-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D106827&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Men's Deodorants",
+    "category": "Men's Perfume",
     "current_price": 630.0,
     "current_unit": "200 ml",
     "history": [
@@ -18533,6 +19613,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 630.0,
+        "unit": "200 ml",
+        "norm_price": 3150.0,
+        "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 630.0,
         "unit": "200 ml",
         "norm_price": 3150.0,
@@ -18568,6 +19656,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 249.0,
+        "unit": "50 ml",
+        "norm_price": 4980.0,
+        "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 249.0,
         "unit": "50 ml",
         "norm_price": 4980.0,
@@ -18650,6 +19746,14 @@ window.PRODUCT_DATA = {
         "unit": "170 ml",
         "norm_price": 1588.24,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 270.0,
+        "unit": "170 ml",
+        "norm_price": 1588.24,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "1588.24 / 1 L"
@@ -18681,6 +19785,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 500.0,
+        "unit": "330 ml",
+        "norm_price": 1515.15,
+        "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 500.0,
         "unit": "330 ml",
         "norm_price": 1515.15,
@@ -18720,6 +19832,14 @@ window.PRODUCT_DATA = {
         "unit": "200 ml",
         "norm_price": 1600.0,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 320.0,
+        "unit": "200 ml",
+        "norm_price": 1600.0,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "1600.0 / 1 L"
@@ -18751,6 +19871,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 500.0,
+        "unit": "330 ml",
+        "norm_price": 1515.15,
+        "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 500.0,
         "unit": "330 ml",
         "norm_price": 1515.15,
@@ -19048,6 +20176,14 @@ window.PRODUCT_DATA = {
         "unit": "180 ml",
         "norm_price": 2944.44,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 530.0,
+        "unit": "180 ml",
+        "norm_price": 2944.44,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "2944.44 / 1 L"
@@ -19079,6 +20215,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 990.0,
+        "unit": "340 ml",
+        "norm_price": 2911.76,
+        "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 990.0,
         "unit": "340 ml",
         "norm_price": 2911.76,
@@ -19118,6 +20262,14 @@ window.PRODUCT_DATA = {
         "unit": "300 ml",
         "norm_price": 2416.67,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 725.0,
+        "unit": "300 ml",
+        "norm_price": 2416.67,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "2416.67 / 1 L"
@@ -19149,6 +20301,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 400.0,
+        "unit": "330 ml",
+        "norm_price": 1212.12,
+        "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 400.0,
         "unit": "330 ml",
         "norm_price": 1212.12,
@@ -19188,6 +20348,14 @@ window.PRODUCT_DATA = {
         "unit": "330 ml",
         "norm_price": 1424.24,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 470.0,
+        "unit": "330 ml",
+        "norm_price": 1424.24,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "1424.24 / 1 L"
@@ -19219,6 +20387,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 200.0,
+        "unit": "170 ml",
+        "norm_price": 1176.47,
+        "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 200.0,
         "unit": "170 ml",
         "norm_price": 1176.47,
@@ -19258,6 +20434,14 @@ window.PRODUCT_DATA = {
         "unit": "330 ml",
         "norm_price": 1333.33,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 440.0,
+        "unit": "330 ml",
+        "norm_price": 1333.33,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "1333.33 / 1 L"
@@ -19289,6 +20473,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 200.0,
+        "unit": "170 ml",
+        "norm_price": 1176.47,
+        "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 200.0,
         "unit": "170 ml",
         "norm_price": 1176.47,
@@ -19328,6 +20520,14 @@ window.PRODUCT_DATA = {
         "unit": "330 ml",
         "norm_price": 1424.24,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 470.0,
+        "unit": "330 ml",
+        "norm_price": 1424.24,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "1424.24 / 1 L"
@@ -19359,6 +20559,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 350.0,
+        "unit": "330 ml",
+        "norm_price": 1060.61,
+        "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 350.0,
         "unit": "330 ml",
         "norm_price": 1060.61,
@@ -19398,6 +20606,14 @@ window.PRODUCT_DATA = {
         "unit": "170 ml",
         "norm_price": 1588.24,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 270.0,
+        "unit": "170 ml",
+        "norm_price": 1588.24,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "1588.24 / 1 L"
@@ -19433,6 +20649,14 @@ window.PRODUCT_DATA = {
         "unit": "170 ml",
         "norm_price": 1411.76,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 240.0,
+        "unit": "170 ml",
+        "norm_price": 1411.76,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "1411.76 / 1 L"
@@ -19441,7 +20665,7 @@ window.PRODUCT_DATA = {
     "id": "go_fresh_pocket_perfume_red_hot_fragrance_17_ml",
     "name": "Go Fresh pocket Perfume Red Hot Fragrance",
     "image": "https://i.chaldn.com/_mpimage/go-fresh-pocket-perfume-red-hot-fragrance-17-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D175817&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Men's Perfume",
     "current_price": 130.0,
     "current_unit": "17 ml",
     "history": [
@@ -19464,6 +20688,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 130.0,
+        "unit": "17 ml",
+        "norm_price": 7647.06,
+        "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 130.0,
         "unit": "17 ml",
         "norm_price": 7647.06,
@@ -19476,7 +20708,7 @@ window.PRODUCT_DATA = {
     "id": "go_fresh_pocket_perfume_miracle_fragrance_17_ml",
     "name": "Go Fresh Pocket Perfume Miracle Fragrance",
     "image": "https://i.chaldn.com/_mpimage/go-fresh-pocket-perfume-miracle-fragrance-17-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D175806&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Men's Perfume",
     "current_price": 130.0,
     "current_unit": "17 ml",
     "history": [
@@ -19499,6 +20731,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 130.0,
+        "unit": "17 ml",
+        "norm_price": 7647.06,
+        "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 130.0,
         "unit": "17 ml",
         "norm_price": 7647.06,
@@ -19511,7 +20751,7 @@ window.PRODUCT_DATA = {
     "id": "go_fresh_pocket_perfume_player_fragrance_17_ml",
     "name": "Go Fresh Pocket Perfume player Fragrance",
     "image": "https://i.chaldn.com/_mpimage/go-fresh-pocket-perfume-player-fragrance-17-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D175804&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Men's Perfume",
     "current_price": 130.0,
     "current_unit": "17 ml",
     "history": [
@@ -19534,6 +20774,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 130.0,
+        "unit": "17 ml",
+        "norm_price": 7647.06,
+        "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 130.0,
         "unit": "17 ml",
         "norm_price": 7647.06,
@@ -19546,7 +20794,7 @@ window.PRODUCT_DATA = {
     "id": "go_fresh_pocket_perfume_wild_game_fragrance_17_ml",
     "name": "Go Fresh Pocket Perfume Wild Game Fragrance",
     "image": "https://i.chaldn.com/_mpimage/go-fresh-pocket-perfume-wild-game-fragrance-17-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D175802&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Men's Perfume",
     "current_price": 130.0,
     "current_unit": "17 ml",
     "history": [
@@ -19569,6 +20817,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 130.0,
+        "unit": "17 ml",
+        "norm_price": 7647.06,
+        "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 130.0,
         "unit": "17 ml",
         "norm_price": 7647.06,
@@ -19581,7 +20837,7 @@ window.PRODUCT_DATA = {
     "id": "go_fresh_pocket_perfume_secret_fragrance_17_ml",
     "name": "Go Fresh Pocket Perfume Secret Fragrance",
     "image": "https://i.chaldn.com/_mpimage/go-fresh-pocket-perfume-secret-fragrance-17-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D175809&q=best&v=1&m=400&webp=1",
-    "category": "Women's Perfume",
+    "category": "Men's Perfume",
     "current_price": 130.0,
     "current_unit": "17 ml",
     "history": [
@@ -19604,6 +20860,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 130.0,
+        "unit": "17 ml",
+        "norm_price": 7647.06,
+        "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 130.0,
         "unit": "17 ml",
         "norm_price": 7647.06,
@@ -25421,7 +26685,7 @@ window.PRODUCT_DATA = {
     "id": "creme_21_vitamin_e_moisturizing_soft_cream_150_ml",
     "name": "Creme 21 Vitamin E Moisturizing Soft Cream",
     "image": "https://i.chaldn.com/_mpimage/creme-21-vitamin-e-moisturizing-soft-cream-150-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D101098&q=best&v=1&m=400&webp=1",
-    "category": "Female Moisturizer",
+    "category": "Creams",
     "current_price": 605.0,
     "current_unit": "150 ml",
     "history": [
@@ -29103,6 +30367,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 60.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 60.0,
+        "unit": "each",
+        "norm_price": 60.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "60.0 / each"
@@ -29134,6 +30406,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 60.0,
+        "unit": "each",
+        "norm_price": 60.0,
+        "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 60.0,
         "unit": "each",
         "norm_price": 60.0,
@@ -29173,6 +30453,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 60.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 60.0,
+        "unit": "each",
+        "norm_price": 60.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "60.0 / each"
@@ -29204,6 +30492,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 60.0,
+        "unit": "each",
+        "norm_price": 60.0,
+        "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 60.0,
         "unit": "each",
         "norm_price": 60.0,
@@ -29243,6 +30539,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 60.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 60.0,
+        "unit": "each",
+        "norm_price": 60.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "60.0 / each"
@@ -29274,6 +30578,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 60.0,
+        "unit": "each",
+        "norm_price": 60.0,
+        "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 60.0,
         "unit": "each",
         "norm_price": 60.0,
@@ -29313,6 +30625,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 60.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 60.0,
+        "unit": "each",
+        "norm_price": 60.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "60.0 / each"
@@ -29344,6 +30664,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 99.0,
+        "unit": "each",
+        "norm_price": 99.0,
+        "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 99.0,
         "unit": "each",
         "norm_price": 99.0,
@@ -29383,6 +30711,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 200.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 200.0,
+        "unit": "each",
+        "norm_price": 200.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "200.0 / each"
@@ -29414,6 +30750,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 200.0,
+        "unit": "each",
+        "norm_price": 200.0,
+        "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 200.0,
         "unit": "each",
         "norm_price": 200.0,
@@ -29453,6 +30797,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 260.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 260.0,
+        "unit": "each",
+        "norm_price": 260.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "260.0 / each"
@@ -29484,6 +30836,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 260.0,
+        "unit": "each",
+        "norm_price": 260.0,
+        "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 260.0,
         "unit": "each",
         "norm_price": 260.0,
@@ -29523,6 +30883,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 180.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 180.0,
+        "unit": "each",
+        "norm_price": 180.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "180.0 / each"
@@ -29554,6 +30922,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 60.0,
+        "unit": "each",
+        "norm_price": 60.0,
+        "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 60.0,
         "unit": "each",
         "norm_price": 60.0,
@@ -29593,6 +30969,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 60.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 60.0,
+        "unit": "each",
+        "norm_price": 60.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "60.0 / each"
@@ -29624,6 +31008,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 80.0,
+        "unit": "each",
+        "norm_price": 80.0,
+        "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 80.0,
         "unit": "each",
         "norm_price": 80.0,
@@ -29663,6 +31055,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 50.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 50.0,
+        "unit": "each",
+        "norm_price": 50.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "50.0 / each"
@@ -29694,6 +31094,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 50.0,
+        "unit": "each",
+        "norm_price": 50.0,
+        "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 50.0,
         "unit": "each",
         "norm_price": 50.0,
@@ -29733,6 +31141,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 62.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 62.0,
+        "unit": "each",
+        "norm_price": 62.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "62.0 / each"
@@ -29764,6 +31180,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 62.0,
+        "unit": "each",
+        "norm_price": 62.0,
+        "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 62.0,
         "unit": "each",
         "norm_price": 62.0,
@@ -33759,6 +35183,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 719.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 719.0,
+        "unit": "each",
+        "norm_price": 719.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "719.0 / each"
@@ -33794,6 +35226,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 650.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 650.0,
+        "unit": "each",
+        "norm_price": 650.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "650.0 / each"
@@ -33825,6 +35265,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T23:59:05.997150+06:00",
+        "price": 799.0,
+        "unit": "each",
+        "norm_price": 799.0,
+        "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 799.0,
         "unit": "each",
         "norm_price": 799.0,
@@ -34353,7 +35801,7 @@ window.PRODUCT_DATA = {
     "id": "bashundhara_kitchen_towel_rolls_2_pcs",
     "name": "Bashundhara Kitchen Towel Rolls",
     "image": "https://i.chaldn.com/_mpimage/bashundhara-kitchen-towel-rolls-2-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D99748&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Napkins & Paper Products",
     "current_price": 160.0,
     "current_unit": "2 pcs",
     "history": [
@@ -34396,7 +35844,7 @@ window.PRODUCT_DATA = {
     "id": "bashundhara_kitchen_towel_rolls_each",
     "name": "Bashundhara Kitchen Towel Rolls",
     "image": "https://i.chaldn.com/_mpimage/bashundhara-kitchen-towel-rolls-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D124786&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Napkins & Paper Products",
     "current_price": 85.0,
     "current_unit": "each",
     "history": [
@@ -34439,7 +35887,7 @@ window.PRODUCT_DATA = {
     "id": "fresh_kitchen_towel_roll_each",
     "name": "Fresh kitchen Towel Roll",
     "image": "https://i.chaldn.com/_mpimage/fresh-kitchen-towel-roll-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D49743&q=best&v=1&m=400&webp=1",
-    "category": "Kitchen Accessories",
+    "category": "Napkins & Paper Products",
     "current_price": 85.0,
     "current_unit": "each",
     "history": [
@@ -46253,7 +47701,7 @@ window.PRODUCT_DATA = {
     "id": "dettol_fresh_liquid_handwash_refill_170_ml",
     "name": "Dettol Fresh Liquid Handwash Refill",
     "image": "https://i.chaldn.com/_mpimage/dettol-fresh-liquid-handwash-refill-170-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D121869&q=best&v=1&m=400&webp=1",
-    "category": "Liquid Handwash",
+    "category": "Handwash & Handrub",
     "current_price": 80.0,
     "current_unit": "170 ml",
     "history": [
@@ -46296,7 +47744,7 @@ window.PRODUCT_DATA = {
     "id": "dettol_fresh_liquid_handwash_pump_200_ml",
     "name": "Dettol Fresh Liquid Handwash Pump",
     "image": "https://i.chaldn.com/_mpimage/dettol-fresh-liquid-handwash-pump-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D134132&q=best&v=1&m=400&webp=1",
-    "category": "Liquid Handwash",
+    "category": "Handwash & Handrub",
     "current_price": 110.0,
     "current_unit": "200 ml",
     "history": [
@@ -46339,7 +47787,7 @@ window.PRODUCT_DATA = {
     "id": "dettol_handwash_original_liquid_refill_170_ml",
     "name": "Dettol Handwash Original Liquid Refill",
     "image": "https://i.chaldn.com/_mpimage/dettol-handwash-original-liquid-refill-170-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D160588&q=best&v=1&m=400&webp=1",
-    "category": "Liquid Handwash",
+    "category": "Handwash & Handrub",
     "current_price": 80.0,
     "current_unit": "170 ml",
     "history": [
@@ -46382,7 +47830,7 @@ window.PRODUCT_DATA = {
     "id": "dettol_handwash_original_liquid_pump_200_ml",
     "name": "Dettol Handwash Original Liquid Pump",
     "image": "https://i.chaldn.com/_mpimage/dettol-handwash-original-liquid-pump-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D146326&q=best&v=1&m=400&webp=1",
-    "category": "Liquid Handwash",
+    "category": "Handwash & Handrub",
     "current_price": 110.0,
     "current_unit": "200 ml",
     "history": [
@@ -46425,7 +47873,7 @@ window.PRODUCT_DATA = {
     "id": "dettol_handwash_skincare_liquid_refill_170_ml",
     "name": "Dettol Handwash Skincare Liquid Refill",
     "image": "https://i.chaldn.com/_mpimage/dettol-handwash-skincare-liquid-refill-170-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D114827&q=best&v=1&m=400&webp=1",
-    "category": "Liquid Handwash",
+    "category": "Handwash & Handrub",
     "current_price": 80.0,
     "current_unit": "170 ml",
     "history": [
@@ -46468,7 +47916,7 @@ window.PRODUCT_DATA = {
     "id": "aci_savlon_ocean_blue_antiseptic_handwash_refill_170_ml",
     "name": "ACI Savlon Ocean Blue Antiseptic Handwash Refill",
     "image": "https://i.chaldn.com/_mpimage/aci-savlon-ocean-blue-antiseptic-handwash-refill-170-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D146333&q=best&v=1&m=400&webp=1",
-    "category": "Liquid Handwash",
+    "category": "Handwash & Handrub",
     "current_price": 80.0,
     "current_unit": "170 ml",
     "history": [
@@ -46511,7 +47959,7 @@ window.PRODUCT_DATA = {
     "id": "dettol_handwash_re_energize_liquid_refill_750_ml",
     "name": "Dettol Handwash Re-Energize Liquid Refill",
     "image": "https://i.chaldn.com/_mpimage/dettol-handwash-re-energize-liquid-refill-750-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D179243&q=best&v=1&m=400&webp=1",
-    "category": "Liquid Handwash",
+    "category": "Handwash & Handrub",
     "current_price": 270.0,
     "current_unit": "750 ml",
     "history": [
@@ -46554,7 +48002,7 @@ window.PRODUCT_DATA = {
     "id": "savlon_instant_hand_sanitizer_200_ml",
     "name": "Savlon Instant Hand Sanitizer",
     "image": "https://i.chaldn.com/_mpimage/savlon-instant-hand-sanitizer-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D75306&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Hand Sanitizer",
+    "category": "Handwash & Handrub",
     "current_price": 200.0,
     "current_unit": "200 ml",
     "history": [
@@ -46581,6 +48029,14 @@ window.PRODUCT_DATA = {
         "unit": "200 ml",
         "norm_price": 1000.0,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 200.0,
+        "unit": "200 ml",
+        "norm_price": 1000.0,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "1000.0 / 1 L"
@@ -46589,7 +48045,7 @@ window.PRODUCT_DATA = {
     "id": "savlon_hand_sanitizer_50_ml",
     "name": "Savlon Hand Sanitizer",
     "image": "https://i.chaldn.com/_mpimage/savlon-hand-sanitizer-50-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D133231&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Hand Sanitizer",
+    "category": "Handwash & Handrub",
     "current_price": 80.0,
     "current_unit": "50 ml",
     "history": [
@@ -46616,6 +48072,14 @@ window.PRODUCT_DATA = {
         "unit": "50 ml",
         "norm_price": 1600.0,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 80.0,
+        "unit": "50 ml",
+        "norm_price": 1600.0,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "1600.0 / 1 L"
@@ -46624,7 +48088,7 @@ window.PRODUCT_DATA = {
     "id": "dettol_handwash_re_energize_liquid_5_ltr",
     "name": "Dettol Handwash Re-Energize Liquid",
     "image": "https://i.chaldn.com/_mpimage/dettol-handwash-re-energize-liquid-5-ltr?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D186627&q=best&v=1&m=400&webp=1",
-    "category": "Liquid Handwash",
+    "category": "Handwash & Handrub",
     "current_price": 1400.0,
     "current_unit": "5 ltr",
     "history": [
@@ -46667,7 +48131,7 @@ window.PRODUCT_DATA = {
     "id": "sepnil_instant_hand_sanitizer_40_ml",
     "name": "Sepnil Instant Hand Sanitizer",
     "image": "https://i.chaldn.com/_mpimage/sepnil-instant-hand-sanitizer-40-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D60016&q=best&v=1&m=400&webp=1",
-    "category": "Hand Sanitizer",
+    "category": "Handwash & Handrub",
     "current_price": 80.0,
     "current_unit": "40 ml",
     "history": [
@@ -46694,6 +48158,14 @@ window.PRODUCT_DATA = {
         "unit": "40 ml",
         "norm_price": 2000.0,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 80.0,
+        "unit": "40 ml",
+        "norm_price": 2000.0,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "2000.0 / 1 L"
@@ -46702,7 +48174,7 @@ window.PRODUCT_DATA = {
     "id": "dettol_handwash_aloe_vera_liquid_pump_200_ml",
     "name": "Dettol Handwash Aloe Vera Liquid Pump",
     "image": "https://i.chaldn.com/_mpimage/dettol-handwash-aloe-vera-liquid-pump-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D184818&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Liquid Handwash",
+    "category": "Handwash & Handrub",
     "current_price": 110.0,
     "current_unit": "200 ml",
     "history": [
@@ -46745,7 +48217,7 @@ window.PRODUCT_DATA = {
     "id": "dettol_handwash_aloe_vera_liquid_refill_170_ml",
     "name": "Dettol Handwash Aloe Vera Liquid Refill",
     "image": "https://i.chaldn.com/_mpimage/dettol-handwash-aloe-vera-liquid-refill-170-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D114828&q=best&v=1&m=400&webp=1",
-    "category": "Liquid Handwash",
+    "category": "Handwash & Handrub",
     "current_price": 80.0,
     "current_unit": "170 ml",
     "history": [
@@ -46788,7 +48260,7 @@ window.PRODUCT_DATA = {
     "id": "sepnil_instant_hand_sanitizer_200_ml",
     "name": "Sepnil Instant Hand Sanitizer",
     "image": "https://i.chaldn.com/_mpimage/sepnil-instant-hand-sanitizer-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D178322&q=best&v=1&m=400&webp=1",
-    "category": "Hand Sanitizer",
+    "category": "Handwash & Handrub",
     "current_price": 250.0,
     "current_unit": "200 ml",
     "history": [
@@ -46815,6 +48287,14 @@ window.PRODUCT_DATA = {
         "unit": "200 ml",
         "norm_price": 1250.0,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 250.0,
+        "unit": "200 ml",
+        "norm_price": 1250.0,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "1250.0 / 1 L"
@@ -46823,7 +48303,7 @@ window.PRODUCT_DATA = {
     "id": "dettol_handwash_cool_liquid_refill_170_ml",
     "name": "Dettol Handwash Cool Liquid Refill",
     "image": "https://i.chaldn.com/_mpimage/dettol-handwash-cool-liquid-refill-170-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D114788&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Liquid Handwash",
+    "category": "Handwash & Handrub",
     "current_price": 80.0,
     "current_unit": "170 ml",
     "history": [
@@ -46866,7 +48346,7 @@ window.PRODUCT_DATA = {
     "id": "dettol_handwash_cool_liquid_pump_200_ml",
     "name": "Dettol Handwash Cool Liquid Pump",
     "image": "https://i.chaldn.com/_mpimage/dettol-handwash-cool-liquid-pump-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D112224&q=best&v=1&m=400&webp=1",
-    "category": "Liquid Handwash",
+    "category": "Handwash & Handrub",
     "current_price": 110.0,
     "current_unit": "200 ml",
     "history": [
@@ -46909,7 +48389,7 @@ window.PRODUCT_DATA = {
     "id": "dettol_handwash_skincare_liquid_pump_200_ml",
     "name": "Dettol Handwash Skincare Liquid Pump",
     "image": "https://i.chaldn.com/_mpimage/dettol-handwash-skincare-liquid-pump-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D112103&q=best&v=1&m=400&webp=1",
-    "category": "Liquid Handwash",
+    "category": "Handwash & Handrub",
     "current_price": 110.0,
     "current_unit": "200 ml",
     "history": [
@@ -46952,7 +48432,7 @@ window.PRODUCT_DATA = {
     "id": "lifebuoy_handwash_total_pump_200_ml",
     "name": "Lifebuoy Handwash Total Pump",
     "image": "https://i.chaldn.com/_mpimage/lifebuoy-handwash-total-pump-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D161166&q=best&v=1&m=400&webp=1",
-    "category": "Liquid Handwash",
+    "category": "Handwash & Handrub",
     "current_price": 120.0,
     "current_unit": "200 ml",
     "history": [
@@ -46995,7 +48475,7 @@ window.PRODUCT_DATA = {
     "id": "university_khata_300_pages_each",
     "name": "University khata 300 Pages",
     "image": "https://i.chaldn.com/_mpimage/university-khata-300-pages-1-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D114550&q=best&v=1&m=400&webp=1",
-    "category": "Diaries & Notebooks (School)",
+    "category": "Diaries & Notebooks",
     "current_price": 169.0,
     "current_unit": "each",
     "history": [
@@ -47272,6 +48752,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 30.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 30.0,
+        "unit": "each",
+        "norm_price": 30.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "30.0 / each"
@@ -47299,6 +48787,14 @@ window.PRODUCT_DATA = {
         "unit": "",
         "norm_price": 90.0,
         "norm_unit": ""
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 90.0,
+        "unit": "",
+        "norm_price": 90.0,
+        "norm_unit": ""
       }
     ],
     "norm_price_display": "90.0 / "
@@ -47322,6 +48818,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 179.0,
+        "unit": "each",
+        "norm_price": 179.0,
+        "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 179.0,
         "unit": "each",
         "norm_price": 179.0,
@@ -53006,6 +54510,14 @@ window.PRODUCT_DATA = {
         "unit": "50 gm",
         "norm_price": 2800.0,
         "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 140.0,
+        "unit": "50 gm",
+        "norm_price": 2800.0,
+        "norm_unit": "1 kg"
       }
     ],
     "norm_price_display": "2800.0 / 1 kg"
@@ -53033,6 +54545,14 @@ window.PRODUCT_DATA = {
         "unit": "200 ml",
         "norm_price": 1875.0,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 375.0,
+        "unit": "200 ml",
+        "norm_price": 1875.0,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "1875.0 / 1 L"
@@ -53041,7 +54561,7 @@ window.PRODUCT_DATA = {
     "id": "kool_after_shave_lotion_50_ml",
     "name": "Kool After Shave Lotion",
     "image": "https://i.chaldn.com/_mpimage/kool-after-shave-lotion-50-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D129845&q=best&v=1&m=400&webp=1",
-    "category": "Beard Grooming",
+    "category": "Shaving Needs",
     "current_price": 200.0,
     "current_unit": "50 ml",
     "history": [
@@ -53068,6 +54588,14 @@ window.PRODUCT_DATA = {
         "unit": "50 ml",
         "norm_price": 4000.0,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 200.0,
+        "unit": "50 ml",
+        "norm_price": 4000.0,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "4000.0 / 1 L"
@@ -53076,7 +54604,7 @@ window.PRODUCT_DATA = {
     "id": "nivea_men_sensitive_after_shave_lotion_100_ml",
     "name": "Nivea Men Sensitive After Shave Lotion",
     "image": "https://i.chaldn.com/_mpimage/nivea-men-sensitive-after-shave-lotion-100-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D104979&q=best&v=1&m=400&webp=1",
-    "category": "Beard Grooming",
+    "category": "Shaving Needs",
     "current_price": 550.0,
     "current_unit": "100 ml",
     "history": [
@@ -53103,6 +54631,14 @@ window.PRODUCT_DATA = {
         "unit": "100 ml",
         "norm_price": 5500.0,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 550.0,
+        "unit": "100 ml",
+        "norm_price": 5500.0,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "5500.0 / 1 L"
@@ -53111,7 +54647,7 @@ window.PRODUCT_DATA = {
     "id": "kool_ultra_glide_shaving_foam_200_ml",
     "name": "Kool Ultra Glide Shaving Foam",
     "image": "https://i.chaldn.com/_mpimage/kool-ultra-glide-shaving-foam-200-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D155413&q=best&v=1&m=400&webp=1",
-    "category": "Beard Grooming",
+    "category": "Shaving Needs",
     "current_price": 350.0,
     "current_unit": "200 ml",
     "history": [
@@ -53138,6 +54674,14 @@ window.PRODUCT_DATA = {
         "unit": "200 ml",
         "norm_price": 1750.0,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 350.0,
+        "unit": "200 ml",
+        "norm_price": 1750.0,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "1750.0 / 1 L"
@@ -53146,7 +54690,7 @@ window.PRODUCT_DATA = {
     "id": "kool_after_shave_lotion_100_ml",
     "name": "Kool After Shave Lotion",
     "image": "https://i.chaldn.com/_mpimage/kool-after-shave-lotion-100-ml?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D129844&q=best&v=1&m=400&webp=1",
-    "category": "Beard Grooming",
+    "category": "Shaving Needs",
     "current_price": 300.0,
     "current_unit": "100 ml",
     "history": [
@@ -53173,6 +54717,14 @@ window.PRODUCT_DATA = {
         "unit": "100 ml",
         "norm_price": 3000.0,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 300.0,
+        "unit": "100 ml",
+        "norm_price": 3000.0,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "3000.0 / 1 L"
@@ -53181,7 +54733,7 @@ window.PRODUCT_DATA = {
     "id": "kool_frosty_shaving_cream_50_gm",
     "name": "Kool Frosty Shaving Cream",
     "image": "https://i.chaldn.com/_mpimage/kool-frosty-shaving-cream-50-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D93741&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Beard Grooming",
+    "category": "Shaving Needs",
     "current_price": 55.0,
     "current_unit": "50 gm",
     "history": [
@@ -53204,6 +54756,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T11:54:40.566891+06:00",
+        "price": 55.0,
+        "unit": "50 gm",
+        "norm_price": 1100.0,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 55.0,
         "unit": "50 gm",
         "norm_price": 1100.0,
@@ -53243,6 +54803,14 @@ window.PRODUCT_DATA = {
         "unit": "100 gm",
         "norm_price": 3500.0,
         "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 350.0,
+        "unit": "100 gm",
+        "norm_price": 3500.0,
+        "norm_unit": "1 kg"
       }
     ],
     "norm_price_display": "3500.0 / 1 kg"
@@ -53274,6 +54842,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T13:33:01.734792+06:00",
+        "price": 65.0,
+        "unit": "",
+        "norm_price": 65.0,
+        "norm_unit": ""
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 65.0,
         "unit": "",
         "norm_price": 65.0,
@@ -53313,6 +54889,14 @@ window.PRODUCT_DATA = {
         "unit": "25 pcs",
         "norm_price": 9.8,
         "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 245.0,
+        "unit": "25 pcs",
+        "norm_price": 9.8,
+        "norm_unit": "1 pc"
       }
     ],
     "norm_price_display": "9.8 / 1 pc"
@@ -53344,6 +54928,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T13:33:01.734792+06:00",
+        "price": 250.0,
+        "unit": "8 pcs",
+        "norm_price": 31.25,
+        "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 250.0,
         "unit": "8 pcs",
         "norm_price": 31.25,
@@ -53383,6 +54975,14 @@ window.PRODUCT_DATA = {
         "unit": "10 pcs",
         "norm_price": 15.0,
         "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 150.0,
+        "unit": "10 pcs",
+        "norm_price": 15.0,
+        "norm_unit": "1 pc"
       }
     ],
     "norm_price_display": "15.0 / 1 pc"
@@ -53414,6 +55014,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T13:33:01.734792+06:00",
+        "price": 110.0,
+        "unit": "25 gm",
+        "norm_price": 4400.0,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 110.0,
         "unit": "25 gm",
         "norm_price": 4400.0,
@@ -53453,6 +55061,14 @@ window.PRODUCT_DATA = {
         "unit": "100 gm",
         "norm_price": 3500.0,
         "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 350.0,
+        "unit": "100 gm",
+        "norm_price": 3500.0,
+        "norm_unit": "1 kg"
       }
     ],
     "norm_price_display": "3500.0 / 1 kg"
@@ -53484,6 +55100,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T13:33:01.734792+06:00",
+        "price": 110.0,
+        "unit": "25 gm",
+        "norm_price": 4400.0,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 110.0,
         "unit": "25 gm",
         "norm_price": 4400.0,
@@ -53523,6 +55147,14 @@ window.PRODUCT_DATA = {
         "unit": "",
         "norm_price": 110.0,
         "norm_unit": ""
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 110.0,
+        "unit": "",
+        "norm_price": 110.0,
+        "norm_unit": ""
       }
     ],
     "norm_price_display": "110.0 / "
@@ -53554,6 +55186,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T13:33:01.734792+06:00",
+        "price": 120.0,
+        "unit": "8 pcs",
+        "norm_price": 15.0,
+        "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 120.0,
         "unit": "8 pcs",
         "norm_price": 15.0,
@@ -53593,6 +55233,14 @@ window.PRODUCT_DATA = {
         "unit": "6 pcs",
         "norm_price": 33.33,
         "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 200.0,
+        "unit": "6 pcs",
+        "norm_price": 33.33,
+        "norm_unit": "1 pc"
       }
     ],
     "norm_price_display": "33.33 / 1 pc"
@@ -53624,6 +55272,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T13:33:01.734792+06:00",
+        "price": 3200.0,
+        "unit": "",
+        "norm_price": 3200.0,
+        "norm_unit": ""
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 3200.0,
         "unit": "",
         "norm_price": 3200.0,
@@ -53663,6 +55319,14 @@ window.PRODUCT_DATA = {
         "unit": "50 gm",
         "norm_price": 4000.0,
         "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 200.0,
+        "unit": "50 gm",
+        "norm_price": 4000.0,
+        "norm_unit": "1 kg"
       }
     ],
     "norm_price_display": "4000.0 / 1 kg"
@@ -53694,6 +55358,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T13:33:01.734792+06:00",
+        "price": 70.0,
+        "unit": "8 pcs",
+        "norm_price": 8.75,
+        "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 70.0,
         "unit": "8 pcs",
         "norm_price": 8.75,
@@ -53733,6 +55405,14 @@ window.PRODUCT_DATA = {
         "unit": "8 pcs",
         "norm_price": 7.5,
         "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 60.0,
+        "unit": "8 pcs",
+        "norm_price": 7.5,
+        "norm_unit": "1 pc"
       }
     ],
     "norm_price_display": "7.5 / 1 pc"
@@ -53764,6 +55444,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T13:33:01.734792+06:00",
+        "price": 110.0,
+        "unit": "15 pcs",
+        "norm_price": 7.33,
+        "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 110.0,
         "unit": "15 pcs",
         "norm_price": 7.33,
@@ -53803,6 +55491,14 @@ window.PRODUCT_DATA = {
         "unit": "15 pcs",
         "norm_price": 8.0,
         "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 120.0,
+        "unit": "15 pcs",
+        "norm_price": 8.0,
+        "norm_unit": "1 pc"
       }
     ],
     "norm_price_display": "8.0 / 1 pc"
@@ -53834,6 +55530,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T13:33:01.734792+06:00",
+        "price": 100.0,
+        "unit": "25 gm",
+        "norm_price": 4000.0,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 100.0,
         "unit": "25 gm",
         "norm_price": 4000.0,
@@ -53873,6 +55577,14 @@ window.PRODUCT_DATA = {
         "unit": "7 pcs",
         "norm_price": 22.86,
         "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 160.0,
+        "unit": "7 pcs",
+        "norm_price": 22.86,
+        "norm_unit": "1 pc"
       }
     ],
     "norm_price_display": "22.86 / 1 pc"
@@ -53904,6 +55616,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T13:33:01.734792+06:00",
+        "price": 360.0,
+        "unit": "15 pcs",
+        "norm_price": 24.0,
+        "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 360.0,
         "unit": "15 pcs",
         "norm_price": 24.0,
@@ -53943,6 +55663,14 @@ window.PRODUCT_DATA = {
         "unit": "100 ml",
         "norm_price": 5270.0,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 527.0,
+        "unit": "100 ml",
+        "norm_price": 5270.0,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "5270.0 / 1 L"
@@ -53974,6 +55702,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T13:33:01.734792+06:00",
+        "price": 170.0,
+        "unit": "20 pcs",
+        "norm_price": 8.5,
+        "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 170.0,
         "unit": "20 pcs",
         "norm_price": 8.5,
@@ -54013,6 +55749,14 @@ window.PRODUCT_DATA = {
         "unit": "36 pcs",
         "norm_price": 5.25,
         "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 189.0,
+        "unit": "36 pcs",
+        "norm_price": 5.25,
+        "norm_unit": "1 pc"
       }
     ],
     "norm_price_display": "5.25 / 1 pc"
@@ -54044,6 +55788,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T13:33:01.734792+06:00",
+        "price": 350.0,
+        "unit": "",
+        "norm_price": 350.0,
+        "norm_unit": ""
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 350.0,
         "unit": "",
         "norm_price": 350.0,
@@ -54083,6 +55835,14 @@ window.PRODUCT_DATA = {
         "unit": "20 pcs",
         "norm_price": 34.0,
         "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 680.0,
+        "unit": "20 pcs",
+        "norm_price": 34.0,
+        "norm_unit": "1 pc"
       }
     ],
     "norm_price_display": "34.0 / 1 pc"
@@ -54114,6 +55874,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T13:33:01.734792+06:00",
+        "price": 60.0,
+        "unit": "8 pcs",
+        "norm_price": 7.5,
+        "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 60.0,
         "unit": "8 pcs",
         "norm_price": 7.5,
@@ -54153,6 +55921,14 @@ window.PRODUCT_DATA = {
         "unit": "10 pcs",
         "norm_price": 10.0,
         "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 100.0,
+        "unit": "10 pcs",
+        "norm_price": 10.0,
+        "norm_unit": "1 pc"
       }
     ],
     "norm_price_display": "10.0 / 1 pc"
@@ -54184,6 +55960,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T13:33:01.734792+06:00",
+        "price": 130.0,
+        "unit": "15 pcs",
+        "norm_price": 8.67,
+        "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 130.0,
         "unit": "15 pcs",
         "norm_price": 8.67,
@@ -54223,6 +56007,14 @@ window.PRODUCT_DATA = {
         "unit": "10 pcs",
         "norm_price": 12.0,
         "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 120.0,
+        "unit": "10 pcs",
+        "norm_price": 12.0,
+        "norm_unit": "1 pc"
       }
     ],
     "norm_price_display": "12.0 / 1 pc"
@@ -54231,7 +56023,7 @@ window.PRODUCT_DATA = {
     "id": "veet_hair_removal_cream_normal_skin_with_lotus_milk_50_gm",
     "name": "Veet Hair Removal Cream Normal Skin With Lotus Milk",
     "image": "https://i.chaldn.com/_mpimage/veet-hair-removal-cream-normal-skin-with-lotus-milk-50-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D136999&q=best&v=1&m=400&m=400&webp=1",
-    "category": "Hair Care",
+    "category": "Feminine Care",
     "current_price": 200.0,
     "current_unit": "50 gm",
     "history": [
@@ -54254,6 +56046,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 200.0,
+        "unit": "50 gm",
+        "norm_price": 4000.0,
+        "norm_unit": "1 kg"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 200.0,
         "unit": "50 gm",
         "norm_price": 4000.0,
@@ -54289,6 +56089,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T13:33:01.734792+06:00",
+        "price": 100.0,
+        "unit": "",
+        "norm_price": 100.0,
+        "norm_unit": ""
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 100.0,
         "unit": "",
         "norm_price": 100.0,
@@ -56261,6 +58069,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 249.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 249.0,
+        "unit": "each",
+        "norm_price": 249.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "249.0 / each"
@@ -56292,6 +58108,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 122.0,
+        "unit": "each",
+        "norm_price": 122.0,
+        "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 122.0,
         "unit": "each",
         "norm_price": 122.0,
@@ -56331,6 +58155,14 @@ window.PRODUCT_DATA = {
         "unit": "20 pcs",
         "norm_price": 7.75,
         "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 155.0,
+        "unit": "20 pcs",
+        "norm_price": 7.75,
+        "norm_unit": "1 pc"
       }
     ],
     "norm_price_display": "7.75 / 1 pc"
@@ -56362,6 +58194,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 439.0,
+        "unit": "",
+        "norm_price": 439.0,
+        "norm_unit": ""
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 439.0,
         "unit": "",
         "norm_price": 439.0,
@@ -56401,6 +58241,14 @@ window.PRODUCT_DATA = {
         "unit": "5 pcs",
         "norm_price": 20.0,
         "norm_unit": "1 pc"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 100.0,
+        "unit": "5 pcs",
+        "norm_price": 20.0,
+        "norm_unit": "1 pc"
       }
     ],
     "norm_price_display": "20.0 / 1 pc"
@@ -56432,6 +58280,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 269.0,
+        "unit": "each",
+        "norm_price": 269.0,
+        "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 269.0,
         "unit": "each",
         "norm_price": 269.0,
@@ -56471,6 +58327,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 426.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 426.0,
+        "unit": "each",
+        "norm_price": 426.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "426.0 / each"
@@ -56502,6 +58366,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 139.0,
+        "unit": "each",
+        "norm_price": 139.0,
+        "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 139.0,
         "unit": "each",
         "norm_price": 139.0,
@@ -56541,6 +58413,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 199.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 199.0,
+        "unit": "each",
+        "norm_price": 199.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "199.0 / each"
@@ -56576,6 +58456,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 899.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 899.0,
+        "unit": "each",
+        "norm_price": 899.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "899.0 / each"
@@ -56607,6 +58495,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 197.0,
+        "unit": "each",
+        "norm_price": 197.0,
+        "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 197.0,
         "unit": "each",
         "norm_price": 197.0,
@@ -56834,7 +58730,7 @@ window.PRODUCT_DATA = {
     "id": "transparent_disposable_piping_bags_8_5_x12_5__100_pcs",
     "name": "Transparent Disposable Piping Bags (8.5\"x12.5\")",
     "image": "https://i.chaldn.com/_mpimage/transparent-disposable-piping-bags-85x125-100-pcs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D69286&q=best&v=1&m=400&webp=1",
-    "category": "Baking Tools",
+    "category": "Disposables & Trash Bags",
     "current_price": 719.0,
     "current_unit": "100 pcs",
     "history": [
@@ -64992,6 +66888,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 100.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 100.0,
+        "unit": "each",
+        "norm_price": 100.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "100.0 / each"
@@ -65015,6 +66919,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T11:54:40.566891+06:00",
+        "price": 130.0,
+        "unit": "each",
+        "norm_price": 130.0,
+        "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 130.0,
         "unit": "each",
         "norm_price": 130.0,
@@ -65046,6 +66958,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 115.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 115.0,
+        "unit": "each",
+        "norm_price": 115.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "115.0 / each"
@@ -65069,6 +66989,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T11:54:40.566891+06:00",
+        "price": 115.0,
+        "unit": "each",
+        "norm_price": 115.0,
+        "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 115.0,
         "unit": "each",
         "norm_price": 115.0,
@@ -65100,6 +67028,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 85.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 85.0,
+        "unit": "each",
+        "norm_price": 85.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "85.0 / each"
@@ -65123,6 +67059,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T11:54:40.566891+06:00",
+        "price": 115.0,
+        "unit": "each",
+        "norm_price": 115.0,
+        "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 115.0,
         "unit": "each",
         "norm_price": 115.0,
@@ -65154,6 +67098,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 110.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 110.0,
+        "unit": "each",
+        "norm_price": 110.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "110.0 / each"
@@ -65177,6 +67129,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T11:54:40.566891+06:00",
+        "price": 115.0,
+        "unit": "each",
+        "norm_price": 115.0,
+        "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 115.0,
         "unit": "each",
         "norm_price": 115.0,
@@ -65208,6 +67168,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 100.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 100.0,
+        "unit": "each",
+        "norm_price": 100.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "100.0 / each"
@@ -65231,6 +67199,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T11:54:40.566891+06:00",
+        "price": 200.0,
+        "unit": "each",
+        "norm_price": 200.0,
+        "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 200.0,
         "unit": "each",
         "norm_price": 200.0,
@@ -65402,6 +67378,14 @@ window.PRODUCT_DATA = {
         "unit": "",
         "norm_price": 419.0,
         "norm_unit": ""
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 419.0,
+        "unit": "",
+        "norm_price": 419.0,
+        "norm_unit": ""
       }
     ],
     "norm_price_display": "419.0 / "
@@ -65425,6 +67409,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 589.0,
+        "unit": "",
+        "norm_price": 589.0,
+        "norm_unit": ""
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 589.0,
         "unit": "",
         "norm_price": 589.0,
@@ -65456,6 +67448,14 @@ window.PRODUCT_DATA = {
         "unit": "",
         "norm_price": 1479.0,
         "norm_unit": ""
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 1479.0,
+        "unit": "",
+        "norm_price": 1479.0,
+        "norm_unit": ""
       }
     ],
     "norm_price_display": "1479.0 / "
@@ -65479,6 +67479,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 520.0,
+        "unit": "",
+        "norm_price": 520.0,
+        "norm_unit": ""
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 520.0,
         "unit": "",
         "norm_price": 520.0,
@@ -65510,6 +67518,14 @@ window.PRODUCT_DATA = {
         "unit": "",
         "norm_price": 1079.0,
         "norm_unit": ""
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 1079.0,
+        "unit": "",
+        "norm_price": 1079.0,
+        "norm_unit": ""
       }
     ],
     "norm_price_display": "1079.0 / "
@@ -65533,6 +67549,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 465.0,
+        "unit": "each",
+        "norm_price": 465.0,
+        "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 465.0,
         "unit": "each",
         "norm_price": 465.0,
@@ -65564,6 +67588,14 @@ window.PRODUCT_DATA = {
         "unit": "each",
         "norm_price": 499.0,
         "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 499.0,
+        "unit": "each",
+        "norm_price": 499.0,
+        "norm_unit": "each"
       }
     ],
     "norm_price_display": "499.0 / each"
@@ -65587,6 +67619,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T03:24:50.712431+06:00",
+        "price": 779.0,
+        "unit": "each",
+        "norm_price": 779.0,
+        "norm_unit": "each"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 779.0,
         "unit": "each",
         "norm_price": 779.0,
@@ -82112,6 +84152,14 @@ window.PRODUCT_DATA = {
         "unit": "50 ml",
         "norm_price": 31980.0,
         "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
+        "price": 1599.0,
+        "unit": "50 ml",
+        "norm_price": 31980.0,
+        "norm_unit": "1 L"
       }
     ],
     "norm_price_display": "31980.0 / 1 L"
@@ -82127,6 +84175,14 @@ window.PRODUCT_DATA = {
       {
         "date": "2026-08-15",
         "timestamp": "2026-08-15T11:54:40.566891+06:00",
+        "price": 450.0,
+        "unit": "30 ml",
+        "norm_price": 15000.0,
+        "norm_unit": "1 L"
+      },
+      {
+        "date": "2026-08-16",
+        "timestamp": "2026-08-16T09:50:20.191405+06:00",
         "price": 450.0,
         "unit": "30 ml",
         "norm_price": 15000.0,
