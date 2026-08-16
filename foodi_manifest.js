@@ -1,0 +1,1 @@
+window.foodiManifest = {"metadata":{"last_update":"2026-08-16 12:30:11","total":6051,"date_range":"2026-08-13 to 2026-08-16","total_chunks":2,"chunk_size":5000,"scraper_stats":{"web_scraped":0,"app_scraped":6051,"web_selected":0,"app_selected":6051,"dropped":0,"web":0,"app":6051,"combined":6051}}};

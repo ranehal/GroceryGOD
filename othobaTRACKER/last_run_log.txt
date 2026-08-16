@@ -1,9 +1,9 @@
-Last Run: 2026-08-16 12:22:14
+Last Run: 2026-08-16 14:32:27
 ------------------------------
-Total Scraped: 70768
-Web Scraped: 43107
+Total Scraped: 70796
+Web Scraped: 43144
 App API Scraped: 44875
-Combined Unique: 70768
+Combined Unique: 70796
 ------------------------------
 Categories:
 - Books: 992
