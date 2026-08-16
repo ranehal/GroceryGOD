@@ -3567,6 +3567,15 @@ let chatOpen = false;
 let chatBusy = false;
 let chatKey = safeStorage.getItem(CHAT_KEY_STORAGE) || '';
 let chatTurnCount = 0;
+let chatTrackProducts = [];
+
+function chatTrack(list) {
+    chatTrackProducts = (list || []).map(p => ({
+        id: p.id, name: p.name, image: p.image || '', store: p.store,
+        normalized_price: p.normalized_price, unit_type: p.unit_type
+    }));
+    return list;
+}
 
 function chatStoreIdFromText(text) {
     const t = text.toLowerCase();
@@ -3670,6 +3679,7 @@ function chatLocalAnswer(text) {
         const a = chatRanked(compareQ, sidA, 3);
         const b = chatRanked(compareQ, sidB, 3);
         if (!a.length && !b.length) return `No "${compareQ.trim()}" found in ${chatStoreName(sidA)} or ${chatStoreName(sidB)}.`;
+        chatTrack([...a, ...b]);
         const lines = [`⚖️ ${compareQ.trim()} — ${chatStoreName(sidA)} vs ${chatStoreName(sidB)}:`];
         if (a.length) lines.push(`${chatStoreName(sidA)}:`, ...a.map(p => chatPriceLine(p, false)));
         else lines.push(`${chatStoreName(sidA)}: nothing in stock`);
@@ -3687,6 +3697,7 @@ function chatLocalAnswer(text) {
     if (historyMatch) {
         const p = chatRanked(historyMatch[1], chatStoreIdFromText(t), 1)[0];
         if (!p) return `No product found matching "${historyMatch[1]}".`;
+        chatTrack([p]);
         return chatHistorySummary(p.id, p.name);
     }
     const priceMatch = t.match(/(?:price|cost|rate|value)\s+(?:of\s+|for\s+)?(.+)/) ||
@@ -3695,6 +3706,7 @@ function chatLocalAnswer(text) {
         const sid = chatStoreIdFromText(t);
         const found = chatRanked(priceMatch[1], sid, 5);
         if (!found.length) return `No products found matching "${priceMatch[1]}".`;
+        chatTrack(found);
         return found.map(p => chatPriceLine(p, !sid)).join('\n');
     }
     const whichStore = t.match(/(?:which store|where|who)\s+(?:sells|has|carries|stocks)\s+(.+)/);
@@ -3705,8 +3717,9 @@ function chatLocalAnswer(text) {
         found.forEach(p => {
             if (!byStore[p.store] || Number(p.normalized_price) < Number(byStore[p.store].normalized_price)) byStore[p.store] = p;
         });
-        return Object.values(byStore).sort((a, b) => Number(a.normalized_price) - Number(b.normalized_price))
-            .map(p => chatPriceLine(p, true)).join('\n');
+        const winners = Object.values(byStore).sort((a, b) => Number(a.normalized_price) - Number(b.normalized_price));
+        chatTrack(winners);
+        return winners.map(p => chatPriceLine(p, true)).join('\n');
     }
     const cheapestMatch = t.match(/(?:cheapest|lowest price|best price|cheaper|most affordable|সস্তা|কম দাম)\s+(?:is\s+|for\s+|of\s+)?(.+)/) ||
                           t.match(/(?:cheap|lowest|best)\s+(.+)/);
@@ -3714,6 +3727,7 @@ function chatLocalAnswer(text) {
         const sid = chatStoreIdFromText(t);
         const found = chatRanked(cheapestMatch[1], sid, 5);
         if (!found.length) return `No products found matching "${cheapestMatch[1]}".`;
+        chatTrack(found);
         const scope = sid ? ` in ${chatStoreName(sid)}` : ' across all stores';
         return `🏷️ Cheapest "${cheapestMatch[1].trim()}"${scope}:\n` + found.map(p => chatPriceLine(p, !sid)).join('\n');
     }
@@ -3722,7 +3736,10 @@ function chatLocalAnswer(text) {
         const q = t.replace(/^(what is|whats|tell me about|show me)\s*/, '').replace(/\s+in\s+.*$/, '').trim();
         if (q.length > 2) {
             const found = chatRanked(q, sid, 5);
-            if (found.length) return `🏷️ "${q}" in ${chatStoreName(sid)}:\n` + found.map(p => chatPriceLine(p, false)).join('\n');
+            if (found.length) {
+                chatTrack(found);
+                return `🏷️ "${q}" in ${chatStoreName(sid)}:\n` + found.map(p => chatPriceLine(p, false)).join('\n');
+            }
         }
     }
     return null;
@@ -3809,6 +3826,7 @@ async function chatToolSearch(args) {
     if (sort === 'expensive') rows.sort((a, b) => b.normalized_price - a.normalized_price);
     else if (sort === 'name') rows.sort((a, b) => a.name.localeCompare(b.name));
     else rows.sort((a, b) => a.normalized_price - b.normalized_price);
+    chatTrack(rows.slice(0, 8));
     return { results: rows };
 }
 
@@ -3818,6 +3836,7 @@ async function chatToolHistory(args) {
     const p = allProducts.find(x => x.id === pid);
     const h = await loadProductHistory(pid);
     if (!h.length) return { message: 'No price history found for this product.' };
+    if (p) chatTrack([p]);
     const prices = h.map(x => Number(x.normalized_price)).filter(v => v > 0);
     if (!prices.length) return { message: 'No price history found for this product.' };
     const min = Math.min(...prices), max = Math.max(...prices);
@@ -3859,6 +3878,7 @@ async function chatToolCompare(args) {
         if (!byStore[p.store] || Number(p.normalized_price) < Number(byStore[p.store].normalized_price)) byStore[p.store] = p;
     });
     const list = Object.values(byStore).sort((a, b) => Number(a.normalized_price) - Number(b.normalized_price));
+    chatTrack(list.slice(0, 8));
     const winner = list[0];
     return {
         query: q,
@@ -3959,17 +3979,144 @@ const CHAT_SYSTEM_PROMPT =
     'get_price_history for trends (use the aggregates returned — do not fabricate dates), get_store_stats for counts. ' +
     'If a tool returns nothing, say so plainly and suggest a broader search. Prefer showing 2-5 results with store names.';
 
-function chatAppendMsg(role, text, kind) {
+function chatAppendMsg(role, text, kind, products) {
     const box = document.getElementById('god-chat-messages');
     if (!box) return;
+    const wrap = document.createElement('div');
+    wrap.className = 'god-chat-msg-wrap';
+    wrap.dataset.role = role;
+    wrap.dataset.text = text;
     const div = document.createElement('div');
     div.className = `god-chat-msg ${kind || role}`;
     div.dataset.role = role;
     div.dataset.text = text;
     div.textContent = text;
-    box.appendChild(div);
+    wrap.appendChild(div);
+    if (role === 'user' || role === 'bot') {
+        const actions = document.createElement('div');
+        actions.className = 'god-chat-msg-actions';
+        if (role === 'user') {
+            actions.appendChild(chatActionButton('✎ Edit', () => chatEditMessage(wrap)));
+            actions.appendChild(chatActionButton('↻ Retry', () => chatReaskMessage(wrap)));
+        }
+        actions.appendChild(chatActionButton('⧉ Copy', () => chatCopyMessage(wrap)));
+        wrap.appendChild(actions);
+    }
+    if (role === 'bot' && products && products.length) {
+        const row = document.createElement('div');
+        row.className = 'god-chat-product-row';
+        products.slice(0, 8).forEach(p => {
+            const card = document.createElement('button');
+            card.type = 'button';
+            card.className = 'god-chat-product-card';
+            card.title = `Open ${p.name} — ${chatStoreName(p.store)}`;
+            const img = document.createElement('img');
+            img.src = p.image || '';
+            img.alt = '';
+            img.loading = 'lazy';
+            img.onerror = () => { img.style.visibility = 'hidden'; };
+            const meta = document.createElement('div');
+            const nm = document.createElement('div');
+            nm.className = 'pname';
+            nm.textContent = p.name;
+            const pr = document.createElement('div');
+            pr.className = 'pprice';
+            pr.textContent = `${fmt(p.normalized_price)}/${unitTypeLabel(p.unit_type)}`;
+            const ps = document.createElement('div');
+            ps.className = 'pstore';
+            ps.textContent = chatStoreName(p.store);
+            meta.appendChild(nm);
+            meta.appendChild(pr);
+            meta.appendChild(ps);
+            card.appendChild(img);
+            card.appendChild(meta);
+            card.addEventListener('click', () => chatOpenProduct(p.id));
+            row.appendChild(card);
+        });
+        wrap.appendChild(row);
+    }
+    box.appendChild(wrap);
     box.scrollTop = box.scrollHeight;
     chatUpdateMode();
+    return wrap;
+}
+
+function chatActionButton(label, fn) {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'god-chat-act-btn';
+    b.textContent = label;
+    b.addEventListener('click', fn);
+    return b;
+}
+
+function chatCopyMessage(wrap) {
+    const text = (wrap && wrap.dataset.text) || '';
+    if (!text) return;
+    const done = () => showUXToast('Copied to clipboard.', 'info');
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done).catch(() => {});
+    } else {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); done(); } catch (_) {}
+        ta.remove();
+    }
+}
+
+function chatEditMessage(wrap) {
+    const div = wrap.querySelector('.god-chat-msg');
+    const text = (wrap.dataset.text || '');
+    const ta = document.createElement('textarea');
+    ta.className = 'god-chat-edit-box';
+    ta.value = text;
+    const row = document.createElement('div');
+    row.className = 'god-chat-edit-row';
+    const save = document.createElement('button');
+    save.type = 'button';
+    save.className = 'god-chat-edit-save';
+    save.textContent = 'Save & re-ask';
+    const cancel = chatActionButton('Cancel', () => { ta.remove(); row.remove(); div.style.display = ''; });
+    row.appendChild(cancel);
+    row.appendChild(save);
+    div.style.display = 'none';
+    wrap.insertBefore(ta, div.nextSibling);
+    wrap.insertBefore(row, ta.nextSibling);
+    ta.focus();
+    const submit = async () => {
+        const v = ta.value.trim();
+        if (!v || chatBusy) return;
+        wrap.dataset.text = v;
+        div.textContent = v;
+        ta.remove();
+        row.remove();
+        div.style.display = '';
+        await chatReaskMessage(wrap);
+    };
+    save.addEventListener('click', submit);
+    ta.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) { e.preventDefault(); submit(); }
+        if (e.key === 'Escape') cancel.click();
+    });
+}
+
+async function chatReaskMessage(wrap) {
+    const box = document.getElementById('god-chat-messages');
+    if (!box) return;
+    const wraps = Array.from(box.querySelectorAll('.god-chat-msg-wrap'));
+    const idx = wraps.indexOf(wrap);
+    if (idx < 0) return;
+    wraps.slice(idx + 1).forEach(w => w.remove());
+    await chatAnswer(wrap.dataset.text || '');
+}
+
+function chatOpenProduct(id) {
+    const p = allProducts.find(x => x.id === id);
+    if (p) openDetailedChart(p);
 }
 
 function chatTyping(on) {
@@ -4016,10 +4163,16 @@ async function chatSend(text) {
     if (chatBusy) return;
     const q = String(text || '').trim();
     if (!q) return;
+    chatAppendMsg('user', q);
+    await chatAnswer(q);
+}
+
+async function chatAnswer(q) {
+    if (chatBusy) return;
     chatBusy = true;
+    chatTrackProducts = [];
     const sendBtn = document.querySelector('.god-chat-send');
     if (sendBtn) sendBtn.disabled = true;
-    chatAppendMsg('user', q);
     chatTyping(true);
     try {
         let answer = null;
@@ -4049,7 +4202,7 @@ async function chatSend(text) {
                 ? 'I could not find a confident answer for that. Try asking about a specific product, store, or comparison.'
                 : 'I could not answer that in offline mode. Add a free Gemini API key above (it stays only in your browser) for natural-language questions, or try "cheapest rice", "history of milk", "how many products in othoba".';
         }
-        chatAppendMsg('bot', answer);
+        chatAppendMsg('bot', answer, undefined, chatTrackProducts);
     } catch (e) {
         console.error('[CHAT] Error:', e);
         chatAppendMsg('bot', `Something went wrong: ${e.message}`, 'error');

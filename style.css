@@ -2511,7 +2511,7 @@ body.pitch-black.theme-amoled {
 #god-chat-widget {
     position: fixed;
     right: 18px;
-    bottom: 18px;
+    bottom: 150px;
     z-index: 6000;
     font-family: var(--font-stack);
 }
@@ -2537,7 +2537,7 @@ body.pitch-black.theme-amoled {
     width: 380px;
     max-width: calc(100vw - 36px);
     height: 560px;
-    max-height: calc(100vh - 110px);
+    max-height: calc(100vh - 240px);
     background: var(--card-bg);
     border: 1px solid var(--line-soft);
     border-radius: var(--radius-l);
@@ -2606,6 +2606,97 @@ body.pitch-black.theme-amoled {
     color: var(--danger);
 }
 .god-chat-msg.typing { color: var(--text-secondary); font-style: italic; }
+.god-chat-msg-wrap { display: flex; flex-direction: column; max-width: 88%; }
+.god-chat-msg-wrap .god-chat-msg { max-width: 100%; }
+.god-chat-msg-actions {
+    display: flex;
+    gap: 4px;
+    margin-top: 4px;
+    align-self: flex-start;
+}
+.god-chat-msg-wrap[data-role="user"] .god-chat-msg-actions { align-self: flex-end; }
+.god-chat-act-btn {
+    background: transparent;
+    border: 1px solid var(--line-soft);
+    color: var(--text-secondary);
+    border-radius: 6px;
+    padding: 2px 8px;
+    font-size: 10.5px;
+    cursor: pointer;
+    font-family: var(--font-stack);
+    transition: color .15s ease, border-color .15s ease;
+}
+.god-chat-act-btn:hover { color: var(--accent-color); border-color: var(--accent-color); }
+.god-chat-edit-box {
+    width: 100%;
+    background: var(--bg-dark);
+    border: 1px solid var(--accent-color);
+    color: var(--text-primary);
+    border-radius: var(--radius-m);
+    padding: 8px 10px;
+    font-size: 12.5px;
+    line-height: 1.5;
+    font-family: var(--font-stack);
+    resize: vertical;
+    min-height: 54px;
+}
+.god-chat-edit-box:focus { outline: none; box-shadow: 0 0 0 2px rgba(56, 225, 176, .25); }
+.god-chat-edit-row { display: flex; gap: 6px; justify-content: flex-end; margin-top: 6px; }
+.god-chat-edit-save {
+    background: var(--accent-secondary);
+    border: none;
+    color: #04120c;
+    border-radius: 6px;
+    padding: 4px 12px;
+    font-size: 11.5px;
+    font-weight: 700;
+    cursor: pointer;
+}
+.god-chat-product-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+}
+.god-chat-product-card {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--bg-dark);
+    border: 1px solid var(--line-soft);
+    border-radius: 10px;
+    padding: 5px 9px;
+    cursor: pointer;
+    max-width: 100%;
+    font-family: var(--font-stack);
+    text-align: left;
+    transition: border-color .15s ease, transform .15s ease;
+}
+.god-chat-product-card:hover { border-color: var(--accent-color); transform: translateY(-1px); }
+.god-chat-product-card img {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    object-fit: cover;
+    background: #f8fafc;
+    flex-shrink: 0;
+}
+.god-chat-product-card .pname {
+    font-size: 11px;
+    color: var(--text-primary);
+    line-height: 1.25;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.god-chat-product-card .pprice {
+    font-size: 11px;
+    color: var(--accent-secondary);
+    font-weight: 700;
+    margin-top: 2px;
+}
+.god-chat-product-card .pstore { font-size: 10px; color: var(--text-secondary); }
 .god-chat-chips {
     display: flex;
     flex-wrap: wrap;
@@ -2694,6 +2785,6 @@ body.pitch-black.theme-amoled {
 }
 .god-chat-send:disabled { opacity: .45; cursor: not-allowed; }
 @media (max-width: 520px) {
-    .god-chat-panel { width: calc(100vw - 36px); height: 70vh; }
-    #god-chat-widget { right: 12px; bottom: 12px; }
+    .god-chat-panel { width: calc(100vw - 36px); height: 64vh; }
+    #god-chat-widget { right: 12px; bottom: 132px; }
 }
