@@ -1,7 +1,7 @@
-Last Run: 2026-08-16 09:53:05
+Last Run: 2026-08-16 12:06:24
 ------------------------------
 Total Scraped: 1800
-New Items: 188
+New Items: 0
 ------------------------------
 Categories:
 - Socks: 99
