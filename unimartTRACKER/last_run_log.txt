@@ -1,17 +1,17 @@
-Last Run: 2026-08-16 18:34:30
+Last Run: 2026-08-15 22:07:04
 ------------------------------
 Total Scraped: 1800
 New Items: 0
 ------------------------------
 Categories:
-- Socks: 99
-- Shampoo: 86
-- Cookies: 48
-- Imported Wafers: 41
-- Toothpaste: 40
-- Feeding Accessories Kit: 36
-- Body Wash: 31
-- Olive Oil: 30
-- Chips: 26
-- Regular Black Tea: 25
-... and 281 more.
+- Shampoo: 125
+- Cookies: 49
+- Imported Wafers: 44
+- Pasteurized Full Cream Milk: 40
+- Toothpaste: 38
+- Face Treatments: 31
+- Chips: 29
+- Soft Drinks: 28
+- Chocolate Bar: 28
+- Imported Biscuit: 28
+... and 278 more.

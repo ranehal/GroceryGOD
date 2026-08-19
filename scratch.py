@@ -68,7 +68,7 @@ def _reclaim_disk(force=False):
         for _sh in [
             'rm -rf /root/.cache/pip 2>/dev/null',
             'rm -rf /var/lib/apt/lists/* 2>/dev/null',
-            'find /kaggle /tmp -name "__pycache__" -type d -prune -exec rm -rf {} + 2>/dev/null',
+            'find /kaggle/working -name "__pycache__" -type d -prune -exec rm -rf {} + 2>/dev/null',
             'find /kaggle/working -name "*.pyc" -delete 2>/dev/null',
             'find /kaggle/working -name "_scraper_error_*.log" -delete 2>/dev/null',
         ]:
@@ -251,12 +251,11 @@ def run_grocery_god(github_pat):
             else:
                 safe_tb = html.escape(traceback.format_exc()[-1000:])
                 log.error(f'❌  [{self.name}] — FAILED\n{traceback.format_exc()}')
-                if self.notify: tg_send(f'❌ <b>{self.name}</b> — FAILED\n<pre>{safe_tb}</pre>')
                 return False
     # ONE-TIME INITIALIZATIONS
     os.chdir('/kaggle/working')
     try:
-        tg_send('🚀 <b>GroceryGOD Environment Booting Up...</b>')
+        log.info('🚀 GroceryGOD Environment Booting Up...')
         get_ips()
         with Step('Environment Sync', '📦'):
             try:
@@ -295,7 +294,7 @@ def run_grocery_god(github_pat):
         os.chdir('/kaggle/working')
         
         try:
-            tg_send(f'🚀 <b>GroceryGOD Pipeline — CYCLE {cycle_count} STARTED (Simultaneous Parallel)</b>')
+            log.info(f'🚀 GroceryGOD Pipeline — CYCLE {cycle_count} STARTED (Simultaneous Parallel)')
             with Step('Configuration & Git Setup', '⚙️'):
                 if not github_pat:
                     raise RuntimeError("GITHUB_PAT is missing or empty. Git operations will fail.")
@@ -377,7 +376,6 @@ def run_grocery_god(github_pat):
                     log.info(f'  Decrypted {_dc}/{len(_enc_files)} files')
                 except subprocess.CalledProcessError as e:
                     log.error(f'Decryption failed: {e.stderr[:500]}')
-                    tg_send(f'⚠️ <b>Repo Decryption</b> — failed (non-fatal)', silent=True)
 
             SCRAPER_TIMEOUT = 30 * 60
             PARALLEL_MAX_WORKERS = 8
@@ -397,7 +395,6 @@ def run_grocery_god(github_pat):
                 if not script_targets:
                     error_msg = f"No scraper scripts found in {full_path}"
                     log.error(f"X {error_msg}")
-                    tg_send(f'X <b>{label}</b> - {error_msg}', silent=True)
                     return label, False, 0, "missing"
 
                 my_env = os.environ.copy()
@@ -449,7 +446,6 @@ def run_grocery_god(github_pat):
                 
                 # Monitor all procs
                 deadline = time.time() + SCRAPER_TIMEOUT
-                _last_10m_tg = None
                 while True:
                     all_done = True
                     for p in procs:
@@ -461,7 +457,6 @@ def run_grocery_god(github_pat):
                                 p['proc'].kill()
                                 p['timed_out'] = True
                                 log.error(f"{label}:{p['name']} TIMED OUT (No output for 10m).")
-                                tg_send(f"TIMEOUT <b>{label}:{p['name']}</b> (No output 10m).", silent=True)
                             
                             # Check cloudflare block in stderr
                             err_text = ''.join(p['stderr_capture'][-20:]).lower()
@@ -469,18 +464,9 @@ def run_grocery_god(github_pat):
                                 p['proc'].kill()
                                 p['crashed'] = True
                                 log.error(f"{label}:{p['name']} BLOCKED (Cloudflare/IP).")
-                                tg_send(f"BLOCKED <b>{label}:{p['name']}</b> (Cloudflare/IP issue).", silent=True)
                                 
                     _now = time.time()
                     _elapsed = _now - t0
-                    if _elapsed >= 1800:
-                        if _last_10m_tg is None or (_now - _last_10m_tg) >= 600:
-                            total_so_far = sum(p['stdout_count'][0] for p in procs)
-                            proc_stats = "\n".join([f" • {p['name']}: {p['stdout_count'][0]} lines ({'running' if p['proc'].poll() is None else 'finished'})" for p in procs])
-                            status_msg = f"⏳ <b>{label}</b> Status Update — Running for {_fmt_dur(_elapsed)}\nTotal lines: {total_so_far}\n{proc_stats}"
-                            log.info(f"[{label}] Sending 10-min TG status report ({_fmt_dur(_elapsed)} elapsed)...")
-                            tg_send(status_msg, silent=True)
-                            _last_10m_tg = _now
 
                     if all_done or time.time() > deadline:
                         break
@@ -490,7 +476,7 @@ def run_grocery_god(github_pat):
                     if p['proc'].poll() is None:
                         p['proc'].kill()
                         p['timed_out'] = True
-                        tg_send(f"TIMEOUT <b>{label}:{p['name']}</b> (Hard deadline).", silent=True)
+                        log.error(f"{label}:{p['name']} TIMED OUT (Hard deadline).")
                     p['t_stdout'].join(timeout=5)
                     p['t_stderr'].join(timeout=5)
                     total_lines += p['stdout_count'][0]
@@ -500,15 +486,12 @@ def run_grocery_god(github_pat):
                         all_ok = False; status_res = "crashed"
 
                 elapsed = time.time() - t0
-                
-                # Combine stats
-                stats_msg = "\n".join([f" - {p['name']}: {p['stdout_count'][0]} lines" for p in procs])
+                stats_msg = ", ".join([f"{p['name']}: {p['stdout_count'][0]} lines" for p in procs])
                 if all_ok:
-                    tg_msg = f"✅ 🟢 <b>{label}</b> — {_fmt_dur(elapsed)}\n{stats_msg}"
+                    log.info(f"✅ {label} — {_fmt_dur(elapsed)} ({stats_msg})")
                 else:
-                    tg_msg = f"⚠️ <b>{label}</b> finished with errors — {_fmt_dur(elapsed)}\n{stats_msg}"
+                    log.warning(f"⚠️ {label} finished with errors — {_fmt_dur(elapsed)} ({stats_msg})")
 
-                tg_send(tg_msg, silent=False)
                 return label, all_ok, total_lines, status_res
 
             with Step('History Reconstruction', '📄'):
@@ -574,14 +557,13 @@ def run_grocery_god(github_pat):
                     _failed = [(r[0], r[3]) for r in results if not r[1]]
                     log.info(f'Failed: {_failed}')
 
-                tg_send(f"SCRAPER RESULTS: {_ok_count}/{len(results)} OK", silent=True)
+                log.info(f"SCRAPER RESULTS: {_ok_count}/{len(results)} OK")
                 for r in results:
                     _label, _ok, _lines, _status = r
                     _emoji = _status_emoji.get(_status, "?")
-                    tg_send(f'{_emoji} {_label} - {_lines} lines [{_status}]', silent=True)
+                    log.info(f'{_emoji} {_label} - {_lines} lines [{_status}]')
 
                 log.info("Pushing all scraper data to GitHub...")
-                tg_send("Pushing combined scraper data to GitHub...", silent=True)
                 try:
                     subprocess.run('git add .', shell=True)
                     _now = datetime.now(DHAKA_TZ).strftime('%Y-%m-%d %H:%M:%S')
@@ -589,7 +571,6 @@ def run_grocery_god(github_pat):
                     subprocess.run('git pull origin master --rebase -X ours', shell=True, capture_output=True)
                     subprocess.run('git push origin HEAD:master --force', shell=True, capture_output=True)
                     log.info("Combined scraper data pushed to GitHub successfully")
-                    tg_send('Combined scraper data pushed to GitHub', silent=True)
                 except Exception as push_err:
                     log.warning(f"Failed to push scraper data: {push_err}")
 
@@ -601,7 +582,6 @@ def run_grocery_god(github_pat):
                 _agg_proc.wait()
                 if _agg_proc.returncode != 0:
                     log.error(f'Aggregator failed with code {_agg_proc.returncode}')
-                    tg_send(f'⚠️ <b>Aggregator</b> failed (rc={_agg_proc.returncode})', silent=True)
                 else:
                     log.info('Aggregator completed successfully')
                 
@@ -632,7 +612,6 @@ def run_grocery_god(github_pat):
                             log.info(f'  {pf}: {sz_mb:.1f} MB')
                 except subprocess.CalledProcessError as e:
                     log.error(f'Parquet conversion failed with code {e.returncode}')
-                    tg_send(f'⚠️ <b>Parquet Conversion</b> — failed (non-fatal)', silent=True)
 
             with Step('Premium Key Rotation', '🔐'):
                 new_key = get_secret_safe('GOD_PREMIUM_KEY_UPDATE', '')
@@ -645,10 +624,8 @@ def run_grocery_god(github_pat):
                             if res.returncode == 0:
                                 os.environ['GOD_PREMIUM_KEY'] = new_key
                                 log.info('Premium key rotated successfully.')
-                                tg_send('🔐 <b>Premium key rotated</b> — archive re-encrypted.')
                             else:
                                 log.error(f'Key rotation failed: {res.stderr[:500]}')
-                                tg_send(f'⚠️ <b>Premium key rotation failed</b>\n<pre>{html.escape(res.stderr[:300])}</pre>')
                         except Exception as e:
                             log.error(f'Key rotation error: {e}')
                     else:
@@ -719,7 +696,6 @@ def run_grocery_god(github_pat):
                     log.info(f'  Encrypted {_ec}/{len(_targets)} files')
                 except subprocess.CalledProcessError as e:
                     log.error(f'Encryption failed: {e.stderr[:500]}')
-                    tg_send(f'⚠️ <b>Repo Encryption</b> — failed (non-fatal)', silent=True)
 
             with Step('GitHub Push Guard', '🛡️'):
                 subprocess.run([sys.executable, 'guardrail.py'], check=True)
@@ -864,11 +840,7 @@ def run_gitw():
         except: pass
         
     now = datetime.now(DHAKA_TZ)
-    msg = f"🚀 <b>gitw Execution Completed Early!</b>\n🔄 Run Count: {run_count}\n📅 Date: {now.strftime('%Y-%m-%d')}\n🕒 Time: {now.strftime('%H:%M:%S')}"
-    try: 
-        if TELEGRAM_BOT_TOKEN and TELEGRAM_BOT_TOKEN != "":
-            requests.post(f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage", json={"chat_id": TELEGRAM_CHAT_ID, "text": msg, "parse_mode": "HTML"})
-    except: pass
+    print(f"🚀 [gitw] Execution Completed. Run Count: {run_count} ({now.strftime('%Y-%m-%d %H:%M:%S')})")
 
 # ============================================================
 
@@ -932,7 +904,6 @@ def _send_p14_summary(results_store, repo_list):
             requests.post(f'{TG_API}/sendMessage', json={'chat_id': TELEGRAM_CHAT_ID, 'text': text, 'parse_mode': 'HTML', 'disable_notification': silent}, timeout=15)
         except: pass
 
-    # File-based results are the source of truth (Manager dict proxies can silently fail on Kaggle).
     file_results = {}
     try:
         import glob as _glob
@@ -940,8 +911,13 @@ def _send_p14_summary(results_store, repo_list):
             try:
                 with open(_f, 'r', encoding='utf-8') as fh:
                     _r = json.load(fh)
-                if isinstance(_r, dict) and _r.get('label'):
-                    file_results[_r['label']] = _r
+                if isinstance(_r, dict):
+                    if _r.get('label'): file_results[_r['label']] = _r
+                    if _r.get('slug'): file_results[_r['slug']] = _r
+                    if _r.get('repo'): file_results[_r['repo']] = _r
+                    if _r.get('label'):
+                        _norm = re.sub(r'[^a-z0-9]+', '', _r['label'].lower())
+                        file_results[_norm] = _r
             except Exception:
                 pass
     except Exception:
@@ -950,13 +926,49 @@ def _send_p14_summary(results_store, repo_list):
     lines = ["📊 <b>Scheduled Repos (p14) — Finished</b>"]
     ok = fail = 0
     for label, url in repo_list:
-        rec = {}
-        try:
-            rec = file_results.get(label) or {}
-            if not rec and results_store is not None:
-                rec = results_store.get(label, {})
-        except Exception:
-            pass
+        clean_lbl = label.strip()
+        slug = re.sub(r'[^a-z0-9]+', '_', clean_lbl.lower()).strip('_')
+        norm = re.sub(r'[^a-z0-9]+', '', clean_lbl.lower())
+        repo_name = url.strip('/').split('/')[-1]
+
+        rec = (
+            file_results.get(clean_lbl)
+            or file_results.get(label)
+            or file_results.get(slug)
+            or file_results.get(norm)
+            or file_results.get(repo_name)
+        )
+        if not rec and results_store is not None:
+            try:
+                rec = results_store.get(clean_lbl) or results_store.get(slug) or results_store.get(label) or {}
+            except Exception:
+                pass
+
+        if not rec:
+            _direct_file = f"/tmp/p14_result_{slug}.json"
+            if os.path.exists(_direct_file):
+                try:
+                    with open(_direct_file, 'r', encoding='utf-8') as fh:
+                        rec = json.load(fh)
+                except Exception:
+                    pass
+
+        if not rec:
+            _log_file = f"/tmp/p14_log_{slug}.log"
+            _log_tail = ""
+            if os.path.exists(_log_file):
+                try:
+                    with open(_log_file, 'r', encoding='utf-8') as lf:
+                        _log_tail = lf.read().strip()[-300:]
+                except Exception:
+                    pass
+            rec = {
+                'status': 'failed',
+                'elapsed': 0,
+                'error': _log_tail or 'No execution log or result found',
+                'url': url
+            }
+
         if rec.get('status') == 'ok':
             ok += 1
             elapsed = int(rec.get('elapsed', 0))
@@ -964,17 +976,18 @@ def _send_p14_summary(results_store, repo_list):
             counts = rec.get('counts') or {}
             _c = f" | {counts.get('scraped', '?')} scraped" if counts.get('scraped') else ""
             _t = f" ({counts.get('total', '?')} total)" if counts.get('total') else ""
-            lines.append(f"✅ {label} — {_m}m {_s}s{_t}{_c} — {rec.get('url') or url}")
+            lines.append(f"✅ {clean_lbl} — {_m}m {_s}s{_t}{_c} — {rec.get('url') or url}")
         else:
             fail += 1
             elapsed = int(rec.get('elapsed', 0))
             _m, _s = divmod(elapsed, 60)
-            lines.append(f"❌ {label} — FAILED after {_m}m {_s}s")
-            err = rec.get('error') or 'unknown error'
+            lines.append(f"❌ {clean_lbl} — FAILED after {_m}m {_s}s")
+            err = rec.get('error') or 'Process exited with error'
             lines.append(f"<pre>{html.escape(str(err)[:800])}</pre>")
             tb = rec.get('error_tb')
-            if tb:
+            if tb and tb.strip():
                 lines.append(f"<pre>{html.escape(tb)[:600]}</pre>")
+
     lines.insert(1, f"✅ OK: {ok} | ❌ Failed: {fail} | Total: {len(repo_list)}")
 
     lines.append("")
@@ -1006,33 +1019,67 @@ def _read_aggregator_summary():
     return ""
 
 def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=None):
+    clean_label = label.strip()
+    slug = re.sub(r'[^a-z0-9]+', '_', clean_label.lower()).strip('_')
+    repo_name = repo_url.split('/')[-1].replace('.git', '')
+    repo_page_url = f"https://ranehal.github.io/{repo_name}/"
+    log_file = f"/tmp/p14_log_{slug}.log"
+    _p14_file = f"/tmp/p14_result_{slug}.json"
+    _t0 = time.time()
 
-    print(f"[{label}] Process Started.")
-
-    _p14_record = {}
-    _p14_file = os.path.join('/tmp', f"p14_result_{re.sub(r'[^A-Za-z0-9]+', '_', label.strip().lower()).strip('_')}.json")
-    def _store_result():
-        _p14_record['label'] = label
+    def _log(msg):
+        ts = datetime.now(DHAKA_TZ).strftime('%H:%M:%S')
+        line = f"[{ts} | {clean_label}] {msg}"
+        print(line)
         try:
-            with open(_p14_file, 'w', encoding='utf-8') as _f:
-                json.dump(_p14_record, _f)
+            with open(log_file, "a", encoding="utf-8") as lf:
+                lf.write(line + "\n")
         except Exception:
             pass
+
+    _log("Process Started.")
+
+    _p14_record = {
+        'label': clean_label,
+        'slug': slug,
+        'repo': repo_name,
+        'status': 'running',
+        'elapsed': 0,
+        'error': '',
+        'error_tb': '',
+        'url': repo_page_url,
+        'counts': {}
+    }
+
+    def _store_result():
+        _p14_record['label'] = clean_label
+        _p14_record['slug'] = slug
+        _p14_record['repo'] = repo_name
+        try:
+            _tmp = _p14_file + f".{os.getpid()}.tmp"
+            with open(_tmp, 'w', encoding='utf-8') as _f:
+                json.dump(_p14_record, _f)
+            os.replace(_tmp, _p14_file)
+        except Exception as _fe:
+            _log(f"Warning: Failed to write result file {_p14_file}: {_fe}")
         if results_store is not None:
             try:
-                results_store[label] = _p14_record
+                results_store[clean_label] = _p14_record
+                results_store[slug] = _p14_record
             except Exception:
                 pass
 
+    _p14_record.update(status='failed', error='Process started but died prematurely', elapsed=0)
+    _store_result()
+
     if not github_pat or github_pat.strip() == "":
-        err_pat = f"GITHUB_PAT is missing or empty for {label}. Git push will fail."
-        print(f"❌ [{label}] {err_pat}")
-        _p14_record.update(status='failed', error=err_pat, elapsed=0, url='')
+        err_pat = f"GITHUB_PAT is missing or empty for {clean_label}. Git push will fail."
+        _log(f"❌ {err_pat}")
+        _p14_record.update(status='failed', error=err_pat, elapsed=0)
         _store_result()
         return
 
     os.chdir('/kaggle/working')
-    repo_name = repo_url.split('/')[-1].replace('.git', '')
     auth_repo_url = f"https://ranehal:{github_pat}@github.com/ranehal/{repo_name}.git"
 
     try:
@@ -1047,20 +1094,22 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
 
         if not os.path.exists(repo_name):
             _reclaim_disk()
-            print(f"[{label}] Cloning {repo_name}...")
+            _log(f"Cloning {repo_name}...")
             clone_res = subprocess.run(f'git clone {auth_repo_url}', shell=True, capture_output=True, text=True)
             if clone_res.returncode != 0:
                 raise RuntimeError(f"Git clone failed: {clone_res.stderr}")
 
         os.chdir(repo_name)
-        subprocess.run('git config user.email "educational.purpose37@gmail.com"', shell=True)
-        subprocess.run('git config user.name "ranehal"', shell=True)
+        _with_lock('git-config', lambda: (_git_config('git config user.email "ranehal@users.noreply.github.com"'), _git_config('git config user.name "ranehal"')))
         subprocess.run(f'git remote set-url origin {auth_repo_url}', shell=True)
 
         subprocess.run('git clean -fd', shell=True)
         subprocess.run('git fetch --all', shell=True)
         branch_res = subprocess.run('git symbolic-ref refs/remotes/origin/HEAD', shell=True, capture_output=True, text=True)
-        default_branch = branch_res.stdout.strip().split('/')[-1] if branch_res.returncode == 0 else 'main'
+        default_branch = branch_res.stdout.strip().split('/')[-1] if branch_res.returncode == 0 else ''
+        if not default_branch or default_branch == 'HEAD':
+            check_main = subprocess.run('git rev-parse --verify origin/main', shell=True, capture_output=True)
+            default_branch = 'main' if check_main.returncode == 0 else 'master'
         subprocess.run(f'git reset --hard origin/{default_branch}', shell=True)
 
         if os.path.exists('requirements.txt'):
@@ -1073,7 +1122,7 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
             _du = shutil.disk_usage(os.getcwd())
             _free_gb = _du.free / (1024 ** 3)
             if _free_gb < 2.0:
-                print(f"[{label}] WARNING: low disk space ({_free_gb:.2f} GB free). Clearing __pycache__ + stale run artifacts...")
+                _log(f"WARNING: low disk space ({_free_gb:.2f} GB free). Clearing __pycache__ + stale run artifacts...")
                 for _p in _glob.glob(os.path.join(os.getcwd(), "**", "__pycache__"), recursive=True):
                     shutil.rmtree(_p, ignore_errors=True)
                 for _pat in ("**/*.pyc", "**/_scraper_error_*.log", "**/last_run_log.txt"):
@@ -1081,9 +1130,9 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
                         try: os.remove(_p)
                         except Exception: pass
                 _du2 = shutil.disk_usage(os.getcwd())
-                print(f"[{label}] After cleanup: {_du2.free / (1024 ** 3):.2f} GB free.")
+                _log(f"After cleanup: {_du2.free / (1024 ** 3):.2f} GB free.")
         except Exception as _du_err:
-            print(f"[{label}] Disk check warning: {_du_err}")
+            _log(f"Disk check warning: {_du_err}")
 
         # Auto-install essential scraping dependencies if missing
         _deps_to_check = ['playwright', 'httpx', 'requests', 'bs4', 'lxml']
@@ -1092,42 +1141,27 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
                 __import__(_dep)
             except ImportError:
                 _pkg = 'beautifulsoup4' if _dep == 'bs4' else _dep
-                print(f"[{label}] Auto-installing missing dependency: {_pkg}...")
+                _log(f"Auto-installing missing dependency: {_pkg}...")
                 subprocess.run([sys.executable, "-m", "pip", "install", "-q", _pkg], check=False)
         
-        # Ensure Playwright Chromium browser binary is always installed (verified)
+        # Verify Playwright Chromium browser binary without blocking apt locks unless actually missing
         try:
             import platform as _platform
             def _pw_install():
+                _dry = subprocess.run([sys.executable, "-m", "playwright", "install", "--dry-run", "chromium"], capture_output=True, text=True)
+                _dry_out = ((_dry.stdout or "") + (_dry.stderr or ""))
+                if "already installed" in _dry_out.lower() or os.path.isdir('/root/.cache/ms-playwright'):
+                    return
                 _install_cmds = [[sys.executable, "-m", "playwright", "install", "chromium"]]
                 if _platform.system() == "Linux":
                     _install_cmds.insert(0, [sys.executable, "-m", "playwright", "install", "chromium", "--with-deps"])
-                _installed = False
                 for _cmd in _install_cmds:
                     _res = subprocess.run(_cmd, capture_output=True, text=True)
                     if _res.returncode == 0:
-                        _installed = True
                         break
-                    print(f"[{label}] Playwright install failed: {(_res.stderr or '')[:300]}")
-                if _installed:
-                    _dry = subprocess.run([sys.executable, "-m", "playwright", "install", "--dry-run", "chromium"], capture_output=True, text=True)
-                    _dry_out = ((_dry.stdout or "") + (_dry.stderr or ""))
-                    _loc = ""
-                    for _ln in _dry_out.splitlines():
-                        if "Install location:" in _ln:
-                            _loc = _ln.split("Install location:", 1)[1].strip()
-                            break
-                    if _loc and os.path.isdir(_loc):
-                        print(f"[{label}] Playwright chromium verified OK ({_loc}).")
-                    elif "already installed" in _dry_out.lower():
-                        print(f"[{label}] Playwright chromium verified OK.")
-                    else:
-                        print(f"[{label}] WARNING: Chromium may still be missing ({(_dry.stderr or _dry.stdout or '').strip()[:200]})")
-                else:
-                    print(f"[{label}] CRITICAL: Chromium install failed. Browser launch will crash.")
             _with_lock('playwright-install', _pw_install)
         except Exception as _pw_err:
-            print(f"[{label}] Playwright setup warning: {_pw_err}")
+            _log(f"Playwright setup warning: {_pw_err}")
 
         # Auto-detect script name recursively if expected script_name does not exist
         if not os.path.exists(script_name):
@@ -1144,11 +1178,11 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
                     script_name = py_files[0]
                 else:
                     err_msg = f"No executable python script found in {repo_name} (expected '{script_name}')."
-                    print(f"❌ [{label}] {err_msg}")
-                    _p14_record.update(status='failed', error=err_msg, elapsed=0, url='')
+                    _log(f"❌ {err_msg}")
+                    _p14_record.update(status='failed', error=err_msg, elapsed=int(time.time() - _t0))
                     _store_result()
                     return
-            print(f"[{label}] Target script auto-resolved to: {script_name}")
+            _log(f"Target script auto-resolved to: {script_name}")
 
         # Auto-patch Cat NoneType error safety with indentation preservation
         if os.path.exists(script_name):
@@ -1157,7 +1191,7 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
                 with open(script_name, 'r', encoding='utf-8') as sf:
                     s_code = sf.read()
                 if 'for prod in cat.get("products", []):' in s_code and 'isinstance(cat, dict)' not in s_code:
-                    print(f"[{label}] Auto-patching cat dict-type safety in {script_name}...")
+                    _log(f"Auto-patching cat dict-type safety in {script_name}...")
                     pattern = r'([ \t]*)for prod in cat\.get\("products", \[\]\):'
                     m = _re.search(pattern, s_code)
                     if m:
@@ -1167,23 +1201,23 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
                         with open(script_name, 'w', encoding='utf-8') as sf:
                             sf.write(s_code)
             except Exception as patch_err:
-                print(f"[{label}] Script patch warning: {patch_err}")
+                _log(f"Script patch warning: {patch_err}")
 
         script_abs_path = os.path.abspath(script_name)
         script_dir = os.path.dirname(script_abs_path)
         script_file = os.path.basename(script_abs_path)
 
-        _t0 = time.time()
         max_script_retries = 3
+        res = None
         for _attempt in range(1, max_script_retries + 1):
-            print(f"[{label}] Executing {script_file} in {script_dir} (attempt {_attempt}/{max_script_retries})...")
-            t0 = time.time()
+            _log(f"Executing {script_file} in {script_dir} (attempt {_attempt}/{max_script_retries})...")
+            t_exec0 = time.time()
             my_env = os.environ.copy()
             my_env["PYTHONPATH"] = f"{script_dir}{os.pathsep}{os.getcwd()}{os.pathsep}{my_env.get('PYTHONPATH', '')}"
             my_env["PYTHONUNBUFFERED"] = "1"
             my_env["PYTHONIOENCODING"] = "utf-8"
             res = subprocess.run([sys.executable, "-u", script_file], cwd=script_dir, capture_output=True, text=True, timeout=5*18000, env=my_env)
-            elapsed = time.time() - t0
+            exec_elapsed = time.time() - t_exec0
             if res.returncode == 0:
                 break
             _err_log = os.path.join(os.getcwd(), f"_scraper_error_{_attempt}.log")
@@ -1192,16 +1226,17 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
                     _ef.write((res.stderr or "") + "\n--- STDOUT TAIL ---\n" + (res.stdout or "")[-2000:])
             except Exception:
                 pass
-            safe_err = html.escape((res.stderr or "")[:5000])
+            safe_err = (res.stderr or "").strip()[:5000]
+            if not safe_err:
+                safe_err = (res.stdout or "").strip()[-5000:]
             if _attempt == max_script_retries:
-                raise RuntimeError(f"Script {script_name} failed in {script_dir}:\n{safe_err}\n(Full error saved to {_err_log})")
-            print(f"[WARN] {label} attempt {_attempt} failed (rc={res.returncode}), retrying...\n{safe_err[:500]}")
+                raise RuntimeError(f"Script {script_name} failed (rc={res.returncode}):\n{safe_err}")
+            _log(f"Attempt {_attempt} failed (rc={res.returncode}), retrying in 10s... {safe_err[:200]}")
             time.sleep(10)
 
-        print(f"[{label}] Finished in {int(elapsed)}s. Pushing to GitHub as ranehal...")
+        _log(f"Finished execution in {int(time.time() - _t0)}s. Pushing to GitHub as ranehal...")
+        _with_lock('git-config', lambda: (_git_config('git config user.name "ranehal"'), _git_config('git config user.email "ranehal@users.noreply.github.com"')))
         subprocess.run(f"git remote set-url origin https://ranehal:{github_pat}@github.com/ranehal/{repo_name}.git", shell=True)
-        subprocess.run('git config user.name "ranehal"', shell=True)
-        subprocess.run('git config user.email "ranehal@users.noreply.github.com"', shell=True)
         subprocess.run('find . -name "_scraper_error_*.log" -delete', shell=True)
         subprocess.run('git add .', shell=True)
         now_str = datetime.now(DHAKA_TZ).strftime('%Y-%m-%d %H:%M:%S')
@@ -1209,14 +1244,13 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
 
         push_success = False
         auth_user_urls = [
-                    f"https://ranehal:{github_pat}@github.com/ranehal/{repo_name}.git",
-                    f"https://{github_pat}@github.com/ranehal/{repo_name}.git"
-                ]
+            f"https://ranehal:{github_pat}@github.com/ranehal/{repo_name}.git",
+            f"https://{github_pat}@github.com/ranehal/{repo_name}.git"
+        ]
         for auth_u in auth_user_urls:
             user_n = "ranehal"
             subprocess.run(f'git remote set-url origin {auth_u}', shell=True)
-            subprocess.run(f'git config user.name "{user_n}"', shell=True)
-            subprocess.run(f'git config user.email "{user_n}@users.noreply.github.com"', shell=True)
+            _with_lock('git-config', lambda: (_git_config(f'git config user.name "{user_n}"'), _git_config(f'git config user.email "{user_n}@users.noreply.github.com"')))
             for attempt in range(2):
                 subprocess.run(f'git pull origin {default_branch} --rebase -X ours -q', shell=True, capture_output=True)
                 push_res = subprocess.run(f'git push origin HEAD:{default_branch} --force', shell=True, capture_output=True, text=True)
@@ -1229,14 +1263,16 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
         if not push_success:
             raise RuntimeError(f"Git push failed: {push_res.stderr[:300]}")
 
-        _p14_record.update(status='ok', elapsed=int(time.time() - _t0), url=f"https://ranehal.github.io/{repo_name}/")
-        _p14_record['counts'] = _extract_scraper_counts((res.stdout or "") + (res.stderr or ""))
+        _p14_record.update(status='ok', elapsed=int(time.time() - _t0), error='', url=repo_page_url)
+        if res is not None:
+            _p14_record['counts'] = _extract_scraper_counts((res.stdout or "") + (res.stderr or ""))
         _store_result()
+        _log(f"✅ Successfully completed and pushed in {int(time.time() - _t0)}s!")
     except Exception as e:
         safe_tb = html.escape(traceback.format_exc()[-500:])
-        err_msg = f"Error: {html.escape(str(e))}\n<pre>{safe_tb}</pre>"
-        print(err_msg)
-        _p14_record.update(status='failed', error=str(e), error_tb=safe_tb, elapsed=int(time.time() - _t0) if '_t0' in dir() else 0, url='')
+        err_str = str(e)
+        _log(f"❌ Error: {err_str}")
+        _p14_record.update(status='failed', error=err_str, error_tb=safe_tb, elapsed=int(time.time() - _t0), url=repo_page_url)
         _store_result()
 
 # MASTER ORCHESTRATOR LOOP
@@ -1253,22 +1289,25 @@ if __name__ == '__main__':
         for _f in _glob.glob('/tmp/p14_result_*.json'):
             try: os.remove(_f)
             except Exception: pass
+        for _f in _glob.glob('/tmp/p14_log_*.log'):
+            try: os.remove(_f)
+            except Exception: pass
     except Exception:
         pass
 
     _scheduled_repos = [
-        ('https://github.com/ranehal/FooDIE-RESTaurant-Analytics.git', 'scrape_menus.py', ' FooDIE Restaurant Analytics'),
-        ('https://github.com/ranehal/FoodPANDA-RESTaurant-ANALytics.git', 'scrape_menus.py', ' FoodPANDA Restaurant Analytics'),
-        ('https://github.com/ranehal/FooDIE-mart-Analytics.git', 'scraper.py', ' FooDIE Mart Analytics'),
-        ('https://github.com/ranehal/SHWAPNO-analylics.git', 'scraper.py', ' Shwapno Analytics'),
-        ('https://github.com/ranehal/Othoba-analytics.git', 'scraper.py', ' Othoba Analytics'),
-        ('https://github.com/ranehal/CARTup-analytics.git', 'scraper.py', ' CARTup Analytics'),
-        ('https://github.com/ranehal/CHALdal-analytics.git', 'scraper.py', ' Chaldal Analytics'),
-        ('https://github.com/ranehal/COOKup-analytics.git', 'scraper.py', ' COOKup Analytics'),
-        ('https://github.com/ranehal/PICAboo-analytics.git', 'scraper.py', ' PICAboo Analytics'),
-        ('https://github.com/ranehal/DARAZ-analytics.git', 'scraper.py', ' DARAZ Analytics'),
-        ('https://github.com/ranehal/MEEnaBAzar-analylics.git', 'scraper.py', ' Meena Bazar Analytics'),
-        ('https://github.com/ranehal/sharedeal.git', 'scraper.py', ' ShareDeal Analytics'),
+        ('https://github.com/ranehal/FooDIE-RESTaurant-Analytics.git', 'scrape_menus.py', 'FooDIE Restaurant Analytics'),
+        ('https://github.com/ranehal/FoodPANDA-RESTaurant-ANALytics.git', 'scrape_menus.py', 'FoodPANDA Restaurant Analytics'),
+        ('https://github.com/ranehal/FooDIE-mart-Analytics.git', 'scraper.py', 'FooDIE Mart Analytics'),
+        ('https://github.com/ranehal/SHWAPNO-analylics.git', 'scraper.py', 'Shwapno Analytics'),
+        ('https://github.com/ranehal/Othoba-analytics.git', 'scraper.py', 'Othoba Analytics'),
+        ('https://github.com/ranehal/CARTup-analytics.git', 'scraper.py', 'CARTup Analytics'),
+        ('https://github.com/ranehal/CHALdal-analytics.git', 'scraper.py', 'Chaldal Analytics'),
+        ('https://github.com/ranehal/COOKup-analytics.git', 'scraper.py', 'COOKup Analytics'),
+        ('https://github.com/ranehal/PICAboo-analytics.git', 'scraper.py', 'PICAboo Analytics'),
+        ('https://github.com/ranehal/DARAZ-analytics.git', 'scraper.py', 'DARAZ Analytics'),
+        ('https://github.com/ranehal/MEEnaBAzar-analylics.git', 'scraper.py', 'Meena Bazar Analytics'),
+        ('https://github.com/ranehal/sharedeal.git', 'scraper.py', 'ShareDeal Analytics'),
     ]
     _repo_pages = [f"https://ranehal.github.io/{u.split('/')[-1].replace('.git','')}/" for u, _, _ in _scheduled_repos]
 
@@ -1291,18 +1330,9 @@ if __name__ == '__main__':
     print("⏳ Sleeping 10 minutes (600s) before starting p1 & p3-p13 to sync Kaggle Netherlands/UTC time with Dhaka date...")
     time.sleep(600)
     p1.start()
-    p3.start()
-    p4.start()
-    p5.start()
-    p6.start()
-    p7.start()
-    p8.start()
-    p9.start()
-    p10.start()
-    p11.start()
-    p12.start()
-    p13.start()
-    p14.start()
+    for _proc in [p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14]:
+        _proc.start()
+        time.sleep(10)
     
     start_time = time.time()
     timeout_seconds = (11 * 3600) + (50 * 60) 

@@ -1,18 +1,18 @@
-Last Run: 2026-08-16 18:50:16
+Last Run: 2026-08-15 22:20:51
 ------------------------------
-Total Scraped: 70896
-Web Scraped: 43353
-App API Scraped: 44878
-Combined Unique: 70896
+Total Scraped: 70688
+Web Scraped: 42995
+App API Scraped: 44864
+Combined Unique: 70688
 ------------------------------
 Categories:
 - Books: 992
 - Home Improvement: 947
-- Smartwatches & Accessories: 934
-- Lawn & Gardening: 928
-- Furniture: 910
+- Lawn & Gardening: 929
+- Smartwatches & Accessories: 924
+- Furniture: 900
 - Biking & Accessories: 882
-- Electrical Accessories: 854
+- Electrical Accessories: 845
 - Pet Care: 824
 - Stationery: 814
 - Skin Care: 741

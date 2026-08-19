@@ -1,14 +1,16 @@
 """Convert JS data files to Parquet. Generates free (full-history) + premium (full) datasets."""
-import json, os, re, glob
+import json, os, re, glob, time
 from datetime import datetime, timedelta, timezone
 import pyarrow as pa
 import pyarrow.parquet as pq
+import duckdb
 
 STORES = ['shwapno','chaldal','meenabazar','othoba','metromart','unimart','shotejbazar','foodi']
 BASE = os.path.dirname(os.path.abspath(__file__))
 DHAKA_TZ = timezone(timedelta(hours=6))
 FREE_HISTORY_DAYS = 182
 
+t0 = time.time()
 product_rows = []
 history_rows = []
 
@@ -41,21 +43,37 @@ for store in STORES:
             })
             seen = set()
             for h in p.get('history', []):
-                d = h['date'][:10]
+                d = str(h['date'])[:10]
                 if d not in seen:
                     seen.add(d)
                     history_rows.append({
                         'product_id': pid, 'date': d,
-                        'price': h['price'], 'normalized_price': h['normalized_price']
+                        'price': float(h.get('price', 0) or 0),
+                        'normalized_price': float(h.get('normalized_price', h.get('price', 0)) or 0)
                     })
         print(f"  {os.path.basename(f)}: {len(data)} products")
 
-print(f"\nTotal scraped: {len(product_rows)} products, {len(history_rows)} history rows")
+print(f"Total scraped: {len(product_rows)} products, {len(history_rows)} new history rows in {time.time()-t0:.2f}s")
+
+con = duckdb.connect()
+
+schema = pa.schema([
+    ('product_id', pa.string()),
+    ('date', pa.string()),
+    ('price', pa.float64()),
+    ('normalized_price', pa.float64()),
+])
+
+new_hist_table = pa.Table.from_pylist(history_rows, schema=schema)
+con.register('new_hist', new_hist_table)
+
+sources = ['SELECT product_id, date, price, normalized_price FROM new_hist']
 
 premium_key = os.environ.get('GOD_PREMIUM_KEY', 'assalamualaikum').strip()
 archive_path = os.path.join(BASE, 'premium', 'history_archive.parquet.enc')
+arch_plain = os.path.join(BASE, 'history_archive.parquet')
 
-if os.path.exists(archive_path) and premium_key:
+if os.path.exists(archive_path) and premium_key and not os.path.exists(arch_plain):
     try:
         import hashlib
         from cryptography.hazmat.primitives.ciphers.aead import AESGCM
@@ -66,47 +84,44 @@ if os.path.exists(archive_path) and premium_key:
             kdf = hashlib.pbkdf2_hmac('sha256', premium_key.encode('utf-8'), salt, 250000, dklen=32)
             aesgcm = AESGCM(kdf)
             plaintext = aesgcm.decrypt(iv, ct, None)
-            reader = pa.BufferReader(plaintext)
-            old_table = pq.read_table(reader)
-            old_rows = old_table.to_pylist()
-            
-            seen = set((r['product_id'], r['date']) for r in history_rows)
-            for r in old_rows:
-                if (r['product_id'], r['date']) not in seen:
-                    history_rows.append(r)
-                    seen.add((r['product_id'], r['date']))
-            print(f"Merged {len(old_rows)} old rows from archive. New history total: {len(history_rows)}")
+            with open(arch_plain, 'wb') as f:
+                f.write(plaintext)
     except Exception as e:
-        print(f"Error loading history archive: {e}")
+        print(f"Error decrypting archive: {e}")
 
-# Check unencrypted history.parquet fallback to prevent data loss
+if os.path.exists(arch_plain):
+    con.execute(f"CREATE VIEW arch_view AS SELECT product_id, date, price, normalized_price FROM read_parquet('{arch_plain.replace(chr(92), "/")}');")
+    sources.append("SELECT product_id, date, price, normalized_price FROM arch_view")
+
 unenc_hist = os.path.join(BASE, 'history.parquet')
 if os.path.exists(unenc_hist):
-    try:
-        old_table = pq.read_table(unenc_hist)
-        old_rows = old_table.to_pylist()
-        seen = set((r['product_id'], r['date']) for r in history_rows)
-        added = 0
-        for r in old_rows:
-            if (r['product_id'], r['date']) not in seen:
-                history_rows.append(r)
-                seen.add((r['product_id'], r['date']))
-                added += 1
-        if added:
-            print(f"Merged {added} rows from local history.parquet. Total: {len(history_rows)}")
-    except Exception as e:
-        print(f"Error reading local history.parquet: {e}")
+    con.execute(f"CREATE VIEW unenc_view AS SELECT product_id, date, price, normalized_price FROM read_parquet('{unenc_hist.replace(chr(92), "/")}');")
+    sources.append("SELECT product_id, date, price, normalized_price FROM unenc_view")
 
+union_sql = " UNION ALL ".join(sources)
+merge_sql = f"""
+    CREATE TABLE full_history AS
+    SELECT DISTINCT product_id, date, price, normalized_price
+    FROM ({union_sql})
+    WHERE date IS NOT NULL AND date LIKE '2026-%';
+"""
+con.execute(merge_sql)
+total_hist_count = con.execute("SELECT COUNT(*) FROM full_history;").fetchone()[0]
+print(f"Merged full history total: {total_hist_count:,} rows in {time.time()-t0:.2f}s")
 
-schema = pa.schema([
-    ('product_id', pa.string()),
-    ('date', pa.string()),
-    ('price', pa.float64()),
-    ('normalized_price', pa.float64()),
-])
+# Write history.parquet
+con.execute(f"COPY full_history TO '{os.path.join(BASE, 'history.parquet').replace(chr(92), "/")}' (FORMAT PARQUET, COMPRESSION 'ZSTD');")
 
-# --- Full datasets ---
-hist_table = pa.Table.from_pylist(history_rows, schema=schema)
+# Free tier cutoff (6 months)
+cutoff = (datetime.now(DHAKA_TZ) - timedelta(days=FREE_HISTORY_DAYS)).strftime('%Y-%m-%d')
+con.execute(f"""
+    COPY (SELECT * FROM full_history WHERE date >= '{cutoff}') 
+    TO '{os.path.join(BASE, 'history_free.parquet').replace(chr(92), "/")}' (FORMAT PARQUET, COMPRESSION 'ZSTD');
+""")
+free_count = con.execute(f"SELECT COUNT(*) FROM full_history WHERE date >= '{cutoff}';").fetchone()[0]
+print(f"Free tier written: {free_count:,} rows (cutoff={cutoff})")
+
+# Products table
 prod_schema = pa.schema([
     ('id', pa.string()),
     ('name', pa.string()),
@@ -120,58 +135,31 @@ prod_schema = pa.schema([
     ('url', pa.string()),
     ('first_seen', pa.string()),
 ])
-prod_table = pa.Table.from_pylist(product_rows, schema=prod_schema)
+new_prod_table = pa.Table.from_pylist(product_rows, schema=prod_schema)
+con.register('new_prods', new_prod_table)
 
-pq.write_table(prod_table, os.path.join(BASE, 'products.parquet'), compression='zstd')
-pq.write_table(hist_table, os.path.join(BASE, 'history.parquet'), compression='zstd')
+prod_sql = "CREATE TABLE merged_products AS SELECT * FROM new_prods;"
+con.execute(prod_sql)
+prod_count = con.execute("SELECT COUNT(*) FROM merged_products;").fetchone()[0]
+print(f"Merged products total: {prod_count:,} products")
 
-# --- Free tier: all products + full 6-month history window (back to February, matches FREE_HISTORY_DAYS) ---
-cutoff = (datetime.now(DHAKA_TZ) - timedelta(days=FREE_HISTORY_DAYS)).strftime('%Y-%m-%d')
-free_hist_rows = [r for r in history_rows if r['date'] >= cutoff]
+con.execute(f"COPY merged_products TO '{os.path.join(BASE, 'products.parquet').replace(chr(92), "/")}' (FORMAT PARQUET, COMPRESSION 'ZSTD');")
+con.execute(f"COPY merged_products TO '{os.path.join(BASE, 'products_free.parquet').replace(chr(92), "/")}' (FORMAT PARQUET, COMPRESSION 'ZSTD');")
 
-free_hist_table = pa.Table.from_pylist(free_hist_rows, schema=schema)
-pq.write_table(free_hist_table, os.path.join(BASE, 'history_free.parquet'), compression='zstd')
-pq.write_table(prod_table, os.path.join(BASE, 'products_free.parquet'), compression='zstd')
-
-print(f"Free tier: {len(free_hist_rows)} history rows (cutoff={cutoff})")
-
-# --- Premium archive: older history, encrypted with GGE1 ---
-old_hist_rows = [r for r in history_rows if r['date'] < cutoff]
-
-premium_key = os.environ.get('GOD_PREMIUM_KEY', 'assalamualaikum').strip()
-
-if old_hist_rows and premium_key:
-    import hashlib, secrets
-    old_hist_table = pa.Table.from_pylist(old_hist_rows, schema=schema)
-    buf = pa.BufferOutputStream()
-    pq.write_table(old_hist_table, buf, compression='zstd')
-    plaintext = buf.getvalue().to_pybytes()
-
-    salt = secrets.token_bytes(16)
-    iv = secrets.token_bytes(12)
-    kdf = hashlib.pbkdf2_hmac('sha256', premium_key.encode('utf-8'), salt, 250000, dklen=32)
-
+# Encrypt products.parquet.enc and history.parquet.enc
+if premium_key:
     from cryptography.hazmat.primitives.ciphers.aead import AESGCM
-    aesgcm = AESGCM(kdf)
-    ciphertext = aesgcm.encrypt(iv, plaintext, None)
+    import hashlib, secrets
+    for p_name in ['products.parquet', 'history.parquet']:
+        p_file = os.path.join(BASE, p_name)
+        with open(p_file, 'rb') as f:
+            pt = f.read()
+        salt = secrets.token_bytes(16)
+        iv = secrets.token_bytes(12)
+        kdf = hashlib.pbkdf2_hmac('sha256', premium_key.encode('utf-8'), salt, 250000, dklen=32)
+        ct = AESGCM(kdf).encrypt(iv, pt, None)
+        with open(p_file + '.enc', 'wb') as ef:
+            ef.write(b'GGE1' + salt + iv + ct)
+        print(f"Re-encrypted {p_name}.enc")
 
-    enc_data = b'GGE1' + salt + iv + ciphertext
-    premium_dir = os.path.join(BASE, 'premium')
-    os.makedirs(premium_dir, exist_ok=True)
-    with open(os.path.join(premium_dir, 'history_archive.parquet.enc'), 'wb') as ef:
-        ef.write(enc_data)
-    print(f"Premium archive: {len(old_hist_rows)} rows encrypted ({len(enc_data)/1024/1024:.1f} MB)")
-elif old_hist_rows:
-    print(f"WARNING: {len(old_hist_rows)} premium rows but no GOD_PREMIUM_KEY — skipping encryption")
-else:
-    print("No premium rows to encrypt (all data within free window)")
-
-p_size = os.path.getsize(os.path.join(BASE, 'products.parquet'))
-h_size = os.path.getsize(os.path.join(BASE, 'history.parquet'))
-hf_size = os.path.getsize(os.path.join(BASE, 'history_free.parquet'))
-pf_size = os.path.getsize(os.path.join(BASE, 'products_free.parquet'))
-print(f"\nproducts.parquet:      {p_size/1024/1024:.1f} MB")
-print(f"history.parquet:       {h_size/1024/1024:.1f} MB")
-print(f"products_free.parquet: {pf_size/1024/1024:.1f} MB")
-print(f"history_free.parquet:  {hf_size/1024/1024:.1f} MB")
-print(f"Total: {(p_size+h_size+pf_size+hf_size)/1024/1024:.1f} MB")
+print(f"\nAll Parquet datasets and encryptions generated successfully in {time.time()-t0:.2f}s!")

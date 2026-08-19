@@ -190,13 +190,6 @@ def load_shwapno():
                     u_type, norm_p = parse_unit_and_calculate(p.get('name', ''), p.get('unit', ''), curr_p)
                     
                     stats["app_scraped"] += 1
-                    # Check for collision
-                    if name_key in products_by_name:
-                        existing = products_by_name[name_key]
-                        if curr_p >= existing['current_price']:
-                            stats["dropped"] += 1
-                            continue
-                            
                     final_pid = f"sh_{p.get('id')}"
                     
                     hist_dict = p.get('price_history', {})
@@ -204,7 +197,25 @@ def load_shwapno():
                     for d_str, price_val in hist_dict.items():
                         _, h_norm = parse_unit_and_calculate(p.get('name', ''), p.get('unit', ''), price_val)
                         unique_hist[d_str] = {"date": d_str, "price": price_val, "normalized_price": h_norm}
-                        
+
+                    # Check for collision with existing web data
+                    if name_key in products_by_name:
+                        existing = products_by_name[name_key]
+                        e_curr = existing.get('current_price', 0) or 0
+                        # Merge history from existing item
+                        for eh in existing.get('history', []):
+                            if eh.get('date') and eh['date'] not in unique_hist:
+                                unique_hist[eh['date']] = eh
+
+                        # If existing web item has a valid lower price, keep web item but update history
+                        if e_curr > 0 and (curr_p <= 0 or e_curr <= curr_p):
+                            existing_hist = sorted(unique_hist.values(), key=lambda x: x['date'])
+                            existing['history'] = existing_hist
+                            if existing_hist:
+                                existing['first_seen'] = existing_hist[0]['date']
+                            stats["dropped"] += 1
+                            continue
+                            
                     new_history = sorted(unique_hist.values(), key=lambda x: x['date'])
                     for h in new_history: all_dates.append(h['date'])
                     first_seen = new_history[0]['date'] if new_history else datetime.now(DHAKA_TZ).strftime("%Y-%m-%d")
@@ -470,7 +481,11 @@ def load_othoba():
                             unique_hist[d_str] = {"date": d_str, "price": price_val, "normalized_price": h_norm}
                         
                     new_history = sorted(unique_hist.values(), key=lambda x: x['date'])
-                    for h in new_history: all_dates.append(h['date'])
+                    if not new_history:
+                        today_str = datetime.now(DHAKA_TZ).strftime("%Y-%m-%d")
+                        new_history = [{"date": today_str, "price": curr_p, "normalized_price": norm_p}]
+                    for h in new_history:
+                        if h.get('date'): all_dates.append(h['date'])
                     
                     first_seen = p.get('first_seen')
                     if not first_seen:
@@ -519,7 +534,11 @@ def load_othoba():
                         d_str = str(hrow["timestamp"])[:10]
                         unique_hist[d_str] = {"date": d_str, "price": float(hrow["price_amount"] or 0), "normalized_price": norm_p}
                     new_history = sorted(unique_hist.values(), key=lambda x: x['date'])
-                    for h in new_history: all_dates.append(h['date'])
+                    if not new_history:
+                        today_str = datetime.now(DHAKA_TZ).strftime("%Y-%m-%d")
+                        new_history = [{"date": today_str, "price": price, "normalized_price": norm_p}]
+                    for h in new_history:
+                        if h.get('date'): all_dates.append(h['date'])
                     stats["web_scraped"] += 1
                     add_product(name_key, {
                         "id": f"ot_{r['id']}", "name": r["name"], "store": "othoba",
@@ -556,7 +575,8 @@ def load_othoba():
               f"App scraped: {stats['app_scraped']}, App selected: {stats['app_selected']}, "
               f"Dropped: {stats['dropped']}, Combined Unique: {stats['combined']}")
 
-        return products, (f"{min(all_dates)} to {max(all_dates)}" if all_dates else "N/A"), stats
+        valid_dates = [d for d in all_dates if d and isinstance(d, str) and len(d) == 10]
+        return products, (f"{min(valid_dates)} to {max(valid_dates)}" if valid_dates else "N/A"), stats
     except Exception as e:
         print(f"Error Othoba: {e}")
         return None, None

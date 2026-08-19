@@ -19,7 +19,7 @@ ROOT_DIR = os.path.dirname(__file__)
 
 API = 'https://store-api.shwapno.com/en/api'
 HEADERS = {
-    "User-Agent": random.choice(USER_AGENTS),
+    "User-Agent": "shwapno.flutter.android",
     "Accept": "application/json",
     "client-type": "App",
     "customer": "fbbbb451-a780-4101-88e0-aad799e60f83",
