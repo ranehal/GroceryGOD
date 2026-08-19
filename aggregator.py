@@ -7,6 +7,20 @@ except Exception:
 
 def safe_load_json(filepath, default=None):
     if default is None: default = {}
+    if not os.path.exists(filepath) and os.path.exists(filepath + '.enc'):
+        try:
+            import hashlib
+            from cryptography.hazmat.primitives.ciphers.aead import AESGCM
+            KEY = os.environ.get('GOD_PREMIUM_KEY', 'assalamualaikum').strip()
+            with open(filepath + '.enc', 'rb') as ef:
+                enc_data = ef.read()
+            if enc_data[:4] == b'GGE1':
+                salt, iv, ct = enc_data[4:20], enc_data[20:32], enc_data[32:]
+                kdf = hashlib.pbkdf2_hmac('sha256', KEY.encode('utf-8'), salt, 250000, dklen=32)
+                content = AESGCM(kdf).decrypt(iv, ct, None).decode('utf-8', errors='ignore')
+                return json.loads(content)
+        except Exception:
+            pass
     if not os.path.exists(filepath): return default
     with open(filepath, 'r', encoding='utf-8', errors='ignore') as f:
         content = f.read().strip()
@@ -136,10 +150,9 @@ def load_shwapno():
         all_dates = []
 
         # 1. Load Web Data
-        if os.path.exists(SHWAPNO_DATA):
+        data = safe_load_json(SHWAPNO_DATA)
+        if data:
             try:
-                with open(SHWAPNO_DATA, 'r', encoding='utf-8') as f:
-                    data = json.load(f)
                 for pid, p in data.items():
                     if pid in ['metadata', 'products']: continue
                     name_key = re.sub(r'\W+', '', p.get('name', '')).lower()
@@ -266,9 +279,21 @@ def load_chaldal():
             if not name_key: return
             if name_key in products_by_name:
                 existing = products_by_name[name_key]
-                if product.get('current_price', 0) >= existing.get('current_price', 0):
+                e_curr = existing.get('current_price', 0) or 0
+                p_curr = product.get('current_price', 0) or 0
+                
+                # Merge histories across web & app
+                unique_h = {h['date']: h for h in existing.get('history', []) if h.get('date')}
+                for h in product.get('history', []):
+                    if h.get('date') and h['date'] not in unique_h:
+                        unique_h[h['date']] = h
+                merged_h = sorted(unique_h.values(), key=lambda x: x['date'])
+                
+                if e_curr > 0 and (p_curr <= 0 or e_curr <= p_curr):
+                    existing['history'] = merged_h
                     stats["dropped"] += 1
                     return
+                product['history'] = merged_h
             products_by_name[name_key] = product
 
         stats = {"web_scraped": 0, "app_scraped": 0, "web_selected": 0, "app_selected": 0,
@@ -373,6 +398,7 @@ def load_meenabazar():
             if pid not in all_history: all_history[pid] = []
             all_history[pid].append(row)
         products = {}
+        products_by_name = {}
         all_dates = []
         for p in db_p:
             db_h = all_history.get(p['id'], [])
@@ -386,12 +412,17 @@ def load_meenabazar():
                 all_dates.append(date_str)
             curr_p = new_history[-1]['price']
             u_type, norm_p = parse_unit_and_calculate(p['name'], p['unit'], curr_p)
-            products[f"mb_{p['external_id'] or p['id']}"] = {
-                "id": f"mb_{p['external_id'] or p['id']}", "name": p['name'], "store": "meenabazar",
+            pid = f"mb_{p['external_id'] or p['id']}"
+            prod_obj = {
+                "id": pid, "name": p['name'], "store": "meenabazar",
                 "category": cats.get(p['category_id'], 'General'), "unit": p['unit'], "unit_type": u_type,
                 "current_price": curr_p, "normalized_price": norm_p,
                 "image": p['image_url'], "history": new_history, "_src": "web"
             }
+            products[pid] = prod_obj
+            name_key = re.sub(r'\W+', '', p['name'] or '').lower()
+            if name_key:
+                products_by_name[name_key] = prod_obj
         conn.close()
         app_count = 0
         cat_path = 'MEENAtracker/catalog.json'
@@ -401,18 +432,39 @@ def load_meenabazar():
                 with open(cat_path, 'r', encoding='utf-8') as cf:
                     cat_data = json.load(cf)
                     for p in cat_data.get("products", []):
+                        name_key = re.sub(r'\W+', '', p.get('name', '')).lower()
+                        curr_p = float(p.get('price', 0) or 0)
+                        u_type, norm_p = parse_unit_and_calculate(p.get('name', ''), '', curr_p)
+                        today_str = datetime.now(DHAKA_TZ).strftime("%Y-%m-%d")
+                        app_hist = [{"date": today_str, "price": curr_p, "normalized_price": norm_p}]
+                        
+                        if name_key and name_key in products_by_name:
+                            existing = products_by_name[name_key]
+                            e_curr = existing.get('current_price', 0) or 0
+                            # Merge history
+                            unique_h = {h['date']: h for h in existing.get('history', []) if h.get('date')}
+                            if today_str not in unique_h and curr_p > 0:
+                                unique_h[today_str] = app_hist[0]
+                            existing['history'] = sorted(unique_h.values(), key=lambda x: x['date'])
+                            if curr_p > 0 and (e_curr <= 0 or curr_p < e_curr):
+                                existing['current_price'] = curr_p
+                                existing['normalized_price'] = norm_p
+                                existing['_src'] = 'app'
+                            continue
+
                         pid = f"mb_a_{p.get('id')}"
-                        if pid not in products:
-                            app_count += 1
-                            curr_p = float(p.get('price', 0))
-                            u_type, norm_p = parse_unit_and_calculate(p.get('name', ''), '', curr_p)
-                            products[pid] = {
-                                "id": pid, "name": p.get('name'), "store": "meenabazar",
-                                "category": p.get('category', 'General'), "unit": 'N/A', "unit_type": u_type,
-                                "current_price": curr_p, "normalized_price": norm_p,
-                                "image": p.get('image', ''), "history": [{"date": datetime.now(DHAKA_TZ).strftime("%Y-%m-%d"), "price": curr_p, "normalized_price": norm_p}],
-                                "source": "app", "_src": "app"
-                            }
+                        app_count += 1
+                        new_prod = {
+                            "id": pid, "name": p.get('name'), "store": "meenabazar",
+                            "category": p.get('category', 'General') if isinstance(p.get('category'), str) else 'General',
+                            "unit": 'N/A', "unit_type": u_type,
+                            "current_price": curr_p, "normalized_price": norm_p,
+                            "image": p.get('image', ''), "history": app_hist,
+                            "source": "app", "_src": "app"
+                        }
+                        products[pid] = new_prod
+                        if name_key:
+                            products_by_name[name_key] = new_prod
             except Exception as _ce:
                 print(f"Meena Bazar catalog.json notice: {_ce}")
 
@@ -455,19 +507,9 @@ def load_othoba():
                     curr_p = p.get('current_price', 0)
                     u_type, norm_p = parse_unit_and_calculate(p.get('name', ''), p.get('unit', ''), curr_p)
                     
-                    if name_key in products_by_name:
-                        existing = products_by_name[name_key]
-                        if curr_p >= existing['current_price']:
-                            stats["dropped"] += 1
-                            continue
-                            
-                    final_pid = p.get('id')
-                    if not final_pid.startswith('ot_'): final_pid = f"ot_{final_pid}"
-                    
                     hist_dict = p.get('price_history', {})
                     unique_hist = {}
                     
-                    # Some json versions might have history as array
                     raw_history = p.get('history', [])
                     if isinstance(raw_history, list) and len(raw_history) > 0:
                         for h in raw_history:
@@ -479,6 +521,21 @@ def load_othoba():
                         for d_str, price_val in hist_dict.items():
                             _, h_norm = parse_unit_and_calculate(p.get('name', ''), p.get('unit', ''), price_val)
                             unique_hist[d_str] = {"date": d_str, "price": price_val, "normalized_price": h_norm}
+
+                    if name_key in products_by_name:
+                        existing = products_by_name[name_key]
+                        e_curr = existing.get('current_price', 0) or 0
+                        for eh in existing.get('history', []):
+                            if eh.get('date') and eh['date'] not in unique_hist:
+                                unique_hist[eh['date']] = eh
+                        if e_curr > 0 and (curr_p <= 0 or e_curr <= curr_p):
+                            existing_hist = sorted(unique_hist.values(), key=lambda x: x['date'])
+                            existing['history'] = existing_hist
+                            stats["dropped"] += 1
+                            continue
+                            
+                    final_pid = p.get('id')
+                    if not final_pid.startswith('ot_'): final_pid = f"ot_{final_pid}"
                         
                     new_history = sorted(unique_hist.values(), key=lambda x: x['date'])
                     if not new_history:
@@ -505,9 +562,21 @@ def load_othoba():
             if not name_key: return
             if name_key in products_by_name:
                 existing = products_by_name[name_key]
-                if product.get('current_price', 0) >= existing.get('current_price', 0):
+                e_curr = existing.get('current_price', 0) or 0
+                p_curr = product.get('current_price', 0) or 0
+                
+                # Merge histories across web & app
+                unique_h = {h['date']: h for h in existing.get('history', []) if h.get('date')}
+                for h in product.get('history', []):
+                    if h.get('date') and h['date'] not in unique_h:
+                        unique_h[h['date']] = h
+                merged_h = sorted(unique_h.values(), key=lambda x: x['date'])
+                
+                if e_curr > 0 and (p_curr <= 0 or e_curr <= p_curr):
+                    existing['history'] = merged_h
                     stats["dropped"] += 1
                     return
+                product['history'] = merged_h
             products_by_name[name_key] = product
 
         # 1. Load Web Data (website scraper DB, decrypted from .db.enc at runtime)
