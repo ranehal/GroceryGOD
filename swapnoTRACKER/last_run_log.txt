@@ -1,19 +1,19 @@
-Last Run: 2026-08-22 02:26:56
+Last Run: 2026-08-22 03:17:28
 ------------------------------
-Total Scraped: 8764
-Web Scraped: 8764
+Total Scraped: 8765
+Web Scraped: 8765
 App API Scraped: 4884
-Combined Unique: 8764
+Combined Unique: 8765
 ------------------------------
 Categories:
-- Beverages: 535
-- Cooking: 525
-- 📌 Deals: 412
+- Beverages: 529
+- Cooking: 523
+- 📌 Deals: 402
 - Deodorant: 311
-- Skincare: 296
-- Dairy: 251
-- Candy Chocolate: 203
+- Skincare: 297
+- Dairy: 249
 - Biscuits Others: 199
-- Candy & Chocolate: 189
-- Personal Care: 186
-... and 222 more.
+- Candy & Chocolate: 198
+- Candy Chocolate: 197
+- Personal Care: 188
+... and 225 more.

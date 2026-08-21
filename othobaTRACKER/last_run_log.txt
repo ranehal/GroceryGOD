@@ -1,4 +1,4 @@
-Last Run: 2026-08-22 02:27:25
+Last Run: 2026-08-22 03:17:54
 ------------------------------
 Total Scraped: 8567
 Web Scraped: 5754
@@ -11,9 +11,9 @@ Categories:
 - Groceries: 525
 - Household Essentials: 497
 - Ice Cream & Sweet Delights: 462
-- Snacks: 438
+- Snacks: 439
 - Coffee, Tea & Beverages: 387
 - Laundry & Cleaning: 311
 - Lubricants & Oils: 298
 - Food: 256
-... and 66 more.
+... and 67 more.
