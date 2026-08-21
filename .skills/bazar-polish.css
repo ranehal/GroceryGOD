@@ -1,0 +1,206 @@
+
+/* ============================================================
+   ===== BAZAR TERMINAL — POLISH LAYER (appended; wins by order)
+   Visual-only refinement. No selectors renamed. The PRICE is hero.
+   ============================================================ */
+
+/* ---- Atmosphere: warm ink, quiet vignette ---- */
+body.pitch-black,
+body.pitch-black.theme-amoled {
+    background-color: var(--bg-color);
+    background-image: radial-gradient(1200px 600px at 78% -8%, rgba(35,194,130,.06), transparent 60%);
+    color: var(--text-primary);
+    font-family: var(--font-stack);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+/* ---- Header / brand ---- */
+.dashboard-header {
+    background: color-mix(in srgb, var(--card-bg) 82%, transparent);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line-soft);
+}
+#current-view-title,
+.brand-lockup h2,
+.modal-header h2 { font-family: var(--font-display); letter-spacing: -.01em; }
+.brand-mark {
+    display: inline-grid; place-items: center;
+    width: 34px; height: 34px; border-radius: var(--radius-m);
+    background: linear-gradient(135deg, var(--accent-secondary), var(--accent-color));
+    color: #04120c; box-shadow: var(--shadow-1);
+}
+.search-input {
+    background: var(--bg-dark);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--radius-m);
+    color: var(--text-primary);
+    transition: border-color .18s ease, box-shadow .18s ease;
+}
+.search-input:focus {
+    outline: none;
+    border-color: var(--accent-secondary);
+    box-shadow: 0 0 0 3px rgba(35,194,130,.16);
+}
+
+/* ---- Sidebar ---- */
+.sidebar { background: var(--bg-dark); border-right: 1px solid var(--line-soft); }
+.category-item, .shop-cat-item, .shop-group { border-bottom-color: var(--line-soft); }
+.category-item.active,
+.shop-cat-item.active {
+    color: var(--accent-secondary);
+    background: rgba(35,194,130,.08);
+    border-left: 2px solid var(--accent-secondary);
+}
+.shop-header { background: var(--card-bg); font-family: var(--font-display); }
+.shop-header:hover { background: color-mix(in srgb, var(--card-bg) 70%, #fff 4%); }
+.cat-checkbox, .shop-checkbox, .check-pill input { accent-color: var(--accent-secondary); }
+
+/* ---- Intelligence bar: verdict-coded pill chips ---- */
+.intelligence-bar { background: var(--bg-dark); border-bottom: 1px solid var(--line-soft); }
+.intel-btn {
+    background: var(--card-bg);
+    border: 1px solid var(--line-soft);
+    color: var(--text-secondary);
+    border-radius: 999px;
+    font-weight: 600;
+}
+.intel-btn:hover { color: var(--text-primary); border-color: var(--accent-secondary); }
+.intel-btn.intel-variant-great,
+.intel-btn.intel-variant-good { color: var(--accent-secondary); }
+.intel-btn.intel-variant-wait { color: var(--gold); }
+.intel-btn.intel-variant-low,
+.intel-btn.intel-variant-new,
+.intel-btn.intel-variant-change,
+.intel-btn.intel-variant-cut { color: var(--accent-color); }
+/* active states (override the blanket gold !important with verdict semantics) */
+.intelligence-bar .intel-btn.intel-variant-great.active,
+.intelligence-bar .intel-btn.intel-variant-good.active,
+.intelligence-bar .intel-btn.intel-variant-low.active {
+    background: var(--accent-secondary) !important;
+    border-color: var(--accent-secondary) !important;
+    color: #04120c !important;
+    box-shadow: 0 0 14px rgba(35,194,130,.45) !important;
+}
+.filtered-items-badge {
+    background: rgba(35,194,130,.12);
+    border-color: var(--accent-secondary);
+    color: var(--accent-secondary);
+    border-radius: 999px;
+}
+
+/* ---- Stats bar: mono tabular figures ---- */
+.stats-bar { background: var(--bg-dark); border-bottom: 1px solid var(--line-soft); }
+.stat-label { color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1.5px; }
+.stat-value {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -.01em;
+}
+.stat-value.highlight { color: var(--accent-secondary); }
+
+/* ---- Buttons ---- */
+.btn-icon {
+    border-radius: var(--radius-m);
+    border: 1px solid var(--line-soft);
+    background: var(--card-bg);
+    color: var(--text-primary);
+    transition: transform .15s ease, border-color .18s ease, background .18s ease;
+}
+.btn-icon:hover { transform: translateY(-1px); border-color: var(--accent-secondary); }
+.btn-icon.primary-action,
+.btn-variant-gradient {
+    background: linear-gradient(135deg, var(--accent-secondary), var(--accent-color));
+    color: #04120c; border-color: transparent; font-weight: 700;
+}
+.scroll-btn { background: var(--accent-secondary); color: #04120c; box-shadow: var(--shadow-2); }
+
+/* ---- SIGNATURE: product cards — the price is the hero ---- */
+.p-view-sh { background: transparent; }
+.p-item-sh {
+    background: var(--card-bg);
+    border: 1px solid var(--line-soft);
+    border-top: 2px solid var(--store-color, var(--accent-secondary));
+    border-radius: var(--radius-m);
+    box-shadow: var(--shadow-1);
+    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.p-item-sh:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-2);
+    border-color: color-mix(in srgb, var(--store-color, var(--accent-secondary)) 60%, transparent);
+}
+.p-detail-sh { background: color-mix(in srgb, var(--card-bg) 78%, #000 22%); }
+.product-name { font-weight: 600; color: var(--text-primary); }
+.product-meta { border-top: 1px solid var(--line-soft); }
+.store-badge { border-radius: var(--radius-s); box-shadow: var(--shadow-1); }
+.cat-tag { color: var(--text-secondary); }
+/* the hero number */
+.price-main {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    font-size: 1.22rem;
+    letter-spacing: -.02em;
+    color: var(--accent-secondary);
+}
+.unit-label { font-family: var(--font-stack); }
+.price-tag {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    background: rgba(9,12,15,.9);
+    color: var(--accent-secondary);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--radius-s);
+    backdrop-filter: blur(2px);
+}
+
+/* ---- Modals / tray / toast / overlays ---- */
+.modal { background: rgba(4,6,8,.72); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.modal-content, .modal-content.full-screen-modal {
+    background: var(--bg-color);
+}
+.modal-header { border-bottom: 1px solid var(--line-soft); }
+.stat-card, #compare-chart-container, .chart-container {
+    background: var(--card-bg);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--radius-l);
+}
+.stat-card .stat-value { color: var(--accent-secondary); }
+.compare-selection-tray {
+    background: color-mix(in srgb, var(--card-bg) 92%, transparent);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--radius-l);
+    box-shadow: var(--shadow-2);
+}
+.tray-btn { border-radius: var(--radius-m); }
+.tray-btn-go { background: linear-gradient(135deg, var(--accent-secondary), var(--accent-color)); color: #04120c; }
+.ux-toast {
+    background: var(--card-bg);
+    border: 1px solid var(--line-soft);
+    border-left: 3px solid var(--accent-secondary);
+    border-radius: var(--radius-m);
+    color: var(--text-primary);
+    box-shadow: var(--shadow-2);
+}
+.glass-panel, .shop-loading-card {
+    background: color-mix(in srgb, var(--card-bg) 90%, transparent);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--radius-l);
+}
+.spinner { border-top-color: var(--accent-secondary) !important; }
+
+/* ---- Quality floor ---- */
+:focus-visible {
+    outline: 2px solid var(--accent-secondary);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}

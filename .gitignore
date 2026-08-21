@@ -17,3 +17,11 @@ token.txt
 refresh_token.txt
 **/token.txt
 **/refresh_token.txt
+
+# Local raw unencrypted working files
+PRICETRACKER/data.js
+swapnoTRACKER/data.json
+unimartTRACKER/data.json
+ShotejTRACKER/data.json
+chaldalTRACKER/data.js
+full_history_recovery.py

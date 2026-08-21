@@ -56,6 +56,7 @@ import json
 import sqlite3
 import os
 import re
+from collections import defaultdict
 from datetime import datetime, timedelta, timezone
 
 # Paths to data sources (Relative to GroceryGOD root)
@@ -484,8 +485,22 @@ def load_meenabazar():
         print(f"Error Meena Bazar: {e}")
         return None, None
 
+def is_othoba_grocery_category(cat_name):
+    if not cat_name: return False
+    cl = str(cat_name).lower().strip()
+    non_grocery = ['mother', 'baby', 'toy', 'beauty', 'care', 'cosmetic', 'pharmacy', 'medicine', 'pet', 'fashion', 'cloth', 'shoe', 'electronics', 'automotive', 'stationery', 'book', 'furniture', 'table', 'pad', 'freezer', 'home appliance', 'garden', 'tool', 'watch', 'phone', 'gadget', 'soil', 'fertilizer', 'cleaner', 'toilet', 'detergent', 'dishwash', 'floor', 'glass', 'umbrella', 'fan', 'tv', 'refrigerator', 'light', 'lamp', 'camera', 'laptop', 'cable', 'modem', 'router', 'drill', 'saw', 'paint', 'pipe', 'lock']
+    if any(ex in cl for ex in non_grocery):
+        return False
+    grocery_kw = [
+        'daily-bazar', 'daily bazar', 'food-grocery', 'food & grocery', 'grocery', 'bogo', 'mega-discount', 'monthly-grocery',
+        'grocery-staples', 'bakery-breakfast', 'daily-cooking', 'spice-herb', 'baking', 'dairy-chilled-eggs', 'eggs', 'milk',
+        'cheese', 'yogurt', 'butter', 'laban', 'borhani', 'ghee', 'meat', 'fish', 'vegetable', 'fruit', 'snack', 'sweetmeat',
+        'bakery-snacks', 'beverage', 'tea', 'coffee', 'rice', 'dal', 'oil', 'spice', 'quick-commerce', 'mithai', 'flour', 'noodles', 'bazar'
+    ]
+    return any(k in cl for k in grocery_kw)
+
 def load_othoba():
-    print("Processing Othoba...")
+    print("Processing Othoba (Grocery Categories Only)...")
     try:
         products_by_name = {}
         stats = {"web_scraped": 0, "app_scraped": 0, "web_selected": 0, "app_selected": 0,
@@ -500,6 +515,10 @@ def load_othoba():
                 with open(filepath, 'r', encoding='utf-8') as f:
                     data = json.load(f)
                 for p in data:
+                    cat = p.get('category') or p.get('category_path') or ''
+                    if not is_othoba_grocery_category(cat):
+                        continue
+
                     name_key = re.sub(r'\W+', '', p.get('name', '')).lower()
                     if not name_key: continue
                     
@@ -550,7 +569,7 @@ def load_othoba():
 
                     products_by_name[name_key] = {
                         "id": final_pid, "name": p.get('name'), "store": "othoba",
-                        "category": p.get('category', 'General'), "unit": p.get('unit', 'N/A'), "unit_type": u_type,
+                        "category": cat or 'Grocery', "unit": p.get('unit', 'N/A'), "unit_type": u_type,
                         "current_price": curr_p, "normalized_price": norm_p,
                         "image": p.get('image'), "history": new_history, "first_seen": first_seen,
                         "_src": source_type
@@ -580,22 +599,27 @@ def load_othoba():
             products_by_name[name_key] = product
 
         # 1. Load Web Data (website scraper DB, decrypted from .db.enc at runtime)
-        web_db_candidates = [r'C:\PROJECTS\othoba\othoba_tracker.db', 'othobaTRACKER/othoba_tracker.db']
-        if platform.system() != 'Windows':
-            web_db_candidates.insert(0, '/kaggle/working/othoba/othoba_tracker.db')
+        web_db_candidates = ['othobaTRACKER/othoba_tracker.db']
         web_db = next((p for p in web_db_candidates if os.path.exists(p)), None)
         if web_db:
             try:
                 conn = sqlite3.connect(web_db)
                 conn.row_factory = sqlite3.Row
                 cursor = conn.cursor()
+                cursor.execute("SELECT product_id, timestamp, price_amount FROM price_history ORDER BY timestamp ASC")
+                all_hist_by_pid = defaultdict(list)
+                for hrow in cursor.fetchall():
+                    all_hist_by_pid[hrow["product_id"]].append(hrow)
+
                 cursor.execute("SELECT id, name, category_name, image_url FROM products")
                 for r in cursor.fetchall():
+                    cat = r["category_name"] or 'General'
+                    if not is_othoba_grocery_category(cat):
+                        continue
+
                     name_key = re.sub(r'\W+', '', r["name"] or "").lower()
                     if not name_key: continue
-                    hcur = conn.cursor()
-                    hcur.execute("SELECT timestamp, price_amount FROM price_history WHERE product_id=? ORDER BY timestamp", (r["id"],))
-                    hist_rows = hcur.fetchall()
+                    hist_rows = all_hist_by_pid.get(r["id"], [])
                     price = float(hist_rows[-1]["price_amount"]) if hist_rows else 0
                     u_type, norm_p = parse_unit_and_calculate(r["name"] or "", '', price)
                     unique_hist = {}
@@ -611,7 +635,7 @@ def load_othoba():
                     stats["web_scraped"] += 1
                     add_product(name_key, {
                         "id": f"ot_{r['id']}", "name": r["name"], "store": "othoba",
-                        "category": r["category_name"] or 'General', "unit": 'N/A', "unit_type": u_type,
+                        "category": cat, "unit": 'N/A', "unit_type": u_type,
                         "current_price": price, "normalized_price": norm_p,
                         "image": r["image_url"] or '', "history": new_history, "first_seen": datetime.now(DHAKA_TZ).strftime("%Y-%m-%d"),
                         "_src": "web"
@@ -623,15 +647,11 @@ def load_othoba():
 
         # 1b. JSON fallback as web if DB missing/empty
         if stats["web_scraped"] == 0:
-            web_path = r'C:\PROJECTS\othoba\frontend\othoba_products.json' if platform.system() == 'Windows' else '/kaggle/working/othoba/frontend/othoba_products.json'
-            if not os.path.exists(web_path):
-                web_path = 'othobaTRACKER/frontend/othoba_products.json'
+            web_path = 'othobaTRACKER/frontend/othoba_products.json'
             process_json_file(web_path, 'web')
 
         # 2. Load App Data (mobile app API scraper JSON)
-        app_path = r'C:\PROJECTS\othoba\frontend\othoba_products.json' if platform.system() == 'Windows' else '/kaggle/working/othoba/frontend/othoba_products.json'
-        if not os.path.exists(app_path):
-            app_path = 'othobaTRACKER/frontend/othoba_products.json'
+        app_path = 'othobaTRACKER/frontend/othoba_products.json'
         process_json_file(app_path, 'app')
 
         products = {v["id"]: v for v in products_by_name.values()}
@@ -835,26 +855,74 @@ def save_store_data(name, data_tuple):
         products, date_range = data_tuple
         
     if not products:
-        summary = f"📦 <b>{name.title()}</b>: 0 items"
+        summary = f"🏪 <b>{name.title()}</b>: 0 items"
         if scraper_stats:
             _mode = STORE_SOURCES.get(name, 'both')
             if _mode in ('web', 'both'):
-                summary += f"\n   ├ Web scraped: {scraper_stats.get('web_scraped', 0)} | Web selected: {scraper_stats.get('web_selected', 0)}"
+                summary += f"\n   ├ Web: {scraper_stats.get('web_scraped', 0):,} scraped | {scraper_stats.get('web_selected', 0):,} selected"
             if _mode in ('app', 'both'):
-                summary += f"\n   ├ App scraped: {scraper_stats.get('app_scraped', 0)} | App selected: {scraper_stats.get('app_selected', 0)}"
+                summary += f"\n   ├ App: {scraper_stats.get('app_scraped', 0):,} scraped | {scraper_stats.get('app_selected', 0):,} selected"
             if date_range:
                 summary += f"\n   ├ 📅 Price data: {date_range}"
         print(f"Saved {name:15} | Items:     0 | Chunks:  0 | Safe Under {MAX_FILE_SIZE_MB}MB")
-        return summary
+        return summary, {'total': 0, 'in_stock': 0, 'out_of_stock': 0, 'new_items': 0, 'price_up': 0, 'price_down': 0, 'price_same': 0, 'back_in_stock': 0, 'went_oos': 0}
 
-    
+    # Standardize first_seen, last_seen, and stock flags for every product
+    in_stock_cnt = 0
+    out_of_stock_cnt = 0
+    new_items_cnt = 0
+    price_up_cnt = 0
+    price_down_cnt = 0
+    price_same_cnt = 0
+    back_in_stock_cnt = 0
+    went_oos_cnt = 0
+
+    for pid, p in products.items():
+        v_hist = p.get('history', [])
+        valid_dates = [str(h['date'])[:10] for h in v_hist if h.get('date')]
+        if valid_dates:
+            p['first_seen'] = min(valid_dates)
+            p['last_seen'] = max(valid_dates)
+        else:
+            p['first_seen'] = datetime.now(DHAKA_TZ).strftime("%Y-%m-%d")
+            p['last_seen'] = p['first_seen']
+        curr_p = float(p.get('current_price', 0) or 0)
+        p['in_stock'] = bool(curr_p > 0 and p.get('in_stock', True) is not False)
+        p['is_out_of_stock'] = not p['in_stock']
+
+        if p['in_stock']:
+            in_stock_cnt += 1
+        else:
+            out_of_stock_cnt += 1
+
+        for h in v_hist:
+            if float(h.get('price', 0) or 0) <= 0 or h.get('is_out_of_stock') is True:
+                h['price'] = -1.0
+                h['normalized_price'] = -1.0
+
+        if len(v_hist) <= 1:
+            new_items_cnt += 1
+        else:
+            curr_h_p = float(v_hist[-1].get('price', -1.0) or -1.0)
+            prev_h_p = float(v_hist[-2].get('price', -1.0) or -1.0)
+
+            if curr_h_p > 0 and prev_h_p > 0:
+                if curr_h_p > prev_h_p:
+                    price_up_cnt += 1
+                elif curr_h_p < prev_h_p:
+                    price_down_cnt += 1
+                else:
+                    price_same_cnt += 1
+            elif curr_h_p <= 0 and prev_h_p > 0:
+                went_oos_cnt += 1
+            elif curr_h_p > 0 and prev_h_p <= 0:
+                back_in_stock_cnt += 1
+
     total_items = len(products)
     last_update = datetime.now(DHAKA_TZ).strftime("%Y-%m-%d %H:%M:%S")
     product_items = sorted(products.items())
     
     # 1. Atomic Size Calculation
-    # We dynamically adjust chunk size to stay under MAX_FILE_SIZE_MB
-    # Initial estimate: MAX_CHUNK_ITEMS
     current_chunk_size = MAX_CHUNK_ITEMS
     
     # Pre-clean existing files to avoid ghosts
@@ -887,7 +955,17 @@ def save_store_data(name, data_tuple):
     # 2. Save Manifest
     manifest_meta = {
         "last_update": last_update, "total": total_items,
-        "date_range": date_range, "total_chunks": total_chunks, "chunk_size": current_chunk_size
+        "date_range": date_range, "total_chunks": total_chunks, "chunk_size": current_chunk_size,
+        "stock_stats": {
+            "in_stock": in_stock_cnt,
+            "out_of_stock": out_of_stock_cnt,
+            "new_items": new_items_cnt,
+            "price_up": price_up_cnt,
+            "price_down": price_down_cnt,
+            "price_same": price_same_cnt,
+            "back_in_stock": back_in_stock_cnt,
+            "went_oos": went_oos_cnt
+        }
     }
     if scraper_stats:
         manifest_meta["scraper_stats"] = scraper_stats
@@ -903,20 +981,48 @@ def save_store_data(name, data_tuple):
         with open(f"{name}_data_part{i+1}.js", 'w', encoding='utf-8') as f:
             f.write(f"window.{name}_part{i+1} = {json.dumps(chunk, separators=(',', ':'))};")
             
-    summary = f"📦 <b>{name.title()}</b>: {total_items} items ({total_chunks} chunks)"
+    summary = f"🏪 <b>{name.upper()}</b>: {total_items:,} items ({total_chunks} chunks)"
     if scraper_stats:
         _mode = STORE_SOURCES.get(name, 'both')
         if _mode in ('web', 'both'):
-            summary += f"\n   ├ Web scraped: {scraper_stats.get('web_scraped', 0)} | Web selected: {scraper_stats.get('web_selected', 0)}"
+            summary += f"\n   ├ Web: {scraper_stats.get('web_scraped', 0):,} scraped | {scraper_stats.get('web_selected', 0):,} selected"
         if _mode in ('app', 'both'):
-            summary += f"\n   ├ App scraped: {scraper_stats.get('app_scraped', 0)} | App selected: {scraper_stats.get('app_selected', 0)}"
-        if scraper_stats.get('dropped'):
-            summary += f"\n   ├ Dropped (dup/higher price): {scraper_stats['dropped']}"
+            summary += f"\n   ├ App: {scraper_stats.get('app_scraped', 0):,} scraped | {scraper_stats.get('app_selected', 0):,} selected"
+    def _p(val):
+        return f"({(val / total_items * 100):.1f}%)" if total_items > 0 else "(0.0%)"
+
+    summary += f"\n   ├ 🟢 In Stock: {in_stock_cnt:,} {_p(in_stock_cnt)} | 🔴 Out of Stock: {out_of_stock_cnt:,} {_p(out_of_stock_cnt)}"
+    if new_items_cnt > 0:
+        summary += f"\n   ├ 🆕 New Items: {new_items_cnt:,} {_p(new_items_cnt)}"
+    
+    price_parts = []
+    if price_up_cnt > 0: price_parts.append(f"🔺 {price_up_cnt:,} {_p(price_up_cnt)} up")
+    if price_down_cnt > 0: price_parts.append(f"🔻 {price_down_cnt:,} {_p(price_down_cnt)} down")
+    if price_same_cnt > 0: price_parts.append(f"⏸️ {price_same_cnt:,} {_p(price_same_cnt)} same")
+    if price_parts:
+        summary += f"\n   ├ 🏷️ Prices: " + " | ".join(price_parts)
+
+    stock_delta = []
+    if back_in_stock_cnt > 0: stock_delta.append(f"🟢 {back_in_stock_cnt:,} {_p(back_in_stock_cnt)} restocked")
+    if went_oos_cnt > 0: stock_delta.append(f"🔴 {went_oos_cnt:,} {_p(went_oos_cnt)} went OOS")
+    if stock_delta:
+        summary += f"\n   ├ 🔄 Stock Movements: " + " | ".join(stock_delta)
+
     if date_range:
         summary += f"\n   ├ 📅 Price data: {date_range}"
         
     print(f"Saved {name:15} | Items: {total_items:5} | Chunks: {total_chunks:2} | Safe Under {MAX_FILE_SIZE_MB}MB")
-    return summary
+    return summary, {
+        'total': total_items,
+        'in_stock': in_stock_cnt,
+        'out_of_stock': out_of_stock_cnt,
+        'new_items': new_items_cnt,
+        'price_up': price_up_cnt,
+        'price_down': price_down_cnt,
+        'price_same': price_same_cnt,
+        'back_in_stock': back_in_stock_cnt,
+        'went_oos': went_oos_cnt
+    }
 
 def read_scraper_log(store_dir):
     candidates = [
@@ -987,6 +1093,7 @@ def main():
     clean_disk_space()
     print("\n" + "="*70 + "\nGODDATA AGGREGATOR // Atomic Zero-Fail Engine\n" + "="*70)
     summaries = []
+    store_metrics = {}
     agg_results = {}
     
     for store_name, loader in [
@@ -1000,8 +1107,16 @@ def main():
         ("foodi", load_foodi)
     ]:
         data_tuple = loader()
-        res = save_store_data(store_name, data_tuple)
-        if res: summaries.append(res)
+        res_tuple = save_store_data(store_name, data_tuple)
+        if isinstance(res_tuple, tuple):
+            res_summary, res_stats = res_tuple
+        else:
+            res_summary, res_stats = res_tuple, {}
+        if res_summary:
+            summaries.append(res_summary)
+        if res_stats:
+            store_metrics[store_name] = res_stats
+            
         store_res = None
         if data_tuple and len(data_tuple) == 3:
             store_res = data_tuple[2]
@@ -1036,7 +1151,35 @@ def main():
     
     # Shared summary file only (consumed by the orchestrator's consolidated p14 message — no own TG send to avoid spam)
     if summaries:
-        msg = "📊 <b>Aggregator Complete</b>\n\n" + "\n".join(summaries)
+        tot_prods = sum(m.get('total', 0) for m in store_metrics.values())
+        tot_in_stock = sum(m.get('in_stock', 0) for m in store_metrics.values())
+        tot_oos = sum(m.get('out_of_stock', 0) for m in store_metrics.values())
+        tot_new = sum(m.get('new_items', 0) for m in store_metrics.values())
+        tot_up = sum(m.get('price_up', 0) for m in store_metrics.values())
+        tot_down = sum(m.get('price_down', 0) for m in store_metrics.values())
+        tot_same = sum(m.get('price_same', 0) for m in store_metrics.values())
+        tot_restocked = sum(m.get('back_in_stock', 0) for m in store_metrics.values())
+        tot_went_oos = sum(m.get('went_oos', 0) for m in store_metrics.values())
+
+        def _mp(val):
+            return f"({(val / tot_prods * 100):.1f}%)" if tot_prods > 0 else "(0.0%)"
+
+        market_header = [
+            "📊 <b>Aggregator Complete</b>",
+            f"📦 <b>Total Monitored:</b> {tot_prods:,} products across 8 stores",
+            f"🟢 In Stock: {tot_in_stock:,} {_mp(tot_in_stock)} | 🔴 Out of Stock: {tot_oos:,} {_mp(tot_oos)}",
+            f"🆕 New Items: {tot_new:,} {_mp(tot_new)}",
+            f"🏷️ Prices: 🔺 {tot_up:,} {_mp(tot_up)} up | 🔻 {tot_down:,} {_mp(tot_down)} down | ⏸️ {tot_same:,} {_mp(tot_same)} unchanged",
+        ]
+        if tot_restocked > 0 or tot_went_oos > 0:
+            stock_move_parts = []
+            if tot_restocked > 0: stock_move_parts.append(f"🟢 {tot_restocked:,} {_mp(tot_restocked)} restocked")
+            if tot_went_oos > 0: stock_move_parts.append(f"🔴 {tot_went_oos:,} {_mp(tot_went_oos)} went OOS")
+            market_header.append(f"🔄 Stock Delta: " + " | ".join(stock_move_parts))
+        
+        market_header.append("──────────────────────────────")
+        
+        msg = "\n".join(market_header) + "\n\n" + "\n\n".join(summaries)
         try:
             _agg_share = '/tmp/aggregator_summary.txt'
             with open(_agg_share, 'w', encoding='utf-8') as f:

@@ -18,7 +18,7 @@ let customGroups = JSON.parse(safeStorage.getItem('god_custom_groups') || '{}');
 let shoppingLists = JSON.parse(safeStorage.getItem('god_shopping_lists') || '{}');
 let priceAlerts = JSON.parse(safeStorage.getItem('god_price_alerts') || '[]');
 const FREE_HISTORY_DAYS = 7;
-let premiumUnlocked = Boolean(window.GOD_DEMO_MODE && safeSession.getItem('god_premium_unlocked') === '1');
+let premiumUnlocked = Boolean(safeStorage.getItem('god_premium_unlocked') === '1' || (window.GOD_DEMO_MODE && safeSession.getItem('god_premium_unlocked') === '1'));
 let premiumPlan = safeStorage.getItem('god_premium_plan') || 'monthly';
 let paymentReference = '';
 let immersiveSnapshot = null;
@@ -281,35 +281,35 @@ async function loadAllFromParquet() {
     }
     const t0 = performance.now();
     const log = (msg) => console.log(`%c[GOD_PARQUET] ${msg}`, 'color: #0ff; font-weight: bold');
-    log('Waiting for DuckDB-WASM module...');
 
+    // 🚀 Speed optimization: fetch parquet datasets concurrently with DuckDB-WASM instantiation
+    const parquetFetchPromise = Promise.all([
+        fetchFirstAvailable(['products_free.parquet', 'products.parquet'], 'free products'),
+        fetchFirstAvailable(['history_free.parquet', 'history.parquet'], 'product history')
+    ]);
+
+    log('Waiting for DuckDB-WASM module...');
     if (!window.duckdb) await new Promise(r => { window.__duckdb_ready = r; });
     const duckdb = window.duckdb;
     log(`DuckDB module ready (${((performance.now()-t0)/1000).toFixed(1)}s)`);
 
     showLoading(true, 'Spinning up DuckDB-WASM...', 10);
     const JSDELIVR_BUNDLES = duckdb.getJsDelivrBundles();
-    log(`Bundles found: ${Object.keys(JSDELIVR_BUNDLES).join(', ')}`);
     const bundle = await duckdb.selectBundle(JSDELIVR_BUNDLES);
-    log(`Selected bundle: ${bundle.mainWorker}`);
     const worker_url = URL.createObjectURL(new Blob([`importScripts("${bundle.mainWorker}");`], {type: 'text/javascript'}));
     const worker = new Worker(worker_url);
     const db = new duckdb.AsyncDuckDB(new duckdb.ConsoleLogger(), worker);
-    log('Instantiating WASM module...');
     await db.instantiate(bundle.mainModule, bundle.pthreadWorker);
     URL.revokeObjectURL(worker_url);
     const conn = await db.connect();
     log(`DB instantiated & connected (${((performance.now()-t0)/1000).toFixed(1)}s)`);
 
-    showLoading(true, 'Loading Parquet files...', 30);
+    showLoading(true, 'Registering Parquet datasets...', 30);
     const t1 = performance.now();
-    const [productAsset, historyAsset] = await Promise.all([
-        fetchFirstAvailable(['products_free.parquet', 'products.parquet'], 'free products'),
-        fetchFirstAvailable(['history_free.parquet', 'history.parquet'], 'product history')
-    ]);
+    const [productAsset, historyAsset] = await parquetFetchPromise;
     const pBuf = productAsset.buffer;
     const hBuf = historyAsset.buffer;
-    log(`Fetched free tier in ${((performance.now()-t1)/1000).toFixed(1)}s — products: ${(pBuf.byteLength/1024/1024).toFixed(1)}MB, history: ${(hBuf.byteLength/1024/1024).toFixed(1)}MB`);
+    log(`Parquet datasets ready in ${((performance.now()-t1)/1000).toFixed(1)}s — products: ${(pBuf.byteLength/1024/1024).toFixed(1)}MB, history: ${(hBuf.byteLength/1024/1024).toFixed(1)}MB`);
     await db.registerFileBuffer('products.parquet', new Uint8Array(pBuf));
     await db.registerFileBuffer('history.parquet', new Uint8Array(hBuf));
     await conn.query(`CREATE OR REPLACE VIEW history_access AS SELECT * FROM read_parquet('history.parquet')`);
@@ -322,11 +322,11 @@ async function loadAllFromParquet() {
             p.id, p.name, p.store, p.category, p.unit, p.unit_type,
             p.current_price, p.normalized_price, p.image, p.url, p.first_seen,
             COUNT(h.date) as hist_count,
-            MIN(h.normalized_price) as min_price,
-            MAX(h.normalized_price) as max_price,
-            AVG(h.normalized_price) as avg_price,
-            MIN(h.date) as oldest_date,
-            MAX(h.date) as newest_date
+            MIN(CASE WHEN h.price > 0 THEN h.normalized_price ELSE NULL END) as min_price,
+            MAX(CASE WHEN h.price > 0 THEN h.normalized_price ELSE NULL END) as max_price,
+            AVG(CASE WHEN h.price > 0 THEN h.normalized_price ELSE NULL END) as avg_price,
+            MIN(CASE WHEN h.price > 0 THEN h.date ELSE NULL END) as oldest_date,
+            MAX(CASE WHEN h.price > 0 THEN h.date ELSE NULL END) as newest_date
         FROM read_parquet('products.parquet') p
         LEFT JOIN history_access h ON p.id = h.product_id
         GROUP BY p.id, p.name, p.store, p.category, p.unit, p.unit_type,
@@ -357,12 +357,27 @@ async function loadAllFromParquet() {
 
     godDB = { db, conn };
 
+    // 🔑 Auto-restore saved premium status from localStorage if present
+    const savedPassphrase = safeStorage.getItem('god_premium_passphrase');
+    if (savedPassphrase) {
+        try {
+            log('Restoring saved premium license in background...');
+            await unlockPremiumArchive(savedPassphrase);
+            setPremiumUnlocked(true, true);
+            log('✨ Premium mode auto-restored!');
+        } catch (e) {
+            console.warn('[GOD_PREMIUM] Auto-restore with saved passphrase failed:', e);
+            safeStorage.removeItem('god_premium_passphrase');
+            setPremiumUnlocked(false, true);
+        }
+    }
+
     // Build metadata.stores from actual parquet data (per-store product counts + date ranges)
     const storeCountResult = await conn.query(`
         SELECT p.store,
                COUNT(DISTINCT p.id) AS total,
-               COALESCE(MIN(h.date), MIN(p.first_seen)) AS oldest_seen,
-               COALESCE(MAX(h.date), MAX(p.first_seen)) AS newest_seen
+               COALESCE(MIN(CASE WHEN h.price > 0 THEN h.date ELSE NULL END), MIN(p.first_seen)) AS oldest_seen,
+               COALESCE(MAX(CASE WHEN h.price > 0 THEN h.date ELSE NULL END), MAX(p.first_seen)) AS newest_seen
         FROM read_parquet('products.parquet') p
         LEFT JOIN history_access h ON p.id = h.product_id
         GROUP BY p.store
@@ -371,17 +386,17 @@ async function loadAllFromParquet() {
     metadata.stores = {};
     const storesList = ['shwapno','chaldal','meenabazar','othoba','metromart','unimart','shotejbazar','foodi'];
     const dToday = dhakaTodayStr();
-    const d90Ago = (() => {
-        const d = toDhaka();
-        d.setDate(d.getDate() - 90);
-        return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
-    })();
 
     storesList.forEach(s => {
-        metadata.stores[s] = {
-            total: 0,
-            date_range: `${d90Ago} to ${dToday}`
-        };
+        const manifest = window[s + 'Manifest'];
+        if (manifest && manifest.metadata && manifest.metadata.date_range && manifest.metadata.date_range !== 'N/A') {
+            metadata.stores[s] = manifest.metadata;
+        } else {
+            metadata.stores[s] = {
+                total: 0,
+                date_range: `2026-02-15 to ${dToday}`
+            };
+        }
     });
 
     for (const row of storeCountResult.toArray()) {
@@ -391,8 +406,7 @@ async function loadAllFromParquet() {
         if (manifest && manifest.metadata && manifest.metadata.date_range && manifest.metadata.date_range !== 'N/A') {
             metadata.stores[s] = manifest.metadata;
         } else {
-            const oldestRaw = r.oldest_seen ? String(r.oldest_seen).slice(0, 10) : d90Ago;
-            const oldest = oldestRaw < d90Ago ? oldestRaw : d90Ago;
+            const oldest = r.oldest_seen ? String(r.oldest_seen).slice(0, 10) : '2026-02-15';
             const newest = r.newest_seen ? String(r.newest_seen).slice(0, 10) : dToday;
             metadata.stores[s] = {
                 total: Number(r.total) || 0,
@@ -412,33 +426,41 @@ async function loadStoreData(sid) {
     const result = await godDB.conn.query(`
         SELECT 
             p.id, p.name, p.store, p.category, p.unit, p.unit_type,
-            p.current_price, p.normalized_price, p.image, p.url, p.first_seen,
+            p.current_price, p.normalized_price, p.image, p.url,
+            p.first_seen, p.last_seen, p.in_stock, p.is_out_of_stock,
             COUNT(h.date) as hist_count,
-            MIN(h.normalized_price) as min_price,
-            MAX(h.normalized_price) as max_price,
-            AVG(h.normalized_price) as avg_price,
-            MIN(h.date) as oldest_date,
-            MAX(h.date) as newest_date
+            MIN(CASE WHEN h.price > 0 THEN h.normalized_price ELSE NULL END) as min_price,
+            MAX(CASE WHEN h.price > 0 THEN h.normalized_price ELSE NULL END) as max_price,
+            AVG(CASE WHEN h.price > 0 THEN h.normalized_price ELSE NULL END) as avg_price,
+            COALESCE(p.first_seen, MIN(CASE WHEN h.price > 0 THEN h.date ELSE NULL END)) as oldest_date,
+            COALESCE(p.last_seen, MAX(CASE WHEN h.price > 0 THEN h.date ELSE NULL END)) as newest_date
         FROM read_parquet('products.parquet') p
         LEFT JOIN history_access h ON p.id = h.product_id
         WHERE p.store = '${sid}'
         GROUP BY p.id, p.name, p.store, p.category, p.unit, p.unit_type,
-                 p.current_price, p.normalized_price, p.image, p.url, p.first_seen
+                 p.current_price, p.normalized_price, p.image, p.url,
+                 p.first_seen, p.last_seen, p.in_stock, p.is_out_of_stock
     `);
     for (const row of result.toArray()) {
         const r = row.toJSON();
+        const inStock = (r.in_stock !== false) && Number(r.current_price) > 0;
         allProducts.push({
             id: r.id, name: r.name, store: r.store, category: r.category,
-            unit: r.unit, unit_type: r.unit_type, current_price: r.current_price,
-            normalized_price: r.normalized_price, image: r.image, url: r.url,
-            first_seen: r.first_seen,
+            unit: r.unit, unit_type: r.unit_type,
+            current_price: r.current_price,
+            normalized_price: r.normalized_price,
+            image: r.image, url: r.url,
+            first_seen: r.first_seen || r.oldest_date || null,
+            last_seen: r.last_seen || r.newest_date || null,
+            in_stock: inStock,
+            is_out_of_stock: !inStock,
             history: [],
             hist_count: Number(r.hist_count) || 0,
-            minPrice: r.min_price != null ? Number(r.min_price) : r.normalized_price,
-            maxPrice: r.max_price != null ? Number(r.max_price) : r.normalized_price,
-            avgPrice: r.avg_price != null ? Number(r.avg_price) : r.normalized_price,
-            oldest_date: r.oldest_date || null,
-            newest_date: r.newest_date || null,
+            minPrice: r.min_price != null ? Number(r.min_price) : (Number(r.normalized_price) > 0 ? Number(r.normalized_price) : 0),
+            maxPrice: r.max_price != null ? Number(r.max_price) : (Number(r.normalized_price) > 0 ? Number(r.normalized_price) : 0),
+            avgPrice: r.avg_price != null ? Number(r.avg_price) : (Number(r.normalized_price) > 0 ? Number(r.normalized_price) : 0),
+            oldest_date: r.oldest_date || r.first_seen || null,
+            newest_date: r.newest_date || r.last_seen || null,
             _historyLoaded: false
         });
     }
@@ -1615,12 +1637,25 @@ async function openDetailedChart(product) {
     modal.querySelector('.modal-content').style.setProperty('--modal-bg-img', "url('" + product.image + "')");
     
     document.getElementById('chart-product-name').innerText = product.name;
-    const store = STORE_CONFIG[product.store];
+    const store = STORE_CONFIG[product.store] || { name: product.store, color: '#f59e0b' };
     document.getElementById('chart-store-tag').innerText = store.name;
     document.getElementById('chart-store-tag').style.background = store.color;
-    document.getElementById('chart-actual').innerText = fmt(product.current_price);
-    document.getElementById('chart-unit').innerText = fmt(product.normalized_price);
-    document.getElementById('chart-avg').innerText = fmt(product.avgPrice);
+
+    const inStock = product.in_stock !== false && Number(product.current_price) > 0;
+    const fsEl = document.getElementById('chart-first-seen');
+    if (fsEl) fsEl.innerText = product.first_seen || 'N/A';
+    const lsEl = document.getElementById('chart-last-seen');
+    if (lsEl) lsEl.innerText = product.last_seen || 'N/A';
+    const stEl = document.getElementById('chart-stock-status');
+    if (stEl) {
+        stEl.innerHTML = inStock 
+            ? '<span style="color:var(--green); font-weight:700;">In Stock</span>' 
+            : '<span style="color:var(--danger); font-weight:700;">Out of Stock (-1)</span>';
+    }
+
+    document.getElementById('chart-actual').innerText = inStock ? fmt(product.current_price) : 'Out of stock';
+    document.getElementById('chart-unit').innerText = inStock ? fmt(product.normalized_price) : '—';
+    document.getElementById('chart-avg').innerText = Number(product.avgPrice) > 0 ? fmt(product.avgPrice) : '—';
     
     let unitDisplay = '/pc';
     if (product.unit_type === 'piece' || product.unit_type === 'pcs' || product.unit_type === 'each') {
@@ -1666,6 +1701,12 @@ async function openDetailedChart(product) {
         const h = await loadProductHistory(product.id);
         product.history = h;
         product._historyLoaded = true;
+        if (h && h.length > 0) {
+            product.first_seen = product.first_seen || h[0].date;
+            product.last_seen = h[h.length - 1].date;
+            if (fsEl) fsEl.innerText = product.first_seen || 'N/A';
+            if (lsEl) lsEl.innerText = product.last_seen || 'N/A';
+        }
         if (h.length >= 2) {
             const curr = h[h.length - 1].normalized_price || h[h.length - 1].price;
             const prev = h[h.length - 2].normalized_price || h[h.length - 2].price;
@@ -1685,8 +1726,30 @@ async function openDetailedChart(product) {
         data: {
             labels: labels,
             datasets: [
-                { label: 'Unit Price', data: history.map(h => h.normalized_price), borderColor: store.color, backgroundColor: store.color + '22', fill: true, tension: 0.3, yAxisID: 'y', pointRadius: 2, pointHoverRadius: 5 },
-                { label: 'Actual Price', data: history.map(h => h.price), borderColor: getChartTheme().actual, borderDash: [5, 5], fill: false, tension: 0, yAxisID: 'y1', pointRadius: 1, pointHoverRadius: 4 }
+                { 
+                    label: 'Unit Price', 
+                    data: history.map(h => (Number(h.normalized_price) <= 0 || Number(h.price) <= 0) ? null : Number(h.normalized_price)), 
+                    borderColor: store.color, 
+                    backgroundColor: store.color + '22', 
+                    fill: true, 
+                    spanGaps: true,
+                    tension: 0.3, 
+                    yAxisID: 'y', 
+                    pointRadius: 2, 
+                    pointHoverRadius: 5 
+                },
+                { 
+                    label: 'Actual Price', 
+                    data: history.map(h => Number(h.price) <= 0 ? null : Number(h.price)), 
+                    borderColor: getChartTheme().actual, 
+                    borderDash: [5, 5], 
+                    fill: false, 
+                    spanGaps: true,
+                    tension: 0, 
+                    yAxisID: 'y1', 
+                    pointRadius: 1, 
+                    pointHoverRadius: 4 
+                }
             ]
         },
         options: { 
@@ -1712,6 +1775,13 @@ async function openDetailedChart(product) {
                                 return rawDate;
                             }
                             return tooltipItems[0].label;
+                        },
+                        label: (context) => {
+                            const h = history[context.dataIndex];
+                            if (h && (Number(h.price) <= 0 || Number(h.normalized_price) <= 0)) {
+                                return `${context.dataset.label}: Out of Stock (-1)`;
+                            }
+                            return `${context.dataset.label}: ${fmt(context.parsed.y)}`;
                         }
                     }
                 }
@@ -1776,21 +1846,24 @@ function updateStoreStats() {
     sortedStores.forEach(([store, data]) => {
         const config = STORE_CONFIG[store] || { color: '#888', name: store };
         const webOnlyStores = ['metromart', 'unimart', 'shotejbazar'];
+        const appOnlyStores = ['foodi'];
         let srcTxt = '';
 
         if (webOnlyStores.includes(store.toLowerCase())) {
             srcTxt = `W:${formatNum(data.total || 0)}`;
+        } else if (appOnlyStores.includes(store.toLowerCase())) {
+            srcTxt = `A:${formatNum(data.total || 0)}`;
         } else if (data.scraper_stats && (data.scraper_stats.web > 0 || data.scraper_stats.app > 0)) {
             const w = formatNum(data.scraper_stats.web || 0);
             const a = formatNum(data.scraper_stats.app || 0);
-            srcTxt = `W:${w}${data.scraper_stats.app > 0 ? ' A:' + a : ''}`;
+            srcTxt = (data.scraper_stats.web > 0 && data.scraper_stats.app > 0) ? `W:${w} A:${a}` : (data.scraper_stats.web > 0 ? `W:${w}` : `A:${a}`);
         } else {
             const storeProducts = allProducts.filter(p => p.store === store);
-            const appCount = storeProducts.filter(p => (p.source === 'app' || String(p.id).includes('_app_') || String(p.id).includes('mb_a_'))).length;
+            const appCount = storeProducts.filter(p => (p.source === 'app' || String(p.id).includes('_app_') || String(p.id).includes('mb_a_') || String(p.id).includes('fd_'))).length;
             const webCount = Math.max(0, storeProducts.length - appCount);
-            const w = formatNum(webCount || storeProducts.length);
+            const w = formatNum(webCount);
             const a = formatNum(appCount);
-            srcTxt = `W:${w}${appCount > 0 ? ' A:' + a : ''}`;
+            srcTxt = (webCount > 0 && appCount > 0) ? `W:${w} A:${a}` : (webCount > 0 ? `W:${w}` : `A:${a}`);
         }
         
         const dateRangeCompact = formatCompactRange(data.date_range);
@@ -2866,9 +2939,25 @@ function countDuplicateProducts(products) {
 
 async function fetchFirstAvailable(paths, label = 'asset') {
     let lastError = null;
-    for (const path of paths) {
+    const cacheName = 'god-parquet-cache-v1';
+    for (const rawPath of paths) {
+        const path = rawPath.includes('?') ? rawPath : `${rawPath}?v=${ASSET_VERSION}`;
         try {
-            const response = await fetch(path, { cache: 'no-store' });
+            if (typeof window !== 'undefined' && 'caches' in window) {
+                try {
+                    const cache = await window.caches.open(cacheName);
+                    const cachedResponse = await cache.match(path);
+                    if (cachedResponse && cachedResponse.ok) {
+                        return { path, buffer: await cachedResponse.arrayBuffer() };
+                    }
+                    const netResponse = await fetch(path);
+                    if (netResponse.ok) {
+                        cache.put(path, netResponse.clone()).catch(() => {});
+                        return { path, buffer: await netResponse.arrayBuffer() };
+                    }
+                } catch (_) {}
+            }
+            const response = await fetch(path);
             if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
             return { path, buffer: await response.arrayBuffer() };
         } catch (error) {
@@ -3037,9 +3126,10 @@ async function attemptPremiumUnlock() {
 
     try {
         await unlockPremiumArchive(passphrase);
-        setPremiumUnlocked(true);
+        safeStorage.setItem('god_premium_passphrase', passphrase);
+        setPremiumUnlocked(true, true);
         closePremiumModal();
-        showUXToast('✨ Premium archive unlocked! Returning to Home.', 'success');
+        showUXToast('✨ Premium archive unlocked & key saved in browser!', 'success');
 
         // Auto return to Home
         activeCategoryFilter = 'all';
@@ -3147,7 +3237,7 @@ async function refreshProductStatsFromAccess() {
 function setPremiumUnlocked(unlocked, persist = true) {
     premiumUnlocked = Boolean(unlocked);
     document.body.classList.toggle('premium-unlocked', premiumUnlocked);
-    if (persist) safeSession.setItem('god_premium_unlocked', premiumUnlocked ? '1' : '0');
+    if (persist) safeStorage.setItem('god_premium_unlocked', premiumUnlocked ? '1' : '0');
     const keyButton = document.getElementById('premium-key-btn');
     if (keyButton) {
         keyButton.classList.toggle('unlocked', premiumUnlocked);

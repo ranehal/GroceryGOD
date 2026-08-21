@@ -99,7 +99,7 @@ TELEGRAM_BOT_TOKEN = get_secret_safe("TELEGRAM_BOT_TOKEN")
 TELEGRAM_CHAT_ID = get_secret_safe("TELEGRAM_CHAT_ID")
 os.environ["TELEGRAM_BOT_TOKEN"] = TELEGRAM_BOT_TOKEN or ""
 os.environ["TELEGRAM_CHAT_ID"] = TELEGRAM_CHAT_ID or ""
-KAGGLE_KERNEL_SLUG = get_secret_safe("KAGGLE_KERNEL_SLUG")
+KAGGLE_KERNEL_SLUG = get_secret_safe("KAGGLE_KERNEL_SLUG", "ranehalx/gitgod")
 os.environ['GOD_PREMIUM_KEY'] = get_secret_safe('GOD_PREMIUM_KEY', 'assalamualaikum')
 
 def run_preflight_checks():
@@ -359,7 +359,6 @@ def run_grocery_god(github_pat):
                             for p in parts:
                                 with open(p, 'rb') as f: out.write(f.read())
                                 os.remove(p)
-                        os.remove(base)
                     _enc_files = _glob.glob(os.path.join(_cwd, '**', '*.enc'), recursive=True)
                     log.info(f'  Found {len(_enc_files)} encrypted files')
                     _dc = 0
@@ -659,7 +658,7 @@ def run_grocery_god(github_pat):
                         return cp
                     _cwd = os.getcwd()
                     _targets = []
-                    for pat in ['*_data_part*.js', '*_manifest.js']:
+                    for pat in ['*_data_part*.js']:
                         _targets.extend(_glob.glob(os.path.join(_cwd, pat)))
                     for tf in ['PRICETRACKER/data.js', 'swapnoTRACKER/data.json', 'unimartTRACKER/data.json', 'ShotejTRACKER/data.json', 'data.json', 'data.js']:
                         p = os.path.join(_cwd, tf)
@@ -746,7 +745,21 @@ def run_grocery_god(github_pat):
                     log.error(error_msg)
                     raise RuntimeError(error_msg)
 
-                tg_send(f'🚀 <b>GitHub Push Successful (Cycle {cycle_count})!</b>\n🌐 Live at https://ranehal.github.io/GroceryGOD')
+                _agg_s = _read_aggregator_summary()
+                if _agg_s:
+                    if len(_agg_s) > 3900:
+                        _chunks = _agg_s.split("\n\n")
+                        _curr = ""
+                        for _c in _chunks:
+                            if len(_curr) + len(_c) + 2 > 3900:
+                                tg_send(_curr.strip())
+                                _curr = _c + "\n\n"
+                            else:
+                                _curr += _c + "\n\n"
+                        if _curr.strip():
+                            tg_send(_curr.strip())
+                    else:
+                        tg_send(_agg_s)
 
             # Collect & send detailed cycle report
             try:
@@ -990,8 +1003,6 @@ def _send_p14_summary(results_store, repo_list):
 
     lines.insert(1, f"✅ OK: {ok} | ❌ Failed: {fail} | Total: {len(repo_list)}")
 
-    lines.append("")
-    lines.append("📊 <b>Aggregator Summary</b>")
     agg_summary = _read_aggregator_summary()
     if not agg_summary:
         print("⏳ Aggregator not finished yet — waiting up to 20 min for its summary...")
@@ -1001,11 +1012,19 @@ def _send_p14_summary(results_store, repo_list):
             if agg_summary:
                 break
     if agg_summary:
-        lines.append(f"<pre>{html.escape(agg_summary[:2000])}</pre>")
+        lines.append("")
+        lines.append(agg_summary)
     else:
-        lines.append("(aggregator summary not available yet)")
+        lines.append("")
+        lines.append("📊 <b>Aggregator Summary</b>\n(aggregator summary not available yet)")
 
-    tg_send("\n".join(lines[:60]))
+    full_message = "\n".join(lines)
+    try:
+        with open("/tmp/p14_summary.log", "w", encoding="utf-8") as _pf:
+            _pf.write(full_message)
+        print("Scheduled repos summary logged locally to /tmp/p14_summary.log")
+    except Exception:
+        pass
 
 def _read_aggregator_summary():
     """Read the aggregator.py summary from its shared output file (empty string if absent)."""
@@ -1348,11 +1367,7 @@ if __name__ == '__main__':
             _send_p14_summary(_p14_results, list(zip([lbl for _, _, lbl in _scheduled_repos], _repo_pages)))
         time.sleep(30)
     else:
-        print("\n⏳ Time limit threshold reached (11h 30m).")
-        try:
-            if TELEGRAM_BOT_TOKEN and TELEGRAM_BOT_TOKEN != "":
-                requests.post(f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage", json={"chat_id": TELEGRAM_CHAT_ID, "text": "⏳ <b>11h 30m Time limit reached!</b>\nInitiating nuclear teardown & Kaggle restart...", "parse_mode": "HTML"})
-        except: pass
+        print("\n⏳ Time limit threshold reached (11h 30m). Initiating nuclear teardown & Kaggle restart...")
 
     print("☢️ Executing Nuclear Teardown of orphaned child processes...")
     os.system("pkill -9 -f chromium")

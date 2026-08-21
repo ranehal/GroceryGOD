@@ -137,6 +137,45 @@ def load(path):
     return None
 
 
+def scrape_all_catalog(store_id, warehouse_id, metro_area_id=1, page_size=100):
+    """Scrapes all products directly across all catalog pages in bulk."""
+    all_hits = []
+    page = 0
+    print(f"  Scraping full catalog in bulk (store={store_id}, wh={warehouse_id})...", flush=True)
+    while True:
+        body = {
+            "apiKey": API_KEY,
+            "storeId": store_id,
+            "warehouseId": warehouse_id,
+            "pageSize": page_size,
+            "currentPageIndex": page,
+            "metropolitanAreaId": metro_area_id,
+            "query": "",
+            "productVariantId": -1,
+            "bundleId": {"case": "None"},
+            "canSeeOutOfStock": "true",
+            "filters": [],
+            "maxOutOfStockCount": {"case": "Some", "fields": [100]},
+            "shouldShowAlternateProductsForAllOutOfStock": {"case": "Some", "fields": ["true"]},
+            "customerGuid": {"case": "None"},
+            "deliveryAreaId": {"case": "None"},
+            "shouldShowCategoryBasedRecommendations": {"case": "None"},
+        }
+        try:
+            data = req(CATALOG_URL, body=body, store_id=store_id)
+            hits = data.get("hits", [])
+            all_hits.extend(hits)
+            nb_pages = data.get("nbPages", 1)
+            print(f"    Page {page+1}/{nb_pages}: +{len(hits)} items (total: {len(all_hits)})", flush=True)
+            if page + 1 >= nb_pages or not hits:
+                break
+            page += 1
+            time.sleep(0.15)
+        except Exception as ex:
+            print(f"    Error on page {page+1}: {ex}", flush=True)
+            break
+    return all_hits
+
 def main():
     ap = argparse.ArgumentParser(description="Chaldal scraper")
     ap.add_argument("--store",     type=int, default=DEFAULT_STORE, help="Store ID")
@@ -149,16 +188,27 @@ def main():
     out   = args.output
     today = datetime.now(DHAKA_TZ).strftime("%Y-%m-%d")
 
-    # ── 1. Fetch init data ──────────────────────────────────────────
+    # ── 1. Fetch init data (with safe fallback) ──────────────────────
     print(f"[{today}] Fetching init data (store={args.store}, wh={args.warehouse})...", flush=True)
-    init = fetch_init(args.store, args.warehouse)
+    all_cats = []
+    banners = {}
+    hgc = {}
+    gc = {}
+    try:
+        init = fetch_init(args.store, args.warehouse)
+        if init:
+            all_cats = init.get("Categories", {}).get(str(args.store), [])
+            banners  = init.get("HomeBannersByTags", {}).get(str(args.store), {})
+            hgc      = init.get("HomeGroupCategoryIds", {}).get(str(args.store), {})
+            gc       = init.get("GlobalConstants", {}).get(str(args.store), {})
+    except Exception as ex:
+        print(f"  [!] Init API warning ({ex}). Using cached category metadata...", flush=True)
+        cached_cats = load(f"{out}/categories.json") or load("categories.json")
+        if cached_cats:
+            all_cats = cached_cats
 
-    all_cats = init.get("Categories", {}).get(str(args.store), [])
-    banners  = init.get("HomeBannersByTags", {}).get(str(args.store), {})
-    hgc      = init.get("HomeGroupCategoryIds", {}).get(str(args.store), {})
-    gc       = init.get("GlobalConstants", {}).get(str(args.store), {})
-
-    save(f"{out}/categories.json", all_cats)
+    if all_cats:
+        save(f"{out}/categories.json", all_cats)
     save(f"{out}/banners.json",    banners)
     save(f"{out}/init_meta.json",  {
         "storeId":     args.store,
@@ -172,53 +222,66 @@ def main():
             "freeCutOff":gc.get("FreeShippingCutOff", {}).get("Lo", 399),
         },
     })
-    print(f"  {len(all_cats)} categories, {sum(len(v) for v in banners.values())} banners saved.", flush=True)
+    print(f"  {len(all_cats)} categories registered.", flush=True)
 
     # ── 2. Scrape products ─────────────────────────────────────────
     products_index = load(f"{out}/products.json") or {}
     price_history  = load(f"{out}/price_history.json") or {}
-
-    cats_to_scrape = ([c for c in all_cats if c["Id"] == args.cat] if args.cat else all_cats)
     total_new = 0
 
-    for cat in cats_to_scrape:
-        cid, cname = cat["Id"], cat["Name"]
-        print(f"  [{cid}] {cname} ... ", end="", flush=True)
-        try:
-            hits  = scrape_category(cid, args.store, args.warehouse)
-            count = 0
-            for p in hits:
-                norm = normalize(p, cid, today)
-                pid  = str(norm["id"])
-                # Update product index
-                if pid in products_index:
-                    products_index[pid].update({
-                        "price": norm["price"], "mrp": norm["mrp"],
-                        "inStock": norm["inStock"], "scraped": norm["scraped"]
-                    })
-                else:
-                    products_index[pid] = norm
-                # Append to price history (one entry per day)
-                hist = price_history.get(pid, [])
-                entry = {"d": today, "p": norm["price"], "m": norm["mrp"], "s": norm["inStock"]}
-                if not hist or hist[-1]["d"] != today:
-                    hist.append(entry)
-                    price_history[pid] = hist
-                    total_new += 1
-                count += 1
-            print(f"{count} products", flush=True)
-        except Exception as ex:
-            print(f"ERROR: {ex}", flush=True)
-        time.sleep(0.4)
+    if args.cat:
+        cats_to_scrape = [c for c in all_cats if c["Id"] == args.cat]
+        for cat in cats_to_scrape:
+            cid, cname = cat["Id"], cat["Name"]
+            print(f"  [{cid}] {cname} ... ", end="", flush=True)
+            try:
+                hits  = scrape_category(cid, args.store, args.warehouse)
+                for p in hits:
+                    norm = normalize(p, cid, today)
+                    pid  = str(norm["id"])
+                    if pid in products_index:
+                        products_index[pid].update({
+                            "price": norm["price"], "mrp": norm["mrp"],
+                            "inStock": norm["inStock"], "scraped": norm["scraped"]
+                        })
+                    else:
+                        products_index[pid] = norm
+                    hist = price_history.get(pid, [])
+                    entry = {"d": today, "p": norm["price"], "m": norm["mrp"], "s": norm["inStock"]}
+                    if not hist or hist[-1]["d"] != today:
+                        hist.append(entry)
+                        price_history[pid] = hist
+                        total_new += 1
+                print(f"{len(hits)} products", flush=True)
+            except Exception as ex:
+                print(f"ERROR: {ex}", flush=True)
+    else:
+        hits = scrape_all_catalog(args.store, args.warehouse, args.area)
+        for p in hits:
+            norm = normalize(p, 0, today)
+            pid = str(norm["id"])
+            if pid in products_index:
+                products_index[pid].update({
+                    "price": norm["price"], "mrp": norm["mrp"],
+                    "inStock": norm["inStock"], "scraped": norm["scraped"]
+                })
+            else:
+                products_index[pid] = norm
+            hist = price_history.get(pid, [])
+            entry = {"d": today, "p": norm["price"], "m": norm["mrp"], "s": norm["inStock"]}
+            if not hist or hist[-1]["d"] != today:
+                hist.append(entry)
+                price_history[pid] = hist
+                total_new += 1
 
     # ── 3. Daily deals ─────────────────────────────────────────────
     try:
-        print("  Daily deals ... ", end="", flush=True)
+        print("  Fetching daily deals ... ", end="", flush=True)
         dd = req(DAILY_URL, store_id=args.store)
         save(f"{out}/daily_deals.json", dd)
         print(f"{len(dd)} deals", flush=True)
     except Exception as ex:
-        print(f"ERROR: {ex}", flush=True)
+        print(f"Note ({ex})", flush=True)
         save(f"{out}/daily_deals.json", [])
 
     # ── 4. Save indexes ────────────────────────────────────────────

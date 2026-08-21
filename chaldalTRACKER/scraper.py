@@ -61,22 +61,25 @@ def run_scrapers():
     t_web.join()
     t_app.join()
 
-        # Read Web & App datasets from all possible locations
-    candidate_files = [
+    # Read Web & App datasets from all possible locations
+    web_candidates = [
         os.path.join(dir_path, "data.js"),
         os.path.join(dir_path, "chaldal_products.json"),
-        os.path.join(dir_path, "catalog.json"),
+        os.path.join(dir_path, "web_products.json"),
+    ]
+    app_candidates = [
         os.path.join(dir_path, "data", "products.json"),
         os.path.join(dir_path, "data", "chaldal_products.json"),
-        os.path.join(dir_path, "products.json")
+        os.path.join(dir_path, "catalog.json"),
+        os.path.join(dir_path, "app_products.json"),
     ]
     web_products = {}
     app_products = {}
 
-    for cf in candidate_files:
-        if os.path.exists(cf):
+    for wf in web_candidates:
+        if os.path.exists(wf):
             try:
-                with open(cf, "r", encoding="utf-8") as f:
+                with open(wf, "r", encoding="utf-8") as f:
                     content = f.read().strip()
                     if content.startswith("window.") or "=" in content[:30]:
                         content = content.split("=", 1)[1].rstrip(";")
@@ -84,13 +87,26 @@ def run_scrapers():
                     items = list(data.values()) if isinstance(data, dict) and "products" not in data else (data if isinstance(data, list) else data.get("products", []))
                     for p in items:
                         name_key = re.sub(r'\W+', '', p.get("name", "")).lower()
-                        if not name_key: continue
-                        if "app" in cf or "catalog" in cf:
-                            app_products[name_key] = p
-                        else:
+                        if name_key:
                             web_products[name_key] = p
             except Exception as _e:
-                print(f"[Chaldal] Error reading {os.path.basename(cf)}: {_e}")
+                print(f"[Chaldal] Error reading web data {os.path.basename(wf)}: {_e}")
+
+    for af in app_candidates:
+        if os.path.exists(af):
+            try:
+                with open(af, "r", encoding="utf-8") as f:
+                    content = f.read().strip()
+                    if content.startswith("window.") or "=" in content[:30]:
+                        content = content.split("=", 1)[1].rstrip(";")
+                    data = json.loads(content)
+                    items = list(data.values()) if isinstance(data, dict) and "products" not in data else (data if isinstance(data, list) else data.get("products", []))
+                    for p in items:
+                        name_key = re.sub(r'\W+', '', p.get("name", "")).lower()
+                        if name_key:
+                            app_products[name_key] = p
+            except Exception as _e:
+                print(f"[Chaldal] Error reading app data {os.path.basename(af)}: {_e}")
 
     web_count = len(web_products)
     app_count = len(app_products)

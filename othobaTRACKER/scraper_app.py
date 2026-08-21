@@ -118,19 +118,33 @@ def main():
         print(f'[FAIL] {e}')
         sys.exit(1)
 
+    ALLOWED_GROCERY_KEYWORDS = ['daily bazar', 'grocery', 'food', 'bogo', 'mega discount', 'quick commerce', 'cooking', 'staple', 'bakery', 'dairy', 'egg', 'meat', 'fish', 'produce', 'vegetable', 'fruit', 'snack', 'beverage', 'tea', 'coffee', 'sweet', 'mithai', 'oil', 'rice', 'spice']
+    EXCLUDED_KEYWORDS = ['mother', 'baby', 'toy', 'beauty', 'care', 'cosmetic', 'pharmacy', 'medicine', 'pet', 'fashion', 'cloth', 'shoe', 'electronics', 'automotive', 'stationery', 'book', 'furniture', 'table', 'pad', 'freezer', 'home appliance', 'garden']
+
     cats = []
     for top in root:
+        top_name = top.get('name', '').strip()
+        top_lower = top_name.lower()
         subs = top.get('sub_categories', [])
         if subs:
             for sub in subs:
-                sid = sub.get('id')
-                if sid:
-                    cats.append({'id': sid, 'name': sub['name'], 'parent': top['name']})
+                sub_name = sub.get('name', '').strip()
+                sub_lower = sub_name.lower()
+                # Check if sub or parent is grocery related and not in excluded non-food
+                is_grocery = any(k in top_lower or k in sub_lower for k in ALLOWED_GROCERY_KEYWORDS)
+                is_excluded = any(ex in sub_lower for ex in EXCLUDED_KEYWORDS)
+                if is_grocery and not is_excluded:
+                    sid = sub.get('id')
+                    if sid:
+                        cats.append({'id': sid, 'name': sub_name, 'parent': top_name})
         else:
-            tid = top.get('id')
-            if tid:
-                cats.append({'id': tid, 'name': top['name'], 'parent': ''})
-    print(f'       {len(cats)} leaf categories found\n')
+            is_grocery = any(k in top_lower for k in ALLOWED_GROCERY_KEYWORDS)
+            is_excluded = any(ex in top_lower for ex in EXCLUDED_KEYWORDS)
+            if is_grocery and not is_excluded:
+                tid = top.get('id')
+                if tid:
+                    cats.append({'id': tid, 'name': top_name, 'parent': ''})
+    print(f'       {len(cats)} grocery leaf categories found\n')
 
     print('[2/3] Scraping products...')
     sys.stdout.flush()

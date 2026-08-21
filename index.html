@@ -230,13 +230,18 @@
 <div class="modal" id="chart-modal">
 <div class="modal-content full-screen-modal sci-fi-modal" style="max-height: 95vh; max-width: 95vw;">
 <div class="modal-header" style="background: linear-gradient(135deg, var(--bg-dark), #2a2a3a); padding: 20px;">
-<h2 id="chart-product-name" style="font-size: 1.8rem; color: var(--gold);"></h2>
-<div style="display:flex; gap:15px; align-items:center; flex-wrap:wrap;">
+<h2 id="chart-product-name" style="font-size: 1.8rem; color: var(--gold); margin-bottom: 6px;"></h2>
+<div style="display:flex; gap:15px; align-items:center; flex-wrap:wrap; margin-bottom: 6px;">
 <span class="store-tag" id="chart-store-tag" style="font-size: 1rem; padding: 8px 15px;"></span>
 <span id="chart-product-unit" style="color:#888; font-size:1.1rem;"></span>
-<span class="history-access-badge" id="history-access-badge"><i class="fas fa-clock"></i> Free 3-day view</span>
+<span class="history-access-badge" id="history-access-badge"><i class="fas fa-clock"></i> Complete history</span>
 <button class="btn-icon btn-variant-soft" id="chart-landscape-toggle" title="Toggle Landscape Graph Orientation" style="padding: 6px 14px; font-weight: 700; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 6px; border-radius: 20px; border: 1px solid var(--gold); color: var(--gold); background: rgba(245, 158, 11, 0.1); cursor: pointer;"><i class="fas fa-arrows-rotate"></i> <span>Landscape View</span></button>
 <button onclick="closeModal()" style="background: var(--danger); color: white; border: none; border-radius: 50%; width: 40px; height: 40px; font-size: 1.5rem; cursor: pointer; display: flex; align-items: center; justify-content: center;"><i class="fas fa-times"></i></button>
+</div>
+<div style="display:flex; gap:16px; font-size:0.8rem; color:#aaa; flex-wrap:wrap; padding-top:4px;">
+<span><i class="fas fa-calendar-plus" style="color:var(--accent-color);"></i> First Seen: <b id="chart-first-seen" style="color:#fff;">—</b></span>
+<span><i class="fas fa-calendar-check" style="color:var(--accent-color);"></i> Last Seen: <b id="chart-last-seen" style="color:#fff;">—</b></span>
+<span><i class="fas fa-boxes-stacked" style="color:var(--accent-color);"></i> Stock Status: <b id="chart-stock-status" style="color:#fff;">—</b></span>
 </div>
 </div>
 <div class="chart-analytics full-width-analytics">
@@ -345,10 +350,10 @@
 </section>
 <section class="premium-step" id="premium-unlock-step">
 <button class="premium-back" data-back="plans" type="button"><i class="fas fa-arrow-left"></i> Plans</button>
-<div class="unlock-vault"><span class="vault-icon"><i class="fas fa-vault"></i></span><p class="premium-eyebrow">Subscriber access</p><h2>Unlock encrypted history</h2><p>Enter the premium passphrase. It is used in-memory to decrypt the archive and is never saved by this page.</p><label class="unlock-field"><i class="fas fa-key"></i><input autocomplete="off" id="premium-passphrase" placeholder="Enter premium passphrase" type="password"/><button aria-label="Show passphrase" id="toggle-passphrase" type="button"><i class="fas fa-eye"></i></button></label><div class="unlock-status" id="unlock-status" role="status"></div><button class="premium-primary" id="unlock-submit-btn" type="button"><span>Decrypt premium data</span><i class="fas fa-unlock-keyhole"></i></button><small class="demo-key-note">Standalone demo key: <code>GODDEMO</code></small></div>
+<div class="unlock-vault"><span class="vault-icon"><i class="fas fa-vault"></i></span><p class="premium-eyebrow">Subscriber access</p><h2>Unlock encrypted history</h2><p>Enter the premium passphrase. It is saved in your browser storage (like your AI key) so history stays unlocked across visits.</p><label class="unlock-field"><i class="fas fa-key"></i><input autocomplete="off" id="premium-passphrase" placeholder="Enter premium passphrase" type="password"/><button aria-label="Show passphrase" id="toggle-passphrase" type="button"><i class="fas fa-eye"></i></button></label><div class="unlock-status" id="unlock-status" role="status"></div><button class="premium-primary" id="unlock-submit-btn" type="button"><span>Decrypt premium data</span><i class="fas fa-unlock-keyhole"></i></button><small class="demo-key-note">Standalone demo key: <code>GODDEMO</code></small></div>
 </section>
 <section class="premium-step" id="premium-success-step">
-<div class="premium-success"><span><i class="fas fa-check"></i></span><h2>Premium unlocked</h2><p>Complete histories, analytics and price-monitor delivery channels are now available for this browser session.</p><button class="premium-primary" id="premium-success-close" type="button">Explore full intelligence</button></div>
+<div class="premium-success"><span><i class="fas fa-check"></i></span><h2>Premium unlocked</h2><p>Complete histories, analytics and price-monitor delivery channels are now permanently unlocked in this browser.</p><button class="premium-primary" id="premium-success-close" type="button">Explore full intelligence</button></div>
 </section>
 </div>
 </div>
