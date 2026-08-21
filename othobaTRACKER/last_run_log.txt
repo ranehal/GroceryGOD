@@ -1,19 +1,19 @@
-Last Run: 2026-08-15 22:20:51
+Last Run: 2026-08-22 02:27:25
 ------------------------------
-Total Scraped: 70688
-Web Scraped: 42995
-App API Scraped: 44864
-Combined Unique: 70688
+Total Scraped: 8567
+Web Scraped: 5754
+App API Scraped: 6713
+Combined Unique: 8567
 ------------------------------
 Categories:
-- Books: 992
-- Home Improvement: 947
-- Lawn & Gardening: 929
-- Smartwatches & Accessories: 924
-- Furniture: 900
-- Biking & Accessories: 882
-- Electrical Accessories: 845
-- Pet Care: 824
-- Stationery: 814
-- Skin Care: 741
-... and 459 more.
+- food-grocery: 852
+- daily-bazar: 627
+- Groceries: 525
+- Household Essentials: 497
+- Ice Cream & Sweet Delights: 462
+- Snacks: 438
+- Coffee, Tea & Beverages: 387
+- Laundry & Cleaning: 311
+- Lubricants & Oils: 298
+- Food: 256
+... and 66 more.

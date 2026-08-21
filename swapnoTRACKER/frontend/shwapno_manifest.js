@@ -3,7 +3,7 @@ window.shwapno_manifest = {
   "app_id": "com.shwapno",
   "api_base": "https://store-api.shwapno.com/en/api",
   "headers": {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:123.0) Gecko/20100101 Firefox/123.0",
+    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.3 Safari/605.1.15",
     "Accept": "application/json",
     "client-type": "App",
     "customer": "fbbbb451-a780-4101-88e0-aad799e60f83",
@@ -753,6 +753,6 @@ window.shwapno_manifest = {
     }
   ],
   "total_categories": 37,
-  "total_products": 4646,
-  "captured_at": "2026-08-19T19:24:46.287368"
+  "total_products": 4888,
+  "captured_at": "2026-08-21T20:24:00.795570"
 };
