@@ -33,7 +33,11 @@ async def scrape_page(page, url, page_num):
     target = f"{url}{sep}pageSize=80&pageNumber={page_num}"
     try:
         await page.goto(target, wait_until="domcontentloaded", timeout=15000)
-        await asyncio.sleep(0.5)
+        try:
+            await page.wait_for_selector('ins.new-price:not(:empty)', timeout=4000)
+        except Exception:
+            pass
+        await asyncio.sleep(0.3)
         
         title = await page.title()
         if "Attention Required" in title or "Cloudflare" in title or "Just a moment" in title:
@@ -58,7 +62,7 @@ async def scrape_page(page, url, page_num):
             name = name_el.text.strip() if name_el else "Unknown"
             
             price = 0.0
-            price_el = wrap.select_one(f'#price_{p_id}') or wrap.select_one('[id^="price_"]') or wrap.select_one('.new-price') or wrap.select_one('.price.actual-price')
+            price_el = wrap.select_one(f'#price_{p_id}') or wrap.select_one('.price.actual-price') or wrap.select_one('[id^="price_"]') or wrap.select_one('.new-price')
             if price_el:
                 clean = re.sub(r'[^\d.]', '', price_el.text.replace(',', ''))
                 if clean: price = float(clean)
@@ -69,10 +73,10 @@ async def scrape_page(page, url, page_num):
             category_el = wrap.select_one('input.dl-category-name')
             category = category_el.get('value') if category_el else url.split('/')[-1]
             
-            img = wrap.select_one('.product-media img') or wrap.select_one('.picture img')
+            img = wrap.select_one('.product-media img.prdImg') or wrap.select_one('.product-media img') or wrap.select_one('.picture img')
             img_url = ""
             if img:
-                img_url = img.get('src') or img.get('data-src') or img.get('data-lazy-src') or ""
+                img_url = img.get('data-src') or img.get('src') or img.get('data-lazy-src') or ""
                 if img_url.startswith('//'): img_url = "https:" + img_url
             
             ut, uv = parse_unit(name)
@@ -173,8 +177,11 @@ async def check_geo_block(browser, test_url):
 async def main():
     summary = {'total': 0, 'new': 0, 'categories': Counter()}
     init_db()
-    if not os.path.exists('urls.txt'): return
-    with open('urls.txt', 'r') as f: urls = [l.strip() for l in f if l.strip()]
+    urls_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'urls.txt')
+    if not os.path.exists(urls_file):
+        urls_file = 'urls.txt'
+    if not os.path.exists(urls_file): return
+    with open(urls_file, 'r', encoding='utf-8') as f: urls = [l.strip() for l in f if l.strip()]
 
     # Pre-fetch existing IDs for fast in-memory lookup across sectors
     db = SessionLocal()

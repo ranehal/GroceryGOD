@@ -118,7 +118,7 @@ def main():
         print(f'[FAIL] {e}')
         sys.exit(1)
 
-    ALLOWED_GROCERY_KEYWORDS = ['daily bazar', 'grocery', 'food', 'bogo', 'mega discount', 'quick commerce', 'cooking', 'staple', 'bakery', 'dairy', 'egg', 'meat', 'fish', 'produce', 'vegetable', 'fruit', 'snack', 'beverage', 'tea', 'coffee', 'sweet', 'mithai', 'oil', 'rice', 'spice']
+    ALLOWED_GROCERY_KEYWORDS = ['daily bazar', 'daily shopping', 'grocery', 'food', 'bogo', 'mega discount', 'quick commerce', 'cooking', 'staple', 'bakery', 'dairy', 'egg', 'meat', 'fish', 'produce', 'vegetable', 'fruit', 'snack', 'beverage', 'tea', 'coffee', 'sweet', 'mithai', 'oil', 'rice', 'spice']
     EXCLUDED_KEYWORDS = ['mother', 'baby', 'toy', 'beauty', 'care', 'cosmetic', 'pharmacy', 'medicine', 'pet', 'fashion', 'cloth', 'shoe', 'electronics', 'automotive', 'stationery', 'book', 'furniture', 'table', 'pad', 'freezer', 'home appliance', 'garden']
 
     cats = []

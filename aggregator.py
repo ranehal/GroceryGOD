@@ -492,7 +492,7 @@ def is_othoba_grocery_category(cat_name):
     if any(ex in cl for ex in non_grocery):
         return False
     grocery_kw = [
-        'daily-bazar', 'daily bazar', 'food-grocery', 'food & grocery', 'grocery', 'bogo', 'mega-discount', 'monthly-grocery',
+        'daily-bazar', 'daily bazar', 'daily-shopping', 'daily shopping', 'food-grocery', 'food & grocery', 'grocery', 'bogo', 'mega-discount', 'monthly-grocery',
         'grocery-staples', 'bakery-breakfast', 'daily-cooking', 'spice-herb', 'baking', 'dairy-chilled-eggs', 'eggs', 'milk',
         'cheese', 'yogurt', 'butter', 'laban', 'borhani', 'ghee', 'meat', 'fish', 'vegetable', 'fruit', 'snack', 'sweetmeat',
         'bakery-snacks', 'beverage', 'tea', 'coffee', 'rice', 'dal', 'oil', 'spice', 'quick-commerce', 'mithai', 'flour', 'noodles', 'bazar'
