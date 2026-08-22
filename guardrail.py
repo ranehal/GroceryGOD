@@ -47,7 +47,7 @@ def check_file_sizes():
                 files.append(os.path.join(root, f))
 
     for fp in set(files):
-        if not os.path.exists(fp): continue
+        if not os.path.exists(fp) or os.path.isdir(fp): continue
         if fp.endswith('.db'): continue # Always ignore DBs in size check
         size_mb = os.path.getsize(fp) / (1024 * 1024)
         if size_mb > MAX_FILE_SIZE_MB:

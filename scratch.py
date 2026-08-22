@@ -696,7 +696,69 @@ def run_grocery_god(github_pat):
                     log.error(f'Encryption failed: {e.stderr[:500]}')
 
             with Step('GitHub Push Guard', '🛡️'):
-                subprocess.run([sys.executable, 'guardrail.py'], check=True)
+                _guard_script = os.path.join(os.getcwd(), 'guardrail.py')
+                if not os.path.exists(_guard_script):
+                    _guard_code = """import os, sys, subprocess
+MAX_FILE_SIZE_MB = 98
+VITAL_FILES = ['aggregator.py', 'reconstruct_history.py', 'script.js', 'index.html', 'style.css']
+def check_lfs():
+    for f in VITAL_FILES:
+        if os.path.exists(f):
+            with open(f, 'rb') as fh:
+                if b'version https://git-lfs.github.com' in fh.read(100):
+                    print(f"❌ FATAL: {f} is an LFS pointer!")
+                    return False
+    return True
+def check_sizes():
+    try:
+        files = subprocess.check_output(['git', 'ls-files'], text=True).splitlines()
+        files += subprocess.check_output(['git', 'ls-files', '--others', '--exclude-standard'], text=True).splitlines()
+    except Exception:
+        files = [os.path.join(r, f) for r, d, fs in os.walk('.') if '.git' not in r for f in fs]
+    large = []
+    for fp in set(files):
+        if not os.path.exists(fp) or fp.endswith('.db') or os.path.isdir(fp): continue
+        sz = os.path.getsize(fp) / (1024 * 1024)
+        if sz > MAX_FILE_SIZE_MB:
+            large.append((fp, sz))
+    if large:
+        for fp, sz in large:
+            print(f"❌ FATAL: {fp} is {sz:.2f}MB (> {MAX_FILE_SIZE_MB}MB)")
+        return False
+    return True
+if __name__ == '__main__':
+    if not check_lfs() or not check_sizes():
+        sys.exit(1)
+    print("✅ GUARD: All systems compliant.")
+"""
+                    with open(_guard_script, 'w', encoding='utf-8') as gf:
+                        gf.write(_guard_code)
+
+                res_guard = subprocess.run([sys.executable, _guard_script], capture_output=True, text=True)
+                if res_guard.returncode != 0:
+                    guard_err = (res_guard.stderr or "").strip()
+                    guard_out = (res_guard.stdout or "").strip()
+                    log.warning(f"Guardrail script returned {res_guard.returncode}:\nSTDOUT: {guard_out}\nSTDERR: {guard_err}")
+                    # Run inline validation to ensure hard compliance
+                    MAX_MB = 98
+                    for vf in ['aggregator.py', 'reconstruct_history.py', 'script.js', 'index.html', 'style.css']:
+                        if os.path.exists(vf):
+                            with open(vf, 'rb') as vfh:
+                                if b'version https://git-lfs.github.com' in vfh.read(100):
+                                    raise RuntimeError(f"LFS pointer detected in vital file {vf}!")
+                    try:
+                        f_list = subprocess.check_output(['git', 'ls-files'], text=True).splitlines()
+                        f_list += subprocess.check_output(['git', 'ls-files', '--others', '--exclude-standard'], text=True).splitlines()
+                    except Exception:
+                        f_list = [os.path.join(r, f) for r, d, fs in os.walk('.') if '.git' not in r for f in fs]
+                    for fp in set(f_list):
+                        if not os.path.exists(fp) or fp.endswith('.db') or os.path.isdir(fp): continue
+                        sz_mb = os.path.getsize(fp) / (1024 * 1024)
+                        if sz_mb > MAX_MB:
+                            raise RuntimeError(f"File {fp} ({sz_mb:.2f}MB) exceeds GitHub 100MB limit!")
+                    log.info("🛡️ Inline guardrail verification passed.")
+                else:
+                    log.info(f"🛡️ {(res_guard.stdout or '').strip()}")
                 
                 # 🛡️ FIX: NUCLEAR LFS PROTECTION SYSTEM
                 # Tearing down Git LFS completely locally to bypass GitHub's budget blocks
