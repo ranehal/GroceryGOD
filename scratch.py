@@ -1345,6 +1345,27 @@ def _send_p14_summary(results_store, repo_list):
     except Exception:
         pass
 
+    # Send via Telegram (chunked to stay under 4096-char limit)
+    try:
+        _MAX = 3900
+        if len(full_message) <= _MAX:
+            tg_send(full_message)
+        else:
+            # Split on double-newlines (repo blocks) to avoid cutting mid-repo
+            _parts = full_message.split("\n\n")
+            _buf = ""
+            for _part in _parts:
+                if _buf and len(_buf) + len(_part) + 2 > _MAX:
+                    tg_send(_buf.strip())
+                    _buf = _part + "\n\n"
+                else:
+                    _buf += _part + "\n\n"
+            if _buf.strip():
+                tg_send(_buf.strip())
+        print("Scheduled repos Telegram summary sent.")
+    except Exception as _tg_err:
+        print(f"Warning: Failed to send p14 Telegram summary: {_tg_err}")
+
 def _read_aggregator_summary():
     """Read the aggregator.py summary from its shared output file (empty string if absent)."""
     try:
