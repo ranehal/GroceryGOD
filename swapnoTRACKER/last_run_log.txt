@@ -1,4 +1,4 @@
-Last Run: 2026-08-22 20:08:13
+Last Run: 2026-08-22 23:19:03
 ------------------------------
 Total Scraped: 8768
 Web Scraped: 8768
@@ -15,5 +15,5 @@ Categories:
 - Biscuits Others: 199
 - Candy & Chocolate: 198
 - Candy Chocolate: 197
-- Personal Care: 192
+- Personal Care: 188
 ... and 224 more.
