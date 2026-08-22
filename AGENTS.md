@@ -61,6 +61,10 @@ These fixes were extracted from live Kaggle failures. Preserve the patterns:
   - GroceryGOD strictly scrapes and aggregates **grocery-only categories** from Othoba (`https://othoba.com/daily-bazar`, `https://othoba.com/daily-shopping`, `https://othoba.com/food-grocery`, `https://othoba.com/monthly-grocery-mega-discounts`, `https://othoba.com/bogo-grocery-month` and their subcategories).
   - All non-grocery products (electronics, clothing, watches, furniture, books, medicines, gadgets, etc. ~112k items) and their complete historical price records are omitted from GroceryGOD and maintained in the standalone `https://github.com/ranehal/Othoba-analytics.git` repository (`C:\PROJECTS\ShopGOD\othoba`).
   - `othobaTRACKER/urls.txt`, `othobaTRACKER/scraper_app.py`, and `aggregator.py` (`load_othoba()`) strictly enforce `is_othoba_grocery_category` to exclude non-grocery items. `othobaTRACKER/othoba_tracker.db` is reduced to ~3MB with ~4,800 clean grocery products (2 chunks, no chunk splitting needed).
+- **Single-Cycle p1 & Orchestrator Restart Fix + p3-p14 Price Stats (2026-08-22, do not regress)**:
+  - `run_grocery_god` runs a single complete cycle and exits without sleeping for 12 hours.
+  - Master orchestrator has an 11-hour safety cap (`timeout_seconds = 11 * 3600`) well under Kaggle's 12-hour (43,200s) hard ceiling, triggering nuclear teardown and container restart via `trigger_self_restart()`.
+  - Sub-repo scrapers (p3–p14) extract full price change metrics (up, down, unchanged/same counts and `%`, new items, in-stock/out-of-stock) across SQLite databases, JSON catalogs, and historical snapshots, logged in `/tmp/p14_summary.log`.
 
 ## Encryption & secrets
 

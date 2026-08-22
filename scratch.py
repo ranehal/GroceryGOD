@@ -288,16 +288,15 @@ def run_grocery_god(github_pat):
         log.error("Environment Setup Failed. Terminating GroceryGOD loop thread.")
         return
 
-    # INFINITE LOOP PIPELINE
+    # SINGLE RUN PIPELINE (NO INFINITE LOOP)
     cycle_count = 1
-    while True:
-        os.chdir('/kaggle/working')
-        
-        try:
-            log.info(f'🚀 GroceryGOD Pipeline — CYCLE {cycle_count} STARTED (Simultaneous Parallel)')
-            with Step('Configuration & Git Setup', '⚙️'):
-                if not github_pat:
-                    raise RuntimeError("GITHUB_PAT is missing or empty. Git operations will fail.")
+    os.chdir('/kaggle/working')
+    
+    try:
+        log.info(f'🚀 GroceryGOD Pipeline — STARTED (Simultaneous Parallel)')
+        with Step('Configuration & Git Setup', '⚙️'):
+            if not github_pat:
+                raise RuntimeError("GITHUB_PAT is missing or empty. Git operations will fail.")
                     
                 def _setup_git_config():
                     _git_config('git config --global user.email "ranehal@users.noreply.github.com"')
@@ -803,23 +802,13 @@ def run_grocery_god(github_pat):
                 log.warning(f"Failed to send detailed cycle report: {_re}")
 
 
-        except Exception as e:
-            safe_tb = html.escape(traceback.format_exc()[-500:])
-            err_msg = f"💥 <b>GroceryGOD CRITICAL FAILURE (Cycle {cycle_count})!</b>\nError: {html.escape(str(e))}\n<pre>{safe_tb}</pre>"
-            print(err_msg)
-            tg_send(err_msg)
-        
-        log.info(f"✅ Cycle {cycle_count} Sequence Finished. Sleeping for 12 hours...")
-        #####################################################################################_sleep_end = time.time() + 12*3600
-        _sleep_end = time.time() + 12*3600
-        while time.time() < _sleep_end:
-            _remaining = int(_sleep_end - time.time())
-            _hrs = _remaining // 3600
-            _mins = (_remaining % 3600) // 60
-            if _remaining % 600 < 60:
-                log.info(f'💤 Sleeping... {_hrs}h {_mins}m remaining (Cycle {cycle_count})')
-            time.sleep(min(300, _remaining))
-        cycle_count += 1
+    except Exception as e:
+        safe_tb = html.escape(traceback.format_exc()[-500:])
+        err_msg = f"💥 <b>GroceryGOD CRITICAL FAILURE!</b>\nError: {html.escape(str(e))}\n<pre>{safe_tb}</pre>"
+        print(err_msg)
+        tg_send(err_msg)
+    
+    log.info("✅ GroceryGOD Sequence Finished.")
 
 # ============================================================
 # PIPELINE 2: GITWW
@@ -907,9 +896,215 @@ def _extract_scraper_counts(text):
     if _s: counts['scraped'] = int(_s.group(1))
     return counts
 
+def _extract_repo_price_stats(repo_dir, stdout_text=""):
+    """Extract price change metrics and stock stats across sub-repo databases, JSONs, or history snapshots."""
+    stats = {
+        'total': 0, 'in_stock': 0, 'out_of_stock': 0,
+        'new_items': 0, 'price_up': 0, 'price_down': 0, 'price_same': 0,
+        'back_in_stock': 0, 'went_oos': 0
+    }
+    if not repo_dir or not os.path.exists(repo_dir):
+        return stats
+
+    def _cmp_price(curr, prev):
+        c = float(curr or 0)
+        p = float(prev or 0)
+        if c > 0 and p > 0:
+            if c > p: return 'up'
+            elif c < p: return 'down'
+            else: return 'same'
+        elif c <= 0 and p > 0:
+            return 'went_oos'
+        elif c > 0 and p <= 0:
+            return 'restocked'
+        return None
+
+    def _process_hist_map(product_histories, curr_prices=None):
+        stats['total'] = len(product_histories)
+        for pid, h in product_histories.items():
+            if isinstance(h, dict):
+                dates = sorted(h.keys())
+                curr_p = float(h[dates[-1]]) if dates else 0
+                if curr_prices and pid in curr_prices:
+                    curr_p = float(curr_prices[pid] or 0)
+                if curr_p > 0: stats['in_stock'] += 1
+                else: stats['out_of_stock'] += 1
+
+                if len(dates) <= 1:
+                    stats['new_items'] += 1
+                else:
+                    res = _cmp_price(curr_p, h[dates[-2]])
+                    if res == 'up': stats['price_up'] += 1
+                    elif res == 'down': stats['price_down'] += 1
+                    elif res == 'same': stats['price_same'] += 1
+                    elif res == 'went_oos': stats['went_oos'] += 1
+                    elif res == 'restocked': stats['back_in_stock'] += 1
+            elif isinstance(h, list):
+                if not h: continue
+                def _get_p(item):
+                    if isinstance(item, dict): return float(item.get('price') or item.get('price_amount') or item.get('p') or 0)
+                    try: return float(item)
+                    except: return 0
+                curr_p = _get_p(h[-1])
+                if curr_prices and pid in curr_prices:
+                    curr_p = float(curr_prices[pid] or 0)
+                if curr_p > 0: stats['in_stock'] += 1
+                else: stats['out_of_stock'] += 1
+
+                if len(h) <= 1:
+                    stats['new_items'] += 1
+                else:
+                    prev_p = _get_p(h[-2])
+                    res = _cmp_price(curr_p, prev_p)
+                    if res == 'up': stats['price_up'] += 1
+                    elif res == 'down': stats['price_down'] += 1
+                    elif res == 'same': stats['price_same'] += 1
+                    elif res == 'went_oos': stats['went_oos'] += 1
+                    elif res == 'restocked': stats['back_in_stock'] += 1
+
+    # 1. SQLite DBs
+    try:
+        import sqlite3
+        dbs = glob.glob(os.path.join(repo_dir, '**', '*.db'), recursive=True)
+        for db in dbs:
+            if any(x in db for x in ['.git', 'node_modules']): continue
+            try:
+                conn = sqlite3.connect(db)
+                conn.row_factory = sqlite3.Row
+                c = conn.cursor()
+                tables = [r[0] for r in c.execute("SELECT name FROM sqlite_master WHERE type='table'").fetchall()]
+                if 'price_history' in tables and ('products' in tables or 'dishes' in tables or 'items' in tables):
+                    prod_table = 'products' if 'products' in tables else ('dishes' if 'dishes' in tables else 'items')
+                    p_col = 'product_id' if 'product_id' in [col[1] for col in c.execute("PRAGMA table_info(price_history)").fetchall()] else 'dish_id'
+                    cols = [col[1] for col in c.execute("PRAGMA table_info(price_history)").fetchall()]
+                    price_col = 'price_amount' if 'price_amount' in cols else ('price' if 'price' in cols else cols[1])
+                    time_col = 'timestamp' if 'timestamp' in cols else ('date' if 'date' in cols else cols[-1])
+                    
+                    rows = c.execute(f"SELECT {p_col}, {price_col}, {time_col} FROM price_history ORDER BY {time_col} ASC").fetchall()
+                    by_pid = {}
+                    for r in rows:
+                        pid = str(r[0])
+                        if pid not in by_pid: by_pid[pid] = []
+                        by_pid[pid].append(float(r[1] or 0))
+                    
+                    if by_pid:
+                        _process_hist_map(by_pid)
+                        conn.close()
+                        return stats
+                conn.close()
+            except Exception:
+                pass
+    except Exception:
+        pass
+
+    # 2. Check for separate history.json or price_history.json
+    h_candidates = [
+        os.path.join(repo_dir, 'data', 'price_history.json'),
+        os.path.join(repo_dir, 'data', 'history.json')
+    ]
+    h_file = next((f for f in h_candidates if os.path.exists(f)), None)
+    if h_file:
+        try:
+            with open(h_file, 'r', encoding='utf-8') as fh:
+                h_data = json.load(fh)
+            if isinstance(h_data, dict):
+                _process_hist_map(h_data)
+                return stats
+        except Exception:
+            pass
+
+    # 3. Check JSON files with embedded history/price_history
+    json_files = (
+        glob.glob(os.path.join(repo_dir, 'frontend', '*.json')) +
+        glob.glob(os.path.join(repo_dir, 'data', '*.json')) +
+        glob.glob(os.path.join(repo_dir, '*.json'))
+    )
+    for jf in json_files:
+        if any(x in jf for x in ['package', 'tsconfig', 'category', 'banner', 'init_meta', 'manifest', 'meta.json']): continue
+        try:
+            with open(jf, 'r', encoding='utf-8') as fh:
+                data = json.load(fh)
+            items = []
+            if isinstance(data, dict):
+                if 'products' in data and isinstance(data['products'], list):
+                    items = data['products']
+                else:
+                    items = list(data.values()) if all(isinstance(v, dict) for v in data.values()) else []
+            elif isinstance(data, list):
+                items = data
+
+            if items and isinstance(items[0], dict):
+                by_pid = {}
+                for it in items:
+                    pid = str(it.get('id') or it.get('name') or len(by_pid))
+                    h = it.get('price_history') or it.get('history')
+                    curr = it.get('current_price') or it.get('price') or it.get('actual_price') or 0
+                    if isinstance(h, (dict, list)):
+                        by_pid[pid] = h
+                    else:
+                        by_pid[pid] = [curr]
+                if by_pid:
+                    _process_hist_map(by_pid)
+                    if stats['total'] > 0:
+                        return stats
+        except Exception:
+            pass
+
+    # 4. Check historical snapshot diffs in history/ folder
+    hist_dir = os.path.join(repo_dir, 'history')
+    if not os.path.exists(hist_dir):
+        hist_dir = os.path.join(repo_dir, 'frontend', 'history')
+    if os.path.exists(hist_dir):
+        snap_files = sorted(glob.glob(os.path.join(hist_dir, '*.json')))
+        if len(snap_files) >= 1:
+            try:
+                with open(snap_files[-1], 'r', encoding='utf-8') as fh:
+                    latest = json.load(fh)
+                prev = {}
+                if len(snap_files) >= 2:
+                    with open(snap_files[-2], 'r', encoding='utf-8') as fh:
+                        prev = json.load(fh)
+                
+                def _to_map(data):
+                    m = {}
+                    if isinstance(data, dict):
+                        for k, v in data.items():
+                            if isinstance(v, dict):
+                                m[k] = float(v.get('current_price') or v.get('price') or 0)
+                            else:
+                                try: m[k] = float(v)
+                                except: pass
+                    elif isinstance(data, list):
+                        for item in data:
+                            if isinstance(item, dict):
+                                pid = str(item.get('id') or item.get('name'))
+                                m[pid] = float(item.get('current_price') or item.get('price') or 0)
+                    return m
+                
+                curr_map = _to_map(latest)
+                prev_map = _to_map(prev)
+                stats['total'] = len(curr_map)
+                for pid, cp in curr_map.items():
+                    if cp > 0: stats['in_stock'] += 1
+                    else: stats['out_of_stock'] += 1
+                    if pid not in prev_map:
+                        stats['new_items'] += 1
+                    else:
+                        res = _cmp_price(cp, prev_map[pid])
+                        if res == 'up': stats['price_up'] += 1
+                        elif res == 'down': stats['price_down'] += 1
+                        elif res == 'same': stats['price_same'] += 1
+                        elif res == 'went_oos': stats['went_oos'] += 1
+                        elif res == 'restocked': stats['back_in_stock'] += 1
+                return stats
+            except Exception:
+                pass
+
+    return stats
+
 def _send_p14_summary(results_store, repo_list):
     """Send ONE consolidated Telegram summary after all scheduled repos finish.
-    Per repo: scrape time, counts, url + detailed error log if any; then aggregator summary."""
+    Per repo: scrape time, counts, price change up/dn/same %, stock metrics, url + detailed error log if any; then aggregator summary."""
     def tg_send(text, silent=False):
         if not TELEGRAM_BOT_TOKEN or TELEGRAM_BOT_TOKEN.strip() == "": return
         TG_API = f'https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}'
@@ -986,10 +1181,44 @@ def _send_p14_summary(results_store, repo_list):
             ok += 1
             elapsed = int(rec.get('elapsed', 0))
             _m, _s = divmod(elapsed, 60)
-            counts = rec.get('counts') or {}
-            _c = f" | {counts.get('scraped', '?')} scraped" if counts.get('scraped') else ""
-            _t = f" ({counts.get('total', '?')} total)" if counts.get('total') else ""
-            lines.append(f"✅ {clean_lbl} — {_m}m {_s}s{_t}{_c} — {rec.get('url') or url}")
+            st = rec.get('price_stats') or {}
+            total = st.get('total') or (rec.get('counts') or {}).get('total') or (rec.get('counts') or {}).get('scraped') or 0
+            
+            def _pct(v):
+                return f"({(v / total * 100):.1f}%)" if total > 0 else "(0.0%)"
+
+            header_line = f"✅ <b>{clean_lbl}</b> — {_m}m {_s}s"
+            if total > 0:
+                header_line += f" | {total:,} items"
+            header_line += f" — {rec.get('url') or url}"
+            lines.append(header_line)
+
+            in_stock = st.get('in_stock', 0)
+            oos = st.get('out_of_stock', 0)
+            if in_stock > 0 or oos > 0:
+                lines.append(f"   ├ 🟢 In Stock: {in_stock:,} {_pct(in_stock)} | 🔴 Out of Stock: {oos:,} {_pct(oos)}")
+            
+            new_cnt = st.get('new_items', 0)
+            if new_cnt > 0:
+                lines.append(f"   ├ 🆕 New Items: {new_cnt:,} {_pct(new_cnt)}")
+            
+            up_cnt = st.get('price_up', 0)
+            dn_cnt = st.get('price_down', 0)
+            same_cnt = st.get('price_same', 0)
+            p_parts = []
+            if up_cnt > 0: p_parts.append(f"🔺 {up_cnt:,} {_pct(up_cnt)} up")
+            if dn_cnt > 0: p_parts.append(f"🔻 {dn_cnt:,} {_pct(dn_cnt)} down")
+            if same_cnt > 0: p_parts.append(f"⏸️ {same_cnt:,} {_pct(same_cnt)} same")
+            if p_parts:
+                lines.append(f"   ├ 🏷️ Prices: " + " | ".join(p_parts))
+            
+            restocked = st.get('back_in_stock', 0)
+            went_oos = st.get('went_oos', 0)
+            s_parts = []
+            if restocked > 0: s_parts.append(f"🟢 {restocked:,} {_pct(restocked)} restocked")
+            if went_oos > 0: s_parts.append(f"🔴 {went_oos:,} {_pct(went_oos)} went OOS")
+            if s_parts:
+                lines.append(f"   ├ 🔄 Stock Movements: " + " | ".join(s_parts))
         else:
             fail += 1
             elapsed = int(rec.get('elapsed', 0))
@@ -1235,7 +1464,7 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
             my_env["PYTHONPATH"] = f"{script_dir}{os.pathsep}{os.getcwd()}{os.pathsep}{my_env.get('PYTHONPATH', '')}"
             my_env["PYTHONUNBUFFERED"] = "1"
             my_env["PYTHONIOENCODING"] = "utf-8"
-            res = subprocess.run([sys.executable, "-u", script_file], cwd=script_dir, capture_output=True, text=True, timeout=5*18000, env=my_env)
+            res = subprocess.run([sys.executable, "-u", script_file], cwd=script_dir, capture_output=True, text=True, timeout=3600, env=my_env)
             exec_elapsed = time.time() - t_exec0
             if res.returncode == 0:
                 break
@@ -1283,6 +1512,7 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
             raise RuntimeError(f"Git push failed: {push_res.stderr[:300]}")
 
         _p14_record.update(status='ok', elapsed=int(time.time() - _t0), error='', url=repo_page_url)
+        _p14_record['price_stats'] = _extract_repo_price_stats(os.getcwd(), (res.stdout or "") + (res.stderr or "") if res else "")
         if res is not None:
             _p14_record['counts'] = _extract_scraper_counts((res.stdout or "") + (res.stderr or ""))
         _store_result()
@@ -1354,12 +1584,12 @@ if __name__ == '__main__':
         time.sleep(10)
     
     start_time = time.time()
-    timeout_seconds = (11 * 3600) + (50 * 60) 
+    timeout_seconds = 11 * 3600  # 11 hours safety timeout (well under Kaggle 12h cell limit)
     _p14_done = False
 
     while time.time() - start_time < timeout_seconds:
         if not any(p.is_alive() for p in [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14]):
-            print("\n✅ Both parallel pipelines finished ahead of schedule!")
+            print("\n✅ All parallel pipelines finished ahead of schedule!")
             break
         if not _p14_done and not any(p.is_alive() for p in [p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14]):
             _p14_done = True
@@ -1367,7 +1597,12 @@ if __name__ == '__main__':
             _send_p14_summary(_p14_results, list(zip([lbl for _, _, lbl in _scheduled_repos], _repo_pages)))
         time.sleep(30)
     else:
-        print("\n⏳ Time limit threshold reached (11h 30m). Initiating nuclear teardown & Kaggle restart...")
+        print("\n⏳ Safety time limit threshold reached (11h). Initiating nuclear teardown & Kaggle restart...")
+
+    if not _p14_done:
+        _p14_done = True
+        print("🟢 Ensuring consolidated scheduled repos summary is generated before restart...")
+        _send_p14_summary(_p14_results, list(zip([lbl for _, _, lbl in _scheduled_repos], _repo_pages)))
 
     print("☢️ Executing Nuclear Teardown of orphaned child processes...")
     os.system("pkill -9 -f chromium")
@@ -1382,10 +1617,10 @@ if __name__ == '__main__':
     
     time.sleep(5)
     print("\n🔄 Triggering next cycle...")
-    # Report p3-p5 exit status
+    # Report p3-p14 exit status
     for _n, _p in [("FooDIE Rest", p3), ("FoodPANDA Rest", p4), ("FooDIE Mart", p5), ("Shwapno Analytics", p6), ("Othoba Analytics", p7), ("CARTup", p8), ("Chaldal Analytics", p9), ("COOKup", p10), ("PICAboo", p11), ("DARAZ", p12), ("Meena Bazar Analytics", p13), ("ShareDeal Analytics", p14)]:
         s = "OK" if _p.exitcode == 0 else f"rc={_p.exitcode}" if _p.exitcode is not None else "alive"
-        print(f"[p3-p5] {_n}: {s}")
+        print(f"[p3-p14] {_n}: {s}")
     
     trigger_self_restart()
 
