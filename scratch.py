@@ -297,41 +297,41 @@ def run_grocery_god(github_pat):
         with Step('Configuration & Git Setup', '⚙️'):
             if not github_pat:
                 raise RuntimeError("GITHUB_PAT is missing or empty. Git operations will fail.")
-                    
-                def _setup_git_config():
-                    _git_config('git config --global user.email "ranehal@users.noreply.github.com"')
-                    _git_config('git config --global user.name "ranehal"')
 
-                    cred_path = os.path.expanduser('~/.git-credentials')
-                    with open(cred_path, 'w') as f:
-                        f.write(f"https://ranehal:{github_pat}@github.com\nhttps://{github_pat}@github.com\n")
-                    _git_config('git config --global credential.helper store')
-                _with_lock('git-config', _setup_git_config)
+            def _setup_git_config():
+                _git_config('git config --global user.email "ranehal@users.noreply.github.com"')
+                _git_config('git config --global user.name "ranehal"')
 
-                REPO_URL = 'https://github.com/ranehal/GroceryGOD.git'
-                auth_grocery_url = f"https://ranehal:{github_pat}@github.com/ranehal/GroceryGOD.git"
+                cred_path = os.path.expanduser('~/.git-credentials')
+                with open(cred_path, 'w') as f:
+                    f.write(f"https://ranehal:{github_pat}@github.com\nhttps://{github_pat}@github.com\n")
+                _git_config('git config --global credential.helper store')
+            _with_lock('git-config', _setup_git_config)
 
-                if os.path.exists('GroceryGOD/.git/index.lock'):
-                    subprocess.run('rm -f GroceryGOD/.git/index.lock', shell=True)
+            REPO_URL = 'https://github.com/ranehal/GroceryGOD.git'
+            auth_grocery_url = f"https://ranehal:{github_pat}@github.com/ranehal/GroceryGOD.git"
 
-                if not os.path.exists('GroceryGOD'):
-                    _reclaim_disk(force=True)
-                    clone_res = subprocess.run(f'GIT_LFS_SKIP_SMUDGE=1 git clone --depth 1 --single-branch --branch master --no-tags {auth_grocery_url} GroceryGOD', shell=True, capture_output=True, text=True)
-                    if clone_res.returncode != 0:
-                        error_msg = f"Git Clone Failed! Auth issue or repo missing.\nSTDERR: {clone_res.stderr}"
-                        log.error(error_msg)
-                        raise RuntimeError(error_msg)
+            if os.path.exists('GroceryGOD/.git/index.lock'):
+                subprocess.run('rm -f GroceryGOD/.git/index.lock', shell=True)
 
-                os.chdir('GroceryGOD')
-                subprocess.run(f'git remote set-url origin {auth_grocery_url}', shell=True)
-                
-                log.info("🔄 Forcing sync with latest GitHub master...")
-                subprocess.run('git clean -fd', shell=True)
-                subprocess.run('git fetch --all', shell=True)
-                subprocess.run('git reset --hard origin/master', shell=True)
+            if not os.path.exists('GroceryGOD'):
+                _reclaim_disk(force=True)
+                clone_res = subprocess.run(f'GIT_LFS_SKIP_SMUDGE=1 git clone --depth 1 --single-branch --branch master --no-tags {auth_grocery_url} GroceryGOD', shell=True, capture_output=True, text=True)
+                if clone_res.returncode != 0:
+                    error_msg = f"Git Clone Failed! Auth issue or repo missing.\nSTDERR: {clone_res.stderr}"
+                    log.error(error_msg)
+                    raise RuntimeError(error_msg)
 
-                log.info("🗑️ Purging LFS pointers to prevent SQLite corruption...")
-                subprocess.run('find . -name "*.db" -type f -delete', shell=True)
+            os.chdir('GroceryGOD')
+            subprocess.run(f'git remote set-url origin {auth_grocery_url}', shell=True)
+            
+            log.info("🔄 Forcing sync with latest GitHub master...")
+            subprocess.run('git clean -fd', shell=True)
+            subprocess.run('git fetch --all', shell=True)
+            subprocess.run('git reset --hard origin/master', shell=True)
+
+            log.info("🗑️ Purging LFS pointers to prevent SQLite corruption...")
+            subprocess.run('find . -name "*.db" -type f -delete', shell=True)
 
             with Step('Repo Decryption', '🔓'):
                 try:
@@ -778,6 +778,16 @@ if __name__ == '__main__':
                             f.writelines(clean_lines)
                     except: pass
                 
+                # Clean up any nested sub-repo directories that might have been cloned in the wrong folder
+                try:
+                    for _item in os.listdir('.'):
+                        if os.path.isdir(_item) and _item != '.git':
+                            if os.path.exists(os.path.join(_item, '.git')):
+                                log.warning(f"Removing stray nested git repository from GroceryGOD: {_item}")
+                                shutil.rmtree(_item, ignore_errors=True)
+                except Exception as _ce:
+                    log.warning(f"Nested repo cleanup notice: {_ce}")
+
                 subprocess.run('git add .', shell=True)
                 now = datetime.now(DHAKA_TZ).strftime('%Y-%m-%d %H:%M:%S')
                 subprocess.run(f'git commit -m "attempt #{cycle_count} if this works ill get some sleep frfr: {now}"', shell=True)
@@ -788,11 +798,18 @@ if __name__ == '__main__':
                     f"https://{github_pat}@github.com/ranehal/GroceryGOD.git"
                 ]
                 for _auth_u in auth_push_urls:
-                    subprocess.run(f'git remote set-url origin {_auth_u}', shell=True)
+                    subprocess.run('git remote remove origin', shell=True, capture_output=True)
+                    subprocess.run(f'git remote add origin {_auth_u}', shell=True, capture_output=True)
+                    subprocess.run(f'git remote set-url origin {_auth_u}', shell=True, capture_output=True)
                     for attempt in range(2):
                         log.info(f"Push attempt {attempt+1}...")
                         subprocess.run('git pull origin master --rebase -X ours', shell=True, capture_output=True)
                         push_res = subprocess.run('git push origin HEAD:master --force', shell=True, capture_output=True, text=True)
+                        if push_res.returncode == 0:
+                            push_success = True
+                            break
+                        # Fallback: push directly to auth URL
+                        push_res = subprocess.run(f'git push {_auth_u} HEAD:master --force', shell=True, capture_output=True, text=True)
                         if push_res.returncode == 0:
                             push_success = True
                             break
@@ -1389,6 +1406,8 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
         _store_result()
         return
 
+    repo_dir = os.path.join('/kaggle/working', repo_name)
+    os.makedirs('/kaggle/working', exist_ok=True)
     os.chdir('/kaggle/working')
     auth_repo_url = f"https://ranehal:{github_pat}@github.com/ranehal/{repo_name}.git"
 
@@ -1402,16 +1421,18 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
             _git_config('git config --global credential.helper store')
         _with_lock('git-config', _setup_git_config)
 
-        if not os.path.exists(repo_name):
+        if not os.path.exists(repo_dir):
             _reclaim_disk()
-            _log(f"Cloning {repo_name}...")
-            clone_res = subprocess.run(f'git clone {auth_repo_url}', shell=True, capture_output=True, text=True)
+            _log(f"Cloning {repo_name} into {repo_dir}...")
+            clone_res = subprocess.run(f'git clone {auth_repo_url} {repo_dir}', shell=True, capture_output=True, text=True)
             if clone_res.returncode != 0:
                 raise RuntimeError(f"Git clone failed: {clone_res.stderr}")
 
-        os.chdir(repo_name)
+        os.chdir(repo_dir)
         _with_lock('git-config', lambda: (_git_config('git config user.email "ranehal@users.noreply.github.com"'), _git_config('git config user.name "ranehal"')))
-        subprocess.run(f'git remote set-url origin {auth_repo_url}', shell=True)
+        subprocess.run('git remote remove origin', shell=True, capture_output=True)
+        subprocess.run(f'git remote add origin {auth_repo_url}', shell=True, capture_output=True)
+        subprocess.run(f'git remote set-url origin {auth_repo_url}', shell=True, capture_output=True)
 
         subprocess.run('git clean -fd', shell=True)
         subprocess.run('git fetch --all', shell=True)
@@ -1559,11 +1580,18 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
         ]
         for auth_u in auth_user_urls:
             user_n = "ranehal"
-            subprocess.run(f'git remote set-url origin {auth_u}', shell=True)
+            subprocess.run('git remote remove origin', shell=True, capture_output=True)
+            subprocess.run(f'git remote add origin {auth_u}', shell=True, capture_output=True)
+            subprocess.run(f'git remote set-url origin {auth_u}', shell=True, capture_output=True)
             _with_lock('git-config', lambda: (_git_config(f'git config user.name "{user_n}"'), _git_config(f'git config user.email "{user_n}@users.noreply.github.com"')))
             for attempt in range(2):
                 subprocess.run(f'git pull origin {default_branch} --rebase -X ours -q', shell=True, capture_output=True)
                 push_res = subprocess.run(f'git push origin HEAD:{default_branch} --force', shell=True, capture_output=True, text=True)
+                if push_res.returncode == 0:
+                    push_success = True
+                    break
+                # Direct URL push fallback
+                push_res = subprocess.run(f'git push {auth_u} HEAD:{default_branch} --force', shell=True, capture_output=True, text=True)
                 if push_res.returncode == 0:
                     push_success = True
                     break
@@ -1638,8 +1666,10 @@ if __name__ == '__main__':
     p14 = multiprocessing.Process(target=run_scheduled_repo, args=(*_scheduled_repos[11], GITHUB_PAT, _p14_results))
     
     p2.start()
-    print("⏳ Sleeping 10 minutes (600s) before starting p1 & p3-p13 to sync Kaggle Netherlands/UTC time with Dhaka date...")
-    time.sleep(600)
+    print("⏳ Sleeping 10 minutes (600s) before starting p1 & p3-p14 to sync Kaggle Netherlands/UTC time with Dhaka date...")
+    for _i in range(10, 0, -1):
+        print(f"⏳ [{11 - _i}/10 min] Waiting {_i * 60}s for Dhaka time sync (p2 gitw running in background)...")
+        time.sleep(60)
     p1.start()
     for _proc in [p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14]:
         _proc.start()
