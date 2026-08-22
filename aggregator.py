@@ -922,35 +922,35 @@ def save_store_data(name, data_tuple):
     last_update = datetime.now(DHAKA_TZ).strftime("%Y-%m-%d %H:%M:%S")
     product_items = sorted(products.items())
     
-    # 1. Atomic Size Calculation
-    current_chunk_size = MAX_CHUNK_ITEMS
-    
+    # 1. Atomic Size-Budget Chunk Builder
     # Pre-clean existing files to avoid ghosts
     for f in os.listdir('.'):
         if f.startswith(f"{name}_data_part") and f.endswith(".js"):
-            os.remove(f)
+            try: os.remove(f)
+            except: pass
 
+    max_bytes = int(MAX_FILE_SIZE_MB * 1024 * 1024 * 0.90)  # Safe ~40.5MB cap
     temp_chunks = []
-    chunk_idx = 0
-    while chunk_idx * current_chunk_size < total_items:
-        start = chunk_idx * current_chunk_size
-        end = (chunk_idx + 1) * current_chunk_size
-        chunk_dict = dict(product_items[start:end])
-        
-        # Test serialization size
-        test_json = json.dumps(chunk_dict, separators=(',', ':'))
-        size_mb = len(test_json) / (1024 * 1024)
-        
-        # If too big, cut chunk size in half and retry this chunk
-        if size_mb > MAX_FILE_SIZE_MB:
-            print(f"  [!] Chunk {chunk_idx+1} too large ({size_mb:.2f}MB). Shrinking size...")
-            current_chunk_size = max(1000, current_chunk_size // 2)
-            continue 
-            
-        temp_chunks.append(chunk_dict)
-        chunk_idx += 1
+    current_chunk = {}
+    current_bytes = 2  # '{}'
+
+    for pid, pdata in product_items:
+        item_str = json.dumps({pid: pdata}, separators=(',', ':'))[1:-1]
+        item_bytes = len(item_str.encode('utf-8')) + 1
+
+        if current_chunk and (current_bytes + item_bytes > max_bytes or len(current_chunk) >= MAX_CHUNK_ITEMS):
+            temp_chunks.append(current_chunk)
+            current_chunk = {pid: pdata}
+            current_bytes = item_bytes + 2
+        else:
+            current_chunk[pid] = pdata
+            current_bytes += item_bytes
+
+    if current_chunk:
+        temp_chunks.append(current_chunk)
 
     total_chunks = len(temp_chunks)
+    current_chunk_size = MAX_CHUNK_ITEMS
     
     # 2. Save Manifest
     manifest_meta = {

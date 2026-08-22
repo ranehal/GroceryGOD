@@ -14,6 +14,7 @@ import shutil
 import re
 import concurrent.futures
 import platform
+import glob
 from datetime import datetime, timedelta, timezone
 
 # Dhaka Timezone
@@ -375,7 +376,7 @@ def run_grocery_god(github_pat):
                 except subprocess.CalledProcessError as e:
                     log.error(f'Decryption failed: {e.stderr[:500]}')
 
-            SCRAPER_TIMEOUT = 30 * 60
+            SCRAPER_TIMEOUT = 45 * 60
             PARALLEL_MAX_WORKERS = 8
             ####################################################PARALLEL_MAX_WORKERS = 8
             def run_scraper(scraper_info):
@@ -518,11 +519,10 @@ def run_grocery_god(github_pat):
                     ('Meena Bazar', 'MEENAtracker'), 
                     ('Unimart', 'unimartTRACKER'), 
                     ('Metro Mart', 'metroTRACKER'), 
-                    ('ShotejBazar', 'ShotejTRACKER'), 
-                    ('FooDIE', 'FooDIEscraper')
+                    ('ShotejBazar', 'ShotejTRACKER')
                 ]
                 results = [None] * len(scrapers)
-                log.info(f"Launching {len(scrapers)} scrapers in parallel (timeout={SCRAPER_TIMEOUT//3600}h each)")
+                log.info(f"Launching {len(scrapers)} scrapers in parallel (timeout={SCRAPER_TIMEOUT//60}m each)")
 
                 def _run_wrapper(idx, info):
                     return idx, run_scraper(info)
@@ -573,6 +573,16 @@ def run_grocery_god(github_pat):
                     log.warning(f"Failed to push scraper data: {push_err}")
 
             with Step('GODdata Aggregator', '🧬'):
+                # Sync Foodi DB from sub-repo if present
+                _foodi_sub = '/kaggle/working/FooDIE-mart-Analytics/data/scraper.db' if platform.system() != 'Windows' else r'C:\PROJECTS\Foodie\FooDIE-mart-Analytics\data\scraper.db'
+                if os.path.exists(_foodi_sub):
+                    try:
+                        os.makedirs('FooDIEscraper/data', exist_ok=True)
+                        shutil.copy2(_foodi_sub, 'FooDIEscraper/data/scraper.db')
+                        log.info('Synced FooDIE scraper.db from FooDIE-mart-Analytics')
+                    except Exception as _fe:
+                        log.warning(f'Failed to sync FooDIE db: {_fe}')
+
                 _agg_env = os.environ.copy()
                 _agg_proc = subprocess.Popen([sys.executable, 'aggregator.py'], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, env=_agg_env)
                 for _agg_line in _agg_proc.stdout:
@@ -977,6 +987,7 @@ def _extract_scraper_counts(text):
 
 def _extract_repo_price_stats(repo_dir, stdout_text=""):
     """Extract price change metrics and stock stats across sub-repo databases, JSONs, or history snapshots."""
+    import glob, os, json, re
     stats = {
         'total': 0, 'in_stock': 0, 'out_of_stock': 0,
         'new_items': 0, 'price_up': 0, 'price_down': 0, 'price_same': 0,

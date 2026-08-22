@@ -65,6 +65,11 @@ These fixes were extracted from live Kaggle failures. Preserve the patterns:
   - `run_grocery_god` runs a single complete cycle and exits without sleeping for 12 hours.
   - Master orchestrator has an 11-hour safety cap (`timeout_seconds = 11 * 3600`) well under Kaggle's 12-hour (43,200s) hard ceiling, triggering nuclear teardown and container restart via `trigger_self_restart()`.
   - Sub-repo scrapers (p3–p14) extract full price change metrics (up, down, unchanged/same counts and `%`, new items, in-stock/out-of-stock) across SQLite databases, JSON catalogs, and historical snapshots, logged in `/tmp/p14_summary.log`.
+- **Aggregator Chunking Infinite Loop Fix (2026-08-23, do not regress)**:
+  - Replaced the retry while-loop in `aggregator.py` (`save_store_data`) with a linear single-pass byte-budget chunk partitioner (`MAX_FILE_SIZE_MB = 45`, target `40.5MB` cap). Prevents infinite retry loop when a store's deep historical records exceed chunk thresholds.
+- **Sub-repo Price Stats `glob` Import Fix & In-Repo Scraper Cleanup (2026-08-23, do not regress)**:
+  - Added `import glob` at module top and inside `_extract_repo_price_stats` in `scratch.py` to prevent `NameError: name 'glob' is not defined`.
+  - Removed `FooDIEscraper` from in-repo parallel scrapers list (since FooDIE Mart is a separate sub-repo `p5`) and added automatic DB sync from `/kaggle/working/FooDIE-mart-Analytics/data/scraper.db` before aggregator runs. Increased `SCRAPER_TIMEOUT` to 45 minutes (`45 * 60`).
 
 ## Encryption & secrets
 
