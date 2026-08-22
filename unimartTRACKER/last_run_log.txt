@@ -1,17 +1,17 @@
-Last Run: 2026-08-22 03:18:28
+Last Run: 2026-08-22 20:09:00
 ------------------------------
 Total Scraped: 1800
-New Items: 0
+New Items: 50
 ------------------------------
 Categories:
-- Whole Spice: 80
-- Socks: 71
-- Shampoo: 67
-- Feeding Accessories Kit: 45
-- Grinded Spice: 44
-- Chocolate Bar: 36
-- Toothpaste: 36
-- Pasteurized Full Cream Milk: 30
-- Imported Wafers: 30
-- Lentil Loose: 26
-... and 311 more.
+- Shampoo: 126
+- Cookies: 44
+- Toothpaste: 43
+- Pasteurized Full Cream Milk: 37
+- Socks: 35
+- Chips: 34
+- Imported Wafers: 32
+- Chocolate Bar: 30
+- Conditioner: 30
+- Body Lotion: 24
+... and 280 more.
