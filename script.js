@@ -2137,6 +2137,21 @@ function setupAnalyticsControls() {
     document.addEventListener('keydown', event => {
         if (event.key === 'Escape' && document.getElementById('analytics-modal')?.style.display === 'none') document.body.style.overflow = '';
     });
+
+    // Market Sensors Drilldown Controls
+    document.getElementById('drilldown-search')?.addEventListener('input', (e) => {
+        currentDrilldownState.searchTerm = e.target.value;
+        renderAnalyticsItemCards();
+    });
+    document.getElementById('drilldown-sort')?.addEventListener('change', (e) => {
+        currentDrilldownState.sortType = e.target.value;
+        renderAnalyticsItemCards();
+    });
+    document.getElementById('drilldown-close-btn')?.addEventListener('click', () => {
+        const container = document.getElementById('analytics-drilldown-container');
+        if (container) container.style.display = 'none';
+        document.querySelectorAll('.sensor-pill').forEach(p => p.classList.remove('pill-active'));
+    });
 }
 
 function setAnalyticsTab(tab) {
@@ -2270,6 +2285,13 @@ async function runAnalyticsDashboard() {
     try {
         setAnalyticsLoading(true, 'Calculating market statistics...');
         destroyAnalyticsCharts();
+
+        // Calculate price changes for the selected analysis window
+        const days = analyticsState.window === 'all' ? 365 : Number(analyticsState.window) || 7;
+        if (godDB && window.__historyReady) {
+            try { await computePriceChanges(days); } catch(e) {}
+        }
+
         const products = getAnalyticsProducts();
         if (!products.length) throw new Error('No products match this analytics scope.');
         const model = buildAnalyticsModel(products);
@@ -2467,6 +2489,7 @@ function loadDemoAnalyticsHistory(products) {
 function renderAnalytics(model, history) {
     renderInsightStrip(model, history);
     renderKPIs(model, history);
+    renderMarketSensorsGrid(model);
     renderStoreComparison(model.storeGroups);
     renderCategoryAnalysis(model.categoryGroups);
     renderMarketShare(model.storeGroups);
@@ -2483,6 +2506,383 @@ function renderAnalytics(model, history) {
     renderCoverageHeatmap(model.products);
     renderCrossStoreTable(model.products);
     renderQualityDashboard(model);
+}
+
+let currentDrilldownState = {
+    storeId: 'unimart',
+    filterType: 'price_down',
+    searchTerm: '',
+    sortType: 'drop_desc',
+    products: []
+};
+
+function renderMarketSensorsGrid(model) {
+    const container = document.getElementById('market-sensors-grid');
+    if (!container) return;
+
+    const storesList = ['shwapno','chaldal','meenabazar','othoba','metromart','unimart','shotejbazar','foodi'];
+    const dToday = dhakaTodayStr();
+
+    let grandTotal = 0;
+    let grandInStock = 0;
+    let grandOos = 0;
+    let grandNew = 0;
+    let grandUp = 0;
+    let grandDown = 0;
+    let grandSame = 0;
+    let grandRestocked = 0;
+    let grandWentOos = 0;
+    let grandWebScraped = 0;
+    let grandAppScraped = 0;
+    let grandWebSelected = 0;
+    let grandAppSelected = 0;
+
+    const storeCardsHTML = storesList.map(sid => {
+        const config = STORE_CONFIG[sid] || { color: '#38bdf8', name: sid.toUpperCase() };
+        const manifest = window[sid + 'Manifest'];
+        const meta = manifest?.metadata || {};
+        const stockStats = meta.stock_stats || {};
+        const scraperStats = meta.scraper_stats || {};
+
+        const storeProducts = allProducts.filter(p => p.store === sid);
+        const totalItems = storeProducts.length || meta.total || 0;
+        const totalChunks = meta.total_chunks || 1;
+        const dateRange = meta.date_range || `2026-02-15 to ${dToday}`;
+
+        const inStockCount = storeProducts.length ? storeProducts.filter(p => p.in_stock && Number(p.current_price) > 0).length : (stockStats.in_stock ?? totalItems);
+        const oosCount = storeProducts.length ? storeProducts.filter(p => !p.in_stock || Number(p.current_price) <= 0 || p.is_out_of_stock).length : (stockStats.out_of_stock ?? 0);
+        const newCount = storeProducts.length ? storeProducts.filter(p => p.isNew || Number(p.ageDays) <= 7).length : (stockStats.new_items ?? 0);
+
+        const upCount = storeProducts.length ? storeProducts.filter(p => p._pcDiff !== undefined && p._pcDiff > 0.01).length : (stockStats.price_up ?? 0);
+        const downCount = storeProducts.length ? storeProducts.filter(p => p._pcDiff !== undefined && p._pcDiff < -0.01).length : (stockStats.price_down ?? 0);
+        const sameCount = storeProducts.length ? storeProducts.filter(p => p._pcDiff !== undefined && Math.abs(p._pcDiff) <= 0.01).length : (stockStats.price_same ?? Math.max(0, totalItems - upCount - downCount));
+
+        const restockedCount = stockStats.back_in_stock ?? 0;
+        const wentOosCount = stockStats.went_oos ?? 0;
+
+        const webScraped = scraperStats.web_scraped ?? (['foodi'].includes(sid) ? 0 : totalItems);
+        const webSelected = scraperStats.web_selected ?? (['foodi'].includes(sid) ? 0 : totalItems);
+        const appScraped = scraperStats.app_scraped ?? (['shwapno','chaldal','othoba','foodi'].includes(sid) ? totalItems : 0);
+        const appSelected = scraperStats.app_selected ?? (['shwapno','chaldal','othoba','foodi'].includes(sid) ? totalItems : 0);
+
+        grandTotal += totalItems;
+        grandInStock += inStockCount;
+        grandOos += oosCount;
+        grandNew += newCount;
+        grandUp += upCount;
+        grandDown += downCount;
+        grandSame += sameCount;
+        grandRestocked += restockedCount;
+        grandWentOos += wentOosCount;
+        grandWebScraped += webScraped;
+        grandAppScraped += appScraped;
+        grandWebSelected += webSelected;
+        grandAppSelected += appSelected;
+
+        const pInStock = totalItems > 0 ? ((inStockCount / totalItems) * 100).toFixed(1) : '0.0';
+        const pOos = totalItems > 0 ? ((oosCount / totalItems) * 100).toFixed(1) : '0.0';
+        const pNew = totalItems > 0 ? ((newCount / totalItems) * 100).toFixed(1) : '0.0';
+        const pUp = totalItems > 0 ? ((upCount / totalItems) * 100).toFixed(1) : '0.0';
+        const pDown = totalItems > 0 ? ((downCount / totalItems) * 100).toFixed(1) : '0.0';
+        const pSame = totalItems > 0 ? ((sameCount / totalItems) * 100).toFixed(1) : '0.0';
+        const pRestocked = totalItems > 0 ? ((restockedCount / totalItems) * 100).toFixed(1) : '0.0';
+        const pWentOos = totalItems > 0 ? ((wentOosCount / totalItems) * 100).toFixed(1) : '0.0';
+
+        let scrapeLine = '';
+        if (webScraped > 0 && appScraped > 0) {
+            scrapeLine = `<span class="sensor-branch">├</span> <span style="color:#94a3b8">Web: ${webScraped.toLocaleString()} scraped | ${webSelected.toLocaleString()} sel</span> · <span style="color:#94a3b8">App: ${appScraped.toLocaleString()} scraped</span>`;
+        } else if (webScraped > 0) {
+            scrapeLine = `<span class="sensor-branch">├</span> <span style="color:#94a3b8">Web: ${webScraped.toLocaleString()} scraped | ${webSelected.toLocaleString()} selected</span>`;
+        } else if (appScraped > 0) {
+            scrapeLine = `<span class="sensor-branch">├</span> <span style="color:#94a3b8">App API: ${appScraped.toLocaleString()} scraped | ${appSelected.toLocaleString()} selected</span>`;
+        } else {
+            scrapeLine = `<span class="sensor-branch">├</span> <span style="color:#94a3b8">Direct Matrix: ${totalItems.toLocaleString()} active items</span>`;
+        }
+
+        let stockMovementLine = '';
+        if (restockedCount > 0 || wentOosCount > 0) {
+            const parts = [];
+            if (restockedCount > 0) parts.push(`<button class="sensor-pill pill-green" data-store="${sid}" data-filter="restocked" title="Inspect restocked items">🟢 ${restockedCount.toLocaleString()} (${pRestocked}%) restocked</button>`);
+            if (wentOosCount > 0) parts.push(`<button class="sensor-pill pill-red" data-store="${sid}" data-filter="went_oos" title="Inspect items that went out of stock">🔴 ${wentOosCount.toLocaleString()} (${pWentOos}%) went OOS</button>`);
+            stockMovementLine = `<div class="sensor-line"><span class="sensor-branch">├</span> <span style="font-weight:700">🔄 Stock Movements:</span> ${parts.join(' ')}</div>`;
+        }
+
+        return `
+            <div class="sensor-card" style="--store-color:${config.color}" data-store="${sid}">
+                <div class="sensor-header">
+                    <div class="sensor-title">
+                        <i class="fas fa-store"></i> <span>${escapeHTML(config.name.toUpperCase())}: ${totalItems.toLocaleString()} items</span>
+                    </div>
+                    <span class="sensor-meta-badge">${totalChunks} chunks</span>
+                </div>
+                <div class="sensor-lines">
+                    <div class="sensor-line">${scrapeLine}</div>
+                    <div class="sensor-line">
+                        <span class="sensor-branch">├</span>
+                        <button class="sensor-pill pill-green" data-store="${sid}" data-filter="in_stock" title="Click to view all In Stock products">🟢 In Stock: ${inStockCount.toLocaleString()} (${pInStock}%)</button>
+                        <button class="sensor-pill pill-red" data-store="${sid}" data-filter="out_of_stock" title="Click to view Out of Stock products">🔴 Out of Stock: ${oosCount.toLocaleString()} (${pOos}%)</button>
+                    </div>
+                    ${newCount > 0 ? `
+                    <div class="sensor-line">
+                        <span class="sensor-branch">├</span>
+                        <button class="sensor-pill pill-gold" data-store="${sid}" data-filter="new_items" title="Click to view newly added products">🆕 New Items: ${newCount.toLocaleString()} (${pNew}%)</button>
+                    </div>` : ''}
+                    <div class="sensor-line">
+                        <span class="sensor-branch">├</span>
+                        <span style="font-weight:700">🏷️ Prices:</span>
+                        <button class="sensor-pill pill-red" data-store="${sid}" data-filter="price_up" title="Click to view products with price increases">🔺 ${upCount.toLocaleString()} (${pUp}%) up</button>
+                        <button class="sensor-pill pill-green" data-store="${sid}" data-filter="price_down" title="Click to view products with price drops">🔻 ${downCount.toLocaleString()} (${pDown}%) down</button>
+                        <button class="sensor-pill pill-cyan" data-store="${sid}" data-filter="price_same" title="Click to view unchanged prices">⏸️ ${sameCount.toLocaleString()} (${pSame}%) same</button>
+                    </div>
+                    ${stockMovementLine}
+                    <div class="sensor-line sensor-date">
+                        <span class="sensor-branch">├</span> <span>📅 Price data: ${escapeHTML(dateRange)}</span>
+                    </div>
+                </div>
+            </div>
+        `;
+    }).join('');
+
+    const pGrandIn = grandTotal > 0 ? ((grandInStock / grandTotal) * 100).toFixed(1) : '0.0';
+    const pGrandOos = grandTotal > 0 ? ((grandOos / grandTotal) * 100).toFixed(1) : '0.0';
+    const pGrandNew = grandTotal > 0 ? ((grandNew / grandTotal) * 100).toFixed(1) : '0.0';
+    const pGrandUp = grandTotal > 0 ? ((grandUp / grandTotal) * 100).toFixed(1) : '0.0';
+    const pGrandDown = grandTotal > 0 ? ((grandDown / grandTotal) * 100).toFixed(1) : '0.0';
+    const pGrandSame = grandTotal > 0 ? ((grandSame / grandTotal) * 100).toFixed(1) : '0.0';
+
+    const grandCardHTML = `
+        <div class="sensor-card" style="--store-color:#bb86fc; grid-column: 1 / -1;" data-store="all">
+            <div class="sensor-header">
+                <div class="sensor-title" style="color:#bb86fc">
+                    <i class="fas fa-layer-group"></i> <span>ALL 8 SHOPS COMBINED: ${grandTotal.toLocaleString()} items</span>
+                </div>
+                <span class="sensor-meta-badge" style="color:#bb86fc; background:rgba(187,134,252,0.12)">Market Intelligence Hub</span>
+            </div>
+            <div class="sensor-lines">
+                <div class="sensor-line">
+                    <span class="sensor-branch">├</span> <span style="color:#94a3b8">Cross-Store Telemetry: ${grandWebScraped.toLocaleString()} Web + ${grandAppScraped.toLocaleString()} Mobile App signals indexed</span>
+                </div>
+                <div class="sensor-line">
+                    <span class="sensor-branch">├</span>
+                    <button class="sensor-pill pill-green" data-store="all" data-filter="in_stock" title="View all In Stock products across all shops">🟢 In Stock: ${grandInStock.toLocaleString()} (${pGrandIn}%)</button>
+                    <button class="sensor-pill pill-red" data-store="all" data-filter="out_of_stock" title="View all Out of Stock products across all shops">🔴 Out of Stock: ${grandOos.toLocaleString()} (${pGrandOos}%)</button>
+                    <button class="sensor-pill pill-gold" data-store="all" data-filter="new_items" title="View all New items across all shops">🆕 New Items: ${grandNew.toLocaleString()} (${pGrandNew}%)</button>
+                </div>
+                <div class="sensor-line">
+                    <span class="sensor-branch">├</span>
+                    <span style="font-weight:700">🏷️ Market Price Movement:</span>
+                    <button class="sensor-pill pill-red" data-store="all" data-filter="price_up" title="View all price increases across all shops">🔺 ${grandUp.toLocaleString()} (${pGrandUp}%) up</button>
+                    <button class="sensor-pill pill-green" data-store="all" data-filter="price_down" title="View all price drops across all shops">🔻 ${grandDown.toLocaleString()} (${pGrandDown}%) down</button>
+                    <button class="sensor-pill pill-cyan" data-store="all" data-filter="price_same" title="View all unchanged products">⏸️ ${grandSame.toLocaleString()} (${pGrandSame}%) same</button>
+                </div>
+            </div>
+        </div>
+    `;
+
+    container.innerHTML = grandCardHTML + storeCardsHTML;
+
+    container.querySelectorAll('.sensor-pill').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const sid = btn.dataset.store;
+            const filter = btn.dataset.filter;
+            
+            container.querySelectorAll('.sensor-pill').forEach(p => p.classList.remove('pill-active'));
+            btn.classList.add('pill-active');
+
+            openAnalyticsDrilldown(sid, filter);
+        });
+    });
+
+    container.querySelectorAll('.sensor-card').forEach(card => {
+        const header = card.querySelector('.sensor-header');
+        if (header) {
+            header.style.cursor = 'pointer';
+            header.addEventListener('click', () => {
+                const sid = card.dataset.store;
+                openAnalyticsDrilldown(sid, 'all');
+            });
+        }
+    });
+}
+
+function openAnalyticsDrilldown(storeId, filterType) {
+    const container = document.getElementById('analytics-drilldown-container');
+    const tag = document.getElementById('drilldown-tag');
+    const title = document.getElementById('drilldown-title');
+    if (!container) return;
+
+    const config = STORE_CONFIG[storeId] || { color: '#bb86fc', name: storeId === 'all' ? 'ALL SHOPS' : storeId.toUpperCase() };
+    if (tag) {
+        tag.textContent = config.name.toUpperCase();
+        tag.style.background = config.color;
+        tag.style.color = (storeId === 'shwapno' || storeId === 'unimart' || storeId === 'meenabazar') ? '#000' : '#fff';
+    }
+
+    const filterLabels = {
+        'in_stock': 'In Stock Products 🟢',
+        'out_of_stock': 'Out of Stock Products 🔴',
+        'new_items': 'New Catalog Products 🆕',
+        'price_up': 'Products with Price Increases 🔺',
+        'price_down': 'Products with Price Drops 🔻',
+        'price_same': 'Unchanged Price Products ⏸️',
+        'restocked': 'Recently Restocked Products 🟢',
+        'went_oos': 'Recently Went Out of Stock 🔴',
+        'all': 'All Store Products 🏪'
+    };
+
+    const label = filterLabels[filterType] || 'Filtered Items';
+    let baseProducts = getDrilldownProducts(storeId, filterType);
+
+    currentDrilldownState = {
+        storeId,
+        filterType,
+        searchTerm: '',
+        sortType: filterType === 'price_up' ? 'rise_desc' : filterType === 'price_down' ? 'drop_desc' : 'price_asc',
+        products: baseProducts
+    };
+
+    if (title) {
+        title.innerHTML = `${label} <small style="color:#64748b;font-weight:400">(${baseProducts.length.toLocaleString()} items)</small>`;
+    }
+
+    const searchInput = document.getElementById('drilldown-search');
+    const sortSelect = document.getElementById('drilldown-sort');
+    if (searchInput) searchInput.value = '';
+    if (sortSelect) sortSelect.value = currentDrilldownState.sortType;
+
+    container.style.display = 'block';
+    renderAnalyticsItemCards();
+
+    container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function getDrilldownProducts(storeId, filterType) {
+    let prods = storeId === 'all' ? allProducts : allProducts.filter(p => p.store === storeId);
+    switch (filterType) {
+        case 'in_stock':
+            return prods.filter(p => p.in_stock && Number(p.current_price) > 0);
+        case 'out_of_stock':
+            return prods.filter(p => !p.in_stock || Number(p.current_price) <= 0 || p.is_out_of_stock);
+        case 'new_items':
+            return prods.filter(p => p.isNew || Number(p.ageDays) <= 7 || (p.first_seen && p.first_seen >= getNDaysAgoStr(7)));
+        case 'price_up':
+            return prods.filter(p => (p._pcDiff !== undefined && p._pcDiff > 0.01) || (p.normalized_price > p.avgPrice * 1.02 && p.hist_count > 1));
+        case 'price_down':
+            return prods.filter(p => (p._pcDiff !== undefined && p._pcDiff < -0.01) || (p.normalized_price < p.avgPrice * 0.98 && p.hist_count > 1));
+        case 'price_same':
+            return prods.filter(p => p._pcDiff !== undefined ? Math.abs(p._pcDiff) <= 0.01 : Math.abs(p.normalized_price - (p.avgPrice || p.normalized_price)) <= 0.01);
+        case 'restocked':
+            return prods.filter(p => p.in_stock && p.hasPriceToday && (p.hist_count > 1 || p.isNew));
+        case 'went_oos':
+            return prods.filter(p => !p.in_stock || Number(p.current_price) <= 0);
+        default:
+            return prods;
+    }
+}
+
+function renderAnalyticsItemCards() {
+    const grid = document.getElementById('analytics-items-grid');
+    const footerCount = document.getElementById('drilldown-count-info');
+    if (!grid) return;
+
+    let items = [...currentDrilldownState.products];
+
+    const term = currentDrilldownState.searchTerm.trim().toLowerCase();
+    if (term) {
+        items = items.filter(p => (p.name && p.name.toLowerCase().includes(term)) || (p.category && p.category.toLowerCase().includes(term)));
+    }
+
+    const sort = currentDrilldownState.sortType;
+    items.sort((a, b) => {
+        const pA = Number(a.normalized_price) || 0;
+        const pB = Number(b.normalized_price) || 0;
+        const diffA = a._pcDiff !== undefined ? a._pcDiffPct || 0 : ((a.normalized_price - (a.avgPrice || a.normalized_price)) / (a.avgPrice || a.normalized_price || 1)) * 100;
+        const diffB = b._pcDiff !== undefined ? b._pcDiffPct || 0 : ((b.normalized_price - (b.avgPrice || b.normalized_price)) / (b.avgPrice || b.normalized_price || 1)) * 100;
+
+        if (sort === 'drop_desc') return diffA - diffB;
+        if (sort === 'rise_desc') return diffB - diffA;
+        if (sort === 'price_asc') return pA - pB;
+        if (sort === 'price_desc') return pB - pA;
+        if (sort === 'name_asc') return (a.name || '').localeCompare(b.name || '');
+        return 0;
+    });
+
+    if (footerCount) {
+        footerCount.textContent = `Showing ${items.length.toLocaleString()} of ${currentDrilldownState.products.length.toLocaleString()} items`;
+    }
+
+    if (!items.length) {
+        grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:30px;color:#64748b;font-size:0.8rem">No matching items found for this filter.</div>`;
+        return;
+    }
+
+    const displayLimit = 120;
+    const slice = items.slice(0, displayLimit);
+
+    grid.innerHTML = slice.map(p => {
+        const config = STORE_CONFIG[p.store] || { color: '#38bdf8', name: p.store };
+        const storeColor = config.color;
+        const inStock = p.in_stock && Number(p.current_price) > 0;
+        
+        let diffBadge = '';
+        if (p._pcDiff !== undefined && Math.abs(p._pcDiff) > 0.01) {
+            const isUp = p._pcDiff > 0;
+            const arrow = isUp ? '🔺' : '🔻';
+            const cls = isUp ? 'badge-up' : 'badge-down';
+            const pct = Math.abs(p._pcDiffPct || 0).toFixed(1);
+            const val = Math.abs(Math.round(p._pcDiff));
+            diffBadge = `<span class="analytics-mini-badge ${cls}">${arrow} ${pct}% (${val}Tk)</span>`;
+        } else if (p.avgPrice && Math.abs(p.normalized_price - p.avgPrice) > 0.01) {
+            const isUp = p.normalized_price > p.avgPrice;
+            const arrow = isUp ? '🔺' : '🔻';
+            const cls = isUp ? 'badge-up' : 'badge-down';
+            const pct = Math.abs(((p.normalized_price - p.avgPrice) / p.avgPrice) * 100).toFixed(1);
+            diffBadge = `<span class="analytics-mini-badge ${cls}">${arrow} ${pct}% vs avg</span>`;
+        }
+
+        const newBadge = p.isNew ? `<span class="analytics-mini-badge badge-new">NEW</span>` : '';
+        const oosBadge = !inStock ? `<span class="analytics-mini-badge badge-oos">OUT OF STOCK</span>` : '';
+
+        return `
+            <div class="analytics-item-card" style="--store-color:${storeColor}" data-product-id="${escapeAttribute(p.id)}" title="Click to view full price history chart">
+                <div class="analytics-card-thumb-wrap">
+                    <div class="analytics-card-badges">
+                        <div class="analytics-badge-left">
+                            <span class="analytics-mini-badge" style="background:${storeColor};color:#000;font-weight:900">${escapeHTML(p.store.toUpperCase())}</span>
+                            ${diffBadge}
+                        </div>
+                        <div class="analytics-badge-right">
+                            ${newBadge}
+                            ${oosBadge}
+                        </div>
+                    </div>
+                    <img src="${escapeAttribute(p.image)}" class="analytics-card-img" loading="lazy" onerror="this.src='https://placehold.co/180x180/000/fff?text=NO_IMAGE'">
+                </div>
+                <div class="analytics-card-details">
+                    <div class="analytics-card-title" title="${escapeAttribute(p.name)}">${escapeHTML(p.name)}</div>
+                    <div class="analytics-card-price-row">
+                        <span class="analytics-card-price" style="color:${storeColor}">
+                            ${!inStock ? 'Out of Stock' : `${fmt(p.normalized_price)} <span class="analytics-card-unit">Tk / ${unitTypeLabel(p.unit_type)}</span>`}
+                        </span>
+                        <span style="font-size:0.6rem;color:#94a3b8;font-weight:700">${formatPackUnit(p.unit)}</span>
+                    </div>
+                    <div class="analytics-card-subinfo">
+                        <span>${escapeHTML(truncate(p.category, 18))}</span>
+                        <span>${p.hist_count > 1 ? `Min: ${fmt(p.minPrice)} · Max: ${fmt(p.maxPrice)}` : '1st observation'}</span>
+                    </div>
+                </div>
+            </div>
+        `;
+    }).join('');
+
+    grid.querySelectorAll('.analytics-item-card').forEach(card => {
+        card.addEventListener('click', () => {
+            const pid = card.dataset.productId;
+            const p = allProducts.find(x => x.id === pid);
+            if (p) openDetailedChart(p);
+        });
+    });
 }
 
 function updateAnalyticsContext(model) {
@@ -2705,14 +3105,17 @@ function renderStoreDeepDive(groups) {
         const topCategories = groupProducts(group.items, p => p.category).sort((a, b) => b.count - a.count).slice(0, 4);
         const maxCount = topCategories[0]?.count || 1;
         return `<article class="store-dive-card" style="--store-color:${config.color}">
-            <h4 style="color:${config.color}"><i class="fas fa-store"></i> ${escapeHTML(config.name)}</h4>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:9px;">
+                <h4 style="color:${config.color};margin:0"><i class="fas fa-store"></i> ${escapeHTML(config.name)}</h4>
+                <button class="sensor-pill pill-cyan" onclick="setAnalyticsTab('overview'); openAnalyticsDrilldown('${escapeAttribute(group.key)}', 'all');" style="font-size:0.6rem;padding:2px 7px;">Inspect Cards <i class="fas fa-arrow-right"></i></button>
+            </div>
             <div class="store-dive-stats">
-                <div class="store-dive-stat"><div class="sds-label">Products</div><div class="sds-value">${group.count.toLocaleString()}</div></div>
+                <div class="store-dive-stat" style="cursor:pointer" onclick="setAnalyticsTab('overview'); openAnalyticsDrilldown('${escapeAttribute(group.key)}', 'all');" title="Inspect all products"><div class="sds-label">Products</div><div class="sds-value">${group.count.toLocaleString()}</div></div>
                 <div class="store-dive-stat"><div class="sds-label">Avg price</div><div class="sds-value">${formatTk(group.avg)}</div></div>
-                <div class="store-dive-stat"><div class="sds-label">Deals</div><div class="sds-value" style="color:var(--accent-secondary)">${group.deals}</div></div>
-                <div class="store-dive-stat"><div class="sds-label">Fresh today</div><div class="sds-value">${group.freshness.toFixed(0)}%</div></div>
+                <div class="store-dive-stat" style="cursor:pointer" onclick="setAnalyticsTab('overview'); openAnalyticsDrilldown('${escapeAttribute(group.key)}', 'price_down');" title="Inspect deals & price drops"><div class="sds-label">Deals</div><div class="sds-value" style="color:var(--accent-secondary)">${group.deals}</div></div>
+                <div class="store-dive-stat" style="cursor:pointer" onclick="setAnalyticsTab('overview'); openAnalyticsDrilldown('${escapeAttribute(group.key)}', 'in_stock');" title="Inspect fresh in-stock products"><div class="sds-label">Fresh today</div><div class="sds-value">${group.freshness.toFixed(0)}%</div></div>
                 <div class="store-dive-stat"><div class="sds-label">History</div><div class="sds-value">${group.coverage.toFixed(0)}%</div></div>
-                <div class="store-dive-stat"><div class="sds-label">Volatility</div><div class="sds-value">${group.volatility.toFixed(1)}%</div></div>
+                <div class="store-dive-stat" style="cursor:pointer" onclick="setAnalyticsTab('overview'); openAnalyticsDrilldown('${escapeAttribute(group.key)}', 'price_up');" title="Inspect volatile price movements"><div class="sds-label">Volatility</div><div class="sds-value">${group.volatility.toFixed(1)}%</div></div>
             </div>
             <div class="store-dive-cats">${topCategories.map(category => `<div class="store-dive-cat-bar"><span style="min-width:90px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${escapeHTML(truncate(category.key, 15))}</span><div class="bar-fill"><div style="width:${category.count / maxCount * 100}%;background:${config.color}"></div></div><span style="min-width:28px;text-align:right;color:#64748b">${category.count}</span></div>`).join('')}</div>
         </article>`;

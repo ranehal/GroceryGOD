@@ -18,7 +18,7 @@
 <link rel="preload" href="products_free.parquet" as="fetch" crossorigin>
 <link rel="preload" href="history_free.parquet" as="fetch" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
-<link href="style.css?v=20260823a" rel="stylesheet"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+<link href="style.css?v=20260823b" rel="stylesheet"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
 </head>
 <body class="pitch-black theme-amoled">
 <script>
@@ -432,6 +432,40 @@ if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || wi
 <section class="analytics-panel active" data-analytics-panel="overview">
 <div class="insight-strip" id="analytics-insight-strip"></div>
 <div class="kpi-grid" id="kpi-grid"></div>
+
+<div class="analytics-section" style="margin-top:16px;">
+  <div class="section-heading-row">
+    <h3 class="analytics-section-title"><i class="fas fa-satellite-dish"></i> Market Sensors &amp; Live Scraper Matrix</h3>
+    <span class="section-note">Click any metric pill (🔺 Up, 🔻 Down, 🟢 In Stock, 🔴 OOS, 🆕 New, 🔄 Restocked) to inspect item cards</span>
+  </div>
+  <div class="market-sensors-grid" id="market-sensors-grid"></div>
+</div>
+
+<!-- Interactive Product Drilldown Container for Analytics -->
+<div class="analytics-drilldown-container" id="analytics-drilldown-container" style="display:none;">
+  <div class="analytics-drilldown-header">
+    <div class="drilldown-title-box">
+      <span class="drilldown-tag" id="drilldown-tag">UNIMART</span>
+      <h4 id="drilldown-title">Products with Price Drops</h4>
+    </div>
+    <div class="drilldown-controls">
+      <input type="text" id="drilldown-search" class="drilldown-search-input" placeholder="Search in this list..."/>
+      <select id="drilldown-sort" class="drilldown-sort-select">
+        <option value="drop_desc">Biggest Price Drop (%)</option>
+        <option value="rise_desc">Biggest Price Rise (%)</option>
+        <option value="price_asc">Price: Low to High</option>
+        <option value="price_desc">Price: High to Low</option>
+        <option value="name_asc">Name: A to Z</option>
+      </select>
+      <button class="btn-icon drilldown-close-btn" id="drilldown-close-btn" title="Close drilldown"><i class="fas fa-times"></i></button>
+    </div>
+  </div>
+  <div class="analytics-items-grid" id="analytics-items-grid"></div>
+  <div class="analytics-drilldown-footer" id="drilldown-footer">
+    <span id="drilldown-count-info">Showing items</span>
+  </div>
+</div>
+
 <div class="analytics-chart-row analytics-chart-row-hero">
 <article class="analytics-chart-box chart-wide">
 <div class="chart-box-heading"><span>Market trend</span><small>Average and median unit price</small></div>
@@ -514,7 +548,7 @@ if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || wi
 <script type="module">import * as duckdb from '@duckdb/duckdb-wasm'; window.duckdb=duckdb; window.__duckdb_ready?.();</script>
 <script src="shwapno_manifest.js?v=20260729a"></script><script src="chaldal_manifest.js?v=20260729a"></script><script src="meenabazar_manifest.js?v=20260729a"></script><script src="othoba_manifest.js?v=20260729a"></script><script src="metromart_manifest.js?v=20260729a"></script><script src="unimart_manifest.js?v=20260729a"></script><script src="shotejbazar_manifest.js?v=20260729a"></script><script src="foodi_manifest.js?v=20260729a"></script>
 
-<script src="script.js?v=20260823a"></script>
+<script src="script.js?v=20260823b"></script>
 <div id="god-chat-widget">
   <button id="god-chat-toggle" class="god-chat-fab" aria-label="Open GroceryGOD assistant">💬</button>
   <div id="god-chat-panel" class="god-chat-panel hidden">
