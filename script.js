@@ -282,18 +282,17 @@ async function loadAllFromParquet() {
     const t0 = performance.now();
     const log = (msg) => console.log(`%c[GOD_PARQUET] ${msg}`, 'color: #0ff; font-weight: bold');
 
-    // 🚀 Speed optimization: fetch parquet datasets concurrently with DuckDB-WASM instantiation
-    const parquetFetchPromise = Promise.all([
-        fetchFirstAvailable(['products_free.parquet', 'products.parquet'], 'free products'),
-        fetchFirstAvailable(['history_free.parquet', 'history.parquet'], 'product history')
-    ]);
+    // 🚀 ULTRA-FAST DUAL-PHASE PIPELINE:
+    // Phase 1: Pre-fetch products (2.2MB) & history (31.9MB) concurrently
+    const productsFetchPromise = fetchFirstAvailable(['products_free.parquet', 'products.parquet'], 'free products');
+    const historyFetchPromise = fetchFirstAvailable(['history_free.parquet', 'history.parquet'], 'product history');
 
     log('Waiting for DuckDB-WASM module...');
     if (!window.duckdb) await new Promise(r => { window.__duckdb_ready = r; });
     const duckdb = window.duckdb;
     log(`DuckDB module ready (${((performance.now()-t0)/1000).toFixed(1)}s)`);
 
-    showLoading(true, 'Spinning up DuckDB-WASM...', 10);
+    showLoading(true, 'Spinning up DuckDB-WASM...', 15);
     const JSDELIVR_BUNDLES = duckdb.getJsDelivrBundles();
     const bundle = await duckdb.selectBundle(JSDELIVR_BUNDLES);
     const worker_url = URL.createObjectURL(new Blob([`importScripts("${bundle.mainWorker}");`], {type: 'text/javascript'}));
@@ -304,85 +303,54 @@ async function loadAllFromParquet() {
     const conn = await db.connect();
     log(`DB instantiated & connected (${((performance.now()-t0)/1000).toFixed(1)}s)`);
 
-    showLoading(true, 'Registering Parquet datasets...', 30);
+    showLoading(true, 'Loading product catalog...', 45);
     const t1 = performance.now();
-    const [productAsset, historyAsset] = await parquetFetchPromise;
+    const productAsset = await productsFetchPromise;
     const pBuf = productAsset.buffer;
-    const hBuf = historyAsset.buffer;
-    log(`Parquet datasets ready in ${((performance.now()-t1)/1000).toFixed(1)}s — products: ${(pBuf.byteLength/1024/1024).toFixed(1)}MB, history: ${(hBuf.byteLength/1024/1024).toFixed(1)}MB`);
+    log(`Product catalog downloaded in ${((performance.now()-t1)/1000).toFixed(1)}s (${(pBuf.byteLength/1024/1024).toFixed(1)}MB)`);
+
     await db.registerFileBuffer('products.parquet', new Uint8Array(pBuf));
-    await db.registerFileBuffer('history.parquet', new Uint8Array(hBuf));
-    await conn.query(`CREATE OR REPLACE VIEW history_access AS SELECT * FROM read_parquet('history.parquet')`);
-    log(`Free files registered (${productAsset.path}, ${historyAsset.path})`);
+    log(`Products registered (${productAsset.path})`);
 
-    showLoading(true, 'Computing product stats in SQL...', 50);
+    showLoading(true, 'Indexing products in SQL...', 75);
     const t2 = performance.now();
-    const result = await conn.query(`
-        SELECT 
-            p.id, p.name, p.store, p.category, p.unit, p.unit_type,
-            p.current_price, p.normalized_price, p.image, p.url, p.first_seen,
-            COUNT(h.date) as hist_count,
-            MIN(CASE WHEN h.price > 0 THEN h.normalized_price ELSE NULL END) as min_price,
-            MAX(CASE WHEN h.price > 0 THEN h.normalized_price ELSE NULL END) as max_price,
-            AVG(CASE WHEN h.price > 0 THEN h.normalized_price ELSE NULL END) as avg_price,
-            MIN(CASE WHEN h.price > 0 THEN h.date ELSE NULL END) as oldest_date,
-            MAX(CASE WHEN h.price > 0 THEN h.date ELSE NULL END) as newest_date
-        FROM read_parquet('products.parquet') p
-        LEFT JOIN history_access h ON p.id = h.product_id
-        GROUP BY p.id, p.name, p.store, p.category, p.unit, p.unit_type,
-                 p.current_price, p.normalized_price, p.image, p.url, p.first_seen
-    `);
-    log(`SQL aggregation done: ${result.numRows} products in ${((performance.now()-t2)/1000).toFixed(1)}s`);
+    const result = await conn.query(`SELECT * FROM read_parquet('products.parquet')`);
+    log(`SQL query completed: ${result.numRows} products in ${((performance.now()-t2)/1000).toFixed(1)}s`);
 
-    showLoading(true, 'Building product matrix...', 80);
+    showLoading(true, 'Rendering interface...', 90);
     const t3 = performance.now();
     for (const row of result.toArray()) {
         const r = row.toJSON();
+        const inStock = (r.in_stock !== false) && Number(r.current_price) > 0;
+        const normPrice = Number(r.normalized_price) > 0 ? Number(r.normalized_price) : 0;
         allProducts.push({
-            id: r.id, name: r.name, store: r.store, category: r.category,
-            unit: r.unit, unit_type: r.unit_type, current_price: r.current_price,
-            normalized_price: r.normalized_price, image: r.image, url: r.url,
-            first_seen: r.first_seen,
+            id: r.id,
+            name: r.name,
+            store: r.store,
+            category: r.category,
+            unit: r.unit,
+            unit_type: r.unit_type,
+            current_price: r.current_price,
+            normalized_price: r.normalized_price,
+            image: r.image,
+            url: r.url,
+            first_seen: r.first_seen || null,
+            last_seen: r.last_seen || null,
+            in_stock: inStock,
+            is_out_of_stock: !inStock,
             history: [],
-            hist_count: Number(r.hist_count) || 0,
-            minPrice: r.min_price != null ? Number(r.min_price) : r.normalized_price,
-            maxPrice: r.max_price != null ? Number(r.max_price) : r.normalized_price,
-            avgPrice: r.avg_price != null ? Number(r.avg_price) : r.normalized_price,
-            oldest_date: r.oldest_date || null,
-            newest_date: r.newest_date || null,
+            hist_count: 0,
+            minPrice: normPrice,
+            maxPrice: normPrice,
+            avgPrice: normPrice,
+            oldest_date: r.first_seen || null,
+            newest_date: r.last_seen || null,
             _historyLoaded: false
         });
     }
     log(`Products mapped: ${allProducts.length} in ${((performance.now()-t3)/1000).toFixed(1)}s`);
 
-    godDB = { db, conn };
-
-    // 🔑 Auto-restore saved premium status from localStorage if present
-    const savedPassphrase = safeStorage.getItem('god_premium_passphrase');
-    if (savedPassphrase) {
-        try {
-            log('Restoring saved premium license in background...');
-            await unlockPremiumArchive(savedPassphrase);
-            setPremiumUnlocked(true, true);
-            log('✨ Premium mode auto-restored!');
-        } catch (e) {
-            console.warn('[GOD_PREMIUM] Auto-restore with saved passphrase failed:', e);
-            safeStorage.removeItem('god_premium_passphrase');
-            setPremiumUnlocked(false, true);
-        }
-    }
-
-    // Build metadata.stores from actual parquet data (per-store product counts + date ranges)
-    const storeCountResult = await conn.query(`
-        SELECT p.store,
-               COUNT(DISTINCT p.id) AS total,
-               COALESCE(MIN(CASE WHEN h.price > 0 THEN h.date ELSE NULL END), MIN(p.first_seen)) AS oldest_seen,
-               COALESCE(MAX(CASE WHEN h.price > 0 THEN h.date ELSE NULL END), MAX(p.first_seen)) AS newest_seen
-        FROM read_parquet('products.parquet') p
-        LEFT JOIN history_access h ON p.id = h.product_id
-        GROUP BY p.store
-    `);
-    
+    // Build initial metadata.stores from products table alone
     metadata.stores = {};
     const storesList = ['shwapno','chaldal','meenabazar','othoba','metromart','unimart','shotejbazar','foodi'];
     const dToday = dhakaTodayStr();
@@ -398,6 +366,15 @@ async function loadAllFromParquet() {
             };
         }
     });
+
+    const storeCountResult = await conn.query(`
+        SELECT store,
+               COUNT(DISTINCT id) AS total,
+               MIN(first_seen) AS oldest_seen,
+               MAX(last_seen) AS newest_seen
+        FROM read_parquet('products.parquet')
+        GROUP BY store
+    `);
 
     for (const row of storeCountResult.toArray()) {
         const r = row.toJSON();
@@ -415,15 +392,125 @@ async function loadAllFromParquet() {
         }
     }
 
+    godDB = { db, conn };
     window.loadedStores = new Set(storesList);
     activeShopFilters = new Set(['shwapno']);
+
+    // Phase 2: Start background history hydration without blocking initial render
+    window.__historyPromise = hydrateHistoryInBackground(historyFetchPromise, db, conn);
+
     const elapsed = ((performance.now()-t0)/1000).toFixed(1);
-    log(`DONE — ${allProducts.length} products loaded in ${elapsed}s`);
+    log(`🚀 FAST LAUNCH READY — ${allProducts.length} products loaded in ${elapsed}s! (Hydrating history in background)`);
+}
+
+async function hydrateHistoryInBackground(historyFetchPromise, db, conn) {
+    try {
+        const t0 = performance.now();
+        console.log('%c[GOD_HISTORY] ⏳ Fetching deep history archive in background...', 'color: #0ff; font-weight: bold');
+        const historyAsset = await historyFetchPromise;
+        const hBuf = historyAsset.buffer;
+        await db.registerFileBuffer('history.parquet', new Uint8Array(hBuf));
+        await conn.query(`CREATE OR REPLACE VIEW history_access AS SELECT * FROM read_parquet('history.parquet')`);
+        console.log(`%c[GOD_HISTORY] history.parquet registered in ${((performance.now()-t0)/1000).toFixed(1)}s (${(hBuf.byteLength/1024/1024).toFixed(1)}MB)`, 'color: #0ff; font-weight: bold');
+
+        const tAgg = performance.now();
+        const result = await conn.query(`
+            SELECT 
+                p.id,
+                COUNT(h.date) as hist_count,
+                MIN(CASE WHEN h.price > 0 THEN h.normalized_price ELSE NULL END) as min_price,
+                MAX(CASE WHEN h.price > 0 THEN h.normalized_price ELSE NULL END) as max_price,
+                AVG(CASE WHEN h.price > 0 THEN h.normalized_price ELSE NULL END) as avg_price,
+                MIN(CASE WHEN h.price > 0 THEN h.date ELSE NULL END) as oldest_date,
+                MAX(CASE WHEN h.price > 0 THEN h.date ELSE NULL END) as newest_date
+            FROM read_parquet('products.parquet') p
+            LEFT JOIN history_access h ON p.id = h.product_id
+            GROUP BY p.id
+        `);
+        console.log(`%c[GOD_HISTORY] History aggregation matrix computed in ${((performance.now()-tAgg)/1000).toFixed(1)}s`, 'color: #0ff');
+
+        const statsMap = new Map();
+        for (const row of result.toArray()) {
+            const r = row.toJSON();
+            statsMap.set(String(r.id), r);
+        }
+
+        let updated = 0;
+        allProducts.forEach(p => {
+            const s = statsMap.get(String(p.id));
+            if (!s) return;
+            p.hist_count = Number(s.hist_count) || 0;
+            if (s.min_price != null) p.minPrice = Number(s.min_price);
+            if (s.max_price != null) p.maxPrice = Number(s.max_price);
+            if (s.avg_price != null) p.avgPrice = Number(s.avg_price);
+            if (s.oldest_date) p.oldest_date = String(s.oldest_date).slice(0, 10);
+            if (s.newest_date) p.newest_date = String(s.newest_date).slice(0, 10);
+            p.hasPriceHistory = p.hist_count > 1 && (p.maxPrice > p.minPrice);
+            updated++;
+        });
+
+        // Update metadata.stores with precise observed price history dates
+        const storeCountResult = await conn.query(`
+            SELECT p.store,
+                   COUNT(DISTINCT p.id) AS total,
+                   COALESCE(MIN(CASE WHEN h.price > 0 THEN h.date ELSE NULL END), MIN(p.first_seen)) AS oldest_seen,
+                   COALESCE(MAX(CASE WHEN h.price > 0 THEN h.date ELSE NULL END), MAX(p.first_seen)) AS newest_seen
+            FROM read_parquet('products.parquet') p
+            LEFT JOIN history_access h ON p.id = h.product_id
+            GROUP BY p.store
+        `);
+        const dToday = dhakaTodayStr();
+        for (const row of storeCountResult.toArray()) {
+            const r = row.toJSON();
+            const s = String(r.store);
+            const manifest = window[s + 'Manifest'];
+            if (manifest && manifest.metadata && manifest.metadata.date_range && manifest.metadata.date_range !== 'N/A') {
+                metadata.stores[s] = manifest.metadata;
+            } else {
+                const oldest = r.oldest_seen ? String(r.oldest_seen).slice(0, 10) : '2026-02-15';
+                const newest = r.newest_seen ? String(r.newest_seen).slice(0, 10) : dToday;
+                metadata.stores[s] = {
+                    total: Number(r.total) || (metadata.stores[s] ? metadata.stores[s].total : 0),
+                    date_range: `${oldest} to ${newest}`
+                };
+            }
+        }
+
+        window.__historyReady = true;
+
+        // 🔑 Auto-restore saved premium status from localStorage if present
+        const savedPassphrase = safeStorage.getItem('god_premium_passphrase');
+        if (savedPassphrase) {
+            try {
+                console.log('%c[GOD_PREMIUM] Restoring saved premium license in background...', 'color: #0ff');
+                await unlockPremiumArchive(savedPassphrase);
+                setPremiumUnlocked(true, true);
+                console.log('%c[GOD_PREMIUM] ✨ Premium mode auto-restored!', 'color: #0f0; font-weight: bold');
+            } catch (e) {
+                console.warn('[GOD_PREMIUM] Auto-restore with saved passphrase failed:', e);
+                safeStorage.removeItem('god_premium_passphrase');
+                setPremiumUnlocked(false, true);
+            }
+        }
+
+        // Re-process metrics and update UI quietly without disrupting scroll or user interaction
+        try { processData(); } catch(e) {}
+        try { updateStoreStats(); } catch(e) {}
+        try { updateStatsBar(); } catch(e) {}
+        try { renderProducts(); } catch(e) {}
+        console.log(`%c[GOD_HISTORY] ✅ Background hydration finished successfully (${updated} products updated)`, 'color: #0f0; font-weight: bold');
+    } catch (err) {
+        console.error('[GOD_HISTORY] Background history hydration failed:', err);
+    }
 }
 
 async function loadStoreData(sid) {
     if (!godDB) return;
-    const result = await godDB.conn.query(`
+    if (!window.__historyReady && window.__historyPromise) {
+        try { await window.__historyPromise; } catch(e) {}
+    }
+    const hasHistoryAccess = Boolean(window.__historyReady);
+    const query = hasHistoryAccess ? `
         SELECT 
             p.id, p.name, p.store, p.category, p.unit, p.unit_type,
             p.current_price, p.normalized_price, p.image, p.url,
@@ -440,7 +527,21 @@ async function loadStoreData(sid) {
         GROUP BY p.id, p.name, p.store, p.category, p.unit, p.unit_type,
                  p.current_price, p.normalized_price, p.image, p.url,
                  p.first_seen, p.last_seen, p.in_stock, p.is_out_of_stock
-    `);
+    ` : `
+        SELECT 
+            p.id, p.name, p.store, p.category, p.unit, p.unit_type,
+            p.current_price, p.normalized_price, p.image, p.url,
+            p.first_seen, p.last_seen, p.in_stock, p.is_out_of_stock,
+            0 as hist_count,
+            p.normalized_price as min_price,
+            p.normalized_price as max_price,
+            p.normalized_price as avg_price,
+            p.first_seen as oldest_date,
+            p.last_seen as newest_date
+        FROM read_parquet('products.parquet') p
+        WHERE p.store = '${sid}'
+    `;
+    const result = await godDB.conn.query(query);
     for (const row of result.toArray()) {
         const r = row.toJSON();
         const inStock = (r.in_stock !== false) && Number(r.current_price) > 0;
@@ -476,6 +577,9 @@ async function loadProductHistory(productId) {
     const rawId = productId.replace(/^(sh_|ch_|mb_|ot_|mt_|uni_|sj_|fd_)/, '');
     if (godDB) {
         try {
+            if (!window.__historyReady && window.__historyPromise) {
+                await window.__historyPromise;
+            }
             const cleanId = productId.replace(/'/g, "''");
             const cleanRawId = rawId.replace(/'/g, "''");
             const result = await godDB.conn.query(`
@@ -504,6 +608,10 @@ async function loadProductHistory(productId) {
 
 async function computePriceChanges(days) {
     if (!godDB) return;
+    if (!window.__historyReady && window.__historyPromise) {
+        try { await window.__historyPromise; } catch(e) {}
+    }
+    if (!window.__historyReady) return;
     const cutoff = toDhaka(new Date(todayStr + 'T12:00:00'));
     cutoff.setDate(cutoff.getDate() - days);
     const cutoffStr = cutoff.getFullYear() + '-' + String(cutoff.getMonth() + 1).padStart(2, '0') + '-' + String(cutoff.getDate()).padStart(2, '0');
@@ -2264,6 +2372,9 @@ function summarizeGroup(key, items) {
 
 async function loadAnalyticsHistory(products) {
     if (window.GOD_DEMO_MODE || !godDB) return loadDemoAnalyticsHistory(products);
+    if (!window.__historyReady && window.__historyPromise) {
+        try { await window.__historyPromise; } catch(e) {}
+    }
 
     const conditions = ['h.normalized_price > 0'];
     if (analyticsState.scope === 'store' && analyticsState.store !== 'all') conditions.push(`p.store = '${sqlEscape(analyticsState.store)}'`);

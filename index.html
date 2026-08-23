@@ -13,11 +13,23 @@
 <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+<link rel="preload" href="products_free.parquet" as="fetch" crossorigin>
+<link rel="preload" href="history_free.parquet" as="fetch" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
-<link href="style.css?v=20260816b" rel="stylesheet"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+<link href="style.css?v=20260823a" rel="stylesheet"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
 </head>
 <body class="pitch-black theme-amoled">
-<script>window.GOD_ASSET_VERSION = '20260729b'; window.GOD_ALLOW_LEGACY_DATA = false;</script>
+<script>
+window.GOD_ASSET_VERSION = '20260823a';
+window.GOD_ALLOW_LEGACY_DATA = false;
+if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js?v=' + window.GOD_ASSET_VERSION).catch(() => {});
+    });
+}
+</script>
 <div class="spinner-container" id="loading-spinner">
 <div class="spinner"></div>
 <span style="color:var(--accent-color); font-weight:800;">Loading: <span id="loading-percent">0</span>%</span>
@@ -502,7 +514,7 @@
 <script type="module">import * as duckdb from '@duckdb/duckdb-wasm'; window.duckdb=duckdb; window.__duckdb_ready?.();</script>
 <script src="shwapno_manifest.js?v=20260729a"></script><script src="chaldal_manifest.js?v=20260729a"></script><script src="meenabazar_manifest.js?v=20260729a"></script><script src="othoba_manifest.js?v=20260729a"></script><script src="metromart_manifest.js?v=20260729a"></script><script src="unimart_manifest.js?v=20260729a"></script><script src="shotejbazar_manifest.js?v=20260729a"></script><script src="foodi_manifest.js?v=20260729a"></script>
 
-<script src="script.js?v=20260816b"></script>
+<script src="script.js?v=20260823a"></script>
 <div id="god-chat-widget">
   <button id="god-chat-toggle" class="god-chat-fab" aria-label="Open GroceryGOD assistant">💬</button>
   <div id="god-chat-panel" class="god-chat-panel hidden">

@@ -12,7 +12,11 @@ DIRECTORY = Path(__file__).parent
 class RobustHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
     def end_headers(self):
         self.send_header('Access-Control-Allow-Origin', '*')
-        self.send_header('Cache-Control', 'no-store, no-cache, must-revalidate')
+        clean_path = self.path.split('?')[0].lower()
+        if clean_path.endswith('.parquet') or '_data_part' in clean_path or '_manifest' in clean_path or clean_path.endswith('.wasm'):
+            self.send_header('Cache-Control', 'public, max-age=3600')
+        else:
+            self.send_header('Cache-Control', 'no-store, no-cache, must-revalidate')
         super().end_headers()
 
     def handle(self):
