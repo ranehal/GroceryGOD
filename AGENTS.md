@@ -70,6 +70,10 @@ These fixes were extracted from live Kaggle failures. Preserve the patterns:
 - **Sub-repo Price Stats `glob` Import Fix & In-Repo Scraper Cleanup (2026-08-23, do not regress)**:
   - Added `import glob` at module top and inside `_extract_repo_price_stats` in `scratch.py` to prevent `NameError: name 'glob' is not defined`.
   - Removed `FooDIEscraper` from in-repo parallel scrapers list (since FooDIE Mart is a separate sub-repo `p5`) and added automatic DB sync from `/kaggle/working/FooDIE-mart-Analytics/data/scraper.db` before aggregator runs. Increased `SCRAPER_TIMEOUT` to 45 minutes (`45 * 60`).
+- **1-Look Monospace Table Telegram Summary & Sub-Repo Concurrency Control (2026-08-25, do not regress)**:
+  - `aggregator.py` formats the Telegram summary as a clean, single-screen `<pre>` monospace table with Store, Total, ▲ Up, ▼ Down, New, and OOS counts plus grand total, compact source breakdown, and observed date ranges.
+  - Replaced 12 simultaneous unconstrained processes with a managed 2-worker executor (`ThreadPoolExecutor(max_workers=2)`) in `scratch.py` to eliminate resource exhaustion and OOM kills on Kaggle.
+  - Strict Telegram whitelist enforced: Only `📊 Aggregator Complete` (1-look table) and `✅ Kaggle Restart Triggered Successfully!` sent to Telegram. Scheduled sub-repo summary logged to `/tmp/p14_summary.log` locally.
 
 ## Encryption & secrets
 

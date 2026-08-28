@@ -1021,7 +1021,10 @@ def save_store_data(name, data_tuple):
         'price_down': price_down_cnt,
         'price_same': price_same_cnt,
         'back_in_stock': back_in_stock_cnt,
-        'went_oos': went_oos_cnt
+        'went_oos': went_oos_cnt,
+        'date_range': date_range,
+        'scraper_stats': scraper_stats,
+        'chunks': total_chunks
     }
 
 def read_scraper_log(store_dir):
@@ -1164,22 +1167,70 @@ def main():
         def _mp(val):
             return f"({(val / tot_prods * 100):.1f}%)" if tot_prods > 0 else "(0.0%)"
 
-        market_header = [
-            "📊 <b>Aggregator Complete</b>",
-            f"📦 <b>Total Monitored:</b> {tot_prods:,} products across 8 stores",
-            f"🟢 In Stock: {tot_in_stock:,} {_mp(tot_in_stock)} | 🔴 Out of Stock: {tot_oos:,} {_mp(tot_oos)}",
-            f"🆕 New Items: {tot_new:,} {_mp(tot_new)}",
-            f"🏷️ Prices: 🔺 {tot_up:,} {_mp(tot_up)} up | 🔻 {tot_down:,} {_mp(tot_down)} down | ⏸️ {tot_same:,} {_mp(tot_same)} unchanged",
+        STORE_KEYS = [
+            ("shwapno", "Shwapno"),
+            ("chaldal", "Chaldal"),
+            ("meenabazar", "Meena"),
+            ("othoba", "Othoba"),
+            ("metromart", "Metro"),
+            ("unimart", "Unimart"),
+            ("shotejbazar", "Shotej"),
+            ("foodi", "FooDIE")
+        ]
+
+        header = '%-8s %7s %4s %4s %4s %3s' % ('Store', 'Total', '▲', '▼', 'New', 'OOS')
+        div = '─' * len(header)
+        tbl_lines = [
+            "<pre>",
+            header,
+            div
+        ]
+
+        tot_up_sum = 0
+        tot_down_sum = 0
+        tot_new_sum = 0
+        tot_oos_sum = 0
+
+        for skey, sname in STORE_KEYS:
+            sm = store_metrics.get(skey, {})
+            stot = sm.get('total', 0)
+            sup = sm.get('price_up', 0)
+            sdn = sm.get('price_down', 0)
+            snw = sm.get('new_items', 0)
+            soos = sm.get('out_of_stock', 0)
+            tot_up_sum += sup
+            tot_down_sum += sdn
+            tot_new_sum += snw
+            tot_oos_sum += soos
+            tbl_lines.append('%-8s %7s %4d %4d %4d %3d' % (sname, f"{stot:,}", sup, sdn, snw, soos))
+
+        tbl_lines.append(div)
+        tbl_lines.append('%-8s %7s %4d %4d %4d %3d' % ('TOTAL', f"{tot_prods:,}", tot_up_sum, tot_down_sum, tot_new_sum, tot_oos_sum))
+        tbl_lines.append("</pre>")
+
+        telemetry_lines = [
+            f"🟢 <b>In Stock:</b> {tot_in_stock:,} {_mp(tot_in_stock)} | 🔴 <b>OOS:</b> {tot_oos:,} {_mp(tot_oos)}"
         ]
         if tot_restocked > 0 or tot_went_oos > 0:
             stock_move_parts = []
-            if tot_restocked > 0: stock_move_parts.append(f"🟢 {tot_restocked:,} {_mp(tot_restocked)} restocked")
-            if tot_went_oos > 0: stock_move_parts.append(f"🔴 {tot_went_oos:,} {_mp(tot_went_oos)} went OOS")
-            market_header.append(f"🔄 Stock Delta: " + " | ".join(stock_move_parts))
-        
-        market_header.append("──────────────────────────────")
-        
-        msg = "\n".join(market_header) + "\n\n" + "\n\n".join(summaries)
+            if tot_restocked > 0: stock_move_parts.append(f"🟢 {tot_restocked:,} restocked")
+            if tot_went_oos > 0: stock_move_parts.append(f"🔴 {tot_went_oos:,} went OOS")
+            telemetry_lines.append("🔄 <b>Delta:</b> " + " | ".join(stock_move_parts))
+
+        all_dates = [sm.get('date_range', '') for sm in store_metrics.values() if sm.get('date_range')]
+        if all_dates:
+            min_dates = [d.split(' to ')[0] for d in all_dates if ' to ' in d]
+            max_dates = [d.split(' to ')[1] for d in all_dates if ' to ' in d]
+            if min_dates and max_dates:
+                telemetry_lines.append(f"📅 <b>History:</b> {min(min_dates)} to {max(max_dates)}")
+
+        full_parts = [
+            "📊 <b>GroceryGOD Market Summary</b>",
+            "\n".join(tbl_lines),
+            "\n".join(telemetry_lines),
+            "🔗 https://ranehal.github.io/GroceryGOD"
+        ]
+        msg = "\n\n".join(full_parts)
         try:
             _agg_share = '/tmp/aggregator_summary.txt'
             with open(_agg_share, 'w', encoding='utf-8') as f:

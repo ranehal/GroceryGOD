@@ -85,13 +85,41 @@ def _reclaim_disk(force=False):
 # ============================================================
 # INITIALIZATION & SECRETS
 # ============================================================
+_PERSISTED_SECRETS = {}
+
 def get_secret_safe(key, default=""):
+    # 1. Try Kaggle UserSecretsClient (UI attached)
     try:
         from kaggle_secrets import UserSecretsClient
         val = UserSecretsClient().get_secret(key)
-        return val if val else default
-    except:
-        return os.environ.get(key, default)
+        if val is not None and str(val).strip():
+            return str(val).strip()
+    except Exception:
+        pass
+
+    # 2. Try OS Environment
+    val = os.environ.get(key)
+    if val is not None and str(val).strip():
+        return str(val).strip()
+
+    # 3. Try Injected Persisted Secrets (auto-propagated across container restarts)
+    if isinstance(globals().get('_PERSISTED_SECRETS'), dict):
+        val = _PERSISTED_SECRETS.get(key)
+        if val is not None and str(val).strip():
+            return str(val).strip()
+
+    # 4. Try attached Kaggle Dataset fallback (e.g. /kaggle/input/**/secrets*.json or vault)
+    try:
+        import glob
+        for f in glob.glob('/kaggle/input/**/secrets*.json', recursive=True) + glob.glob('/kaggle/input/**/vault*.json', recursive=True):
+            with open(f, 'r', encoding='utf-8') as jf:
+                data = json.load(jf)
+                if key in data and data[key]:
+                    return str(data[key]).strip()
+    except Exception:
+        pass
+
+    return default
 
 GITHUB_PAT = get_secret_safe('GITHUB_PAT')
 os.environ['KAGGLE_USERNAME'] = get_secret_safe('KAGGLE_USERNAME')
@@ -171,6 +199,44 @@ def trigger_self_restart():
             shutil.copy('/kaggle/notebook_source.ipynb', code_filename)
         else:
             print("[SYSTEM] Live source location unavailable. Defaulting to server sync pull configuration.")
+
+        # Persist active runtime secrets into the payload notebook so the self-booted container has them
+        active_secrets = {
+            'GITHUB_PAT': GITHUB_PAT or '',
+            'KAGGLE_USERNAME': os.environ.get('KAGGLE_USERNAME', ''),
+            'KAGGLE_KEY': os.environ.get('KAGGLE_KEY', ''),
+            'TELEGRAM_BOT_TOKEN': os.environ.get('TELEGRAM_BOT_TOKEN', ''),
+            'TELEGRAM_CHAT_ID': os.environ.get('TELEGRAM_CHAT_ID', ''),
+            'KAGGLE_KERNEL_SLUG': KAGGLE_KERNEL_SLUG or 'ranehalx/gitgod',
+            'GOD_PREMIUM_KEY': os.environ.get('GOD_PREMIUM_KEY', 'assalamualaikum')
+        }
+
+        try:
+            with open(code_filename, 'r', encoding='utf-8') as nbf:
+                nb_data = json.load(nbf)
+
+            injected = False
+            for cell in nb_data.get('cells', []):
+                if cell.get('cell_type') == 'code':
+                    lines = cell.get('source', [])
+                    new_lines = []
+                    for l in lines:
+                        if l.startswith('_PERSISTED_SECRETS ='):
+                            new_lines.append(f"_PERSISTED_SECRETS = {json.dumps(active_secrets)}\n")
+                            injected = True
+                        else:
+                            new_lines.append(l)
+                    if not injected:
+                        new_lines.insert(0, f"_PERSISTED_SECRETS = {json.dumps(active_secrets)}\n")
+                        injected = True
+                    cell['source'] = new_lines
+                    break
+
+            with open(code_filename, 'w', encoding='utf-8') as nbf:
+                json.dump(nb_data, nbf, indent=1)
+            print(f"[SYSTEM] Successfully baked active secrets into payload {code_filename} for seamless self-boot.")
+        except Exception as _sec_err:
+            print(f"[SYSTEM] Warning: Could not bake secrets into notebook payload: {_sec_err}")
 
         print("[SYSTEM] Pushing kernel payload to trigger next loop container...")
         api.kernels_push('.')
@@ -1342,29 +1408,8 @@ def _send_p14_summary(results_store, repo_list):
         with open("/tmp/p14_summary.log", "w", encoding="utf-8") as _pf:
             _pf.write(full_message)
         print("Scheduled repos summary logged locally to /tmp/p14_summary.log")
-    except Exception:
-        pass
-
-    # Send via Telegram (chunked to stay under 4096-char limit)
-    try:
-        _MAX = 3900
-        if len(full_message) <= _MAX:
-            tg_send(full_message)
-        else:
-            # Split on double-newlines (repo blocks) to avoid cutting mid-repo
-            _parts = full_message.split("\n\n")
-            _buf = ""
-            for _part in _parts:
-                if _buf and len(_buf) + len(_part) + 2 > _MAX:
-                    tg_send(_buf.strip())
-                    _buf = _part + "\n\n"
-                else:
-                    _buf += _part + "\n\n"
-            if _buf.strip():
-                tg_send(_buf.strip())
-        print("Scheduled repos Telegram summary sent.")
-    except Exception as _tg_err:
-        print(f"Warning: Failed to send p14 Telegram summary: {_tg_err}")
+    except Exception as _log_err:
+        print(f"Warning: Failed to log p14 summary locally: {_log_err}")
 
 def _read_aggregator_summary():
     """Read the aggregator.py summary from its shared output file (empty string if absent)."""
@@ -1646,6 +1691,23 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
         _p14_record.update(status='failed', error=err_str, error_tb=safe_tb, elapsed=int(time.time() - _t0), url=repo_page_url)
         _store_result()
 
+def run_all_scheduled_repos(repos, github_pat, results_store=None):
+    """Execute scheduled sub-repos with controlled concurrency (2 workers) to prevent Kaggle OOM / fork crashes."""
+    print(f"🚀 [Scheduled Repos] Launching sub-repos executor (max 2 parallel workers across {len(repos)} repos)...")
+    with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
+        futures = {
+            executor.submit(run_scheduled_repo, repo_url, script_name, label, github_pat, results_store): label
+            for repo_url, script_name, label in repos
+        }
+        for future in concurrent.futures.as_completed(futures):
+            lbl = futures[future]
+            try:
+                future.result()
+                print(f"✅ [Scheduled Repos] Finished: {lbl}")
+            except Exception as exc:
+                print(f"❌ [Scheduled Repos] Exception in {lbl}: {exc}")
+    print("🟢 [Scheduled Repos] All scheduled sub-repos completed.")
+
 # MASTER ORCHESTRATOR LOOP
 # ============================================================
 if __name__ == '__main__':
@@ -1684,40 +1746,27 @@ if __name__ == '__main__':
 
     p1 = multiprocessing.Process(target=run_grocery_god, args=(GITHUB_PAT,))
     p2 = multiprocessing.Process(target=run_gitw)
-    p3 = multiprocessing.Process(target=run_scheduled_repo, args=(*_scheduled_repos[0], GITHUB_PAT, _p14_results))
-    p4 = multiprocessing.Process(target=run_scheduled_repo, args=(*_scheduled_repos[1], GITHUB_PAT, _p14_results))
-    p5 = multiprocessing.Process(target=run_scheduled_repo, args=(*_scheduled_repos[2], GITHUB_PAT, _p14_results))
-    p6 = multiprocessing.Process(target=run_scheduled_repo, args=(*_scheduled_repos[3], GITHUB_PAT, _p14_results))
-    p7 = multiprocessing.Process(target=run_scheduled_repo, args=(*_scheduled_repos[4], GITHUB_PAT, _p14_results))
-    p8 = multiprocessing.Process(target=run_scheduled_repo, args=(*_scheduled_repos[5], GITHUB_PAT, _p14_results))
-    p9 = multiprocessing.Process(target=run_scheduled_repo, args=(*_scheduled_repos[6], GITHUB_PAT, _p14_results))
-    p10 = multiprocessing.Process(target=run_scheduled_repo, args=(*_scheduled_repos[7], GITHUB_PAT, _p14_results))
-    p11 = multiprocessing.Process(target=run_scheduled_repo, args=(*_scheduled_repos[8], GITHUB_PAT, _p14_results))
-    p12 = multiprocessing.Process(target=run_scheduled_repo, args=(*_scheduled_repos[9], GITHUB_PAT, _p14_results))
-    p13 = multiprocessing.Process(target=run_scheduled_repo, args=(*_scheduled_repos[10], GITHUB_PAT, _p14_results))
-    p14 = multiprocessing.Process(target=run_scheduled_repo, args=(*_scheduled_repos[11], GITHUB_PAT, _p14_results))
+    p3 = multiprocessing.Process(target=run_all_scheduled_repos, args=(_scheduled_repos, GITHUB_PAT, _p14_results))
     
     p2.start()
-    print("⏳ Sleeping 10 minutes (600s) before starting p1 & p3-p14 to sync Kaggle Netherlands/UTC time with Dhaka date...")
+    print("⏳ Sleeping 10 minutes (600s) before starting p1 & p3 to sync Kaggle Netherlands/UTC time with Dhaka date...")
     for _i in range(10, 0, -1):
         print(f"⏳ [{11 - _i}/10 min] Waiting {_i * 60}s for Dhaka time sync (p2 gitw running in background)...")
         time.sleep(60)
     p1.start()
-    for _proc in [p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14]:
-        _proc.start()
-        time.sleep(10)
+    p3.start()
     
     start_time = time.time()
     timeout_seconds = 11 * 3600  # 11 hours safety timeout (well under Kaggle 12h cell limit)
     _p14_done = False
 
     while time.time() - start_time < timeout_seconds:
-        if not any(p.is_alive() for p in [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14]):
+        if not any(p.is_alive() for p in [p1, p2, p3]):
             print("\n✅ All parallel pipelines finished ahead of schedule!")
             break
-        if not _p14_done and not any(p.is_alive() for p in [p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14]):
+        if not _p14_done and not p3.is_alive():
             _p14_done = True
-            print("🟢 All scheduled repos (p3-p14) finished. Sending consolidated Telegram summary...")
+            print("🟢 Scheduled repos (p3) finished. Logging consolidated summary locally...")
             _send_p14_summary(_p14_results, list(zip([lbl for _, _, lbl in _scheduled_repos], _repo_pages)))
         time.sleep(30)
     else:
@@ -1734,17 +1783,16 @@ if __name__ == '__main__':
     for i in range(1, 35):
         os.system(f"pkill -9 -f {i}.py")
 
-    for p in [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14]:
+    for p in [p1, p2, p3]:
         if p.is_alive():
             p.terminate()
             p.join(timeout=5)
     
     time.sleep(5)
     print("\n🔄 Triggering next cycle...")
-    # Report p3-p14 exit status
-    for _n, _p in [("FooDIE Rest", p3), ("FoodPANDA Rest", p4), ("FooDIE Mart", p5), ("Shwapno Analytics", p6), ("Othoba Analytics", p7), ("CARTup", p8), ("Chaldal Analytics", p9), ("COOKup", p10), ("PICAboo", p11), ("DARAZ", p12), ("Meena Bazar Analytics", p13), ("ShareDeal Analytics", p14)]:
+    for _n, _p in [("GroceryGOD (p1)", p1), ("gitw (p2)", p2), ("Scheduled Repos (p3)", p3)]:
         s = "OK" if _p.exitcode == 0 else f"rc={_p.exitcode}" if _p.exitcode is not None else "alive"
-        print(f"[p3-p14] {_n}: {s}")
+        print(f"[{_n}]: {s}")
     
     trigger_self_restart()
 
