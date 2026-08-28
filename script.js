@@ -248,9 +248,108 @@ function formatChartDates(dates) {
     return dates.map(d => formatChartDateItem(d, includeYear));
 }
 
+function initHeroInteractions() {
+    const hero = document.getElementById('landing-hero');
+    const catalogAnchor = document.getElementById('catalog-anchor');
+    if (!hero || !catalogAnchor) return;
+
+    function scrollToCatalog() {
+        catalogAnchor.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function scrollToHero() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Hero buttons
+    document.getElementById('hero-cta-top')?.addEventListener('click', scrollToCatalog);
+    document.getElementById('hero-nav-explore-btn')?.addEventListener('click', scrollToCatalog);
+    document.getElementById('hero-scroll-down-btn')?.addEventListener('click', scrollToCatalog);
+    document.getElementById('hero-nav-analytics-btn')?.addEventListener('click', () => {
+        scrollToCatalog();
+        setTimeout(() => {
+            const analyticsBtn = document.getElementById('analytics-tab-btn') || document.querySelector('.analytics-header-btn');
+            if (analyticsBtn) analyticsBtn.click();
+        }, 400);
+    });
+
+    // Return to hero from header
+    document.getElementById('header-hero-tab')?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        scrollToHero();
+    });
+    document.getElementById('header-brand-lockup')?.addEventListener('click', () => {
+        scrollToHero();
+    });
+    document.getElementById('hero-brand-top')?.addEventListener('click', scrollToHero);
+
+    // Hero search input connection to main catalog search
+    const heroSearchInput = document.getElementById('hero-search-input');
+    const heroSearchBtn = document.getElementById('hero-search-btn');
+    const mainSearchInput = document.getElementById('product-search');
+
+    function performHeroSearch(query) {
+        if (query == null) query = heroSearchInput?.value?.trim() || '';
+        if (mainSearchInput && query) {
+            mainSearchInput.value = query;
+            mainSearchInput.dispatchEvent(new Event('input', { bubbles: true }));
+        }
+        scrollToCatalog();
+    }
+
+    heroSearchBtn?.addEventListener('click', () => performHeroSearch());
+    heroSearchInput?.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') performHeroSearch();
+    });
+
+    // Quicktag chips
+    document.querySelectorAll('.quicktag-chip').forEach(chip => {
+        chip.addEventListener('click', () => {
+            const query = chip.getAttribute('data-query');
+            if (heroSearchInput) heroSearchInput.value = query;
+            performHeroSearch(query);
+        });
+    });
+
+    // Store chips
+    document.querySelectorAll('.hero-store-chip').forEach(chip => {
+        chip.addEventListener('click', () => {
+            const store = chip.getAttribute('data-store');
+            if (store) {
+                document.querySelectorAll('.hero-store-chip').forEach(c => c.classList.toggle('active', c === chip));
+                if (typeof activeShopFilters !== 'undefined') {
+                    activeShopFilters.clear();
+                    activeShopFilters.add(store);
+                    if (typeof processData === 'function') processData();
+                    if (typeof renderSidebar === 'function') renderSidebar();
+                    if (typeof renderProducts === 'function') renderProducts();
+                    if (typeof updateStatsBar === 'function') updateStatsBar();
+                }
+                scrollToCatalog();
+            }
+        });
+    });
+
+    // Section magnetization observer
+    let catalogInView = false;
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                catalogInView = true;
+                document.body.classList.add('catalog-active');
+            } else {
+                catalogInView = false;
+                document.body.classList.remove('catalog-active');
+            }
+        });
+    }, { threshold: 0.15 });
+    observer.observe(catalogAnchor);
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
     try {
         document.title = "GroceryGOD";
+        try { initHeroInteractions(); } catch(e) { console.warn('Hero interactions init error:', e); }
         showLoading(true, 'Initializing GODdata Matrix...');
         
         await loadAllFromParquet();
@@ -283,9 +382,8 @@ async function loadAllFromParquet() {
     const log = (msg) => console.log(`%c[GOD_PARQUET] ${msg}`, 'color: #0ff; font-weight: bold');
 
     // 🚀 ULTRA-FAST DUAL-PHASE PIPELINE:
-    // Phase 1: Pre-fetch products (2.2MB) & history (31.9MB) concurrently
+    // Phase 1: Pre-fetch products (2.2MB) ONLY for instantaneous catalog first paint
     const productsFetchPromise = fetchFirstAvailable(['products_free.parquet', 'products.parquet'], 'free products');
-    const historyFetchPromise = fetchFirstAvailable(['history_free.parquet', 'history.parquet'], 'product history');
 
     log('Waiting for DuckDB-WASM module...');
     if (!window.duckdb) await new Promise(r => { window.__duckdb_ready = r; });
@@ -396,111 +494,121 @@ async function loadAllFromParquet() {
     window.loadedStores = new Set(storesList);
     activeShopFilters = new Set(['shwapno']);
 
-    // Phase 2: Start background history hydration without blocking initial render
-    window.__historyPromise = hydrateHistoryInBackground(historyFetchPromise, db, conn);
+    // Phase 2: Start progressive store history hydration in background (Shwapno first, then all others in parallel)
+    window.__registeredHistoryChunks = new Set();
+    window.__hasPremiumArchive = false;
+    window.__historyPromise = hydrateHistoryProgressive(db, conn);
 
     const elapsed = ((performance.now()-t0)/1000).toFixed(1);
     log(`🚀 FAST LAUNCH READY — ${allProducts.length} products loaded in ${elapsed}s! (Hydrating history in background)`);
 }
 
-async function hydrateHistoryInBackground(historyFetchPromise, db, conn) {
+function getHistoryAccessUnionSql(includeArchive = false) {
+    const chunks = Array.from(window.__registeredHistoryChunks || []);
+    if (!chunks.length) chunks.push('history.parquet');
+    const parts = chunks.map(c => `SELECT * FROM read_parquet('${c}')`);
+    if (includeArchive || window.__hasPremiumArchive) {
+        parts.push(`SELECT * FROM read_parquet('history_archive.parquet')`);
+    }
+    return parts.join(' UNION ALL ');
+}
+
+async function updateHistoryAccessView(includeArchive = false) {
+    if (!godDB || !godDB.conn) return;
+    const sql = `CREATE OR REPLACE VIEW history_access AS ${getHistoryAccessUnionSql(includeArchive)}`;
+    await godDB.conn.query(sql);
+}
+
+async function hydrateHistoryProgressive(db, conn) {
     try {
         const t0 = performance.now();
-        console.log('%c[GOD_HISTORY] ⏳ Fetching deep history archive in background...', 'color: #0ff; font-weight: bold');
-        const historyAsset = await historyFetchPromise;
-        const hBuf = historyAsset.buffer;
-        await db.registerFileBuffer('history.parquet', new Uint8Array(hBuf));
-        await conn.query(`CREATE OR REPLACE VIEW history_access AS SELECT * FROM read_parquet('history.parquet')`);
-        console.log(`%c[GOD_HISTORY] history.parquet registered in ${((performance.now()-t0)/1000).toFixed(1)}s (${(hBuf.byteLength/1024/1024).toFixed(1)}MB)`, 'color: #0ff; font-weight: bold');
+        console.log('%c[GOD_HISTORY] 🚀 Progressive per-store history hydration started...', 'color: #0ff; font-weight: bold');
 
-        const tAgg = performance.now();
-        const result = await conn.query(`
-            SELECT 
-                p.id,
-                COUNT(h.date) as hist_count,
-                MIN(CASE WHEN h.price > 0 THEN h.normalized_price ELSE NULL END) as min_price,
-                MAX(CASE WHEN h.price > 0 THEN h.normalized_price ELSE NULL END) as max_price,
-                AVG(CASE WHEN h.price > 0 THEN h.normalized_price ELSE NULL END) as avg_price,
-                MIN(CASE WHEN h.price > 0 THEN h.date ELSE NULL END) as oldest_date,
-                MAX(CASE WHEN h.price > 0 THEN h.date ELSE NULL END) as newest_date
-            FROM read_parquet('products.parquet') p
-            LEFT JOIN history_access h ON p.id = h.product_id
-            GROUP BY p.id
-        `);
-        console.log(`%c[GOD_HISTORY] History aggregation matrix computed in ${((performance.now()-tAgg)/1000).toFixed(1)}s`, 'color: #0ff');
+        // Allow initial paint & hero rendering to breathe without CPU contention
+        await new Promise(r => setTimeout(r, 300));
 
-        const statsMap = new Map();
-        for (const row of result.toArray()) {
-            const r = row.toJSON();
-            statsMap.set(String(r.id), r);
+        // Step 1: Load active store (Shwapno) chunk first!
+        try {
+            console.log('%c[GOD_HISTORY] ⏳ Loading Shwapno history chunk...', 'color: #0ff');
+            const shwapnoAsset = await fetchFirstAvailable([
+                'history_shwapno.parquet',
+                'history_free.parquet',
+                'history.parquet'
+            ], 'shwapno history');
+
+            const isUnified = shwapnoAsset.path.includes('history_free') || shwapnoAsset.path.includes('history.parquet');
+            const chunkFileName = isUnified ? 'history.parquet' : 'history_shwapno.parquet';
+
+            await db.registerFileBuffer(chunkFileName, new Uint8Array(shwapnoAsset.buffer));
+            window.__registeredHistoryChunks.add(chunkFileName);
+            await updateHistoryAccessView();
+
+            console.log(`%c[GOD_HISTORY] ✅ Shwapno chunk hydrated in ${((performance.now()-t0)/1000).toFixed(1)}s (${(shwapnoAsset.buffer.byteLength/1024/1024).toFixed(1)}MB)`, 'color: #0ff; font-weight: bold');
+            await refreshProductStatsFromAccess();
+
+            if (isUnified) {
+                window.__historyReady = true;
+                await checkSavedPremiumLicense();
+                return;
+            }
+        } catch (err) {
+            console.warn('[GOD_HISTORY] Shwapno chunk loading failed:', err);
         }
 
-        let updated = 0;
-        allProducts.forEach(p => {
-            const s = statsMap.get(String(p.id));
-            if (!s) return;
-            p.hist_count = Number(s.hist_count) || 0;
-            if (s.min_price != null) p.minPrice = Number(s.min_price);
-            if (s.max_price != null) p.maxPrice = Number(s.max_price);
-            if (s.avg_price != null) p.avgPrice = Number(s.avg_price);
-            if (s.oldest_date) p.oldest_date = String(s.oldest_date).slice(0, 10);
-            if (s.newest_date) p.newest_date = String(s.newest_date).slice(0, 10);
-            p.hasPriceHistory = p.hist_count > 1 && (p.maxPrice > p.minPrice);
-            updated++;
+        // Step 2: Load all other 7 stores in parallel in the background!
+        const otherStores = ['chaldal', 'meenabazar', 'othoba', 'metromart', 'unimart', 'shotejbazar', 'foodi'];
+        console.log(`%c[GOD_HISTORY] ⚡ Streaming remaining ${otherStores.length} stores in parallel...`, 'color: #a29bfe');
+
+        const parallelLoads = otherStores.map(async (store) => {
+            try {
+                const asset = await fetchFirstAvailable([`history_${store}.parquet`], `${store} history`);
+                const chunkName = `history_${store}.parquet`;
+                await db.registerFileBuffer(chunkName, new Uint8Array(asset.buffer));
+                window.__registeredHistoryChunks.add(chunkName);
+                console.log(`%c[GOD_HISTORY] 📦 Chunk ready: ${store} (${(asset.buffer.byteLength/1024/1024).toFixed(1)}MB)`, 'color: #7bed9f');
+            } catch (e) {
+                // Chunk unavailable
+            }
         });
 
-        // Update metadata.stores with precise observed price history dates
-        const storeCountResult = await conn.query(`
-            SELECT p.store,
-                   COUNT(DISTINCT p.id) AS total,
-                   COALESCE(MIN(CASE WHEN h.price > 0 THEN h.date ELSE NULL END), MIN(p.first_seen)) AS oldest_seen,
-                   COALESCE(MAX(CASE WHEN h.price > 0 THEN h.date ELSE NULL END), MAX(p.first_seen)) AS newest_seen
-            FROM read_parquet('products.parquet') p
-            LEFT JOIN history_access h ON p.id = h.product_id
-            GROUP BY p.store
-        `);
-        const dToday = dhakaTodayStr();
-        for (const row of storeCountResult.toArray()) {
-            const r = row.toJSON();
-            const s = String(r.store);
-            const manifest = window[s + 'Manifest'];
-            if (manifest && manifest.metadata && manifest.metadata.date_range && manifest.metadata.date_range !== 'N/A') {
-                metadata.stores[s] = manifest.metadata;
-            } else {
-                const oldest = r.oldest_seen ? String(r.oldest_seen).slice(0, 10) : '2026-02-15';
-                const newest = r.newest_seen ? String(r.newest_seen).slice(0, 10) : dToday;
-                metadata.stores[s] = {
-                    total: Number(r.total) || (metadata.stores[s] ? metadata.stores[s].total : 0),
-                    date_range: `${oldest} to ${newest}`
-                };
-            }
+        await Promise.allSettled(parallelLoads);
+
+        // Step 3: Re-link unified history_access view across all loaded chunks!
+        if (window.__registeredHistoryChunks.size > 0) {
+            await updateHistoryAccessView();
+            console.log(`%c[GOD_HISTORY] 🌟 Unified history_access re-indexed across ${window.__registeredHistoryChunks.size} store chunks!`, 'color: #2ed573; font-weight: bold');
+            await refreshProductStatsFromAccess();
         }
 
         window.__historyReady = true;
 
-        // 🔑 Auto-restore saved premium status from localStorage if present
-        const savedPassphrase = safeStorage.getItem('god_premium_passphrase');
-        if (savedPassphrase) {
-            try {
-                console.log('%c[GOD_PREMIUM] Restoring saved premium license in background...', 'color: #0ff');
-                await unlockPremiumArchive(savedPassphrase);
-                setPremiumUnlocked(true, true);
-                console.log('%c[GOD_PREMIUM] ✨ Premium mode auto-restored!', 'color: #0f0; font-weight: bold');
-            } catch (e) {
-                console.warn('[GOD_PREMIUM] Auto-restore with saved passphrase failed:', e);
-                safeStorage.removeItem('god_premium_passphrase');
-                setPremiumUnlocked(false, true);
-            }
-        }
+        // Step 4: Auto-restore saved premium status from localStorage if present
+        await checkSavedPremiumLicense();
 
-        // Re-process metrics and update UI quietly without disrupting scroll or user interaction
+        // Quietly update UI stats without disrupting scroll
         try { processData(); } catch(e) {}
         try { updateStoreStats(); } catch(e) {}
         try { updateStatsBar(); } catch(e) {}
         try { renderProducts(); } catch(e) {}
-        console.log(`%c[GOD_HISTORY] ✅ Background hydration finished successfully (${updated} products updated)`, 'color: #0f0; font-weight: bold');
+        console.log('%c[GOD_HISTORY] ✅ Background hydration finished successfully', 'color: #0f0; font-weight: bold');
     } catch (err) {
-        console.error('[GOD_HISTORY] Background history hydration failed:', err);
+        console.error('[GOD_HISTORY] Progressive history hydration failed:', err);
+    }
+}
+
+async function checkSavedPremiumLicense() {
+    const savedPassphrase = safeStorage.getItem('god_premium_passphrase');
+    if (savedPassphrase) {
+        try {
+            console.log('%c[GOD_PREMIUM] Restoring saved premium license in background...', 'color: #0ff');
+            await unlockPremiumArchive(savedPassphrase);
+            setPremiumUnlocked(true, true);
+            console.log('%c[GOD_PREMIUM] ✨ Premium mode auto-restored!', 'color: #0f0; font-weight: bold');
+        } catch (e) {
+            console.warn('[GOD_PREMIUM] Auto-restore with saved passphrase failed:', e);
+            safeStorage.removeItem('god_premium_passphrase');
+            setPremiumUnlocked(false, true);
+        }
     }
 }
 
@@ -3689,12 +3797,8 @@ async function unlockPremiumArchive(passphrase) {
     const decrypted = isEncrypted ? await decryptGGE1(fetched.buffer, passphrase) : new Uint8Array(fetched.buffer.slice(0));
     await godDB.db.registerFileBuffer('history_archive.parquet', decrypted);
     console.log(`%c[GOD_PREMIUM] Archive registered (${fetched.path}, ${(decrypted.byteLength/1024/1024).toFixed(1)}MB)`, 'color:#0ff; font-weight:bold');
-    await godDB.conn.query(`
-        CREATE OR REPLACE VIEW history_access AS
-        SELECT * FROM read_parquet('history.parquet')
-        UNION ALL
-        SELECT * FROM read_parquet('history_archive.parquet')
-    `);
+    window.__hasPremiumArchive = true;
+    await updateHistoryAccessView(true);
     await refreshProductStatsFromAccess();
     analyticsUniverseLoaded = false;
 }

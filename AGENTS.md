@@ -74,6 +74,12 @@ These fixes were extracted from live Kaggle failures. Preserve the patterns:
   - `aggregator.py` formats the Telegram summary as a clean, single-screen `<pre>` monospace table with Store, Total, ▲ Up, ▼ Down, New, and OOS counts plus grand total, compact source breakdown, and observed date ranges.
   - Replaced 12 simultaneous unconstrained processes with a managed 2-worker executor (`ThreadPoolExecutor(max_workers=2)`) in `scratch.py` to eliminate resource exhaustion and OOM kills on Kaggle.
   - Strict Telegram whitelist enforced: Only `📊 Aggregator Complete` (1-look table) and `✅ Kaggle Restart Triggered Successfully!` sent to Telegram. Scheduled sub-repo summary logged to `/tmp/p14_summary.log` locally.
+- **Awwwards Editorial Hero, Magnetized Catalog & Progressive Store Chunking (2026-08-28, do not regress)**:
+  - Added full-screen Awwwards-inspired editorial landing hero section above `.app-container` with glowing aurora mesh, real-time live Dhaka intelligence badge, 80,153+ product telemetry, interactive mirrored search box with quicktags, direct store chips, and smooth scroll down CTA.
+  - Magnetized catalog section: Full `100vw` sticky layout. Entering catalog anchors view to items; `#header-hero-tab` and brand mark smoothly return user up to the Hero overview.
+  - Progressive Per-Store History Chunking: Removed blocking 33.5MB history preload in `index.html`. `script.js` boots with only `products_free.parquet` (2.2MB, ~800ms first paint). Background hydration streams `history_shwapno.parquet` first (~4.9MB), refreshes badges, then streams remaining 7 store chunks in parallel via `Promise.allSettled`.
+  - DuckDB `history_access` view dynamically unions all loaded store chunks (`history_*.parquet`). Paywall and premium unlock (`unlockPremiumArchive()`) cleanly union decrypted `history_archive.parquet` into `history_access` with zero regressions or conflicts.
+  - `convert_to_parquet.py` exports `history_<store>.parquet` alongside `history.parquet`/`history_free.parquet`. `scratch.py` parquet logging and push guard include `history_*.parquet`.
 
 ## Encryption & secrets
 

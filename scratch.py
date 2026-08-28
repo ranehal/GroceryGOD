@@ -680,7 +680,8 @@ def run_grocery_god(github_pat):
                     _pq_proc.wait()
                     if _pq_proc.returncode != 0:
                         raise subprocess.CalledProcessError(_pq_proc.returncode, 'convert_to_parquet.py')
-                    for pf in ['products.parquet', 'history.parquet', 'products_free.parquet', 'history_free.parquet', 'premium/history_archive.parquet.enc']:
+                    _pq_files = sorted(glob.glob('history_*.parquet')) + ['products.parquet', 'history.parquet', 'products_free.parquet', 'history_free.parquet', 'premium/history_archive.parquet.enc']
+                    for pf in _pq_files:
                         if os.path.exists(pf):
                             sz_mb = os.path.getsize(pf) / (1024*1024)
                             log.info(f'  {pf}: {sz_mb:.1f} MB')

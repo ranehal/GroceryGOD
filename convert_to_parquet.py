@@ -171,6 +171,23 @@ print(f"Merged products total: {prod_count:,} products")
 con.execute(f"COPY merged_products TO '{os.path.join(BASE, 'products.parquet').replace(chr(92), "/")}' (FORMAT PARQUET, COMPRESSION 'ZSTD');")
 con.execute(f"COPY merged_products TO '{os.path.join(BASE, 'products_free.parquet').replace(chr(92), "/")}' (FORMAT PARQUET, COMPRESSION 'ZSTD');")
 
+# Export per-store history chunks for progressive background hydration
+STORE_SLUGS = ['shwapno', 'chaldal', 'meenabazar', 'othoba', 'metromart', 'unimart', 'shotejbazar', 'foodi']
+print("Exporting per-store history chunks for progressive hydration...")
+for s in STORE_SLUGS:
+    chunk_path = os.path.join(BASE, f"history_{s}.parquet").replace(chr(92), "/")
+    con.execute(f"""
+        COPY (
+            SELECT h.product_id, h.date, h.price, h.normalized_price
+            FROM full_history h
+            JOIN merged_products p ON h.product_id = p.id
+            WHERE p.store = '{s}' AND h.date >= '{cutoff}'
+        ) TO '{chunk_path}' (FORMAT PARQUET, COMPRESSION 'ZSTD');
+    """)
+    cnt = con.execute(f"SELECT COUNT(*) FROM read_parquet('{chunk_path}');").fetchone()[0]
+    sz_mb = os.path.getsize(chunk_path) / (1024 * 1024)
+    print(f"  history_{s}.parquet: {cnt:,} records ({sz_mb:.1f} MB)")
+
 # Update premium archive parquet & encrypted files
 archive_dir = os.path.join(BASE, 'premium')
 os.makedirs(archive_dir, exist_ok=True)

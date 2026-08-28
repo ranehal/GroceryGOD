@@ -16,7 +16,6 @@
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
 <link rel="preload" href="products_free.parquet" as="fetch" crossorigin>
-<link rel="preload" href="history_free.parquet" as="fetch" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
 <link href="style.css?v=20260823b" rel="stylesheet"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
 </head>
@@ -49,7 +48,120 @@ if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || wi
 <span>[0.0s] Initializing shop filter...</span>
 </div>
 </div>
-</div>
+<!-- ============================================================ -->
+<!-- AWWWARDS-INSPIRED EDITORIAL HERO LANDING SECTION -->
+<!-- ============================================================ -->
+<section class="landing-hero" id="landing-hero">
+    <!-- Ambient Aurora Mesh & Glowing Spheres -->
+    <div class="hero-aurora-bg"></div>
+    <div class="hero-grid-pattern"></div>
+    <div class="hero-glow-sphere sphere-cyan"></div>
+    <div class="hero-glow-sphere sphere-purple"></div>
+
+    <!-- Hero Top Brand Navigation -->
+    <nav class="hero-nav">
+        <div class="hero-brand" id="hero-brand-top">
+            <span class="hero-brand-bolt"><i class="fas fa-bolt"></i></span>
+            <span class="hero-brand-name">GroceryGOD</span>
+            <span class="hero-live-badge"><span class="pulse-dot"></span> LIVE INTELLIGENCE</span>
+        </div>
+        <div class="hero-nav-actions">
+            <button class="hero-nav-link" id="hero-nav-explore-btn"><i class="fas fa-layer-group"></i> 80,000+ Items</button>
+            <button class="hero-nav-link" id="hero-nav-analytics-btn"><i class="fas fa-chart-line"></i> Market Sensors</button>
+            <button class="hero-cta-btn" id="hero-cta-top">Launch Catalog <i class="fas fa-arrow-down"></i></button>
+        </div>
+    </nav>
+
+    <!-- Main Hero Centerpiece -->
+    <div class="hero-content">
+        <div class="hero-pill-badge">
+            <span class="pill-sparkle">✦</span>
+            <span class="pill-text">BANGLADESH GROCERY PRICE INTELLIGENCE ENGINE</span>
+            <span class="pill-time">LIVE DHAKA INDEX</span>
+        </div>
+
+        <h1 class="hero-title">
+            <span class="hero-title-line">EVERY PRICE.</span>
+            <span class="hero-title-line gradient-text">EVERY STORE.</span>
+            <span class="hero-title-line">ZERO BLINDSPOTS.</span>
+        </h1>
+
+        <p class="hero-subtitle">
+            Autonomous multi-store intelligence across <strong>80,153+ daily essentials</strong> in Dhaka. 
+            Unit-normalized price arbitrage, real-time restock telemetry, and 6-month historical inflation curves.
+        </p>
+
+        <!-- Hero Quick Interactive Search -->
+        <div class="hero-search-container">
+            <div class="hero-search-box">
+                <i class="fas fa-search hero-search-icon"></i>
+                <input type="text" id="hero-search-input" placeholder="Search milk, oil, rice, beef, eggs across 8 superstores..." autocomplete="off">
+                <button class="hero-search-submit" id="hero-search-btn">
+                    <span>Search Catalog</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            <div class="hero-search-quicktags">
+                <span class="quicktag-label">QUICK SEARCH:</span>
+                <button class="quicktag-chip" data-query="Milk">Aarong Milk</button>
+                <button class="quicktag-chip" data-query="Soybean Oil">Soybean Oil</button>
+                <button class="quicktag-chip" data-query="Miniket Rice">Miniket Rice</button>
+                <button class="quicktag-chip" data-query="Eggs">Farm Eggs</button>
+                <button class="quicktag-chip" data-query="Beef">Fresh Beef</button>
+                <button class="quicktag-chip" data-query="Sugar">Deshi Sugar</button>
+            </div>
+        </div>
+
+        <!-- Telemetry Metric Cards -->
+        <div class="hero-metrics-grid">
+            <div class="hero-metric-card">
+                <div class="metric-value">80,153</div>
+                <div class="metric-label">Products Monitored</div>
+                <div class="metric-sub">Across 8 Major Chains</div>
+            </div>
+            <div class="hero-metric-card">
+                <div class="metric-value">1.2<span class="metric-unit">ms</span></div>
+                <div class="metric-label">DuckDB Query Speed</div>
+                <div class="metric-sub">In-Browser SIMD Vectorized</div>
+            </div>
+            <div class="hero-metric-card">
+                <div class="metric-value">3.7<span class="metric-unit">M+</span></div>
+                <div class="metric-label">Historical Snapshots</div>
+                <div class="metric-sub">Continuous Since Feb 2026</div>
+            </div>
+            <div class="hero-metric-card">
+                <div class="metric-value">0%</div>
+                <div class="metric-label">Server Latency</div>
+                <div class="metric-sub">Local WASM Engine</div>
+            </div>
+        </div>
+
+        <!-- Store Chip Navigator -->
+        <div class="hero-store-strip">
+            <span class="strip-label">DIRECT STORE JUMP:</span>
+            <div class="strip-chips">
+                <button class="hero-store-chip active" data-store="shwapno">Shwapno</button>
+                <button class="hero-store-chip" data-store="chaldal">Chaldal</button>
+                <button class="hero-store-chip" data-store="meenabazar">Meena Bazar</button>
+                <button class="hero-store-chip" data-store="othoba">Othoba</button>
+                <button class="hero-store-chip" data-store="metromart">Metro Mart</button>
+                <button class="hero-store-chip" data-store="unimart">Unimart</button>
+                <button class="hero-store-chip" data-store="shotejbazar">Shotej Bazar</button>
+                <button class="hero-store-chip" data-store="foodi">FooDIE Mart</button>
+            </div>
+        </div>
+
+        <!-- Animated Scroll Cue Button -->
+        <div class="hero-scroll-cue" id="hero-scroll-cue">
+            <button class="scroll-cue-btn" id="hero-scroll-down-btn" aria-label="Explore live catalog">
+                <span class="scroll-cue-text">EXPLORE LIVE CATALOG</span>
+                <span class="scroll-cue-icon"><i class="fas fa-chevron-down"></i></span>
+            </button>
+        </div>
+    </div>
+</section>
+<div id="catalog-anchor"></div>
+
 <div class="app-container">
 <div class="sidebar-overlay" id="sidebar-overlay"></div>
 <!-- Sidebar -->
@@ -80,11 +192,12 @@ if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || wi
 <header class="dashboard-header">
 <div class="header-left">
 <button aria-expanded="true" aria-label="Toggle stores and categories" class="sidebar-toggle-btn btn-variant-ghost" id="sidebar-toggle" title="Toggle stores and categories"><i class="fas fa-bars"></i></button>
-<div class="brand-lockup">
+<div class="brand-lockup" id="header-brand-lockup" title="Return to Overview Hero" style="cursor:pointer;">
 <span class="brand-mark"><i class="fas fa-bolt"></i></span>
 <div>
 <h2 id="current-view-title" style="margin:0; color:var(--text-primary);">GroceryGOD Unified</h2>
 </div>
+<button class="hero-return-pill" id="header-hero-tab" title="Back to Hero Overview"><i class="fas fa-arrow-up"></i> <span>Hero</span></button>
 </div>
 <div class="search-wrapper">
 <input class="search-input" id="product-search" placeholder="Search all stores…" type="text"/>
