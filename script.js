@@ -395,6 +395,10 @@ function initHeroInteractions() {
 
 document.addEventListener('DOMContentLoaded', async () => {
     try {
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        window.scrollTo(0, 0);
         document.title = "GroceryGOD";
         try { initHeroInteractions(); } catch(e) { console.warn('Hero interactions init error:', e); }
         showLoading(true, 'Initializing GODdata Matrix...');
@@ -799,6 +803,13 @@ async function computePriceChanges(days) {
 }
 
 function showLoading(show, message = 'Loading...', percent = 0) {
+    // 🚀 Never block screen on initial launch — launch the hero immediately!
+    if (!window.__initialLaunchComplete) {
+        if (!show) {
+            window.__initialLaunchComplete = true;
+        }
+        return;
+    }
     const loader = document.getElementById('loading-spinner');
     if (loader) {
         loader.classList.toggle('active', show);
