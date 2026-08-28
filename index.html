@@ -15,14 +15,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
-<link rel="preload" href="products_free.parquet?v=20260823a" as="fetch" crossorigin>
+<link rel="preload" href="products_free.parquet?v=20260829a" as="fetch" crossorigin>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
-<link href="style.css?v=20260823b" rel="stylesheet"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+<link href="style.css?v=20260829a" rel="stylesheet"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
 </head>
 <body class="pitch-black theme-amoled">
 <script>
-window.GOD_ASSET_VERSION = '20260823a';
+window.GOD_ASSET_VERSION = '20260829a';
 window.GOD_ALLOW_LEGACY_DATA = false;
 if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')) {
     window.addEventListener('load', () => {
@@ -244,7 +244,7 @@ if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || wi
 <label class="custom-drop-input-wrap"><input aria-label="Custom percentage drop" id="custom-drop-input" inputmode="numeric" max="95" min="1" step="1" type="number" value="12"/><span>%</span></label>
 </div>
 <button class="intel-btn intel-variant-wait" data-filter="wait" title="Price is above average"><i class="fas fa-hourglass-half"></i> Wait</button>
-<button class="intel-btn intel-variant-low" data-filter="low" title="Current price is the lowest recorded">All Time Low</button>
+<button class="intel-btn intel-variant-low active" data-filter="low" title="Current price is the lowest recorded">All Time Low</button>
 <button class="intel-btn intel-variant-new" data-filter="new" title="Items first seen recently">New Items</button>
 <button class="intel-btn intel-variant-change" data-filter="pricechange" title="Show price change from custom days ago">Price Change</button>
 <div class="date-range-intel" id="price-change-controls" style="display:none;">

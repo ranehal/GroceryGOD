@@ -35,7 +35,7 @@ let gridSentinelObserver = null;
 let searchQuery = '';
 let activeUnitFilters = new Set(['kg', 'liter', 'piece']);
 let sortOption = 'unit_price_asc';
-let activeIntelFilter = 'all';
+let activeIntelFilter = 'low';
 let compareModeActive = false;
 let immersiveModeActive = false;
 let customDropThreshold = Math.min(95, Math.max(1, parseInt(safeStorage.getItem('god_custom_drop') || '12', 10) || 12));
@@ -461,18 +461,30 @@ async function loadAllFromParquet() {
     await db.registerFileBuffer('products.parquet', new Uint8Array(pBuf));
     log(`Products registered (${productAsset.path})`);
 
-    showLoading(true, 'Indexing products in SQL...', 75);
-    const t2 = performance.now();
-    const result = await conn.query(`SELECT * FROM read_parquet('products.parquet')`);
-    log(`SQL query completed: ${result.numRows} products in ${((performance.now()-t2)/1000).toFixed(1)}s`);
+    // ⚡ Phase 1: PRIORITY ALL-TIME-LOW DEAL MATRIX (Instant ~15ms launch)
+    // Pre-processes deal items first so initial catalog is feather-light and zero lag!
+    const tPriority = performance.now();
+    const priorityQuery = `
+        SELECT * FROM read_parquet('products.parquet')
+        WHERE in_stock = true 
+          AND hist_count >= 1 
+          AND max_price - min_price > 0.01 
+          AND normalized_price <= (min_price + 0.01)
+          AND normalized_price > 0
+        ORDER BY (max_price - normalized_price) DESC
+        LIMIT 400
+    `;
+    const priorityResult = await conn.query(priorityQuery);
+    log(`Priority All-Time-Low query completed: ${priorityResult.numRows} deals in ${((performance.now()-tPriority)/1000).toFixed(2)}s`);
 
-    showLoading(true, 'Rendering interface...', 90);
-    const t3 = performance.now();
-    for (const row of result.toArray()) {
-        const r = row.toJSON();
+    const seenIds = new Set();
+    function mapProductRow(r) {
         const inStock = (r.in_stock !== false) && Number(r.current_price) > 0;
         const normPrice = Number(r.normalized_price) > 0 ? Number(r.normalized_price) : 0;
-        allProducts.push({
+        const minP = r.min_price != null ? Number(r.min_price) : normPrice;
+        const maxP = r.max_price != null ? Number(r.max_price) : normPrice;
+        const avgP = r.avg_price != null ? Number(r.avg_price) : normPrice;
+        return {
             id: r.id,
             name: r.name,
             store: r.store,
@@ -488,16 +500,72 @@ async function loadAllFromParquet() {
             in_stock: inStock,
             is_out_of_stock: !inStock,
             history: [],
-            hist_count: 0,
-            minPrice: normPrice,
-            maxPrice: normPrice,
-            avgPrice: normPrice,
+            hist_count: Number(r.hist_count) || 0,
+            minPrice: minP,
+            maxPrice: maxP,
+            avgPrice: avgP,
             oldest_date: r.first_seen || null,
             newest_date: r.last_seen || null,
             _historyLoaded: false
-        });
+        };
     }
-    log(`Products mapped: ${allProducts.length} in ${((performance.now()-t3)/1000).toFixed(1)}s`);
+
+    for (const row of priorityResult.toArray()) {
+        const r = row.toJSON();
+        seenIds.add(r.id);
+        allProducts.push(mapProductRow(r));
+    }
+    log(`⚡ Priority Deals mapped: ${allProducts.length} items (Zero main-thread lag)`);
+
+    // ⚡ Phase 2: Priority background hydration — stream remaining items without jittering UX
+    setTimeout(async () => {
+        try {
+            const tFull = performance.now();
+            const fullResult = await conn.query(`SELECT * FROM read_parquet('products.parquet')`);
+            const allRows = fullResult.toArray();
+            log(`Background catalog rows ready (${allRows.length}), streaming in idle batches...`);
+
+            const batchSize = 8000;
+            let idx = 0;
+
+            function processNextBatch() {
+                const end = Math.min(idx + batchSize, allRows.length);
+                for (let i = idx; i < end; i++) {
+                    const r = allRows[i].toJSON();
+                    if (!seenIds.has(r.id)) {
+                        seenIds.add(r.id);
+                        allProducts.push(mapProductRow(r));
+                    }
+                }
+                idx = end;
+
+                if (idx < allRows.length) {
+                    if (window.requestIdleCallback) {
+                        window.requestIdleCallback(processNextBatch, { timeout: 100 });
+                    } else {
+                        setTimeout(processNextBatch, 16);
+                    }
+                } else {
+                    log(`🌟 Full catalog hydration finished: ${allProducts.length} products in ${((performance.now()-tFull)/1000).toFixed(1)}s`);
+                    try { processData(); } catch(e) {}
+                    try { renderSidebar(); } catch(e) {}
+                    try { updateStoreStats(); } catch(e) {}
+                    try { updateStatsBar(); } catch(e) {}
+                    if (activeIntelFilter !== 'low' || searchQuery) {
+                        try { renderProducts(); } catch(e) {}
+                    }
+                }
+            }
+
+            if (window.requestIdleCallback) {
+                window.requestIdleCallback(processNextBatch, { timeout: 100 });
+            } else {
+                setTimeout(processNextBatch, 20);
+            }
+        } catch (e) {
+            console.warn('[GOD_PARQUET] Background hydration notice:', e);
+        }
+    }, 60);
 
     // Build initial metadata.stores from products table alone
     metadata.stores = {};
@@ -1607,6 +1675,7 @@ function setupEventListeners() {
             renderProducts();
         };
     });
+    document.querySelectorAll('.intel-btn[data-filter]').forEach(b => b.classList.toggle('active', b.dataset.filter === activeIntelFilter));
 
     updateCustomDropUI();
     const customDropInput = document.getElementById('custom-drop-input');

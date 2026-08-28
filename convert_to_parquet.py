@@ -163,13 +163,32 @@ prod_schema = pa.schema([
 new_prod_table = pa.Table.from_pylist(product_rows, schema=prod_schema)
 con.register('new_prods', new_prod_table)
 
-prod_sql = "CREATE TABLE merged_products AS SELECT * FROM new_prods;"
+prod_sql = """
+    CREATE TABLE merged_products AS 
+    SELECT 
+        p.*,
+        COALESCE(h.hist_count, 0)::INTEGER as hist_count,
+        COALESCE(h.min_price, p.normalized_price)::DOUBLE as min_price,
+        COALESCE(h.max_price, p.normalized_price)::DOUBLE as max_price,
+        COALESCE(h.avg_price, p.normalized_price)::DOUBLE as avg_price
+    FROM new_prods p
+    LEFT JOIN (
+        SELECT 
+            product_id,
+            COUNT(*)::INTEGER as hist_count,
+            MIN(CASE WHEN price > 0 THEN normalized_price END) as min_price,
+            MAX(CASE WHEN price > 0 THEN normalized_price END) as max_price,
+            AVG(CASE WHEN price > 0 THEN normalized_price END) as avg_price
+        FROM full_history
+        GROUP BY product_id
+    ) h ON p.id = h.product_id;
+"""
 con.execute(prod_sql)
 prod_count = con.execute("SELECT COUNT(*) FROM merged_products;").fetchone()[0]
-print(f"Merged products total: {prod_count:,} products")
+print(f"Merged products total: {prod_count:,} products (enriched with 6-month min/max/avg stats)")
 
-con.execute(f"COPY merged_products TO '{os.path.join(BASE, 'products.parquet').replace(chr(92), "/")}' (FORMAT PARQUET, COMPRESSION 'ZSTD');")
-con.execute(f"COPY merged_products TO '{os.path.join(BASE, 'products_free.parquet').replace(chr(92), "/")}' (FORMAT PARQUET, COMPRESSION 'ZSTD');")
+con.execute(f"COPY merged_products TO '{os.path.join(BASE, 'products.parquet').replace(chr(92), '/')}' (FORMAT PARQUET, COMPRESSION 'ZSTD');")
+con.execute(f"COPY merged_products TO '{os.path.join(BASE, 'products_free.parquet').replace(chr(92), '/')}' (FORMAT PARQUET, COMPRESSION 'ZSTD');")
 
 # Export per-store history chunks for progressive background hydration
 STORE_SLUGS = ['shwapno', 'chaldal', 'meenabazar', 'othoba', 'metromart', 'unimart', 'shotejbazar', 'foodi']
