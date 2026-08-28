@@ -330,7 +330,10 @@ function initHeroInteractions() {
         });
     });
 
-    // Section magnetization observer & upward scroll lock
+    // Floating Food Particles Background Canvas (Awwwards Style)
+    try { initHeroFoodBackground(); } catch (e) { console.warn('Hero food bg init error:', e); }
+
+    // Section magnetization observer (purely passive, zero scroll jitter)
     let isCatalogActive = false;
 
     function checkCatalogState() {
@@ -349,48 +352,29 @@ function initHeroInteractions() {
     }
 
     window.addEventListener('scroll', checkCatalogState, { passive: true });
+}
 
-    // Lock upward scroll from returning to hero unless scrolling on the header
-    window.addEventListener('wheel', (e) => {
-        if (!isCatalogActive) return;
-        const anchorTop = catalogAnchor.offsetTop;
+// Generates falling & swaying food emojis behind the hero text
+function initHeroFoodBackground() {
+    const container = document.getElementById('hero-food-bg');
+    if (!container) return;
+    container.innerHTML = '';
 
-        // If user is at or near the top of the catalog and trying to scroll UP:
-        if (window.scrollY <= anchorTop + 8 && e.deltaY < 0) {
-            const isHeader = e.target.closest('.dashboard-header') || e.target.closest('#header-brand-lockup');
-            if (!isHeader) {
-                // Prevent leaking up to hero
-                e.preventDefault();
-                window.scrollTo({ top: anchorTop, behavior: 'instant' });
-            } else {
-                // Allowed on header tab bar
-                isCatalogActive = false;
-                document.body.classList.remove('catalog-active');
-                scrollToHero();
-            }
-        }
-    }, { passive: false });
+    const FOOD_ITEMS = ['🍕', '🍔', '🍟', '🌭', '🍿', '🍩', '🍪', '🍰', '🍫', '🍬', '🍭', '🧃', '🥤', '🥮', '🍣', '🍤'];
+    const frag = document.createDocumentFragment();
 
-    // Touch support for mobile
-    let touchY = 0;
-    window.addEventListener('touchstart', (e) => {
-        if (e.touches.length) touchY = e.touches[0].clientY;
-    }, { passive: true });
-
-    window.addEventListener('touchmove', (e) => {
-        if (!isCatalogActive) return;
-        const anchorTop = catalogAnchor.offsetTop;
-        const currentY = e.touches[0]?.clientY || 0;
-        const isDraggingDown = currentY > touchY; // pulls page down = scrolls UP
-
-        if (window.scrollY <= anchorTop + 8 && isDraggingDown) {
-            const isHeader = e.target.closest('.dashboard-header') || e.target.closest('#header-brand-lockup');
-            if (!isHeader) {
-                e.preventDefault();
-                window.scrollTo({ top: anchorTop, behavior: 'instant' });
-            }
-        }
-    }, { passive: false });
+    for (let id = 0; id < 35; id++) {
+        const span = document.createElement('span');
+        span.className = 'hero-food-particle';
+        span.textContent = FOOD_ITEMS[Math.floor(Math.random() * FOOD_ITEMS.length)];
+        span.style.left = `${(Math.random() * 95).toFixed(1)}%`;
+        span.style.animationDelay = `${(Math.random() * 8).toFixed(1)}s`;
+        span.style.animationDuration = `${(6 + Math.random() * 6).toFixed(1)}s`;
+        span.style.fontSize = `${Math.round(20 + Math.random() * 24)}px`;
+        span.style.opacity = (0.15 + Math.random() * 0.25).toFixed(2);
+        frag.appendChild(span);
+    }
+    container.appendChild(frag);
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -433,7 +417,8 @@ async function loadAllFromParquet() {
     const log = (msg) => console.log(`%c[GOD_PARQUET] ${msg}`, 'color: #0ff; font-weight: bold');
 
     // 🚀 ULTRA-FAST DUAL-PHASE PIPELINE:
-    // Phase 1: Pre-fetch products (2.2MB) ONLY for instantaneous catalog first paint
+    // Phase 1: Pre-fetch pre-calculated atl.parquet (620KB) for instant hero preview!
+    const atlFetchPromise = fetchFirstAvailable(['atl.parquet'], 'pre-calculated ATL deals').catch(() => null);
     const productsFetchPromise = fetchFirstAvailable(['products_free.parquet', 'products.parquet'], 'free products');
 
     log('Waiting for DuckDB-WASM module...');
@@ -452,32 +437,12 @@ async function loadAllFromParquet() {
     const conn = await db.connect();
     log(`DB instantiated & connected (${((performance.now()-t0)/1000).toFixed(1)}s)`);
 
-    showLoading(true, 'Loading product catalog...', 45);
-    const t1 = performance.now();
-    const productAsset = await productsFetchPromise;
-    const pBuf = productAsset.buffer;
-    log(`Product catalog downloaded in ${((performance.now()-t1)/1000).toFixed(1)}s (${(pBuf.byteLength/1024/1024).toFixed(1)}MB)`);
-
-    await db.registerFileBuffer('products.parquet', new Uint8Array(pBuf));
-    log(`Products registered (${productAsset.path})`);
-
-    // ⚡ Phase 1: PRIORITY ALL-TIME-LOW DEAL MATRIX (Instant ~15ms launch)
-    // Pre-processes deal items first so initial catalog is feather-light and zero lag!
+    // ⚡ Phase 1: PRIORITY ALL-TIME-LOW DEAL MATRIX (Instant launch via pre-calculated atl.parquet)
+    // Pre-calculated on Kaggle directly into atl.parquet — feather-light 620KB, zero main-thread lag!
     const tPriority = performance.now();
-    const priorityQuery = `
-        SELECT * FROM read_parquet('products.parquet')
-        WHERE in_stock = true 
-          AND hist_count >= 1 
-          AND max_price - min_price > 0.01 
-          AND normalized_price <= (min_price + 0.01)
-          AND normalized_price > 0
-        ORDER BY (max_price - normalized_price) DESC
-        LIMIT 400
-    `;
-    const priorityResult = await conn.query(priorityQuery);
-    log(`Priority All-Time-Low query completed: ${priorityResult.numRows} deals in ${((performance.now()-tPriority)/1000).toFixed(2)}s`);
-
+    const atlAsset = await atlFetchPromise;
     const seenIds = new Set();
+
     function mapProductRow(r) {
         const inStock = (r.in_stock !== false) && Number(r.current_price) > 0;
         const normPrice = Number(r.normalized_price) > 0 ? Number(r.normalized_price) : 0;
@@ -510,17 +475,74 @@ async function loadAllFromParquet() {
         };
     }
 
-    for (const row of priorityResult.toArray()) {
-        const r = row.toJSON();
-        seenIds.add(r.id);
-        allProducts.push(mapProductRow(r));
-    }
-    log(`⚡ Priority Deals mapped: ${allProducts.length} items (Zero main-thread lag)`);
+    if (atlAsset && atlAsset.buffer) {
+        await db.registerFileBuffer('atl.parquet', new Uint8Array(atlAsset.buffer));
+        log(`Pre-calculated atl.parquet registered in ${((performance.now()-tPriority)/1000).toFixed(2)}s (${(atlAsset.buffer.byteLength/1024).toFixed(1)}KB)`);
 
-    // ⚡ Phase 2: Priority background hydration — stream remaining items without jittering UX
+        const priorityResult = await conn.query(`
+            SELECT * FROM read_parquet('atl.parquet')
+            ORDER BY (max_price - normalized_price) DESC
+            LIMIT 400
+        `);
+        for (const row of priorityResult.toArray()) {
+            const r = row.toJSON();
+            seenIds.add(r.id);
+            allProducts.push(mapProductRow(r));
+        }
+        log(`⚡ Pre-calculated ATL Deals mounted: ${allProducts.length} items (Zero main-thread lag)`);
+    }
+
+    // Initialize store metadata structures immediately
+    metadata.stores = {};
+    const storesList = ['shwapno','chaldal','meenabazar','othoba','metromart','unimart','shotejbazar','foodi'];
+    const dToday = dhakaTodayStr();
+    storesList.forEach(s => {
+        const manifest = window[s + 'Manifest'];
+        if (manifest && manifest.metadata && manifest.metadata.date_range && manifest.metadata.date_range !== 'N/A') {
+            metadata.stores[s] = manifest.metadata;
+        } else {
+            metadata.stores[s] = { total: 0, date_range: `2026-02-15 to ${dToday}` };
+        }
+    });
+
+    godDB = { db, conn };
+    window.loadedStores = new Set(storesList);
+    activeShopFilters = new Set(['shwapno']);
+
+    // ⚡ Phase 2: Background hydration of full catalog & store histories
     setTimeout(async () => {
         try {
             const tFull = performance.now();
+            const productAsset = await productsFetchPromise;
+            const pBuf = productAsset.buffer;
+            await db.registerFileBuffer('products.parquet', new Uint8Array(pBuf));
+            log(`Full products registered (${productAsset.path}) in background (${(pBuf.byteLength/1024/1024).toFixed(1)}MB)`);
+
+            const storeCountResult = await conn.query(`
+                SELECT store,
+                       COUNT(DISTINCT id) AS total,
+                       MIN(first_seen) AS oldest_seen,
+                       MAX(last_seen) AS newest_seen
+                FROM read_parquet('products.parquet')
+                GROUP BY store
+            `);
+
+            for (const row of storeCountResult.toArray()) {
+                const r = row.toJSON();
+                const s = String(r.store);
+                const manifest = window[s + 'Manifest'];
+                if (manifest && manifest.metadata && manifest.metadata.date_range && manifest.metadata.date_range !== 'N/A') {
+                    metadata.stores[s] = manifest.metadata;
+                } else {
+                    const oldest = r.oldest_seen ? String(r.oldest_seen).slice(0, 10) : '2026-02-15';
+                    const newest = r.newest_seen ? String(r.newest_seen).slice(0, 10) : dToday;
+                    metadata.stores[s] = {
+                        total: Number(r.total) || 0,
+                        date_range: `${oldest} to ${newest}`
+                    };
+                }
+            }
+
             const fullResult = await conn.query(`SELECT * FROM read_parquet('products.parquet')`);
             const allRows = fullResult.toArray();
             log(`Background catalog rows ready (${allRows.length}), streaming in idle batches...`);
@@ -562,64 +584,18 @@ async function loadAllFromParquet() {
             } else {
                 setTimeout(processNextBatch, 20);
             }
+
+            // Start progressive store history hydration in background
+            window.__registeredHistoryChunks = new Set();
+            window.__hasPremiumArchive = false;
+            window.__historyPromise = hydrateHistoryProgressive(db, conn);
         } catch (e) {
             console.warn('[GOD_PARQUET] Background hydration notice:', e);
         }
-    }, 60);
-
-    // Build initial metadata.stores from products table alone
-    metadata.stores = {};
-    const storesList = ['shwapno','chaldal','meenabazar','othoba','metromart','unimart','shotejbazar','foodi'];
-    const dToday = dhakaTodayStr();
-
-    storesList.forEach(s => {
-        const manifest = window[s + 'Manifest'];
-        if (manifest && manifest.metadata && manifest.metadata.date_range && manifest.metadata.date_range !== 'N/A') {
-            metadata.stores[s] = manifest.metadata;
-        } else {
-            metadata.stores[s] = {
-                total: 0,
-                date_range: `2026-02-15 to ${dToday}`
-            };
-        }
-    });
-
-    const storeCountResult = await conn.query(`
-        SELECT store,
-               COUNT(DISTINCT id) AS total,
-               MIN(first_seen) AS oldest_seen,
-               MAX(last_seen) AS newest_seen
-        FROM read_parquet('products.parquet')
-        GROUP BY store
-    `);
-
-    for (const row of storeCountResult.toArray()) {
-        const r = row.toJSON();
-        const s = String(r.store);
-        const manifest = window[s + 'Manifest'];
-        if (manifest && manifest.metadata && manifest.metadata.date_range && manifest.metadata.date_range !== 'N/A') {
-            metadata.stores[s] = manifest.metadata;
-        } else {
-            const oldest = r.oldest_seen ? String(r.oldest_seen).slice(0, 10) : '2026-02-15';
-            const newest = r.newest_seen ? String(r.newest_seen).slice(0, 10) : dToday;
-            metadata.stores[s] = {
-                total: Number(r.total) || 0,
-                date_range: `${oldest} to ${newest}`
-            };
-        }
-    }
-
-    godDB = { db, conn };
-    window.loadedStores = new Set(storesList);
-    activeShopFilters = new Set(['shwapno']);
-
-    // Phase 2: Start progressive store history hydration in background (Shwapno first, then all others in parallel)
-    window.__registeredHistoryChunks = new Set();
-    window.__hasPremiumArchive = false;
-    window.__historyPromise = hydrateHistoryProgressive(db, conn);
+    }, 40);
 
     const elapsed = ((performance.now()-t0)/1000).toFixed(1);
-    log(`🚀 FAST LAUNCH READY — ${allProducts.length} products loaded in ${elapsed}s! (Hydrating history in background)`);
+    log(`🚀 ULTRA FAST LAUNCH READY — ${allProducts.length} priority ATL deals loaded in ${elapsed}s! (Hydrating full catalog in background)`);
 }
 
 function getHistoryAccessUnionSql(includeArchive = false) {

@@ -3239,6 +3239,41 @@ body.pitch-black.theme-amoled {
     z-index: 1;
 }
 
+/* Floating & Falling Food Particle Canvas (Awwwards Style) */
+@keyframes fallAndSway {
+    0% {
+        transform: translateY(-50px) translateX(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(42vh) translateX(35px) rotate(180deg);
+    }
+    100% {
+        transform: translateY(92vh) translateX(-25px) rotate(360deg);
+    }
+}
+
+.hero-food-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.hero-food-particle {
+    position: absolute;
+    top: -50px;
+    user-select: none;
+    animation-name: fallAndSway;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    will-change: transform;
+    pointer-events: none;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.12));
+}
+
 .hero-glow-sphere {
     position: absolute;
     border-radius: 50%;
