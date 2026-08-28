@@ -330,20 +330,67 @@ function initHeroInteractions() {
         });
     });
 
-    // Section magnetization observer
-    let catalogInView = false;
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                catalogInView = true;
+    // Section magnetization observer & upward scroll lock
+    let isCatalogActive = false;
+
+    function checkCatalogState() {
+        const anchorTop = catalogAnchor.offsetTop;
+        if (window.scrollY >= anchorTop - 30) {
+            if (!isCatalogActive) {
+                isCatalogActive = true;
                 document.body.classList.add('catalog-active');
-            } else {
-                catalogInView = false;
+            }
+        } else {
+            if (isCatalogActive) {
+                isCatalogActive = false;
                 document.body.classList.remove('catalog-active');
             }
-        });
-    }, { threshold: 0.15 });
-    observer.observe(catalogAnchor);
+        }
+    }
+
+    window.addEventListener('scroll', checkCatalogState, { passive: true });
+
+    // Lock upward scroll from returning to hero unless scrolling on the header
+    window.addEventListener('wheel', (e) => {
+        if (!isCatalogActive) return;
+        const anchorTop = catalogAnchor.offsetTop;
+
+        // If user is at or near the top of the catalog and trying to scroll UP:
+        if (window.scrollY <= anchorTop + 8 && e.deltaY < 0) {
+            const isHeader = e.target.closest('.dashboard-header') || e.target.closest('#header-brand-lockup');
+            if (!isHeader) {
+                // Prevent leaking up to hero
+                e.preventDefault();
+                window.scrollTo({ top: anchorTop, behavior: 'instant' });
+            } else {
+                // Allowed on header tab bar
+                isCatalogActive = false;
+                document.body.classList.remove('catalog-active');
+                scrollToHero();
+            }
+        }
+    }, { passive: false });
+
+    // Touch support for mobile
+    let touchY = 0;
+    window.addEventListener('touchstart', (e) => {
+        if (e.touches.length) touchY = e.touches[0].clientY;
+    }, { passive: true });
+
+    window.addEventListener('touchmove', (e) => {
+        if (!isCatalogActive) return;
+        const anchorTop = catalogAnchor.offsetTop;
+        const currentY = e.touches[0]?.clientY || 0;
+        const isDraggingDown = currentY > touchY; // pulls page down = scrolls UP
+
+        if (window.scrollY <= anchorTop + 8 && isDraggingDown) {
+            const isHeader = e.target.closest('.dashboard-header') || e.target.closest('#header-brand-lockup');
+            if (!isHeader) {
+                e.preventDefault();
+                window.scrollTo({ top: anchorTop, behavior: 'instant' });
+            }
+        }
+    }, { passive: false });
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -1208,67 +1255,59 @@ function resetProductViewFilters() {
 
 function createProductCard(p) {
     const card = document.createElement('div');
-    const storeColor = STORE_CONFIG[p.store].color;
+    const storeColor = STORE_CONFIG[p.store]?.color || '#38E1B0';
     card.className = 'p-item-sh ' + (compareModeActive && selectedForComparison.includes(p.id) ? 'selected' : '');
     card.dataset.productId = p.id;
     card.style.setProperty('--store-color', storeColor);
     
-    const trend = p.priceChangePercent !== 0 ? `
-        <div style="position:absolute; top:35px; left:8px; font-size:0.55rem; font-weight:900; background:rgba(0,0,0,0.85); padding:1px 5px; border-radius:3px; color:${p.priceChangePercent < 0 ? 'var(--accent-secondary)' : 'var(--danger)'}; z-index:11;">
-            ${p.priceChangePercent > 0 ? '▲' : '▼'}${Math.abs(p.priceChangePercent).toFixed(0)}%
-        </div>
-    ` : '';
-
-    const newBadge = p.isNew ? `
-        <div style="position:absolute; top:35px; right:8px; font-size:0.55rem; font-weight:900; background:var(--gold); padding:1px 5px; border-radius:3px; color:#000; z-index:11;">
-            NEW
-        </div>
-    ` : '';
-
+    const badges = [];
+    if (p.priceChangePercent !== 0) {
+        const isUp = p.priceChangePercent > 0;
+        const color = isUp ? 'var(--danger)' : 'var(--accent-secondary)';
+        badges.push(`<span class="card-badge-item badge-trend" style="color:${color}">${isUp ? '▲' : '▼'}${Math.abs(p.priceChangePercent).toFixed(0)}%</span>`);
+    }
+    if (p.isNew) {
+        badges.push(`<span class="card-badge-item badge-new">NEW</span>`);
+    }
     const isLow = p.hist_count >= 1 && p.maxPrice - p.minPrice > 0.01 && p.normalized_price <= (p.minPrice + 0.01) && p.hasPriceToday && Number(p.normalized_price) > 0;
-    const lowBadge = isLow ? `
-        <div style="position:absolute; top:35px; ${p.isNew ? 'right:44px;' : 'right:8px;'} font-size:0.55rem; font-weight:900; background:#f59e0b; padding:1px 5px; border-radius:3px; color:#000; z-index:11;">
-            LOW
-        </div>
-    ` : '';
-
-    const pcBadge = (activeIntelFilter === 'pricechange' && p._pcDiff !== undefined) ? (() => {
+    if (isLow) {
+        badges.push(`<span class="card-badge-item badge-low">LOW</span>`);
+    }
+    if (activeIntelFilter === 'pricechange' && p._pcDiff !== undefined) {
         const diff = p._pcDiff;
-        const diffPct = p._pcDiffPct;
         const isDown = diff < 0;
         const color = isDown ? 'var(--accent-secondary)' : 'var(--danger)';
         const arrow = isDown ? '▼' : '▲';
         const label = priceChangeMode === 'pct' 
-            ? `${arrow}${Math.abs(diffPct).toFixed(1)}%`
+            ? `${arrow}${Math.abs(p._pcDiffPct).toFixed(1)}%`
             : `${arrow}${Math.abs(Math.round(diff))}Tk`;
-        return `<div style="position:absolute; top:55px; left:8px; font-size:0.55rem; font-weight:900; background:rgba(0,0,0,0.85); padding:1px 5px; border-radius:3px; color:${color}; z-index:11;">${priceChangeDays}d ${label}</div>`;
-    })() : '';
+        badges.push(`<span class="card-badge-item badge-trend" style="color:${color}">${priceChangeDays}d ${label}</span>`);
+    }
+
+    const badgeStackHtml = badges.length ? `<div class="card-badge-stack">${badges.join('')}</div>` : '';
 
     card.innerHTML = `
-        <div class="store-badge" style="background:${storeColor}">${p.store}</div>
+        <div class="store-badge" style="background:${storeColor}">${escapeHTML(p.store)}</div>
         <div class="fav-btn ${p.isFavorite ? 'active' : ''}">
             <i class="fas fa-star"></i>
         </div>
         <button class="alert-quick-btn ${hasActiveAlert(p.id) ? 'active' : ''}" type="button" title="Create price alert" aria-label="Create price alert for ${escapeAttribute(p.name)}"><i class="fas fa-bell"></i></button>
         <div class="compare-check" aria-hidden="true"><i class="fas ${selectedForComparison.includes(p.id) ? 'fa-check' : 'fa-plus'}"></i></div>
-        ${trend}
-        ${newBadge}
-        ${lowBadge}
-        ${pcBadge}
+        ${badgeStackHtml}
         ${!p.hasPriceToday ? '<div style="position:absolute; bottom:8px; left:8px; font-size:0.5rem; font-weight:900; background:var(--danger); padding:1px 5px; border-radius:3px; color:#fff; z-index:11;">OS</div>' : ''}
         <div class="p-img-box">
-            <img src="${p.image}" class="product-image" loading="lazy" onerror="this.src='https://placehold.co/200x200/000/fff?text=NO_SIGNAL'">
+            <img src="${escapeAttribute(p.image)}" class="product-image" loading="lazy" onerror="this.src='https://placehold.co/200x200/000/fff?text=NO_SIGNAL'">
             <div class="price-tag">${(!p.hasPriceToday || !(Number(p.current_price) > 0)) ? '—' : Math.round(p.current_price)}</div>
         </div>
         <div class="p-detail-sh">
-            <div class="product-name" title="${p.name}" style="${!p.hasPriceToday ? 'font-style:italic; opacity:0.6;' : ''}">${p.name}</div>
+            <div class="product-name" title="${escapeAttribute(p.name)}" style="${!p.hasPriceToday ? 'font-style:italic; opacity:0.6;' : ''}">${escapeHTML(p.name)}</div>
             <div class="product-meta">
                 <div class="meta-row">
-                    <span class="price-main" style="color:${storeColor}">${(!p.hasPriceToday || !(Number(p.current_price) > 0)) ? 'Out of stock' : `${fmt(p.normalized_price)} <span class="unit-label">/${unitTypeLabel(p.unit_type)}</span>`}</span>
-                    <span class="cat-tag">${p.category}</span>
+                    <span class="price-main" style="color:${storeColor}">${(!p.hasPriceToday || !(Number(p.current_price) > 0)) ? 'Out of stock' : `${fmt(p.normalized_price)} <span class="unit-label">/${escapeHTML(unitTypeLabel(p.unit_type))}</span>`}</span>
+                    <span class="cat-tag" title="${escapeAttribute(p.category)}">${escapeHTML(p.category)}</span>
                 </div>
                 <div class="meta-row">
-                    <span class="pack-info">Pack: ${formatPackUnit(p.unit)}</span>
+                    <span class="pack-info">Pack: ${escapeHTML(formatPackUnit(p.unit))}</span>
                 </div>
             </div>
         </div>
