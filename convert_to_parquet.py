@@ -212,6 +212,19 @@ atl_cnt = con.execute(f"SELECT COUNT(*) FROM read_parquet('{atl_path}');").fetch
 atl_kb = os.path.getsize(atl_path) / 1024
 print(f"Pre-calculated ATL deals (photos only) written: {atl_cnt:,} products ({atl_kb:.1f} KB -> atl.parquet)")
 
+# Export ultra-fast instant preview JSON for sub-25ms zero-latency launch
+preview_df = con.execute(f"""
+    SELECT id, name, store, category, unit, unit_type, current_price, normalized_price, image, url, first_seen, last_seen, in_stock, is_out_of_stock, hist_count, min_price, max_price, avg_price
+    FROM read_parquet('{atl_path}')
+    ORDER BY (max_price - normalized_price) DESC
+    LIMIT 60
+""").fetchdf()
+import json
+preview_path = os.path.join(BASE, 'atl_preview.json')
+with open(preview_path, 'w', encoding='utf-8') as pf:
+    json.dump(preview_df.to_dict(orient='records'), pf)
+print(f"Instant ATL preview written: {len(preview_df)} items ({os.path.getsize(preview_path)/1024:.1f} KB -> atl_preview.json)")
+
 # Export per-store history chunks for progressive background hydration
 STORE_SLUGS = ['shwapno', 'chaldal', 'meenabazar', 'othoba', 'metromart', 'unimart', 'shotejbazar', 'foodi']
 print("Exporting per-store history chunks for progressive hydration...")

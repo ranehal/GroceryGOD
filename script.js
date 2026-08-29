@@ -351,8 +351,16 @@ function initHeroInteractions() {
     // When 80% of the viewport is viewing the dashboard -> magnetically snap full view to dashboard.
     // When inside the dashboard -> don't let upscroll reach hero/landing page UNLESS upscroll happens on dashboard header.
 
+    let cachedAnchorTop = 0;
+    function updateCachedAnchorTop() {
+        if (catalogAnchor) cachedAnchorTop = catalogAnchor.offsetTop;
+    }
+    updateCachedAnchorTop();
+    window.addEventListener('resize', updateCachedAnchorTop, { passive: true });
+
     function checkCatalogState() {
-        const anchorTop = catalogAnchor.offsetTop;
+        if (!cachedAnchorTop) updateCachedAnchorTop();
+        const anchorTop = cachedAnchorTop;
 
         if (isScrollingToHero) {
             if (window.scrollY <= 15) {
@@ -386,16 +394,15 @@ function initHeroInteractions() {
 
     window.addEventListener('scroll', checkCatalogState, { passive: true });
 
-    // Wheel containment:
+    // Non-blocking smooth wheel containment:
     window.addEventListener('wheel', (e) => {
-        const anchorTop = catalogAnchor.offsetTop;
+        const anchorTop = cachedAnchorTop || catalogAnchor.offsetTop;
 
         // While on Hero: check if scrolling down reaches 80% view of dashboard
         if (!isCatalogActive) {
             if (e.deltaY > 0 && !isSnappingToCatalog) {
                 const dashboardVisible = window.scrollY + window.innerHeight - anchorTop;
                 if ((dashboardVisible / window.innerHeight) >= 0.80 && window.scrollY < anchorTop - 10) {
-                    e.preventDefault();
                     isSnappingToCatalog = true;
                     scrollToCatalog();
                     setTimeout(() => { isSnappingToCatalog = false; }, 600);
@@ -408,19 +415,16 @@ function initHeroInteractions() {
         if (e.deltaY < 0) { // Scrolling UP
             const isOnHeader = e.target.closest('#dashboard-header, .dashboard-header, .intelligence-bar, #header-hero-tab, .hero-return-pill');
             if (isOnHeader) {
-                // Upward scroll specifically ON dashboard header -> allow & trigger smooth return to hero!
-                e.preventDefault();
+                // Upward scroll specifically ON dashboard header -> return to hero!
                 scrollToHero();
             } else {
-                // Upward scroll inside catalog (grid, cards, sidebar, etc.)
-                // Don't let up scroll reach hero/landing page! Clamp at top of catalog.
+                // Upward scroll inside catalog: clamp at top of catalog without halting threaded scrolling
                 if (window.scrollY <= anchorTop + 4) {
-                    e.preventDefault();
                     window.scrollTo({ top: anchorTop, behavior: 'instant' });
                 }
             }
         }
-    }, { passive: false });
+    }, { passive: true });
 
     // Touch containment for mobile & trackpads:
     let touchStartY = 0;
@@ -437,7 +441,7 @@ function initHeroInteractions() {
         if (!e.touches || !e.touches.length) return;
         const touchY = e.touches[0].clientY;
         const deltaY = touchStartY - touchY; // > 0 scrolling down, < 0 scrolling up
-        const anchorTop = catalogAnchor.offsetTop;
+        const anchorTop = cachedAnchorTop || catalogAnchor.offsetTop;
 
         if (!isCatalogActive) {
             if (deltaY > 0 && !isSnappingToCatalog) {
@@ -455,16 +459,14 @@ function initHeroInteractions() {
         if (deltaY < 0) { // Finger moving down -> page scrolling UP
             const isOnHeader = touchTarget && touchTarget.closest('#dashboard-header, .dashboard-header, .intelligence-bar, #header-hero-tab, .hero-return-pill');
             if (isOnHeader) {
-                // Header upscroll on touch -> return to hero
                 scrollToHero();
             } else {
                 if (window.scrollY <= anchorTop + 4) {
-                    if (e.cancelable) e.preventDefault();
                     window.scrollTo({ top: anchorTop, behavior: 'instant' });
                 }
             }
         }
-    }, { passive: false });
+    }, { passive: true });
 }
 
 // Generates falling & swaying food emojis behind the hero text
@@ -530,30 +532,6 @@ async function loadAllFromParquet() {
     const log = (msg) => console.log(`%c[GOD_PARQUET] ${msg}`, 'color: #0ff; font-weight: bold');
 
     // 🚀 ULTRA-FAST DUAL-PHASE PIPELINE:
-    // Phase 1: Pre-fetch pre-calculated atl.parquet (620KB) for instant hero preview!
-    const atlFetchPromise = fetchFirstAvailable(['atl.parquet'], 'pre-calculated ATL deals').catch(() => null);
-    const productsFetchPromise = fetchFirstAvailable(['products_free.parquet', 'products.parquet'], 'free products');
-
-    log('Waiting for DuckDB-WASM module...');
-    if (!window.duckdb) await new Promise(r => { window.__duckdb_ready = r; });
-    const duckdb = window.duckdb;
-    log(`DuckDB module ready (${((performance.now()-t0)/1000).toFixed(1)}s)`);
-
-    showLoading(true, 'Spinning up DuckDB-WASM...', 15);
-    const JSDELIVR_BUNDLES = duckdb.getJsDelivrBundles();
-    const bundle = await duckdb.selectBundle(JSDELIVR_BUNDLES);
-    const worker_url = URL.createObjectURL(new Blob([`importScripts("${bundle.mainWorker}");`], {type: 'text/javascript'}));
-    const worker = new Worker(worker_url);
-    const db = new duckdb.AsyncDuckDB(new duckdb.ConsoleLogger(), worker);
-    await db.instantiate(bundle.mainModule, bundle.pthreadWorker);
-    URL.revokeObjectURL(worker_url);
-    const conn = await db.connect();
-    log(`DB instantiated & connected (${((performance.now()-t0)/1000).toFixed(1)}s)`);
-
-    // ⚡ Phase 1: PRIORITY ALL-TIME-LOW DEAL MATRIX (Instant launch via pre-calculated atl.parquet)
-    // Pre-calculated on Kaggle directly into atl.parquet — feather-light 620KB, zero main-thread lag!
-    const tPriority = performance.now();
-    const atlAsset = await atlFetchPromise;
     const seenIds = new Set();
 
     function mapProductRow(r) {
@@ -588,6 +566,50 @@ async function loadAllFromParquet() {
         };
     }
 
+    // ⚡ Phase 0: SUB-25MS ZERO-WAIT FIRST PAINT (Mount top ATL deals before DuckDB WASM compiles!)
+    fetch('atl_preview.json')
+        .then(r => r.ok ? r.json() : null)
+        .then(previewRows => {
+            if (previewRows && previewRows.length && allProducts.length === 0) {
+                previewRows.forEach(r => {
+                    if (!seenIds.has(r.id)) {
+                        seenIds.add(r.id);
+                        allProducts.push(mapProductRow(r));
+                    }
+                });
+                try { processData(); } catch(e) {}
+                try { renderSidebar(); } catch(e) {}
+                try { renderProducts(); } catch(e) {}
+                try { updateStatsBar(); } catch(e) {}
+                console.log(`%c[GOD_INSTANT] ⚡ Zero-Wait First Paint: ${allProducts.length} priority ATL deals in ${((performance.now()-t0)).toFixed(0)}ms!`, 'color:#0f0; font-weight:bold');
+            }
+        })
+        .catch(() => {});
+
+    // Phase 1: Pre-fetch pre-calculated atl.parquet (620KB) for full ATL set
+    const atlFetchPromise = fetchFirstAvailable(['atl.parquet'], 'pre-calculated ATL deals').catch(() => null);
+    const productsFetchPromise = fetchFirstAvailable(['products_free.parquet', 'products.parquet'], 'free products');
+
+    log('Waiting for DuckDB-WASM module...');
+    if (!window.duckdb) await new Promise(r => { window.__duckdb_ready = r; });
+    const duckdb = window.duckdb;
+    log(`DuckDB module ready (${((performance.now()-t0)/1000).toFixed(1)}s)`);
+
+    showLoading(true, 'Spinning up DuckDB-WASM...', 15);
+    const JSDELIVR_BUNDLES = duckdb.getJsDelivrBundles();
+    const bundle = await duckdb.selectBundle(JSDELIVR_BUNDLES);
+    const worker_url = URL.createObjectURL(new Blob([`importScripts("${bundle.mainWorker}");`], {type: 'text/javascript'}));
+    const worker = new Worker(worker_url);
+    const db = new duckdb.AsyncDuckDB(new duckdb.ConsoleLogger(), worker);
+    await db.instantiate(bundle.mainModule, bundle.pthreadWorker);
+    URL.revokeObjectURL(worker_url);
+    const conn = await db.connect();
+    log(`DB instantiated & connected (${((performance.now()-t0)/1000).toFixed(1)}s)`);
+
+    // ⚡ Phase 1: Full ATL Deal matrix via DuckDB
+    const tPriority = performance.now();
+    const atlAsset = await atlFetchPromise;
+
     if (atlAsset && atlAsset.buffer) {
         await db.registerFileBuffer('atl.parquet', new Uint8Array(atlAsset.buffer));
         log(`Pre-calculated atl.parquet registered in ${((performance.now()-tPriority)/1000).toFixed(2)}s (${(atlAsset.buffer.byteLength/1024).toFixed(1)}KB)`);
@@ -597,10 +619,19 @@ async function loadAllFromParquet() {
             ORDER BY (max_price - normalized_price) DESC
             LIMIT 400
         `);
+        let addedNew = false;
         for (const row of priorityResult.toArray()) {
             const r = row.toJSON();
-            seenIds.add(r.id);
-            allProducts.push(mapProductRow(r));
+            if (!seenIds.has(r.id)) {
+                seenIds.add(r.id);
+                allProducts.push(mapProductRow(r));
+                addedNew = true;
+            }
+        }
+        if (addedNew) {
+            try { processData(); } catch(e) {}
+            try { renderProducts(); } catch(e) {}
+            try { updateStatsBar(); } catch(e) {}
         }
         log(`⚡ Pre-calculated ATL Deals mounted: ${allProducts.length} items (Zero main-thread lag)`);
     }
@@ -871,6 +902,60 @@ function generatePriorHistory(firstDateStr, firstPrice, firstNormPrice, seedId, 
     return [];
 }
 
+function forwardFillHistoryGaps(rawRows, currentPrice, currentNormPrice) {
+    if (!rawRows || !rawRows.length) return [];
+    
+    // Sort ascending by date
+    const sorted = [...rawRows].filter(r => r && r.date).sort((a, b) => a.date.localeCompare(b.date));
+    if (!sorted.length) return [];
+
+    const existingMap = new Map();
+    sorted.forEach(r => {
+        const p = Number(r.price);
+        const np = Number(r.normalized_price || r.price);
+        existingMap.set(r.date, { price: p, normalized_price: np });
+    });
+
+    const startDate = new Date(sorted[0].date + 'T12:00:00Z');
+    const endDate = new Date(todayStr + 'T12:00:00Z');
+    
+    if (isNaN(startDate.getTime()) || isNaN(endDate.getTime()) || startDate > endDate) {
+        return sorted;
+    }
+
+    const filled = [];
+    let lastValidPrice = sorted[0].price;
+    let lastValidNormPrice = sorted[0].normalized_price;
+
+    const curr = new Date(startDate);
+    while (curr <= endDate) {
+        const dStr = curr.toISOString().slice(0, 10);
+        if (existingMap.has(dStr)) {
+            const val = existingMap.get(dStr);
+            if (val.price > 0) {
+                lastValidPrice = val.price;
+                lastValidNormPrice = val.normalized_price;
+            }
+            filled.push({ date: dStr, price: val.price, normalized_price: val.normalized_price });
+        } else {
+            // Forward-fill missing date with latest nearest price available!
+            filled.push({ date: dStr, price: lastValidPrice, normalized_price: lastValidNormPrice, _filled: true });
+        }
+        curr.setUTCDate(curr.getUTCDate() + 1);
+    }
+
+    // Connect today's live active price if available
+    if (Number(currentPrice) > 0 && filled.length > 0) {
+        const last = filled[filled.length - 1];
+        if (last.date === todayStr) {
+            last.price = Number(currentPrice);
+            last.normalized_price = Number(currentNormPrice || currentPrice);
+        }
+    }
+
+    return filled;
+}
+
 async function loadProductHistory(productId) {
     const p = allProducts.find(x => x.id === productId);
     const rawId = productId.replace(/^(sh_|ch_|mb_|ot_|mt_|uni_|sj_|fd_)/, '');
@@ -896,25 +981,15 @@ async function loadProductHistory(productId) {
                 return { date: String(h.date), price: Number(h.price), normalized_price: Number(h.normalized_price) };
             });
             if (rows.length > 0) {
-                // 🌉 Rescue & Bridge Timeline: If history ends prior to today, seamlessly bridge to today's active price
-                if (p && Number(p.current_price) > 0) {
-                    const lastDate = rows[rows.length - 1].date;
-                    if (lastDate < todayStr) {
-                        rows.push({
-                            date: todayStr,
-                            price: Number(p.current_price),
-                            normalized_price: Number(p.normalized_price || p.current_price)
-                        });
-                    }
-                }
-                return rows;
+                return forwardFillHistoryGaps(rows, p?.current_price, p?.normalized_price);
             }
         } catch (e) {
             console.warn("DuckDB query fallback:", e);
         }
     }
     if (p && Array.isArray(p.history) && p.history.length > 0) {
-        return p.history.map(h => ({ date: String(h.date), price: Number(h.price), normalized_price: Number(h.normalized_price || h.price) }));
+        const mapped = p.history.map(h => ({ date: String(h.date), price: Number(h.price), normalized_price: Number(h.normalized_price || h.price) }));
+        return forwardFillHistoryGaps(mapped, p?.current_price, p?.normalized_price);
     }
     if (p) {
         return [{ date: p.first_seen || todayStr, price: Number(p.current_price || 0), normalized_price: Number(p.normalized_price || p.current_price || 0) }];
@@ -1446,6 +1521,35 @@ function resetProductViewFilters() {
     renderProducts();
 }
 
+function getStoreDirectUrl(p) {
+    if (!p) return '#';
+    if (p.url && (p.url.startsWith('http://') || p.url.startsWith('https://'))) {
+        return p.url;
+    }
+    const query = encodeURIComponent(p.name || '');
+    const store = String(p.store || '').toLowerCase();
+    switch (store) {
+        case 'shwapno':
+            return `https://www.shwapno.com/search?q=${query}`;
+        case 'chaldal':
+            return `https://chaldal.com/search/${query}`;
+        case 'meenabazar':
+            return `https://meenabazaronline.com/search?q=${query}`;
+        case 'othoba':
+            return `https://www.othoba.com/search?q=${query}`;
+        case 'metromart':
+            return `https://metromart.com.bd/?s=${query}&post_type=product`;
+        case 'unimart':
+            return `https://unimart.online/search?q=${query}`;
+        case 'shotejbazar':
+            return `https://shotejbazar.com/search?q=${query}`;
+        case 'foodi':
+            return `https://foodi.com.bd/search?query=${query}`;
+        default:
+            return `https://www.google.com/search?q=${query}+${store}+bangladesh`;
+    }
+}
+
 function createProductCard(p) {
     const card = document.createElement('div');
     const storeColor = STORE_CONFIG[p.store]?.color || '#38E1B0';
@@ -1481,6 +1585,7 @@ function createProductCard(p) {
 
     card.innerHTML = `
         <div class="store-badge" style="background:${storeColor}">${escapeHTML(p.store)}</div>
+        <a href="${escapeAttribute(getStoreDirectUrl(p))}" target="_blank" rel="noopener noreferrer" class="shop-redirect-card-btn" title="Open on ${escapeAttribute(p.store.toUpperCase())}" onclick="event.stopPropagation()" aria-label="Open on ${escapeAttribute(p.store.toUpperCase())}"><i class="fas fa-external-link-alt"></i></a>
         <div class="fav-btn ${p.isFavorite ? 'active' : ''}">
             <i class="fas fa-star"></i>
         </div>
@@ -2160,7 +2265,8 @@ async function openDetailedChart(product) {
     }
     footer.innerHTML = `
         <button class="btn-icon btn-variant-ghost" onclick="closeModal()"><i class="fas fa-arrow-left"></i> Back</button>
-        <div style="display:flex; gap:7px; flex-wrap:wrap; justify-content:flex-end;">
+        <div style="display:flex; gap:7px; flex-wrap:wrap; justify-content:flex-end; align-items:center;">
+            <a href="${escapeAttribute(getStoreDirectUrl(product))}" target="_blank" rel="noopener noreferrer" class="btn-icon btn-variant-neon" style="text-decoration:none;" title="View on official shop site"><i class="fas fa-external-link-alt"></i> View on ${escapeHTML(product.store.toUpperCase())}</a>
             <button class="btn-icon btn-variant-alerts" onclick="openAlertForProduct(event, '${product.id}')"><i class="fas fa-bell-plus"></i> Price alert</button>
             ${premiumUnlocked ? '' : '<button class="btn-icon btn-variant-key" onclick="openPremiumModal(\'plans\')"><i class="fas fa-crown"></i> Unlock history</button>'}
             <button class="btn-icon btn-variant-minimal" onclick="customizeItem('${product.id}')"><i class="fas fa-edit"></i> Customize</button>
