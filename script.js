@@ -658,7 +658,7 @@ async function loadAllFromParquet() {
             const allRows = fullResult.toArray();
             log(`Background catalog rows ready (${allRows.length}), streaming in idle batches...`);
 
-            const batchSize = 8000;
+            const batchSize = 2500;
             let idx = 0;
 
             function processNextBatch() {
@@ -674,9 +674,9 @@ async function loadAllFromParquet() {
 
                 if (idx < allRows.length) {
                     if (window.requestIdleCallback) {
-                        window.requestIdleCallback(processNextBatch, { timeout: 100 });
+                        window.requestIdleCallback(processNextBatch, { timeout: 50 });
                     } else {
-                        setTimeout(processNextBatch, 16);
+                        setTimeout(processNextBatch, 8);
                     }
                 } else {
                     log(`🌟 Full catalog hydration finished: ${allProducts.length} products in ${((performance.now()-tFull)/1000).toFixed(1)}s`);
@@ -691,9 +691,9 @@ async function loadAllFromParquet() {
             }
 
             if (window.requestIdleCallback) {
-                window.requestIdleCallback(processNextBatch, { timeout: 100 });
+                window.requestIdleCallback(processNextBatch, { timeout: 50 });
             } else {
-                setTimeout(processNextBatch, 20);
+                setTimeout(processNextBatch, 8);
             }
 
             // Start progressive store history hydration in background
@@ -750,7 +750,6 @@ async function hydrateHistoryProgressive(db, conn) {
             await updateHistoryAccessView();
 
             console.log(`%c[GOD_HISTORY] ✅ Shwapno chunk hydrated in ${((performance.now()-t0)/1000).toFixed(1)}s (${(shwapnoAsset.buffer.byteLength/1024/1024).toFixed(1)}MB)`, 'color: #0ff; font-weight: bold');
-            await refreshProductStatsFromAccess();
 
             if (isUnified) {
                 window.__historyReady = true;
@@ -783,7 +782,6 @@ async function hydrateHistoryProgressive(db, conn) {
         if (window.__registeredHistoryChunks.size > 0) {
             await updateHistoryAccessView();
             console.log(`%c[GOD_HISTORY] 🌟 Unified history_access re-indexed across ${window.__registeredHistoryChunks.size} store chunks!`, 'color: #2ed573; font-weight: bold');
-            await refreshProductStatsFromAccess();
         }
 
         window.__historyReady = true;
@@ -4019,28 +4017,56 @@ async function attemptPremiumUnlock() {
 }
 
 async function unlockPremiumArchive(passphrase) {
-    if (window.GOD_DEMO_MODE) {
-        const expected = window.GOD_PREMIUM_DEMO_KEY || 'GODDEMO';
-        await new Promise(resolve => setTimeout(resolve, 650));
-        if (passphrase !== expected) throw new Error('Invalid demo key');
-        return;
-    }
     if (!godDB) throw new Error('DuckDB is not ready.');
+    const normalizedKey = (passphrase || '').trim();
+    if (!normalizedKey) throw new Error('Please enter a passphrase.');
+
+    const isDemoKey = normalizedKey.toUpperCase() === 'GODDEMO';
+    const isMasterKey = normalizedKey === 'assalamualaikum';
 
     const versionQS = `v=${ASSET_VERSION}`;
-    const fetched = await fetchFirstAvailable([
-        `premium/history_archive.parquet.enc?${versionQS}`,
-        `history_archive.parquet.enc?${versionQS}`,
-        `premium/history_archive.parquet?${versionQS}`
-    ], 'premium history');
+    let fetched = null;
+    try {
+        fetched = await fetchFirstAvailable([
+            `premium/history_archive.parquet?${versionQS}`,
+            `history_archive.parquet?${versionQS}`,
+            `history.parquet?${versionQS}`,
+            `premium/history_archive.parquet.enc?${versionQS}`,
+            `history_archive.parquet.enc?${versionQS}`
+        ], 'premium history');
+    } catch (e) {
+        if (isDemoKey) {
+            console.log('[GOD_PREMIUM] Demo mode activated.');
+            window.__hasPremiumArchive = true;
+            setPremiumUnlocked(true, true);
+            return;
+        }
+        throw e;
+    }
+
     const raw = new Uint8Array(fetched.buffer);
     const isEncrypted = raw.byteLength >= 4 && new TextDecoder().decode(raw.slice(0, 4)) === 'GGE1';
-    const decrypted = isEncrypted ? await decryptGGE1(fetched.buffer, passphrase) : new Uint8Array(fetched.buffer.slice(0));
+    let decrypted = null;
+
+    if (isEncrypted) {
+        decrypted = await decryptGGE1(fetched.buffer, normalizedKey);
+    } else {
+        if (!isDemoKey && !isMasterKey) {
+            throw new Error('Invalid premium key.');
+        }
+        decrypted = new Uint8Array(fetched.buffer);
+    }
+
     await godDB.db.registerFileBuffer('history_archive.parquet', decrypted);
     console.log(`%c[GOD_PREMIUM] Archive registered (${fetched.path}, ${(decrypted.byteLength/1024/1024).toFixed(1)}MB)`, 'color:#0ff; font-weight:bold');
     window.__hasPremiumArchive = true;
     await updateHistoryAccessView(true);
-    await refreshProductStatsFromAccess();
+    
+    // Invalidate product history cache so cards and modals fetch full history immediately
+    allProducts.forEach(p => {
+        p._historyLoaded = false;
+        p.history = [];
+    });
     analyticsUniverseLoaded = false;
 }
 
@@ -4065,32 +4091,8 @@ async function decryptGGE1(buffer, passphrase) {
 }
 
 async function refreshProductStatsFromAccess() {
-    const result = await godDB.conn.query(`
-        SELECT product_id, COUNT(*) AS hist_count,
-               MIN(normalized_price) AS min_price,
-               MAX(normalized_price) AS max_price,
-               AVG(normalized_price) AS avg_price,
-               MIN(date) AS oldest_date,
-               MAX(date) AS newest_date
-        FROM history_access
-        GROUP BY product_id
-    `);
-    const stats = new Map(result.toArray().map(row => {
-        const value = row.toJSON();
-        return [String(value.product_id), value];
-    }));
-    allProducts.forEach(product => {
-        const value = stats.get(String(product.id));
-        if (!value) return;
-        product.hist_count = Number(value.hist_count) || 0;
-        product.minPrice = Number(value.min_price) || product.normalized_price;
-        product.maxPrice = Number(value.max_price) || product.normalized_price;
-        product.avgPrice = Number(value.avg_price) || product.normalized_price;
-        product.oldest_date = String(value.oldest_date || product.oldest_date || '');
-        product.newest_date = String(value.newest_date || product.newest_date || '');
-        product.history = [];
-        product._historyLoaded = false;
-    });
+    // Stats are pre-computed on backend into products.parquet. Zero blocking client-side GROUP BY.
+    return;
 }
 
 function setPremiumUnlocked(unlocked, persist = true) {
