@@ -355,24 +355,32 @@ function initHeroInteractions() {
     window.addEventListener('scroll', checkCatalogState, { passive: true });
 }
 
-// Generates falling & swaying food emojis behind the hero text
+// Generates drifting ambient SVG vector glyphs behind the hero text (Anti-Slop, zero emojis)
 function initHeroFoodBackground() {
     const container = document.getElementById('hero-food-bg');
     if (!container) return;
     container.innerHTML = '';
 
-    const FOOD_ITEMS = ['🍕', '🍔', '🍟', '🌭', '🍿', '🍩', '🍪', '🍰', '🍫', '🍬', '🍭', '🧃', '🥤', '🥮', '🍣', '🍤'];
+    const SVG_GLYPHS = [
+        '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22V2M12 2l4 4M12 6l-4-4M12 7l5 5M12 12l-5-5M12 12l5 5M12 17l-5-5"/></svg>', // Grain
+        '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2h8v3H8zM9 5v3l-3 4v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-9l-3-4V5M6 14h12"/></svg>', // Bottle
+        '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>', // Droplet/Oil
+        '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4zM3 6h18M16 10a4 4 0 0 1-8 0"/></svg>', // Bag
+        '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82zM7 7h.01"/></svg>', // Tag
+        '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5v14M8 5v14M12 5v14M17 5v14M21 5v14"/></svg>', // Barcode
+        '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>', // Pulse
+        '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v3M12 6c-3 0-6 2.5-6 6.5C6 17 9 21 12 21s6-4 6-8.5c0-4-3-6.5-6-6.5z"/></svg>' // Fresh
+    ];
     const frag = document.createDocumentFragment();
 
-    for (let id = 0; id < 35; id++) {
+    for (let id = 0; id < 28; id++) {
         const span = document.createElement('span');
         span.className = 'hero-food-particle';
-        span.textContent = FOOD_ITEMS[Math.floor(Math.random() * FOOD_ITEMS.length)];
+        span.innerHTML = SVG_GLYPHS[Math.floor(Math.random() * SVG_GLYPHS.length)];
         span.style.left = `${(Math.random() * 95).toFixed(1)}%`;
-        span.style.animationDelay = `${(Math.random() * 8).toFixed(1)}s`;
-        span.style.animationDuration = `${(6 + Math.random() * 6).toFixed(1)}s`;
-        span.style.fontSize = `${Math.round(20 + Math.random() * 24)}px`;
-        span.style.opacity = (0.15 + Math.random() * 0.25).toFixed(2);
+        span.style.animationDelay = `${(Math.random() * 7).toFixed(1)}s`;
+        span.style.animationDuration = `${(8 + Math.random() * 7).toFixed(1)}s`;
+        span.style.opacity = (0.07 + Math.random() * 0.12).toFixed(2);
         frag.appendChild(span);
     }
     container.appendChild(frag);
@@ -1635,6 +1643,7 @@ function setupEventListeners() {
             recentDaysFilter = parseInt(e.target.value) || 0;
             safeStorage.setItem('god_new_days', recentDaysFilter);
             visiblePages = 1;
+            processData();
             renderProducts();
         };
     }
@@ -1649,12 +1658,17 @@ function setupEventListeners() {
         };
     }
     
-    document.querySelectorAll('.intel-btn').forEach(b => b.classList.toggle('active', b.dataset.filter === activeIntelFilter));
+    document.querySelectorAll('.intel-btn[data-filter]').forEach(b => b.classList.toggle('active', b.dataset.filter === activeIntelFilter));
+    document.getElementById('toggle-has-image-btn')?.classList.toggle('active', hideNoImage);
 
     document.querySelectorAll('.multi-filter-group input').forEach(cb => {
+        cb.checked = activeUnitFilters.has(cb.value);
+        cb.closest('.check-pill')?.classList.toggle('active', cb.checked);
         cb.onchange = () => {
             if (cb.checked) activeUnitFilters.add(cb.value);
             else activeUnitFilters.delete(cb.value);
+            cb.closest('.check-pill')?.classList.toggle('active', cb.checked);
+            visiblePages = 1;
             renderProducts();
         };
     });
@@ -1663,6 +1677,7 @@ function setupEventListeners() {
         btn.onclick = async () => {
             activeIntelFilter = activeIntelFilter === btn.dataset.filter ? 'all' : btn.dataset.filter;
             document.querySelectorAll('.intel-btn[data-filter]').forEach(b => b.classList.toggle('active', b.dataset.filter === activeIntelFilter));
+            document.getElementById('toggle-has-image-btn')?.classList.toggle('active', hideNoImage);
             const pcControls = document.getElementById('price-change-controls');
             if (pcControls) pcControls.style.display = activeIntelFilter === 'pricechange' ? 'flex' : 'none';
             if (activeIntelFilter === 'pricechange') await computePriceChanges(priceChangeDays);
