@@ -76,91 +76,121 @@ if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || wi
         </div>
     </nav>
 
-    <!-- Main Hero Centerpiece -->
-    <div class="hero-content">
-        <div class="hero-pill-badge">
-            <span class="pill-sparkle">✦</span>
-            <span class="pill-text">BANGLADESH GROCERY PRICE INTELLIGENCE ENGINE</span>
-            <span class="pill-time">LIVE DHAKA INDEX</span>
+    <!-- Main Hero Asymmetric Editorial Layout -->
+    <div class="hero-editorial-grid">
+        <!-- Left Column: Striking Typographic & Command Center -->
+        <div class="hero-editorial-left">
+            <div class="hero-kicker-badge">
+                <span class="pill-sparkle">✦</span>
+                <span class="pill-text">BANGLADESH GROCERY PRICE INTELLIGENCE</span>
+                <span class="pill-time">LIVE DHAKA INDEX</span>
+            </div>
+
+            <h1 class="hero-editorial-title">
+                <span class="title-line title-line-1">EVERY PRICE.</span>
+                <span class="title-line title-line-2 gradient-text">EVERY STORE.</span>
+                <span class="title-line title-line-3">ZERO BLINDSPOTS.</span>
+            </h1>
+
+            <p class="hero-editorial-desc">
+                Autonomous multi-store intelligence across <strong>80,153+ daily essentials</strong> in Dhaka. 
+                Unit-normalized price arbitrage, real-time restock telemetry, and 6-month historical inflation curves.
+            </p>
+
+            <!-- Hero Command Search -->
+            <div class="hero-search-container">
+                <div class="hero-search-box">
+                    <i class="fas fa-search hero-search-icon"></i>
+                    <input type="text" id="hero-search-input" placeholder="Search milk, oil, rice, beef, eggs across 8 superstores..." autocomplete="off">
+                    <button class="hero-search-submit" id="hero-search-btn">
+                        <span>Search Catalog</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+                <div class="hero-search-quicktags">
+                    <span class="quicktag-label">QUICK SEARCH:</span>
+                    <button class="quicktag-chip" data-query="Milk">Aarong Milk</button>
+                    <button class="quicktag-chip" data-query="Soybean Oil">Soybean Oil</button>
+                    <button class="quicktag-chip" data-query="Miniket Rice">Miniket Rice</button>
+                    <button class="quicktag-chip" data-query="Eggs">Farm Eggs</button>
+                    <button class="quicktag-chip" data-query="Beef">Fresh Beef</button>
+                    <button class="quicktag-chip" data-query="Sugar">Deshi Sugar</button>
+                </div>
+            </div>
+
+            <!-- Direct Store Jump Strips -->
+            <div class="hero-store-strip">
+                <span class="strip-label">DIRECT STORE JUMP:</span>
+                <div class="strip-chips">
+                    <button class="hero-store-chip active" data-store="shwapno">Shwapno</button>
+                    <button class="hero-store-chip" data-store="chaldal">Chaldal</button>
+                    <button class="hero-store-chip" data-store="meenabazar">Meena Bazar</button>
+                    <button class="hero-store-chip" data-store="othoba">Othoba</button>
+                    <button class="hero-store-chip" data-store="metromart">Metro Mart</button>
+                    <button class="hero-store-chip" data-store="unimart">Unimart</button>
+                    <button class="hero-store-chip" data-store="shotejbazar">Shotej Bazar</button>
+                    <button class="hero-store-chip" data-store="foodi">FooDIE Mart</button>
+                </div>
+            </div>
         </div>
 
-        <h1 class="hero-title">
-            <span class="hero-title-line">EVERY PRICE.</span>
-            <span class="hero-title-line gradient-text">EVERY STORE.</span>
-            <span class="hero-title-line">ZERO BLINDSPOTS.</span>
-        </h1>
+        <!-- Right Column: Live Telemetry Terminal HUD -->
+        <div class="hero-editorial-right">
+            <div class="hero-hud-card">
+                <div class="hud-top-bar">
+                    <div class="hud-live-tag">
+                        <span class="pulse-dot"></span>
+                        <span>DHAKA MARKET PULSE</span>
+                    </div>
+                    <span class="hud-tech-chip">SIMD VECTORIZED</span>
+                </div>
 
-        <p class="hero-subtitle">
-            Autonomous multi-store intelligence across <strong>80,153+ daily essentials</strong> in Dhaka. 
-            Unit-normalized price arbitrage, real-time restock telemetry, and 6-month historical inflation curves.
-        </p>
+                <div class="hud-bento-grid">
+                    <div class="hud-bento-cell">
+                        <span class="hud-cell-val" id="hud-total-val">80,153</span>
+                        <span class="hud-cell-lbl">Products Monitored</span>
+                        <span class="hud-cell-sub">8 Superstore Chains</span>
+                    </div>
+                    <div class="hud-bento-cell highlight-deal">
+                        <span class="hud-cell-val highlight-glow" id="hud-deal-val">6,933</span>
+                        <span class="hud-cell-lbl">All-Time Low Deals</span>
+                        <span class="hud-cell-sub">Verified Product Photos</span>
+                    </div>
+                    <div class="hud-bento-cell">
+                        <span class="hud-cell-val">1.2<small>ms</small></span>
+                        <span class="hud-cell-lbl">DuckDB Query Latency</span>
+                        <span class="hud-cell-sub">Local WASM Engine</span>
+                    </div>
+                    <div class="hud-bento-cell">
+                        <span class="hud-cell-val">3.7<small>M+</small></span>
+                        <span class="hud-cell-lbl">Historical Snapshots</span>
+                        <span class="hud-cell-sub">Since Feb 2026</span>
+                    </div>
+                </div>
 
-        <!-- Hero Quick Interactive Search -->
-        <div class="hero-search-container">
-            <div class="hero-search-box">
-                <i class="fas fa-search hero-search-icon"></i>
-                <input type="text" id="hero-search-input" placeholder="Search milk, oil, rice, beef, eggs across 8 superstores..." autocomplete="off">
-                <button class="hero-search-submit" id="hero-search-btn">
-                    <span>Search Catalog</span>
-                    <i class="fas fa-arrow-right"></i>
+                <div class="hud-deal-ticker">
+                    <div class="hud-ticker-header">
+                        <i class="fas fa-bolt"></i>
+                        <span>LIVE ARBITRAGE TELEMETRY</span>
+                    </div>
+                    <div class="hud-ticker-content">
+                        <div class="ticker-product-line">
+                            <span class="ticker-name">Soybean Oil 5 Litre</span>
+                            <span class="ticker-badge-save">SAVE ৳45</span>
+                        </div>
+                        <div class="ticker-stores-spread">
+                            <span class="store-price">Shwapno: <strong>৳895</strong></span>
+                            <span class="store-divider">vs</span>
+                            <span class="store-price">Chaldal: <strong>৳940</strong></span>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="hud-cta-action" id="hero-scroll-down-btn" aria-label="Explore live catalog">
+                    <span>Explore Verified Lows</span>
+                    <i class="fas fa-arrow-down"></i>
                 </button>
             </div>
-            <div class="hero-search-quicktags">
-                <span class="quicktag-label">QUICK SEARCH:</span>
-                <button class="quicktag-chip" data-query="Milk">Aarong Milk</button>
-                <button class="quicktag-chip" data-query="Soybean Oil">Soybean Oil</button>
-                <button class="quicktag-chip" data-query="Miniket Rice">Miniket Rice</button>
-                <button class="quicktag-chip" data-query="Eggs">Farm Eggs</button>
-                <button class="quicktag-chip" data-query="Beef">Fresh Beef</button>
-                <button class="quicktag-chip" data-query="Sugar">Deshi Sugar</button>
-            </div>
-        </div>
-
-        <!-- Telemetry Metric Cards -->
-        <div class="hero-metrics-grid">
-            <div class="hero-metric-card">
-                <div class="metric-value">80,153</div>
-                <div class="metric-label">Products Monitored</div>
-                <div class="metric-sub">Across 8 Major Chains</div>
-            </div>
-            <div class="hero-metric-card">
-                <div class="metric-value">1.2<span class="metric-unit">ms</span></div>
-                <div class="metric-label">DuckDB Query Speed</div>
-                <div class="metric-sub">In-Browser SIMD Vectorized</div>
-            </div>
-            <div class="hero-metric-card">
-                <div class="metric-value">3.7<span class="metric-unit">M+</span></div>
-                <div class="metric-label">Historical Snapshots</div>
-                <div class="metric-sub">Continuous Since Feb 2026</div>
-            </div>
-            <div class="hero-metric-card">
-                <div class="metric-value">0%</div>
-                <div class="metric-label">Server Latency</div>
-                <div class="metric-sub">Local WASM Engine</div>
-            </div>
-        </div>
-
-        <!-- Store Chip Navigator -->
-        <div class="hero-store-strip">
-            <span class="strip-label">DIRECT STORE JUMP:</span>
-            <div class="strip-chips">
-                <button class="hero-store-chip active" data-store="shwapno">Shwapno</button>
-                <button class="hero-store-chip" data-store="chaldal">Chaldal</button>
-                <button class="hero-store-chip" data-store="meenabazar">Meena Bazar</button>
-                <button class="hero-store-chip" data-store="othoba">Othoba</button>
-                <button class="hero-store-chip" data-store="metromart">Metro Mart</button>
-                <button class="hero-store-chip" data-store="unimart">Unimart</button>
-                <button class="hero-store-chip" data-store="shotejbazar">Shotej Bazar</button>
-                <button class="hero-store-chip" data-store="foodi">FooDIE Mart</button>
-            </div>
-        </div>
-
-        <!-- Animated Scroll Cue Button -->
-        <div class="hero-scroll-cue" id="hero-scroll-cue">
-            <button class="scroll-cue-btn" id="hero-scroll-down-btn" aria-label="Explore live catalog">
-                <span class="scroll-cue-text">EXPLORE LIVE CATALOG</span>
-                <span class="scroll-cue-icon"><i class="fas fa-chevron-down"></i></span>
-            </button>
         </div>
     </div>
 </section>
@@ -199,17 +229,15 @@ if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || wi
 <div class="brand-lockup" id="header-brand-lockup" title="Return to Overview Hero" style="cursor:pointer;">
 <span class="brand-mark"><i class="fas fa-bolt"></i></span>
 <div>
-<h2 id="current-view-title" style="margin:0; color:var(--text-primary);">GroceryGOD Unified</h2>
+<h2 id="current-view-title" style="margin:0; color:var(--text-primary); font-size:0.86rem; font-weight:800;">GroceryGOD</h2>
 </div>
 <button class="hero-return-pill" id="header-hero-tab" title="Back to Hero Overview"><i class="fas fa-arrow-up"></i> <span>Hero</span></button>
 </div>
+</div>
 <div class="search-wrapper">
-<input class="search-input" id="product-search" placeholder="Search all stores…" type="text"/>
+<input class="search-input" id="product-search" placeholder="Search 80,153+ essentials…" type="text"/>
 <i class="fas fa-times-circle clear-search" id="clear-search"></i>
 <div class="suggestions-box" id="search-suggestions"></div>
-</div>
-<button aria-label="Enter immersive best-items view" aria-pressed="false" class="btn-icon btn-variant-neon immersive-header-btn" id="immersive-btn" title="Immersive best-items view"><i class="fas fa-expand"></i><span>Focus</span></button>
-<button aria-label="Switch theme" class="btn-icon btn-variant-theme icon-only-desktop" id="theme-toggle-btn" title="Switch light / AMOLED theme"><i class="fas fa-moon"></i></button>
 </div>
 <div class="header-right">
 <div class="multi-filter-group">
@@ -217,7 +245,6 @@ if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || wi
 <label class="check-pill"><input checked="" type="checkbox" value="kg"/> KG</label>
 <label class="check-pill"><input checked="" type="checkbox" value="liter"/> LTR</label>
 <label class="check-pill"><input checked="" type="checkbox" value="piece"/> PCS</label>
-<label class="check-pill" style="margin-left:10px; border-left:1px solid #333; padding-left:10px; display:flex; align-items:center; gap:4px;" title="Toggle max age filter"><input id="new-days-toggle" type="checkbox" style="cursor:pointer; accent-color:#f59e0b;"/><i class="fas fa-clock" style="font-size:0.7rem; color:#f59e0b;"></i><input id="new-days-header" type="number" min="1" max="90" value="7" style="width:34px; background:transparent; color:#f59e0b; border:none; font-weight:700; font-size:0.75rem; text-align:center;"/> <span style="font-size:0.7rem; color:#999;">days</span></label>
 </div>
 <select class="search-input" id="sort-options">
 <option value="name_asc">Name A-Z</option>
@@ -235,6 +262,8 @@ if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || wi
 <button class="btn-icon btn-variant-soft" id="cart-comp-btn" title="Cart Analysis"><i class="fas fa-cart-shopping"></i> <span>Cart</span></button>
 <button class="btn-icon btn-variant-soft" id="show-all-toggle" title="Toggle: show all products without pagination"><i class="fas fa-list"></i> <span>Show All</span></button>
 <button class="btn-icon primary-action btn-variant-gradient premium-gated" id="analytics-btn" title="Premium analytics dashboard"><i class="fas fa-chart-line"></i> <span>Analytics</span><i class="fas fa-lock premium-mini-lock" id="analytics-lock-icon"></i></button>
+<button aria-label="Enter immersive best-items view" aria-pressed="false" class="btn-icon btn-variant-neon immersive-header-btn" id="immersive-btn" title="Immersive best-items view"><i class="fas fa-expand"></i><span>Focus</span></button>
+<button aria-label="Switch theme" class="btn-icon btn-variant-theme icon-only-desktop" id="theme-toggle-btn" title="Switch light / AMOLED theme"><i class="fas fa-moon"></i></button>
 </div>
 </header>
 <!-- Intelligence Bar -->
@@ -248,7 +277,9 @@ if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || wi
 <button class="intel-btn intel-variant-wait" data-filter="wait" title="Price is above average"><i class="fas fa-hourglass-half"></i> Wait</button>
 <button class="intel-btn intel-variant-low active" data-filter="low" title="Current price is the lowest recorded">All Time Low</button>
 <button class="intel-btn intel-variant-new" data-filter="new" title="Items first seen recently">New Items</button>
+<label class="check-pill" style="border-left:1px solid rgba(255,255,255,0.12); padding-left:6px; display:inline-flex; align-items:center; gap:3px; flex-shrink:0;" title="Filter items seen in last N days"><i class="fas fa-clock" style="font-size:0.68rem; color:#f59e0b;"></i><input id="new-days-header" type="number" min="1" max="90" value="7" style="width:30px; background:transparent; color:#f59e0b; border:none; font-weight:700; font-size:0.72rem; text-align:center;"/> <span style="font-size:0.66rem; color:#94a3b8;">d</span></label>
 <button class="intel-btn intel-variant-change" data-filter="pricechange" title="Show price change from custom days ago">Price Change</button>
+<button class="intel-btn intel-variant-photo active" id="toggle-has-image-btn" title="Toggle hiding products with missing or placeholder photos"><i class="fas fa-camera"></i> Photos Only</button>
 <div class="date-range-intel" id="price-change-controls" style="display:none;">
 <span>From:</span>
 <input id="pc-days-input" max="365" min="1" style="width:45px; background:var(--bg-card); color:white; border:1px solid #444; border-radius:4px; padding:2px 5px;" type="number" value="7"/>

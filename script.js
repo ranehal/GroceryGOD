@@ -28,7 +28,7 @@ let compareChart = null;
 let currentDetailProductIndex = -1;
 let currentFilteredProducts = [];
 const PAGE_SIZE = 50;
-let visiblePages = 2;
+let visiblePages = 1;
 let showAllProducts = false;
 let gridSentinelObserver = null;
 
@@ -36,6 +36,7 @@ let searchQuery = '';
 let activeUnitFilters = new Set(['kg', 'liter', 'piece']);
 let sortOption = 'unit_price_asc';
 let activeIntelFilter = 'low';
+let hideNoImage = true;
 let compareModeActive = false;
 let immersiveModeActive = false;
 let customDropThreshold = Math.min(95, Math.max(1, parseInt(safeStorage.getItem('god_custom_drop') || '12', 10) || 12));
@@ -1139,6 +1140,22 @@ function updateStatsBar() {
     const filtered = allProducts.filter(p => activeShopFilters.has(p.store));
     document.getElementById('total-items').innerText = filtered.length;
     document.getElementById('good-buys-count').innerText = filtered.filter(p => p.normalized_price < (p.avgPrice * goodBuyThreshold)).length;
+    const hudTotal = document.getElementById('hud-total-val');
+    if (hudTotal && allProducts.length > 0) hudTotal.innerText = allProducts.length.toLocaleString();
+    const hudDeal = document.getElementById('hud-deal-val');
+    if (hudDeal) {
+        const dealCount = allProducts.filter(p => p.in_stock && p.hist_count >= 1 && p.maxPrice - p.minPrice > 0.01 && p.normalized_price <= (p.minPrice + 0.01) && hasValidProductImage(p)).length;
+        if (dealCount > 0) hudDeal.innerText = dealCount.toLocaleString();
+    }
+}
+
+function hasValidProductImage(p) {
+    const img = p.image || '';
+    if (!img || typeof img !== 'string') return false;
+    const t = img.trim();
+    if (!t || t.length < 10) return false;
+    if (t.includes('default-product.webp') || t.includes('placehold.co') || t.includes('NO_SIGNAL') || t.includes('placeholder')) return false;
+    return true;
 }
 
 function renderProducts() {
@@ -1147,6 +1164,7 @@ function renderProducts() {
     grid.innerHTML = '';
     
     currentFilteredProducts = allProducts.filter(p => {
+        if (hideNoImage && !hasValidProductImage(p)) return false;
         if (!activeShopFilters.has(p.store)) return false;
         if (activeCategories.size > 0 && !activeCategories.has(p.store + '_' + p.category)) return false;
         if (showFavoritesOnly && !p.isFavorite) return false;
@@ -1286,7 +1304,7 @@ function resetProductViewFilters() {
     showFavoritesOnly = false;
     showNewOnly = false;
     recentDaysFilter = 7;
-    visiblePages = 2;
+    visiblePages = 1;
     showAllProducts = false;
     const hdrInput = document.getElementById('new-days-header');
     if (hdrInput) hdrInput.value = 7;
@@ -1549,7 +1567,7 @@ function setupEventListeners() {
     const debouncedSearchRender = debounce((q) => { updateSuggestions(q); renderProducts(); }, 180);
     searchInput.oninput = (e) => {
         searchQuery = e.target.value.toLowerCase();
-        visiblePages = 2;
+        visiblePages = 1;
         document.getElementById('clear-search').classList.toggle('visible', searchQuery.length > 0);
         debouncedSearchRender(searchQuery);
     };
@@ -1602,7 +1620,7 @@ function setupEventListeners() {
         }
     }, true);
 
-    document.getElementById('sort-options').onchange = (e) => { sortOption = e.target.value; visiblePages = 2; renderProducts(); };
+    document.getElementById('sort-options').onchange = (e) => { sortOption = e.target.value; visiblePages = 1; renderProducts(); };
     
     document.getElementById('bookmark-cat-btn').onclick = () => {
         showFavoritesOnly = !showFavoritesOnly;
@@ -1616,7 +1634,7 @@ function setupEventListeners() {
         newDaysHeader.oninput = (e) => {
             recentDaysFilter = parseInt(e.target.value) || 0;
             safeStorage.setItem('god_new_days', recentDaysFilter);
-            visiblePages = 2;
+            visiblePages = 1;
             renderProducts();
         };
     }
@@ -1686,6 +1704,17 @@ function setupEventListeners() {
         };
     }
 
+    const toggleImgBtn = document.getElementById('toggle-has-image-btn');
+    if (toggleImgBtn) {
+        toggleImgBtn.classList.toggle('active', hideNoImage);
+        toggleImgBtn.onclick = () => {
+            hideNoImage = !hideNoImage;
+            toggleImgBtn.classList.toggle('active', hideNoImage);
+            visiblePages = 1;
+            renderProducts();
+        };
+    }
+
     const compareButton = document.getElementById('compare-btn');
     compareButton.onclick = () => setCompareMode(!compareModeActive);
     document.getElementById('mobile-compare-btn')?.addEventListener('click', () => setCompareMode(!compareModeActive));
@@ -1751,7 +1780,7 @@ function setupEventListeners() {
             safeStorage.setItem('god_new_days', recentDaysFilter);
             const hdr = document.getElementById('new-days-header');
             if (hdr) hdr.value = recentDaysFilter;
-            visiblePages = 2;
+            visiblePages = 1;
             renderProducts();
         };
     }
@@ -2229,7 +2258,7 @@ window.setNewThreshold = () => {
         safeStorage.setItem('god_new_days', recentDaysFilter);
         const hdr = document.getElementById('new-days-header');
         if (hdr) hdr.value = recentDaysFilter;
-        visiblePages = 2;
+        visiblePages = 1;
         renderProducts();
         alert('New items threshold set to ' + recentDaysFilter + ' days.');
     }

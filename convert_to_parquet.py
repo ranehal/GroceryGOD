@@ -190,7 +190,7 @@ print(f"Merged products total: {prod_count:,} products (enriched with 6-month mi
 con.execute(f"COPY merged_products TO '{os.path.join(BASE, 'products.parquet').replace(chr(92), '/')}' (FORMAT PARQUET, COMPRESSION 'ZSTD');")
 con.execute(f"COPY merged_products TO '{os.path.join(BASE, 'products_free.parquet').replace(chr(92), '/')}' (FORMAT PARQUET, COMPRESSION 'ZSTD');")
 
-# Export pre-calculated All-Time-Low (ATL) deals parquet for instantaneous hero launch
+# Export pre-calculated All-Time-Low (ATL) deals parquet for instantaneous hero launch (photos only for pristine visual speed)
 atl_path = os.path.join(BASE, 'atl.parquet').replace(chr(92), '/')
 con.execute(f"""
     COPY (
@@ -201,12 +201,16 @@ con.execute(f"""
           AND max_price - min_price > 0.01 
           AND normalized_price <= (min_price + 0.01)
           AND normalized_price > 0
+          AND image IS NOT NULL 
+          AND image != '' 
+          AND image NOT LIKE '%default-product.webp%'
+          AND image NOT LIKE '%placeholder%'
         ORDER BY (max_price - normalized_price) DESC
     ) TO '{atl_path}' (FORMAT PARQUET, COMPRESSION 'ZSTD');
 """)
 atl_cnt = con.execute(f"SELECT COUNT(*) FROM read_parquet('{atl_path}');").fetchone()[0]
 atl_kb = os.path.getsize(atl_path) / 1024
-print(f"Pre-calculated ATL deals written: {atl_cnt:,} products ({atl_kb:.1f} KB -> atl.parquet)")
+print(f"Pre-calculated ATL deals (photos only) written: {atl_cnt:,} products ({atl_kb:.1f} KB -> atl.parquet)")
 
 # Export per-store history chunks for progressive background hydration
 STORE_SLUGS = ['shwapno', 'chaldal', 'meenabazar', 'othoba', 'metromart', 'unimart', 'shotejbazar', 'foodi']
