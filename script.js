@@ -254,12 +254,23 @@ function initHeroInteractions() {
     const catalogAnchor = document.getElementById('catalog-anchor');
     if (!hero || !catalogAnchor) return;
 
+    let isCatalogActive = false;
+    let isScrollingToHero = false;
+    let isSnappingToCatalog = false;
+
     function scrollToCatalog() {
+        if (isScrollingToHero) return;
+        isCatalogActive = true;
+        document.body.classList.add('catalog-active');
         catalogAnchor.scrollIntoView({ behavior: 'smooth' });
     }
 
     function scrollToHero() {
+        isScrollingToHero = true;
+        isCatalogActive = false;
+        document.body.classList.remove('catalog-active');
         window.scrollTo({ top: 0, behavior: 'smooth' });
+        setTimeout(() => { isScrollingToHero = false; }, 900);
     }
 
     // Hero buttons
@@ -334,53 +345,144 @@ function initHeroInteractions() {
     // Floating Food Particles Background Canvas (Awwwards Style)
     try { initHeroFoodBackground(); } catch (e) { console.warn('Hero food bg init error:', e); }
 
-    // Section magnetization observer (purely passive, zero scroll jitter)
-    let isCatalogActive = false;
+    // Section magnetization and scroll containment:
+    // When 80% of the viewport is viewing the dashboard -> magnetically snap full view to dashboard.
+    // When inside the dashboard -> don't let upscroll reach hero/landing page UNLESS upscroll happens on dashboard header.
 
     function checkCatalogState() {
         const anchorTop = catalogAnchor.offsetTop;
-        if (window.scrollY >= anchorTop - 30) {
+
+        if (isScrollingToHero) {
+            if (window.scrollY <= 15) {
+                isScrollingToHero = false;
+                isCatalogActive = false;
+                document.body.classList.remove('catalog-active');
+            }
+            return;
+        }
+
+        if (window.scrollY >= anchorTop - 15) {
             if (!isCatalogActive) {
                 isCatalogActive = true;
                 document.body.classList.add('catalog-active');
             }
         } else {
             if (isCatalogActive) {
-                isCatalogActive = false;
-                document.body.classList.remove('catalog-active');
+                // Prevent falling out of catalog into hero when not explicitly returning
+                window.scrollTo({ top: anchorTop, behavior: 'instant' });
+            } else {
+                // When on hero, check if 80% of view is on the dashboard
+                const dashboardVisible = window.scrollY + window.innerHeight - anchorTop;
+                if ((dashboardVisible / window.innerHeight) >= 0.80 && !isSnappingToCatalog) {
+                    isSnappingToCatalog = true;
+                    scrollToCatalog();
+                    setTimeout(() => { isSnappingToCatalog = false; }, 600);
+                }
             }
         }
     }
 
     window.addEventListener('scroll', checkCatalogState, { passive: true });
+
+    // Wheel containment:
+    window.addEventListener('wheel', (e) => {
+        const anchorTop = catalogAnchor.offsetTop;
+
+        // While on Hero: check if scrolling down reaches 80% view of dashboard
+        if (!isCatalogActive) {
+            if (e.deltaY > 0 && !isSnappingToCatalog) {
+                const dashboardVisible = window.scrollY + window.innerHeight - anchorTop;
+                if ((dashboardVisible / window.innerHeight) >= 0.80 && window.scrollY < anchorTop - 10) {
+                    e.preventDefault();
+                    isSnappingToCatalog = true;
+                    scrollToCatalog();
+                    setTimeout(() => { isSnappingToCatalog = false; }, 600);
+                }
+            }
+            return;
+        }
+
+        // Inside Catalog (isCatalogActive === true):
+        if (e.deltaY < 0) { // Scrolling UP
+            const isOnHeader = e.target.closest('#dashboard-header, .dashboard-header, .intelligence-bar, #header-hero-tab, .hero-return-pill');
+            if (isOnHeader) {
+                // Upward scroll specifically ON dashboard header -> allow & trigger smooth return to hero!
+                e.preventDefault();
+                scrollToHero();
+            } else {
+                // Upward scroll inside catalog (grid, cards, sidebar, etc.)
+                // Don't let up scroll reach hero/landing page! Clamp at top of catalog.
+                if (window.scrollY <= anchorTop + 4) {
+                    e.preventDefault();
+                    window.scrollTo({ top: anchorTop, behavior: 'instant' });
+                }
+            }
+        }
+    }, { passive: false });
+
+    // Touch containment for mobile & trackpads:
+    let touchStartY = 0;
+    let touchTarget = null;
+
+    window.addEventListener('touchstart', (e) => {
+        if (e.touches && e.touches.length > 0) {
+            touchStartY = e.touches[0].clientY;
+            touchTarget = e.target;
+        }
+    }, { passive: true });
+
+    window.addEventListener('touchmove', (e) => {
+        if (!e.touches || !e.touches.length) return;
+        const touchY = e.touches[0].clientY;
+        const deltaY = touchStartY - touchY; // > 0 scrolling down, < 0 scrolling up
+        const anchorTop = catalogAnchor.offsetTop;
+
+        if (!isCatalogActive) {
+            if (deltaY > 0 && !isSnappingToCatalog) {
+                const dashboardVisible = window.scrollY + window.innerHeight - anchorTop;
+                if ((dashboardVisible / window.innerHeight) >= 0.80 && window.scrollY < anchorTop - 10) {
+                    isSnappingToCatalog = true;
+                    scrollToCatalog();
+                    setTimeout(() => { isSnappingToCatalog = false; }, 600);
+                }
+            }
+            return;
+        }
+
+        // Inside Catalog:
+        if (deltaY < 0) { // Finger moving down -> page scrolling UP
+            const isOnHeader = touchTarget && touchTarget.closest('#dashboard-header, .dashboard-header, .intelligence-bar, #header-hero-tab, .hero-return-pill');
+            if (isOnHeader) {
+                // Header upscroll on touch -> return to hero
+                scrollToHero();
+            } else {
+                if (window.scrollY <= anchorTop + 4) {
+                    if (e.cancelable) e.preventDefault();
+                    window.scrollTo({ top: anchorTop, behavior: 'instant' });
+                }
+            }
+        }
+    }, { passive: false });
 }
 
-// Generates drifting ambient SVG vector glyphs behind the hero text (Anti-Slop, zero emojis)
+// Generates falling & swaying food emojis behind the hero text
 function initHeroFoodBackground() {
     const container = document.getElementById('hero-food-bg');
     if (!container) return;
     container.innerHTML = '';
 
-    const SVG_GLYPHS = [
-        '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22V2M12 2l4 4M12 6l-4-4M12 7l5 5M12 12l-5-5M12 12l5 5M12 17l-5-5"/></svg>', // Grain
-        '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2h8v3H8zM9 5v3l-3 4v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-9l-3-4V5M6 14h12"/></svg>', // Bottle
-        '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>', // Droplet/Oil
-        '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4zM3 6h18M16 10a4 4 0 0 1-8 0"/></svg>', // Bag
-        '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82zM7 7h.01"/></svg>', // Tag
-        '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5v14M8 5v14M12 5v14M17 5v14M21 5v14"/></svg>', // Barcode
-        '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>', // Pulse
-        '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v3M12 6c-3 0-6 2.5-6 6.5C6 17 9 21 12 21s6-4 6-8.5c0-4-3-6.5-6-6.5z"/></svg>' // Fresh
-    ];
+    const FOOD_ITEMS = ['🍕', '🍔', '🍟', '🌭', '🍿', '🍩', '🍪', '🍰', '🍫', '🍬', '🍭', '🧃', '🥤', '🥮', '🍣', '🍤'];
     const frag = document.createDocumentFragment();
 
-    for (let id = 0; id < 28; id++) {
+    for (let id = 0; id < 35; id++) {
         const span = document.createElement('span');
         span.className = 'hero-food-particle';
-        span.innerHTML = SVG_GLYPHS[Math.floor(Math.random() * SVG_GLYPHS.length)];
+        span.textContent = FOOD_ITEMS[Math.floor(Math.random() * FOOD_ITEMS.length)];
         span.style.left = `${(Math.random() * 95).toFixed(1)}%`;
-        span.style.animationDelay = `${(Math.random() * 7).toFixed(1)}s`;
-        span.style.animationDuration = `${(8 + Math.random() * 7).toFixed(1)}s`;
-        span.style.opacity = (0.07 + Math.random() * 0.12).toFixed(2);
+        span.style.animationDelay = `${(Math.random() * 8).toFixed(1)}s`;
+        span.style.animationDuration = `${(6 + Math.random() * 6).toFixed(1)}s`;
+        span.style.fontSize = `${Math.round(20 + Math.random() * 24)}px`;
+        span.style.opacity = (0.15 + Math.random() * 0.25).toFixed(2);
         frag.appendChild(span);
     }
     container.appendChild(frag);
