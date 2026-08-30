@@ -1125,9 +1125,15 @@ function processData() {
     const today = new Date(todayStr + 'T12:00:00');
 
     let maxDatasetDate = '';
+    const storeMaxDates = {};
     allProducts.forEach(p => {
         if (p.newest_date && p.newest_date > maxDatasetDate) {
             maxDatasetDate = p.newest_date;
+        }
+        if (p.store && p.newest_date) {
+            if (!storeMaxDates[p.store] || p.newest_date > storeMaxDates[p.store]) {
+                storeMaxDates[p.store] = p.newest_date;
+            }
         }
     });
     const activeThresholdDate = maxDatasetDate || todayStr;
@@ -1137,8 +1143,16 @@ function processData() {
             Object.assign(p, customOverrides[p.id]);
         }
 
+        const storeLatest = storeMaxDates[p.store] || activeThresholdDate;
+        const validPrice = Number(p.current_price) > 0;
+        const isExplicitOos = (p.in_stock === false) || (p.is_out_of_stock === true);
+        const isOos = !validPrice || isExplicitOos;
+
+        p.in_stock = !isOos;
+        p.is_out_of_stock = isOos;
+        p.hasPriceToday = !isOos && p.newest_date != null && p.newest_date >= storeLatest;
+
         p.hasPriceHistory = p.hist_count > 1 && (p.maxPrice > p.minPrice);
-        p.hasPriceToday = p.newest_date != null && p.newest_date >= activeThresholdDate && Number(p.current_price) > 0;
         p.isFavorite = favorites.includes(p.id);
         p.priceChangePercent = 0;
 
@@ -1360,11 +1374,11 @@ function renderProducts() {
         if (searchQuery && !p.name.toLowerCase().includes(searchQuery) && !p.category.toLowerCase().includes(searchQuery)) return false;
         if (!activeUnitFilters.has(p.unit_type)) return false;
         if (enableRecentDaysFilter && recentDaysFilter > 0 && p.ageDays > recentDaysFilter) return false;
-        if (activeIntelFilter === 'great') return p.normalized_price < (p.avgPrice * greatDealThreshold);
-        if (activeIntelFilter === 'good') return p.normalized_price < (p.avgPrice * goodBuyThreshold);
-        if (activeIntelFilter === 'customdrop') return p.avgPrice > 0 && p.normalized_price <= (p.avgPrice * (1 - customDropThreshold / 100));
+        if (activeIntelFilter === 'great') return p.in_stock && !p.is_out_of_stock && p.hasPriceToday && Number(p.current_price) > 0 && p.normalized_price < (p.avgPrice * greatDealThreshold);
+        if (activeIntelFilter === 'good') return p.in_stock && !p.is_out_of_stock && p.hasPriceToday && Number(p.current_price) > 0 && p.normalized_price < (p.avgPrice * goodBuyThreshold);
+        if (activeIntelFilter === 'customdrop') return p.in_stock && !p.is_out_of_stock && p.hasPriceToday && Number(p.current_price) > 0 && p.avgPrice > 0 && p.normalized_price <= (p.avgPrice * (1 - customDropThreshold / 100));
         if (activeIntelFilter === 'wait') return p.normalized_price > (p.avgPrice * 1.05);
-        if (activeIntelFilter === 'low') return p.hist_count >= 1 && p.maxPrice - p.minPrice > 0.01 && p.normalized_price <= (p.minPrice + 0.01) && p.hasPriceToday && Number(p.normalized_price) > 0;
+        if (activeIntelFilter === 'low') return p.in_stock && !p.is_out_of_stock && p.hasPriceToday && Number(p.current_price) > 0 && Number(p.normalized_price) > 0 && p.hist_count >= 1 && (p.maxPrice - p.minPrice > 0.01) && p.normalized_price <= (p.minPrice + 0.01);
         if (activeIntelFilter === 'new') return p.isNew;
         if (activeIntelFilter === 'pricechange') {
             if (p._pcDiff === undefined) return false;
@@ -1557,6 +1571,8 @@ function createProductCard(p) {
     card.dataset.productId = p.id;
     card.style.setProperty('--store-color', storeColor);
     
+    const isOos = !p.in_stock || p.is_out_of_stock || !p.hasPriceToday || !(Number(p.current_price) > 0);
+
     const badges = [];
     if (p.priceChangePercent !== 0) {
         const isUp = p.priceChangePercent > 0;
@@ -1566,7 +1582,7 @@ function createProductCard(p) {
     if (p.isNew) {
         badges.push(`<span class="card-badge-item badge-new">NEW</span>`);
     }
-    const isLow = p.hist_count >= 1 && p.maxPrice - p.minPrice > 0.01 && p.normalized_price <= (p.minPrice + 0.01) && p.hasPriceToday && Number(p.normalized_price) > 0;
+    const isLow = !isOos && p.hist_count >= 1 && p.maxPrice - p.minPrice > 0.01 && p.normalized_price <= (p.minPrice + 0.01) && Number(p.normalized_price) > 0;
     if (isLow) {
         badges.push(`<span class="card-badge-item badge-low">LOW</span>`);
     }
@@ -1592,16 +1608,16 @@ function createProductCard(p) {
         <button class="alert-quick-btn ${hasActiveAlert(p.id) ? 'active' : ''}" type="button" title="Create price alert" aria-label="Create price alert for ${escapeAttribute(p.name)}"><i class="fas fa-bell"></i></button>
         <div class="compare-check" aria-hidden="true"><i class="fas ${selectedForComparison.includes(p.id) ? 'fa-check' : 'fa-plus'}"></i></div>
         ${badgeStackHtml}
-        ${!p.hasPriceToday ? '<div style="position:absolute; bottom:8px; left:8px; font-size:0.5rem; font-weight:900; background:var(--danger); padding:1px 5px; border-radius:3px; color:#fff; z-index:11;">OS</div>' : ''}
+        ${isOos ? '<div style="position:absolute; bottom:8px; left:8px; font-size:0.5rem; font-weight:900; background:var(--danger); padding:1px 5px; border-radius:3px; color:#fff; z-index:11;">OS</div>' : ''}
         <div class="p-img-box">
             <img src="${escapeAttribute(p.image)}" class="product-image" loading="lazy" onerror="this.src='https://placehold.co/200x200/000/fff?text=NO_SIGNAL'">
-            <div class="price-tag">${(!p.hasPriceToday || !(Number(p.current_price) > 0)) ? '—' : Math.round(p.current_price)}</div>
+            <div class="price-tag">${isOos ? '—' : Math.round(p.current_price)}</div>
         </div>
         <div class="p-detail-sh">
-            <div class="product-name" title="${escapeAttribute(p.name)}" style="${!p.hasPriceToday ? 'font-style:italic; opacity:0.6;' : ''}">${escapeHTML(p.name)}</div>
+            <div class="product-name" title="${escapeAttribute(p.name)}" style="${isOos ? 'font-style:italic; opacity:0.6;' : ''}">${escapeHTML(p.name)}</div>
             <div class="product-meta">
                 <div class="meta-row">
-                    <span class="price-main" style="color:${storeColor}">${(!p.hasPriceToday || !(Number(p.current_price) > 0)) ? 'Out of stock' : `${fmt(p.normalized_price)} <span class="unit-label">/${escapeHTML(unitTypeLabel(p.unit_type))}</span>`}</span>
+                    <span class="price-main" style="color:${storeColor}">${isOos ? 'Out of stock' : `${fmt(p.normalized_price)} <span class="unit-label">/${escapeHTML(unitTypeLabel(p.unit_type))}</span>`}</span>
                     <span class="cat-tag" title="${escapeAttribute(p.category)}">${escapeHTML(p.category)}</span>
                 </div>
                 <div class="meta-row">
@@ -2216,7 +2232,7 @@ async function openDetailedChart(product) {
     document.getElementById('chart-store-tag').innerText = store.name;
     document.getElementById('chart-store-tag').style.background = store.color;
 
-    const inStock = product.in_stock !== false && Number(product.current_price) > 0;
+    const inStock = product.in_stock !== false && !product.is_out_of_stock && product.hasPriceToday && Number(product.current_price) > 0;
     const fsEl = document.getElementById('chart-first-seen');
     if (fsEl) fsEl.innerText = product.first_seen || 'N/A';
     const lsEl = document.getElementById('chart-last-seen');
@@ -2245,7 +2261,7 @@ async function openDetailedChart(product) {
         document.getElementById('chart-product-unit').innerText = unitDisplay;
     }
     
-    const isAllTimeLow = product.maxPrice - product.minPrice > 0.01 && product.normalized_price <= (product.minPrice + 0.01);
+    const isAllTimeLow = inStock && product.maxPrice - product.minPrice > 0.01 && product.normalized_price <= (product.minPrice + 0.01);
     const minDisplay = isAllTimeLow 
         ? '<span style="color:var(--gold); font-weight:900;">' + (premiumUnlocked ? 'ALL TIME LOW: ' : '7-DAY LOW: ') + fmt(product.minPrice) + '</span>'
         : '<span style="color:var(--text-secondary)">High: ' + fmt(product.maxPrice) + '</span>';

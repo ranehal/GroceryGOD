@@ -756,101 +756,103 @@ body.pitch-black {
 #mobile-close-chart {
     display: none;
 }
-@media (max-width: 768px) and (orientation: portrait) {
-    /* Detail chart - hide chrome, rotate canvas */
-    #chart-modal .modal-content.sci-fi-modal {
-        overflow: hidden;
+@media (max-width: 768px) {
+    /* Full-screen portrait detail modal */
+    #chart-modal .modal-content.sci-fi-modal:not(.forced-landscape-mobile) {
+        width: 100vw !important;
+        max-width: 100vw !important;
+        height: 100dvh !important;
+        max-height: 100dvh !important;
+        border-radius: 0 !important;
+        padding: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        overflow-y: auto !important;
+        background: #070a0d !important;
+        border: none !important;
     }
-    #chart-modal .modal-header,
-    #chart-modal .chart-analytics,
-    #chart-modal .modal-footer-custom {
-        display: none !important;
+    #chart-modal:not(.forced-landscape-mobile) .modal-header {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        padding: 14px 14px 8px 14px !important;
+        position: relative !important;
+        gap: 6px !important;
+        background: rgba(18, 24, 29, 0.9) !important;
+        backdrop-filter: blur(12px) !important;
     }
-    #chart-modal .chart-container.full-height-container {
-        flex: none;
-        width: 100vh;
-        height: 100vw;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) rotate(90deg);
-        z-index: 10001;
-        border: none;
-        padding: 10px;
+    #chart-modal:not(.forced-landscape-mobile) #chart-product-name {
+        font-size: 1.12rem !important;
+        line-height: 1.25 !important;
+        margin-bottom: 2px !important;
+        padding-right: 42px !important;
+    }
+    #chart-modal:not(.forced-landscape-mobile) .chart-analytics {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        padding: 8px 12px !important;
+        gap: 6px !important;
+    }
+    #chart-modal:not(.forced-landscape-mobile) .stat-card {
+        flex: 1 1 calc(50% - 6px) !important;
+        padding: 6px 10px !important;
+        min-width: 125px !important;
+    }
+    #chart-modal:not(.forced-landscape-mobile) .chart-container.full-height-container {
+        flex: 1 0 auto !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: 260px !important;
+        max-height: 46vh !important;
+        padding: 6px 10px !important;
+        position: relative !important;
+        transform: none !important;
+        top: auto !important;
+        left: auto !important;
+    }
+    #chart-modal:not(.forced-landscape-mobile) .modal-footer-custom {
+        display: flex !important;
+        padding: 10px 14px 20px 14px !important;
+        gap: 8px !important;
+        flex-wrap: wrap !important;
+        justify-content: space-between !important;
+    }
+    #chart-modal:not(.forced-landscape-mobile) .modal-footer-custom .btn-icon {
+        flex: 1 1 auto !important;
+        padding: 8px 12px !important;
+        font-size: 0.78rem !important;
+        justify-content: center !important;
     }
 
-    /* Rotate background image 90deg clockwise */
-    #chart-modal .sci-fi-modal::before {
-        transform: rotate(90deg);
-        width: 100vh;
-        height: 100vw;
-        top: 50%;
-        left: 50%;
-        margin-left: calc(-100vh / 2);
-        margin-top: calc(-100vw / 2);
-    }
-
-    /* Comparison chart - hide controls, rotate canvas */
+    /* Comparison modal portrait responsiveness */
     #compare-modal .modal-content.full-screen-modal {
-        overflow: hidden;
+        width: 100vw !important;
+        max-width: 100vw !important;
+        height: 100dvh !important;
+        max-height: 100dvh !important;
+        border-radius: 0 !important;
+        padding: 10px !important;
+        overflow-y: auto !important;
     }
-    #compare-modal .modal-header,
-    #compare-modal .compare-controls,
-    #compare-modal .compare-details-grid {
-        display: none !important;
+    #compare-modal .compare-controls {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 8px !important;
     }
     #compare-modal #compare-chart-container {
-        flex: none;
-        width: 100vh;
-        height: 100vw;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) rotate(90deg);
-        z-index: 10001;
-        border: none;
-        padding: 10px;
+        min-height: 260px !important;
+        max-height: 42vh !important;
+        width: 100% !important;
+        position: relative !important;
+        transform: none !important;
+        top: auto !important;
+        left: auto !important;
     }
-
-    /* Mobile close button */
-    #mobile-close-chart {
-        display: flex;
-        position: fixed;
-        top: 12px;
-        right: 12px;
-        width: 44px;
-        height: 44px;
-        border-radius: 50%;
-        background: var(--danger);
-        color: #fff;
-        border: 2px solid #fff;
-        font-size: 1.3rem;
-        cursor: pointer;
-        align-items: center;
-        justify-content: center;
-        z-index: 10003;
-        box-shadow: 0 0 15px rgba(239, 68, 68, 0.7), 0 2px 8px rgba(0,0,0,0.5);
-        animation: pulse-close 2s infinite;
-    }
-    #mobile-close-chart:active {
-        transform: scale(0.9);
-    }
-    @keyframes pulse-close {
-        0%, 100% { box-shadow: 0 0 15px rgba(239, 68, 68, 0.7), 0 2px 8px rgba(0,0,0,0.5); }
-        50% { box-shadow: 0 0 25px rgba(239, 68, 68, 1), 0 2px 12px rgba(0,0,0,0.5); }
-    }
-
-    /* Swipe hint */
-    #chart-modal::after {
-        content: '◀ Swipe to cycle items ▶';
-        position: fixed;
-        bottom: 12px;
-        left: 50%;
-        transform: translateX(-50%);
-        color: rgba(255,255,255,0.3);
-        font-size: 0.65rem;
-        z-index: 10002;
-        pointer-events: none;
+    #compare-modal .compare-details-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 8px !important;
+        margin-top: 10px !important;
     }
 }
 
@@ -4786,6 +4788,410 @@ body.theme-light .intel-variant-photo.active {
     background: rgba(13, 148, 136, 0.15) !important;
     color: #0f766e !important;
     border-color: #0d9488 !important;
+}
+
+/* ============================================================
+   GROCERYGOD ULTRA-RESPONSIVE MOBILE ARCHITECTURE (MAX <= 768px)
+   ============================================================ */
+@media (max-width: 768px) {
+    /* 1. Header Layout: Clean 3-tier mobile stack with 100% visible search */
+    .dashboard-header {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        padding: 8px 10px !important;
+        gap: 7px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        overflow: visible !important;
+        min-height: auto !important;
+        height: auto !important;
+    }
+
+    .header-left {
+        width: 100% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        flex-shrink: 0 !important;
+    }
+
+    .search-wrapper {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        margin: 0 !important;
+        flex: 1 1 100% !important;
+        position: relative !important;
+    }
+
+    .search-wrapper .search-input {
+        width: 100% !important;
+        height: 38px !important;
+        min-height: 38px !important;
+        font-size: 0.84rem !important;
+        border-radius: 10px !important;
+        padding: 6px 36px 6px 36px !important;
+        background: rgba(18, 24, 29, 0.85) !important;
+        border: 1px solid rgba(56, 225, 176, 0.3) !important;
+        box-sizing: border-box !important;
+    }
+
+    .search-wrapper .clear-search {
+        right: 12px !important;
+    }
+
+    .header-right {
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        gap: 6px !important;
+        overflow-x: auto !important;
+        scrollbar-width: none !important;
+        padding-bottom: 2px !important;
+    }
+
+    .header-right::-webkit-scrollbar {
+        display: none !important;
+    }
+
+    /* Hide redundant desktop buttons on mobile that are already in .mobile-dock */
+    .header-right #price-alerts-btn,
+    .header-right #compare-btn,
+    .header-right #cart-comp-btn,
+    .header-right #analytics-btn,
+    .header-right #show-all-toggle,
+    .header-right #immersive-btn,
+    .header-right #density-btn {
+        display: none !important;
+    }
+
+    .header-right .multi-filter-group {
+        font-size: 0.68rem !important;
+        gap: 3px !important;
+        flex-shrink: 0 !important;
+    }
+
+    .header-right .multi-filter-group .check-pill {
+        padding: 3px 6px !important;
+        font-size: 0.65rem !important;
+    }
+
+    .header-right #sort-options {
+        flex: 1 1 auto !important;
+        max-width: 150px !important;
+        height: 32px !important;
+        min-height: 32px !important;
+        font-size: 0.73rem !important;
+        padding: 2px 6px !important;
+        background: rgba(18, 24, 29, 0.8) !important;
+        border: 1px solid rgba(255, 255, 255, 0.12) !important;
+        border-radius: 8px !important;
+    }
+
+    .header-right #premium-key-btn,
+    .header-right #theme-toggle-btn {
+        display: inline-flex !important;
+        height: 32px !important;
+        padding: 4px 8px !important;
+        font-size: 0.72rem !important;
+        flex-shrink: 0 !important;
+        border-radius: 8px !important;
+    }
+
+    /* 2. Awwwards Editorial Hero: Clean vertical flow without cutoff */
+    .landing-hero {
+        height: auto !important;
+        min-height: auto !important;
+        max-height: none !important;
+        overflow: visible !important;
+        padding: 0 0 24px 0 !important;
+    }
+
+    .hero-nav {
+        padding: 10px 14px !important;
+        flex-wrap: wrap !important;
+        gap: 8px !important;
+    }
+
+    .hero-brand {
+        gap: 8px !important;
+    }
+
+    .hero-brand-bolt {
+        width: 32px !important;
+        height: 32px !important;
+        font-size: 0.95rem !important;
+    }
+
+    .hero-brand-name {
+        font-size: 1.15rem !important;
+    }
+
+    .hero-live-badge {
+        font-size: 0.58rem !important;
+        padding: 2px 6px !important;
+    }
+
+    .hero-nav-actions {
+        gap: 8px !important;
+    }
+
+    .hero-nav-link {
+        display: none !important;
+    }
+
+    .hero-cta-btn {
+        padding: 6px 12px !important;
+        font-size: 0.75rem !important;
+    }
+
+    .hero-editorial-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+        padding: 14px 14px 8px 14px !important;
+    }
+
+    .hero-kicker-badge {
+        font-size: 0.6rem !important;
+        padding: 3px 8px !important;
+        max-width: 100% !important;
+        flex-wrap: wrap !important;
+        gap: 4px !important;
+    }
+
+    .hero-editorial-title {
+        font-size: clamp(1.75rem, 8vw, 2.4rem) !important;
+        line-height: 1.08 !important;
+        letter-spacing: -0.03em !important;
+    }
+
+    .hero-editorial-desc {
+        font-size: 0.82rem !important;
+        line-height: 1.45 !important;
+        max-width: 100% !important;
+    }
+
+    .hero-search-container {
+        width: 100% !important;
+    }
+
+    .hero-search-box {
+        width: 100% !important;
+        box-sizing: border-box !important;
+        padding: 4px 6px 4px 12px !important;
+    }
+
+    .hero-search-box input {
+        font-size: 0.8rem !important;
+        min-width: 0 !important;
+    }
+
+    .hero-search-submit {
+        padding: 6px 10px !important;
+        font-size: 0.75rem !important;
+        white-space: nowrap !important;
+        flex-shrink: 0 !important;
+    }
+
+    .hero-search-submit span {
+        display: none !important;
+    }
+
+    .hero-search-quicktags {
+        overflow-x: auto !important;
+        white-space: nowrap !important;
+        scrollbar-width: none !important;
+        -webkit-overflow-scrolling: touch !important;
+        width: 100% !important;
+        padding-bottom: 4px !important;
+    }
+
+    .hero-search-quicktags::-webkit-scrollbar {
+        display: none !important;
+    }
+
+    .hero-store-strip {
+        width: 100% !important;
+    }
+
+    .strip-chips {
+        overflow-x: auto !important;
+        white-space: nowrap !important;
+        scrollbar-width: none !important;
+        -webkit-overflow-scrolling: touch !important;
+        width: 100% !important;
+        padding-bottom: 4px !important;
+    }
+
+    .strip-chips::-webkit-scrollbar {
+        display: none !important;
+    }
+
+    .hero-hud-card {
+        max-width: 100% !important;
+        padding: 14px !important;
+        border-radius: 16px !important;
+    }
+
+    .hud-bento-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 8px !important;
+    }
+
+    .hud-bento-cell {
+        padding: 8px 10px !important;
+    }
+
+    .hud-cell-val {
+        font-size: 1.25rem !important;
+    }
+
+    .hud-cell-lbl {
+        font-size: 0.65rem !important;
+    }
+
+    .hud-cell-sub {
+        font-size: 0.58rem !important;
+    }
+
+    /* 3. Stats Bar: Clean tabular figures without overlapping */
+    .stats-bar {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-around !important;
+        padding: 8px 12px !important;
+        gap: 8px !important;
+        background: #070a0d !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+        overflow-x: auto !important;
+        scrollbar-width: none !important;
+    }
+
+    .stat-item {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        min-width: 0 !important;
+        flex: 1 1 auto !important;
+    }
+
+    .stat-label {
+        font-size: 0.6rem !important;
+        letter-spacing: 0.5px !important;
+        color: #94a3b8 !important;
+        margin-bottom: 2px !important;
+        white-space: nowrap !important;
+    }
+
+    .stat-value {
+        font-size: 1rem !important;
+        line-height: 1.15 !important;
+        font-weight: 800 !important;
+        white-space: nowrap !important;
+    }
+
+    /* 4. Intelligence Filter Bar: Smooth touch swipe */
+    .intelligence-bar {
+        display: flex !important;
+        align-items: center !important;
+        overflow-x: auto !important;
+        scrollbar-width: none !important;
+        -webkit-overflow-scrolling: touch !important;
+        padding: 6px 10px !important;
+        gap: 6px !important;
+        flex-wrap: nowrap !important;
+        min-height: 38px !important;
+    }
+
+    .intelligence-bar::-webkit-scrollbar {
+        display: none !important;
+    }
+
+    .intelligence-bar .intel-btn {
+        padding: 5px 10px !important;
+        font-size: 0.72rem !important;
+        min-height: 30px !important;
+        border-radius: 8px !important;
+        white-space: nowrap !important;
+        flex-shrink: 0 !important;
+    }
+
+    /* 5. Product Grid & Cards: High density touch-friendly */
+    .p-view-sh {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 8px !important;
+        padding: 8px 8px 88px 8px !important;
+    }
+
+    .p-item-sh {
+        border-radius: 12px !important;
+        overflow: hidden !important;
+    }
+
+    .shop-redirect-card-btn {
+        width: 26px !important;
+        height: 26px !important;
+        font-size: 0.72rem !important;
+        top: 6px !important;
+        right: 36px !important;
+    }
+
+    .fav-btn {
+        width: 26px !important;
+        height: 26px !important;
+        font-size: 0.72rem !important;
+        top: 6px !important;
+        right: 6px !important;
+    }
+
+    .alert-quick-btn {
+        width: 26px !important;
+        height: 26px !important;
+        font-size: 0.72rem !important;
+        top: 36px !important;
+        right: 6px !important;
+    }
+
+    .p-detail-sh {
+        height: auto !important;
+        min-height: 96px !important;
+        padding: 7px 8px !important;
+    }
+
+    .product-name {
+        font-size: 0.74rem !important;
+        line-height: 1.25 !important;
+        height: 2.5em !important;
+        display: -webkit-box !important;
+        -webkit-line-clamp: 2 !important;
+        -webkit-box-orient: vertical !important;
+        overflow: hidden !important;
+    }
+
+    .price-main {
+        font-size: 0.88rem !important;
+        font-weight: 800 !important;
+    }
+
+    /* 6. Mobile Floating Dock & Quick Toggles */
+    .mobile-dock {
+        bottom: max(8px, env(safe-area-inset-bottom)) !important;
+        border-radius: 16px !important;
+    }
+
+    .compare-selection-tray {
+        bottom: calc(max(8px, env(safe-area-inset-bottom)) + 58px) !important;
+    }
+
+    #god-chat-widget {
+        bottom: calc(max(8px, env(safe-area-inset-bottom)) + 64px) !important;
+        right: 12px !important;
+    }
 }
 
 

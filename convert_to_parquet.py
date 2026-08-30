@@ -176,9 +176,9 @@ prod_sql = """
         SELECT 
             product_id,
             COUNT(*)::INTEGER as hist_count,
-            MIN(CASE WHEN price > 0 THEN normalized_price END) as min_price,
-            MAX(CASE WHEN price > 0 THEN normalized_price END) as max_price,
-            AVG(CASE WHEN price > 0 THEN normalized_price END) as avg_price
+            MIN(CASE WHEN price > 0 AND normalized_price > 0 THEN normalized_price END) as min_price,
+            MAX(CASE WHEN price > 0 AND normalized_price > 0 THEN normalized_price END) as max_price,
+            AVG(CASE WHEN price > 0 AND normalized_price > 0 THEN normalized_price END) as avg_price
         FROM full_history
         GROUP BY product_id
     ) h ON p.id = h.product_id;
@@ -197,10 +197,13 @@ con.execute(f"""
         SELECT * 
         FROM merged_products
         WHERE in_stock = true 
+          AND is_out_of_stock = false
+          AND current_price > 0
           AND hist_count >= 1 
           AND max_price - min_price > 0.01 
           AND normalized_price <= (min_price + 0.01)
           AND normalized_price > 0
+          AND min_price > 0
           AND image IS NOT NULL 
           AND image != '' 
           AND image NOT LIKE '%default-product.webp%'
