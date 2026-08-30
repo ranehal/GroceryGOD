@@ -45,6 +45,7 @@ let showFavoritesOnly = false;
 let showNewOnly = false;
 let activeShopFilters = new Set(['shwapno']);
 let activeCategories = new Set();
+let expandedStoreGroups = new Set(['shwapno']);
 window.loadedStores = new Set(['shwapno']);
 
 let greatDealThreshold = 0.85;
@@ -1211,6 +1212,8 @@ function renderSidebar() {
     shopHeading.innerHTML = '<span><i class="fas fa-microchip"></i> Market Uplinks</span>';
     list.appendChild(shopHeading);
 
+    const q = (document.getElementById('category-filter')?.value || '').toLowerCase().trim();
+
     Object.keys(STORE_CONFIG).forEach(sid => {
         const shopProducts = allProducts.filter(p => p.store === sid);
         const categories = [...new Set(shopProducts.map(p => p.category))].sort((a, b) => {
@@ -1221,7 +1224,7 @@ function renderSidebar() {
             return a.localeCompare(b);
         });
 
-        // Ensure active stores have subcategories populated in activeCategories
+        // Initialize activeCategories if store is active but has no subcategories in activeCategories
         if (activeShopFilters.has(sid)) {
             const hasAny = categories.some(c => activeCategories.has(sid + '_' + c));
             if (!hasAny && categories.length > 0) {
@@ -1229,13 +1232,20 @@ function renderSidebar() {
             }
         }
 
-        const group = document.createElement('div'); group.className = 'shop-group';
+        const activeCount = categories.filter(c => activeCategories.has(sid + '_' + c)).length;
+        const isAllChecked = categories.length > 0 && activeCount === categories.length;
+        const isSomeChecked = activeCount > 0 && activeCount < categories.length;
+        const isStoreActive = activeShopFilters.has(sid) || isAllChecked || isSomeChecked;
+        const isExpanded = expandedStoreGroups.has(sid) || (q.length > 0);
+
+        const group = document.createElement('div');
+        group.className = 'shop-group';
         const header = document.createElement('div');
         header.dataset.sid = sid;
-        header.className = 'shop-header ' + (activeShopFilters.has(sid) ? 'active' : '');
+        header.className = 'shop-header ' + (isStoreActive ? 'active ' : '') + (isExpanded ? 'expanded' : '');
         header.innerHTML = `
             <div class="shop-toggle-container">
-                <input type="checkbox" class="shop-checkbox" ${activeShopFilters.has(sid) ? 'checked' : ''}>
+                <input type="checkbox" class="shop-checkbox" ${isAllChecked || (isStoreActive && !isSomeChecked) ? 'checked' : ''}>
                 <span style="color:${STORE_CONFIG[sid].color}">${STORE_CONFIG[sid].name}</span>
             </div>
             <div style="display:flex; align-items:center; gap:12px;">
@@ -1245,39 +1255,54 @@ function renderSidebar() {
         `;
         
         const cb = header.querySelector('.shop-checkbox');
+        if (isSomeChecked) {
+            cb.indeterminate = true;
+            cb.checked = false;
+        }
+
+        const catList = document.createElement('ul');
+        catList.className = 'shop-categories ' + (isExpanded ? 'active' : '');
+
         header.onclick = async (e) => {
-            if (e.target.closest('.toggle-icon')) {
-                const isOpen = catList.classList.contains('active');
-                if (!isOpen) { catList.classList.add('active'); header.classList.add('expanded'); }
-                else { catList.classList.remove('active'); header.classList.remove('expanded'); }
+            const toggleIcon = e.target.closest('.toggle-icon');
+            const toggleContainer = e.target.closest('.shop-toggle-container');
+
+            if (toggleIcon || (!toggleContainer && !e.target.closest('.shop-checkbox'))) {
+                if (expandedStoreGroups.has(sid)) {
+                    expandedStoreGroups.delete(sid);
+                    catList.classList.remove('active');
+                    header.classList.remove('expanded');
+                } else {
+                    expandedStoreGroups.add(sid);
+                    catList.classList.add('active');
+                    header.classList.add('expanded');
+                }
                 return;
             }
-            if (e.target !== cb) cb.checked = !cb.checked;
-            showShopLoadingAnimation(sid);
-            if (cb.checked) {
+
+            const willCheck = !(cb.checked || cb.indeterminate);
+            if (willCheck) {
                 activeShopFilters.add(sid);
+                categories.forEach(cat => activeCategories.add(sid + '_' + cat));
                 if (typeof window.ensureStoreHistoryLoaded === 'function') window.ensureStoreHistoryLoaded(sid);
                 if (typeof window.triggerCatalogHydration === 'function') window.triggerCatalogHydration('shop_toggle');
-                categories.forEach(cat => activeCategories.add(sid + '_' + cat));
                 if (!window.loadedStores.has(sid)) {
+                    showShopLoadingAnimation(sid);
                     await loadStoreData(sid);
                     window.loadedStores.add(sid);
                     processData();
-                    renderSidebar();
-                    renderProducts();
-                    updateStatsBar();
-                    return;
                 }
             } else {
                 activeShopFilters.delete(sid);
                 categories.forEach(cat => activeCategories.delete(sid + '_' + cat));
             }
             renderSidebar();
-            renderProducts(); updateStatsBar();
+            renderProducts();
+            updateStatsBar();
         };
 
-        const catList = document.createElement('ul');
-        catList.className = 'shop-categories';
+        let storeMatches = STORE_CONFIG[sid].name.toLowerCase().includes(q);
+        let visibleCatCount = 0;
 
         categories.forEach(cat => {
             const catProducts = shopProducts.filter(p => p.category === cat);
@@ -1289,6 +1314,14 @@ function renderSidebar() {
             const catId = sid + '_' + cat;
             const isCatActive = activeCategories.has(catId);
             li.className = `shop-cat-item ${isCatActive ? 'active' : ''} ${isPinned ? 'pinned' : ''}`;
+
+            const catMatches = q === '' || storeMatches || cat.toLowerCase().includes(q);
+            if (!catMatches) {
+                li.style.display = 'none';
+            } else {
+                visibleCatCount++;
+            }
+
             li.innerHTML = `
                 <div class="cat-row-content" style="display:flex; align-items:center; gap:12px; flex:1;">
                     <input type="checkbox" class="cat-checkbox" ${isCatActive ? 'checked' : ''}>
@@ -1318,16 +1351,24 @@ function renderSidebar() {
             };
             catList.appendChild(li);
         });
-        group.appendChild(header); group.appendChild(catList);
+
+        if (q !== '' && !storeMatches && visibleCatCount === 0) {
+            group.style.display = 'none';
+        }
+
+        group.appendChild(header);
+        group.appendChild(catList);
         list.appendChild(group);
     });
 
-
-    document.getElementById('add-group-btn').onclick = () => {
-        if (selectedForComparison.length === 0) return alert("Stage items in Matrix first!");
-        const name = prompt("Enter group name:");
-        if (name) { customGroups[name] = [...selectedForComparison]; saveGroups(); renderSidebar(); }
-    };
+    const addGroupBtn = document.getElementById('add-group-btn');
+    if (addGroupBtn) {
+        addGroupBtn.onclick = () => {
+            if (selectedForComparison.length === 0) return alert("Stage items in Matrix first!");
+            const name = prompt("Enter group name:");
+            if (name) { customGroups[name] = [...selectedForComparison]; saveGroups(); renderSidebar(); }
+        };
+    }
 }
 
 function filterByGroup(name) {
@@ -1528,7 +1569,11 @@ function resetProductViewFilters() {
         showAllBtn.querySelector('span').textContent = 'Show OOS';
         showAllBtn.querySelector('i').className = 'fas fa-eye-slash';
     }
+    activeShopFilters = new Set(Object.keys(STORE_CONFIG));
     activeCategories.clear();
+    allProducts.forEach(p => { if (p.category) activeCategories.add(p.store + '_' + p.category); });
+    const catFilterInput = document.getElementById('category-filter');
+    if (catFilterInput) catFilterInput.value = '';
     const searchInput = document.getElementById('product-search');
     if (searchInput) searchInput.value = '';
     document.getElementById('clear-search')?.classList.remove('visible');
@@ -1538,6 +1583,7 @@ function resetProductViewFilters() {
     if (pcControls) pcControls.style.display = 'none';
     renderSidebar();
     renderProducts();
+    updateStatsBar();
 }
 
 function getStoreDirectUrl(p) {
@@ -1809,6 +1855,35 @@ function setupEventListeners() {
     };
     document.getElementById('sidebar-close')?.addEventListener('click', () => setSidebarExpanded(false));
     overlay.onclick = () => setSidebarExpanded(false);
+
+    const selectAllBtn = document.getElementById('select-all-cat');
+    if (selectAllBtn) {
+        selectAllBtn.onclick = () => {
+            const allStores = Object.keys(STORE_CONFIG);
+            const allCats = new Set();
+            allProducts.forEach(p => { if (p.category) allCats.add(p.store + '_' + p.category); });
+            
+            const isAllSelected = allStores.every(s => activeShopFilters.has(s)) && (allCats.size === 0 || allCats.size === activeCategories.size);
+            
+            if (isAllSelected) {
+                activeShopFilters.clear();
+                activeCategories.clear();
+            } else {
+                allStores.forEach(s => activeShopFilters.add(s));
+                allCats.forEach(c => activeCategories.add(c));
+            }
+            renderSidebar();
+            renderProducts();
+            updateStatsBar();
+        };
+    }
+
+    const catFilterInput = document.getElementById('category-filter');
+    if (catFilterInput) {
+        catFilterInput.oninput = () => {
+            renderSidebar();
+        };
+    }
 
     const debouncedSearchRender = debounce((q) => { updateSuggestions(q); renderProducts(); }, 180);
     searchInput.oninput = (e) => {

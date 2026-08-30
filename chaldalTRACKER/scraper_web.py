@@ -28,10 +28,24 @@ CAT_JS_FILE = "categories.js"
 USER_AGENT = random.choice(USER_AGENTS)
 CONCURRENCY_LIMIT = 3
 
+def clean_tolerance(text):
+    if not text:
+        return ""
+    tol_indicator = r'(?:\((?:[±\u00b1]|\+/-\s*|\+-\s*|[+\-]\s*\d+)\s*\)?|\b(?:[±\u00b1]|\+/-\s*|\+-\s*))'
+    t = re.sub(
+        r'(\d+(?:\.\d+)?)\s*(kg|gm|gram|g|ml|ltr|liter|l)?\s*' + tol_indicator + r'\s*\d*(?:\.\d+)?\s*(kg|gm|gram|g|ml|ltr|liter|l)?\)?',
+        lambda m: f"{m.group(1)} {m.group(2) or m.group(3) or ''}",
+        text,
+        flags=re.IGNORECASE
+    )
+    t = re.sub(r'\(?(?:[±\u00b1]|\+/-\s*|\+-\s*)\s*\d+(?:\.\d+)?\s*(?:kg|gm|gram|g|ml|ltr|liter|l)?\)?', '', t, flags=re.IGNORECASE)
+    t = re.sub(r'\(?(?:[±\u00b1]|\+/-\s*|\+-\s*)\)?', '', t)
+    return t
+
 def normalize_price(price_text, unit_text):
     try:
         price = float(re.sub(r'[^\d.]', '', str(price_text)))
-        unit_text = unit_text.lower().strip()
+        unit_text = clean_tolerance(str(unit_text or '')).lower().strip()
         
         match = re.search(r'(\d+(\.\d+)?)\s*(kg|gm|g|ltr|liter|l|ml|pcs|piece|each|dzn|dozen)', unit_text)
         if not match:

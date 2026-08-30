@@ -506,9 +506,10 @@ body.pitch-black {
 }
 .shop-header i.toggle-icon {
     font-size: 0.6rem;
-    transition: transform 0.3s;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.shop-header.active i.toggle-icon {
+.shop-header.expanded i.toggle-icon,
+.shop-header.open i.toggle-icon {
     transform: rotate(180deg);
 }
 .shop-categories {

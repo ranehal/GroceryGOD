@@ -86,39 +86,230 @@ DHAKA_TZ = timezone(timedelta(hours=6))
 MAX_FILE_SIZE_MB = 45 # Safely under GitHub's 50MB warning and 100MB hard limit
 MAX_CHUNK_ITEMS = 5000 # Smaller chunks for better atomicity and reliability
 
+def clean_tolerance(text):
+    if not text:
+        return ""
+    tol_indicator = r'(?:\((?:[±\u00b1]|\+/-\s*|\+-\s*|[+\-]\s*\d+)\s*\)?|\b(?:[±\u00b1]|\+/-\s*|\+-\s*))'
+    t = re.sub(
+        r'(\d+(?:\.\d+)?)\s*(kg|gm|gram|g|ml|ltr|liter|l)?\s*' + tol_indicator + r'\s*\d*(?:\.\d+)?\s*(kg|gm|gram|g|ml|ltr|liter|l)?\)?',
+        lambda m: f"{m.group(1)} {m.group(2) or m.group(3) or ''}",
+        text,
+        flags=re.IGNORECASE
+    )
+    t = re.sub(r'\(?(?:[±\u00b1]|\+/-\s*|\+-\s*)\s*\d+(?:\.\d+)?\s*(?:kg|gm|gram|g|ml|ltr|liter|l)?\)?', '', t, flags=re.IGNORECASE)
+    t = re.sub(r'\(?(?:[±\u00b1]|\+/-\s*|\+-\s*)\)?', '', t)
+    return t
+
+def get_clean_display_unit(name, raw_unit):
+    raw_str = str(raw_unit or '').strip()
+    name_clean = clean_tolerance(name or "").strip()
+    m_name = re.search(r'(\d+(\.\d+)?\s*(?:kg|gm|gram|g|ml|ltr|liter|l))\b', name_clean, re.IGNORECASE)
+    if m_name:
+        extracted = m_name.group(1).strip()
+        if not raw_str or raw_str.lower() in ['n/a', 'each', 'piece', '1 piece', 'none', 'null', '']:
+            return extracted
+        m_raw = re.search(r'(\d+(\.\d+)?)\s*(?:kg|gm|gram|g|ml|ltr|liter|l)', raw_str, re.IGNORECASE)
+        if m_raw:
+            val_raw = float(m_raw.group(1))
+            val_name = float(re.search(r'\d+(\.\d+)?', extracted).group())
+            if val_raw != val_name and (name and ('±' in name or '(+)' in name or '(±)' in name or '+/-' in name)):
+                return extracted
+    return raw_str or 'N/A'
+
+def parse_promotion(full_text):
+    word_num = {'one': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5, 'six': 6, 'seven': 7, 'eight': 8, 'nine': 9, 'ten': 10}
+    multiplier = 1.0
+    extra_free_weight_gm = 0.0
+    extra_free_volume_ml = 0.0
+
+    # 1. Check for Free Extra Weight/Volume notation like:
+    # 500gm + 100gm Free, 500gm (100gm Free), + 50gm Free, with 50gm Free
+    plus_free = re.search(r'(?:\+|\bplus\b|\bwith\b)\s*(\d+(?:\.\d+)?)\s*(kg|gm|gram|g|ml|ltr|liter|l)\s*(?:free|extra)?\b', full_text, re.IGNORECASE)
+    if plus_free:
+        f_val = float(plus_free.group(1))
+        f_unit = plus_free.group(2).lower()
+        if f_unit in ['gm', 'gram', 'g']:
+            extra_free_weight_gm += f_val
+        elif f_unit == 'kg':
+            extra_free_weight_gm += f_val * 1000
+        elif f_unit == 'ml':
+            extra_free_volume_ml += f_val
+        elif f_unit in ['ltr', 'liter', 'l']:
+            extra_free_volume_ml += f_val * 1000
+
+    # 2. Check for Buy X Get Ygm Free / Buy X Get Yml Free (Weight/Volume free)
+    # e.g., Buy1 Get85gm Free, Buy 1 Get 85 gm Free, Buy 2 Get 300gm Free, Buy 1 Get Orange 250gm Free, Buy 2 Get 300gm S.Toast Free
+    bg_weight = re.search(
+        r'\bbuy\s*(\d+|one|two|three|four|five|six)?\s*(?:pcs?|packs?|pads?|bottles?|t\s*brush)?\s*(?:and|&)?\s*get\s*(?:[a-zA-Z\.\-]+\s*){0,3}?(\d+(?:\.\d+)?)\s*(kg|gm|gram|g|ml|ltr|liter|l)\s*(?:[a-zA-Z\.\-]+\s*){0,3}(?:free|extra)\b',
+        full_text,
+        re.IGNORECASE
+    )
+    if bg_weight:
+        b_str = bg_weight.group(1)
+        b_val = float(word_num.get(b_str.lower(), b_str) if b_str else 1)
+        f_val = float(bg_weight.group(2))
+        f_unit = bg_weight.group(3).lower()
+        multiplier = b_val
+        if f_unit in ['gm', 'gram', 'g']:
+            extra_free_weight_gm += f_val
+        elif f_unit == 'kg':
+            extra_free_weight_gm += f_val * 1000
+        elif f_unit == 'ml':
+            extra_free_volume_ml += f_val
+        elif f_unit in ['ltr', 'liter', 'l']:
+            extra_free_volume_ml += f_val * 1000
+        return multiplier, extra_free_weight_gm, extra_free_volume_ml
+
+    # 3. Check for Buy X Get Y Free (Count multiplier)
+    # e.g., Buy 1 Get 1 Free, Buy1 Get1 Free, Buy 2 Get 1, Buy2 Get1, B2G1, B1G1, B6G2, BOGO
+    bg_count = re.search(
+        r'\bbuy\s*(\d+|one|two|three|four|five|six)\s*(?:pcs?|packs?|pads?|bottles?|t\s*brush)?\s*(?:and|&)?\s*get\s*(\d+|one|two|three|four|five|six)\s*(?:pcs?|packs?|pads?|bottles?|t\s*brush)?\s*(?:free|combo|item|\b)',
+        full_text,
+        re.IGNORECASE
+    )
+    if bg_count:
+        b_str = bg_count.group(1).lower()
+        g_str = bg_count.group(2).lower()
+        b_val = float(word_num.get(b_str, b_str))
+        g_val = float(word_num.get(g_str, g_str))
+        multiplier = b_val + g_val
+        return multiplier, extra_free_weight_gm, extra_free_volume_ml
+
+    # Shorthand B2G1, B1G1, B6G2
+    b_short = re.search(r'\bb(\d+)g(\d+)\b', full_text, re.IGNORECASE)
+    if b_short:
+        multiplier = float(b_short.group(1)) + float(b_short.group(2))
+        return multiplier, extra_free_weight_gm, extra_free_volume_ml
+
+    if re.search(r'\bbogo\b', full_text, re.IGNORECASE):
+        multiplier = 2.0
+        return multiplier, extra_free_weight_gm, extra_free_volume_ml
+
+    # 4. Check for Buy X Save Y Tk / Buy X Only Y Tk / Buy X For Y Tk / Buy X at Y Tk / Save Y Tk (Buy X)
+    b_save = re.search(
+        r'\bbuy\s*(\d+|one|two|three|four|five|six)\s*(?:pcs?|packs?|pads?|bottles?)?\s*(?:save|only|for|at|\btk\b|\bbdt\b|\btk\.\b|\b\d+\s*tk\b)',
+        full_text,
+        re.IGNORECASE
+    )
+    if b_save:
+        b_str = b_save.group(1).lower()
+        multiplier = float(word_num.get(b_str, b_str))
+        return multiplier, extra_free_weight_gm, extra_free_volume_ml
+
+    b_save_rev = re.search(
+        r'(?:save|only|for|at)\s*(?:tk\b|\bbdt\b|tk\.\b|\b\d+\s*tk\b|\d+)\s*(?:[a-zA-Z0-9\s\.\-]{0,15}?)\(?\s*buy\s*(\d+|one|two|three|four|five|six)',
+        full_text,
+        re.IGNORECASE
+    )
+    if b_save_rev:
+        b_str = b_save_rev.group(1).lower()
+        multiplier = float(word_num.get(b_str, b_str))
+        return multiplier, extra_free_weight_gm, extra_free_volume_ml
+
+    # 5. Pack of X / Combo of X / Combo Pack (Buy X...)
+    b_pack = re.search(r'\b(?:pack\s*of|combo\s*of|pack\s*x|combo\s*x)\s*(\d+)\b', full_text, re.IGNORECASE)
+    if b_pack:
+        multiplier = float(b_pack.group(1))
+        return multiplier, extra_free_weight_gm, extra_free_volume_ml
+
+    b_combo = re.search(r'combo\s*pack\s*\(?\s*buy\s*(\d+)', full_text, re.IGNORECASE)
+    if b_combo:
+        multiplier = float(b_combo.group(1))
+        return multiplier, extra_free_weight_gm, extra_free_volume_ml
+
+    return max(1.0, multiplier), extra_free_weight_gm, extra_free_volume_ml
+
 def parse_unit_and_calculate(name, unit_str, price):
-    text = ((unit_str or "") + " " + name).lower()
-    mult_match = re.search(r'(\d+(\.\d+)?)\s*(kg|gm|gram|g|ml|ltr|l)\s*[xX*]\s*(\d+)', text)
-    if mult_match:
-        val = float(mult_match.group(1))
-        unit = mult_match.group(3)
-        count = float(mult_match.group(4))
-        total_val = val * count
-        if total_val == 0: return 'kg', price
-        if unit in ['gm', 'gram', 'g', 'ml']:
-            u_type = 'kg' if unit != 'ml' else 'liter'
-            return u_type, (price / total_val) * 1000
-        else:
-            u_type = 'kg' if unit == 'kg' else 'liter'
-            return u_type, (price / total_val)
-
-    text = re.sub(r'\(?[±\+]\s*\d+\s*(gm|g|kg|ml|ltr|l)?\)?', '', text)
-    weight_match = re.search(r'(\d+(\.\d+)?)\s*(kg|gm|gram|g)\b', text)
-    if weight_match:
-        val = float(weight_match.group(1))
-        unit = weight_match.group(3)
-        if val == 0: return 'kg', price
-        return 'kg', (price / val) if unit == 'kg' else (price / val) * 1000
-
-    volume_match = re.search(r'(\d+(\.\d+)?)\s*(ltr|liter|l|ml)\b', text)
-    if volume_match:
-        val = float(volume_match.group(1))
-        unit = volume_match.group(3)
-        if val == 0: return 'liter', price
-        return 'liter', (price / val) if unit in ['ltr', 'liter', 'l'] else (price / val) * 1000
-
-    if any(x in text for x in ['pc', 'piece', 'hali', 'dozen', 'pkt', 'pack', 'each', 'bottle', 'can', 'box']):
+    if price is None:
+        price = 0.0
+    price = float(price)
+    if price <= 0:
         return 'piece', price
+
+    name_clean = clean_tolerance(name or "").lower()
+    unit_clean = clean_tolerance(unit_str or "").lower()
+    full_text = f"{unit_clean} {name_clean}".strip()
+
+    multiplier, extra_free_weight_gm, extra_free_volume_ml = parse_promotion(full_text)
+
+    for t_src in [name_clean, unit_clean]:
+        mult_match1 = re.search(r'(\d+(\.\d+)?)\s*(kg|gm|gram|g|ml|ltr|l)\s*[xX*]\s*(\d+)', t_src)
+        if mult_match1:
+            val = float(mult_match1.group(1))
+            unit = mult_match1.group(3)
+            count = float(mult_match1.group(4))
+            total_val = (val * count * multiplier)
+            if unit in ['gm', 'gram', 'g']:
+                total_gm = total_val + extra_free_weight_gm
+                return 'kg', (price / total_gm) * 1000 if total_gm > 0 else price
+            elif unit == 'kg':
+                total_kg = total_val + (extra_free_weight_gm / 1000.0)
+                return 'kg', price / total_kg if total_kg > 0 else price
+            elif unit == 'ml':
+                total_ml = total_val + extra_free_volume_ml
+                return 'liter', (price / total_ml) * 1000 if total_ml > 0 else price
+            else:
+                total_l = total_val + (extra_free_volume_ml / 1000.0)
+                return 'liter', price / total_l if total_l > 0 else price
+
+        mult_match2 = re.search(r'(\d+)\s*(?:p|pcs?|packs?|x|\*)\s*[xX*]?\s*(\d+(\.\d+)?)\s*(kg|gm|gram|g|ml|ltr|l)\b', t_src)
+        if mult_match2:
+            count = float(mult_match2.group(1))
+            val = float(mult_match2.group(2))
+            unit = mult_match2.group(4)
+            total_val = (val * count * multiplier)
+            if unit in ['gm', 'gram', 'g']:
+                total_gm = total_val + extra_free_weight_gm
+                return 'kg', (price / total_gm) * 1000 if total_gm > 0 else price
+            elif unit == 'kg':
+                total_kg = total_val + (extra_free_weight_gm / 1000.0)
+                return 'kg', price / total_kg if total_kg > 0 else price
+            elif unit == 'ml':
+                total_ml = total_val + extra_free_volume_ml
+                return 'liter', (price / total_ml) * 1000 if total_ml > 0 else price
+            else:
+                total_l = total_val + (extra_free_volume_ml / 1000.0)
+                return 'liter', price / total_l if total_l > 0 else price
+
+    for t_src in [name_clean, unit_clean]:
+        weight_match = re.search(r'(\d+(\.\d+)?)\s*(kg|gm|gram|g)\b', t_src)
+        if weight_match:
+            val = float(weight_match.group(1))
+            unit = weight_match.group(3)
+            if val > 0:
+                if unit in ['gm', 'gram', 'g']:
+                    total_gm = (val * multiplier) + extra_free_weight_gm
+                    return 'kg', (price / total_gm) * 1000 if total_gm > 0 else price
+                else:
+                    total_kg = (val * multiplier) + (extra_free_weight_gm / 1000.0)
+                    return 'kg', (price / total_kg) if total_kg > 0 else price
+
+        volume_match = re.search(r'(\d+(\.\d+)?)\s*(ltr|liter|l|ml)\b', t_src)
+        if volume_match:
+            val = float(volume_match.group(1))
+            unit = volume_match.group(3)
+            if val > 0:
+                if unit == 'ml':
+                    total_ml = (val * multiplier) + extra_free_volume_ml
+                    return 'liter', (price / total_ml) * 1000 if total_ml > 0 else price
+                else:
+                    total_l = (val * multiplier) + (extra_free_volume_ml / 1000.0)
+                    return 'liter', (price / total_l) if total_l > 0 else price
+
+    for t_src in [name_clean, unit_clean]:
+        piece_match = re.search(r'(\d+)\s*(?:pcs|pc|piece|pieces|pads|pad|hali|dozen|can|bottle|box|pkt|pack|sachet)\b', t_src)
+        if piece_match:
+            pcs = float(piece_match.group(1))
+            if pcs > 0:
+                total_pcs = pcs * multiplier
+                return 'piece', price / total_pcs if total_pcs > 0 else price
+
+    if multiplier > 1:
+        return 'piece', price / multiplier
+
+    if any(x in full_text for x in ['pc', 'piece', 'hali', 'dozen', 'pkt', 'pack', 'each', 'bottle', 'can', 'box', 'bar', 'hanger', 'sachet']):
+        return 'piece', price
+
     return 'kg', price
 
 def load_shwapno():
@@ -176,7 +367,7 @@ def load_shwapno():
                         
                     products_by_name[name_key] = {
                         "id": final_pid, "name": p.get('name'), "store": "shwapno",
-                        "category": get_display_cat(p.get('category', 'General')), "unit": p.get('unit', 'N/A'), "unit_type": u_type,
+                        "category": get_display_cat(p.get('category', 'General')), "unit": get_clean_display_unit(p.get('name', ''), p.get('unit', 'N/A')), "unit_type": u_type,
                         "current_price": curr_p, "normalized_price": norm_p,
                         "image": p.get('image'), "url": p.get('url'), "history": new_history, "first_seen": first_seen,
                         "_src": "web"
@@ -240,7 +431,7 @@ def load_shwapno():
 
                     products_by_name[name_key] = {
                         "id": final_pid, "name": p.get('name'), "store": "shwapno",
-                        "category": get_display_cat(p.get('category', 'General')), "unit": p.get('unit', 'N/A'), "unit_type": u_type,
+                        "category": get_display_cat(p.get('category', 'General')), "unit": get_clean_display_unit(p.get('name', ''), p.get('unit', 'N/A')), "unit_type": u_type,
                         "current_price": curr_p, "normalized_price": norm_p,
                         "image": p.get('image'), "url": url, "history": new_history, "first_seen": first_seen,
                         "_src": "app"
@@ -323,7 +514,7 @@ def load_chaldal():
                         stats["web_scraped"] += 1
                         add_product(name_key, {
                             "id": f"ch_{pid}", "name": p.get('name'), "store": "chaldal",
-                            "category": p.get('category', 'General'), "unit": p.get('current_unit'), "unit_type": u_type,
+                            "category": p.get('category', 'General'), "unit": get_clean_display_unit(p.get('name', ''), p.get('current_unit')), "unit_type": u_type,
                             "current_price": curr_p, "normalized_price": norm_p,
                             "image": p.get('image'), "history": new_history, "_src": "web"
                         }, "web")
@@ -362,7 +553,7 @@ def load_chaldal():
                     img = p.get('imageUrl') or p.get('image_url') or ''
                     add_product(name_key, {
                         "id": f"ch_a_{pid}", "name": p.get('name'), "store": "chaldal",
-                        "category": p.get('category', 'General'), "unit": '', "unit_type": u_type,
+                        "category": p.get('category', 'General'), "unit": get_clean_display_unit(p.get('name', ''), ''), "unit_type": u_type,
                         "current_price": curr_p, "normalized_price": norm_p,
                         "image": img, "history": new_history, "_src": "app"
                     }, "app")
@@ -416,7 +607,7 @@ def load_meenabazar():
             pid = f"mb_{p['external_id'] or p['id']}"
             prod_obj = {
                 "id": pid, "name": p['name'], "store": "meenabazar",
-                "category": cats.get(p['category_id'], 'General'), "unit": p['unit'], "unit_type": u_type,
+                "category": cats.get(p['category_id'], 'General'), "unit": get_clean_display_unit(p['name'], p['unit']), "unit_type": u_type,
                 "current_price": curr_p, "normalized_price": norm_p,
                 "image": p['image_url'], "history": new_history, "_src": "web"
             }
@@ -458,7 +649,7 @@ def load_meenabazar():
                         new_prod = {
                             "id": pid, "name": p.get('name'), "store": "meenabazar",
                             "category": p.get('category', 'General') if isinstance(p.get('category'), str) else 'General',
-                            "unit": 'N/A', "unit_type": u_type,
+                            "unit": get_clean_display_unit(p.get('name', ''), 'N/A'), "unit_type": u_type,
                             "current_price": curr_p, "normalized_price": norm_p,
                             "image": p.get('image', ''), "history": app_hist,
                             "source": "app", "_src": "app"
@@ -569,7 +760,7 @@ def load_othoba():
 
                     products_by_name[name_key] = {
                         "id": final_pid, "name": p.get('name'), "store": "othoba",
-                        "category": cat or 'Grocery', "unit": p.get('unit', 'N/A'), "unit_type": u_type,
+                        "category": cat or 'Grocery', "unit": get_clean_display_unit(p.get('name', ''), p.get('unit', 'N/A')), "unit_type": u_type,
                         "current_price": curr_p, "normalized_price": norm_p,
                         "image": p.get('image'), "history": new_history, "first_seen": first_seen,
                         "_src": source_type
@@ -635,7 +826,7 @@ def load_othoba():
                     stats["web_scraped"] += 1
                     add_product(name_key, {
                         "id": f"ot_{r['id']}", "name": r["name"], "store": "othoba",
-                        "category": cat, "unit": 'N/A', "unit_type": u_type,
+                        "category": cat, "unit": get_clean_display_unit(r["name"], 'N/A'), "unit_type": u_type,
                         "current_price": price, "normalized_price": norm_p,
                         "image": r["image_url"] or '', "history": new_history, "first_seen": datetime.now(DHAKA_TZ).strftime("%Y-%m-%d"),
                         "_src": "web"
@@ -702,7 +893,7 @@ def load_metromart():
             if img and img.startswith('/'): img = "https://www.metromartonline.com" + img
             products[f"mt_{p['external_id'] or p['id']}"] = {
                 "id": f"mt_{p['external_id'] or p['id']}", "name": p['name'], "store": "metromart",
-                "category": cats.get(p['category_id'], 'General'), "unit": p['unit'], "unit_type": u_type,
+                "category": cats.get(p['category_id'], 'General'), "unit": get_clean_display_unit(p['name'], p['unit']), "unit_type": u_type,
                 "current_price": curr_p, "normalized_price": norm_p, "image": img, "history": new_history
             }
         conn.close()
@@ -740,7 +931,7 @@ def load_unimart():
             new_history = sorted(unique_hist.values(), key=lambda x: x['date'])
             products[p_id] = {
                 "id": p_id, "name": p.get('name'), "store": "unimart",
-                "category": p.get('category', 'General'), "unit": p.get('unit'), "unit_type": u_type,
+                "category": p.get('category', 'General'), "unit": get_clean_display_unit(p.get('name', ''), p.get('unit')), "unit_type": u_type,
                 "current_price": curr_p, "normalized_price": norm_p, "image": p.get('image'), "history": new_history
             }
         stats = {"web_scraped": len(products), "app_scraped": 0, "web_selected": len(products),
@@ -777,7 +968,7 @@ def load_shotejbazar():
             first_seen = new_history[0]['date'] if new_history else datetime.now(DHAKA_TZ).strftime("%Y-%m-%d")
             products[p_id] = {
                 "id": p_id, "name": p.get('name'), "store": "shotejbazar",
-                "category": p.get('category', 'General'), "unit": p.get('unit'), "unit_type": u_type,
+                "category": p.get('category', 'General'), "unit": get_clean_display_unit(p.get('name', ''), p.get('unit')), "unit_type": u_type,
                 "current_price": curr_p, "normalized_price": norm_p, "image": p.get('image'), "history": new_history, "first_seen": first_seen
             }
         stats = {"web_scraped": len(products), "app_scraped": 0, "web_selected": len(products),
@@ -825,7 +1016,7 @@ def load_foodi():
             first_seen = new_history[0]['date'] if new_history else datetime.now(DHAKA_TZ).strftime("%Y-%m-%d")
             products[p_id] = {
                 "id": p_id, "name": p['name'], "store": "foodi",
-                "category": p['category_name'] or 'General', "unit": unit_str, "unit_type": u_type,
+                "category": p['category_name'] or 'General', "unit": get_clean_display_unit(p['name'], unit_str), "unit_type": u_type,
                 "current_price": curr_p, "normalized_price": norm_p, "image": img, "history": new_history, "first_seen": first_seen
             }
         conn.close()
