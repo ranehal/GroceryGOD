@@ -194,21 +194,28 @@ con.execute(f"COPY merged_products TO '{os.path.join(BASE, 'products_free.parque
 atl_path = os.path.join(BASE, 'atl.parquet').replace(chr(92), '/')
 con.execute(f"""
     COPY (
-        SELECT * 
-        FROM merged_products
-        WHERE in_stock = true 
-          AND is_out_of_stock = false
-          AND current_price > 0
-          AND hist_count >= 1 
-          AND max_price - min_price > 0.01 
-          AND normalized_price <= (min_price + 0.01)
-          AND normalized_price > 0
-          AND min_price > 0
-          AND image IS NOT NULL 
-          AND image != '' 
-          AND image NOT LIKE '%default-product.webp%'
-          AND image NOT LIKE '%placeholder%'
-        ORDER BY (max_price - normalized_price) DESC
+        WITH store_max AS (
+            SELECT store, MAX(last_seen) as max_seen
+            FROM merged_products
+            GROUP BY store
+        )
+        SELECT p.* 
+        FROM merged_products p
+        JOIN store_max sm ON p.store = sm.store
+        WHERE p.in_stock = true 
+          AND p.is_out_of_stock = false
+          AND p.current_price > 0
+          AND p.hist_count >= 1 
+          AND p.max_price - p.min_price > 0.01 
+          AND p.normalized_price <= (p.min_price + 0.01)
+          AND p.normalized_price > 0
+          AND p.min_price > 0
+          AND p.last_seen >= sm.max_seen
+          AND p.image IS NOT NULL 
+          AND p.image != '' 
+          AND p.image NOT LIKE '%default-product.webp%'
+          AND p.image NOT LIKE '%placeholder%'
+        ORDER BY (p.max_price - p.normalized_price) DESC
     ) TO '{atl_path}' (FORMAT PARQUET, COMPRESSION 'ZSTD');
 """)
 atl_cnt = con.execute(f"SELECT COUNT(*) FROM read_parquet('{atl_path}');").fetchone()[0]

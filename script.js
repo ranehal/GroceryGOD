@@ -30,6 +30,7 @@ let currentFilteredProducts = [];
 const PAGE_SIZE = 50;
 let visiblePages = 1;
 let showAllProducts = false;
+let hideOutOfStock = true;
 let gridSentinelObserver = null;
 
 let searchQuery = '';
@@ -535,7 +536,7 @@ async function loadAllFromParquet() {
     const seenIds = new Set();
 
     function mapProductRow(r) {
-        const inStock = (r.in_stock !== false) && Number(r.current_price) > 0;
+        const inStock = (r.in_stock !== false) && (r.is_out_of_stock !== true) && Number(r.current_price) > 0;
         const normPrice = Number(r.normalized_price) > 0 ? Number(r.normalized_price) : 0;
         const minP = r.min_price != null ? Number(r.min_price) : normPrice;
         const maxP = r.max_price != null ? Number(r.max_price) : normPrice;
@@ -874,7 +875,7 @@ async function loadStoreData(sid) {
     const result = await godDB.conn.query(query);
     for (const row of result.toArray()) {
         const r = row.toJSON();
-        const inStock = (r.in_stock !== false) && Number(r.current_price) > 0;
+        const inStock = (r.in_stock !== false) && (r.is_out_of_stock !== true) && Number(r.current_price) > 0;
         allProducts.push({
             id: r.id, name: r.name, store: r.store, category: r.category,
             unit: r.unit, unit_type: r.unit_type,
@@ -1146,7 +1147,8 @@ function processData() {
         const storeLatest = storeMaxDates[p.store] || activeThresholdDate;
         const validPrice = Number(p.current_price) > 0;
         const isExplicitOos = (p.in_stock === false) || (p.is_out_of_stock === true);
-        const isOos = !validPrice || isExplicitOos;
+        const isStale = p.newest_date != null && p.newest_date < storeLatest;
+        const isOos = !validPrice || isExplicitOos || isStale;
 
         p.in_stock = !isOos;
         p.is_out_of_stock = isOos;
@@ -1374,11 +1376,14 @@ function renderProducts() {
         if (searchQuery && !p.name.toLowerCase().includes(searchQuery) && !p.category.toLowerCase().includes(searchQuery)) return false;
         if (!activeUnitFilters.has(p.unit_type)) return false;
         if (enableRecentDaysFilter && recentDaysFilter > 0 && p.ageDays > recentDaysFilter) return false;
-        if (activeIntelFilter === 'great') return p.in_stock && !p.is_out_of_stock && p.hasPriceToday && Number(p.current_price) > 0 && p.normalized_price < (p.avgPrice * greatDealThreshold);
-        if (activeIntelFilter === 'good') return p.in_stock && !p.is_out_of_stock && p.hasPriceToday && Number(p.current_price) > 0 && p.normalized_price < (p.avgPrice * goodBuyThreshold);
-        if (activeIntelFilter === 'customdrop') return p.in_stock && !p.is_out_of_stock && p.hasPriceToday && Number(p.current_price) > 0 && p.avgPrice > 0 && p.normalized_price <= (p.avgPrice * (1 - customDropThreshold / 100));
+        const isOos = !p.in_stock || p.is_out_of_stock || !p.hasPriceToday || !(Number(p.current_price) > 0);
+        if (hideOutOfStock && isOos && !searchQuery) return false;
+
+        if (activeIntelFilter === 'great') return !isOos && p.normalized_price < (p.avgPrice * greatDealThreshold);
+        if (activeIntelFilter === 'good') return !isOos && p.normalized_price < (p.avgPrice * goodBuyThreshold);
+        if (activeIntelFilter === 'customdrop') return !isOos && p.avgPrice > 0 && p.normalized_price <= (p.avgPrice * (1 - customDropThreshold / 100));
         if (activeIntelFilter === 'wait') return p.normalized_price > (p.avgPrice * 1.05);
-        if (activeIntelFilter === 'low') return p.in_stock && !p.is_out_of_stock && p.hasPriceToday && Number(p.current_price) > 0 && Number(p.normalized_price) > 0 && p.hist_count >= 1 && (p.maxPrice - p.minPrice > 0.01) && p.normalized_price <= (p.minPrice + 0.01);
+        if (activeIntelFilter === 'low') return !isOos && Number(p.normalized_price) > 0 && p.hist_count >= 1 && (p.maxPrice - p.minPrice > 0.01) && p.normalized_price <= (p.minPrice + 0.01);
         if (activeIntelFilter === 'new') return p.isNew;
         if (activeIntelFilter === 'pricechange') {
             if (p._pcDiff === undefined) return false;
@@ -1390,13 +1395,12 @@ function renderProducts() {
         return true;
     });
 
-    const noPrice = p => (!p.hasPriceToday || !(Number(p.current_price) > 0));
+    const noPrice = p => (!p.hasPriceToday || !(Number(p.current_price) > 0) || !p.in_stock || p.is_out_of_stock);
     currentFilteredProducts.sort((a, b) => {
-        if (sortOption === 'name_asc') return a.name.localeCompare(b.name);
-        // For every price-based sort, push no-price/out-of-stock items to the end
-        // regardless of asc/desc ordering, then fall back to the original comparison.
+        // ALWAYS push out-of-stock items to the end in all sort modes
         const npDiff = (noPrice(a) ? 1 : 0) - (noPrice(b) ? 1 : 0);
         if (npDiff !== 0) return npDiff;
+        if (sortOption === 'name_asc') return a.name.localeCompare(b.name);
         if (sortOption === 'unit_price_asc') { const av=Number(a.normalized_price),bv=Number(b.normalized_price); const am=!(av>0)||Number.isNaN(av); const bm=!(bv>0)||Number.isNaN(bv); if(am&&bm)return 0; if(am)return 1; if(bm)return -1; return av-bv; }
         if (sortOption === 'unit_price_desc') { const av=Number(a.normalized_price),bv=Number(b.normalized_price); const am=!(av>0)||Number.isNaN(av); const bm=!(bv>0)||Number.isNaN(bv); if(am&&bm)return 0; if(am)return 1; if(bm)return -1; return bv-av; }
         if (sortOption === 'actual_price_asc') { const av=Number(a.current_price),bv=Number(b.current_price); const am=!(av>0)||Number.isNaN(av); const bm=!(bv>0)||Number.isNaN(bv); if(am&&bm)return 0; if(am)return 1; if(bm)return -1; return av-bv; }
@@ -1515,13 +1519,14 @@ function resetProductViewFilters() {
     recentDaysFilter = 7;
     visiblePages = 1;
     showAllProducts = false;
+    hideOutOfStock = true;
     const hdrInput = document.getElementById('new-days-header');
     if (hdrInput) hdrInput.value = 7;
     const showAllBtn = document.getElementById('show-all-toggle');
     if (showAllBtn) {
         showAllBtn.classList.remove('active');
-        showAllBtn.querySelector('span').textContent = 'Show All';
-        showAllBtn.querySelector('i').className = 'fas fa-list';
+        showAllBtn.querySelector('span').textContent = 'Show OOS';
+        showAllBtn.querySelector('i').className = 'fas fa-eye-slash';
     }
     activeCategories.clear();
     const searchInput = document.getElementById('product-search');
@@ -1992,12 +1997,12 @@ function setupEventListeners() {
 
     document.getElementById('cart-comp-btn').onclick = openCartModal;
     document.getElementById('show-all-toggle')?.addEventListener('click', () => {
-        showAllProducts = !showAllProducts;
+        hideOutOfStock = !hideOutOfStock;
         const btn = document.getElementById('show-all-toggle');
         if (btn) {
-            btn.classList.toggle('active', showAllProducts);
-            btn.querySelector('span').textContent = showAllProducts ? 'Paginate' : 'Show All';
-            btn.querySelector('i').className = showAllProducts ? 'fas fa-layer-group' : 'fas fa-list';
+            btn.classList.toggle('active', !hideOutOfStock);
+            btn.querySelector('span').textContent = hideOutOfStock ? 'Show OOS' : 'Hide OOS';
+            btn.querySelector('i').className = hideOutOfStock ? 'fas fa-eye-slash' : 'fas fa-eye';
         }
         renderProducts();
     });

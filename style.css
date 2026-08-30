@@ -4794,111 +4794,127 @@ body.theme-light .intel-variant-photo.active {
    GROCERYGOD ULTRA-RESPONSIVE MOBILE ARCHITECTURE (MAX <= 768px)
    ============================================================ */
 @media (max-width: 768px) {
-    /* 1. Header Layout: Clean 3-tier mobile stack with 100% visible search */
+    /* 1. Header Layout: Ultra-sleek, uncluttered 2-tier mobile stack */
     .dashboard-header {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: stretch !important;
-        padding: 8px 10px !important;
-        gap: 7px !important;
+        display: grid !important;
+        grid-template-columns: 1fr auto !important;
+        grid-template-rows: auto auto !important;
+        grid-template-areas:
+            "left left"
+            "search sort" !important;
+        gap: 6px !important;
+        padding: 6px 10px 6px 10px !important;
         width: 100% !important;
         box-sizing: border-box !important;
         overflow: visible !important;
         min-height: auto !important;
         height: auto !important;
+        background: rgba(7, 10, 13, 0.95) !important;
+        backdrop-filter: blur(16px) !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
     }
 
     .header-left {
+        grid-area: left !important;
         width: 100% !important;
         display: flex !important;
         align-items: center !important;
         justify-content: space-between !important;
         flex-shrink: 0 !important;
+        height: 32px !important;
+    }
+
+    .header-left #sidebar-toggle {
+        width: 30px !important;
+        height: 30px !important;
+        font-size: 0.82rem !important;
+        padding: 0 !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        border-radius: 6px !important;
+    }
+
+    .header-left #header-brand-lockup {
+        display: flex !important;
+        align-items: center !important;
+        gap: 6px !important;
+    }
+
+    .header-left #header-brand-lockup h2 {
+        font-size: 0.86rem !important;
+        font-weight: 800 !important;
+    }
+
+    .hero-return-pill {
+        padding: 2px 7px !important;
+        font-size: 0.65rem !important;
+        height: 24px !important;
+        border-radius: 6px !important;
     }
 
     .search-wrapper {
+        grid-area: search !important;
         width: 100% !important;
         max-width: 100% !important;
         min-width: 0 !important;
         margin: 0 !important;
-        flex: 1 1 100% !important;
         position: relative !important;
     }
 
     .search-wrapper .search-input {
         width: 100% !important;
-        height: 38px !important;
-        min-height: 38px !important;
-        font-size: 0.84rem !important;
-        border-radius: 10px !important;
-        padding: 6px 36px 6px 36px !important;
+        height: 34px !important;
+        min-height: 34px !important;
+        font-size: 0.78rem !important;
+        border-radius: 8px !important;
+        padding: 4px 28px 4px 28px !important;
         background: rgba(18, 24, 29, 0.85) !important;
-        border: 1px solid rgba(56, 225, 176, 0.3) !important;
+        border: 1px solid rgba(56, 225, 176, 0.25) !important;
         box-sizing: border-box !important;
     }
 
     .search-wrapper .clear-search {
-        right: 12px !important;
+        right: 8px !important;
+        font-size: 0.78rem !important;
     }
 
     .header-right {
-        width: 100% !important;
+        grid-area: sort !important;
         display: flex !important;
-        flex-direction: row !important;
         align-items: center !important;
-        justify-content: space-between !important;
-        gap: 6px !important;
-        overflow-x: auto !important;
-        scrollbar-width: none !important;
-        padding-bottom: 2px !important;
+        justify-content: flex-end !important;
+        gap: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: auto !important;
+        overflow: visible !important;
     }
 
-    .header-right::-webkit-scrollbar {
-        display: none !important;
+    .header-right #sort-options {
+        width: 110px !important;
+        max-width: 110px !important;
+        height: 34px !important;
+        min-height: 34px !important;
+        font-size: 0.72rem !important;
+        padding: 2px 6px !important;
+        background: rgba(18, 24, 29, 0.85) !important;
+        border: 1px solid rgba(255, 255, 255, 0.12) !important;
+        border-radius: 8px !important;
     }
 
     /* Hide redundant desktop buttons on mobile that are already in .mobile-dock */
+    .header-right .multi-filter-group,
     .header-right #price-alerts-btn,
     .header-right #compare-btn,
     .header-right #cart-comp-btn,
     .header-right #analytics-btn,
     .header-right #show-all-toggle,
     .header-right #immersive-btn,
-    .header-right #density-btn {
-        display: none !important;
-    }
-
-    .header-right .multi-filter-group {
-        font-size: 0.68rem !important;
-        gap: 3px !important;
-        flex-shrink: 0 !important;
-    }
-
-    .header-right .multi-filter-group .check-pill {
-        padding: 3px 6px !important;
-        font-size: 0.65rem !important;
-    }
-
-    .header-right #sort-options {
-        flex: 1 1 auto !important;
-        max-width: 150px !important;
-        height: 32px !important;
-        min-height: 32px !important;
-        font-size: 0.73rem !important;
-        padding: 2px 6px !important;
-        background: rgba(18, 24, 29, 0.8) !important;
-        border: 1px solid rgba(255, 255, 255, 0.12) !important;
-        border-radius: 8px !important;
-    }
-
+    .header-right #density-btn,
     .header-right #premium-key-btn,
     .header-right #theme-toggle-btn {
-        display: inline-flex !important;
-        height: 32px !important;
-        padding: 4px 8px !important;
-        font-size: 0.72rem !important;
-        flex-shrink: 0 !important;
-        border-radius: 8px !important;
+        display: none !important;
     }
 
     /* 2. Awwwards Editorial Hero: Clean vertical flow without cutoff */
@@ -4907,36 +4923,36 @@ body.theme-light .intel-variant-photo.active {
         min-height: auto !important;
         max-height: none !important;
         overflow: visible !important;
-        padding: 0 0 24px 0 !important;
+        padding: 0 0 20px 0 !important;
     }
 
     .hero-nav {
-        padding: 10px 14px !important;
+        padding: 8px 12px !important;
         flex-wrap: wrap !important;
-        gap: 8px !important;
+        gap: 6px !important;
     }
 
     .hero-brand {
-        gap: 8px !important;
+        gap: 6px !important;
     }
 
     .hero-brand-bolt {
-        width: 32px !important;
-        height: 32px !important;
-        font-size: 0.95rem !important;
+        width: 28px !important;
+        height: 28px !important;
+        font-size: 0.85rem !important;
     }
 
     .hero-brand-name {
-        font-size: 1.15rem !important;
+        font-size: 1.08rem !important;
     }
 
     .hero-live-badge {
-        font-size: 0.58rem !important;
-        padding: 2px 6px !important;
+        font-size: 0.55rem !important;
+        padding: 2px 5px !important;
     }
 
     .hero-nav-actions {
-        gap: 8px !important;
+        gap: 6px !important;
     }
 
     .hero-nav-link {
@@ -4944,33 +4960,33 @@ body.theme-light .intel-variant-photo.active {
     }
 
     .hero-cta-btn {
-        padding: 6px 12px !important;
-        font-size: 0.75rem !important;
+        padding: 5px 10px !important;
+        font-size: 0.72rem !important;
     }
 
     .hero-editorial-grid {
         grid-template-columns: 1fr !important;
-        gap: 20px !important;
-        padding: 14px 14px 8px 14px !important;
+        gap: 16px !important;
+        padding: 12px 12px 6px 12px !important;
     }
 
     .hero-kicker-badge {
-        font-size: 0.6rem !important;
-        padding: 3px 8px !important;
+        font-size: 0.58rem !important;
+        padding: 2px 7px !important;
         max-width: 100% !important;
         flex-wrap: wrap !important;
         gap: 4px !important;
     }
 
     .hero-editorial-title {
-        font-size: clamp(1.75rem, 8vw, 2.4rem) !important;
+        font-size: clamp(1.7rem, 7.5vw, 2.3rem) !important;
         line-height: 1.08 !important;
         letter-spacing: -0.03em !important;
     }
 
     .hero-editorial-desc {
-        font-size: 0.82rem !important;
-        line-height: 1.45 !important;
+        font-size: 0.8rem !important;
+        line-height: 1.4 !important;
         max-width: 100% !important;
     }
 
@@ -4981,17 +4997,17 @@ body.theme-light .intel-variant-photo.active {
     .hero-search-box {
         width: 100% !important;
         box-sizing: border-box !important;
-        padding: 4px 6px 4px 12px !important;
+        padding: 3px 5px 3px 10px !important;
     }
 
     .hero-search-box input {
-        font-size: 0.8rem !important;
+        font-size: 0.78rem !important;
         min-width: 0 !important;
     }
 
     .hero-search-submit {
-        padding: 6px 10px !important;
-        font-size: 0.75rem !important;
+        padding: 5px 8px !important;
+        font-size: 0.72rem !important;
         white-space: nowrap !important;
         flex-shrink: 0 !important;
     }
@@ -5006,7 +5022,7 @@ body.theme-light .intel-variant-photo.active {
         scrollbar-width: none !important;
         -webkit-overflow-scrolling: touch !important;
         width: 100% !important;
-        padding-bottom: 4px !important;
+        padding-bottom: 3px !important;
     }
 
     .hero-search-quicktags::-webkit-scrollbar {
@@ -5023,7 +5039,7 @@ body.theme-light .intel-variant-photo.active {
         scrollbar-width: none !important;
         -webkit-overflow-scrolling: touch !important;
         width: 100% !important;
-        padding-bottom: 4px !important;
+        padding-bottom: 3px !important;
     }
 
     .strip-chips::-webkit-scrollbar {
@@ -5032,80 +5048,50 @@ body.theme-light .intel-variant-photo.active {
 
     .hero-hud-card {
         max-width: 100% !important;
-        padding: 14px !important;
-        border-radius: 16px !important;
+        padding: 12px !important;
+        border-radius: 14px !important;
     }
 
     .hud-bento-grid {
         grid-template-columns: 1fr 1fr !important;
-        gap: 8px !important;
+        gap: 6px !important;
     }
 
     .hud-bento-cell {
-        padding: 8px 10px !important;
+        padding: 6px 8px !important;
     }
 
     .hud-cell-val {
-        font-size: 1.25rem !important;
+        font-size: 1.15rem !important;
     }
 
     .hud-cell-lbl {
-        font-size: 0.65rem !important;
+        font-size: 0.62rem !important;
     }
 
     .hud-cell-sub {
-        font-size: 0.58rem !important;
+        font-size: 0.55rem !important;
     }
 
-    /* 3. Stats Bar: Clean tabular figures without overlapping */
+    /* 3. Stats Bar: Hide bulky dashboard metrics on mobile to eliminate clutter and congestion */
     .stats-bar {
-        display: flex !important;
-        flex-direction: row !important;
-        align-items: center !important;
-        justify-content: space-around !important;
-        padding: 8px 12px !important;
-        gap: 8px !important;
-        background: #070a0d !important;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-        overflow-x: auto !important;
-        scrollbar-width: none !important;
+        display: none !important;
     }
 
-    .stat-item {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        text-align: center !important;
-        min-width: 0 !important;
-        flex: 1 1 auto !important;
-    }
-
-    .stat-label {
-        font-size: 0.6rem !important;
-        letter-spacing: 0.5px !important;
-        color: #94a3b8 !important;
-        margin-bottom: 2px !important;
-        white-space: nowrap !important;
-    }
-
-    .stat-value {
-        font-size: 1rem !important;
-        line-height: 1.15 !important;
-        font-weight: 800 !important;
-        white-space: nowrap !important;
-    }
-
-    /* 4. Intelligence Filter Bar: Smooth touch swipe */
+    /* 4. Intelligence Filter Bar: Smooth touch swipe & slim chips */
     .intelligence-bar {
         display: flex !important;
         align-items: center !important;
         overflow-x: auto !important;
         scrollbar-width: none !important;
         -webkit-overflow-scrolling: touch !important;
-        padding: 6px 10px !important;
-        gap: 6px !important;
+        padding: 3px 8px !important;
+        gap: 4px !important;
         flex-wrap: nowrap !important;
-        min-height: 38px !important;
+        min-height: 32px !important;
+        height: 32px !important;
+        background: rgba(7, 10, 13, 0.95) !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
     }
 
     .intelligence-bar::-webkit-scrollbar {
@@ -5113,11 +5099,21 @@ body.theme-light .intel-variant-photo.active {
     }
 
     .intelligence-bar .intel-btn {
-        padding: 5px 10px !important;
-        font-size: 0.72rem !important;
-        min-height: 30px !important;
-        border-radius: 8px !important;
+        padding: 3px 8px !important;
+        font-size: 0.67rem !important;
+        min-height: 24px !important;
+        height: 24px !important;
+        border-radius: 6px !important;
         white-space: nowrap !important;
+        flex-shrink: 0 !important;
+    }
+
+    .intelligence-bar #filtered-items-badge {
+        margin-left: auto !important;
+        padding: 2px 7px !important;
+        font-size: 0.65rem !important;
+        height: 22px !important;
+        line-height: 18px !important;
         flex-shrink: 0 !important;
     }
 
