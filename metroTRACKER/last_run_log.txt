@@ -1,15 +1,15 @@
-Last Run: 2026-08-23 03:16:08
+Last Run: 2026-08-31 13:49:16
 ------------------------------
-Total Scraped: 1121
-New Items: 0
+Total Scraped: 1299
+New Items: 215
 ------------------------------
 Categories:
-- Food & Grocery: 513
+- Food & Grocery: 600
+- Beverage: 181
 - Electric & Electronics: 164
-- Beverage: 158
-- Grains & Commodities: 74
-- Household & Cleaning: 73
-- Baby Items & Care: 58
-- Frozen Food: 51
-- Home & Kitchen: 17
+- Baby Items & Care: 94
+- Grains & Commodities: 83
+- Household & Cleaning: 79
+- Frozen Food: 64
+- Home & Kitchen: 21
 - Office & Stationary: 13

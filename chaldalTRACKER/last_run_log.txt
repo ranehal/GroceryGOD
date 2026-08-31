@@ -1,19 +1,19 @@
-Last Run: 2026-08-23 03:29:39
+Last Run: 2026-08-31 14:04:35
 ------------------------------
-Total Scraped: 8167
-Web Scraped: 8167
-App API Scraped: 3482
-Combined Unique: 8167
+Total Scraped: 8168
+Web Scraped: 8168
+App API Scraped: 3483
+Combined Unique: 8168
 ------------------------------
 Categories:
-- General: 3482
+- General: 3483
 - Personal Care: 204
-- Kitchen Accessories: 122
 - Snacks: 122
-- Drinks: 120
+- Drinks: 121
+- Kitchen Accessories: 108
 - Home Care: 97
-- Air Fresheners: 96
-- Spices: 88
-- Hair Care: 79
-- Fresh Vegetables: 76
-... and 171 more.
+- Air Fresheners: 95
+- Tea & Coffee: 95
+- Spices: 90
+- Flash Sales: 83
+... and 168 more.
