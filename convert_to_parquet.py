@@ -209,8 +209,7 @@ con.execute(f"""
           AND p.max_price - p.min_price > 0.01 
           AND p.normalized_price <= (p.min_price + 0.01)
           AND p.normalized_price > 0
-          AND p.min_price > 0
-          AND p.last_seen >= sm.max_seen
+          AND TRY_CAST(p.last_seen AS DATE) >= (TRY_CAST(sm.max_seen AS DATE) - INTERVAL 14 DAY)
           AND p.image IS NOT NULL 
           AND p.image != '' 
           AND p.image NOT LIKE '%default-product.webp%'

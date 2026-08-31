@@ -1148,12 +1148,18 @@ function processData() {
         const storeLatest = storeMaxDates[p.store] || activeThresholdDate;
         const validPrice = Number(p.current_price) > 0;
         const isExplicitOos = (p.in_stock === false) || (p.is_out_of_stock === true);
-        const isStale = p.newest_date != null && p.newest_date < storeLatest;
+        let isStale = false;
+        if (p.newest_date != null && storeLatest) {
+            const dLatest = new Date(storeLatest + 'T12:00:00');
+            const dProd = new Date(p.newest_date + 'T12:00:00');
+            const daysDiff = Math.round((dLatest - dProd) / (1000 * 60 * 60 * 24));
+            isStale = daysDiff > 14;
+        }
         const isOos = !validPrice || isExplicitOos || isStale;
 
         p.in_stock = !isOos;
         p.is_out_of_stock = isOos;
-        p.hasPriceToday = !isOos && p.newest_date != null && p.newest_date >= storeLatest;
+        p.hasPriceToday = !isOos;
 
         p.hasPriceHistory = p.hist_count > 1 && (p.maxPrice > p.minPrice);
         p.isFavorite = favorites.includes(p.id);

@@ -79,7 +79,22 @@ These fixes were extracted from live Kaggle failures. Preserve the patterns:
   - Magnetized catalog section: Full `100vw` sticky layout. Entering catalog anchors view to items; `#header-hero-tab` and brand mark smoothly return user up to the Hero overview.
   - Progressive Per-Store History Chunking: Removed blocking 33.5MB history preload in `index.html`. `script.js` boots with only `products_free.parquet` (2.2MB, ~800ms first paint). Background hydration streams `history_shwapno.parquet` first (~4.9MB), refreshes badges, then streams remaining 7 store chunks in parallel via `Promise.allSettled`.
   - DuckDB `history_access` view dynamically unions all loaded store chunks (`history_*.parquet`). Paywall and premium unlock (`unlockPremiumArchive()`) cleanly union decrypted `history_archive.parquet` into `history_access` with zero regressions or conflicts.
-  - `convert_to_parquet.py` exports `history_<store>.parquet` alongside `history.parquet`/`history_free.parquet`. `scratch.py` parquet logging and push guard include `history_*.parquet`.
+- **Automated Parquet Dataset Backup for Manual Extraction (2026-08-31, do not regress)**:
+  - Kaggle notebook outputs are organized into clean, isolated date-separated and versioned folders at `/kaggle/working/output/parquet_backup/YYYY-MM-DD/v{N}/` outside cloned repo directories.
+  - Automatically captures pre-encryption snapshots of all unencrypted datasets (`products.parquet`, `history.parquet`, `products_free.parquet`, `history_free.parquet`, `atl.parquet`, `atl_preview.json`, all `history_<store>.parquet` chunks, and `premium/` archive parquets).
+  - Bundles an all-in-one standalone ZIP archive (`grocerygod_parquet_YYYY-MM-DD_v{N}.zip`), copies a convenience shortcut `latest_parquet_backup.zip` to the output root, writes `backup_summary.json` with file sizes and row counts, and provides `README_MANUAL_EXTRACTION.txt` with DuckDB querying instructions.
+  - Safeguards data if Git push or authentication fails: sets `git_status='GIT_PUSH_FAILED'` in `backup_summary.json` and outputs a prominent extraction path banner to console and failure alerts.
+- **Seamless Self-Reboot Secret Persistence (`trigger_self_restart`, 2026-08-31, do not regress)**:
+  - Kaggle `kernels_push` converts code cell sources from list of lines to a single string; previous line-by-line iteration treated the string as a sequence of single characters, causing `l.startswith('_PERSISTED_SECRETS =')` to fail and inject duplicates while line 316 unconditionally wiped `_PERSISTED_SECRETS = {}` on container boot.
+  - Replaced line loop with direct regex in-place replacement (`re.subn(r'^[ \t]*_PERSISTED_SECRETS\s*=.*$', ...)`) and top-of-cell bootstrap header block injection with dual JSON and base64 payloads.
+  - Safeguarded `_PERSISTED_SECRETS` initialization in `scratch.py` (`if '_PERSISTED_SECRETS' not in globals() or not isinstance(_PERSISTED_SECRETS, dict) or not _PERSISTED_SECRETS: _PERSISTED_SECRETS = {}`).
+  - Added base64 decoding check (`_PERSISTED_SECRETS_B64`) and local vault file fallbacks (`/kaggle/working/secrets_vault.json`, `/kaggle/working/output/secrets_vault.json`, `/tmp/secrets_vault.json`) in `get_secret_safe()`.
+- **Pre-Flight GITHUB_PAT Verification & Telegram Fix Alert (`run_preflight_checks`, 2026-08-31, do not regress)**:
+  - Added `verify_github_pat(pat)` and `send_preflight_telegram_alert(diagnosis, fix_instructions)` to validate `GITHUB_PAT` before scrapers spawn.
+  - Queries GitHub API (`GET /user` and `GET /repos/ranehal/GroceryGOD`) to verify token authenticity, active status, and push/write permissions.
+  - If the token is missing, expired, revoked (HTTP 401), or lacks repository write access, dispatches a detailed Telegram alert with step-by-step resolution instructions for Kaggle (generating token with `repo` scope, attaching via **Add-ons > Secrets**, checking the enable box, and restarting the kernel).
+
+
 
 ## Encryption & secrets
 

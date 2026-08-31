@@ -15,6 +15,7 @@ import re
 import concurrent.futures
 import platform
 import glob
+import zipfile
 from datetime import datetime, timedelta, timezone
 
 # Dhaka Timezone
@@ -83,9 +84,250 @@ def _reclaim_disk(force=False):
         return 0.0
 
 # ============================================================
+# PARQUET DATASET BACKUP (MANUAL EXTRACTION SYSTEM)
+# ============================================================
+def _get_parquet_backup_base_dir():
+    """Determine the destination folder for manual parquet extraction on Kaggle."""
+    if os.path.exists('/kaggle/working'):
+        base = '/kaggle/working/output/parquet_backup'
+    else:
+        base = os.path.abspath(os.path.join(os.getcwd(), 'output', 'parquet_backup'))
+    os.makedirs(base, exist_ok=True)
+    return base
+
+def backup_parquet_datasets(repo_dir=None, cycle_count=1, git_status='PENDING', git_error=None, custom_base_dir=None):
+    """
+    Back up all generated Parquet files, store chunks, and previews into a clean,
+    date-separated, versioned directory in the Kaggle output folder for easy manual extraction.
+    Creates both individual parquet files and a standalone ZIP archive for 1-click download.
+    """
+    if repo_dir is None:
+        repo_dir = os.getcwd()
+    base_dir = custom_base_dir or _get_parquet_backup_base_dir()
+
+    now_dhaka = datetime.now(DHAKA_TZ)
+    date_str = now_dhaka.strftime('%Y-%m-%d')
+    date_dir = os.path.join(base_dir, date_str)
+    os.makedirs(date_dir, exist_ok=True)
+
+    # Clean version separation: v1, v2, v3...
+    existing_versions = []
+    try:
+        for item in os.listdir(date_dir):
+            if os.path.isdir(os.path.join(date_dir, item)) and re.match(r'^v(\d+)$', item):
+                existing_versions.append(int(item[1:]))
+    except Exception:
+        pass
+    next_v = f"v{max(existing_versions, default=0) + 1}"
+    version_dir = os.path.join(date_dir, next_v)
+    os.makedirs(version_dir, exist_ok=True)
+
+    # Collect all parquet and preview files
+    seen_rel = set()
+    targets = []
+
+    parquet_patterns = [
+        'products.parquet',
+        'history.parquet',
+        'products_free.parquet',
+        'history_free.parquet',
+        'atl.parquet',
+        'atl_preview.json',
+        'history_*.parquet'
+    ]
+    for pat in parquet_patterns:
+        for fp in glob.glob(os.path.join(repo_dir, pat)):
+            rel = os.path.basename(fp)
+            if os.path.isfile(fp) and rel not in seen_rel:
+                seen_rel.add(rel)
+                targets.append((fp, rel))
+
+    # Also capture encrypted datasets if generated
+    for pat in ['products.parquet.enc*', 'history.parquet.enc*']:
+        for fp in glob.glob(os.path.join(repo_dir, pat)):
+            rel = os.path.basename(fp)
+            if os.path.isfile(fp) and rel not in seen_rel:
+                seen_rel.add(rel)
+                targets.append((fp, rel))
+
+    # Premium directory archives
+    prem_dir = os.path.join(repo_dir, 'premium')
+    if os.path.exists(prem_dir):
+        for fp in glob.glob(os.path.join(prem_dir, '*.parquet*')):
+            rel = os.path.join('premium', os.path.basename(fp))
+            if os.path.isfile(fp) and rel not in seen_rel:
+                seen_rel.add(rel)
+                targets.append((fp, rel))
+
+    files_meta = {}
+    copied_paths = []
+    total_bytes = 0
+
+    for src_path, rel_dest in targets:
+        try:
+            dst_path = os.path.join(version_dir, rel_dest)
+            os.makedirs(os.path.dirname(dst_path), exist_ok=True)
+            shutil.copy2(src_path, dst_path)
+            sz = os.path.getsize(dst_path)
+            total_bytes += sz
+
+            meta_entry = {
+                'size_bytes': sz,
+                'size_mb': round(sz / (1024 * 1024), 2),
+            }
+            if rel_dest.endswith('.parquet'):
+                try:
+                    import pyarrow.parquet as _pq
+                    meta_entry['num_rows'] = _pq.read_metadata(dst_path).num_rows
+                except Exception:
+                    pass
+            files_meta[rel_dest.replace(chr(92), '/')] = meta_entry
+            copied_paths.append((dst_path, rel_dest))
+        except Exception as copy_err:
+            print(f"[PARQUET-BACKUP] Warning copying {src_path}: {copy_err}")
+
+    # Build standalone ZIP for 1-click manual download
+    zip_name = f"grocerygod_parquet_{date_str}_{next_v}.zip"
+    zip_path = os.path.join(version_dir, zip_name)
+    try:
+        with zipfile.ZipFile(zip_path, 'w', compression=zipfile.ZIP_DEFLATED) as zf:
+            for fpath, rpath in copied_paths:
+                zf.write(fpath, arcname=rpath.replace(chr(92), '/'))
+        zip_sz = os.path.getsize(zip_path)
+    except Exception as zip_err:
+        print(f"[PARQUET-BACKUP] Warning building ZIP archive: {zip_err}")
+        zip_sz = 0
+
+    # Convenience shortcut: copy latest zip to base folder
+    latest_zip = os.path.join(base_dir, 'latest_parquet_backup.zip')
+    try:
+        shutil.copy2(zip_path, latest_zip)
+    except Exception:
+        pass
+
+    summary = {
+        'timestamp_dhaka': now_dhaka.strftime('%Y-%m-%d %H:%M:%S DHAKA (UTC+6)'),
+        'date': date_str,
+        'version': next_v,
+        'cycle_count': cycle_count,
+        'git_status': git_status,
+        'git_error': git_error,
+        'total_files': len(files_meta),
+        'total_size_mb': round(total_bytes / (1024 * 1024), 2),
+        'zip_filename': zip_name,
+        'zip_size_mb': round(zip_sz / (1024 * 1024), 2),
+        'version_dir': version_dir,
+        'zip_path': zip_path,
+        'files': files_meta
+    }
+
+    summary_path = os.path.join(version_dir, 'backup_summary.json')
+    try:
+        with open(summary_path, 'w', encoding='utf-8') as sf:
+            json.dump(summary, sf, indent=2)
+    except Exception:
+        pass
+
+    # Human-readable instruction file inside the version folder
+    readme_text = f"""================================================================================
+GROCERYGOD PARQUET DATASET BACKUP (MANUAL EXTRACTION)
+================================================================================
+Timestamp (Dhaka): {summary['timestamp_dhaka']}
+Date:              {date_str}
+Version:           {next_v} (Attempt #{cycle_count})
+Git Sync Status:   {git_status}
+Total Files:       {len(files_meta)}
+Total Data Size:   {summary['total_size_mb']} MB
+Standalone ZIP:    {zip_name} ({summary['zip_size_mb']} MB)
+Extraction Path:   {version_dir}
+================================================================================
+
+DATASET CONTENTS:
+- products.parquet: Master product catalog (id, name, store, category, price, normalized_price, in_stock, unit, url, image_url)
+- history.parquet: Complete historical price observations (product_id, date, price, normalized_price)
+- products_free.parquet: Free-tier product catalog
+- history_free.parquet: Free-tier historical price observations
+- atl.parquet: All-Time-Low historical price benchmarks across stores
+- atl_preview.json: Instant pre-computed all-time-low preview dataset
+- history_<store>.parquet: Per-store progressive hydration chunks (shwapno, chaldal, meenabazar, othoba, metromart, unimart, shotejbazar, foodi)
+- premium/: Full historical archive snapshots and encrypted packages
+
+HOW TO QUERY WITH PYTHON / DUCKDB:
+--------------------------------------------------------------------------------
+import duckdb
+con = duckdb.connect()
+
+# Query product catalog:
+df_products = con.execute("SELECT * FROM read_parquet('products.parquet')").df()
+
+# Query price history (filtering out-of-stock sentinels):
+df_history = con.execute("SELECT * FROM read_parquet('history.parquet') WHERE price > 0").df()
+
+# Query store-specific history:
+df_shwapno = con.execute("SELECT * FROM read_parquet('history_shwapno.parquet')").df()
+================================================================================
+"""
+    try:
+        with open(os.path.join(version_dir, 'README_MANUAL_EXTRACTION.txt'), 'w', encoding='utf-8') as rf:
+            rf.write(readme_text)
+    except Exception:
+        pass
+
+    # Top-level quick reference pointer
+    try:
+        top_info = os.path.join(base_dir, 'LATEST_BACKUP_INFO.txt')
+        with open(top_info, 'w', encoding='utf-8') as tf:
+            tf.write(f"Latest Parquet Backup: {date_str} / {next_v}\nGenerated: {summary['timestamp_dhaka']}\nDirectory: {version_dir}\nArchive ZIP: {zip_path}\nGit Status: {git_status}\n")
+    except Exception:
+        pass
+
+    return summary
+
+def update_parquet_backup_status(backup_info, git_status='PUSHED_TO_GITHUB', git_error=None):
+    """Update git synchronization status in the parquet backup summary."""
+    if not backup_info or not isinstance(backup_info, dict) or 'version_dir' not in backup_info:
+        return
+    version_dir = backup_info['version_dir']
+    summary_path = os.path.join(version_dir, 'backup_summary.json')
+    if os.path.exists(summary_path):
+        try:
+            with open(summary_path, 'r', encoding='utf-8') as sf:
+                data = json.load(sf)
+            data['git_status'] = git_status
+            data['git_error'] = str(git_error) if git_error else None
+            data['last_updated_dhaka'] = datetime.now(DHAKA_TZ).strftime('%Y-%m-%d %H:%M:%S DHAKA (UTC+6)')
+            with open(summary_path, 'w', encoding='utf-8') as sf:
+                json.dump(data, sf, indent=2)
+        except Exception:
+            pass
+
+    try:
+        base_dir = os.path.dirname(os.path.dirname(version_dir))
+        top_info = os.path.join(base_dir, 'LATEST_BACKUP_INFO.txt')
+        if os.path.exists(top_info):
+            with open(top_info, 'a', encoding='utf-8') as tf:
+                tf.write(f"Updated Git Status: {git_status}\nError: {git_error or 'None'}\n")
+    except Exception:
+        pass
+
+# ============================================================
 # INITIALIZATION & SECRETS
 # ============================================================
-_PERSISTED_SECRETS = {}
+# Persisted secrets cache (preserved across container restarts)
+if '_PERSISTED_SECRETS' not in globals() or not isinstance(_PERSISTED_SECRETS, dict) or not _PERSISTED_SECRETS:
+    _PERSISTED_SECRETS = {}
+
+_PERSISTED_SECRETS_B64 = globals().get('_PERSISTED_SECRETS_B64', "")
+if _PERSISTED_SECRETS_B64:
+    try:
+        import base64
+        _decoded_secrets = json.loads(base64.b64decode(_PERSISTED_SECRETS_B64).decode('utf-8'))
+        if isinstance(_decoded_secrets, dict):
+            for _k, _v in _decoded_secrets.items():
+                if _v and not _PERSISTED_SECRETS.get(_k):
+                    _PERSISTED_SECRETS[_k] = str(_v).strip()
+    except Exception:
+        pass
 
 def get_secret_safe(key, default=""):
     # 1. Try Kaggle UserSecretsClient (UI attached)
@@ -108,7 +350,23 @@ def get_secret_safe(key, default=""):
         if val is not None and str(val).strip():
             return str(val).strip()
 
-    # 4. Try attached Kaggle Dataset fallback (e.g. /kaggle/input/**/secrets*.json or vault)
+    # 4. Try local persisted secrets vault file
+    _vault_paths = [
+        '/kaggle/working/secrets_vault.json',
+        '/kaggle/working/output/secrets_vault.json',
+        '/tmp/secrets_vault.json'
+    ]
+    for vp in _vault_paths:
+        if os.path.exists(vp):
+            try:
+                with open(vp, 'r', encoding='utf-8') as vf:
+                    vdata = json.load(vf)
+                    if isinstance(vdata, dict) and key in vdata and vdata[key]:
+                        return str(vdata[key]).strip()
+            except Exception:
+                pass
+
+    # 5. Try attached Kaggle Dataset fallback (e.g. /kaggle/input/**/secrets*.json or vault)
     try:
         import glob
         for f in glob.glob('/kaggle/input/**/secrets*.json', recursive=True) + glob.glob('/kaggle/input/**/vault*.json', recursive=True):
@@ -131,22 +389,150 @@ os.environ["TELEGRAM_CHAT_ID"] = TELEGRAM_CHAT_ID or ""
 KAGGLE_KERNEL_SLUG = get_secret_safe("KAGGLE_KERNEL_SLUG", "ranehalx/gitgod")
 os.environ['GOD_PREMIUM_KEY'] = get_secret_safe('GOD_PREMIUM_KEY', 'assalamualaikum')
 
+def send_preflight_telegram_alert(diagnosis, fix_instructions):
+    """Sends a formatted pre-flight warning to Telegram with step-by-step fix guide."""
+    if not TELEGRAM_BOT_TOKEN or not TELEGRAM_CHAT_ID:
+        return
+    now_dhaka = datetime.now(DHAKA_TZ).strftime("%Y-%m-%d %H:%M:%S DHAKA (UTC+6)")
+    alert_msg = (
+        "🚨 <b>GroceryGOD Pre-Flight Alert: GITHUB_PAT Issue</b>\n\n"
+        f"❌ <b>Diagnosis:</b>\n<code>{html.escape(diagnosis)}</code>\n\n"
+        f"📍 <b>Kernel:</b> <code>{html.escape(KAGGLE_KERNEL_SLUG or 'ranehalx/gitgod')}</code>\n"
+        f"🕒 <b>Time:</b> <code>{now_dhaka}</code>\n\n"
+        "🛠 <b>HOW TO FIX IN KAGGLE:</b>\n"
+        f"{fix_instructions}"
+    )
+    try:
+        tg_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
+        requests.post(tg_url, json={"chat_id": TELEGRAM_CHAT_ID, "text": alert_msg, "parse_mode": "HTML"}, timeout=12)
+        print("📲 Telegram pre-flight alert dispatched successfully.")
+    except Exception as _tg_err:
+        print(f"[PRE-FLIGHT] Could not send Telegram alert: {_tg_err}")
+
+def verify_github_pat(pat):
+    """Verify PAT presence, authentication with GitHub API, and push permission to ranehal/GroceryGOD."""
+    if not pat or not str(pat).strip():
+        diag = "GITHUB_PAT secret is missing or empty in Kaggle secrets."
+        fix = (
+            "1️⃣ <b>Generate / Locate GitHub PAT:</b>\n"
+            "• Go to https://github.com/settings/tokens (Tokens classic).\n"
+            "• Ensure scope <b>repo</b> (Full control of private repositories) is enabled.\n\n"
+            "2️⃣ <b>Attach Secret in Kaggle:</b>\n"
+            "• In Kaggle notebook top bar: <b>Add-ons</b> ➜ <b>Secrets</b>.\n"
+            "• Label: <code>GITHUB_PAT</code>, Value: <code>ghp_...</code>\n"
+            "• ⚠️ <b>MANDATORY:</b> Ensure the checkbox next to <code>GITHUB_PAT</code> is <b>CHECKED</b> so this kernel can read it!\n\n"
+            "3️⃣ <b>Restart Kernel:</b>\n"
+            "• Click <b>Cancel Run</b>, then click <b>Run All</b>."
+        )
+        return False, diag, fix
+
+    headers = {
+        "Authorization": f"Bearer {str(pat).strip()}",
+        "Accept": "application/vnd.github+json",
+        "User-Agent": "GroceryGOD-Preflight/1.0"
+    }
+
+    try:
+        r_user = requests.get("https://api.github.com/user", headers=headers, timeout=10)
+        if r_user.status_code == 401:
+            diag = "GitHub API returned HTTP 401 (Bad credentials). Your GITHUB_PAT is invalid, expired, or revoked."
+            fix = (
+                "1️⃣ <b>Generate a Fresh GitHub PAT:</b>\n"
+                "• Go to https://github.com/settings/tokens ➜ <b>Generate new token (classic)</b>.\n"
+                "• Set Expiration to No expiration (or renew it).\n"
+                "• Select scope: <b>repo</b> (Full control of private repositories).\n"
+                "• Copy the token (starts with <code>ghp_</code>).\n\n"
+                "2️⃣ <b>Update Secret in Kaggle:</b>\n"
+                "• In Kaggle top menu: <b>Add-ons</b> ➜ <b>Secrets</b>.\n"
+                "• Update <code>GITHUB_PAT</code> with your new token.\n"
+                "• ⚠️ Ensure checkbox next to <code>GITHUB_PAT</code> is <b>CHECKED</b>.\n\n"
+                "3️⃣ <b>Restart Kernel:</b>\n"
+                "• Click <b>Cancel Run</b>, then <b>Run All</b>."
+            )
+            return False, diag, fix
+        elif r_user.status_code != 200:
+            diag = f"GitHub API /user check returned HTTP {r_user.status_code}: {r_user.text[:120]}"
+            fix = (
+                "1️⃣ Check GitHub status at https://www.githubstatus.com\n"
+                "2️⃣ Ensure your token is valid and not rate-limited.\n"
+                "3️⃣ Update <code>GITHUB_PAT</code> in Kaggle Add-ons ➜ Secrets and restart."
+            )
+            return False, diag, fix
+
+        user_data = r_user.json()
+        login = user_data.get("login", "unknown")
+    except Exception as e:
+        print(f"⚠️ [PRE-FLIGHT] GitHub API network test bypassed ({e})")
+        return True, "", ""
+
+    # Check push access to ranehal/GroceryGOD
+    try:
+        r_repo = requests.get("https://api.github.com/repos/ranehal/GroceryGOD", headers=headers, timeout=10)
+        if r_repo.status_code == 200:
+            repo_data = r_repo.json()
+            perms = repo_data.get("permissions", {})
+            has_push = perms.get("push", False) or perms.get("admin", False)
+            if not has_push:
+                diag = f"Token authenticated as @{login}, but lacks write/push permissions to ranehal/GroceryGOD."
+                fix = (
+                    "1️⃣ <b>Verify GitHub Account:</b>\n"
+                    f"• The token belongs to <b>@{login}</b>, which does not have write access to <code>ranehal/GroceryGOD</code>.\n"
+                    "• Use a token generated from account <b>ranehal</b> or grant collaborator push access.\n\n"
+                    "2️⃣ <b>Update Kaggle Secret:</b>\n"
+                    "• In Kaggle: <b>Add-ons</b> ➜ <b>Secrets</b> ➜ Update <code>GITHUB_PAT</code> with account <b>ranehal</b>'s token.\n"
+                    "• Ensure checkbox is checked and restart kernel."
+                )
+                return False, diag, fix
+            return True, f"Authenticated as @{login} with write/push access to ranehal/GroceryGOD.", ""
+        elif r_repo.status_code == 404:
+            diag = f"Token authenticated as @{login}, but ranehal/GroceryGOD returned HTTP 404 (token lacks repo scope or access)."
+            fix = (
+                "1️⃣ <b>Check Token Scopes:</b>\n"
+                "• Go to https://github.com/settings/tokens and check your token scopes.\n"
+                "• Ensure <b>repo</b> (Full control of private repositories) is enabled.\n\n"
+                "2️⃣ <b>Update Kaggle Secret & Restart:</b>\n"
+                "• Re-paste token in Kaggle Add-ons ➜ Secrets and restart."
+            )
+            return False, diag, fix
+    except Exception as e:
+        print(f"⚠️ [PRE-FLIGHT] GitHub repo permissions test bypassed ({e})")
+        return True, "", ""
+
+    return True, "PAT verification passed.", ""
+
 def run_preflight_checks():
     print("\n" + "="*50)
-    print("🛫 PRE-FLIGHT SECRETS CHECK")
+    print("🛫 PRE-FLIGHT SECRETS & GITHUB PAT CHECK")
     print("="*50)
     missing = []
     if not GITHUB_PAT: missing.append("GITHUB_PAT")
-    if not os.environ['KAGGLE_USERNAME']: missing.append("KAGGLE_USERNAME")
-    if not os.environ['KAGGLE_KEY']: missing.append("KAGGLE_KEY")
+    if not os.environ.get('KAGGLE_USERNAME'): missing.append("KAGGLE_USERNAME")
+    if not os.environ.get('KAGGLE_KEY'): missing.append("KAGGLE_KEY")
     if not KAGGLE_KERNEL_SLUG: missing.append("KAGGLE_KERNEL_SLUG")
     
     if missing:
         print(f"🚨 CRITICAL WARNING: The following secrets are missing or empty: {', '.join(missing)}")
         print("🚨 Scrapers WILL fail to push to GitHub, and the script WILL fail to self-restart.")
         print("🚨 Please stop the kernel, go to Add-ons > Secrets, attach them, and run again.\n")
+
+    # Deep PAT validation against GitHub API
+    pat_ok, pat_diag, pat_fix = verify_github_pat(GITHUB_PAT)
+    if not pat_ok:
+        print(f"🚨 [PRE-FLIGHT PAT FAILURE] {pat_diag}")
+        print("📲 Sending urgent fix guide to Telegram...")
+        send_preflight_telegram_alert(pat_diag, pat_fix)
+        print("="*50 + "\n")
+        return False
     else:
+        if pat_diag:
+            print(f"✅ [GITHUB_PAT] {pat_diag}")
+        else:
+            print("✅ [GITHUB_PAT] Validated successfully with GitHub API.")
+
+    if not missing:
         print("✅ All core secrets found. Systems nominal.\n")
+    print("="*50 + "\n")
+    return True
 
 # ============================================================
 # SELF-RESTART FUNCTION
@@ -212,24 +598,39 @@ def trigger_self_restart():
         }
 
         try:
+            import base64
+            active_secrets_json = json.dumps(active_secrets)
+            active_secrets_b64 = base64.b64encode(active_secrets_json.encode('utf-8')).decode('utf-8')
+
             with open(code_filename, 'r', encoding='utf-8') as nbf:
                 nb_data = json.load(nbf)
 
             injected = False
             for cell in nb_data.get('cells', []):
                 if cell.get('cell_type') == 'code':
-                    lines = cell.get('source', [])
-                    new_lines = []
-                    for l in lines:
-                        if l.startswith('_PERSISTED_SECRETS ='):
-                            new_lines.append(f"_PERSISTED_SECRETS = {json.dumps(active_secrets)}\n")
-                            injected = True
-                        else:
-                            new_lines.append(l)
-                    if not injected:
-                        new_lines.insert(0, f"_PERSISTED_SECRETS = {json.dumps(active_secrets)}\n")
-                        injected = True
-                    cell['source'] = new_lines
+                    raw_src = cell.get('source', '')
+                    src_str = "".join(raw_src) if isinstance(raw_src, list) else str(raw_src)
+
+                    # 1. Update any existing _PERSISTED_SECRETS lines in place
+                    pat_dict = r'^[ \t]*_PERSISTED_SECRETS\s*=.*$'
+                    src_str, _ = re.subn(pat_dict, f'_PERSISTED_SECRETS = {active_secrets_json}', src_str, flags=re.MULTILINE)
+
+                    pat_b64 = r'^[ \t]*_PERSISTED_SECRETS_B64\s*=.*$'
+                    src_str, _ = re.subn(pat_b64, f'_PERSISTED_SECRETS_B64 = "{active_secrets_b64}"', src_str, flags=re.MULTILINE)
+
+                    # 2. Prepend a persistent top-of-cell header to guarantee secrets run before any other code
+                    prior_header_pat = r'# --- AUTO-INJECTED PERSISTED SECRETS \(CONTAINER SELF-BOOT\) ---[\s\S]*?# -------------------------------------------------------------\n?'
+                    src_str = re.sub(prior_header_pat, '', src_str)
+
+                    header_block = (
+                        "# --- AUTO-INJECTED PERSISTED SECRETS (CONTAINER SELF-BOOT) ---\n"
+                        f"_PERSISTED_SECRETS = {active_secrets_json}\n"
+                        f'_PERSISTED_SECRETS_B64 = "{active_secrets_b64}"\n'
+                        "# -------------------------------------------------------------\n"
+                    )
+                    src_str = header_block + src_str
+                    cell['source'] = src_str.splitlines(keepends=True)
+                    injected = True
                     break
 
             with open(code_filename, 'w', encoding='utf-8') as nbf:
@@ -357,6 +758,7 @@ def run_grocery_god(github_pat):
 
     # SINGLE RUN PIPELINE (NO INFINITE LOOP)
     cycle_count = 1
+    _pq_backup_info = None
     os.chdir('/kaggle/working')
     
     try:
@@ -685,8 +1087,20 @@ def run_grocery_god(github_pat):
                         if os.path.exists(pf):
                             sz_mb = os.path.getsize(pf) / (1024*1024)
                             log.info(f'  {pf}: {sz_mb:.1f} MB')
+
+                    # 💾 Create date-separated versioned Parquet backup in Kaggle output folder for manual extraction
+                    log.info("💾 Creating versioned Parquet snapshot for manual extraction (pre-encryption)...")
+                    _pq_backup_info = backup_parquet_datasets(
+                        repo_dir=os.getcwd(),
+                        cycle_count=run_count if 'run_count' in locals() else cycle_count,
+                        git_status='PENDING_GIT_PUSH'
+                    )
+                    log.info(f"💾 Parquet backup completed: {_pq_backup_info.get('version')} ({_pq_backup_info.get('total_files')} files, {_pq_backup_info.get('total_size_mb')} MB) -> {_pq_backup_info.get('version_dir')}")
+                    log.info(f"📦 1-Click ZIP Archive: {_pq_backup_info.get('zip_path')} ({_pq_backup_info.get('zip_size_mb')} MB)")
                 except subprocess.CalledProcessError as e:
                     log.error(f'Parquet conversion failed with code {e.returncode}')
+                except Exception as _b_err:
+                    log.warning(f'Parquet backup warning: {_b_err}')
 
             with Step('Premium Key Rotation', '🔐'):
                 new_key = get_secret_safe('GOD_PREMIUM_KEY_UPDATE', '')
@@ -898,7 +1312,22 @@ if __name__ == '__main__':
                     git_status = subprocess.run('git status', shell=True, capture_output=True, text=True).stdout
                     error_msg = f"Git push failed after 3 attempts!\nGit Status:\n{git_status[:300]}\nStderr: {push_res.stderr[:300]}"
                     log.error(error_msg)
+                    if '_pq_backup_info' in locals() and _pq_backup_info:
+                        try:
+                            update_parquet_backup_status(_pq_backup_info, git_status='GIT_PUSH_FAILED', git_error=error_msg[:300])
+                            log.warning(f"📦 [MANUAL EXTRACTION READY] Git push failed, but Parquet dataset backup is safely preserved at: {_pq_backup_info.get('version_dir')}")
+                            log.warning(f"📦 1-Click ZIP Download: {_pq_backup_info.get('zip_path')}")
+                        except Exception as _bk_err:
+                            log.error(f"Backup status update error: {_bk_err}")
                     raise RuntimeError(error_msg)
+
+                # Update backup status to reflect successful push
+                if '_pq_backup_info' in locals() and _pq_backup_info:
+                    try:
+                        update_parquet_backup_status(_pq_backup_info, git_status='PUSHED_TO_GITHUB')
+                        log.info(f"💾 Parquet backup status marked as PUSHED_TO_GITHUB at: {_pq_backup_info.get('version_dir')}")
+                    except Exception:
+                        pass
 
                 _agg_s = _read_aggregator_summary()
                 if _agg_s:
@@ -961,6 +1390,14 @@ if __name__ == '__main__':
     except Exception as e:
         safe_tb = html.escape(traceback.format_exc()[-500:])
         err_msg = f"💥 <b>GroceryGOD CRITICAL FAILURE!</b>\nError: {html.escape(str(e))}\n<pre>{safe_tb}</pre>"
+        if '_pq_backup_info' in locals() and _pq_backup_info:
+            try:
+                update_parquet_backup_status(_pq_backup_info, git_status='CRITICAL_CYCLE_FAILURE', git_error=str(e)[:300])
+                bk_loc = _pq_backup_info.get('version_dir', '')
+                bk_zip = _pq_backup_info.get('zip_path', '')
+                err_msg += f"\n\n💾 <b>Manual Parquet Backup Preserved:</b>\n<code>{html.escape(bk_loc)}</code>\n📦 <b>1-Click ZIP:</b> <code>{html.escape(bk_zip)}</code>"
+            except Exception:
+                pass
         print(err_msg)
         tg_send(err_msg)
     
