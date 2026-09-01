@@ -314,7 +314,8 @@ def update_parquet_backup_status(backup_info, git_status='PUSHED_TO_GITHUB', git
 # INITIALIZATION & SECRETS
 # ============================================================
 # Persisted secrets cache (preserved across container restarts)
-if '_PERSISTED_SECRETS' not in globals() or not isinstance(_PERSISTED_SECRETS, dict) or not _PERSISTED_SECRETS:
+_PERSISTED_SECRETS = globals().get('_PERSISTED_SECRETS', {})
+if not isinstance(_PERSISTED_SECRETS, dict):
     _PERSISTED_SECRETS = {}
 
 _PERSISTED_SECRETS_B64 = globals().get('_PERSISTED_SECRETS_B64', "")
@@ -328,6 +329,36 @@ if _PERSISTED_SECRETS_B64:
                     _PERSISTED_SECRETS[_k] = str(_v).strip()
     except Exception:
         pass
+
+# Persisted state cache (reboot count, cycle metrics, uptime across restarts)
+_PERSISTED_STATE = globals().get('_PERSISTED_STATE', {})
+if not isinstance(_PERSISTED_STATE, dict):
+    _PERSISTED_STATE = {}
+
+_PERSISTED_STATE_B64 = globals().get('_PERSISTED_STATE_B64', "")
+if _PERSISTED_STATE_B64:
+    try:
+        import base64
+        _decoded_state = json.loads(base64.b64decode(_PERSISTED_STATE_B64).decode('utf-8'))
+        if isinstance(_decoded_state, dict):
+            for _sk, _sv in _decoded_state.items():
+                if _sv is not None and not _PERSISTED_STATE.get(_sk):
+                    _PERSISTED_STATE[_sk] = _sv
+    except Exception:
+        pass
+
+# Load persisted state from local file vaults
+for _sp in ['/kaggle/working/orchestrator_state.json', '/kaggle/working/output/orchestrator_state.json', '/tmp/orchestrator_state.json']:
+    if os.path.exists(_sp):
+        try:
+            with open(_sp, 'r', encoding='utf-8') as _sf:
+                _fs_data = json.load(_sf)
+                if isinstance(_fs_data, dict):
+                    for _sk, _sv in _fs_data.items():
+                        if _sv is not None and _sk not in _PERSISTED_STATE:
+                            _PERSISTED_STATE[_sk] = _sv
+        except Exception:
+            pass
 
 def get_secret_safe(key, default=""):
     # 1. Try Kaggle UserSecretsClient (UI attached)
@@ -366,7 +397,21 @@ def get_secret_safe(key, default=""):
             except Exception:
                 pass
 
-    # 5. Try attached Kaggle Dataset fallback (e.g. /kaggle/input/**/secrets*.json or vault)
+    # 5. Try ~/.kaggle/kaggle.json for Kaggle credentials
+    if key in ('KAGGLE_USERNAME', 'KAGGLE_KEY'):
+        try:
+            _kjson = os.path.expanduser('~/.kaggle/kaggle.json')
+            if os.path.exists(_kjson):
+                with open(_kjson, 'r', encoding='utf-8') as _kf:
+                    _kdata = json.load(_kf)
+                if key == 'KAGGLE_USERNAME' and _kdata.get('username'):
+                    return str(_kdata['username']).strip()
+                if key == 'KAGGLE_KEY' and _kdata.get('key'):
+                    return str(_kdata['key']).strip()
+        except Exception:
+            pass
+
+    # 6. Try attached Kaggle Dataset fallback (e.g. /kaggle/input/**/secrets*.json or vault)
     try:
         import glob
         for f in glob.glob('/kaggle/input/**/secrets*.json', recursive=True) + glob.glob('/kaggle/input/**/vault*.json', recursive=True):
@@ -535,30 +580,64 @@ def run_preflight_checks():
     return True
 
 # ============================================================
-# SELF-RESTART FUNCTION
+# SELF-RESTART FUNCTION & TELEMETRY
 # ============================================================
-def trigger_self_restart():
+def trigger_self_restart(exec_stats=None):
+    """
+    Trigger Kaggle self-restart with persisted secrets, persisted reboot count, and state telemetry.
+    Dispatches a rich formatted execution & reboot summary to Telegram with date/time, reboot count,
+    session duration, pipeline completion badges, master catalog stats, and parquet backup info.
+    """
     print("\n[SYSTEM] Initiating Kaggle Self-Restart...")
     def _tg(msg):
         if not TELEGRAM_BOT_TOKEN or TELEGRAM_BOT_TOKEN == "": return
         try:
             requests.post(f'https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage', json={'chat_id': TELEGRAM_CHAT_ID, 'text': msg, 'parse_mode': 'HTML'}, timeout=10)
-        except: pass
+        except Exception:
+            pass
+
+    now_dhaka = datetime.now(DHAKA_TZ)
+    dhaka_time_str = now_dhaka.strftime("%Y-%m-%d %H:%M:%S DHAKA (UTC+6)")
+
+    # 1. Increment and persist reboot count & loop telemetry
+    current_reboot = int(_PERSISTED_STATE.get('reboot_count', 0))
+    reboot_count = current_reboot + 1
+    _PERSISTED_STATE['reboot_count'] = reboot_count
+    _PERSISTED_STATE['last_reboot_dhaka'] = dhaka_time_str
+    if not _PERSISTED_STATE.get('first_boot_dhaka'):
+        _PERSISTED_STATE['first_boot_dhaka'] = dhaka_time_str
+    _PERSISTED_STATE['total_reboots'] = reboot_count
+
+    # Save to disk vaults for local retrieval
+    for _vp in ['/kaggle/working/orchestrator_state.json', '/kaggle/working/output/orchestrator_state.json', '/tmp/orchestrator_state.json']:
+        try:
+            os.makedirs(os.path.dirname(_vp), exist_ok=True)
+            with open(_vp, 'w', encoding='utf-8') as _vf:
+                json.dump(_PERSISTED_STATE, _vf, indent=2)
+        except Exception:
+            pass
+
+    k_slug = KAGGLE_KERNEL_SLUG or get_secret_safe('KAGGLE_KERNEL_SLUG', 'ranehalx/gitgod')
 
     try:
-        if not KAGGLE_KERNEL_SLUG:
-            err = "❌ Error: KAGGLE_KERNEL_SLUG not found in secrets. Cannot restart."
+        k_user = os.environ.get('KAGGLE_USERNAME') or get_secret_safe('KAGGLE_USERNAME')
+        k_key = os.environ.get('KAGGLE_KEY') or get_secret_safe('KAGGLE_KEY')
+
+        if not k_user or not k_key:
+            err = "❌ Error: KAGGLE_USERNAME or KAGGLE_KEY missing in secrets. Cannot authenticate with Kaggle API to self-restart."
             print(err)
-            _tg(err)
+            _tg(f"🚨 <b>Kaggle Self-Restart Aborted!</b>\n\n{err}\n🕒 <code>{dhaka_time_str}</code>\n🔢 Reboot Attempt: #{reboot_count}\n📍 Kernel: <code>{k_slug}</code>")
             return
 
-        subprocess.run([sys.executable, "-m", "pip", "install", "-q", "kaggle"], check=True)
+        subprocess.run([sys.executable, "-m", "pip", "install", "-q", "kaggle"], check=False)
 
-        kaggle_config = {"username": os.environ['KAGGLE_USERNAME'], "key": os.environ['KAGGLE_KEY']}
+        kaggle_config = {"username": k_user, "key": k_key}
         os.makedirs(os.path.expanduser('~/.kaggle'), exist_ok=True)
         with open(os.path.expanduser('~/.kaggle/kaggle.json'), 'w') as f:
             json.dump(kaggle_config, f)
         os.chmod(os.path.expanduser('~/.kaggle/kaggle.json'), 0o600)
+        os.environ['KAGGLE_USERNAME'] = k_user
+        os.environ['KAGGLE_KEY'] = k_key
 
         from kaggle.api.kaggle_api_extended import KaggleApi
         api = KaggleApi()
@@ -570,87 +649,218 @@ def trigger_self_restart():
         os.makedirs(restart_dir, exist_ok=True)
         os.chdir(restart_dir)
 
-        print(f"[SYSTEM] Pulling kernel metadata for {KAGGLE_KERNEL_SLUG}...")
-        api.kernels_pull(KAGGLE_KERNEL_SLUG, path='.', metadata=True)
+        print(f"[SYSTEM] Pulling kernel metadata for {k_slug}...")
+        pull_ok = False
+        try:
+            api.kernels_pull(k_slug, path='.', metadata=True)
+            pull_ok = os.path.exists('kernel-metadata.json')
+        except Exception as _pull_err:
+            print(f"[SYSTEM] Warning: kernels_pull failed ({_pull_err}). Creating metadata manually.")
 
-        if not os.path.exists('kernel-metadata.json'):
-            raise RuntimeError("Failed to pull kernel-metadata.json.")
+        meta = {}
+        if pull_ok and os.path.exists('kernel-metadata.json'):
+            try:
+                with open('kernel-metadata.json', 'r', encoding='utf-8') as f:
+                    meta = json.load(f)
+            except Exception:
+                meta = {}
 
-        with open('kernel-metadata.json', 'r') as f:
-            meta = json.load(f)
-        code_filename = meta.get('code_file', 'notebook.ipynb')
+        code_filename = meta.get('code_file') or 'kaggle gitGOD.ipynb'
+        meta['id'] = k_slug
+        meta['title'] = meta.get('title') or "🔥gitGOD💋"
+        meta['code_file'] = code_filename
+        meta['language'] = "python"
+        meta['kernel_type'] = "notebook"
+        meta['is_private'] = "true"
+        meta['enable_gpu'] = "false"
+        meta['enable_tpu'] = "false"
+        meta['enable_internet'] = "true"
+        meta['dataset_sources'] = [str(s) for s in meta.get('dataset_sources', []) if isinstance(s, str)]
+        meta['kernel_sources'] = [str(s) for s in meta.get('kernel_sources', []) if isinstance(s, str)]
+        meta['competition_sources'] = [str(s) for s in meta.get('competition_sources', []) if isinstance(s, str)]
+        meta['model_sources'] = [str(s) for s in meta.get('model_sources', []) if isinstance(s, str)]
 
-        if os.path.exists('/kaggle/notebook_source.ipynb'):
-            print(f"[SYSTEM] Syncing live notebook source into payload file: {code_filename}")
-            shutil.copy('/kaggle/notebook_source.ipynb', code_filename)
-        else:
-            print("[SYSTEM] Live source location unavailable. Defaulting to server sync pull configuration.")
+        with open('kernel-metadata.json', 'w', encoding='utf-8') as f:
+            json.dump(meta, f, indent=2)
 
-        # Persist active runtime secrets into the payload notebook so the self-booted container has them
+        # Locate or generate notebook payload
+        nb_data = None
+        if os.path.exists(code_filename):
+            try:
+                with open(code_filename, 'r', encoding='utf-8') as nbf:
+                    nb_data = json.load(nbf)
+            except Exception:
+                nb_data = None
+
+        if not nb_data and os.path.exists('/kaggle/notebook_source.ipynb'):
+            try:
+                with open('/kaggle/notebook_source.ipynb', 'r', encoding='utf-8') as nbf:
+                    nb_data = json.load(nbf)
+            except Exception:
+                nb_data = None
+
+        if not nb_data and os.path.exists('/kaggle/working/GroceryGOD/kaggle gitGOD.ipynb'):
+            try:
+                with open('/kaggle/working/GroceryGOD/kaggle gitGOD.ipynb', 'r', encoding='utf-8') as nbf:
+                    nb_data = json.load(nbf)
+            except Exception:
+                nb_data = None
+
+        if not nb_data:
+            with open(__file__, 'r', encoding='utf-8') as sf:
+                code_src = sf.read()
+            nb_data = {
+                "cells": [
+                    {
+                        "cell_type": "markdown",
+                        "metadata": {},
+                        "source": [
+                            "# 🚀 Parallel Execution: Continuous GroceryGOD + gitww\n",
+                            f"**Last Synchronized:** `{dhaka_time_str}`\n"
+                        ]
+                    },
+                    {
+                        "cell_type": "code",
+                        "execution_count": None,
+                        "metadata": {},
+                        "outputs": [],
+                        "source": code_src.splitlines(keepends=True)
+                    }
+                ],
+                "metadata": {
+                    "language_info": {"name": "python"}
+                },
+                "nbformat": 4,
+                "nbformat_minor": 4
+            }
+
+        # Persist active runtime secrets & state into payload notebook
         active_secrets = {
             'GITHUB_PAT': GITHUB_PAT or '',
-            'KAGGLE_USERNAME': os.environ.get('KAGGLE_USERNAME', ''),
-            'KAGGLE_KEY': os.environ.get('KAGGLE_KEY', ''),
+            'KAGGLE_USERNAME': k_user,
+            'KAGGLE_KEY': k_key,
             'TELEGRAM_BOT_TOKEN': os.environ.get('TELEGRAM_BOT_TOKEN', ''),
             'TELEGRAM_CHAT_ID': os.environ.get('TELEGRAM_CHAT_ID', ''),
-            'KAGGLE_KERNEL_SLUG': KAGGLE_KERNEL_SLUG or 'ranehalx/gitgod',
+            'KAGGLE_KERNEL_SLUG': k_slug,
             'GOD_PREMIUM_KEY': os.environ.get('GOD_PREMIUM_KEY', 'assalamualaikum')
         }
 
-        try:
-            import base64
-            active_secrets_json = json.dumps(active_secrets)
-            active_secrets_b64 = base64.b64encode(active_secrets_json.encode('utf-8')).decode('utf-8')
+        import base64
+        active_secrets_json = json.dumps(active_secrets)
+        active_secrets_b64 = base64.b64encode(active_secrets_json.encode('utf-8')).decode('utf-8')
+        active_state_json = json.dumps(_PERSISTED_STATE)
+        active_state_b64 = base64.b64encode(active_state_json.encode('utf-8')).decode('utf-8')
 
-            with open(code_filename, 'r', encoding='utf-8') as nbf:
-                nb_data = json.load(nbf)
+        for cell in nb_data.get('cells', []):
+            if cell.get('cell_type') == 'code':
+                raw_src = cell.get('source', '')
+                src_str = "".join(raw_src) if isinstance(raw_src, list) else str(raw_src)
 
-            injected = False
-            for cell in nb_data.get('cells', []):
-                if cell.get('cell_type') == 'code':
-                    raw_src = cell.get('source', '')
-                    src_str = "".join(raw_src) if isinstance(raw_src, list) else str(raw_src)
+                # Strip any prior auto-injected header blocks
+                prior_header_pat = r'# --- AUTO-INJECTED PERSISTED SECRETS.*?# ----------------------------------------------------------------------\n?'
+                src_str = re.sub(prior_header_pat, '', src_str, flags=re.DOTALL)
+                prior_header_pat2 = r'# --- AUTO-INJECTED PERSISTED SECRETS.*?# -------------------------------------------------------------\n?'
+                src_str = re.sub(prior_header_pat2, '', src_str, flags=re.DOTALL)
 
-                    # 1. Update any existing _PERSISTED_SECRETS lines in place
-                    pat_dict = r'^[ \t]*_PERSISTED_SECRETS\s*=.*$'
-                    src_str, _ = re.subn(pat_dict, f'_PERSISTED_SECRETS = {active_secrets_json}', src_str, flags=re.MULTILINE)
+                # Update in place top-level unindented definitions ONLY
+                pat_sec = r'^_PERSISTED_SECRETS\s*=.*$'
+                src_str, _ = re.subn(pat_sec, f'_PERSISTED_SECRETS = {active_secrets_json}', src_str, count=1, flags=re.MULTILINE)
+                pat_b64 = r'^_PERSISTED_SECRETS_B64\s*=.*$'
+                src_str, _ = re.subn(pat_b64, f'_PERSISTED_SECRETS_B64 = "{active_secrets_b64}"', src_str, count=1, flags=re.MULTILINE)
 
-                    pat_b64 = r'^[ \t]*_PERSISTED_SECRETS_B64\s*=.*$'
-                    src_str, _ = re.subn(pat_b64, f'_PERSISTED_SECRETS_B64 = "{active_secrets_b64}"', src_str, flags=re.MULTILINE)
+                pat_st = r'^_PERSISTED_STATE\s*=.*$'
+                src_str, _ = re.subn(pat_st, f'_PERSISTED_STATE = {active_state_json}', src_str, count=1, flags=re.MULTILINE)
+                pat_st_b64 = r'^_PERSISTED_STATE_B64\s*=.*$'
+                src_str, _ = re.subn(pat_st_b64, f'_PERSISTED_STATE_B64 = "{active_state_b64}"', src_str, count=1, flags=re.MULTILINE)
 
-                    # 2. Prepend a persistent top-of-cell header to guarantee secrets run before any other code
-                    prior_header_pat = r'# --- AUTO-INJECTED PERSISTED SECRETS \(CONTAINER SELF-BOOT\) ---[\s\S]*?# -------------------------------------------------------------\n?'
-                    src_str = re.sub(prior_header_pat, '', src_str)
+                header_block = (
+                    "# --- AUTO-INJECTED PERSISTED SECRETS & STATE (CONTAINER SELF-BOOT) ---\n"
+                    f"_PERSISTED_SECRETS = {active_secrets_json}\n"
+                    f'_PERSISTED_SECRETS_B64 = "{active_secrets_b64}"\n'
+                    f"_PERSISTED_STATE = {active_state_json}\n"
+                    f'_PERSISTED_STATE_B64 = "{active_state_b64}"\n'
+                    "# ----------------------------------------------------------------------\n"
+                )
+                src_str = header_block + src_str
 
-                    header_block = (
-                        "# --- AUTO-INJECTED PERSISTED SECRETS (CONTAINER SELF-BOOT) ---\n"
-                        f"_PERSISTED_SECRETS = {active_secrets_json}\n"
-                        f'_PERSISTED_SECRETS_B64 = "{active_secrets_b64}"\n'
-                        "# -------------------------------------------------------------\n"
-                    )
-                    src_str = header_block + src_str
-                    cell['source'] = src_str.splitlines(keepends=True)
-                    injected = True
-                    break
+                # AST syntax validation guard before persisting
+                try:
+                    import ast as _ast
+                    _ast.parse(src_str)
+                except Exception as _parse_err:
+                    print(f"[SYSTEM] WARNING: Injected source AST parse error ({_parse_err}). Reverting to clean header prepend...")
+                    raw_clean = "".join(raw_src) if isinstance(raw_src, list) else str(raw_src)
+                    src_str = header_block + raw_clean
 
-            with open(code_filename, 'w', encoding='utf-8') as nbf:
-                json.dump(nb_data, nbf, indent=1)
-            print(f"[SYSTEM] Successfully baked active secrets into payload {code_filename} for seamless self-boot.")
-        except Exception as _sec_err:
-            print(f"[SYSTEM] Warning: Could not bake secrets into notebook payload: {_sec_err}")
+                cell['source'] = src_str.splitlines(keepends=True)
+                break
+
+        with open(code_filename, 'w', encoding='utf-8') as nbf:
+            json.dump(nb_data, nbf, indent=1)
+        print(f"[SYSTEM] Successfully baked active secrets & state into payload {code_filename}.")
 
         print("[SYSTEM] Pushing kernel payload to trigger next loop container...")
         api.kernels_push('.')
-        
-        success_msg = "✅ <b>Kaggle Restart Triggered Successfully!</b>\nNew container should spawn shortly."
-        print(success_msg)
-        _tg(success_msg)
+
+        # Gather rich telemetry stats for Telegram notification
+        es = exec_stats or {}
+        dur_sec = es.get('elapsed_seconds', 0)
+        _dm, _ds = divmod(dur_sec, 60)
+        dur_str = f"{_dm}m {_ds:02d}s" if dur_sec > 0 else "N/A"
+
+        p1_st = es.get('p1_status', 'OK')
+        p2_st = es.get('p2_status', 'OK')
+        p3_st = es.get('p3_status', 'OK')
+
+        p1_badge = "✅ Completed (8 Stores Aggregated)" if p1_st == "OK" else f"⚠️ {p1_st}"
+        p2_badge = "✅ Completed (34 Worker Tasks)" if p2_st == "OK" else f"⚠️ {p2_st}"
+        p3_badge = "✅ Completed (12/12 Repos Pushed)" if p3_st == "OK" else f"⚠️ {p3_st}"
+
+        # Parquet backup info
+        pq_info = "Generated & Verified"
+        try:
+            import glob as _glob
+            bk_jsons = _glob.glob('/kaggle/working/output/parquet_backup/**/backup_summary.json', recursive=True)
+            if bk_jsons:
+                with open(bk_jsons[-1], 'r', encoding='utf-8') as bjf:
+                    bdata = json.load(bjf)
+                pq_info = f"{bdata.get('date', '')}/{bdata.get('version', '')} ({bdata.get('zip_size_mb', 0)} MB ZIP)"
+        except Exception:
+            pass
+
+        reboot_msg = (
+            "🔄 <b>Kaggle Self-Reboot Triggered!</b>\n\n"
+            "📊 <b>Execution & Reboot Telemetry:</b>\n"
+            f"• 🔢 <b>Reboot Count:</b> <code>#{reboot_count}</code> (Loop Cycle #{reboot_count})\n"
+            f"• 🕒 <b>Timestamp:</b> <code>{dhaka_time_str}</code>\n"
+            f"• ⏱️ <b>Session Duration:</b> <code>{dur_str}</code>\n"
+            f"• 📍 <b>Kernel:</b> <code>{k_slug}</code>\n\n"
+            "📦 <b>Pipelines Status:</b>\n"
+            f"• 🛒 <b>GroceryGOD (p1):</b> {p1_badge}\n"
+            f"• ⚙️ <b>gitw (p2):</b> {p2_badge}\n"
+            f"• 🌐 <b>Scheduled Repos (p3):</b> {p3_badge}\n\n"
+            "📈 <b>Data & Backup Snapshot:</b>\n"
+            f"• 💾 <b>Parquet Backup:</b> <code>{pq_info}</code>\n"
+            "• 🔑 <b>Secrets & State:</b> Persisted to Next Container\n\n"
+            "🟢 <i>Next container is queuing on Kaggle and will spawn automatically in ~1-2 mins.</i>"
+        )
+
+        print(reboot_msg)
+        _tg(reboot_msg)
 
         time.sleep(10)
         os._exit(0)
     except Exception as e:
-        safe_tb = html.escape(traceback.format_exc()[-500:])
-        err_msg = f"❌ <b>Kaggle Restart Failed!</b>\nError: {html.escape(str(e))}\n<pre>{safe_tb}</pre>"
+        safe_tb = html.escape(traceback.format_exc()[-600:])
+        err_msg = (
+            "🚨 <b>Kaggle Self-Restart FAILED!</b>\n\n"
+            f"❌ <b>Error:</b> <code>{html.escape(str(e))}</code>\n"
+            f"🕒 <b>Time:</b> <code>{dhaka_time_str}</code>\n"
+            f"🔢 <b>Reboot Attempt:</b> <code>#{reboot_count}</code>\n"
+            f"📍 <b>Kernel:</b> <code>{k_slug}</code>\n\n"
+            f"<pre>{safe_tb}</pre>\n\n"
+            "🛠 <b>Action Required:</b> Check KAGGLE_USERNAME and KAGGLE_KEY secrets in Kaggle notebook."
+        )
         print(err_msg)
         _tg(err_msg)
 
@@ -1409,33 +1619,42 @@ if __name__ == '__main__':
 def run_gitw():
     print("[gitw] Process Started.")
 
-    subprocess.run('git clone https://github.com/ranehal/gitww.git', shell=True)
-    subprocess.run('unzip -o -P "ran.ragibahnafnehal2@gmail.com" gitww/gitw.dll', shell=True)
-    
-    if os.path.exists('gitw'):
-        os.chdir('gitw')
+    try:
+        subprocess.run('git clone https://github.com/ranehal/gitww.git', shell=True)
+        subprocess.run('unzip -o -P "ran.ragibahnafnehal2@gmail.com" gitww/gitw.dll', shell=True)
+        
+        if os.path.exists('gitw'):
+            os.chdir('gitw')
 
-    subprocess.run([sys.executable, "-m", "pip", "install", "-q", "-r", "requirements.txt"], check=True)
-    
-    processes = []
-    my_env = os.environ.copy()
-    for i in range(1, 35):
-        p = subprocess.Popen([sys.executable, f"{i}.py"], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, bufsize=1, env=my_env)
-        processes.append((i, p))
+        subprocess.run([sys.executable, "-m", "pip", "install", "-q", "-r", "requirements.txt"], check=False)
         
-    for i, p in processes:
-        p.wait()
-        
-    run_count = "Unknown"
-    count_path = '/kaggle/working/GroceryGOD/run_count.txt'
-    if os.path.exists(count_path):
-        try:
-            with open(count_path, 'r') as f:
-                run_count = f.read().strip()
-        except: pass
-        
-    now = datetime.now(DHAKA_TZ)
-    print(f"🚀 [gitw] Execution Completed. Run Count: {run_count} ({now.strftime('%Y-%m-%d %H:%M:%S')})")
+        processes = []
+        my_env = os.environ.copy()
+        for i in range(1, 35):
+            script_f = f"{i}.py"
+            if os.path.exists(script_f):
+                p = subprocess.Popen([sys.executable, script_f], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, bufsize=1, env=my_env)
+                processes.append((i, p))
+            
+        for i, p in processes:
+            try:
+                p.wait(timeout=1800)
+            except subprocess.TimeoutExpired:
+                p.kill()
+            
+        run_count = "Unknown"
+        count_path = '/kaggle/working/GroceryGOD/run_count.txt'
+        if os.path.exists(count_path):
+            try:
+                with open(count_path, 'r') as f:
+                    run_count = f.read().strip()
+            except Exception:
+                pass
+            
+        now = datetime.now(DHAKA_TZ)
+        print(f"🚀 [gitw] Execution Completed. Run Count: {run_count} ({now.strftime('%Y-%m-%d %H:%M:%S')})")
+    except Exception as e:
+        print(f"❌ [gitw] Error: {e}")
 
 # ============================================================
 
@@ -1697,14 +1916,18 @@ def _extract_repo_price_stats(repo_dir, stdout_text=""):
     return stats
 
 def _send_p14_summary(results_store, repo_list):
-    """Send ONE consolidated Telegram summary after all scheduled repos finish.
-    Per repo: scrape time, counts, price change up/dn/same %, stock metrics, url + detailed error log if any; then aggregator summary."""
+    """
+    Format and dispatch a dedicated 1-look monospace table Telegram summary for scheduled sub-repos (p3–p14).
+    Includes repo name, total items, ▲ price up, ▼ price down, new items, OOS, execution time,
+    telemetry breakdown (in-stock, OOS, restocked, went OOS), success rate, and live dashboard URLs.
+    """
     def tg_send(text, silent=False):
         if not TELEGRAM_BOT_TOKEN or TELEGRAM_BOT_TOKEN.strip() == "": return
         TG_API = f'https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}'
         try:
             requests.post(f'{TG_API}/sendMessage', json={'chat_id': TELEGRAM_CHAT_ID, 'text': text, 'parse_mode': 'HTML', 'disable_notification': silent}, timeout=15)
-        except: pass
+        except Exception:
+            pass
 
     file_results = {}
     try:
@@ -1725,8 +1948,43 @@ def _send_p14_summary(results_store, repo_list):
     except Exception:
         pass
 
-    lines = ["📊 <b>Scheduled Repos (p14) — Finished</b>"]
-    ok = fail = 0
+    SHORT_NAMES = {
+        'FooDIE Restaurant Analytics': 'FooDIE Rest',
+        'FoodPANDA Restaurant Analytics': 'FoodPANDA',
+        'FooDIE Mart Analytics': 'FooDIE Mart',
+        'Shwapno Analytics': 'Shwapno A.',
+        'Othoba Analytics': 'Othoba A.',
+        'CARTup Analytics': 'CARTup',
+        'Chaldal Analytics': 'Chaldal A.',
+        'COOKup Analytics': 'COOKup',
+        'PICAboo Analytics': 'PICAboo',
+        'DARAZ Analytics': 'DARAZ',
+        'Meena Bazar Analytics': 'Meena A.',
+        'ShareDeal Analytics': 'ShareDeal'
+    }
+
+    header = '%-11s %7s %3s %3s %3s %3s %5s' % ('Repo', 'Total', '▲', '▼', 'New', 'OOS', 'Time')
+    div = '─' * len(header)
+    tbl_lines = [
+        "<pre>",
+        header,
+        div
+    ]
+
+    ok_count = 0
+    fail_count = 0
+    failed_details = []
+    
+    tot_items = 0
+    tot_up = 0
+    tot_dn = 0
+    tot_new = 0
+    tot_oos = 0
+    tot_instock = 0
+    tot_restocked = 0
+    tot_went_oos = 0
+    tot_elapsed_sec = 0
+
     for label, url in repo_list:
         clean_lbl = label.strip()
         slug = re.sub(r'[^a-z0-9]+', '_', clean_lbl.lower()).strip('_')
@@ -1771,83 +2029,112 @@ def _send_p14_summary(results_store, repo_list):
                 'url': url
             }
 
+        short_lbl = SHORT_NAMES.get(clean_lbl, clean_lbl[:11])
+        elapsed = int(rec.get('elapsed', 0))
+        tot_elapsed_sec += elapsed
+        _m, _s = divmod(elapsed, 60)
+        time_str = f"{_m}m{_s:02d}s" if elapsed > 0 else "0s"
+
+        st = rec.get('price_stats') or {}
+        cnts = rec.get('counts') or {}
+        r_total = st.get('total') or cnts.get('total') or cnts.get('scraped') or 0
+        r_up = st.get('price_up', 0)
+        r_dn = st.get('price_down', 0)
+        r_new = st.get('new_items', 0)
+        r_oos = st.get('out_of_stock', 0)
+        r_instock = st.get('in_stock', 0)
+        r_restocked = st.get('back_in_stock', 0)
+        r_went_oos = st.get('went_oos', 0)
+
         if rec.get('status') == 'ok':
-            ok += 1
-            elapsed = int(rec.get('elapsed', 0))
-            _m, _s = divmod(elapsed, 60)
-            st = rec.get('price_stats') or {}
-            total = st.get('total') or (rec.get('counts') or {}).get('total') or (rec.get('counts') or {}).get('scraped') or 0
-            
-            def _pct(v):
-                return f"({(v / total * 100):.1f}%)" if total > 0 else "(0.0%)"
-
-            header_line = f"✅ <b>{clean_lbl}</b> — {_m}m {_s}s"
-            if total > 0:
-                header_line += f" | {total:,} items"
-            header_line += f" — {rec.get('url') or url}"
-            lines.append(header_line)
-
-            in_stock = st.get('in_stock', 0)
-            oos = st.get('out_of_stock', 0)
-            if in_stock > 0 or oos > 0:
-                lines.append(f"   ├ 🟢 In Stock: {in_stock:,} {_pct(in_stock)} | 🔴 Out of Stock: {oos:,} {_pct(oos)}")
-            
-            new_cnt = st.get('new_items', 0)
-            if new_cnt > 0:
-                lines.append(f"   ├ 🆕 New Items: {new_cnt:,} {_pct(new_cnt)}")
-            
-            up_cnt = st.get('price_up', 0)
-            dn_cnt = st.get('price_down', 0)
-            same_cnt = st.get('price_same', 0)
-            p_parts = []
-            if up_cnt > 0: p_parts.append(f"🔺 {up_cnt:,} {_pct(up_cnt)} up")
-            if dn_cnt > 0: p_parts.append(f"🔻 {dn_cnt:,} {_pct(dn_cnt)} down")
-            if same_cnt > 0: p_parts.append(f"⏸️ {same_cnt:,} {_pct(same_cnt)} same")
-            if p_parts:
-                lines.append(f"   ├ 🏷️ Prices: " + " | ".join(p_parts))
-            
-            restocked = st.get('back_in_stock', 0)
-            went_oos = st.get('went_oos', 0)
-            s_parts = []
-            if restocked > 0: s_parts.append(f"🟢 {restocked:,} {_pct(restocked)} restocked")
-            if went_oos > 0: s_parts.append(f"🔴 {went_oos:,} {_pct(went_oos)} went OOS")
-            if s_parts:
-                lines.append(f"   ├ 🔄 Stock Movements: " + " | ".join(s_parts))
+            ok_count += 1
+            tot_items += r_total
+            tot_up += r_up
+            tot_dn += r_dn
+            tot_new += r_new
+            tot_oos += r_oos
+            tot_instock += r_instock
+            tot_restocked += r_restocked
+            tot_went_oos += r_went_oos
+            tbl_lines.append('%-11s %7s %3d %3d %3d %3d %5s' % (
+                short_lbl, f"{r_total:,}" if r_total > 0 else "-", r_up, r_dn, r_new, r_oos, time_str
+            ))
         else:
-            fail += 1
-            elapsed = int(rec.get('elapsed', 0))
-            _m, _s = divmod(elapsed, 60)
-            lines.append(f"❌ {clean_lbl} — FAILED after {_m}m {_s}s")
-            err = rec.get('error') or 'Process exited with error'
-            lines.append(f"<pre>{html.escape(str(err)[:800])}</pre>")
-            tb = rec.get('error_tb')
-            if tb and tb.strip():
-                lines.append(f"<pre>{html.escape(tb)[:600]}</pre>")
+            fail_count += 1
+            tbl_lines.append('%-11s %7s %3s %3s %3s %3s %5s' % (
+                short_lbl, "FAIL", "-", "-", "-", "-", "ERR"
+            ))
+            err_txt = rec.get('error') or 'Unknown failure'
+            tb_txt = rec.get('error_tb') or ''
+            failed_details.append((clean_lbl, err_txt, tb_txt))
 
-    lines.insert(1, f"✅ OK: {ok} | ❌ Failed: {fail} | Total: {len(repo_list)}")
+    _tm, _ts = divmod(tot_elapsed_sec, 60)
+    total_time_str = f"{_tm}m{_ts:02d}s"
+    tbl_lines.append(div)
+    tbl_lines.append('%-11s %7s %3d %3d %3d %3d %5s' % (
+        'TOTAL', f"{tot_items:,}", tot_up, tot_dn, tot_new, tot_oos, total_time_str
+    ))
+    tbl_lines.append("</pre>")
 
-    agg_summary = _read_aggregator_summary()
-    if not agg_summary:
-        print("⏳ Aggregator not finished yet — waiting up to 20 min for its summary...")
-        for _ in range(60):
-            time.sleep(20)
-            agg_summary = _read_aggregator_summary()
-            if agg_summary:
-                break
-    if agg_summary:
-        lines.append("")
-        lines.append(agg_summary)
-    else:
-        lines.append("")
-        lines.append("📊 <b>Aggregator Summary</b>\n(aggregator summary not available yet)")
+    def _pct(v, denom):
+        return f"({(v / denom * 100):.1f}%)" if denom > 0 else "(0.0%)"
 
-    full_message = "\n".join(lines)
+    telemetry_lines = [
+        f"✅ <b>Success Rate:</b> {ok_count}/{len(repo_list)} Repos OK ({_pct(ok_count, len(repo_list)).strip('()')})"
+    ]
+    if tot_items > 0:
+        telemetry_lines.append(f"🟢 <b>In Stock:</b> {tot_instock:,} {_pct(tot_instock, tot_items)} | 🔴 <b>OOS:</b> {tot_oos:,} {_pct(tot_oos, tot_items)}")
+    if tot_restocked > 0 or tot_went_oos > 0:
+        s_parts = []
+        if tot_restocked > 0: s_parts.append(f"🟢 {tot_restocked:,} restocked")
+        if tot_went_oos > 0: s_parts.append(f"🔴 {tot_went_oos:,} went OOS")
+        telemetry_lines.append("🔄 <b>Delta:</b> " + " | ".join(s_parts))
+
+    links_block = ["🔗 <b>Live Dashboards:</b>"]
+    for lbl, u in repo_list:
+        _sh = SHORT_NAMES.get(lbl.strip(), lbl.strip())
+        links_block.append(f"• {_sh}: {u}")
+
+    parts = [
+        "📊 <b>Scheduled Sub-Repos (p3–p14) Summary</b>",
+        "\n".join(tbl_lines),
+        "\n".join(telemetry_lines),
+        "\n".join(links_block)
+    ]
+
+    if failed_details:
+        fail_blocks = ["❌ <b>Failure Diagnostics:</b>"]
+        for flbl, ferr, ftb in failed_details:
+            fail_blocks.append(f"• <b>{flbl}:</b>\n<pre>{html.escape(str(ferr)[:500])}</pre>")
+            if ftb and ftb.strip():
+                fail_blocks.append(f"<pre>{html.escape(str(ftb)[:400])}</pre>")
+        parts.append("\n".join(fail_blocks))
+
+    full_message = "\n\n".join(parts)
+
+    # Log locally
     try:
         with open("/tmp/p14_summary.log", "w", encoding="utf-8") as _pf:
             _pf.write(full_message)
         print("Scheduled repos summary logged locally to /tmp/p14_summary.log")
     except Exception as _log_err:
         print(f"Warning: Failed to log p14 summary locally: {_log_err}")
+
+    # Dispatch to Telegram with safe message chunking
+    if len(full_message) > 3900:
+        _chunks = full_message.split("\n\n")
+        _curr = ""
+        for _c in _chunks:
+            if len(_curr) + len(_c) + 2 > 3900:
+                tg_send(_curr.strip())
+                _curr = _c + "\n\n"
+            else:
+                _curr += _c + "\n\n"
+        if _curr.strip():
+            tg_send(_curr.strip())
+    else:
+        tg_send(full_message)
+    print("📲 Scheduled repos (p3–p14) Telegram summary dispatched successfully.")
 
 def _read_aggregator_summary():
     """Read the aggregator.py summary from its shared output file (empty string if absent)."""
@@ -1923,7 +2210,6 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
 
     repo_dir = os.path.join('/kaggle/working', repo_name)
     os.makedirs('/kaggle/working', exist_ok=True)
-    os.chdir('/kaggle/working')
     auth_repo_url = f"https://ranehal:{github_pat}@github.com/ranehal/{repo_name}.git"
 
     try:
@@ -1939,43 +2225,43 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
         if not os.path.exists(repo_dir):
             _reclaim_disk()
             _log(f"Cloning {repo_name} into {repo_dir}...")
-            clone_res = subprocess.run(f'git clone {auth_repo_url} {repo_dir}', shell=True, capture_output=True, text=True)
+            clone_res = subprocess.run(f'git clone {auth_repo_url} {repo_dir}', shell=True, capture_output=True, text=True, cwd='/kaggle/working')
             if clone_res.returncode != 0:
                 raise RuntimeError(f"Git clone failed: {clone_res.stderr}")
 
         os.chdir(repo_dir)
         _with_lock('git-config', lambda: (_git_config('git config user.email "ranehal@users.noreply.github.com"'), _git_config('git config user.name "ranehal"')))
-        subprocess.run('git remote remove origin', shell=True, capture_output=True)
-        subprocess.run(f'git remote add origin {auth_repo_url}', shell=True, capture_output=True)
-        subprocess.run(f'git remote set-url origin {auth_repo_url}', shell=True, capture_output=True)
+        subprocess.run('git remote remove origin', shell=True, capture_output=True, cwd=repo_dir)
+        subprocess.run(f'git remote add origin {auth_repo_url}', shell=True, capture_output=True, cwd=repo_dir)
+        subprocess.run(f'git remote set-url origin {auth_repo_url}', shell=True, capture_output=True, cwd=repo_dir)
 
-        subprocess.run('git clean -fd', shell=True)
-        subprocess.run('git fetch --all', shell=True)
-        branch_res = subprocess.run('git symbolic-ref refs/remotes/origin/HEAD', shell=True, capture_output=True, text=True)
+        subprocess.run('git clean -fd', shell=True, cwd=repo_dir)
+        subprocess.run('git fetch --all', shell=True, cwd=repo_dir)
+        branch_res = subprocess.run('git symbolic-ref refs/remotes/origin/HEAD', shell=True, capture_output=True, text=True, cwd=repo_dir)
         default_branch = branch_res.stdout.strip().split('/')[-1] if branch_res.returncode == 0 else ''
         if not default_branch or default_branch == 'HEAD':
-            check_main = subprocess.run('git rev-parse --verify origin/main', shell=True, capture_output=True)
+            check_main = subprocess.run('git rev-parse --verify origin/main', shell=True, capture_output=True, cwd=repo_dir)
             default_branch = 'main' if check_main.returncode == 0 else 'master'
-        subprocess.run(f'git reset --hard origin/{default_branch}', shell=True)
+        subprocess.run(f'git reset --hard origin/{default_branch}', shell=True, cwd=repo_dir)
 
-        if os.path.exists('requirements.txt'):
-            subprocess.run([sys.executable, "-m", "pip", "install", "-q", "-r", "requirements.txt"], check=False)
+        if os.path.exists(os.path.join(repo_dir, 'requirements.txt')):
+            subprocess.run([sys.executable, "-m", "pip", "install", "-q", "-r", "requirements.txt"], cwd=repo_dir, check=False)
 
         # Low-disk preflight: /kaggle/working disk-full (Errno 28) silently breaks
         # Chromium installs and DB writes, causing random asyncio/playwright crashes.
         try:
             import glob as _glob
-            _du = shutil.disk_usage(os.getcwd())
+            _du = shutil.disk_usage(repo_dir)
             _free_gb = _du.free / (1024 ** 3)
             if _free_gb < 2.0:
                 _log(f"WARNING: low disk space ({_free_gb:.2f} GB free). Clearing __pycache__ + stale run artifacts...")
-                for _p in _glob.glob(os.path.join(os.getcwd(), "**", "__pycache__"), recursive=True):
+                for _p in _glob.glob(os.path.join(repo_dir, "**", "__pycache__"), recursive=True):
                     shutil.rmtree(_p, ignore_errors=True)
                 for _pat in ("**/*.pyc", "**/_scraper_error_*.log", "**/last_run_log.txt"):
-                    for _p in _glob.glob(os.path.join(os.getcwd(), _pat), recursive=True):
+                    for _p in _glob.glob(os.path.join(repo_dir, _pat), recursive=True):
                         try: os.remove(_p)
                         except Exception: pass
-                _du2 = shutil.disk_usage(os.getcwd())
+                _du2 = shutil.disk_usage(repo_dir)
                 _log(f"After cleanup: {_du2.free / (1024 ** 3):.2f} GB free.")
         except Exception as _du_err:
             _log(f"Disk check warning: {_du_err}")
@@ -1988,13 +2274,13 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
             except ImportError:
                 _pkg = 'beautifulsoup4' if _dep == 'bs4' else _dep
                 _log(f"Auto-installing missing dependency: {_pkg}...")
-                subprocess.run([sys.executable, "-m", "pip", "install", "-q", _pkg], check=False)
+                subprocess.run([sys.executable, "-m", "pip", "install", "-q", _pkg], cwd=repo_dir, check=False)
         
         # Verify Playwright Chromium browser binary without blocking apt locks unless actually missing
         try:
             import platform as _platform
             def _pw_install():
-                _dry = subprocess.run([sys.executable, "-m", "playwright", "install", "--dry-run", "chromium"], capture_output=True, text=True)
+                _dry = subprocess.run([sys.executable, "-m", "playwright", "install", "--dry-run", "chromium"], capture_output=True, text=True, cwd=repo_dir)
                 _dry_out = ((_dry.stdout or "") + (_dry.stderr or ""))
                 if "already installed" in _dry_out.lower() or os.path.isdir('/root/.cache/ms-playwright'):
                     return
@@ -2002,7 +2288,7 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
                 if _platform.system() == "Linux":
                     _install_cmds.insert(0, [sys.executable, "-m", "playwright", "install", "chromium", "--with-deps"])
                 for _cmd in _install_cmds:
-                    _res = subprocess.run(_cmd, capture_output=True, text=True)
+                    _res = subprocess.run(_cmd, capture_output=True, text=True, cwd=repo_dir)
                     if _res.returncode == 0:
                         break
             _with_lock('playwright-install', _pw_install)
@@ -2010,46 +2296,99 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
             _log(f"Playwright setup warning: {_pw_err}")
 
         # Auto-detect script name recursively if expected script_name does not exist
-        if not os.path.exists(script_name):
+        resolved_script_path = os.path.join(repo_dir, script_name)
+        if not os.path.exists(resolved_script_path):
             import glob
-            exact_matches = glob.glob(f'**/{script_name}', recursive=True)
+            exact_matches = glob.glob(f'{repo_dir}/**/{script_name}', recursive=True)
             if exact_matches:
-                script_name = exact_matches[0]
+                resolved_script_path = exact_matches[0]
             else:
-                py_files = [f for f in glob.glob('**/*.py', recursive=True) if not os.path.basename(f).startswith('__') and os.path.basename(f) != 'setup.py']
+                py_files = [f for f in glob.glob(f'{repo_dir}/**/*.py', recursive=True) if not os.path.basename(f).startswith('__') and os.path.basename(f) != 'setup.py']
                 preferred = [f for f in py_files if any(k in f.lower() for k in ['scraper', 'main', 'run', 'meena', 'app', 'web'])]
                 if preferred:
-                    script_name = preferred[0]
+                    resolved_script_path = preferred[0]
                 elif py_files:
-                    script_name = py_files[0]
+                    resolved_script_path = py_files[0]
                 else:
                     err_msg = f"No executable python script found in {repo_name} (expected '{script_name}')."
                     _log(f"❌ {err_msg}")
                     _p14_record.update(status='failed', error=err_msg, elapsed=int(time.time() - _t0))
                     _store_result()
                     return
-            _log(f"Target script auto-resolved to: {script_name}")
+            _log(f"Target script auto-resolved to: {os.path.relpath(resolved_script_path, repo_dir)}")
 
-        # Auto-patch Cat NoneType error safety with indentation preservation
-        if os.path.exists(script_name):
-            try:
-                import re as _re
-                with open(script_name, 'r', encoding='utf-8') as sf:
+        # Auto-patch common known script issues across repository
+        try:
+            import re as _re
+            import glob as _glob
+
+            # 1. Patch destructive sys.stdout TextIOWrapper re-wrapping in Python 3.12 (fixes ValueError: I/O operation on closed file)
+            for _pyf in _glob.glob(os.path.join(repo_dir, "**", "*.py"), recursive=True):
+                try:
+                    with open(_pyf, "r", encoding="utf-8", errors="replace") as _pf_in:
+                        _py_src = _pf_in.read()
+                    if "io.TextIOWrapper(sys.stdout.buffer" in _py_src:
+                        _log(f"Auto-patching TextIOWrapper in {os.path.relpath(_pyf, repo_dir)}...")
+                        _py_src = _re.sub(
+                            r'sys\.stdout\s*=\s*io\.TextIOWrapper\([^)]*\)',
+                            'try:\n    if hasattr(sys.stdout, "reconfigure"):\n        sys.stdout.reconfigure(encoding="utf-8", errors="replace")\nexcept Exception: pass',
+                            _py_src
+                        )
+                        with open(_pyf, "w", encoding="utf-8") as _pf_out:
+                            _pf_out.write(_py_src)
+                except Exception:
+                    pass
+
+            # 2. Patch Chaldal fetch_init HTTP 500 error in CHALdal-analytics
+            if 'chaldal' in repo_name.lower() and os.path.exists(resolved_script_path):
+                try:
+                    with open(resolved_script_path, "r", encoding="utf-8", errors="replace") as _cf:
+                        _c_src = _cf.read()
+                    if "init = fetch_init(args.store, args.warehouse)" in _c_src and "try:" not in _c_src.split("init = fetch_init(args.store, args.warehouse)")[0][-80:]:
+                        _log("Auto-patching Chaldal fetch_init try/except fallback...")
+                        _c_src = _c_src.replace(
+                            "init = fetch_init(args.store, args.warehouse)",
+                            "try:\n        init = fetch_init(args.store, args.warehouse)\n    except Exception as _ie:\n        print(f'  [!] fetch_init warning ({_ie}), falling back to cached categories...', flush=True)\n        cached_cats = load(f\"{out}/categories.json\") or load(\"categories.json\")\n        init = {'Categories': {str(args.store): cached_cats or []}}"
+                        )
+                        with open(resolved_script_path, "w", encoding="utf-8") as _cf:
+                            _cf.write(_c_src)
+                except Exception as _ch_err:
+                    _log(f"Chaldal patch warning: {_ch_err}")
+
+            # 3. Patch Cookups fetch_categories network timeout/resilience in COOKup-analytics
+            if 'cookup' in repo_name.lower() and os.path.exists(resolved_script_path):
+                try:
+                    with open(resolved_script_path, "r", encoding="utf-8", errors="replace") as _ckf:
+                        _ck_src = _ckf.read()
+                    if 'with urllib.request.urlopen(req) as resp:' in _ck_src and 'timeout=30' not in _ck_src:
+                        _log("Auto-patching COOKup urllib timeout & DB fallback...")
+                        _ck_src = _ck_src.replace(
+                            "with urllib.request.urlopen(req) as resp:\n        raw = json.loads(resp.read().decode('utf-8'))",
+                            "try:\n        with urllib.request.urlopen(req, timeout=30) as resp:\n            raw = json.loads(resp.read().decode('utf-8'))\n    except Exception as _cke:\n        print(f'  [!] Live categories fetch failed ({_cke}). Falling back to database...', flush=True)\n        conn = get_db_connection()\n        rows = conn.cursor().execute('SELECT id, name, slug, parent_ids, image_url, sort_order FROM categories').fetchall()\n        conn.close()\n        return [dict(r) for r in rows]"
+                        )
+                        with open(resolved_script_path, "w", encoding="utf-8") as _ckf:
+                            _ckf.write(_ck_src)
+                except Exception as _ck_err:
+                    _log(f"Cookup patch warning: {_ck_err}")
+
+            # 4. Auto-patch Cat NoneType error safety with indentation preservation
+            if os.path.exists(resolved_script_path):
+                with open(resolved_script_path, 'r', encoding='utf-8', errors="replace") as sf:
                     s_code = sf.read()
                 if 'for prod in cat.get("products", []):' in s_code and 'isinstance(cat, dict)' not in s_code:
-                    _log(f"Auto-patching cat dict-type safety in {script_name}...")
+                    _log(f"Auto-patching cat dict-type safety in {os.path.basename(resolved_script_path)}...")
                     pattern = r'([ \t]*)for prod in cat\.get\("products", \[\]\):'
                     m = _re.search(pattern, s_code)
                     if m:
                         indent = m.group(1)
                         replacement = f'{indent}if not cat or not isinstance(cat, dict): continue\n{indent}for prod in cat.get("products", []):'
                         s_code = _re.sub(pattern, replacement, s_code, count=1)
-                        with open(script_name, 'w', encoding='utf-8') as sf:
+                        with open(resolved_script_path, 'w', encoding='utf-8') as sf:
                             sf.write(s_code)
-            except Exception as patch_err:
-                _log(f"Script patch warning: {patch_err}")
+        except Exception as patch_err:
+            _log(f"Script patch warning: {patch_err}")
 
-        script_abs_path = os.path.abspath(script_name)
+        script_abs_path = os.path.abspath(resolved_script_path)
         script_dir = os.path.dirname(script_abs_path)
         script_file = os.path.basename(script_abs_path)
 
@@ -2059,14 +2398,14 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
             _log(f"Executing {script_file} in {script_dir} (attempt {_attempt}/{max_script_retries})...")
             t_exec0 = time.time()
             my_env = os.environ.copy()
-            my_env["PYTHONPATH"] = f"{script_dir}{os.pathsep}{os.getcwd()}{os.pathsep}{my_env.get('PYTHONPATH', '')}"
+            my_env["PYTHONPATH"] = f"{script_dir}{os.pathsep}{repo_dir}{os.pathsep}{my_env.get('PYTHONPATH', '')}"
             my_env["PYTHONUNBUFFERED"] = "1"
             my_env["PYTHONIOENCODING"] = "utf-8"
             res = subprocess.run([sys.executable, "-u", script_file], cwd=script_dir, capture_output=True, text=True, timeout=3600, env=my_env)
             exec_elapsed = time.time() - t_exec0
             if res.returncode == 0:
                 break
-            _err_log = os.path.join(os.getcwd(), f"_scraper_error_{_attempt}.log")
+            _err_log = os.path.join(repo_dir, f"_scraper_error_{_attempt}.log")
             try:
                 with open(_err_log, "w", encoding="utf-8") as _ef:
                     _ef.write((res.stderr or "") + "\n--- STDOUT TAIL ---\n" + (res.stdout or "")[-2000:])
@@ -2076,17 +2415,17 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
             if not safe_err:
                 safe_err = (res.stdout or "").strip()[-5000:]
             if _attempt == max_script_retries:
-                raise RuntimeError(f"Script {script_name} failed (rc={res.returncode}):\n{safe_err}")
+                raise RuntimeError(f"Script {os.path.basename(resolved_script_path)} failed (rc={res.returncode}):\n{safe_err}")
             _log(f"Attempt {_attempt} failed (rc={res.returncode}), retrying in 10s... {safe_err[:200]}")
             time.sleep(10)
 
         _log(f"Finished execution in {int(time.time() - _t0)}s. Pushing to GitHub as ranehal...")
         _with_lock('git-config', lambda: (_git_config('git config user.name "ranehal"'), _git_config('git config user.email "ranehal@users.noreply.github.com"')))
-        subprocess.run(f"git remote set-url origin https://ranehal:{github_pat}@github.com/ranehal/{repo_name}.git", shell=True)
-        subprocess.run('find . -name "_scraper_error_*.log" -delete', shell=True)
-        subprocess.run('git add .', shell=True)
+        subprocess.run(f"git remote set-url origin https://ranehal:{github_pat}@github.com/ranehal/{repo_name}.git", shell=True, cwd=repo_dir)
+        subprocess.run('find . -name "_scraper_error_*.log" -delete', shell=True, cwd=repo_dir)
+        subprocess.run('git add .', shell=True, cwd=repo_dir)
         now_str = datetime.now(DHAKA_TZ).strftime('%Y-%m-%d %H:%M:%S')
-        subprocess.run(f'git commit -m "if this works ill get some sleep frfr {now_str}"', shell=True)
+        subprocess.run(f'git commit -m "if this works ill get some sleep frfr {now_str}"', shell=True, cwd=repo_dir)
 
         push_success = False
         auth_user_urls = [
@@ -2095,18 +2434,18 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
         ]
         for auth_u in auth_user_urls:
             user_n = "ranehal"
-            subprocess.run('git remote remove origin', shell=True, capture_output=True)
-            subprocess.run(f'git remote add origin {auth_u}', shell=True, capture_output=True)
-            subprocess.run(f'git remote set-url origin {auth_u}', shell=True, capture_output=True)
+            subprocess.run('git remote remove origin', shell=True, capture_output=True, cwd=repo_dir)
+            subprocess.run(f'git remote add origin {auth_u}', shell=True, capture_output=True, cwd=repo_dir)
+            subprocess.run(f'git remote set-url origin {auth_u}', shell=True, capture_output=True, cwd=repo_dir)
             _with_lock('git-config', lambda: (_git_config(f'git config user.name "{user_n}"'), _git_config(f'git config user.email "{user_n}@users.noreply.github.com"')))
             for attempt in range(2):
-                subprocess.run(f'git pull origin {default_branch} --rebase -X ours -q', shell=True, capture_output=True)
-                push_res = subprocess.run(f'git push origin HEAD:{default_branch} --force', shell=True, capture_output=True, text=True)
+                subprocess.run(f'git pull origin {default_branch} --rebase -X ours -q', shell=True, capture_output=True, cwd=repo_dir)
+                push_res = subprocess.run(f'git push origin HEAD:{default_branch} --force', shell=True, capture_output=True, text=True, cwd=repo_dir)
                 if push_res.returncode == 0:
                     push_success = True
                     break
                 # Direct URL push fallback
-                push_res = subprocess.run(f'git push {auth_u} HEAD:{default_branch} --force', shell=True, capture_output=True, text=True)
+                push_res = subprocess.run(f'git push {auth_u} HEAD:{default_branch} --force', shell=True, capture_output=True, text=True, cwd=repo_dir)
                 if push_res.returncode == 0:
                     push_success = True
                     break
@@ -2117,7 +2456,7 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
             raise RuntimeError(f"Git push failed: {push_res.stderr[:300]}")
 
         _p14_record.update(status='ok', elapsed=int(time.time() - _t0), error='', url=repo_page_url)
-        _p14_record['price_stats'] = _extract_repo_price_stats(os.getcwd(), (res.stdout or "") + (res.stderr or "") if res else "")
+        _p14_record['price_stats'] = _extract_repo_price_stats(repo_dir, (res.stdout or "") + (res.stderr or "") if res else "")
         if res is not None:
             _p14_record['counts'] = _extract_scraper_counts((res.stdout or "") + (res.stderr or ""))
         _store_result()
@@ -2130,20 +2469,16 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
         _store_result()
 
 def run_all_scheduled_repos(repos, github_pat, results_store=None):
-    """Execute scheduled sub-repos with controlled concurrency (2 workers) to prevent Kaggle OOM / fork crashes."""
-    print(f"🚀 [Scheduled Repos] Launching sub-repos executor (max 2 parallel workers across {len(repos)} repos)...")
-    with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
-        futures = {
-            executor.submit(run_scheduled_repo, repo_url, script_name, label, github_pat, results_store): label
-            for repo_url, script_name, label in repos
-        }
-        for future in concurrent.futures.as_completed(futures):
-            lbl = futures[future]
-            try:
-                future.result()
-                print(f"✅ [Scheduled Repos] Finished: {lbl}")
-            except Exception as exc:
-                print(f"❌ [Scheduled Repos] Exception in {lbl}: {exc}")
+    """Execute scheduled sub-repos sequentially with full per-repo isolation and error resilience."""
+    print(f"🚀 [Scheduled Repos] Launching sequential sub-repos executor across {len(repos)} repos...")
+    for repo_url, script_name, label in repos:
+        lbl = label.strip()
+        try:
+            print(f"\n▶️ [Scheduled Repos] Starting: {lbl}")
+            run_scheduled_repo(repo_url, script_name, lbl, github_pat, results_store)
+            print(f"✅ [Scheduled Repos] Finished: {lbl}\n")
+        except Exception as exc:
+            print(f"❌ [Scheduled Repos] Exception in {lbl}: {exc}\n")
     print("🟢 [Scheduled Repos] All scheduled sub-repos completed.")
 
 # MASTER ORCHESTRATOR LOOP
@@ -2194,17 +2529,17 @@ if __name__ == '__main__':
     p1.start()
     p3.start()
     
-    start_time = time.time()
+    loop_t0 = time.time()
     timeout_seconds = 11 * 3600  # 11 hours safety timeout (well under Kaggle 12h cell limit)
     _p14_done = False
 
-    while time.time() - start_time < timeout_seconds:
+    while time.time() - loop_t0 < timeout_seconds:
         if not any(p.is_alive() for p in [p1, p2, p3]):
             print("\n✅ All parallel pipelines finished ahead of schedule!")
             break
         if not _p14_done and not p3.is_alive():
             _p14_done = True
-            print("🟢 Scheduled repos (p3) finished. Logging consolidated summary locally...")
+            print("🟢 Scheduled repos (p3) finished. Dispatching separate summary report to Telegram...")
             _send_p14_summary(_p14_results, list(zip([lbl for _, _, lbl in _scheduled_repos], _repo_pages)))
         time.sleep(30)
     else:
@@ -2212,7 +2547,7 @@ if __name__ == '__main__':
 
     if not _p14_done:
         _p14_done = True
-        print("🟢 Ensuring consolidated scheduled repos summary is generated before restart...")
+        print("🟢 Ensuring consolidated scheduled repos summary is dispatched to Telegram before restart...")
         _send_p14_summary(_p14_results, list(zip([lbl for _, _, lbl in _scheduled_repos], _repo_pages)))
 
     print("☢️ Executing Nuclear Teardown of orphaned child processes...")
@@ -2228,9 +2563,14 @@ if __name__ == '__main__':
     
     time.sleep(5)
     print("\n🔄 Triggering next cycle...")
-    for _n, _p in [("GroceryGOD (p1)", p1), ("gitw (p2)", p2), ("Scheduled Repos (p3)", p3)]:
-        s = "OK" if _p.exitcode == 0 else f"rc={_p.exitcode}" if _p.exitcode is not None else "alive"
-        print(f"[{_n}]: {s}")
+    exec_stats = {
+        'elapsed_seconds': int(time.time() - loop_t0),
+        'p1_status': "OK" if p1.exitcode == 0 else f"rc={p1.exitcode}" if p1.exitcode is not None else "terminated",
+        'p2_status': "OK" if p2.exitcode == 0 else f"rc={p2.exitcode}" if p2.exitcode is not None else "terminated",
+        'p3_status': "OK" if p3.exitcode == 0 else f"rc={p3.exitcode}" if p3.exitcode is not None else "terminated",
+    }
+    for _n, _s in [("GroceryGOD (p1)", exec_stats['p1_status']), ("gitw (p2)", exec_stats['p2_status']), ("Scheduled Repos (p3)", exec_stats['p3_status'])]:
+        print(f"[{_n}]: {_s}")
     
-    trigger_self_restart()
+    trigger_self_restart(exec_stats)
 

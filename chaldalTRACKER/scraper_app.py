@@ -15,8 +15,12 @@ Usage:
 import json, os, sys, time, argparse, urllib.request, urllib.error, gzip, io
 from datetime import datetime, timezone
 
-# Force UTF-8 stdout for Windows
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+# Force UTF-8 stdout safely without closing underlying stream
+try:
+    if hasattr(sys.stdout, 'reconfigure'):
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+except Exception:
+    pass
 
 # ── API endpoints (from HAR analysis) ──────────────────────────────────────────
 CATALOG_URL = "https://catalog.chaldal.com/searchPersonalized"

@@ -1430,7 +1430,7 @@ function renderProducts() {
         if (activeIntelFilter === 'good') return !isOos && p.normalized_price < (p.avgPrice * goodBuyThreshold);
         if (activeIntelFilter === 'customdrop') return !isOos && p.avgPrice > 0 && p.normalized_price <= (p.avgPrice * (1 - customDropThreshold / 100));
         if (activeIntelFilter === 'wait') return p.normalized_price > (p.avgPrice * 1.05);
-        if (activeIntelFilter === 'low') return !isOos && Number(p.normalized_price) > 0 && p.hist_count >= 1 && (p.maxPrice - p.minPrice > 0.01) && p.normalized_price <= (p.minPrice + 0.01);
+        if (activeIntelFilter === 'low') return !isOos && Number(p.normalized_price) > 0 && p.hist_count >= 2 && (p.maxPrice >= p.minPrice * 1.03) && (p.maxPrice - p.minPrice >= 1.0) && p.normalized_price <= (p.minPrice * 1.005);
         if (activeIntelFilter === 'new') return p.isNew;
         if (activeIntelFilter === 'pricechange') {
             if (p._pcDiff === undefined) return false;

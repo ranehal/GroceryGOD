@@ -205,9 +205,10 @@ con.execute(f"""
         WHERE p.in_stock = true 
           AND p.is_out_of_stock = false
           AND p.current_price > 0
-          AND p.hist_count >= 1 
-          AND p.max_price - p.min_price > 0.01 
-          AND p.normalized_price <= (p.min_price + 0.01)
+          AND p.hist_count >= 2 
+          AND p.max_price >= (p.min_price * 1.03)
+          AND (p.max_price - p.min_price) >= 1.0
+          AND p.normalized_price <= (p.min_price * 1.005)
           AND p.normalized_price > 0
           AND TRY_CAST(p.last_seen AS DATE) >= (TRY_CAST(sm.max_seen AS DATE) - INTERVAL 14 DAY)
           AND p.image IS NOT NULL 

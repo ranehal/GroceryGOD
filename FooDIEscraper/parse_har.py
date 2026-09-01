@@ -3,7 +3,11 @@ import sys
 import io
 from urllib.parse import urlparse, parse_qs
 
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
+try:
+    if hasattr(sys.stdout, 'reconfigure'):
+        sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+except Exception:
+    pass
 
 HAR_PATH = r"C:\PROJECTS\FoodPANDA\perseus-productanalytics.deliveryhero.net_2026_07_25_00_46_35.har"
 TARGET_DOMAIN = "reviews-api-bd.fd-api.com"
