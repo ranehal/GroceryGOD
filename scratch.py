@@ -314,15 +314,12 @@ def update_parquet_backup_status(backup_info, git_status='PUSHED_TO_GITHUB', git
 # INITIALIZATION & SECRETS
 # ============================================================
 # Persisted secrets cache (preserved across container restarts)
-_PERSISTED_SECRETS = globals().get('_PERSISTED_SECRETS', {})
-if not isinstance(_PERSISTED_SECRETS, dict):
-    _PERSISTED_SECRETS = {}
-
-_PERSISTED_SECRETS_B64 = globals().get('_PERSISTED_SECRETS_B64', "")
+_PERSISTED_SECRETS = globals().get('_PERSISTED_SECRETS') if isinstance(globals().get('_PERSISTED_SECRETS'), dict) else {}
+_PERSISTED_SECRETS_B64 = str(globals().get('_PERSISTED_SECRETS_B64', '') or '')
 if _PERSISTED_SECRETS_B64:
     try:
-        import base64
-        _decoded_secrets = json.loads(base64.b64decode(_PERSISTED_SECRETS_B64).decode('utf-8'))
+        import base64 as _b64
+        _decoded_secrets = json.loads(_b64.b64decode(_PERSISTED_SECRETS_B64).decode('utf-8'))
         if isinstance(_decoded_secrets, dict):
             for _k, _v in _decoded_secrets.items():
                 if _v and not _PERSISTED_SECRETS.get(_k):
@@ -331,15 +328,12 @@ if _PERSISTED_SECRETS_B64:
         pass
 
 # Persisted state cache (reboot count, cycle metrics, uptime across restarts)
-_PERSISTED_STATE = globals().get('_PERSISTED_STATE', {})
-if not isinstance(_PERSISTED_STATE, dict):
-    _PERSISTED_STATE = {}
-
-_PERSISTED_STATE_B64 = globals().get('_PERSISTED_STATE_B64', "")
+_PERSISTED_STATE = globals().get('_PERSISTED_STATE') if isinstance(globals().get('_PERSISTED_STATE'), dict) else {}
+_PERSISTED_STATE_B64 = str(globals().get('_PERSISTED_STATE_B64', '') or '')
 if _PERSISTED_STATE_B64:
     try:
-        import base64
-        _decoded_state = json.loads(base64.b64decode(_PERSISTED_STATE_B64).decode('utf-8'))
+        import base64 as _b64
+        _decoded_state = json.loads(_b64.b64decode(_PERSISTED_STATE_B64).decode('utf-8'))
         if isinstance(_decoded_state, dict):
             for _sk, _sv in _decoded_state.items():
                 if _sv is not None and not _PERSISTED_STATE.get(_sk):
@@ -751,48 +745,72 @@ def trigger_self_restart(exec_stats=None):
         active_state_json = json.dumps(_PERSISTED_STATE)
         active_state_b64 = base64.b64encode(active_state_json.encode('utf-8')).decode('utf-8')
 
+        # Save secrets and state to disk vaults for local retrieval
+        for v_dir in ['/kaggle/working', '/kaggle/working/output', '/tmp']:
+            try:
+                os.makedirs(v_dir, exist_ok=True)
+                with open(os.path.join(v_dir, 'secrets_vault.json'), 'w', encoding='utf-8') as vf:
+                    json.dump(active_secrets, vf, indent=2)
+                with open(os.path.join(v_dir, 'orchestrator_state.json'), 'w', encoding='utf-8') as sf:
+                    json.dump(_PERSISTED_STATE, sf, indent=2)
+            except Exception:
+                pass
+
+        header_block = (
+            "# --- AUTO-INJECTED PERSISTED SECRETS & STATE (CONTAINER SELF-BOOT) ---\n"
+            f"_PERSISTED_SECRETS = {active_secrets_json}\n"
+            f'_PERSISTED_SECRETS_B64 = "{active_secrets_b64}"\n'
+            f"_PERSISTED_STATE = {active_state_json}\n"
+            f'_PERSISTED_STATE_B64 = "{active_state_b64}"\n'
+            "# ----------------------------------------------------------------------\n"
+        )
+
         for cell in nb_data.get('cells', []):
             if cell.get('cell_type') == 'code':
                 raw_src = cell.get('source', '')
                 src_str = "".join(raw_src) if isinstance(raw_src, list) else str(raw_src)
 
+                # Prefer fresh clean scratch.py source from repo clone if available
+                fresh_scratch = None
+                for candidate_path in [
+                    '/kaggle/working/GroceryGOD/scratch.py',
+                    '/kaggle/working/scratch.py'
+                ]:
+                    if os.path.exists(candidate_path):
+                        try:
+                            with open(candidate_path, 'r', encoding='utf-8') as csf:
+                                cand_code = csf.read()
+                            if len(cand_code) > 10000:
+                                fresh_scratch = cand_code
+                                break
+                        except Exception:
+                            pass
+
+                if fresh_scratch:
+                    src_str = fresh_scratch
+
                 # Strip any prior auto-injected header blocks
-                prior_header_pat = r'# --- AUTO-INJECTED PERSISTED SECRETS.*?# ----------------------------------------------------------------------\n?'
-                src_str = re.sub(prior_header_pat, '', src_str, flags=re.DOTALL)
-                prior_header_pat2 = r'# --- AUTO-INJECTED PERSISTED SECRETS.*?# -------------------------------------------------------------\n?'
-                src_str = re.sub(prior_header_pat2, '', src_str, flags=re.DOTALL)
+                src_str = re.sub(r'#\s*---\s*AUTO-INJECTED PERSISTED SECRETS[\s\S]*?#\s*-{10,}\n?', '', src_str)
 
-                # Update in place top-level unindented definitions ONLY
-                pat_sec = r'^_PERSISTED_SECRETS\s*=.*$'
-                src_str, _ = re.subn(pat_sec, f'_PERSISTED_SECRETS = {active_secrets_json}', src_str, count=1, flags=re.MULTILINE)
-                pat_b64 = r'^_PERSISTED_SECRETS_B64\s*=.*$'
-                src_str, _ = re.subn(pat_b64, f'_PERSISTED_SECRETS_B64 = "{active_secrets_b64}"', src_str, count=1, flags=re.MULTILINE)
-
-                pat_st = r'^_PERSISTED_STATE\s*=.*$'
-                src_str, _ = re.subn(pat_st, f'_PERSISTED_STATE = {active_state_json}', src_str, count=1, flags=re.MULTILINE)
-                pat_st_b64 = r'^_PERSISTED_STATE_B64\s*=.*$'
-                src_str, _ = re.subn(pat_st_b64, f'_PERSISTED_STATE_B64 = "{active_state_b64}"', src_str, count=1, flags=re.MULTILINE)
-
-                header_block = (
-                    "# --- AUTO-INJECTED PERSISTED SECRETS & STATE (CONTAINER SELF-BOOT) ---\n"
-                    f"_PERSISTED_SECRETS = {active_secrets_json}\n"
-                    f'_PERSISTED_SECRETS_B64 = "{active_secrets_b64}"\n'
-                    f"_PERSISTED_STATE = {active_state_json}\n"
-                    f'_PERSISTED_STATE_B64 = "{active_state_b64}"\n'
-                    "# ----------------------------------------------------------------------\n"
-                )
-                src_str = header_block + src_str
+                # Prepend fresh header block to top of code
+                final_src = header_block + src_str.lstrip()
 
                 # AST syntax validation guard before persisting
                 try:
                     import ast as _ast
-                    _ast.parse(src_str)
+                    _ast.parse(final_src)
                 except Exception as _parse_err:
-                    print(f"[SYSTEM] WARNING: Injected source AST parse error ({_parse_err}). Reverting to clean header prepend...")
+                    print(f"[SYSTEM] WARNING: Injected source AST parse error ({_parse_err}). Reverting to raw source...")
                     raw_clean = "".join(raw_src) if isinstance(raw_src, list) else str(raw_src)
-                    src_str = header_block + raw_clean
+                    raw_clean = re.sub(r'#\s*---\s*AUTO-INJECTED PERSISTED SECRETS[\s\S]*?#\s*-{10,}\n?', '', raw_clean)
+                    final_src = header_block + raw_clean.lstrip()
+                    try:
+                        _ast.parse(final_src)
+                    except Exception as _parse_err2:
+                        print(f"[SYSTEM] ERROR: Second AST parse failed ({_parse_err2}). Retaining raw clean...")
+                        final_src = raw_clean
 
-                cell['source'] = src_str.splitlines(keepends=True)
+                cell['source'] = final_src.splitlines(keepends=True)
                 break
 
         with open(code_filename, 'w', encoding='utf-8') as nbf:
@@ -2222,8 +2240,10 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
             _git_config('git config --global credential.helper store')
         _with_lock('git-config', _setup_git_config)
 
-        if not os.path.exists(repo_dir):
+        if not os.path.exists(os.path.join(repo_dir, '.git')):
             _reclaim_disk()
+            if os.path.exists(repo_dir):
+                shutil.rmtree(repo_dir, ignore_errors=True)
             _log(f"Cloning {repo_name} into {repo_dir}...")
             clone_res = subprocess.run(f'git clone {auth_repo_url} {repo_dir}', shell=True, capture_output=True, text=True, cwd='/kaggle/working')
             if clone_res.returncode != 0:
@@ -2304,7 +2324,7 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
                 resolved_script_path = exact_matches[0]
             else:
                 py_files = [f for f in glob.glob(f'{repo_dir}/**/*.py', recursive=True) if not os.path.basename(f).startswith('__') and os.path.basename(f) != 'setup.py']
-                preferred = [f for f in py_files if any(k in f.lower() for k in ['scraper', 'main', 'run', 'meena', 'app', 'web'])]
+                preferred = [f for f in py_files if any(k in f.lower() for k in ['scraper', 'main', 'run', 'meena', 'app', 'web', 'menu', 'scrape'])]
                 if preferred:
                     resolved_script_path = preferred[0]
                 elif py_files:
@@ -2327,13 +2347,26 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
                 try:
                     with open(_pyf, "r", encoding="utf-8", errors="replace") as _pf_in:
                         _py_src = _pf_in.read()
-                    if "io.TextIOWrapper(sys.stdout.buffer" in _py_src:
-                        _log(f"Auto-patching TextIOWrapper in {os.path.relpath(_pyf, repo_dir)}...")
+                    _orig_py = _py_src
+                    if "TextIOWrapper" in _py_src:
                         _py_src = _re.sub(
-                            r'sys\.stdout\s*=\s*io\.TextIOWrapper\([^)]*\)',
+                            r'sys\.stdout\s*=\s*(?:io\.)?TextIOWrapper\b[\s\S]*?\)',
                             'try:\n    if hasattr(sys.stdout, "reconfigure"):\n        sys.stdout.reconfigure(encoding="utf-8", errors="replace")\nexcept Exception: pass',
                             _py_src
                         )
+                        _py_src = _re.sub(
+                            r'sys\.stderr\s*=\s*(?:io\.)?TextIOWrapper\b[\s\S]*?\)',
+                            'try:\n    if hasattr(sys.stderr, "reconfigure"):\n        sys.stderr.reconfigure(encoding="utf-8", errors="replace")\nexcept Exception: pass',
+                            _py_src
+                        )
+                    if "codecs.getwriter" in _py_src:
+                        _py_src = _re.sub(
+                            r'sys\.stdout\s*=\s*codecs\.getwriter\b[\s\S]*?\)',
+                            'try:\n    if hasattr(sys.stdout, "reconfigure"):\n        sys.stdout.reconfigure(encoding="utf-8", errors="replace")\nexcept Exception: pass',
+                            _py_src
+                        )
+                    if _py_src != _orig_py:
+                        _log(f"Auto-patched stdout wrapper in {os.path.relpath(_pyf, repo_dir)}")
                         with open(_pyf, "w", encoding="utf-8") as _pf_out:
                             _pf_out.write(_py_src)
                 except Exception:
@@ -2344,12 +2377,20 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
                 try:
                     with open(resolved_script_path, "r", encoding="utf-8", errors="replace") as _cf:
                         _c_src = _cf.read()
+                    _orig_c = _c_src
+                    if "def fetch_init(" in _c_src:
+                        _c_src = _re.sub(
+                            r'def fetch_init\([^)]*\):[\s\S]*?(?=\ndef\s|\nclass\s|\nif __name__)',
+                            'def fetch_init(store_id, warehouse_id=None):\n    try:\n        return req("https://catalog.chaldal.com/fetchInitDataForCombinedStore", store_id=store_id)\n    except Exception as _fe:\n        print(f"  [!] fetch_init failed ({_fe}). Using cached/empty categories fallback...", flush=True)\n        try:\n            import glob as _gb\n            for _cp in _gb.glob("**/categories.json", recursive=True) + _gb.glob("**/products.json", recursive=True):\n                try:\n                    with open(_cp, "r", encoding="utf-8") as _cfh:\n                        return {"Categories": {str(store_id): json.load(_cfh)}}\n                except Exception: pass\n        except Exception: pass\n        return {"Categories": {str(store_id): []}}\n\n',
+                            _c_src
+                        )
                     if "init = fetch_init(args.store, args.warehouse)" in _c_src and "try:" not in _c_src.split("init = fetch_init(args.store, args.warehouse)")[0][-80:]:
-                        _log("Auto-patching Chaldal fetch_init try/except fallback...")
                         _c_src = _c_src.replace(
                             "init = fetch_init(args.store, args.warehouse)",
                             "try:\n        init = fetch_init(args.store, args.warehouse)\n    except Exception as _ie:\n        print(f'  [!] fetch_init warning ({_ie}), falling back to cached categories...', flush=True)\n        cached_cats = load(f\"{out}/categories.json\") or load(\"categories.json\")\n        init = {'Categories': {str(args.store): cached_cats or []}}"
                         )
+                    if _c_src != _orig_c:
+                        _log("Auto-patched Chaldal fetch_init try/except fallback...")
                         with open(resolved_script_path, "w", encoding="utf-8") as _cf:
                             _cf.write(_c_src)
                 except Exception as _ch_err:
@@ -2360,12 +2401,15 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
                 try:
                     with open(resolved_script_path, "r", encoding="utf-8", errors="replace") as _ckf:
                         _ck_src = _ckf.read()
-                    if 'with urllib.request.urlopen(req) as resp:' in _ck_src and 'timeout=30' not in _ck_src:
-                        _log("Auto-patching COOKup urllib timeout & DB fallback...")
-                        _ck_src = _ck_src.replace(
-                            "with urllib.request.urlopen(req) as resp:\n        raw = json.loads(resp.read().decode('utf-8'))",
-                            "try:\n        with urllib.request.urlopen(req, timeout=30) as resp:\n            raw = json.loads(resp.read().decode('utf-8'))\n    except Exception as _cke:\n        print(f'  [!] Live categories fetch failed ({_cke}). Falling back to database...', flush=True)\n        conn = get_db_connection()\n        rows = conn.cursor().execute('SELECT id, name, slug, parent_ids, image_url, sort_order FROM categories').fetchall()\n        conn.close()\n        return [dict(r) for r in rows]"
+                    _orig_ck = _ck_src
+                    if "def fetch_categories(" in _ck_src:
+                        _ck_src = _re.sub(
+                            r'def fetch_categories\([^)]*\):[\s\S]*?(?=\ndef\s|\nclass\s|\nif __name__)',
+                            'def fetch_categories():\n    req = urllib.request.Request(f"{BASE_URL}/categories", headers=HEADERS)\n    try:\n        with urllib.request.urlopen(req, timeout=30) as resp:\n            raw = json.loads(resp.read().decode("utf-8"))\n            return raw.get("data", raw) if isinstance(raw, dict) else raw\n    except Exception as _cke:\n        print(f"  [!] Live categories fetch failed ({_cke}). Falling back to database...", flush=True)\n        try:\n            conn = get_db_connection()\n            rows = conn.cursor().execute("SELECT id, name, slug, parent_ids, image_url, sort_order FROM categories").fetchall()\n            conn.close()\n            return [dict(r) for r in rows]\n        except Exception as _dbe:\n            print(f"  [!] DB fallback failed ({_dbe})", flush=True)\n            return []\n\n',
+                            _ck_src
                         )
+                    if _ck_src != _orig_ck:
+                        _log("Auto-patched COOKup fetch_categories with timeout & DB fallback...")
                         with open(resolved_script_path, "w", encoding="utf-8") as _ckf:
                             _ckf.write(_ck_src)
                 except Exception as _ck_err:
