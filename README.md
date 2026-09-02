@@ -10,9 +10,40 @@
 
 ---
 
-## 📸 Screenshots
+## 📸 Platform Showcase & Screenshots
 
-![GroceryGOD Price Comparison Engine](screenshots/dashboard.png)
+### 1. 🌌 Editorial Landing Hero & Dhaka Market Pulse
+Real-time telemetry showing monitored SKUs (80,153+), DuckDB WASM latency (1.2ms), historical snapshots (3.7M+), direct store jump chips, and live price arbitrage telemetry.
+
+![Editorial Landing Hero & Dhaka Market Pulse](screenshots/hero_editorial_landing.webp)
+
+---
+
+### 2. ⚡ Unified Catalog Grid & Dynamic Unit-Price Normalization
+High-density catalog with standardized unit pricing ($\text{BDT}/kg$, $\text{BDT}/L$, $\text{BDT}/pc$), store provenance badges, stock telemetry, and smart filters (*Biggest Drop*, *All Time Low*, *Great Deal*).
+
+![Unified Catalog Grid & Unit-Normalized Pricing](screenshots/catalog_grid_normalized_pricing.webp)
+
+---
+
+### 3. 📈 Interactive Multi-Month Price History Chart
+Full historical price curves rendered via Chart.js with dual-axis unit and actual price tracking, historical averages, market range extremes, and stock status tracking.
+
+![Interactive Multi-Month Price History Chart](screenshots/product_price_history_modal.webp)
+
+---
+
+### 4. 🔒 7-Day Free Tier Gating & History Paywall
+Clean 7-day lookback window for free tier with AES-256 GCM encrypted archival gating for full multi-month historical price timelines.
+
+![7-Day Free Tier Gating & History Paywall](screenshots/history_paywall_preview.webp)
+
+---
+
+### 5. 👑 Premium Intelligence Plans & Subscription Matrix
+Comprehensive feature matrix modal for unlocking full historical timelines, automated multi-channel price alerts (*Browser, Email, Telegram*), and custom analytics ranges.
+
+![Premium Intelligence Plans & Subscription Matrix](screenshots/premium_plans_modal.webp)
 
 ---
 
