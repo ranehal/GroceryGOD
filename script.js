@@ -4213,6 +4213,7 @@ async function attemptPremiumUnlock() {
         safeStorage.setItem('god_premium_passphrase', passphrase);
         setPremiumUnlocked(true, true);
         closePremiumModal();
+        closeModal();
         showUXToast('✨ Premium archive unlocked & key saved in browser!', 'success');
 
         // Auto return to Home
@@ -4322,6 +4323,17 @@ function setPremiumUnlocked(unlocked, persist = true) {
     premiumUnlocked = Boolean(unlocked);
     document.body.classList.toggle('premium-unlocked', premiumUnlocked);
     if (persist) safeStorage.setItem('god_premium_unlocked', premiumUnlocked ? '1' : '0');
+    const mask = document.getElementById('history-paywall-mask');
+    if (mask) {
+        mask.hidden = premiumUnlocked;
+        if (premiumUnlocked) {
+            mask.classList.add('hidden');
+            mask.style.setProperty('display', 'none', 'important');
+        } else {
+            mask.classList.remove('hidden');
+            mask.style.removeProperty('display');
+        }
+    }
     const keyButton = document.getElementById('premium-key-btn');
     if (keyButton) {
         keyButton.classList.toggle('unlocked', premiumUnlocked);
@@ -4353,12 +4365,22 @@ function buildHistoryView(product) {
 }
 
 function renderHistoryAccessState(historyView) {
+    const isPremium = Boolean(historyView && historyView.premium) || Boolean(premiumUnlocked);
     const mask = document.getElementById('history-paywall-mask');
     const badge = document.getElementById('history-access-badge');
-    if (mask) mask.hidden = historyView.premium;
+    if (mask) {
+        mask.hidden = isPremium;
+        if (isPremium) {
+            mask.classList.add('hidden');
+            mask.style.setProperty('display', 'none', 'important');
+        } else {
+            mask.classList.remove('hidden');
+            mask.style.removeProperty('display');
+        }
+    }
     if (badge) {
-        badge.classList.toggle('premium', historyView.premium);
-        badge.innerHTML = historyView.premium
+        badge.classList.toggle('premium', isPremium);
+        badge.innerHTML = isPremium
             ? '<i class="fas fa-unlock-keyhole"></i> Complete history'
             : '<i class="fas fa-clock"></i> Free 7-day view';
     }

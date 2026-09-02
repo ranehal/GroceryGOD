@@ -43,7 +43,7 @@ def safe_load_json(filepath, default=None):
 def clean_disk_space():
     print("[Aggregator] Cleaning temporary files & caches to free disk space...")
     import glob, shutil
-    for pattern in ['*.tmp', '*.bak', '/tmp/*', '/root/.cache/pip/*']:
+    for pattern in ['*.tmp', '*.bak', '/root/.cache/pip/*']:
         for p in glob.glob(pattern):
             try:
                 if os.path.isfile(p): os.remove(p)

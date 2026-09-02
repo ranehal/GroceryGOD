@@ -1941,7 +1941,9 @@ body.theme-light .alert-builder select,body.theme-light .alert-builder input { b
 .history-access-badge { display:inline-flex; align-items:center; gap:5px; padding:5px 8px; border:1px solid rgba(251,191,36,.34); border-radius:999px; color:#fde68a; background:rgba(245,158,11,.08); font-size:.58rem; font-weight:900; }
 .history-access-badge.premium { color:#99f6e4; border-color:rgba(45,212,191,.4); background:rgba(20,184,166,.1); }
 .history-paywall-mask { position:absolute; inset:0 25% 0 0; z-index:21; display:grid; place-items:center; padding:18px; background:linear-gradient(90deg,rgba(2,5,9,.5),rgba(6,10,16,.28)); backdrop-filter:blur(8px) saturate(72%); -webkit-backdrop-filter:blur(8px) saturate(72%); border-right:1px solid rgba(255,255,255,.1); }
-.history-paywall-mask[hidden] { display:none; }
+.history-paywall-mask[hidden],
+.history-paywall-mask.hidden,
+body.premium-unlocked .history-paywall-mask { display:none !important; }
 .history-paywall-mask::after { content:''; position:absolute; right:-1px; top:0; width:1px; height:100%; background:linear-gradient(transparent,#fbbf24,transparent); animation:paywall-scan 3.2s ease-in-out infinite; }
 @keyframes paywall-scan { 0%,100%{transform:translateY(-65%);opacity:0} 42%,58%{opacity:1} 100%{transform:translateY(65%)} }
 .history-paywall-copy { width:min(330px,100%); padding:16px; text-align:center; border:1px solid rgba(251,191,36,.28); border-radius:17px; background:rgba(5,8,13,.72); box-shadow:0 18px 55px rgba(0,0,0,.5); }
@@ -2087,7 +2089,7 @@ body.immersive-mode .p-item-sh:nth-child(3n+2) { animation-delay:.06s; }
 
 /* === Premium conversion + monitor UI pass (2026-07-26d) === */
 .mobile-premium-lock{position:absolute;right:7px;top:5px;font-size:.44rem;color:#d8b4fe;opacity:.9}
-body.premium-unlocked #alerts-lock-icon,body.premium-unlocked #mobile-alerts-lock{display:none}
+body.premium-unlocked #alerts-lock-icon,body.premium-unlocked #mobile-alerts-lock,body.premium-unlocked .history-paywall-mask{display:none !important}
 body:not(.premium-unlocked) #price-alerts-btn{box-shadow:inset 0 0 0 1px rgba(192,132,252,.08)}
 
 .premium-modal-shell{width:min(990px,calc(100vw - 24px));min-height:min(760px,calc(100vh - 24px));padding:28px 32px 30px;border-radius:30px}
@@ -4092,7 +4094,7 @@ body.pitch-black.theme-amoled {
     position: absolute !important;
     inset: 0 15% 0 0 !important;
     z-index: 21 !important;
-    display: grid !important;
+    display: grid;
     place-items: center !important;
     padding: 24px !important;
     background: linear-gradient(90deg, rgba(2,5,9,.65), rgba(6,10,16,.45)) !important;

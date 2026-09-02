@@ -1950,19 +1950,26 @@ def _send_p14_summary(results_store, repo_list):
     file_results = {}
     try:
         import glob as _glob
-        for _f in _glob.glob('/tmp/p14_result_*.json'):
-            try:
-                with open(_f, 'r', encoding='utf-8') as fh:
-                    _r = json.load(fh)
-                if isinstance(_r, dict):
-                    if _r.get('label'): file_results[_r['label']] = _r
-                    if _r.get('slug'): file_results[_r['slug']] = _r
-                    if _r.get('repo'): file_results[_r['repo']] = _r
-                    if _r.get('label'):
-                        _norm = re.sub(r'[^a-z0-9]+', '', _r['label'].lower())
-                        file_results[_norm] = _r
-            except Exception:
-                pass
+        _search_patterns = [
+            '/tmp/p14_results/p14_result_*.json',
+            '/tmp/p14_result_*.json',
+            '/kaggle/working/output/p14_results/p14_result_*.json',
+            'output/p14_results/p14_result_*.json'
+        ]
+        for _pat in _search_patterns:
+            for _f in _glob.glob(_pat):
+                try:
+                    with open(_f, 'r', encoding='utf-8') as fh:
+                        _r = json.load(fh)
+                    if isinstance(_r, dict):
+                        if _r.get('label'): file_results[_r['label']] = _r
+                        if _r.get('slug'): file_results[_r['slug']] = _r
+                        if _r.get('repo'): file_results[_r['repo']] = _r
+                        if _r.get('label'):
+                            _norm = re.sub(r'[^a-z0-9]+', '', _r['label'].lower())
+                            file_results[_norm] = _r
+                except Exception:
+                    pass
     except Exception:
         pass
 
@@ -2023,23 +2030,34 @@ def _send_p14_summary(results_store, repo_list):
                 pass
 
         if not rec:
-            _direct_file = f"/tmp/p14_result_{slug}.json"
-            if os.path.exists(_direct_file):
-                try:
-                    with open(_direct_file, 'r', encoding='utf-8') as fh:
-                        rec = json.load(fh)
-                except Exception:
-                    pass
+            for _df in [
+                f"/tmp/p14_results/p14_result_{slug}.json",
+                f"/tmp/p14_result_{slug}.json",
+                f"/kaggle/working/output/p14_results/p14_result_{slug}.json",
+                f"output/p14_results/p14_result_{slug}.json"
+            ]:
+                if os.path.exists(_df):
+                    try:
+                        with open(_df, 'r', encoding='utf-8') as fh:
+                            rec = json.load(fh)
+                            if rec: break
+                    except Exception:
+                        pass
 
         if not rec:
-            _log_file = f"/tmp/p14_log_{slug}.log"
+            _log_files = [
+                f"/tmp/p14_results/p14_log_{slug}.log",
+                f"/tmp/p14_log_{slug}.log"
+            ]
             _log_tail = ""
-            if os.path.exists(_log_file):
-                try:
-                    with open(_log_file, 'r', encoding='utf-8') as lf:
-                        _log_tail = lf.read().strip()[-300:]
-                except Exception:
-                    pass
+            for _lf in _log_files:
+                if os.path.exists(_lf):
+                    try:
+                        with open(_lf, 'r', encoding='utf-8') as lf:
+                            _log_tail = lf.read().strip()[-300:]
+                            if _log_tail: break
+                    except Exception:
+                        pass
             rec = {
                 'status': 'failed',
                 'elapsed': 0,
@@ -2170,19 +2188,27 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
     slug = re.sub(r'[^a-z0-9]+', '_', clean_label.lower()).strip('_')
     repo_name = repo_url.split('/')[-1].replace('.git', '')
     repo_page_url = f"https://ranehal.github.io/{repo_name}/"
-    log_file = f"/tmp/p14_log_{slug}.log"
-    _p14_file = f"/tmp/p14_result_{slug}.json"
+    _p14_dir = '/tmp/p14_results'
+    _out_dir = '/kaggle/working/output/p14_results'
+    os.makedirs(_p14_dir, exist_ok=True)
+    os.makedirs(_out_dir, exist_ok=True)
+    log_file = os.path.join(_p14_dir, f"p14_log_{slug}.log")
+    _p14_file = os.path.join(_p14_dir, f"p14_result_{slug}.json")
+    _root_log = f"/tmp/p14_log_{slug}.log"
+    _root_res = f"/tmp/p14_result_{slug}.json"
+    _out_file = os.path.join(_out_dir, f"p14_result_{slug}.json")
     _t0 = time.time()
 
     def _log(msg):
         ts = datetime.now(DHAKA_TZ).strftime('%H:%M:%S')
         line = f"[{ts} | {clean_label}] {msg}"
         print(line)
-        try:
-            with open(log_file, "a", encoding="utf-8") as lf:
-                lf.write(line + "\n")
-        except Exception:
-            pass
+        for _lf in [log_file, _root_log]:
+            try:
+                with open(_lf, "a", encoding="utf-8") as lf:
+                    lf.write(line + "\n")
+            except Exception:
+                pass
 
     _log("Process Started.")
 
@@ -2202,13 +2228,14 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
         _p14_record['label'] = clean_label
         _p14_record['slug'] = slug
         _p14_record['repo'] = repo_name
-        try:
-            _tmp = _p14_file + f".{os.getpid()}.tmp"
-            with open(_tmp, 'w', encoding='utf-8') as _f:
-                json.dump(_p14_record, _f)
-            os.replace(_tmp, _p14_file)
-        except Exception as _fe:
-            _log(f"Warning: Failed to write result file {_p14_file}: {_fe}")
+        for _dest in [_p14_file, _root_res, _out_file]:
+            try:
+                _tmp = _dest + f".{os.getpid()}.tmp"
+                with open(_tmp, 'w', encoding='utf-8') as _f:
+                    json.dump(_p14_record, _f)
+                os.replace(_tmp, _dest)
+            except Exception as _fe:
+                pass
         if results_store is not None:
             try:
                 results_store[clean_label] = _p14_record
@@ -2341,34 +2368,43 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
         try:
             import re as _re
             import glob as _glob
+            import ast as _ast
 
-            # 1. Patch destructive sys.stdout TextIOWrapper re-wrapping in Python 3.12 (fixes ValueError: I/O operation on closed file)
+            # 1. Patch destructive sys.stdout / sys.stderr TextIOWrapper and codecs re-wrapping in Python 3.12
             for _pyf in _glob.glob(os.path.join(repo_dir, "**", "*.py"), recursive=True):
                 try:
                     with open(_pyf, "r", encoding="utf-8", errors="replace") as _pf_in:
                         _py_src = _pf_in.read()
                     _orig_py = _py_src
-                    if "TextIOWrapper" in _py_src:
+                    if "TextIOWrapper" in _py_src or "codecs.getwriter" in _py_src:
                         _py_src = _re.sub(
-                            r'sys\.stdout\s*=\s*(?:io\.)?TextIOWrapper\b[\s\S]*?\)',
-                            'try:\n    if hasattr(sys.stdout, "reconfigure"):\n        sys.stdout.reconfigure(encoding="utf-8", errors="replace")\nexcept Exception: pass',
+                            r'sys\.stdout\s*=\s*(?:io\.)?TextIOWrapper\s*\([^)]*\)',
+                            'getattr(sys.stdout, "reconfigure", lambda **kw: None)(encoding="utf-8", errors="replace")',
                             _py_src
                         )
                         _py_src = _re.sub(
-                            r'sys\.stderr\s*=\s*(?:io\.)?TextIOWrapper\b[\s\S]*?\)',
-                            'try:\n    if hasattr(sys.stderr, "reconfigure"):\n        sys.stderr.reconfigure(encoding="utf-8", errors="replace")\nexcept Exception: pass',
+                            r'sys\.stderr\s*=\s*(?:io\.)?TextIOWrapper\s*\([^)]*\)',
+                            'getattr(sys.stderr, "reconfigure", lambda **kw: None)(encoding="utf-8", errors="replace")',
                             _py_src
                         )
-                    if "codecs.getwriter" in _py_src:
                         _py_src = _re.sub(
-                            r'sys\.stdout\s*=\s*codecs\.getwriter\b[\s\S]*?\)',
-                            'try:\n    if hasattr(sys.stdout, "reconfigure"):\n        sys.stdout.reconfigure(encoding="utf-8", errors="replace")\nexcept Exception: pass',
+                            r'sys\.stdout\s*=\s*codecs\.getwriter\s*\([^)]*\)(?:\([^)]*\))?',
+                            'getattr(sys.stdout, "reconfigure", lambda **kw: None)(encoding="utf-8", errors="replace")',
+                            _py_src
+                        )
+                        _py_src = _re.sub(
+                            r'sys\.stderr\s*=\s*codecs\.getwriter\s*\([^)]*\)(?:\([^)]*\))?',
+                            'getattr(sys.stderr, "reconfigure", lambda **kw: None)(encoding="utf-8", errors="replace")',
                             _py_src
                         )
                     if _py_src != _orig_py:
-                        _log(f"Auto-patched stdout wrapper in {os.path.relpath(_pyf, repo_dir)}")
-                        with open(_pyf, "w", encoding="utf-8") as _pf_out:
-                            _pf_out.write(_py_src)
+                        try:
+                            _ast.parse(_py_src)
+                            with open(_pyf, "w", encoding="utf-8") as _pf_out:
+                                _pf_out.write(_py_src)
+                            _log(f"Auto-patched stdout wrapper in {os.path.relpath(_pyf, repo_dir)}")
+                        except Exception as _ast_err:
+                            _log(f"Auto-patch stdout wrapper AST validation failed in {os.path.relpath(_pyf, repo_dir)}: {_ast_err}")
                 except Exception:
                     pass
 
@@ -2390,9 +2426,13 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
                             "try:\n        init = fetch_init(args.store, args.warehouse)\n    except Exception as _ie:\n        print(f'  [!] fetch_init warning ({_ie}), falling back to cached categories...', flush=True)\n        cached_cats = load(f\"{out}/categories.json\") or load(\"categories.json\")\n        init = {'Categories': {str(args.store): cached_cats or []}}"
                         )
                     if _c_src != _orig_c:
-                        _log("Auto-patched Chaldal fetch_init try/except fallback...")
-                        with open(resolved_script_path, "w", encoding="utf-8") as _cf:
-                            _cf.write(_c_src)
+                        try:
+                            _ast.parse(_c_src)
+                            with open(resolved_script_path, "w", encoding="utf-8") as _cf:
+                                _cf.write(_c_src)
+                            _log("Auto-patched Chaldal fetch_init try/except fallback...")
+                        except Exception as _ch_ast_err:
+                            _log(f"Chaldal patch AST validation failed: {_ch_ast_err}")
                 except Exception as _ch_err:
                     _log(f"Chaldal patch warning: {_ch_err}")
 
@@ -2409,9 +2449,13 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
                             _ck_src
                         )
                     if _ck_src != _orig_ck:
-                        _log("Auto-patched COOKup fetch_categories with timeout & DB fallback...")
-                        with open(resolved_script_path, "w", encoding="utf-8") as _ckf:
-                            _ckf.write(_ck_src)
+                        try:
+                            _ast.parse(_ck_src)
+                            with open(resolved_script_path, "w", encoding="utf-8") as _ckf:
+                                _ckf.write(_ck_src)
+                            _log("Auto-patched COOKup fetch_categories with timeout & DB fallback...")
+                        except Exception as _ck_ast_err:
+                            _log(f"Cookup patch AST validation failed: {_ck_ast_err}")
                 except Exception as _ck_err:
                     _log(f"Cookup patch warning: {_ck_err}")
 
@@ -2426,9 +2470,13 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
                     if m:
                         indent = m.group(1)
                         replacement = f'{indent}if not cat or not isinstance(cat, dict): continue\n{indent}for prod in cat.get("products", []):'
-                        s_code = _re.sub(pattern, replacement, s_code, count=1)
-                        with open(resolved_script_path, 'w', encoding='utf-8') as sf:
-                            sf.write(s_code)
+                        s_code_patched = _re.sub(pattern, replacement, s_code, count=1)
+                        try:
+                            _ast.parse(s_code_patched)
+                            with open(resolved_script_path, 'w', encoding='utf-8') as sf:
+                                sf.write(s_code_patched)
+                        except Exception as _ast_err:
+                            _log(f"Cat safety AST validation failed: {_ast_err}")
         except Exception as patch_err:
             _log(f"Script patch warning: {patch_err}")
 
@@ -2536,10 +2584,13 @@ if __name__ == '__main__':
     _p14_results = _manager.dict()
     try:
         import glob as _glob
-        for _f in _glob.glob('/tmp/p14_result_*.json'):
-            try: os.remove(_f)
-            except Exception: pass
-        for _f in _glob.glob('/tmp/p14_log_*.log'):
+        for _f in (
+            _glob.glob('/tmp/p14_results/p14_result_*.json')
+            + _glob.glob('/tmp/p14_results/p14_log_*.log')
+            + _glob.glob('/tmp/p14_result_*.json')
+            + _glob.glob('/tmp/p14_log_*.log')
+            + _glob.glob('/kaggle/working/output/p14_results/*.json')
+        ):
             try: os.remove(_f)
             except Exception: pass
     except Exception:
