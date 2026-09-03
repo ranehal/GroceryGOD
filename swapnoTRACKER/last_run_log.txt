@@ -1,19 +1,19 @@
-Last Run: 2026-09-03 14:11:31
+Last Run: 2026-09-03 01:17:52
 ------------------------------
-Total Scraped: 5355
-Web Scraped: 5348
-App API Scraped: 5046
-Combined Unique: 5355
+Total Scraped: 5351
+Web Scraped: 5342
+App API Scraped: 5044
+Combined Unique: 5351
 ------------------------------
 Categories:
 - Candy & Chocolate: 291
 - Skincare: 266
-- Cooking: 205
-- Biscuits Others: 187
+- Biscuits Others: 181
+- Cooking: 158
 - Chips & Pretzels: 151
 - Noodles: 146
-- Deodorant: 141
-- Oral Care: 140
-- Beverages: 120
+- Beverages: 141
+- Oral Care: 141
+- Deodorant: 140
 - Shampoo: 108
-... and 166 more.
+... and 165 more.

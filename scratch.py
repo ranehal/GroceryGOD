@@ -16,7 +16,19 @@ import concurrent.futures
 import platform
 import glob
 import zipfile
+import base64
+import hashlib
+import secrets
+import ast
 from datetime import datetime, timedelta, timezone
+
+# Ensure stdout and stderr use UTF-8 encoding
+if hasattr(sys.stdout, 'reconfigure'):
+    try: sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+    except Exception: pass
+if hasattr(sys.stderr, 'reconfigure'):
+    try: sys.stderr.reconfigure(encoding='utf-8', errors='replace')
+    except Exception: pass
 
 # Dhaka Timezone
 DHAKA_TZ = timezone(timedelta(hours=6))
@@ -311,15 +323,18 @@ def update_parquet_backup_status(backup_info, git_status='PUSHED_TO_GITHUB', git
         pass
 
 # ============================================================
-# INITIALIZATION & SECRETS
+# USER SECRETS VAULT (ONE-TIME IMPORT / PERSISTENCE)
 # ============================================================
+# Manual override dictionary: if you paste credentials here once, they will
+# automatically persist across all subsequent 24/7 container self-reboots.
+_MANUAL_SECRETS = globals().get('_MANUAL_SECRETS', {}) if isinstance(globals().get('_MANUAL_SECRETS'), dict) else {}
+
 # Persisted secrets cache (preserved across container restarts)
 _PERSISTED_SECRETS = globals().get('_PERSISTED_SECRETS') if isinstance(globals().get('_PERSISTED_SECRETS'), dict) else {}
 _PERSISTED_SECRETS_B64 = str(globals().get('_PERSISTED_SECRETS_B64', '') or '')
 if _PERSISTED_SECRETS_B64:
     try:
-        import base64 as _b64
-        _decoded_secrets = json.loads(_b64.b64decode(_PERSISTED_SECRETS_B64).decode('utf-8'))
+        _decoded_secrets = json.loads(base64.b64decode(_PERSISTED_SECRETS_B64).decode('utf-8'))
         if isinstance(_decoded_secrets, dict):
             for _k, _v in _decoded_secrets.items():
                 if _v and not _PERSISTED_SECRETS.get(_k):
@@ -327,13 +342,17 @@ if _PERSISTED_SECRETS_B64:
     except Exception:
         pass
 
-# Persisted state cache (reboot count, cycle metrics, uptime across restarts)
+# Merge manual secrets if user supplied any
+for _mk, _mv in _MANUAL_SECRETS.items():
+    if _mv and not _PERSISTED_SECRETS.get(_mk):
+        _PERSISTED_SECRETS[_mk] = str(_mv).strip()
+
+# Persisted state cache (reboot count, cycle metrics, uptime, monthly bandwidth)
 _PERSISTED_STATE = globals().get('_PERSISTED_STATE') if isinstance(globals().get('_PERSISTED_STATE'), dict) else {}
 _PERSISTED_STATE_B64 = str(globals().get('_PERSISTED_STATE_B64', '') or '')
 if _PERSISTED_STATE_B64:
     try:
-        import base64 as _b64
-        _decoded_state = json.loads(_b64.b64decode(_PERSISTED_STATE_B64).decode('utf-8'))
+        _decoded_state = json.loads(base64.b64decode(_PERSISTED_STATE_B64).decode('utf-8'))
         if isinstance(_decoded_state, dict):
             for _sk, _sv in _decoded_state.items():
                 if _sv is not None and not _PERSISTED_STATE.get(_sk):
@@ -355,68 +374,97 @@ for _sp in ['/kaggle/working/orchestrator_state.json', '/kaggle/working/output/o
             pass
 
 def get_secret_safe(key, default=""):
+    """
+    Robust multi-tier secret retriever:
+    1. Kaggle UserSecretsClient (UI attached)
+    2. OS Environment
+    3. Manual User Secrets dictionary (_MANUAL_SECRETS)
+    4. Persisted Secrets Cache (_PERSISTED_SECRETS)
+    5. Local file vaults (/kaggle/working/secrets_vault.json, /tmp/secrets_vault.json)
+    6. ~/.kaggle/kaggle.json
+    7. Attached Kaggle dataset fallback (/kaggle/input/**/secrets*.json)
+    Automatically caches resolved secrets for persistence across self-reboots.
+    """
+    val = None
+
     # 1. Try Kaggle UserSecretsClient (UI attached)
     try:
         from kaggle_secrets import UserSecretsClient
         val = UserSecretsClient().get_secret(key)
         if val is not None and str(val).strip():
-            return str(val).strip()
+            val = str(val).strip()
     except Exception:
         pass
 
     # 2. Try OS Environment
-    val = os.environ.get(key)
-    if val is not None and str(val).strip():
-        return str(val).strip()
+    if not val:
+        v = os.environ.get(key)
+        if v is not None and str(v).strip():
+            val = str(v).strip()
 
-    # 3. Try Injected Persisted Secrets (auto-propagated across container restarts)
-    if isinstance(globals().get('_PERSISTED_SECRETS'), dict):
-        val = _PERSISTED_SECRETS.get(key)
-        if val is not None and str(val).strip():
-            return str(val).strip()
+    # 3. Try Manual Secrets dictionary
+    if not val and isinstance(globals().get('_MANUAL_SECRETS'), dict):
+        v = _MANUAL_SECRETS.get(key)
+        if v is not None and str(v).strip():
+            val = str(v).strip()
 
-    # 4. Try local persisted secrets vault file
-    _vault_paths = [
-        '/kaggle/working/secrets_vault.json',
-        '/kaggle/working/output/secrets_vault.json',
-        '/tmp/secrets_vault.json'
-    ]
-    for vp in _vault_paths:
-        if os.path.exists(vp):
-            try:
-                with open(vp, 'r', encoding='utf-8') as vf:
-                    vdata = json.load(vf)
-                    if isinstance(vdata, dict) and key in vdata and vdata[key]:
-                        return str(vdata[key]).strip()
-            except Exception:
-                pass
+    # 4. Try Injected Persisted Secrets (auto-propagated across container restarts)
+    if not val and isinstance(globals().get('_PERSISTED_SECRETS'), dict):
+        v = _PERSISTED_SECRETS.get(key)
+        if v is not None and str(v).strip():
+            val = str(v).strip()
 
-    # 5. Try ~/.kaggle/kaggle.json for Kaggle credentials
-    if key in ('KAGGLE_USERNAME', 'KAGGLE_KEY'):
+    # 5. Try local persisted secrets vault files
+    if not val:
+        _vault_paths = [
+            '/kaggle/working/secrets_vault.json',
+            '/kaggle/working/output/secrets_vault.json',
+            '/tmp/secrets_vault.json'
+        ]
+        for vp in _vault_paths:
+            if os.path.exists(vp):
+                try:
+                    with open(vp, 'r', encoding='utf-8') as vf:
+                        vdata = json.load(vf)
+                        if isinstance(vdata, dict) and key in vdata and vdata[key]:
+                            val = str(vdata[key]).strip()
+                            break
+                except Exception:
+                    pass
+
+    # 6. Try ~/.kaggle/kaggle.json for Kaggle credentials
+    if not val and key in ('KAGGLE_USERNAME', 'KAGGLE_KEY'):
         try:
             _kjson = os.path.expanduser('~/.kaggle/kaggle.json')
             if os.path.exists(_kjson):
                 with open(_kjson, 'r', encoding='utf-8') as _kf:
                     _kdata = json.load(_kf)
                 if key == 'KAGGLE_USERNAME' and _kdata.get('username'):
-                    return str(_kdata['username']).strip()
-                if key == 'KAGGLE_KEY' and _kdata.get('key'):
-                    return str(_kdata['key']).strip()
+                    val = str(_kdata['username']).strip()
+                elif key == 'KAGGLE_KEY' and _kdata.get('key'):
+                    val = str(_kdata['key']).strip()
         except Exception:
             pass
 
-    # 6. Try attached Kaggle Dataset fallback (e.g. /kaggle/input/**/secrets*.json or vault)
-    try:
-        import glob
-        for f in glob.glob('/kaggle/input/**/secrets*.json', recursive=True) + glob.glob('/kaggle/input/**/vault*.json', recursive=True):
-            with open(f, 'r', encoding='utf-8') as jf:
-                data = json.load(jf)
-                if key in data and data[key]:
-                    return str(data[key]).strip()
-    except Exception:
-        pass
+    # 7. Try attached Kaggle Dataset fallback (e.g. /kaggle/input/**/secrets*.json or vault)
+    if not val:
+        try:
+            for f in glob.glob('/kaggle/input/**/secrets*.json', recursive=True) + glob.glob('/kaggle/input/**/vault*.json', recursive=True):
+                with open(f, 'r', encoding='utf-8') as jf:
+                    data = json.load(jf)
+                    if key in data and data[key]:
+                        val = str(data[key]).strip()
+                        break
+        except Exception:
+            pass
 
-    return default
+    resolved = val if val else default
+
+    # Auto-cache into _PERSISTED_SECRETS so trigger_self_restart will persist it
+    if resolved and isinstance(_PERSISTED_SECRETS, dict):
+        _PERSISTED_SECRETS[key] = resolved
+
+    return resolved
 
 GITHUB_PAT = get_secret_safe('GITHUB_PAT')
 os.environ['KAGGLE_USERNAME'] = get_secret_safe('KAGGLE_USERNAME')
@@ -427,6 +475,165 @@ os.environ["TELEGRAM_BOT_TOKEN"] = TELEGRAM_BOT_TOKEN or ""
 os.environ["TELEGRAM_CHAT_ID"] = TELEGRAM_CHAT_ID or ""
 KAGGLE_KERNEL_SLUG = get_secret_safe("KAGGLE_KERNEL_SLUG", "ranehalx/gitgod")
 os.environ['GOD_PREMIUM_KEY'] = get_secret_safe('GOD_PREMIUM_KEY', 'assalamualaikum')
+
+# ============================================================
+# GITHUB PUSH BANDWIDTH & QUOTA TRACKER (10GB MONTHLY CAP)
+# ============================================================
+GITHUB_MONTHLY_CAP_BYTES = 10 * 1024 * 1024 * 1024  # 10.0 GB (10,737,418,240 bytes)
+
+def _get_current_month_key():
+    """Return the current Dhaka month key 'YYYY-MM' (e.g. '2026-09')."""
+    return datetime.now(DHAKA_TZ).strftime("%Y-%m")
+
+def _init_bandwidth_state():
+    """Initialize or roll over monthly bandwidth tracking ledger."""
+    curr_month = _get_current_month_key()
+    stored_month = _PERSISTED_STATE.get('bandwidth_month_key')
+    if stored_month != curr_month:
+        # Monthly rollover
+        _PERSISTED_STATE['bandwidth_month_key'] = curr_month
+        _PERSISTED_STATE['bandwidth_monthly_bytes'] = 0
+        _PERSISTED_STATE['bandwidth_pushes_count'] = 0
+        _PERSISTED_STATE['bandwidth_repos_usage'] = {}
+    else:
+        if 'bandwidth_monthly_bytes' not in _PERSISTED_STATE:
+            _PERSISTED_STATE['bandwidth_monthly_bytes'] = 0
+        if 'bandwidth_pushes_count' not in _PERSISTED_STATE:
+            _PERSISTED_STATE['bandwidth_pushes_count'] = 0
+        if 'bandwidth_repos_usage' not in _PERSISTED_STATE or not isinstance(_PERSISTED_STATE['bandwidth_repos_usage'], dict):
+            _PERSISTED_STATE['bandwidth_repos_usage'] = {}
+
+def record_git_push_bandwidth(repo_dir=".", repo_name="GroceryGOD", stderr_text=""):
+    """
+    Measure and record bandwidth consumed by a Git push against the 10GB monthly cap.
+    Parses 'Writing objects: ...' from git push stderr or calculates HEAD changed files.
+    Persists cumulative metrics in _PERSISTED_STATE and local disk vaults.
+    Returns (push_bytes, summary_dict).
+    """
+    _init_bandwidth_state()
+    
+    # 1. Parse bytes from Git push stderr
+    push_bytes = 0
+    if stderr_text:
+        m = re.search(r'Writing objects:\s*100%\s*\([^)]+\),\s*([\d\.]+)\s*([KMGT]?i?B)', stderr_text, re.IGNORECASE)
+        if m:
+            val = float(m.group(1))
+            unit = m.group(2).upper()
+            if 'G' in unit: push_bytes = int(val * 1024 * 1024 * 1024)
+            elif 'M' in unit: push_bytes = int(val * 1024 * 1024)
+            elif 'K' in unit: push_bytes = int(val * 1024)
+            else: push_bytes = int(val)
+        else:
+            m2 = re.search(r'Total\s+\d+.*,\s*([\d\.]+)\s*([KMGT]?i?B)', stderr_text, re.IGNORECASE)
+            if m2:
+                val = float(m2.group(1))
+                unit = m2.group(2).upper()
+                if 'G' in unit: push_bytes = int(val * 1024 * 1024 * 1024)
+                elif 'M' in unit: push_bytes = int(val * 1024 * 1024)
+                elif 'K' in unit: push_bytes = int(val * 1024)
+                else: push_bytes = int(val)
+    
+    # 2. Fallback: query changed files size in HEAD
+    if push_bytes <= 0:
+        try:
+            res = subprocess.run(
+                ['git', 'diff-tree', '-r', '--no-commit-id', '--name-only', 'HEAD'],
+                cwd=repo_dir, capture_output=True, text=True
+            )
+            if res.returncode == 0 and res.stdout.strip():
+                for rel in res.stdout.strip().splitlines():
+                    fp = os.path.join(repo_dir, rel)
+                    if os.path.isfile(fp):
+                        push_bytes += os.path.getsize(fp)
+        except Exception:
+            pass
+
+    if push_bytes <= 0:
+        push_bytes = 1024
+
+    # 3. Accumulate in _PERSISTED_STATE
+    _PERSISTED_STATE['bandwidth_monthly_bytes'] = int(_PERSISTED_STATE.get('bandwidth_monthly_bytes', 0)) + push_bytes
+    _PERSISTED_STATE['bandwidth_pushes_count'] = int(_PERSISTED_STATE.get('bandwidth_pushes_count', 0)) + 1
+    
+    repos_usage = _PERSISTED_STATE.get('bandwidth_repos_usage', {})
+    repos_usage[repo_name] = int(repos_usage.get(repo_name, 0)) + push_bytes
+    _PERSISTED_STATE['bandwidth_repos_usage'] = repos_usage
+    _PERSISTED_STATE['last_push_bytes'] = push_bytes
+    _PERSISTED_STATE['last_push_repo'] = repo_name
+    _PERSISTED_STATE['last_push_dhaka'] = datetime.now(DHAKA_TZ).strftime("%Y-%m-%d %H:%M:%S DHAKA")
+
+    # 4. Save to local disk vaults
+    for vp in ['/kaggle/working/bandwidth_tracker.json', '/tmp/bandwidth_tracker.json', '/kaggle/working/output/bandwidth_tracker.json']:
+        try:
+            os.makedirs(os.path.dirname(vp), exist_ok=True)
+            with open(vp, 'w', encoding='utf-8') as vf:
+                json.dump({
+                    'month_key': _PERSISTED_STATE.get('bandwidth_month_key'),
+                    'monthly_bytes': _PERSISTED_STATE.get('bandwidth_monthly_bytes'),
+                    'monthly_mb': round(_PERSISTED_STATE.get('bandwidth_monthly_bytes', 0) / (1024 * 1024), 2),
+                    'monthly_gb': round(_PERSISTED_STATE.get('bandwidth_monthly_bytes', 0) / (1024 ** 3), 4),
+                    'pushes_count': _PERSISTED_STATE.get('bandwidth_pushes_count'),
+                    'repos_usage': _PERSISTED_STATE.get('bandwidth_repos_usage'),
+                    'last_push': {
+                        'repo': repo_name,
+                        'bytes': push_bytes,
+                        'mb': round(push_bytes / (1024 * 1024), 2),
+                        'timestamp': _PERSISTED_STATE.get('last_push_dhaka')
+                    }
+                }, vf, indent=2)
+        except Exception:
+            pass
+
+    return push_bytes, get_bandwidth_telemetry(push_bytes, repo_name)
+
+def get_bandwidth_telemetry(push_bytes=0, repo_name=""):
+    """Generate telemetry metrics and formatted HTML block for Telegram notifications."""
+    _init_bandwidth_state()
+    total_bytes = int(_PERSISTED_STATE.get('bandwidth_monthly_bytes', 0))
+    cap_bytes = GITHUB_MONTHLY_CAP_BYTES
+    
+    used_mb = total_bytes / (1024 * 1024)
+    used_gb = total_bytes / (1024 ** 3)
+    rem_bytes = max(0, cap_bytes - total_bytes)
+    rem_gb = rem_bytes / (1024 ** 3)
+    pct_used = min(100.0, (total_bytes / cap_bytes) * 100.0)
+    pct_rem = max(0.0, 100.0 - pct_used)
+
+    push_mb = push_bytes / (1024 * 1024)
+    month_name = datetime.now(DHAKA_TZ).strftime("%B %Y")
+
+    if pct_used < 70.0:
+        status_icon = "🟢"
+        status_text = f"Nominal ({pct_used:.1f}% used of 10GB cap)"
+    elif pct_used < 90.0:
+        status_icon = "🟡"
+        status_text = f"Moderate ({pct_used:.1f}% used of 10GB cap)"
+    else:
+        status_icon = "🔴"
+        status_text = f"Warning: {pct_used:.1f}% of 10GB quota consumed!"
+
+    repo_tag = f" ({repo_name})" if repo_name else ""
+    html_block = (
+        "🌐 <b>GitHub Push Bandwidth Telemetry:</b>\n"
+        f"• 📤 <b>This Commit Push:</b> <code>{push_mb:.2f} MB</code>{repo_tag}\n"
+        f"• 📊 <b>Monthly Consumed:</b> <code>{used_mb:.1f} MB</code> (<code>{used_gb:.3f} GB / 10.00 GB</code> — <b>{pct_used:.2f}%</b>)\n"
+        f"• 🟢 <b>Remaining Quota:</b> <code>{rem_gb:.2f} GB</code> (<b>{pct_rem:.1f}%</b> free)\n"
+        f"• 📅 <b>Monthly Cycle:</b> <code>{month_name}</code> (DHAKA UTC+6)\n"
+        f"• 🚦 <b>Cap Status:</b> {status_icon} <b>{status_text}</b>"
+    )
+
+    return {
+        'push_bytes': push_bytes,
+        'push_mb': round(push_mb, 2),
+        'total_bytes': total_bytes,
+        'used_mb': round(used_mb, 2),
+        'used_gb': round(used_gb, 4),
+        'rem_gb': round(rem_gb, 4),
+        'pct_used': round(pct_used, 2),
+        'pct_rem': round(pct_rem, 2),
+        'month_name': month_name,
+        'html_block': html_block
+    }
 
 def send_preflight_telegram_alert(diagnosis, fix_instructions):
     """Sends a formatted pre-flight warning to Telegram with step-by-step fix guide."""
@@ -846,6 +1053,10 @@ def trigger_self_restart(exec_stats=None):
         except Exception:
             pass
 
+        # Bandwidth telemetry for reboot message
+        _bw_reboot = get_bandwidth_telemetry(0, "Loop Cycle")
+        bw_badge = f"<code>{_bw_reboot['used_mb']} MB / 10.0 GB</code> ({_bw_reboot['pct_used']}%) | {_bw_reboot['rem_gb']} GB free"
+
         reboot_msg = (
             "🔄 <b>Kaggle Self-Reboot Triggered!</b>\n\n"
             "📊 <b>Execution & Reboot Telemetry:</b>\n"
@@ -857,8 +1068,9 @@ def trigger_self_restart(exec_stats=None):
             f"• 🛒 <b>GroceryGOD (p1):</b> {p1_badge}\n"
             f"• ⚙️ <b>gitw (p2):</b> {p2_badge}\n"
             f"• 🌐 <b>Scheduled Repos (p3):</b> {p3_badge}\n\n"
-            "📈 <b>Data & Backup Snapshot:</b>\n"
+            "📈 <b>Data, Backup & Quota Snapshot:</b>\n"
             f"• 💾 <b>Parquet Backup:</b> <code>{pq_info}</code>\n"
+            f"• 🌐 <b>Monthly Push Bandwidth:</b> {bw_badge}\n"
             "• 🔑 <b>Secrets & State:</b> Persisted to Next Container\n\n"
             "🟢 <i>Next container is queuing on Kaggle and will spawn automatically in ~1-2 mins.</i>"
         )
@@ -998,6 +1210,13 @@ def run_grocery_god(github_pat):
             def _setup_git_config():
                 _git_config('git config --global user.email "ranehal@users.noreply.github.com"')
                 _git_config('git config --global user.name "ranehal"')
+                _git_config('git config --global http.postBuffer 1048576000')
+                _git_config('git config --global http.version HTTP/1.1')
+                _git_config('git config --global http.lowSpeedLimit 0')
+                _git_config('git config --global http.lowSpeedTime 999999')
+                _git_config('git config --global core.compression 9')
+                _git_config('git config --global pack.windowMemory 256m')
+                _git_config('git config --global pack.packSizeLimit 2g')
 
                 cred_path = os.path.expanduser('~/.git-credentials')
                 with open(cred_path, 'w') as f:
@@ -1021,6 +1240,10 @@ def run_grocery_god(github_pat):
 
             os.chdir('GroceryGOD')
             subprocess.run(f'git remote set-url origin {auth_grocery_url}', shell=True)
+            subprocess.run('git config http.postBuffer 1048576000', shell=True)
+            subprocess.run('git config http.version HTTP/1.1', shell=True)
+            subprocess.run('git config http.lowSpeedLimit 0', shell=True)
+            subprocess.run('git config http.lowSpeedTime 999999', shell=True)
             
             log.info("🔄 Forcing sync with latest GitHub master...")
             subprocess.run('git clean -fd', shell=True)
@@ -1516,29 +1739,36 @@ if __name__ == '__main__':
                     f"https://ranehal:{github_pat}@github.com/ranehal/GroceryGOD.git",
                     f"https://{github_pat}@github.com/ranehal/GroceryGOD.git"
                 ]
+                last_push_stderr = ""
                 for _auth_u in auth_push_urls:
                     subprocess.run('git remote remove origin', shell=True, capture_output=True)
                     subprocess.run(f'git remote add origin {_auth_u}', shell=True, capture_output=True)
                     subprocess.run(f'git remote set-url origin {_auth_u}', shell=True, capture_output=True)
-                    for attempt in range(2):
+                    subprocess.run('git config http.postBuffer 1048576000', shell=True, capture_output=True)
+                    subprocess.run('git config http.version HTTP/1.1', shell=True, capture_output=True)
+                    for attempt in range(4):
                         log.info(f"Push attempt {attempt+1}...")
+                        subprocess.run('git rebase --abort 2>/dev/null', shell=True, capture_output=True)
                         subprocess.run('git pull origin master --rebase -X ours', shell=True, capture_output=True)
                         push_res = subprocess.run('git push origin HEAD:master --force', shell=True, capture_output=True, text=True)
                         if push_res.returncode == 0:
                             push_success = True
+                            last_push_stderr = (push_res.stderr or "") + "\n" + (push_res.stdout or "")
                             break
                         # Fallback: push directly to auth URL
                         push_res = subprocess.run(f'git push {_auth_u} HEAD:master --force', shell=True, capture_output=True, text=True)
                         if push_res.returncode == 0:
                             push_success = True
+                            last_push_stderr = (push_res.stderr or "") + "\n" + (push_res.stdout or "")
                             break
-                        log.warning(f"Push attempt {attempt+1} failed. Error: {push_res.stderr[:200]}")
-                        time.sleep(3)
+                        last_push_stderr = push_res.stderr or ""
+                        log.warning(f"Push attempt {attempt+1} failed. Error: {last_push_stderr[:200]}")
+                        time.sleep(4 * (attempt + 1))
                     if push_success: break
                 
                 if not push_success:
                     git_status = subprocess.run('git status', shell=True, capture_output=True, text=True).stdout
-                    error_msg = f"Git push failed after 3 attempts!\nGit Status:\n{git_status[:300]}\nStderr: {push_res.stderr[:300]}"
+                    error_msg = f"Git push failed after multiple attempts!\nGit Status:\n{git_status[:300]}\nStderr: {last_push_stderr[:300]}"
                     log.error(error_msg)
                     if '_pq_backup_info' in locals() and _pq_backup_info:
                         try:
@@ -1557,10 +1787,15 @@ if __name__ == '__main__':
                     except Exception:
                         pass
 
+                # Record push bandwidth consumed against 10GB monthly cap
+                _p_bytes, _bw_info = record_git_push_bandwidth(repo_dir=os.getcwd(), repo_name="GroceryGOD", stderr_text=last_push_stderr)
+                log.info(f"🌐 [BANDWIDTH] Push consumed: {_bw_info['push_mb']} MB | Monthly Total: {_bw_info['used_mb']} MB / 10.0 GB ({_bw_info['pct_used']}%) | Remaining: {_bw_info['rem_gb']} GB")
+
                 _agg_s = _read_aggregator_summary()
                 if _agg_s:
-                    if len(_agg_s) > 3900:
-                        _chunks = _agg_s.split("\n\n")
+                    _full_tg = _agg_s + "\n\n" + _bw_info['html_block']
+                    if len(_full_tg) > 3900:
+                        _chunks = _full_tg.split("\n\n")
                         _curr = ""
                         for _c in _chunks:
                             if len(_curr) + len(_c) + 2 > 3900:
@@ -1571,7 +1806,9 @@ if __name__ == '__main__':
                         if _curr.strip():
                             tg_send(_curr.strip())
                     else:
-                        tg_send(_agg_s)
+                        tg_send(_full_tg)
+                else:
+                    tg_send(_bw_info['html_block'])
 
             # Collect & send detailed cycle report
             try:
@@ -2131,10 +2368,13 @@ def _send_p14_summary(results_store, repo_list):
         _sh = SHORT_NAMES.get(lbl.strip(), lbl.strip())
         links_block.append(f"• {_sh}: {u}")
 
+    _bw_p14 = get_bandwidth_telemetry(0, "Scheduled Sub-Repos")
+
     parts = [
         "📊 <b>Scheduled Sub-Repos (p3–p14) Summary</b>",
         "\n".join(tbl_lines),
         "\n".join(telemetry_lines),
+        _bw_p14['html_block'],
         "\n".join(links_block)
     ]
 
@@ -2514,6 +2754,8 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
         _log(f"Finished execution in {int(time.time() - _t0)}s. Pushing to GitHub as ranehal...")
         _with_lock('git-config', lambda: (_git_config('git config user.name "ranehal"'), _git_config('git config user.email "ranehal@users.noreply.github.com"')))
         subprocess.run(f"git remote set-url origin https://ranehal:{github_pat}@github.com/ranehal/{repo_name}.git", shell=True, cwd=repo_dir)
+        subprocess.run('git config http.postBuffer 1048576000', shell=True, cwd=repo_dir)
+        subprocess.run('git config http.version HTTP/1.1', shell=True, cwd=repo_dir)
         subprocess.run('find . -name "_scraper_error_*.log" -delete', shell=True, cwd=repo_dir)
         subprocess.run('git add .', shell=True, cwd=repo_dir)
         now_str = datetime.now(DHAKA_TZ).strftime('%Y-%m-%d %H:%M:%S')
@@ -2524,30 +2766,40 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
             f"https://ranehal:{github_pat}@github.com/ranehal/{repo_name}.git",
             f"https://{github_pat}@github.com/ranehal/{repo_name}.git"
         ]
+        last_sub_push_stderr = ""
         for auth_u in auth_user_urls:
             user_n = "ranehal"
             subprocess.run('git remote remove origin', shell=True, capture_output=True, cwd=repo_dir)
             subprocess.run(f'git remote add origin {auth_u}', shell=True, capture_output=True, cwd=repo_dir)
             subprocess.run(f'git remote set-url origin {auth_u}', shell=True, capture_output=True, cwd=repo_dir)
+            subprocess.run('git config http.postBuffer 1048576000', shell=True, capture_output=True, cwd=repo_dir)
+            subprocess.run('git config http.version HTTP/1.1', shell=True, capture_output=True, cwd=repo_dir)
             _with_lock('git-config', lambda: (_git_config(f'git config user.name "{user_n}"'), _git_config(f'git config user.email "{user_n}@users.noreply.github.com"')))
-            for attempt in range(2):
+            for attempt in range(3):
                 subprocess.run(f'git pull origin {default_branch} --rebase -X ours -q', shell=True, capture_output=True, cwd=repo_dir)
                 push_res = subprocess.run(f'git push origin HEAD:{default_branch} --force', shell=True, capture_output=True, text=True, cwd=repo_dir)
                 if push_res.returncode == 0:
                     push_success = True
+                    last_sub_push_stderr = (push_res.stderr or "") + "\n" + (push_res.stdout or "")
                     break
                 # Direct URL push fallback
                 push_res = subprocess.run(f'git push {auth_u} HEAD:{default_branch} --force', shell=True, capture_output=True, text=True, cwd=repo_dir)
                 if push_res.returncode == 0:
                     push_success = True
+                    last_sub_push_stderr = (push_res.stderr or "") + "\n" + (push_res.stdout or "")
                     break
+                last_sub_push_stderr = push_res.stderr or ""
                 time.sleep(3)
             if push_success: break
 
         if not push_success:
-            raise RuntimeError(f"Git push failed: {push_res.stderr[:300]}")
+            raise RuntimeError(f"Git push failed: {last_sub_push_stderr[:300]}")
 
-        _p14_record.update(status='ok', elapsed=int(time.time() - _t0), error='', url=repo_page_url)
+        # Record push bandwidth consumed against 10GB monthly cap
+        _sub_bytes, _sub_bw = record_git_push_bandwidth(repo_dir=repo_dir, repo_name=repo_name, stderr_text=last_sub_push_stderr)
+        _log(f"🌐 [BANDWIDTH] Push consumed: {_sub_bw['push_mb']} MB | Monthly Total: {_sub_bw['used_mb']} MB / 10.0 GB ({_sub_bw['pct_used']}%)")
+
+        _p14_record.update(status='ok', elapsed=int(time.time() - _t0), error='', url=repo_page_url, bandwidth_bytes=_sub_bytes, bandwidth_mb=_sub_bw['push_mb'])
         _p14_record['price_stats'] = _extract_repo_price_stats(repo_dir, (res.stdout or "") + (res.stderr or "") if res else "")
         if res is not None:
             _p14_record['counts'] = _extract_scraper_counts((res.stdout or "") + (res.stderr or ""))
