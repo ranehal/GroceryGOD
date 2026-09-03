@@ -179,8 +179,8 @@ function loadDemoData() {
 
 
 function toDhaka(date) {
-    if (!date) date = new Date();
-    return new Date(date.toLocaleString('en-US', { timeZone: 'Asia/Dhaka' }));
+    const d = date ? (typeof date === 'string' || typeof date === 'number' ? new Date(date) : date) : new Date();
+    return new Date(d.getTime() + (d.getTimezoneOffset() + 360) * 60000);
 }
 
 function dhakaTodayStr() {
@@ -355,7 +355,7 @@ function initHeroInteractions() {
 
     let cachedAnchorTop = 0;
     function updateCachedAnchorTop() {
-        if (catalogAnchor) cachedAnchorTop = catalogAnchor.offsetTop;
+        if (catalogAnchor) requestAnimationFrame(() => { cachedAnchorTop = catalogAnchor.offsetTop; });
     }
     updateCachedAnchorTop();
     window.addEventListener('resize', updateCachedAnchorTop, { passive: true });
@@ -1005,22 +1005,26 @@ async function computePriceChanges(days) {
         try { await window.__historyPromise; } catch(e) {}
     }
     if (!window.__historyReady) return;
-    const cutoff = toDhaka(new Date(todayStr + 'T12:00:00'));
-    cutoff.setDate(cutoff.getDate() - days);
-    const cutoffStr = cutoff.getFullYear() + '-' + String(cutoff.getMonth() + 1).padStart(2, '0') + '-' + String(cutoff.getDate()).padStart(2, '0');
-    const result = await godDB.conn.query(`
-        WITH ranked AS (
-            SELECT product_id, normalized_price, price, date,
-                   ROW_NUMBER() OVER (PARTITION BY product_id ORDER BY date DESC) as rn
-            FROM history_access
-            WHERE date <= '${cutoffStr}'
-        )
-        SELECT product_id, normalized_price, price FROM ranked WHERE rn = 1
-    `);
-    const oldPrices = {};
-    for (const row of result.toArray()) {
-        const r = row.toJSON();
-        oldPrices[r.product_id] = { normalized_price: Number(r.normalized_price), price: Number(r.price) };
+    const cutoffDate = new Date(Date.parse(todayStr + 'T12:00:00Z') - days * 86400000);
+    const cutoffStr = cutoffDate.toISOString().slice(0, 10);
+    window.__pcCache = window.__pcCache || {};
+    let oldPrices = window.__pcCache[days];
+    if (!oldPrices) {
+        const result = await godDB.conn.query(`
+            WITH ranked AS (
+                SELECT product_id, normalized_price, price, date,
+                       ROW_NUMBER() OVER (PARTITION BY product_id ORDER BY date DESC) as rn
+                FROM history_access
+                WHERE date <= '${cutoffStr}'
+            )
+            SELECT product_id, normalized_price, price FROM ranked WHERE rn = 1
+        `);
+        oldPrices = {};
+        for (const row of result.toArray()) {
+            const r = row.toJSON();
+            oldPrices[r.product_id] = { normalized_price: Number(r.normalized_price), price: Number(r.price) };
+        }
+        window.__pcCache[days] = oldPrices;
     }
     allProducts.forEach(p => {
         const old = oldPrices[p.id];
@@ -1124,7 +1128,8 @@ function showShopLoadingAnimation(storeId, customCallback = null) {
 
 function processData() {
     todayStr = dhakaTodayStr();
-    const today = new Date(todayStr + 'T12:00:00');
+    const todayMs = Date.parse(todayStr + 'T12:00:00Z');
+    const recentThresholdMs = recentDaysFilter * 86400000;
 
     let maxDatasetDate = '';
     const storeMaxDates = {};
@@ -1139,21 +1144,24 @@ function processData() {
         }
     });
     const activeThresholdDate = maxDatasetDate || todayStr;
+    const storeLatestMsMap = {};
+    Object.keys(storeMaxDates).forEach(s => {
+        storeLatestMsMap[s] = Date.parse(storeMaxDates[s].slice(0, 10) + 'T12:00:00Z');
+    });
+    const defaultLatestMs = Date.parse(activeThresholdDate.slice(0, 10) + 'T12:00:00Z');
 
     allProducts.forEach(p => {
         if (customOverrides[p.id]) {
             Object.assign(p, customOverrides[p.id]);
         }
 
-        const storeLatest = storeMaxDates[p.store] || activeThresholdDate;
         const validPrice = Number(p.current_price) > 0;
         const isExplicitOos = (p.in_stock === false) || (p.is_out_of_stock === true);
         let isStale = false;
-        if (p.newest_date != null && storeLatest) {
-            const dLatest = new Date(storeLatest + 'T12:00:00');
-            const dProd = new Date(p.newest_date + 'T12:00:00');
-            const daysDiff = Math.round((dLatest - dProd) / (1000 * 60 * 60 * 24));
-            isStale = daysDiff > 14;
+        if (p.newest_date != null) {
+            const storeLatestMs = (p.store && storeLatestMsMap[p.store]) || defaultLatestMs;
+            const dProdMs = Date.parse(p.newest_date.slice(0, 10) + 'T12:00:00Z');
+            isStale = Math.round((storeLatestMs - dProdMs) / 86400000) > 14;
         }
         const isOos = !validPrice || isExplicitOos || isStale;
 
@@ -1167,22 +1175,12 @@ function processData() {
 
         const firstSeenStr = p.first_seen || p.oldest_date;
         if (firstSeenStr) {
-            const firstSeen = toDhaka(new Date(firstSeenStr + 'T12:00:00'));
-            const diffTime = Math.abs(today - firstSeen);
-            p.ageDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            const fsMs = Date.parse(firstSeenStr.slice(0, 10) + 'T12:00:00Z');
+            const diffTime = Math.abs(todayMs - fsMs);
+            p.ageDays = Math.ceil(diffTime / 86400000);
+            p.isNew = (todayMs - fsMs) <= recentThresholdMs;
         } else {
             p.ageDays = 0;
-        }
-
-        p.isNew = true;
-        if (firstSeenStr) {
-            const thresholdMs = recentDaysFilter * 24 * 60 * 60 * 1000;
-            const oldestDate = toDhaka(new Date(p.oldest_date || p.first_seen));
-            const ageOfOldest = today - oldestDate;
-            if (ageOfOldest > thresholdMs) {
-                p.isNew = false;
-            }
-        } else {
             p.isNew = true;
         }
     });
@@ -1447,7 +1445,7 @@ function renderProducts() {
         // ALWAYS push out-of-stock items to the end in all sort modes
         const npDiff = (noPrice(a) ? 1 : 0) - (noPrice(b) ? 1 : 0);
         if (npDiff !== 0) return npDiff;
-        if (sortOption === 'name_asc') return a.name.localeCompare(b.name);
+        if (sortOption === 'name_asc') return a.name < b.name ? -1 : (a.name > b.name ? 1 : 0);
         if (sortOption === 'unit_price_asc') { const av=Number(a.normalized_price),bv=Number(b.normalized_price); const am=!(av>0)||Number.isNaN(av); const bm=!(bv>0)||Number.isNaN(bv); if(am&&bm)return 0; if(am)return 1; if(bm)return -1; return av-bv; }
         if (sortOption === 'unit_price_desc') { const av=Number(a.normalized_price),bv=Number(b.normalized_price); const am=!(av>0)||Number.isNaN(av); const bm=!(bv>0)||Number.isNaN(bv); if(am&&bm)return 0; if(am)return 1; if(bm)return -1; return bv-av; }
         if (sortOption === 'actual_price_asc') { const av=Number(a.current_price),bv=Number(b.current_price); const am=!(av>0)||Number.isNaN(av); const bm=!(bv>0)||Number.isNaN(bv); if(am&&bm)return 0; if(am)return 1; if(bm)return -1; return av-bv; }
@@ -2306,11 +2304,13 @@ async function openDetailedChart(product) {
     modal.classList.remove('hidden');
     modal.style.display = 'flex';
     document.body.style.overflow = 'hidden';
-    if (document.activeElement && typeof document.activeElement.blur === 'function') {
-        document.activeElement.blur();
-    }
     modal.setAttribute('tabindex', '-1');
-    modal.focus();
+    requestAnimationFrame(() => {
+        if (document.activeElement && typeof document.activeElement.blur === 'function') {
+            document.activeElement.blur();
+        }
+        modal.focus({ preventScroll: true });
+    });
     modal.querySelector('.modal-content').style.setProperty('--modal-bg-img', "url('" + product.image + "')");
     
     document.getElementById('chart-product-name').innerText = product.name;
