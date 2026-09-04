@@ -446,15 +446,63 @@ def get_secret_safe(key, default=""):
         except Exception:
             pass
 
-    # 7. Try attached Kaggle Dataset fallback (e.g. /kaggle/input/**/secrets*.json or vault)
+    # 7. Try attached Kaggle Dataset fallback (e.g. /kaggle/input/**/*.json)
     if not val:
         try:
-            for f in glob.glob('/kaggle/input/**/secrets*.json', recursive=True) + glob.glob('/kaggle/input/**/vault*.json', recursive=True):
-                with open(f, 'r', encoding='utf-8') as jf:
-                    data = json.load(jf)
+            _input_candidates = (
+                glob.glob('/kaggle/input/**/secrets*.json', recursive=True) +
+                glob.glob('/kaggle/input/**/vault*.json', recursive=True) +
+                glob.glob('/kaggle/input/**/kaggle*.json', recursive=True) +
+                glob.glob('/kaggle/input/**/*.json', recursive=True)
+            )
+            for f in _input_candidates:
+                if not os.path.isfile(f):
+                    continue
+                try:
+                    with open(f, 'r', encoding='utf-8') as jf:
+                        data = json.load(jf)
+                    if not isinstance(data, dict):
+                        continue
                     if key in data and data[key]:
                         val = str(data[key]).strip()
                         break
+                    # Key aliases
+                    _aliases = {
+                        'GITHUB_PAT': ('github_pat', 'pat', 'token', 'github_token', 'PAT'),
+                        'KAGGLE_USERNAME': ('username', 'kaggle_username', 'user'),
+                        'KAGGLE_KEY': ('key', 'kaggle_key', 'api_key'),
+                        'TELEGRAM_BOT_TOKEN': ('telegram_bot_token', 'bot_token', 'tg_token'),
+                        'TELEGRAM_CHAT_ID': ('telegram_chat_id', 'chat_id', 'tg_chat_id'),
+                    }.get(key, ())
+                    for _ak in _aliases:
+                        if _ak in data and data[_ak]:
+                            val = str(data[_ak]).strip()
+                            break
+                    if val:
+                        break
+                except Exception:
+                    continue
+        except Exception:
+            pass
+
+    # 8. Try local git configuration / remotes for GITHUB_PAT
+    if not val and key == 'GITHUB_PAT':
+        try:
+            _res = subprocess.run(['git', 'config', '--get', 'http.extraheader'], capture_output=True, text=True)
+            _eh = (_res.stdout or '').strip()
+            if 'Authorization: Basic ' in _eh:
+                _b64 = _eh.split('Authorization: Basic ')[-1].strip()
+                _dec = base64.b64decode(_b64).decode('utf-8', errors='ignore')
+                if ':' in _dec:
+                    _tok = _dec.split(':', 1)[1].strip()
+                    if _tok.startswith(('ghp_', 'github_pat_')):
+                        val = _tok
+            if not val:
+                _res_rem = subprocess.run(['git', 'remote', 'get-url', 'origin'], capture_output=True, text=True)
+                _rurl = (_res_rem.stdout or '').strip()
+                _m = re.search(r'https://(?:[^:@]+:)?(ghp_[A-Za-z0-9_]+|github_pat_[A-Za-z0-9_]+)@github\.com', _rurl)
+                if _m:
+                    val = _m.group(1).strip()
         except Exception:
             pass
 
@@ -661,13 +709,16 @@ def verify_github_pat(pat):
         diag = "GITHUB_PAT secret is missing or empty in Kaggle secrets."
         fix = (
             "1️⃣ <b>Generate / Locate GitHub PAT:</b>\n"
-            "• Go to https://github.com/settings/tokens (Tokens classic).\n"
-            "• Ensure scope <b>repo</b> (Full control of private repositories) is enabled.\n\n"
+            "• Account: <b>ranehal</b> (https://github.com/settings/tokens)\n"
+            "• Scope: <b>repo</b> (Full control of private repositories) or Fine-Grained token with Read & Write access to contents.\n\n"
             "2️⃣ <b>Attach Secret in Kaggle:</b>\n"
             "• In Kaggle notebook top bar: <b>Add-ons</b> ➜ <b>Secrets</b>.\n"
-            "• Label: <code>GITHUB_PAT</code>, Value: <code>ghp_...</code>\n"
-            "• ⚠️ <b>MANDATORY:</b> Ensure the checkbox next to <code>GITHUB_PAT</code> is <b>CHECKED</b> so this kernel can read it!\n\n"
-            "3️⃣ <b>Restart Kernel:</b>\n"
+            "• Label: <code>GITHUB_PAT</code>, Value: <code>ghp_...</code> or <code>github_pat_...</code>\n"
+            "• ⚠️ <b>MANDATORY:</b> Ensure the checkbox next to <code>GITHUB_PAT</code> is <b>CHECKED (☑)</b> so this kernel can read it!\n\n"
+            "3️⃣ <b>Alternative (Zero-Friction Private Dataset):</b>\n"
+            "• Create a private Kaggle dataset containing <code>secrets.json</code> with GITHUB_PAT, KAGGLE_USERNAME, KAGGLE_KEY.\n"
+            "• Attach it via <b>+ Add Input</b> in the Kaggle notebook.\n\n"
+            "4️⃣ <b>Restart Kernel:</b>\n"
             "• Click <b>Cancel Run</b>, then click <b>Run All</b>."
         )
         return False, diag, fix
@@ -687,7 +738,7 @@ def verify_github_pat(pat):
                 "• Go to https://github.com/settings/tokens ➜ <b>Generate new token (classic)</b>.\n"
                 "• Set Expiration to No expiration (or renew it).\n"
                 "• Select scope: <b>repo</b> (Full control of private repositories).\n"
-                "• Copy the token (starts with <code>ghp_</code>).\n\n"
+                "• Copy the token (starts with <code>ghp_</code> or <code>github_pat_</code>).\n\n"
                 "2️⃣ <b>Update Secret in Kaggle:</b>\n"
                 "• In Kaggle top menu: <b>Add-ons</b> ➜ <b>Secrets</b>.\n"
                 "• Update <code>GITHUB_PAT</code> with your new token.\n"
@@ -755,18 +806,23 @@ def run_preflight_checks():
     if not os.environ.get('KAGGLE_USERNAME'): missing.append("KAGGLE_USERNAME")
     if not os.environ.get('KAGGLE_KEY'): missing.append("KAGGLE_KEY")
     if not KAGGLE_KERNEL_SLUG: missing.append("KAGGLE_KERNEL_SLUG")
+    if not TELEGRAM_BOT_TOKEN: missing.append("TELEGRAM_BOT_TOKEN")
+    if not TELEGRAM_CHAT_ID: missing.append("TELEGRAM_CHAT_ID")
     
     if missing:
         print(f"🚨 CRITICAL WARNING: The following secrets are missing or empty: {', '.join(missing)}")
         print("🚨 Scrapers WILL fail to push to GitHub, and the script WILL fail to self-restart.")
-        print("🚨 Please stop the kernel, go to Add-ons > Secrets, attach them, and run again.\n")
+        print("🚨 Please stop the kernel, go to Add-ons > Secrets, attach them (ensure checkboxes are checked!), and run again.\n")
 
     # Deep PAT validation against GitHub API
     pat_ok, pat_diag, pat_fix = verify_github_pat(GITHUB_PAT)
     if not pat_ok:
         print(f"🚨 [PRE-FLIGHT PAT FAILURE] {pat_diag}")
-        print("📲 Sending urgent fix guide to Telegram...")
-        send_preflight_telegram_alert(pat_diag, pat_fix)
+        if TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID:
+            print("📲 Sending urgent fix guide to Telegram...")
+            send_preflight_telegram_alert(pat_diag, pat_fix)
+        else:
+            print("⚠️ Telegram credentials missing; cannot dispatch Telegram alert.")
         print("="*50 + "\n")
         return False
     else:
@@ -2828,7 +2884,11 @@ def run_all_scheduled_repos(repos, github_pat, results_store=None):
 # MASTER ORCHESTRATOR LOOP
 # ============================================================
 if __name__ == '__main__':
-    run_preflight_checks()
+    if not run_preflight_checks():
+        print("🛑 [PRE-FLIGHT] CRITICAL SECRETS CHECK FAILED!")
+        print("🛑 Halting orchestrator startup immediately to prevent wasted compute.")
+        print("🛑 Fix: In Kaggle notebook editor ➜ Add-ons ➜ Secrets ➜ Ensure checkboxes are CHECKED (☑) for GITHUB_PAT, KAGGLE_USERNAME, KAGGLE_KEY, TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID ➜ Run All.")
+        sys.exit(1)
     
     print("🚀 Launching BOTH pipelines in Parallel...")
     
