@@ -1,17 +1,5 @@
-Last Run: 2026-09-02 04:36:02
-------------------------------
-Total Scraped: 4936
-New Items: 0
-------------------------------
-Categories:
-- Grocery: 1020
-- Personal Care: 1020
-- House Hold: 979
-- Dairy: 396
-- Frozen: 394
-- Kitchen Ware: 305
-- Vegetables: 200
-- Fish: 194
-- Fruits: 178
-- Apparel & Linen: 102
-... and 3 more.
+Meenabazar Stats -> Web: 10263, App: 10260, Combined Unique: 10263
+🛒 <b>Meena Bazar Scraper Complete</b>
+🌐 Web Scraped: <b>10263</b> items
+📱 App API Scraped: <b>10260</b> items
+⚡ <b>Combined Unique (Lowest Price): 10263</b> items
