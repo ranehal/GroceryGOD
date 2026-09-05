@@ -2503,7 +2503,8 @@ def _verify_repo_integrity(repo_dir, repo_name):
     """
     Prevents cross-contamination and clobbering across store scrapers.
     Verifies that the target directory belongs to the intended repository,
-    validates remote origin, and blocks foreign files from leaking in.
+    validates remote origin, checks required content signatures, and blocks
+    foreign files and databases from leaking across repositories.
     """
     repo_name_clean = repo_name.replace('.git', '').strip()
     
@@ -2516,36 +2517,72 @@ def _verify_repo_integrity(repo_dir, repo_name):
     except Exception as e:
         if "FATAL" in str(e): raise
 
-    # 2. Strict store-specific signatures
+    # 2. Strict store-specific signatures across ALL 12 scheduled repositories
     signatures = {
         'FooDIE-mart-Analytics': {
-            'forbidden_files': ['othoba_tracker.db', 'othoba_products.json', 'scraper_app.py', 'scraper_web.py', 'urls.txt'],
-            'forbidden_patterns': ['othoba', 'shwapno', 'chaldal', 'picaboo', 'daraz', 'meena'],
+            'forbidden_files': ['othoba_tracker.db', 'othoba_products.json', 'scraper_app.py', 'scraper_web.py', 'urls.txt', 'pickaboo_prices.db'],
+            'forbidden_patterns': ['othoba', 'shwapno', 'chaldal', 'picaboo', 'daraz', 'meenabazar', 'cartup'],
             'required_patterns': ['foodi']
         },
         'FooDIE-RESTaurant-Analytics': {
-            'forbidden_files': ['othoba_tracker.db'],
-            'forbidden_patterns': ['othoba', 'shwapno'],
+            'forbidden_files': ['othoba_tracker.db', 'pickaboo_prices.db', 'shwapno_prices.db'],
+            'forbidden_patterns': ['othoba', 'shwapno', 'picaboo', 'cartup'],
             'required_patterns': ['foodi']
         },
-        'Othoba-analytics': {
-            'forbidden_files': ['Foodi_8.0.3.apk', 'foodi_page.html', 'scraper.db.part000'],
-            'forbidden_patterns': ['foodi'],
-            'required_patterns': ['othoba']
+        'FoodPANDA-RESTaurant-ANALytics': {
+            'forbidden_files': ['othoba_tracker.db', 'Foodi_8.0.3.apk', 'pickaboo_prices.db'],
+            'forbidden_patterns': ['othoba', 'shwapno', 'foodi', 'cartup', 'picaboo'],
+            'required_patterns': ['foodpanda']
         },
         'SHWAPNO-analylics': {
-            'forbidden_files': ['othoba_tracker.db', 'Foodi_8.0.3.apk'],
-            'forbidden_patterns': ['othoba', 'foodi'],
+            'forbidden_files': ['othoba_tracker.db', 'Foodi_8.0.3.apk', 'pickaboo_prices.db'],
+            'forbidden_patterns': ['othoba', 'foodi', 'cartup', 'picaboo'],
             'required_patterns': ['shwapno', 'swapno']
         },
-        'FoodPANDA-RESTaurant-ANALytics': {
+        'Othoba-analytics': {
+            'forbidden_files': ['Foodi_8.0.3.apk', 'foodi_page.html', 'scraper.db.part000', 'pickaboo_prices.db'],
+            'forbidden_patterns': ['foodi', 'picaboo', 'cartup'],
+            'required_patterns': ['othoba']
+        },
+        'CARTup-analytics': {
+            'forbidden_files': ['pickaboo_prices.db', 'othoba_tracker.db', 'Foodi_8.0.3.apk', 'scraper.db', 'dashboard.py', 'categories.json'],
+            'forbidden_patterns': ['pickaboo', 'othoba', 'foodi', 'shwapno', 'chaldal', 'cookup', 'daraz', 'meenabazar', 'sharedeal'],
+            'required_patterns': ['cartup']
+        },
+        'CHALdal-analytics': {
+            'forbidden_files': ['othoba_tracker.db', 'pickaboo_prices.db', 'Foodi_8.0.3.apk', 'scraper.db'],
+            'forbidden_patterns': ['othoba', 'foodi', 'cartup', 'picaboo'],
+            'required_patterns': ['chaldal']
+        },
+        'COOKup-analytics': {
+            'forbidden_files': ['othoba_tracker.db', 'pickaboo_prices.db', 'Foodi_8.0.3.apk'],
+            'forbidden_patterns': ['othoba', 'foodi', 'cartup', 'picaboo'],
+            'required_patterns': ['cookup']
+        },
+        'PICAboo-analytics': {
+            'forbidden_files': ['othoba_tracker.db', 'Foodi_8.0.3.apk', 'scraper.db', 'shwapno_prices.db'],
+            'forbidden_patterns': ['othoba', 'foodi', 'cartup', 'shwapno', 'chaldal'],
+            'required_patterns': ['picaboo', 'pickaboo']
+        },
+        'DARAZ-analytics': {
+            'forbidden_files': ['othoba_tracker.db', 'pickaboo_prices.db', 'Foodi_8.0.3.apk'],
+            'forbidden_patterns': ['othoba', 'foodi', 'cartup'],
+            'required_patterns': ['daraz']
+        },
+        'MEEnaBAzar-analylics': {
+            'forbidden_files': ['othoba_tracker.db', 'pickaboo_prices.db', 'Foodi_8.0.3.apk'],
+            'forbidden_patterns': ['othoba', 'foodi', 'cartup'],
+            'required_patterns': ['meena', 'meenabazar']
+        },
+        'sharedeal': {
             'forbidden_files': ['othoba_tracker.db', 'Foodi_8.0.3.apk'],
-            'forbidden_patterns': ['othoba', 'shwapno'],
-            'required_patterns': ['foodpanda']
+            'forbidden_patterns': ['othoba', 'foodi', 'cartup'],
+            'required_patterns': ['sharedeal']
         }
     }
 
-    sig = signatures.get(repo_name_clean)
+    # Case-insensitive signature lookup
+    sig = next((v for k, v in signatures.items() if k.lower() == repo_name_clean.lower()), None)
     if sig:
         # Check forbidden files directly
         for forbidden in sig.get('forbidden_files', []):
@@ -2563,6 +2600,27 @@ def _verify_repo_integrity(repo_dir, repo_name):
             for pat in sig.get('forbidden_patterns', []):
                 if pat in file_part:
                     raise RuntimeError(f"FATAL CROSS-CONTAMINATION: Foreign file '{file_part}' matching forbidden pattern '{pat}' detected in '{repo_name_clean}'! Aborting push.")
+
+        # Check required patterns: ensure at least one core file mentions the repository's identity
+        required_patterns = sig.get('required_patterns', [])
+        if required_patterns:
+            core_files = ['scraper.py', 'scrape_menus.py', 'README.md', 'index.html', 'app.js', 'package.json', 'config.yaml']
+            found_req = False
+            for cf in core_files:
+                cf_path = os.path.join(repo_dir, cf)
+                if os.path.exists(cf_path):
+                    try:
+                        with open(cf_path, 'r', encoding='utf-8', errors='ignore') as fh:
+                            content_sample = fh.read(8000).lower()
+                            if any(rp.lower() in content_sample for rp in required_patterns):
+                                found_req = True
+                                break
+                    except Exception:
+                        pass
+            if not found_req:
+                # Also check repository root folder name
+                if not any(rp.lower() in repo_name_clean.lower() for rp in required_patterns):
+                    raise RuntimeError(f"FATAL REPO IDENTITY MISMATCH: None of the required patterns {required_patterns} found in core files of '{repo_name_clean}'! Aborting push.")
 
 def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=None):
     clean_label = label.strip()
@@ -2647,6 +2705,16 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
                 f.write(f"https://ranehal:{github_pat}@github.com\nhttps://{github_pat}@github.com\n")
             _git_config('git config --global credential.helper store')
         _with_lock('git-config', _setup_git_config)
+
+        if os.path.exists(os.path.join(repo_dir, '.git')):
+            try:
+                _chk_rem = subprocess.run(['git', 'remote', 'get-url', 'origin'], cwd=repo_dir, capture_output=True, text=True)
+                _cur_orig = (_chk_rem.stdout or '').strip().lower()
+                if _cur_orig and repo_name.lower() not in _cur_orig:
+                    _log(f"WARNING: repo_dir {repo_dir} remote origin '{_cur_orig}' does not match {repo_name}. Wiping corrupted dir...")
+                    shutil.rmtree(repo_dir, ignore_errors=True)
+            except Exception:
+                pass
 
         if not os.path.exists(os.path.join(repo_dir, '.git')):
             _reclaim_disk()
@@ -2941,7 +3009,13 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
                     break
                 last_sub_push_stderr = push_res.stderr or ""
                 time.sleep(3)
-            if push_success: break
+            if push_success:
+                if default_branch == 'main':
+                    check_master = subprocess.run('git rev-parse --verify origin/master', shell=True, capture_output=True, cwd=repo_dir)
+                    if check_master.returncode == 0:
+                        _log(f"Syncing main -> master on {repo_name}...")
+                        subprocess.run(f'git push origin HEAD:master', shell=True, capture_output=True, cwd=repo_dir)
+                break
 
         if not push_success:
             raise RuntimeError(f"Git push failed: {last_sub_push_stderr[:300]}")

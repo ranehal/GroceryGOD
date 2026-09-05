@@ -3,7 +3,7 @@ window.shwapno_manifest = {
   "app_id": "com.shwapno",
   "api_base": "https://store-api.shwapno.com/en/api",
   "headers": {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36",
     "Accept": "application/json",
     "client-type": "App",
     "customer": "fbbbb451-a780-4101-88e0-aad799e60f83",
@@ -388,10 +388,6 @@ window.shwapno_manifest = {
         {
           "name": "First Aid & Antiseptics",
           "seName": "first-aid-&-antiseptics"
-        },
-        {
-          "name": "Herbal & Digestive Aids",
-          "seName": "herbal-&-digestive-aids"
         }
       ]
     },
@@ -563,10 +559,6 @@ window.shwapno_manifest = {
     {
       "name": "Powder Milk",
       "subCategories": [
-        {
-          "name": "Diabetic Milk",
-          "seName": "diabetic-milk"
-        },
         {
           "name": "Full Cream Milk",
           "seName": "full-cream-milk"
@@ -740,6 +732,6 @@ window.shwapno_manifest = {
     }
   ],
   "total_categories": 36,
-  "total_products": 4085,
-  "captured_at": "2026-09-05T16:37:54.057038"
+  "total_products": 3375,
+  "captured_at": "2026-09-03T09:05:11.394492"
 };
