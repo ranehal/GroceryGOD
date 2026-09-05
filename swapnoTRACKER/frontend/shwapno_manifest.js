@@ -388,6 +388,10 @@ window.shwapno_manifest = {
         {
           "name": "First Aid & Antiseptics",
           "seName": "first-aid-&-antiseptics"
+        },
+        {
+          "name": "Herbal & Digestive Aids",
+          "seName": "herbal-&-digestive-aids"
         }
       ]
     },
@@ -559,6 +563,10 @@ window.shwapno_manifest = {
     {
       "name": "Powder Milk",
       "subCategories": [
+        {
+          "name": "Diabetic Milk",
+          "seName": "diabetic-milk"
+        },
         {
           "name": "Full Cream Milk",
           "seName": "full-cream-milk"
@@ -732,6 +740,6 @@ window.shwapno_manifest = {
     }
   ],
   "total_categories": 36,
-  "total_products": 3375,
-  "captured_at": "2026-09-03T09:05:11.394492"
+  "total_products": 4030,
+  "captured_at": "2026-09-05T21:24:46.977373"
 };

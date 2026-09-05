@@ -290,15 +290,6 @@ window.shwapno_manifest = {
       ]
     },
     {
-      "name": "Fashion & Lifestyle",
-      "subCategories": [
-        {
-          "name": "Lungi",
-          "seName": "lungi"
-        }
-      ]
-    },
-    {
       "name": "Fish",
       "subCategories": [
         {
@@ -394,10 +385,6 @@ window.shwapno_manifest = {
     {
       "name": "Health Care",
       "subCategories": [
-        {
-          "name": "Diabetic Sugar",
-          "seName": "diabetic-sugar"
-        },
         {
           "name": "First Aid & Antiseptics",
           "seName": "first-aid-&-antiseptics"
@@ -752,7 +739,7 @@ window.shwapno_manifest = {
       ]
     }
   ],
-  "total_categories": 37,
-  "total_products": 5048,
-  "captured_at": "2026-09-02T19:17:37.184088"
+  "total_categories": 36,
+  "total_products": 4030,
+  "captured_at": "2026-09-05T21:24:46.977373"
 };
