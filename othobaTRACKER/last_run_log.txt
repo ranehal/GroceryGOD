@@ -1,17 +1,17 @@
-Last Run: 2026-09-06 03:26:06
+Last Run: 2026-09-06 04:58:43
 ------------------------------
 Total Scraped: 7482
-Web Scraped: 4387
+Web Scraped: 4397
 App API Scraped: 6815
 Combined Unique: 7482
 ------------------------------
 Categories:
-- Snacks: 810
+- Snacks: 815
 - Grocery Staples: 717
 - Household Essentials: 571
 - Groceries: 525
 - Coffee, Tea & Beverages: 452
-- Ice Cream & Sweet Delights: 451
+- Ice Cream & Sweet Delights: 450
 - Laundry & Cleaning: 325
 - Lubricants & Oils: 299
 - daily-bazar: 274
