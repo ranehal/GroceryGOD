@@ -1566,7 +1566,7 @@ def run_grocery_god(github_pat):
 
             with Step('GODdata Aggregator', '🧬'):
                 # Sync Foodi DB from sub-repo if present
-                _foodi_sub = '/kaggle/working/FooDIE-mart-Analytics/data/scraper.db' if platform.system() != 'Windows' else r'C:\PROJECTS\Foodie\FooDIE-mart-Analytics\data\scraper.db'
+                _foodi_sub = '/kaggle/working/FooDIE-mart-Analytics/data/scraper.db' if platform.system() != 'Windows' else r'C:\PROJECTS\ShopGOD\FooDIEscraper\data\scraper.db'
                 if os.path.exists(_foodi_sub):
                     try:
                         os.makedirs('FooDIEscraper/data', exist_ok=True)
@@ -2496,6 +2496,74 @@ def _read_aggregator_summary():
         pass
     return ""
 
+# ============================================================
+# BULLETPROOF REPO INTEGRITY & CROSS-CONTAMINATION GUARD
+# ============================================================
+def _verify_repo_integrity(repo_dir, repo_name):
+    """
+    Prevents cross-contamination and clobbering across store scrapers.
+    Verifies that the target directory belongs to the intended repository,
+    validates remote origin, and blocks foreign files from leaking in.
+    """
+    repo_name_clean = repo_name.replace('.git', '').strip()
+    
+    # 1. Verify remote origin URL matches repo_name
+    try:
+        rem_res = subprocess.run(['git', 'remote', 'get-url', 'origin'], cwd=repo_dir, capture_output=True, text=True)
+        current_rem = (rem_res.stdout or '').strip()
+        if current_rem and repo_name_clean.lower() not in current_rem.lower():
+            raise RuntimeError(f"FATAL REPO CORRUPTION: remote origin '{current_rem}' does not match expected repo '{repo_name_clean}'!")
+    except Exception as e:
+        if "FATAL" in str(e): raise
+
+    # 2. Strict store-specific signatures
+    signatures = {
+        'FooDIE-mart-Analytics': {
+            'forbidden_files': ['othoba_tracker.db', 'othoba_products.json', 'scraper_app.py', 'scraper_web.py', 'urls.txt'],
+            'forbidden_patterns': ['othoba', 'shwapno', 'chaldal', 'picaboo', 'daraz', 'meena'],
+            'required_patterns': ['foodi']
+        },
+        'FooDIE-RESTaurant-Analytics': {
+            'forbidden_files': ['othoba_tracker.db'],
+            'forbidden_patterns': ['othoba', 'shwapno'],
+            'required_patterns': ['foodi']
+        },
+        'Othoba-analytics': {
+            'forbidden_files': ['Foodi_8.0.3.apk', 'foodi_page.html', 'scraper.db.part000'],
+            'forbidden_patterns': ['foodi'],
+            'required_patterns': ['othoba']
+        },
+        'SHWAPNO-analylics': {
+            'forbidden_files': ['othoba_tracker.db', 'Foodi_8.0.3.apk'],
+            'forbidden_patterns': ['othoba', 'foodi'],
+            'required_patterns': ['shwapno', 'swapno']
+        },
+        'FoodPANDA-RESTaurant-ANALytics': {
+            'forbidden_files': ['othoba_tracker.db', 'Foodi_8.0.3.apk'],
+            'forbidden_patterns': ['othoba', 'shwapno'],
+            'required_patterns': ['foodpanda']
+        }
+    }
+
+    sig = signatures.get(repo_name_clean)
+    if sig:
+        # Check forbidden files directly
+        for forbidden in sig.get('forbidden_files', []):
+            fpath = os.path.join(repo_dir, forbidden)
+            if os.path.exists(fpath):
+                raise RuntimeError(f"FATAL CROSS-CONTAMINATION: Forbidden foreign file '{forbidden}' found in '{repo_name_clean}'! Aborting push.")
+
+        # Check git status for foreign files
+        res_files = subprocess.run(['git', 'status', '--porcelain'], cwd=repo_dir, capture_output=True, text=True)
+        status_lines = (res_files.stdout or '').splitlines()
+        for s_line in status_lines:
+            file_part = s_line[3:].strip().lower()
+            if file_part.endswith('.log') or file_part.endswith('.tmp'):
+                continue
+            for pat in sig.get('forbidden_patterns', []):
+                if pat in file_part:
+                    raise RuntimeError(f"FATAL CROSS-CONTAMINATION: Foreign file '{file_part}' matching forbidden pattern '{pat}' detected in '{repo_name_clean}'! Aborting push.")
+
 def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=None):
     clean_label = label.strip()
     slug = re.sub(r'[^a-z0-9]+', '_', clean_label.lower()).strip('_')
@@ -2603,6 +2671,7 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
             check_main = subprocess.run('git rev-parse --verify origin/main', shell=True, capture_output=True, cwd=repo_dir)
             default_branch = 'main' if check_main.returncode == 0 else 'master'
         subprocess.run(f'git reset --hard origin/{default_branch}', shell=True, cwd=repo_dir)
+        _verify_repo_integrity(repo_dir, repo_name)
 
         if os.path.exists(os.path.join(repo_dir, 'requirements.txt')):
             subprocess.run([sys.executable, "-m", "pip", "install", "-q", "-r", "requirements.txt"], cwd=repo_dir, check=False)
@@ -2830,6 +2899,7 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
         subprocess.run('git config http.postBuffer 1048576000', shell=True, cwd=repo_dir)
         subprocess.run('git config http.version HTTP/1.1', shell=True, cwd=repo_dir)
         subprocess.run('find . -name "_scraper_error_*.log" -delete', shell=True, cwd=repo_dir)
+        _verify_repo_integrity(repo_dir, repo_name)
         subprocess.run('git add .', shell=True, cwd=repo_dir)
         now_str = datetime.now(DHAKA_TZ).strftime('%Y-%m-%d %H:%M:%S')
         subprocess.run(f'git commit -m "if this works ill get some sleep frfr {now_str}"', shell=True, cwd=repo_dir)
@@ -2850,13 +2920,21 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
             _with_lock('git-config', lambda: (_git_config(f'git config user.name "{user_n}"'), _git_config(f'git config user.email "{user_n}@users.noreply.github.com"')))
             for attempt in range(3):
                 subprocess.run(f'git pull origin {default_branch} --rebase -X ours -q', shell=True, capture_output=True, cwd=repo_dir)
-                push_res = subprocess.run(f'git push origin HEAD:{default_branch} --force', shell=True, capture_output=True, text=True, cwd=repo_dir)
+                _verify_repo_integrity(repo_dir, repo_name)
+                # 1. Clean fast-forward push first
+                push_res = subprocess.run(f'git push origin HEAD:{default_branch}', shell=True, capture_output=True, text=True, cwd=repo_dir)
                 if push_res.returncode == 0:
                     push_success = True
                     last_sub_push_stderr = (push_res.stderr or "") + "\n" + (push_res.stdout or "")
                     break
-                # Direct URL push fallback
-                push_res = subprocess.run(f'git push {auth_u} HEAD:{default_branch} --force', shell=True, capture_output=True, text=True, cwd=repo_dir)
+                # 2. Direct authenticated URL push fallback (fast-forward)
+                push_res = subprocess.run(f'git push {auth_u} HEAD:{default_branch}', shell=True, capture_output=True, text=True, cwd=repo_dir)
+                if push_res.returncode == 0:
+                    push_success = True
+                    last_sub_push_stderr = (push_res.stderr or "") + "\n" + (push_res.stdout or "")
+                    break
+                # 3. Only use --force-with-lease (never blind --force) after verified integrity
+                push_res = subprocess.run(f'git push origin HEAD:{default_branch} --force-with-lease', shell=True, capture_output=True, text=True, cwd=repo_dir)
                 if push_res.returncode == 0:
                     push_success = True
                     last_sub_push_stderr = (push_res.stderr or "") + "\n" + (push_res.stdout or "")
