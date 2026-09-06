@@ -32,6 +32,13 @@ These fixes were extracted from live Kaggle failures. Preserve the patterns:
 
 ## Pipeline change log (2026-08-14 — do not regress or redo)
 
+- **Push Bandwidth Quota Slasher & Deterministic AES-GCM Cipher Optimization (`scratch.py` & `convert_to_parquet.py`, 2026-09-07, do not regress)**:
+  - Switched AES-GCM encryption in `_enc` and `convert_to_parquet.py` to deterministic key, salt, and IV derivation from content SHA-256 hash (`b"GGE1_SALT:" + key + hash`, `b"GGE1_IV:" + key + hash`), guaranteeing identical ciphertext and 0-byte git delta for unchanged data.
+  - Eliminated premature unencrypted intermediate git commit and push at Step 4 (which was committing `.orig` duplicates and leaking plaintext data).
+  - Purged over 60MB of duplicate and dead tracked blobs from GroceryGOD (`FooDIEscraper/data`, `MEENAtracker/backend`, `othobaTRACKER/backend`, `history.parquet.enc`, `PRICETRACKER/data.js.enc.hash`) and excluded foreign DBs and redundant history archive from encryption targets.
+  - Added `--progress` to all git push operations in `run_grocery_god` and `run_scheduled_repo` so Git prints actual transferred wire packfile bytes to stderr.
+  - Fixed 4x multiplier calculation bug in `_send_p14_summary` by summing bandwidth once per unique repository rather than over `file_results.values()` (which had 4 keys per repo).
+  - Added auto-purging of `*.part*`, `*.apk`, `*.jar`, and retry logs in `run_scheduled_repo` before staging, and added wire compression estimation to fallback bandwidth calculations.
 - **Push Bandwidth Quota Saver & Auto-Purge Self-Healing (`scratch.py`, 2026-09-06, do not regress)**:
   - Added Zero-Change Push Guard across all 12 scheduled sub-repos in `run_scheduled_repo`: skips git commit & push if no data files (`.db`, `.json`, `.parquet`, `.js`, `.csv`, `.html`, `.enc`) changed, saving ~150–200MB daily across zero-movement stores.
   - Added Content-Hash Cipher Preservation in `run_grocery_god`: caches plaintext hash on decrypt, reuses original `.enc` ciphertext if plaintext did not change, completely eliminating pseudo-random AES delta bloating and saving up to ~100MB per cycle.
