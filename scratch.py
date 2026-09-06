@@ -2981,6 +2981,27 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
                                 sf.write(s_code_patched)
                         except Exception as _ast_err:
                             _log(f"Cat safety AST validation failed: {_ast_err}")
+
+            # 5. Patch FoodPANDA scrape_menus.py checkpoint lockup / latency if legacy version is present
+            if 'foodpanda' in repo_name.lower() and os.path.exists(resolved_script_path):
+                try:
+                    with open(resolved_script_path, "r", encoding="utf-8", errors="replace") as _fpf:
+                        _fp_src = _fpf.read()
+                    _orig_fp = _fp_src
+                    if 'completed % 30 == 0' in _fp_src:
+                        _fp_src = _fp_src.replace('if completed % 30 == 0:', 'if False and completed % 30 == 0:')
+                    if 'compression_level=19' in _fp_src:
+                        _fp_src = _fp_src.replace('compression_level=19', 'compression_level=12')
+                    if _fp_src != _orig_fp:
+                        try:
+                            _ast.parse(_fp_src)
+                            with open(resolved_script_path, "w", encoding="utf-8") as _fpf:
+                                _fpf.write(_fp_src)
+                            _log("Auto-patched FoodPANDA scrape_menus with non-blocking checkpoints...")
+                        except Exception as _fp_ast_err:
+                            _log(f"Foodpanda patch AST validation failed: {_fp_ast_err}")
+                except Exception as _fp_err:
+                    _log(f"Foodpanda patch warning: {_fp_err}")
         except Exception as patch_err:
             _log(f"Script patch warning: {patch_err}")
 
@@ -2997,7 +3018,18 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
             my_env["PYTHONPATH"] = f"{script_dir}{os.pathsep}{repo_dir}{os.pathsep}{my_env.get('PYTHONPATH', '')}"
             my_env["PYTHONUNBUFFERED"] = "1"
             my_env["PYTHONIOENCODING"] = "utf-8"
-            res = subprocess.run([sys.executable, "-u", script_file], cwd=script_dir, capture_output=True, text=True, timeout=3600, env=my_env)
+            try:
+                res = subprocess.run([sys.executable, "-u", script_file], cwd=script_dir, capture_output=True, text=True, timeout=3600, env=my_env)
+            except subprocess.TimeoutExpired as _tex:
+                exec_elapsed = time.time() - t_exec0
+                _log(f"⚠️ Script {script_file} timed out after 3600s on attempt {_attempt}/{max_script_retries}")
+                _to_stdout = (_tex.stdout or "") if isinstance(_tex.stdout, str) else (_tex.stdout.decode('utf-8', 'replace') if _tex.stdout else "")
+                _to_stderr = (_tex.stderr or "") if isinstance(_tex.stderr, str) else (_tex.stderr.decode('utf-8', 'replace') if _tex.stderr else "")
+                class _TimeoutResult:
+                    returncode = -9
+                    stdout = _to_stdout
+                    stderr = _to_stderr + f"\n[TIMEOUT] Command timed out after 3600 seconds on attempt {_attempt}"
+                res = _TimeoutResult()
             exec_elapsed = time.time() - t_exec0
             if res.returncode == 0:
                 break
