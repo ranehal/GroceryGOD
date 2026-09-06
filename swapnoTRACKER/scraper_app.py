@@ -1,6 +1,3 @@
-import os
-from datetime import timezone, timedelta
-DHAKA_TZ = timezone(timedelta(hours=6))
 import json, re, os, time, urllib.request, urllib.error, gzip, ssl
 
 import random

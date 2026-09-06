@@ -2530,9 +2530,14 @@ def _verify_repo_integrity(repo_dir, repo_name):
             'required_patterns': ['foodi']
         },
         'FoodPANDA-RESTaurant-ANALytics': {
-            'forbidden_files': ['othoba_tracker.db', 'Foodi_8.0.3.apk', 'pickaboo_prices.db'],
-            'forbidden_patterns': ['othoba', 'shwapno', 'foodi', 'cartup', 'picaboo'],
-            'required_patterns': ['foodpanda']
+            'forbidden_files': [
+                'othoba_tracker.db', 'othoba_products.json', 'Foodi_8.0.3.apk', 'pickaboo_prices.db',
+                'pickaboo_prices.db-shm', 'pickaboo_prices.db-wal', 'scraper.db', 'shwapno_prices.db',
+                'cartup_products.json', 'scraper.py', 'dashboard.py', 'export_static.py',
+                'fix_tokens.py', 'update_token.py', 'parse_har.py', 'config.yaml', 'runall.bat'
+            ],
+            'forbidden_patterns': ['othoba', 'shwapno', 'foodi', 'cartup', 'picaboo', 'pickaboo', 'chaldal', 'sharedeal'],
+            'required_patterns': ['foodpanda', 'bd.fd-api.com']
         },
         'SHWAPNO-analylics': {
             'forbidden_files': ['othoba_tracker.db', 'Foodi_8.0.3.apk', 'pickaboo_prices.db'],
@@ -2799,6 +2804,12 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
             exact_matches = glob.glob(f'{repo_dir}/**/{script_name}', recursive=True)
             if exact_matches:
                 resolved_script_path = exact_matches[0]
+            elif script_name in ('scrape_menus.py',):
+                err_msg = f"FATAL: Expected script '{script_name}' not found in {repo_name}. Generic fallback prohibited to prevent cross-contamination."
+                _log(f"❌ {err_msg}")
+                _p14_record.update(status='failed', error=err_msg, elapsed=int(time.time() - _t0))
+                _store_result()
+                return
             else:
                 py_files = [f for f in glob.glob(f'{repo_dir}/**/*.py', recursive=True) if not os.path.basename(f).startswith('__') and os.path.basename(f) != 'setup.py']
                 preferred = [f for f in py_files if any(k in f.lower() for k in ['scraper', 'main', 'run', 'meena', 'app', 'web', 'menu', 'scrape'])]
