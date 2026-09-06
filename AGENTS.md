@@ -32,6 +32,13 @@ These fixes were extracted from live Kaggle failures. Preserve the patterns:
 
 ## Pipeline change log (2026-08-14 — do not regress or redo)
 
+- **Push Bandwidth Quota Saver & Auto-Purge Self-Healing (`scratch.py`, 2026-09-06, do not regress)**:
+  - Added Zero-Change Push Guard across all 12 scheduled sub-repos in `run_scheduled_repo`: skips git commit & push if no data files (`.db`, `.json`, `.parquet`, `.js`, `.csv`, `.html`, `.enc`) changed, saving ~150–200MB daily across zero-movement stores.
+  - Added Content-Hash Cipher Preservation in `run_grocery_god`: caches plaintext hash on decrypt, reuses original `.enc` ciphertext if plaintext did not change, completely eliminating pseudo-random AES delta bloating and saving up to ~100MB per cycle.
+  - Hardened `_verify_repo_integrity`: auto-purges committed/leftover forbidden foreign files (`git rm -rf --ignore-unmatch forbidden`) before verification and ignores status deletions (`D`), automatically resolving cross-contamination in FooDIE Rest, FoodPANDA, and COOKup.
+  - Replaced `git clean -fd` with `git clean -fdx` in `run_scheduled_repo` so gitignored artifacts (like `*.apk` in FoodPANDA) are purged.
+  - Purged 50MB of obsolete legacy blobs (`PRICETRACKER/data.js.enc`, `metroTRACKER/backend/metro_tracker.db.enc`, `autoglm-browser-service`) from GroceryGOD repo and stopped re-encrypting `PRICETRACKER/data.js`.
+  - Fixed IPC bandwidth synchronization between master and child worker processes by reloading ledger from disk vault in `_init_bandwidth_state` and summing all sub-repo bytes in `_send_p14_summary`.
 - `import platform` moved to module top; deleted the local `import platform, os, subprocess` inside `run_grocery_god` (fix: `UnboundLocalError: os` killing the whole pipeline at boot).
 - Added helpers: `_with_lock(lock_key, fn)` (fcntl, `/tmp/<key>.lck`, Windows no-op fallback), `_git_config(cmd)` (retry on "could not lock"), `_reclaim_disk(force=False)` (purges pip cache / apt lists / `__pycache__` / `.pyc` / `_scraper_error_*.log`, returns free GB).
 - Git config setup and playwright/apt installs in both `run_grocery_god` and `run_scheduled_repo` are serialized under `_with_lock('git-config', ...)` / `_with_lock('playwright-install', ...)` (fix: `.gitconfig` / `.git/config` and `/var/lib/apt/lists/lock` races).

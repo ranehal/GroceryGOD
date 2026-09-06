@@ -551,11 +551,21 @@ def _get_current_month_key():
     return datetime.now(DHAKA_TZ).strftime("%Y-%m")
 
 def _init_bandwidth_state():
-    """Initialize or roll over monthly bandwidth tracking ledger."""
+    """Initialize or roll over monthly bandwidth tracking ledger with disk vault sync."""
     curr_month = _get_current_month_key()
-    stored_month = _PERSISTED_STATE.get('bandwidth_month_key')
-    if stored_month != curr_month:
-        # Monthly rollover
+    for vp in ['/kaggle/working/bandwidth_tracker.json', '/tmp/bandwidth_tracker.json', '/kaggle/working/output/bandwidth_tracker.json']:
+        if os.path.exists(vp):
+            try:
+                with open(vp, 'r', encoding='utf-8') as vf:
+                    disk_data = json.load(vf)
+                if disk_data.get('month_key') == curr_month:
+                    _PERSISTED_STATE['bandwidth_monthly_bytes'] = max(_PERSISTED_STATE.get('bandwidth_monthly_bytes', 0), int(disk_data.get('monthly_bytes', 0)))
+                    _PERSISTED_STATE['bandwidth_pushes_count'] = max(_PERSISTED_STATE.get('bandwidth_pushes_count', 0), int(disk_data.get('pushes_count', 0)))
+                    _PERSISTED_STATE['bandwidth_month_key'] = curr_month
+                    break
+            except Exception:
+                pass
+    if _PERSISTED_STATE.get('bandwidth_month_key') != curr_month:
         _PERSISTED_STATE['bandwidth_month_key'] = curr_month
         _PERSISTED_STATE['bandwidth_monthly_bytes'] = 0
         _PERSISTED_STATE['bandwidth_pushes_count'] = 0
@@ -1359,6 +1369,10 @@ def run_grocery_god(github_pat):
                             with open(ep, 'rb') as f: d = f.read()
                             plain = _dec(d, _KEY)
                             with open(ep[:-4], 'wb') as f: f.write(plain)
+                            try:
+                                shutil.copy2(ep, ep + '.orig')
+                                with open(ep + '.hash', 'w') as hf: hf.write(_hashlib.sha256(plain).hexdigest())
+                            except Exception: pass
                             os.remove(ep)
                             _dc += 1
                             log.info(f'  {os.path.relpath(ep, _cwd)} -> decrypted ({len(plain)//1024}KB)')
@@ -1674,7 +1688,7 @@ def run_grocery_god(github_pat):
                     _targets = []
                     for pat in ['*_data_part*.js']:
                         _targets.extend(_glob.glob(os.path.join(_cwd, pat)))
-                    for tf in ['PRICETRACKER/data.js', 'swapnoTRACKER/data.json', 'unimartTRACKER/data.json', 'ShotejTRACKER/data.json', 'data.json', 'data.js']:
+                    for tf in ['swapnoTRACKER/data.json', 'unimartTRACKER/data.json', 'ShotejTRACKER/data.json', 'data.json', 'data.js']:
                         p = os.path.join(_cwd, tf)
                         if os.path.exists(p): _targets.append(p)
                     for d in ['swapnoTRACKER', 'PRICETRACKER', 'MEENAtracker/backend', 'othobaTRACKER/backend', 'metroTRACKER/backend', 'unimartTRACKER', 'ShotejTRACKER']:
@@ -1693,10 +1707,23 @@ def run_grocery_god(github_pat):
                     for tp in _targets:
                         try:
                             with open(tp, 'rb') as f: data = f.read()
-                            ed = _enc(data, _KEY)
                             ep = tp + '.enc'
-                            for old in _glob.glob(ep + '.*'): os.remove(old)
-                            cps = _write_enc(ep, ed)
+                            orig_p, hash_p = ep + '.orig', ep + '.hash'
+                            if os.path.exists(orig_p) and os.path.exists(hash_p) and open(hash_p).read().strip() == _hashlib.sha256(data).hexdigest():
+                                with open(orig_p, 'rb') as orig_f: ed = orig_f.read()
+                                for old in _glob.glob(ep + '.*'):
+                                    if not old.endswith('.orig') and not old.endswith('.hash'): os.remove(old)
+                                cps = _write_enc(ep, ed)
+                                log.info(f'  {os.path.relpath(tp, _cwd)} -> UNCHANGED (preserved original .enc, 0MB git delta)')
+                            else:
+                                ed = _enc(data, _KEY)
+                                for old in _glob.glob(ep + '.*'):
+                                    if not old.endswith('.orig') and not old.endswith('.hash'): os.remove(old)
+                                cps = _write_enc(ep, ed)
+                            for tmp_clean in [orig_p, hash_p]:
+                                if os.path.exists(tmp_clean):
+                                    try: os.remove(tmp_clean)
+                                    except Exception: pass
                             _ec += 1
                             rel = os.path.relpath(tp, _cwd)
                             if len(cps) == 1:
@@ -2441,7 +2468,8 @@ def _send_p14_summary(results_store, repo_list):
         _sh = SHORT_NAMES.get(lbl.strip(), lbl.strip())
         links_block.append(f"• {_sh}: {u}")
 
-    _bw_p14 = get_bandwidth_telemetry(0, "Scheduled Sub-Repos")
+    _sub_tot_bytes = sum(int(r.get('bandwidth_bytes') or 0) for r in file_results.values() if isinstance(r, dict))
+    _bw_p14 = get_bandwidth_telemetry(_sub_tot_bytes, "Scheduled Sub-Repos")
 
     parts = [
         "📊 <b>Scheduled Sub-Repos (p3–p14) Summary</b>",
@@ -2589,6 +2617,20 @@ def _verify_repo_integrity(repo_dir, repo_name):
     # Case-insensitive signature lookup
     sig = next((v for k, v in signatures.items() if k.lower() == repo_name_clean.lower()), None)
     if sig:
+        # Auto-purge foreign forbidden files if committed/leftover from prior runs
+        for forbidden in sig.get('forbidden_files', []):
+            fpath = os.path.join(repo_dir, forbidden)
+            if os.path.exists(fpath):
+                subprocess.run(['git', 'rm', '-rf', '--ignore-unmatch', forbidden, f"{forbidden}.enc*", f"{forbidden}.*"], cwd=repo_dir, capture_output=True)
+                if os.path.isdir(fpath): shutil.rmtree(fpath, ignore_errors=True)
+                elif os.path.exists(fpath):
+                    try: os.remove(fpath)
+                    except Exception: pass
+                for extra in [f"{fpath}.enc", f"{fpath}.enc.000", f"{fpath}.enc.001", f"{fpath}-shm", f"{fpath}-wal"]:
+                    if os.path.exists(extra):
+                        try: os.remove(extra)
+                        except Exception: pass
+
         # Check forbidden files directly
         for forbidden in sig.get('forbidden_files', []):
             fpath = os.path.join(repo_dir, forbidden)
@@ -2600,7 +2642,7 @@ def _verify_repo_integrity(repo_dir, repo_name):
         status_lines = (res_files.stdout or '').splitlines()
         for s_line in status_lines:
             file_part = s_line[3:].strip().lower()
-            if file_part.endswith('.log') or file_part.endswith('.tmp'):
+            if file_part.endswith('.log') or file_part.endswith('.tmp') or s_line[:2].strip() == 'D':
                 continue
             for pat in sig.get('forbidden_patterns', []):
                 if pat in file_part:
@@ -2736,7 +2778,7 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
         subprocess.run(f'git remote add origin {auth_repo_url}', shell=True, capture_output=True, cwd=repo_dir)
         subprocess.run(f'git remote set-url origin {auth_repo_url}', shell=True, capture_output=True, cwd=repo_dir)
 
-        subprocess.run('git clean -fd', shell=True, cwd=repo_dir)
+        subprocess.run('git clean -fdx', shell=True, cwd=repo_dir)
         subprocess.run('git fetch --all', shell=True, cwd=repo_dir)
         branch_res = subprocess.run('git symbolic-ref refs/remotes/origin/HEAD', shell=True, capture_output=True, text=True, cwd=repo_dir)
         default_branch = branch_res.stdout.strip().split('/')[-1] if branch_res.returncode == 0 else ''
@@ -2744,6 +2786,7 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
             check_main = subprocess.run('git rev-parse --verify origin/main', shell=True, capture_output=True, cwd=repo_dir)
             default_branch = 'main' if check_main.returncode == 0 else 'master'
         subprocess.run(f'git reset --hard origin/{default_branch}', shell=True, cwd=repo_dir)
+        subprocess.run('git clean -fdx', shell=True, cwd=repo_dir)
         _verify_repo_integrity(repo_dir, repo_name)
 
         if os.path.exists(os.path.join(repo_dir, 'requirements.txt')):
@@ -2980,6 +3023,18 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
         subprocess.run('find . -name "_scraper_error_*.log" -delete', shell=True, cwd=repo_dir)
         _verify_repo_integrity(repo_dir, repo_name)
         subprocess.run('git add .', shell=True, cwd=repo_dir)
+
+        # Zero-change push guard: skip push if no meaningful data files changed to conserve monthly bandwidth
+        st_out = subprocess.run(['git', 'diff', '--cached', '--name-only'], cwd=repo_dir, capture_output=True, text=True).stdout or ''
+        data_files_changed = [f for f in st_out.splitlines() if any(f.lower().endswith(ext) for ext in ['.db', '.json', '.parquet', '.js', '.csv', '.html', '.enc'])]
+        if not data_files_changed:
+            _log("⏸️ Zero data changes detected. Skipping git push to conserve bandwidth quota.")
+            _p14_record.update(status='ok', elapsed=int(time.time() - _t0), error='', url=repo_page_url, bandwidth_bytes=0, bandwidth_mb=0.0)
+            _p14_record['price_stats'] = _extract_repo_price_stats(repo_dir, (res.stdout or "") + (res.stderr or "") if res else "")
+            if res is not None: _p14_record['counts'] = _extract_scraper_counts((res.stdout or "") + (res.stderr or ""))
+            _store_result()
+            return
+
         now_str = datetime.now(DHAKA_TZ).strftime('%Y-%m-%d %H:%M:%S')
         subprocess.run(f'git commit -m "if this works ill get some sleep frfr {now_str}"', shell=True, cwd=repo_dir)
 

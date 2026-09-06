@@ -25,3 +25,10 @@ unimartTRACKER/data.json
 ShotejTRACKER/data.json
 chaldalTRACKER/data.js
 full_history_recovery.py
+
+# Obsolete binary blobs & backup files
+autoglm-browser-service
+PRICETRACKER/data.js.enc
+metroTRACKER/backend/metro_tracker.db.enc
+*.orig
+*.hash
