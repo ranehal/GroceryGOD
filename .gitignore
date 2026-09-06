@@ -30,5 +30,11 @@ full_history_recovery.py
 autoglm-browser-service
 PRICETRACKER/data.js.enc
 metroTRACKER/backend/metro_tracker.db.enc
+metroTRACKER/backend/
+othobaTRACKER/backend/
+MEENAtracker/backend/
+FooDIEscraper/data/
+history.parquet.enc
 *.orig
 *.hash
+

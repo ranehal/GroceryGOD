@@ -260,27 +260,41 @@ con.execute(f"COPY full_history TO '{arch_target.replace(chr(92), "/")}' (FORMAT
 
 if premium_key:
     from cryptography.hazmat.primitives.ciphers.aead import AESGCM
-    import hashlib, secrets
-    for p_name in ['products.parquet', 'history.parquet']:
-        p_file = os.path.join(BASE, p_name)
+    import hashlib
+
+    def _enc_det(data, key_str):
+        d_hash = hashlib.sha256(data).digest()
+        s = hashlib.sha256(b"GGE1_SALT:" + key_str.encode('utf-8') + d_hash).digest()[:16]
+        i = hashlib.sha256(b"GGE1_IV:" + key_str.encode('utf-8') + d_hash).digest()[:12]
+        k = hashlib.pbkdf2_hmac('sha256', key_str.encode('utf-8'), s, 250000, dklen=32)
+        c = AESGCM(k).encrypt(i, data, None)
+        return b'GGE1' + s + i + c
+
+    # 1. products.parquet.enc (encrypted full products catalog)
+    p_file = os.path.join(BASE, 'products.parquet')
+    if os.path.exists(p_file):
         with open(p_file, 'rb') as f:
             pt = f.read()
-        salt = secrets.token_bytes(16)
-        iv = secrets.token_bytes(12)
-        kdf = hashlib.pbkdf2_hmac('sha256', premium_key.encode('utf-8'), salt, 250000, dklen=32)
-        ct = AESGCM(kdf).encrypt(iv, pt, None)
         with open(p_file + '.enc', 'wb') as ef:
-            ef.write(b'GGE1' + salt + iv + ct)
-        print(f"Re-encrypted {p_name}.enc")
-    
-    with open(arch_target, 'rb') as f:
-        pt = f.read()
-    salt = secrets.token_bytes(16)
-    iv = secrets.token_bytes(12)
-    kdf = hashlib.pbkdf2_hmac('sha256', premium_key.encode('utf-8'), salt, 250000, dklen=32)
-    ct = AESGCM(kdf).encrypt(iv, pt, None)
-    with open(arch_target + '.enc', 'wb') as ef:
-        ef.write(b'GGE1' + salt + iv + ct)
-    print(f"Re-encrypted premium/history_archive.parquet.enc")
+            ef.write(_enc_det(pt, premium_key))
+        print("Re-encrypted products.parquet.enc (deterministic AES-GCM)")
+
+    # 2. Clean up redundant history.parquet.enc if present (history_archive is the canonical encrypted archive)
+    redundant_hist_enc = os.path.join(BASE, 'history.parquet.enc')
+    if os.path.exists(redundant_hist_enc):
+        try:
+            os.remove(redundant_hist_enc)
+            print("Purged redundant history.parquet.enc")
+        except Exception:
+            pass
+
+    # 3. premium/history_archive.parquet.enc
+    if os.path.exists(arch_target):
+        with open(arch_target, 'rb') as f:
+            pt = f.read()
+        with open(arch_target + '.enc', 'wb') as ef:
+            ef.write(_enc_det(pt, premium_key))
+        print("Re-encrypted premium/history_archive.parquet.enc (deterministic AES-GCM)")
+
 
 print(f"\nAll Parquet datasets and encryptions generated successfully in {time.time()-t0:.2f}s!")

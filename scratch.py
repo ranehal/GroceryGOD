@@ -590,25 +590,32 @@ def record_git_push_bandwidth(repo_dir=".", repo_name="GroceryGOD", stderr_text=
     # 1. Parse bytes from Git push stderr
     push_bytes = 0
     if stderr_text:
-        m = re.search(r'Writing objects:\s*100%\s*\([^)]+\),\s*([\d\.]+)\s*([KMGT]?i?B)', stderr_text, re.IGNORECASE)
-        if m:
-            val = float(m.group(1))
-            unit = m.group(2).upper()
+        # Match "Writing objects: 100% (X/X), 1.25 MiB | 2.50 MiB/s"
+        matches = re.findall(r'Writing objects:\s*\d+%\s*\([^)]+\),\s*([\d\.]+)\s*([KMGT]?i?B)', stderr_text, re.IGNORECASE)
+        if matches:
+            val, unit = float(matches[-1][0]), matches[-1][1].upper()
             if 'G' in unit: push_bytes = int(val * 1024 * 1024 * 1024)
             elif 'M' in unit: push_bytes = int(val * 1024 * 1024)
             elif 'K' in unit: push_bytes = int(val * 1024)
             else: push_bytes = int(val)
         else:
-            m2 = re.search(r'Total\s+\d+.*,\s*([\d\.]+)\s*([KMGT]?i?B)', stderr_text, re.IGNORECASE)
+            m2 = re.findall(r'Total\s+\d+.*,\s*([\d\.]+)\s*([KMGT]?i?B)', stderr_text, re.IGNORECASE)
             if m2:
-                val = float(m2.group(1))
-                unit = m2.group(2).upper()
+                val, unit = float(m2[-1][0]), m2[-1][1].upper()
                 if 'G' in unit: push_bytes = int(val * 1024 * 1024 * 1024)
                 elif 'M' in unit: push_bytes = int(val * 1024 * 1024)
                 elif 'K' in unit: push_bytes = int(val * 1024)
                 else: push_bytes = int(val)
+            else:
+                m3 = re.findall(r'([\d\.]+)\s*([KMGT]?i?B)\s*\|\s*[\d\.]+\s*[KMGT]?i?B/s', stderr_text, re.IGNORECASE)
+                if m3:
+                    val, unit = float(m3[-1][0]), m3[-1][1].upper()
+                    if 'G' in unit: push_bytes = int(val * 1024 * 1024 * 1024)
+                    elif 'M' in unit: push_bytes = int(val * 1024 * 1024)
+                    elif 'K' in unit: push_bytes = int(val * 1024)
+                    else: push_bytes = int(val)
     
-    # 2. Fallback: query changed files size in HEAD
+    # 2. Fallback: query changed files size in HEAD with wire compression estimation
     if push_bytes <= 0:
         try:
             res = subprocess.run(
@@ -616,10 +623,22 @@ def record_git_push_bandwidth(repo_dir=".", repo_name="GroceryGOD", stderr_text=
                 cwd=repo_dir, capture_output=True, text=True
             )
             if res.returncode == 0 and res.stdout.strip():
+                raw_bytes = 0
                 for rel in res.stdout.strip().splitlines():
                     fp = os.path.join(repo_dir, rel)
                     if os.path.isfile(fp):
-                        push_bytes += os.path.getsize(fp)
+                        sz = os.path.getsize(fp)
+                        ext = os.path.splitext(rel)[1].lower()
+                        # Git packfile zlib compression: text/json compresses to ~12%, DB to ~25%
+                        if ext in ['.json', '.csv', '.sql', '.js', '.html', '.txt']:
+                            raw_bytes += int(sz * 0.12)
+                        elif ext in ['.db', '.sqlite', '.sqlite3']:
+                            raw_bytes += int(sz * 0.25)
+                        elif ext in ['.parquet', '.enc', '.gz', '.zip', '.tar']:
+                            raw_bytes += sz
+                        else:
+                            raw_bytes += int(sz * 0.20)
+                push_bytes = max(raw_bytes, 1024)
         except Exception:
             pass
 
@@ -1566,17 +1585,8 @@ def run_grocery_god(github_pat):
                     _label, _ok, _lines, _status = r
                     _emoji = _status_emoji.get(_status, "?")
                     log.info(f'{_emoji} {_label} - {_lines} lines [{_status}]')
+                log.info(f"Scraper execution completed ({_ok_count}/{len(results)} OK). Proceeding to aggregation...")
 
-                log.info("Pushing all scraper data to GitHub...")
-                try:
-                    subprocess.run('git add .', shell=True)
-                    _now = datetime.now(DHAKA_TZ).strftime('%Y-%m-%d %H:%M:%S')
-                    subprocess.run(f'git commit -m "parallel scrapers {_now} ({_ok_count}/{len(results)} OK)"', shell=True)
-                    subprocess.run('git pull origin master --rebase -X ours', shell=True, capture_output=True)
-                    subprocess.run('git push origin HEAD:master --force', shell=True, capture_output=True)
-                    log.info("Combined scraper data pushed to GitHub successfully")
-                except Exception as push_err:
-                    log.warning(f"Failed to push scraper data: {push_err}")
 
             with Step('GODdata Aggregator', '🧬'):
                 # Sync Foodi DB from sub-repo if present
@@ -1669,8 +1679,10 @@ def run_grocery_god(github_pat):
                     _ITER = 250000
                     _SPLIT = 40 * 1024 * 1024
                     def _enc(data, pw):
-                        salt, iv = _secrets.token_bytes(16), _secrets.token_bytes(12)
-                        k = _hashlib.pbkdf2_hmac('sha256', pw.encode(), salt, _ITER, dklen=32)
+                        d_hash = _hashlib.sha256(data).digest()
+                        salt = _hashlib.sha256(b"GGE1_SALT:" + pw.encode('utf-8') + d_hash).digest()[:16]
+                        iv = _hashlib.sha256(b"GGE1_IV:" + pw.encode('utf-8') + d_hash).digest()[:12]
+                        k = _hashlib.pbkdf2_hmac('sha256', pw.encode('utf-8'), salt, _ITER, dklen=32)
                         ct = AESGCM(k).encrypt(iv, data, None)
                         return b'GGE1' + salt + iv + ct
                     def _write_enc(path, data):
@@ -1691,17 +1703,24 @@ def run_grocery_god(github_pat):
                     for tf in ['swapnoTRACKER/data.json', 'unimartTRACKER/data.json', 'ShotejTRACKER/data.json', 'data.json', 'data.js']:
                         p = os.path.join(_cwd, tf)
                         if os.path.exists(p): _targets.append(p)
-                    for d in ['swapnoTRACKER', 'PRICETRACKER', 'MEENAtracker/backend', 'othobaTRACKER/backend', 'metroTRACKER/backend', 'unimartTRACKER', 'ShotejTRACKER']:
+                    for d in ['swapnoTRACKER', 'PRICETRACKER', 'MEENAtracker', 'othobaTRACKER', 'metroTRACKER', 'unimartTRACKER', 'ShotejTRACKER']:
                         p = os.path.join(_cwd, d, 'scraper.py')
                         if os.path.exists(p): _targets.append(p)
                     for dbf in _glob.glob(os.path.join(_cwd, '**', '*.db'), recursive=True):
+                        _rel = os.path.relpath(dbf, _cwd).replace('\\', '/').lower()
+                        if 'foodie' in _rel or '/backend/' in _rel or 'temp' in _rel:
+                            continue
                         _targets.append(dbf)
-                    for pq in ['products.parquet', 'history.parquet']:
+                    for pq in ['products.parquet']:
                         p = os.path.join(_cwd, pq)
                         if os.path.exists(p): _targets.append(p)
                     pa = os.path.join(_cwd, 'premium', 'history_archive.parquet')
                     if os.path.exists(pa): _targets.append(pa)
                     _targets = [t for t in _targets if os.path.exists(t) and not t.endswith('.enc')]
+                    # Clean up redundant history.parquet.enc if lingering on disk
+                    for _old_hist in _glob.glob(os.path.join(_cwd, 'history.parquet.enc*')):
+                        try: os.remove(_old_hist)
+                        except Exception: pass
                     log.info(f'  Encrypting {len(_targets)} files')
                     _ec = 0
                     for tp in _targets:
@@ -1830,6 +1849,17 @@ if __name__ == '__main__':
                 except Exception as _ce:
                     log.warning(f"Nested repo cleanup notice: {_ce}")
 
+                # Purge foreign bloat and obsolete binaries before git add
+                for _bpath in ['FooDIEscraper/data', 'metroTRACKER/backend', 'othobaTRACKER/backend', 'MEENAtracker/backend']:
+                    if os.path.exists(_bpath):
+                        log.info(f"Purging foreign bloat directory: {_bpath}")
+                        shutil.rmtree(_bpath, ignore_errors=True)
+                for _fpat in ['*.part*', '*.orig', '*.hash', 'history.parquet.enc', 'PRICETRACKER/data.js.enc']:
+                    for _mf in _glob.glob(_fpat):
+                        try: os.remove(_mf)
+                        except Exception: pass
+                subprocess.run('git rm -rf --ignore-unmatch FooDIEscraper/data metroTRACKER/backend othobaTRACKER/backend MEENAtracker/backend history.parquet.enc PRICETRACKER/data.js.enc *.orig *.hash 2>/dev/null', shell=True)
+
                 subprocess.run('git add .', shell=True)
                 now = datetime.now(DHAKA_TZ).strftime('%Y-%m-%d %H:%M:%S')
                 subprocess.run(f'git commit -m "attempt #{cycle_count} if this works ill get some sleep frfr: {now}"', shell=True)
@@ -1850,13 +1880,13 @@ if __name__ == '__main__':
                         log.info(f"Push attempt {attempt+1}...")
                         subprocess.run('git rebase --abort 2>/dev/null', shell=True, capture_output=True)
                         subprocess.run('git pull origin master --rebase -X ours', shell=True, capture_output=True)
-                        push_res = subprocess.run('git push origin HEAD:master --force', shell=True, capture_output=True, text=True)
+                        push_res = subprocess.run('git push --progress origin HEAD:master --force', shell=True, capture_output=True, text=True)
                         if push_res.returncode == 0:
                             push_success = True
                             last_push_stderr = (push_res.stderr or "") + "\n" + (push_res.stdout or "")
                             break
                         # Fallback: push directly to auth URL
-                        push_res = subprocess.run(f'git push {_auth_u} HEAD:master --force', shell=True, capture_output=True, text=True)
+                        push_res = subprocess.run(f'git push --progress {_auth_u} HEAD:master --force', shell=True, capture_output=True, text=True)
                         if push_res.returncode == 0:
                             push_success = True
                             last_push_stderr = (push_res.stderr or "") + "\n" + (push_res.stdout or "")
@@ -2346,6 +2376,7 @@ def _send_p14_summary(results_store, repo_list):
     tot_restocked = 0
     tot_went_oos = 0
     tot_elapsed_sec = 0
+    tot_sub_bytes = 0
 
     for label, url in repo_list:
         clean_lbl = label.strip()
@@ -2408,6 +2439,9 @@ def _send_p14_summary(results_store, repo_list):
         _m, _s = divmod(elapsed, 60)
         time_str = f"{_m}m{_s:02d}s" if elapsed > 0 else "0s"
 
+        if rec and isinstance(rec, dict):
+            tot_sub_bytes += int(rec.get('bandwidth_bytes') or 0)
+
         st = rec.get('price_stats') or {}
         cnts = rec.get('counts') or {}
         r_total = st.get('total') or cnts.get('total') or cnts.get('scraped') or 0
@@ -2468,7 +2502,7 @@ def _send_p14_summary(results_store, repo_list):
         _sh = SHORT_NAMES.get(lbl.strip(), lbl.strip())
         links_block.append(f"• {_sh}: {u}")
 
-    _sub_tot_bytes = sum(int(r.get('bandwidth_bytes') or 0) for r in file_results.values() if isinstance(r, dict))
+    _sub_tot_bytes = tot_sub_bytes
     _bw_p14 = get_bandwidth_telemetry(_sub_tot_bytes, "Scheduled Sub-Repos")
 
     parts = [
@@ -3053,6 +3087,9 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
         subprocess.run('git config http.postBuffer 1048576000', shell=True, cwd=repo_dir)
         subprocess.run('git config http.version HTTP/1.1', shell=True, cwd=repo_dir)
         subprocess.run('find . -name "_scraper_error_*.log" -delete', shell=True, cwd=repo_dir)
+        for _bloat in ['*.part*', '*.apk', '*.jar', '*.dex', '*.orig', '*.hash']:
+            subprocess.run(f'find . -name "{_bloat}" -delete', shell=True, cwd=repo_dir)
+        subprocess.run('git rm -f --ignore-unmatch *.apk *.part* *.orig *.hash 2>/dev/null', shell=True, cwd=repo_dir)
         _verify_repo_integrity(repo_dir, repo_name)
         subprocess.run('git add .', shell=True, cwd=repo_dir)
 
@@ -3088,19 +3125,19 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
                 subprocess.run(f'git pull origin {default_branch} --rebase -X ours -q', shell=True, capture_output=True, cwd=repo_dir)
                 _verify_repo_integrity(repo_dir, repo_name)
                 # 1. Clean fast-forward push first
-                push_res = subprocess.run(f'git push origin HEAD:{default_branch}', shell=True, capture_output=True, text=True, cwd=repo_dir)
+                push_res = subprocess.run(f'git push --progress origin HEAD:{default_branch}', shell=True, capture_output=True, text=True, cwd=repo_dir)
                 if push_res.returncode == 0:
                     push_success = True
                     last_sub_push_stderr = (push_res.stderr or "") + "\n" + (push_res.stdout or "")
                     break
                 # 2. Direct authenticated URL push fallback (fast-forward)
-                push_res = subprocess.run(f'git push {auth_u} HEAD:{default_branch}', shell=True, capture_output=True, text=True, cwd=repo_dir)
+                push_res = subprocess.run(f'git push --progress {auth_u} HEAD:{default_branch}', shell=True, capture_output=True, text=True, cwd=repo_dir)
                 if push_res.returncode == 0:
                     push_success = True
                     last_sub_push_stderr = (push_res.stderr or "") + "\n" + (push_res.stdout or "")
                     break
                 # 3. Only use --force-with-lease (never blind --force) after verified integrity
-                push_res = subprocess.run(f'git push origin HEAD:{default_branch} --force-with-lease', shell=True, capture_output=True, text=True, cwd=repo_dir)
+                push_res = subprocess.run(f'git push --progress origin HEAD:{default_branch} --force-with-lease', shell=True, capture_output=True, text=True, cwd=repo_dir)
                 if push_res.returncode == 0:
                     push_success = True
                     last_sub_push_stderr = (push_res.stderr or "") + "\n" + (push_res.stdout or "")
@@ -3112,7 +3149,7 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
                     check_master = subprocess.run('git rev-parse --verify origin/master', shell=True, capture_output=True, cwd=repo_dir)
                     if check_master.returncode == 0:
                         _log(f"Syncing main -> master on {repo_name}...")
-                        subprocess.run(f'git push origin HEAD:master', shell=True, capture_output=True, cwd=repo_dir)
+                        subprocess.run(f'git push --progress origin HEAD:master', shell=True, capture_output=True, cwd=repo_dir)
                 break
 
         if not push_success:
