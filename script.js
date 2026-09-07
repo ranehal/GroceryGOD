@@ -517,6 +517,12 @@ const TURSO_DEFAULT_CONFIG = {
     ro_token: 'eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhIjoicm8iLCJpYXQiOjE3ODg4MjEwOTMsImlkIjoiMDFhMDdlMGItYjcwMS03ZGQ2LWE5ZTQtOTFlZmI3NWMzMDEyIiwia2lkIjoib1I3UEVTS3NWX2l1TlNOTzhSQXJPMFA3b3dROTFHUHllbXVMYVVmZ3p2TSIsInJpZCI6Ijg5NzhhYzU2LTI4ZjAtNDRlMi05ZjZmLTI3MDMyNDI2OGU3MSJ9.Cl3up9m-R38y7aRMhtYHL3BH0iF6MI8qYqj99ooFM9BFOrT9yDVFH4ulJT9c4HsJP4Tjc3Eo-V6FWOYwrT3WAQ'
 };
 
+let seenTursoProductIds = new Set();
+window.__tursoOffsets = window.__tursoOffsets || new Map();
+window.__tursoHasMore = true;
+window.__tursoFetching = false;
+window.__tursoHistoryCache = window.__tursoHistoryCache || new Map();
+
 function getTursoConfig() {
     return window.TURSO_CONFIG || TURSO_DEFAULT_CONFIG;
 }
@@ -552,7 +558,8 @@ function mapProductRow(r) {
         oldest_date: r.first_seen || null,
         newest_date: r.last_seen || null,
         _historyLoaded: false,
-        _historyLoading: false
+        _historyLoading: false,
+        _historyType: null
     };
     allProductsById.set(p.id, p);
     return p;
@@ -642,123 +649,144 @@ async function loadAllFromTurso() {
     const log = (msg) => console.log(`%c[GOD_TURSO] ${msg}`, 'color: #38bdf8; font-weight: bold');
     log('⚡ Connecting to Turso Cloud DB (grocerygod-ranehal)...');
 
-    const seenIds = new Set();
+    // Reset dataset state for clean on-demand Turso pagination
+    allProducts = [];
+    allProductsById.clear();
+    seenTursoProductIds.clear();
+    window.__tursoOffsets.clear();
+    window.__tursoHasMore = true;
+    window.__tursoFetching = false;
+    visiblePages = 1;
 
-    // Phase 0: Instant First Paint via pre-calculated ATL Deals
-    showLoading(true, 'Fetching top deals from Turso Cloud...', 25);
-    try {
-        const atlRows = await queryTurso('SELECT * FROM atl_deals ORDER BY (max_price - normalized_price) DESC LIMIT 400;');
-        if (atlRows && atlRows.length > 0) {
-            atlRows.forEach(r => {
-                if (!seenIds.has(r.id)) {
-                    seenIds.add(r.id);
-                    allProducts.push(mapProductRow(r));
-                }
-            });
-            try { processData(); } catch(e) {}
-            try { renderSidebar(); } catch(e) {}
-            try { renderProducts(); } catch(e) {}
-            try { updateStatsBar(); } catch(e) {}
-            log(`⚡ Fast First Paint: ${allProducts.length} priority deals loaded in ${(performance.now() - t0).toFixed(0)}ms!`);
-        }
-    } catch (e) {
-        console.warn('[GOD_TURSO] ATL deals query error:', e);
-    }
-
-    // Initialize store metadata structures from Turso
-    metadata.stores = {};
-    const storesList = ['shwapno','chaldal','meenabazar','othoba','metromart','unimart','shotejbazar','foodi'];
-    try {
-        const metaRows = await queryTurso('SELECT key, value FROM metadata;');
-        metaRows.forEach(m => {
-            if (m.key === 'stores') {
-                try { metadata.stores = JSON.parse(m.value); } catch(_) {}
-            }
-        });
-    } catch (e) {
-        console.warn('[GOD_TURSO] Metadata query warning:', e);
-    }
-
-    storesList.forEach(s => {
-        if (!metadata.stores[s]) {
-            const manifest = window[s + 'Manifest'];
-            if (manifest && manifest.metadata) metadata.stores[s] = manifest.metadata;
-            else metadata.stores[s] = { total: 0, date_range: '2026-02-15 to ' + dhakaTodayStr() };
-        }
-    });
+    activeShopFilters = new Set(['shwapno']);
+    activeIntelFilter = 'low';
 
     // Mount Turso adapter for godDB
     godDB = createTursoGodDB();
     if (typeof _godDbResolver === 'function') _godDbResolver(godDB);
+    const storesList = ['shwapno','chaldal','meenabazar','othoba','metromart','unimart','shotejbazar','foodi'];
     window.loadedStores = new Set(storesList);
-    activeShopFilters = new Set(['shwapno']);
     window.__registeredHistoryChunks = new Set(['history.parquet']);
     window.__hasPremiumArchive = false;
     window.__storeHistoryPromises = new Map();
-    window.__catalogHydrationStarted = false;
-    window.__catalogHydrationDone = false;
     window.__historyReady = true;
 
     window.ensureStoreHistoryLoaded = async function(store) {
         return Promise.resolve();
     };
 
-    // Background Catalog Hydration
-    window.triggerCatalogHydration = async function(triggerReason = 'delayed') {
-        if (window.__catalogHydrationStarted) return;
-        window.__catalogHydrationStarted = true;
-        log(`📦 Full catalog hydration triggered via: ${triggerReason}`);
+    // Load initial 50 default ATL deals for Shwapno + Metadata in parallel
+    showLoading(true, 'Fetching Shwapno ATL deals from Turso Cloud...', 25);
+    try {
+        const [atlRows, metaRows] = await Promise.all([
+            queryTurso('SELECT * FROM atl_deals WHERE store = ? ORDER BY (max_price - normalized_price) DESC LIMIT 50;', ['shwapno']),
+            queryTurso('SELECT key, value FROM metadata;').catch(() => [])
+        ]);
+
+        metadata.stores = {};
+        (metaRows || []).forEach(m => {
+            if (m.key === 'stores') {
+                try { metadata.stores = JSON.parse(m.value); } catch(_) {}
+            }
+        });
+        storesList.forEach(s => {
+            if (!metadata.stores[s]) {
+                const manifest = window[s + 'Manifest'];
+                if (manifest && manifest.metadata) metadata.stores[s] = manifest.metadata;
+                else metadata.stores[s] = { total: 0, date_range: '2026-02-15 to ' + dhakaTodayStr() };
+            }
+        });
+
+        if (atlRows && atlRows.length > 0) {
+            atlRows.forEach(r => {
+                if (!seenTursoProductIds.has(r.id)) {
+                    seenTursoProductIds.add(r.id);
+                    allProducts.push(mapProductRow(r));
+                }
+            });
+            window.__tursoOffsets.set('shwapno_low_', atlRows.length);
+            window.__tursoHasMore = atlRows.length >= 50;
+            log(`⚡ Fast First Paint: ${allProducts.length} default Shwapno ATL deals loaded in ${(performance.now() - t0).toFixed(0)}ms!`);
+        } else {
+            window.__tursoHasMore = false;
+        }
+
+        try { processData(); } catch(e) {}
+        try { renderSidebar(); } catch(e) {}
+        try { renderProducts(); } catch(e) {}
+        try { updateStatsBar(); } catch(e) {}
+    } catch (e) {
+        console.warn('[GOD_TURSO] Initial load error:', e);
+    }
+
+    // Dynamic on-demand page fetcher for Turso
+    window.fetchNextTursoPage = async function(reason = 'pagination') {
+        if (window.__tursoFetching || !window.__tursoHasMore) return;
+        window.__tursoFetching = true;
+
+        const stores = Array.from(activeShopFilters);
+        const storeList = stores.length > 0 ? stores : ['shwapno'];
+        const cleanQ = searchQuery ? searchQuery.trim().toLowerCase().replace(/'/g, "''") : '';
+        const filterKey = `${storeList.slice().sort().join(',')}_${activeIntelFilter}_${cleanQ}`;
+        const offset = window.__tursoOffsets.get(filterKey) || 0;
+
+        const storeInClause = storeList.map(s => `'${s.replace(/'/g, "''")}'`).join(',');
+        let sql;
+        if (activeIntelFilter === 'low' && !cleanQ) {
+            sql = `SELECT * FROM atl_deals WHERE store IN (${storeInClause}) ORDER BY (max_price - normalized_price) DESC LIMIT 50 OFFSET ${offset};`;
+        } else if (cleanQ) {
+            sql = `SELECT * FROM products WHERE store IN (${storeInClause}) AND (LOWER(name) LIKE '%${cleanQ}%' OR LOWER(category) LIKE '%${cleanQ}%') LIMIT 50 OFFSET ${offset};`;
+        } else if (activeIntelFilter === 'great') {
+            sql = `SELECT * FROM products WHERE store IN (${storeInClause}) AND in_stock = 1 AND normalized_price > 0 AND avg_price > 0 AND normalized_price < (avg_price * 0.85) ORDER BY (avg_price - normalized_price) DESC LIMIT 50 OFFSET ${offset};`;
+        } else if (activeIntelFilter === 'good') {
+            sql = `SELECT * FROM products WHERE store IN (${storeInClause}) AND in_stock = 1 AND normalized_price > 0 AND avg_price > 0 AND normalized_price < (avg_price * 0.92) ORDER BY (avg_price - normalized_price) DESC LIMIT 50 OFFSET ${offset};`;
+        } else {
+            sql = `SELECT * FROM products WHERE store IN (${storeInClause}) LIMIT 50 OFFSET ${offset};`;
+        }
 
         try {
-            const tFull = performance.now();
-            const allRows = await queryTurso('SELECT * FROM products;');
-            log(`Turso returned ${allRows.length} catalog products, streaming in idle batches...`);
+            const rows = await queryTurso(sql);
+            if (!rows || rows.length === 0) {
+                window.__tursoHasMore = false;
+                document.getElementById('grid-sentinel')?.remove();
+                document.getElementById('load-more-container')?.remove();
+            } else {
+                window.__tursoOffsets.set(filterKey, offset + rows.length);
+                if (rows.length < 50) window.__tursoHasMore = false;
 
-            const batchSize = 2500;
-            let idx = 0;
-
-            function processNextBatch() {
-                const end = Math.min(idx + batchSize, allRows.length);
-                for (let i = idx; i < end; i++) {
-                    const r = allRows[i];
-                    if (!seenIds.has(r.id)) {
-                        seenIds.add(r.id);
+                let addedNew = false;
+                rows.forEach(r => {
+                    if (!seenTursoProductIds.has(r.id)) {
+                        seenTursoProductIds.add(r.id);
                         allProducts.push(mapProductRow(r));
+                        addedNew = true;
                     }
-                }
-                idx = end;
+                });
 
-                if (idx < allRows.length) {
-                    if (window.requestIdleCallback) window.requestIdleCallback(processNextBatch, { timeout: 60 });
-                    else setTimeout(processNextBatch, 16);
-                } else {
-                    window.__catalogHydrationDone = true;
-                    log(`🌟 Full Turso catalog hydrated: ${allProducts.length} products in ${((performance.now()-tFull)/1000).toFixed(1)}s`);
+                if (addedNew) {
                     try { processData(); } catch(e) {}
                     try { renderSidebar(); } catch(e) {}
-                    try { updateStoreStats(); } catch(e) {}
+                    try { renderProducts(); } catch(e) {}
                     try { updateStatsBar(); } catch(e) {}
-                    if (activeIntelFilter !== 'low' || searchQuery) {
-                        try { renderProducts(); } catch(e) {}
-                    }
                 }
             }
-
-            if (window.requestIdleCallback) window.requestIdleCallback(processNextBatch, { timeout: 60 });
-            else setTimeout(processNextBatch, 16);
-        } catch (e) {
-            console.warn('[GOD_TURSO] Background hydration notice:', e);
+        } catch (err) {
+            console.warn('[GOD_TURSO] Pagination fetch error:', err);
+        } finally {
+            window.__tursoFetching = false;
         }
     };
 
-    setTimeout(() => {
-        if (!window.__catalogHydrationStarted) {
-            window.triggerCatalogHydration('turso_idle_timer');
+    // Hydration dispatcher hook
+    window.triggerCatalogHydration = async function(triggerReason = 'delayed') {
+        if (currentDataSource !== 'turso') return;
+        if (triggerReason === 'pagination' || triggerReason === 'shop_toggle' || triggerReason === 'search' || triggerReason === 'filter_change') {
+            await window.fetchNextTursoPage(triggerReason);
         }
-    }, 3500);
+    };
 
     const elapsed = ((performance.now()-t0)/1000).toFixed(2);
-    log(`🚀 TURSO CLOUD ENGINE READY in ${elapsed}s!`);
+    log(`🚀 TURSO CLOUD ENGINE READY in ${elapsed}s! (On-demand pagination active)`);
 }
 
 function updateDataSourceUI() {
@@ -1183,6 +1211,7 @@ async function checkSavedPremiumLicense() {
 }
 
 async function loadStoreData(sid) {
+    if (currentDataSource === 'turso' || (godDB && godDB.isTurso)) return;
     if (!godDB) return;
     if (!window.__historyReady && window.__historyPromise) {
         try { await window.__historyPromise; } catch(e) {}
@@ -1307,6 +1336,74 @@ function forwardFillHistoryGaps(rawRows, currentPrice, currentNormPrice) {
 async function loadProductHistory(productId) {
     const p = getProductById(productId);
     const rawId = productId.replace(/^(sh_|ch_|mb_|ot_|mt_|uni_|sj_|fd_)/, '');
+
+    const isPremium = Boolean(typeof premiumUnlocked !== 'undefined' && premiumUnlocked);
+    const cacheKey = `${productId}_${isPremium ? 'all' : '7d'}`;
+    window.__tursoHistoryCache = window.__tursoHistoryCache || new Map();
+
+    // 1. In-memory cache hit (0 network requests!)
+    if (window.__tursoHistoryCache.has(cacheKey)) {
+        return window.__tursoHistoryCache.get(cacheKey);
+    }
+    // 2. Product already loaded with matching tier
+    if (p && p._historyLoaded && Array.isArray(p.history) && p.history.length > 0) {
+        if (!isPremium || p._historyType === 'all') {
+            window.__tursoHistoryCache.set(cacheKey, p.history);
+            return p.history;
+        }
+    }
+
+    // ⚡ TURSO ON-DEMAND TIERED HISTORY (7-day for Free, Full for Premium)
+    if ((currentDataSource === 'turso' || (godDB && godDB.isTurso)) && typeof queryTurso === 'function') {
+        try {
+            const cleanId = productId.replace(/'/g, "''");
+            const cleanRawId = rawId.replace(/'/g, "''");
+            const idFilter = cleanId === cleanRawId 
+                ? `product_id = '${cleanId}'` 
+                : `product_id IN ('${cleanId}', '${cleanRawId}')`;
+
+            let sql;
+            if (isPremium) {
+                // Premium: full timeline from start of tracking
+                sql = `SELECT date, price, normalized_price FROM history WHERE ${idFilter} ORDER BY date ASC;`;
+            } else {
+                // Free: only recent 7-day history points (limit 8 to include baseline anchor)
+                sql = `SELECT date, price, normalized_price FROM history WHERE ${idFilter} ORDER BY date DESC LIMIT 8;`;
+            }
+
+            const rawRows = await queryTurso(sql);
+            const rows = (rawRows || []).map(h => ({
+                date: String(h.date),
+                price: Number(h.price),
+                normalized_price: Number(h.normalized_price != null ? h.normalized_price : h.price)
+            }));
+
+            // Chronological order for chart rendering
+            rows.sort((a, b) => a.date.localeCompare(b.date));
+
+            let finalHistory = [];
+            if (rows.length > 0) {
+                finalHistory = forwardFillHistoryGaps(rows, p?.current_price, p?.normalized_price);
+            } else if (p) {
+                finalHistory = [{
+                    date: p.first_seen || todayStr,
+                    price: Number(p.current_price || 0),
+                    normalized_price: Number(p.normalized_price || p.current_price || 0)
+                }];
+            }
+
+            if (p) {
+                p.history = finalHistory;
+                p._historyLoaded = true;
+                p._historyType = isPremium ? 'all' : '7d';
+            }
+            window.__tursoHistoryCache.set(cacheKey, finalHistory);
+            return finalHistory;
+        } catch (err) {
+            console.warn('[GOD_TURSO] Turso history fetch error, falling back:', err);
+        }
+    }
+
     if (!godDB && window.__godDbPromise) {
         try {
             await Promise.race([
@@ -1334,7 +1431,7 @@ async function loadProductHistory(productId) {
             const useStoreChunk = storeChunk && window.__registeredHistoryChunks && window.__registeredHistoryChunks.has(storeChunk);
             let fromSource = 'history_access';
             if (useStoreChunk) {
-                fromSource = (window.__hasPremiumArchive || (typeof premiumUnlocked !== 'undefined' && premiumUnlocked))
+                fromSource = (window.__hasPremiumArchive || isPremium)
                     ? `(SELECT * FROM read_parquet('${storeChunk}') UNION ALL SELECT * FROM read_parquet('history_archive.parquet'))`
                     : `read_parquet('${storeChunk}')`;
             }
@@ -1350,7 +1447,14 @@ async function loadProductHistory(productId) {
                 return { date: String(h.date), price: Number(h.price), normalized_price: Number(h.normalized_price) };
             });
             if (rows.length > 0) {
-                return forwardFillHistoryGaps(rows, p?.current_price, p?.normalized_price);
+                const filled = forwardFillHistoryGaps(rows, p?.current_price, p?.normalized_price);
+                if (p) {
+                    p.history = filled;
+                    p._historyLoaded = true;
+                    p._historyType = isPremium ? 'all' : '7d';
+                }
+                window.__tursoHistoryCache.set(cacheKey, filled);
+                return filled;
             }
         } catch (e) {
             console.warn("DuckDB query fallback:", e);
@@ -1358,10 +1462,14 @@ async function loadProductHistory(productId) {
     }
     if (p && Array.isArray(p.history) && p.history.length > 0) {
         const mapped = p.history.map(h => ({ date: String(h.date), price: Number(h.price), normalized_price: Number(h.normalized_price || h.price) }));
-        return forwardFillHistoryGaps(mapped, p?.current_price, p?.normalized_price);
+        const filled = forwardFillHistoryGaps(mapped, p?.current_price, p?.normalized_price);
+        window.__tursoHistoryCache.set(cacheKey, filled);
+        return filled;
     }
     if (p) {
-        return [{ date: p.first_seen || todayStr, price: Number(p.current_price || 0), normalized_price: Number(p.normalized_price || p.current_price || 0) }];
+        const fallback = [{ date: p.first_seen || todayStr, price: Number(p.current_price || 0), normalized_price: Number(p.normalized_price || p.current_price || 0) }];
+        window.__tursoHistoryCache.set(cacheKey, fallback);
+        return fallback;
     }
     return [];
 }
@@ -1377,15 +1485,31 @@ async function computePriceChanges(days) {
     window.__pcCache = window.__pcCache || {};
     let oldPrices = window.__pcCache[days];
     if (!oldPrices) {
-        const result = await godDB.conn.query(`
-            WITH ranked AS (
-                SELECT product_id, normalized_price, price, date,
-                       ROW_NUMBER() OVER (PARTITION BY product_id ORDER BY date DESC) as rn
-                FROM history_access
-                WHERE date <= '${cutoffStr}'
-            )
-            SELECT product_id, normalized_price, price FROM ranked WHERE rn = 1
-        `);
+        let querySql;
+        if (currentDataSource === 'turso' || (godDB && godDB.isTurso)) {
+            const ids = allProducts.map(p => `'${p.id.replace(/'/g, "''")}'`).filter(Boolean);
+            const idFilter = (ids.length > 0 && ids.length <= 300) ? `AND product_id IN (${ids.join(',')})` : '';
+            querySql = `
+                WITH ranked AS (
+                    SELECT product_id, normalized_price, price, date,
+                           ROW_NUMBER() OVER (PARTITION BY product_id ORDER BY date DESC) as rn
+                    FROM history
+                    WHERE date <= '${cutoffStr}' ${idFilter}
+                )
+                SELECT product_id, normalized_price, price FROM ranked WHERE rn = 1
+            `;
+        } else {
+            querySql = `
+                WITH ranked AS (
+                    SELECT product_id, normalized_price, price, date,
+                           ROW_NUMBER() OVER (PARTITION BY product_id ORDER BY date DESC) as rn
+                    FROM history_access
+                    WHERE date <= '${cutoffStr}'
+                )
+                SELECT product_id, normalized_price, price FROM ranked WHERE rn = 1
+            `;
+        }
+        const result = await godDB.conn.query(querySql);
         oldPrices = {};
         for (const row of result.toArray()) {
             const r = row.toJSON();
@@ -1621,7 +1745,7 @@ function renderSidebar() {
                 <span style="color:${STORE_CONFIG[sid].color}">${STORE_CONFIG[sid].name}</span>
             </div>
             <div style="display:flex; align-items:center; gap:12px;">
-                <span style="opacity:0.4; font-size:0.7rem;">${shopProducts.length}</span>
+                <span style="opacity:0.4; font-size:0.7rem;">${(metadata && metadata.stores && metadata.stores[sid] && metadata.stores[sid].total) ? Number(metadata.stores[sid].total).toLocaleString() : shopProducts.length}</span>
                 <i class="fas fa-chevron-down toggle-icon" style="font-size:0.7rem; padding: 10px;"></i>
             </div>
         `;
@@ -1888,7 +2012,8 @@ function renderProducts() {
     document.getElementById('load-more-container')?.remove();
     document.getElementById('grid-sentinel')?.remove();
 
-    if (limit < currentFilteredProducts.length && !showAllProducts) {
+    const hasMore = (limit < currentFilteredProducts.length) || (currentDataSource === 'turso' && window.__tursoHasMore);
+    if (hasMore && !showAllProducts) {
         if (window.IntersectionObserver) {
             // Infinite scroll: reveal the next page when the sentinel enters view.
             const sentinel = document.createElement('div');
@@ -1898,27 +2023,48 @@ function renderProducts() {
             gridSentinelObserver = new IntersectionObserver((entries) => {
                 if (entries.some(entry => entry.isIntersecting)) {
                     visiblePages++;
-                    if (typeof window.triggerCatalogHydration === 'function') {
-                        window.triggerCatalogHydration('pagination');
+                    if (currentDataSource === 'turso') {
+                        if (currentFilteredProducts.length < visiblePages * PAGE_SIZE && window.__tursoHasMore) {
+                            if (typeof window.triggerCatalogHydration === 'function') {
+                                window.triggerCatalogHydration('pagination');
+                            }
+                        } else {
+                            renderProducts();
+                        }
+                    } else {
+                        if (typeof window.triggerCatalogHydration === 'function') {
+                            window.triggerCatalogHydration('pagination');
+                        }
+                        renderProducts();
                     }
-                    renderProducts();
                 }
             }, { root: null, rootMargin: '400px 0px', threshold: 0 });
             gridSentinelObserver.observe(sentinel);
         } else {
             // Graceful fallback: classic Load More button.
-            const remaining = currentFilteredProducts.length - limit;
+            const remaining = Math.max(0, currentFilteredProducts.length - limit);
             const container = document.createElement('div');
             container.id = 'load-more-container';
             container.style.cssText = 'text-align:center; padding:20px;';
-            container.innerHTML = `<button id="load-more-btn" style="padding:10px 28px; border-radius:8px; border:1px solid var(--accent-color); background:var(--bg-card); color:var(--accent-color); cursor:pointer; font-weight:700; font-size:0.85rem;">Load More (${remaining} remaining)</button>`;
+            const btnText = remaining > 0 ? `Load More (${remaining} remaining)` : 'Load More';
+            container.innerHTML = `<button id="load-more-btn" style="padding:10px 28px; border-radius:8px; border:1px solid var(--accent-color); background:var(--bg-card); color:var(--accent-color); cursor:pointer; font-weight:700; font-size:0.85rem;">${btnText}</button>`;
             grid.parentNode.insertBefore(container, grid.nextSibling);
             document.getElementById('load-more-btn').addEventListener('click', () => {
                 visiblePages++;
-                if (typeof window.triggerCatalogHydration === 'function') {
-                    window.triggerCatalogHydration('pagination');
+                if (currentDataSource === 'turso') {
+                    if (currentFilteredProducts.length < visiblePages * PAGE_SIZE && window.__tursoHasMore) {
+                        if (typeof window.triggerCatalogHydration === 'function') {
+                            window.triggerCatalogHydration('pagination');
+                        }
+                    } else {
+                        renderProducts();
+                    }
+                } else {
+                    if (typeof window.triggerCatalogHydration === 'function') {
+                        window.triggerCatalogHydration('pagination');
+                    }
+                    renderProducts();
                 }
-                renderProducts();
             });
         }
     }
@@ -2258,14 +2404,28 @@ function setupEventListeners() {
     }
 
     const debouncedSearchRender = debounce((q) => { updateSuggestions(q); renderProducts(); }, 180);
+    const debouncedTursoSearch = debounce(async (q) => {
+        if (typeof window.triggerCatalogHydration === 'function') {
+            await window.triggerCatalogHydration('search');
+        }
+    }, 280);
     searchInput.oninput = (e) => {
         searchQuery = e.target.value.toLowerCase();
         visiblePages = 1;
-        if (typeof window.triggerCatalogHydration === 'function' && searchQuery) {
-            window.triggerCatalogHydration('search');
+        if (currentDataSource === 'turso') {
+            window.__tursoHasMore = true;
+            if (searchQuery.length >= 2) {
+                debouncedTursoSearch(searchQuery);
+            } else {
+                renderProducts();
+            }
+        } else {
+            if (typeof window.triggerCatalogHydration === 'function' && searchQuery) {
+                window.triggerCatalogHydration('search');
+            }
+            debouncedSearchRender(searchQuery);
         }
         document.getElementById('clear-search').classList.toggle('visible', searchQuery.length > 0);
-        debouncedSearchRender(searchQuery);
     };
 
     document.getElementById('clear-search').onclick = () => {
@@ -2273,6 +2433,13 @@ function setupEventListeners() {
         searchQuery = '';
         document.getElementById('clear-search').classList.remove('visible');
         document.getElementById('search-suggestions').style.display = 'none';
+        visiblePages = 1;
+        if (currentDataSource === 'turso') {
+            window.__tursoHasMore = true;
+            if (typeof window.triggerCatalogHydration === 'function') {
+                window.triggerCatalogHydration('filter_change');
+            }
+        }
         renderProducts();
         searchInput.focus();
     };
@@ -2369,6 +2536,13 @@ function setupEventListeners() {
             const pcControls = document.getElementById('price-change-controls');
             if (pcControls) pcControls.style.display = activeIntelFilter === 'pricechange' ? 'flex' : 'none';
             if (activeIntelFilter === 'pricechange') await computePriceChanges(priceChangeDays);
+            visiblePages = 1;
+            if (currentDataSource === 'turso') {
+                window.__tursoHasMore = true;
+                if (typeof window.triggerCatalogHydration === 'function') {
+                    await window.triggerCatalogHydration('filter_change');
+                }
+            }
             renderProducts();
         };
     });
@@ -2930,7 +3104,8 @@ async function openDetailedChart(product, knownIndex) {
     const fsEl = document.getElementById('chart-first-seen');
     const lsEl = document.getElementById('chart-last-seen');
 
-    if (!product._historyLoaded) {
+    const isPrem = Boolean(typeof premiumUnlocked !== 'undefined' && premiumUnlocked);
+    if (!product._historyLoaded || (isPrem && product._historyType !== 'all')) {
         if (!godDB && window.__godDbPromise) {
             try {
                 await Promise.race([
@@ -4972,6 +5147,9 @@ function setPremiumUnlocked(unlocked, persist = true) {
     if (lowButton) {
         lowButton.textContent = 'All Time Low';
         lowButton.title = premiumUnlocked ? 'Current price is the lowest recorded (All history)' : 'Current price is the lowest recorded (7-day window)';
+    }
+    if (detailChart && currentDetailProductIndex >= 0 && currentFilteredProducts[currentDetailProductIndex]) {
+        openDetailedChart(currentFilteredProducts[currentDetailProductIndex]);
     }
 }
 

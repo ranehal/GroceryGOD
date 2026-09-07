@@ -206,6 +206,7 @@ def build_local_optimized_db(db_path='grocerygod_optimized.db'):
     con_sqlite.execute('CREATE INDEX idx_products_cat ON products(category);')
     con_sqlite.execute('CREATE INDEX idx_products_instock ON products(in_stock);')
     con_sqlite.execute('CREATE INDEX idx_products_price ON products(normalized_price);')
+    con_sqlite.execute('CREATE INDEX idx_atl_store ON atl_deals(store);')
     con_sqlite.commit()
 
     con_sqlite.execute('PRAGMA wal_checkpoint(TRUNCATE);')
