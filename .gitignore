@@ -17,6 +17,7 @@ token.txt
 refresh_token.txt
 **/token.txt
 **/refresh_token.txt
+turso_tokens.json
 
 # Local raw unencrypted working files
 PRICETRACKER/data.js

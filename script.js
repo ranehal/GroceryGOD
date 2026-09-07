@@ -24,7 +24,8 @@ let metadata = {};
 let _godDbResolver;
 window.__godDbPromise = new Promise(resolve => { _godDbResolver = resolve; });
 let godDB = null; // persistent DuckDB connection for on-demand queries
-const ASSET_VERSION = window.GOD_ASSET_VERSION || '20260908_v6';
+const ASSET_VERSION = window.GOD_ASSET_VERSION || '20260908_v7';
+let currentDataSource = safeStorage.getItem('god_data_source') || 'turso';
 let favorites = JSON.parse(safeStorage.getItem('god_favorites') || '[]');
 let selectedForComparison = JSON.parse(safeStorage.getItem('god_comparison') || '[]');
 let customGroups = JSON.parse(safeStorage.getItem('god_custom_groups') || '{}');
@@ -507,6 +508,312 @@ function initHeroFoodBackground() {
     container.appendChild(frag);
 }
 
+// ============================================================
+// TURSO CLOUD DATABASE ENGINE & DATA SOURCE TOGGLE SYSTEM
+// ============================================================
+const TURSO_DEFAULT_CONFIG = {
+    hostname: 'grocerygod-ranehal.aws-ap-south-1.turso.io',
+    url: 'https://grocerygod-ranehal.aws-ap-south-1.turso.io/v2/pipeline',
+    ro_token: 'eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhIjoicm8iLCJpYXQiOjE3ODg4MjEwOTMsImlkIjoiMDFhMDdlMGItYjcwMS03ZGQ2LWE5ZTQtOTFlZmI3NWMzMDEyIiwia2lkIjoib1I3UEVTS3NWX2l1TlNOTzhSQXJPMFA3b3dROTFHUHllbXVMYVVmZ3p2TSIsInJpZCI6Ijg5NzhhYzU2LTI4ZjAtNDRlMi05ZjZmLTI3MDMyNDI2OGU3MSJ9.Cl3up9m-R38y7aRMhtYHL3BH0iF6MI8qYqj99ooFM9BFOrT9yDVFH4ulJT9c4HsJP4Tjc3Eo-V6FWOYwrT3WAQ'
+};
+
+function getTursoConfig() {
+    return window.TURSO_CONFIG || TURSO_DEFAULT_CONFIG;
+}
+
+function mapProductRow(r) {
+    const inStock = (r.in_stock !== false && r.in_stock !== 0 && r.in_stock !== '0') && 
+                    (r.is_out_of_stock !== true && r.is_out_of_stock !== 1 && r.is_out_of_stock !== '1') && 
+                    Number(r.current_price) > 0;
+    const normPrice = Number(r.normalized_price) > 0 ? Number(r.normalized_price) : 0;
+    const minP = r.min_price != null ? Number(r.min_price) : normPrice;
+    const maxP = r.max_price != null ? Number(r.max_price) : normPrice;
+    const avgP = r.avg_price != null ? Number(r.avg_price) : normPrice;
+    const p = {
+        id: String(r.id),
+        name: String(r.name || ''),
+        store: String(r.store || ''),
+        category: String(r.category || ''),
+        unit: String(r.unit || ''),
+        unit_type: String(r.unit_type || ''),
+        current_price: Number(r.current_price) || 0,
+        normalized_price: normPrice,
+        image: String(r.image || ''),
+        url: String(r.url || ''),
+        first_seen: r.first_seen || null,
+        last_seen: r.last_seen || null,
+        in_stock: inStock,
+        is_out_of_stock: !inStock,
+        history: [],
+        hist_count: Number(r.hist_count) || 0,
+        minPrice: minP,
+        maxPrice: maxP,
+        avgPrice: avgP,
+        oldest_date: r.first_seen || null,
+        newest_date: r.last_seen || null,
+        _historyLoaded: false,
+        _historyLoading: false
+    };
+    allProductsById.set(p.id, p);
+    return p;
+}
+
+async function queryTurso(sql, args = []) {
+    const cfg = getTursoConfig();
+    const reqBody = {
+        requests: [
+            {
+                type: 'execute',
+                stmt: {
+                    sql: sql,
+                    args: args.map(a => {
+                        if (a === null || a === undefined) return { type: 'null' };
+                        if (typeof a === 'boolean') return { type: 'integer', value: a ? '1' : '0' };
+                        if (typeof a === 'number') return Number.isInteger(a) ? { type: 'integer', value: String(a) } : { type: 'float', value: a };
+                        return { type: 'text', value: String(a) };
+                    })
+                }
+            },
+            { type: 'close' }
+        ]
+    };
+    const resp = await fetch(cfg.url, {
+        method: 'POST',
+        headers: {
+            'Authorization': `Bearer ${cfg.ro_token}`,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(reqBody)
+    });
+    if (!resp.ok) throw new Error(`Turso HTTP ${resp.status}`);
+    const data = await resp.json();
+    const execRes = data?.results?.[0];
+    if (execRes?.type === 'error') throw new Error(execRes.error?.message || 'Turso query failed');
+    const r = execRes?.response?.result;
+    if (!r) return [];
+    const cols = (r.cols || []).map(c => c.name);
+    return (r.rows || []).map(row => {
+        const obj = {};
+        row.forEach((cell, idx) => {
+            obj[cols[idx]] = cell.value;
+        });
+        return obj;
+    });
+}
+
+function createTursoGodDB() {
+    return {
+        isTurso: true,
+        db: {
+            registerFileBuffer: async () => {},
+            connect: async () => this
+        },
+        conn: {
+            query: async (sql) => {
+                let adaptedSql = sql;
+                adaptedSql = adaptedSql.replace(/read_parquet\s*\(\s*['"]atl\.parquet['"]\s*\)/gi, 'atl_deals');
+                adaptedSql = adaptedSql.replace(/read_parquet\s*\(\s*['"]products(?:_free)?\.parquet['"]\s*\)/gi, 'products');
+                adaptedSql = adaptedSql.replace(/read_parquet\s*\(\s*['"]history[^'"]*['"]\s*\)/gi, 'history');
+                adaptedSql = adaptedSql.replace(/\bhistory_access\b/gi, 'history');
+
+                if (adaptedSql.includes('history') && adaptedSql.includes('UNION ALL')) {
+                    adaptedSql = adaptedSql.replace(/\(SELECT \* FROM history UNION ALL SELECT \* FROM history\)/gi, 'history');
+                }
+
+                const rows = await queryTurso(adaptedSql);
+                return {
+                    toArray: () => rows.map(r => ({
+                        ...r,
+                        toJSON: () => r
+                    }))
+                };
+            }
+        }
+    };
+}
+
+async function loadAllFromTurso() {
+    if (window.GOD_DEMO_MODE) {
+        showLoading(true, 'Generating live demo dataset...', 35);
+        loadDemoData();
+        return;
+    }
+    const t0 = performance.now();
+    const log = (msg) => console.log(`%c[GOD_TURSO] ${msg}`, 'color: #38bdf8; font-weight: bold');
+    log('⚡ Connecting to Turso Cloud DB (grocerygod-ranehal)...');
+
+    const seenIds = new Set();
+
+    // Phase 0: Instant First Paint via pre-calculated ATL Deals
+    showLoading(true, 'Fetching top deals from Turso Cloud...', 25);
+    try {
+        const atlRows = await queryTurso('SELECT * FROM atl_deals ORDER BY (max_price - normalized_price) DESC LIMIT 400;');
+        if (atlRows && atlRows.length > 0) {
+            atlRows.forEach(r => {
+                if (!seenIds.has(r.id)) {
+                    seenIds.add(r.id);
+                    allProducts.push(mapProductRow(r));
+                }
+            });
+            try { processData(); } catch(e) {}
+            try { renderSidebar(); } catch(e) {}
+            try { renderProducts(); } catch(e) {}
+            try { updateStatsBar(); } catch(e) {}
+            log(`⚡ Fast First Paint: ${allProducts.length} priority deals loaded in ${(performance.now() - t0).toFixed(0)}ms!`);
+        }
+    } catch (e) {
+        console.warn('[GOD_TURSO] ATL deals query error:', e);
+    }
+
+    // Initialize store metadata structures from Turso
+    metadata.stores = {};
+    const storesList = ['shwapno','chaldal','meenabazar','othoba','metromart','unimart','shotejbazar','foodi'];
+    try {
+        const metaRows = await queryTurso('SELECT key, value FROM metadata;');
+        metaRows.forEach(m => {
+            if (m.key === 'stores') {
+                try { metadata.stores = JSON.parse(m.value); } catch(_) {}
+            }
+        });
+    } catch (e) {
+        console.warn('[GOD_TURSO] Metadata query warning:', e);
+    }
+
+    storesList.forEach(s => {
+        if (!metadata.stores[s]) {
+            const manifest = window[s + 'Manifest'];
+            if (manifest && manifest.metadata) metadata.stores[s] = manifest.metadata;
+            else metadata.stores[s] = { total: 0, date_range: '2026-02-15 to ' + dhakaTodayStr() };
+        }
+    });
+
+    // Mount Turso adapter for godDB
+    godDB = createTursoGodDB();
+    if (typeof _godDbResolver === 'function') _godDbResolver(godDB);
+    window.loadedStores = new Set(storesList);
+    activeShopFilters = new Set(['shwapno']);
+    window.__registeredHistoryChunks = new Set(['history.parquet']);
+    window.__hasPremiumArchive = false;
+    window.__storeHistoryPromises = new Map();
+    window.__catalogHydrationStarted = false;
+    window.__catalogHydrationDone = false;
+    window.__historyReady = true;
+
+    window.ensureStoreHistoryLoaded = async function(store) {
+        return Promise.resolve();
+    };
+
+    // Background Catalog Hydration
+    window.triggerCatalogHydration = async function(triggerReason = 'delayed') {
+        if (window.__catalogHydrationStarted) return;
+        window.__catalogHydrationStarted = true;
+        log(`📦 Full catalog hydration triggered via: ${triggerReason}`);
+
+        try {
+            const tFull = performance.now();
+            const allRows = await queryTurso('SELECT * FROM products;');
+            log(`Turso returned ${allRows.length} catalog products, streaming in idle batches...`);
+
+            const batchSize = 2500;
+            let idx = 0;
+
+            function processNextBatch() {
+                const end = Math.min(idx + batchSize, allRows.length);
+                for (let i = idx; i < end; i++) {
+                    const r = allRows[i];
+                    if (!seenIds.has(r.id)) {
+                        seenIds.add(r.id);
+                        allProducts.push(mapProductRow(r));
+                    }
+                }
+                idx = end;
+
+                if (idx < allRows.length) {
+                    if (window.requestIdleCallback) window.requestIdleCallback(processNextBatch, { timeout: 60 });
+                    else setTimeout(processNextBatch, 16);
+                } else {
+                    window.__catalogHydrationDone = true;
+                    log(`🌟 Full Turso catalog hydrated: ${allProducts.length} products in ${((performance.now()-tFull)/1000).toFixed(1)}s`);
+                    try { processData(); } catch(e) {}
+                    try { renderSidebar(); } catch(e) {}
+                    try { updateStoreStats(); } catch(e) {}
+                    try { updateStatsBar(); } catch(e) {}
+                    if (activeIntelFilter !== 'low' || searchQuery) {
+                        try { renderProducts(); } catch(e) {}
+                    }
+                }
+            }
+
+            if (window.requestIdleCallback) window.requestIdleCallback(processNextBatch, { timeout: 60 });
+            else setTimeout(processNextBatch, 16);
+        } catch (e) {
+            console.warn('[GOD_TURSO] Background hydration notice:', e);
+        }
+    };
+
+    setTimeout(() => {
+        if (!window.__catalogHydrationStarted) {
+            window.triggerCatalogHydration('turso_idle_timer');
+        }
+    }, 3500);
+
+    const elapsed = ((performance.now()-t0)/1000).toFixed(2);
+    log(`🚀 TURSO CLOUD ENGINE READY in ${elapsed}s!`);
+}
+
+function updateDataSourceUI() {
+    const btn = document.getElementById('data-source-toggle');
+    const label = document.getElementById('data-source-label');
+    const icon = document.getElementById('data-source-icon');
+    const dot = document.getElementById('source-live-dot');
+    if (!btn) return;
+
+    if (currentDataSource === 'turso') {
+        btn.classList.remove('source-local');
+        btn.title = 'Active: Turso Cloud DB (Live Online). Click to switch to Local GitHub Parquet.';
+        if (label) label.textContent = 'Turso DB';
+        if (icon) icon.className = 'fas fa-cloud';
+        if (dot) dot.title = 'Live Turso Cloud Connected';
+    } else {
+        btn.classList.add('source-local');
+        btn.title = 'Active: Local GitHub (Parquet Engine). Click to switch to Turso Cloud DB.';
+        if (label) label.textContent = 'Local DB';
+        if (icon) icon.className = 'fas fa-database';
+        if (dot) dot.title = 'Local Parquet Engine Active';
+    }
+}
+
+function showSourceToast(message) {
+    let toast = document.getElementById('source-switch-toast');
+    if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'source-switch-toast';
+        toast.className = 'source-switch-toast';
+        document.body.appendChild(toast);
+    }
+    toast.innerHTML = message;
+    toast.classList.add('show');
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 3200);
+}
+
+function switchDataSource(targetSource) {
+    const newSource = targetSource || (currentDataSource === 'turso' ? 'local' : 'turso');
+    currentDataSource = newSource;
+    safeStorage.setItem('god_data_source', newSource);
+    updateDataSourceUI();
+
+    const msg = newSource === 'turso'
+        ? '<i class="fas fa-cloud" style="color:#38bdf8"></i> Switched to <strong>Turso Cloud DB</strong> (Live Online Engine)'
+        : '<i class="fas fa-database" style="color:#34d399"></i> Switched to <strong>Local GitHub Data</strong> (Offline Parquet Engine)';
+    showSourceToast(msg);
+
+    setTimeout(() => {
+        window.location.reload();
+    }, 350);
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
     try {
         if ('scrollRestoration' in history) {
@@ -515,9 +822,31 @@ document.addEventListener('DOMContentLoaded', async () => {
         window.scrollTo(0, 0);
         document.title = "GroceryGOD";
         try { initHeroInteractions(); } catch(e) { console.warn('Hero interactions init error:', e); }
-        showLoading(true, 'Initializing GODdata Matrix...');
-        
-        await loadAllFromParquet();
+
+        updateDataSourceUI();
+        const toggleBtn = document.getElementById('data-source-toggle');
+        if (toggleBtn) {
+            toggleBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                switchDataSource();
+            });
+        }
+
+        if (currentDataSource === 'turso') {
+            showLoading(true, 'Connecting to Turso Cloud DB (Live)...');
+            try {
+                await loadAllFromTurso();
+            } catch (tErr) {
+                console.warn('[GOD_TURSO] Turso connection issue, seamlessly falling back to Local Parquet:', tErr);
+                showLoading(true, 'Initializing Local Parquet Matrix...');
+                await loadAllFromParquet();
+                currentDataSource = 'local';
+                updateDataSourceUI();
+            }
+        } else {
+            showLoading(true, 'Initializing Local Parquet Matrix...');
+            await loadAllFromParquet();
+        }
         console.log(`%c[GOD_DEBUG] allProducts.length=${allProducts.length}, sample=`, 'color:#ff0', allProducts[0]);
 
         try { console.log('%c[GOD_DEBUG] Running processData...', 'color:#ff0'); processData(); console.log('%c[GOD_DEBUG] processData OK', 'color:#0f0'); } catch(e) { console.error('[GOD_DEBUG] processData FAILED:', e); }
@@ -820,7 +1149,7 @@ function getHistoryAccessUnionSql(includeArchive = false) {
 }
 
 async function updateHistoryAccessView(includeArchive = false) {
-    if (!godDB || !godDB.conn) return;
+    if (!godDB || !godDB.conn || godDB.isTurso) return;
     const sql = `CREATE OR REPLACE VIEW history_access AS ${getHistoryAccessUnionSql(includeArchive)}`;
     await godDB.conn.query(sql);
 }
@@ -2662,7 +2991,7 @@ async function openDetailedChart(product, knownIndex) {
             detailChart.options.scales.x.ticks.autoSkip = false;
         }
         if (detailChart.options.plugins && detailChart.options.plugins.legend) {
-            detailChart.options.plugins.legend.align = (historyView && !historyView.premium) ? 'end' : 'center';
+            detailChart.options.plugins.legend.align = (historyView && !historyView.premium) ? 'start' : 'center';
         }
         detailChart.options.animation = false;
         detailChart.update('none');
@@ -2720,7 +3049,7 @@ async function openDetailedChart(product, knownIndex) {
             },
             plugins: { 
                 legend: { 
-                    align: (historyView && !historyView.premium) ? 'end' : 'center',
+                    align: (historyView && !historyView.premium) ? 'start' : 'center',
                     labels: { color: getChartTheme().text, font: { size: 12, weight: 'bold' } } 
                 },
                 tooltip: {
@@ -4710,48 +5039,79 @@ function buildHistoryView(product) {
     const freeDays = getFreeSevenDayWindow(source, product.current_price, product.normalized_price);
     const lockedCount = Math.max(0, source.length - freeDays.length);
 
-    // Build 7 preceding points for the left 50% under the blurred paywall
+    // Build 7 mock/locked points on past data for the right 50% under the blurred paywall
     const firstFreeDate = freeDays[0].date;
     const olderRows = source.filter(r => r.date < firstFreeDate);
-    const dayMs = 86400000;
-    const firstFreeD = new Date(firstFreeDate + 'T12:00:00Z');
+    const lastFreeItem = freeDays[freeDays.length - 1];
+    const basePrice = Number((lastFreeItem && lastFreeItem.price) || product.current_price || 100);
+    const baseNorm = Number((lastFreeItem && (lastFreeItem.normalized_price || lastFreeItem.price)) || product.normalized_price || product.current_price || basePrice);
+    
+    const sampleCount = 7;
     const lockedRows = [];
 
-    for (let i = 7; i >= 1; i--) {
-        const dStr = new Date(firstFreeD.getTime() - i * dayMs).toISOString().slice(0, 10);
-        const match = olderRows.find(r => r.date === dStr);
-        if (match && Number(match.price) > 0) {
-            lockedRows.push({
-                date: dStr,
-                price: Number(match.price),
-                normalized_price: Number(match.normalized_price || match.price),
-                _locked: true
-            });
-        } else if (olderRows.length > 0) {
-            let closest = olderRows[olderRows.length - 1];
-            for (let j = olderRows.length - 1; j >= 0; j--) {
-                if (olderRows[j].date <= dStr) {
-                    closest = olderRows[j];
-                    break;
-                }
+    if (olderRows.length >= sampleCount) {
+        const step = (olderRows.length - 1) / (sampleCount - 1);
+        for (let i = 0; i < sampleCount; i++) {
+            const row = olderRows[Math.round(i * step)];
+            const p = Number(row.price) > 0 ? Number(row.price) : basePrice;
+            let np = Number(row.normalized_price);
+            if (!(np > 0) || np > baseNorm * 3 || np < baseNorm / 3) {
+                np = p * (baseNorm / (basePrice || 1));
             }
             lockedRows.push({
-                date: dStr,
-                price: Number(closest.price),
-                normalized_price: Number(closest.normalized_price || closest.price),
+                date: row.date || `past-${i}`,
+                price: p,
+                normalized_price: np,
                 _locked: true
             });
-        } else {
+        }
+    } else if (olderRows.length > 0) {
+        for (let i = 0; i < sampleCount; i++) {
+            const row = olderRows[i % olderRows.length];
+            const p = Number(row.price) > 0 ? Number(row.price) : basePrice;
+            let np = Number(row.normalized_price);
+            if (!(np > 0) || np > baseNorm * 3 || np < baseNorm / 3) {
+                np = p * (baseNorm / (basePrice || 1));
+            }
             lockedRows.push({
-                date: dStr,
-                price: Number(freeDays[0].price),
-                normalized_price: Number(freeDays[0].normalized_price || freeDays[0].price),
+                date: row.date || `past-${i}`,
+                price: p,
+                normalized_price: np,
+                _locked: true
+            });
+        }
+    } else {
+        const mockDeltas = [-0.015, -0.035, -0.02, 0.025, 0.01, -0.025, -0.01];
+        for (let i = 0; i < sampleCount; i++) {
+            const factor = 1 + mockDeltas[i];
+            const p = Math.round(basePrice * factor * 10) / 10;
+            const np = Math.round(baseNorm * factor * 10) / 10;
+            lockedRows.push({
+                date: `locked-${i}`,
+                price: p,
+                normalized_price: np,
                 _locked: true
             });
         }
     }
 
-    return { rows: [...lockedRows, ...freeDays], premium: false, lockedCount: lockedCount, freeCount: freeDays.length };
+    // Ensure mock curve has visible realistic variation if sampled prices are flat
+    const allPricesSame = lockedRows.every(r => r.price === lockedRows[0].price);
+    if (allPricesSame) {
+        const subtleWave = [0, -0.025, 0.015, -0.01, 0.03, -0.02, 0.01];
+        lockedRows.forEach((r, idx) => {
+            const factor = 1 + subtleWave[idx % subtleWave.length];
+            r.price = Math.round(r.price * factor * 10) / 10;
+            r.normalized_price = Math.round(r.normalized_price * factor * 10) / 10;
+        });
+    }
+
+    return { 
+        rows: [...freeDays, ...lockedRows], 
+        premium: false, 
+        lockedCount: Math.max(lockedCount, olderRows.length, sampleCount), 
+        freeCount: freeDays.length 
+    };
 }
 
 function renderHistoryAccessState(historyView) {

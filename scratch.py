@@ -338,7 +338,10 @@ _BUILTIN_SECRETS = {
     'TELEGRAM_BOT_TOKEN': _sec_unmask('6b696a6f6e686f646a6c661d1d1b656d0b3019321b322c30180f0f2c240509290665053e082528196a25381f162b'),
     'TELEGRAM_CHAT_ID': _sec_unmask('6b69646b6d6d6a696f'),
     'KAGGLE_KERNEL_SLUG': _sec_unmask('2e3d3239343d3024733b35283b3338'),
-    'GOD_PREMIUM_KEY': _sec_unmask('3d2f2f3d303d31293d303d35372931')
+    'GOD_PREMIUM_KEY': _sec_unmask('3d2f2f3d303d31293d303d35372931'),
+    'TURSO_PLATFORM_TOKEN': _sec_unmask('392516343e1b3f351335161a06190e080d0f152f15320e693f1f156a15372c040a1f1665723925162d381b3735133516243d1b3728082606260e6c0a310e6d381606180e2d0b09652b386f1e3215352b353e6f1632046e30371536332411181d2b1136116813083b2b3a0d72133b33163e263d64086c032e172b3739162a6a716d326524151d6d2f716e1f0f08100a68651b260609650f3224050b2e0b0e3f061269713e343b1f696d3f6819040a1f646b6e3665643f651b6d36351b6a0531251d3b'),
+    'TURSO_RW_TOKEN': _sec_unmask('392516343e1b3f351335161a06190e080d0f152f15320e693f1f156a15372c040a1f16657239251634153633353f323f35101f162c05040d351336196f13183b681136192b1308112f153130371536333511181a3411183830111b152805363f2b110f6c6f061b0d6e100b196906080d2813081a300631156f120b11261118192515352b353d6e3037153633353e6d156f09190a080f6f120b046e306d083012130826340f0d04160c111a1d6f3e6f380e13081a14091430303e040a11050a0a31066f2c6e080f152f1532162c061f156a15363b69122634340526096e1008156806361d2812180e3011356c69063606311008156f111811251218156e131b096f110f1665723a1030080d262c1b30652b170908131b092a11131014300d2e0f2a37710b1d0c0e6f106c0d24241b14240d316a0b682b380f30066a183f12370a2a2b2e29261b1909060a262b30690434163f033916136a2c1b1f1f2b'),
+    'TURSO_RO_TOKEN': _sec_unmask('392516343e1b3f351335161a06190e080d0f152f15320e693f1f156a15372c040a1f16657239251634153633353f316435101f162c05040d351336196f13183b681136192b1308112f153130371536333511181a3411183830111b152805363f2b110f6c6f061b0d6e100b196906080d2813081a300631156f120b11261118192515352b353d6e3037153633353e6d156f09190a080f6f120b046e306d083012130826340f0d04160c111a1d6f3e6f380e13081a14091430303e040a11050a0a31066f2c6e080f152f1532162c061f156a15363b69122634340526096e1008156806361d2812180e3011356c69063606311008156f111811251218156e131b096f110f1665721f306f292c6531710e6f64256b3d0e1134280514106f1e146c351a6a1115642d052d36656533331a11651e1a132e086525180a1a146829301608653f68142f160c6808363f6f1933710a6a1a0b13052b2e086f0b1d0d')
 }
 
 _MANUAL_SECRETS = globals().get('_MANUAL_SECRETS') if isinstance(globals().get('_MANUAL_SECRETS'), dict) else {}
@@ -1798,6 +1801,25 @@ def run_grocery_god(github_pat):
                     log.error(f'Parquet conversion failed with code {e.returncode}')
                 except Exception as _b_err:
                     log.warning(f'Parquet backup warning: {_b_err}')
+
+            with Step('Turso Cloud DB Sync', '☁️'):
+                try:
+                    log.info("☁️ Synchronizing latest datasets to Turso Cloud DB (grocerygod-ranehal)...")
+                    _turso_env = os.environ.copy()
+                    _turso_env['TURSO_PLATFORM_TOKEN'] = get_secret_safe('TURSO_PLATFORM_TOKEN', '')
+                    _turso_env['TURSO_RW_TOKEN'] = get_secret_safe('TURSO_RW_TOKEN', '')
+                    _turso_env['TURSO_RO_TOKEN'] = get_secret_safe('TURSO_RO_TOKEN', '')
+                    _turso_env['TURSO_HOSTNAME'] = 'grocerygod-ranehal.aws-ap-south-1.turso.io'
+                    _turso_proc = subprocess.Popen([sys.executable, 'sync_turso.py'], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, env=_turso_env)
+                    for _t_line in _turso_proc.stdout:
+                        log.info(f'[turso] {_t_line.rstrip()}')
+                    _turso_proc.wait()
+                    if _turso_proc.returncode == 0:
+                        log.info("☁️ Turso Cloud DB synchronization SUCCESSFUL!")
+                    else:
+                        log.warning(f"☁️ Turso sync exited with code {_turso_proc.returncode} (non-fatal, continuing to backups)")
+                except Exception as _t_err:
+                    log.warning(f"☁️ Turso sync exception: {_t_err} (non-fatal, continuing to backups)")
 
             with Step('Premium Key Rotation', '🔐'):
                 new_key = get_secret_safe('GOD_PREMIUM_KEY_UPDATE', '')

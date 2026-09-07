@@ -1940,11 +1940,11 @@ body.theme-light .alert-builder select,body.theme-light .alert-builder input { b
 .history-chart-stage { position:relative; overflow:hidden; }
 .history-access-badge { display:inline-flex; align-items:center; gap:5px; padding:5px 8px; border:1px solid rgba(251,191,36,.34); border-radius:999px; color:#fde68a; background:rgba(245,158,11,.08); font-size:.58rem; font-weight:900; }
 .history-access-badge.premium { color:#99f6e4; border-color:rgba(45,212,191,.4); background:rgba(20,184,166,.1); }
-.history-paywall-mask { position:absolute; inset:0 25% 0 0; z-index:21; display:grid; place-items:center; padding:18px; background:linear-gradient(90deg,rgba(2,5,9,.5),rgba(6,10,16,.28)); backdrop-filter:blur(8px) saturate(72%); -webkit-backdrop-filter:blur(8px) saturate(72%); border-right:1px solid rgba(255,255,255,.1); }
+.history-paywall-mask { position:absolute; inset:0 0 0 auto; width:50%; z-index:21; display:grid; place-items:center; padding:18px; background:linear-gradient(90deg,rgba(6,10,16,.45),rgba(3,6,11,.9)); backdrop-filter:blur(8px) saturate(72%); -webkit-backdrop-filter:blur(8px) saturate(72%); border-left:1px solid rgba(251,191,36,.4); }
 .history-paywall-mask[hidden],
 .history-paywall-mask.hidden,
 body.premium-unlocked .history-paywall-mask { display:none !important; }
-.history-paywall-mask::after { content:''; position:absolute; right:-1px; top:0; width:1px; height:100%; background:linear-gradient(transparent,#fbbf24,transparent); animation:paywall-scan 3.2s ease-in-out infinite; }
+.history-paywall-mask::after { content:''; position:absolute; left:-1px; right:auto; top:0; width:1px; height:100%; background:linear-gradient(transparent,#fbbf24,transparent); animation:paywall-scan 3.2s ease-in-out infinite; }
 @keyframes paywall-scan { 0%,100%{transform:translateY(-65%);opacity:0} 42%,58%{opacity:1} 100%{transform:translateY(65%)} }
 .history-paywall-copy { width:min(330px,100%); padding:16px; text-align:center; border:1px solid rgba(251,191,36,.28); border-radius:17px; background:rgba(5,8,13,.72); box-shadow:0 18px 55px rgba(0,0,0,.5); }
 .paywall-kicker { display:inline-flex; align-items:center; gap:5px; color:#fcd34d; font-size:.53rem; font-weight:900; text-transform:uppercase; letter-spacing:.7px; }
@@ -2054,7 +2054,7 @@ body.immersive-mode .p-item-sh:nth-child(3n+2) { animation-delay:.06s; }
     .alert-builder,.alerts-feed { overflow:visible; }
     .alerts-list { height:auto; max-height:420px; }
     .premium-modal-shell { width:100vw; min-height:100dvh; max-height:100dvh; border-radius:0; padding:18px 14px 30px; }
-    .history-paywall-mask { inset:0; background:rgba(3,6,11,.48); }
+    .history-paywall-mask { inset:0 0 0 auto; width:50%; background:rgba(3,6,11,.7); }
     .history-paywall-copy { padding:13px; }
     body.immersive-mode .p-view-sh { grid-template-columns:repeat(2,minmax(0,1fr)); padding:max(5px,env(safe-area-inset-top)) 5px max(5px,env(safe-area-inset-bottom)); gap:5px; }
     body.immersive-mode .p-img-box { padding:8px; }
@@ -4088,7 +4088,7 @@ body.pitch-black.theme-amoled {
 }
 
 /* ============================================================
-   PAYWALL OVER LEFT 50% WITH GRAPH BG BLURRED, 7-DAY GRAPH ON RIGHT
+   PAYWALL OVER RIGHT 50% WITH MOCK GRAPH BLURRED, 7-DAY FULL GRAPH ON LEFT
    ============================================================ */
 .history-chart-stage {
     position: relative !important;
@@ -4107,31 +4107,35 @@ body.pitch-black.theme-amoled {
 .history-paywall-mask {
     position: absolute !important;
     top: 0 !important;
-    left: 0 !important;
+    right: 0 !important;
+    left: auto !important;
     bottom: 0 !important;
-    width: calc(50% - 14px) !important;
+    width: 50% !important;
     z-index: 20 !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
     padding: 24px 20px !important;
-    background: linear-gradient(90deg, rgba(3, 6, 11, 0.88) 0%, rgba(5, 8, 13, 0.78) 75%, rgba(6, 10, 16, 0.5) 100%) !important;
+    background: linear-gradient(90deg, rgba(6, 10, 16, 0.45) 0%, rgba(5, 8, 13, 0.78) 35%, rgba(3, 6, 11, 0.9) 100%) !important;
     backdrop-filter: blur(8px) saturate(85%) !important;
     -webkit-backdrop-filter: blur(8px) saturate(85%) !important;
-    border-right: 1.5px solid rgba(251, 191, 36, 0.45) !important;
-    box-shadow: 12px 0 35px rgba(0, 0, 0, 0.6) !important;
+    border-left: 1.5px solid rgba(251, 191, 36, 0.45) !important;
+    border-right: none !important;
+    box-shadow: -12px 0 35px rgba(0, 0, 0, 0.6) !important;
     text-align: center !important;
 }
 
 .history-paywall-mask::after {
     content: '' !important;
     position: absolute !important;
-    right: -1px !important;
+    left: -1px !important;
+    right: auto !important;
     top: 0 !important;
     bottom: 0 !important;
     width: 2px !important;
     background: linear-gradient(180deg, transparent, #fbbf24, #f59e0b, transparent) !important;
+    animation: paywall-scan 3.2s ease-in-out infinite !important;
     pointer-events: none !important;
 }
 
@@ -4146,7 +4150,7 @@ body.premium-unlocked .history-paywall-mask {
     padding: 20px 18px !important;
     border-radius: 18px !important;
     border: 1px solid rgba(251, 191, 36, 0.35) !important;
-    background: rgba(5, 8, 13, 0.8) !important;
+    background: rgba(5, 8, 13, 0.82) !important;
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7), 0 0 25px rgba(251, 191, 36, 0.12) !important;
     text-align: center !important;
     display: flex !important;
@@ -4207,22 +4211,54 @@ body.premium-unlocked .history-paywall-mask {
 
 @media (max-width: 768px) {
     .history-paywall-mask {
+        right: 0 !important;
+        left: auto !important;
         width: 50% !important;
-        padding: 12px !important;
+        padding: 12px 8px !important;
     }
     .history-paywall-copy {
-        padding: 12px 10px !important;
+        width: 96% !important;
+        padding: 12px 8px !important;
     }
     .history-paywall-copy strong {
-        font-size: 0.95rem !important;
+        font-size: 0.92rem !important;
     }
     .history-paywall-copy small {
-        font-size: 0.7rem !important;
-        margin: 6px auto 10px !important;
+        font-size: 0.68rem !important;
+        margin: 5px auto 10px !important;
     }
     .paywall-cta {
-        height: 36px !important;
-        font-size: 0.76rem !important;
+        height: 34px !important;
+        font-size: 0.74rem !important;
+        padding: 0 10px !important;
+        max-width: 190px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .history-paywall-mask {
+        padding: 8px 4px !important;
+    }
+    .history-paywall-copy {
+        padding: 10px 6px !important;
+    }
+    .paywall-kicker {
+        font-size: 0.64rem !important;
+        letter-spacing: 0.5px !important;
+    }
+    .history-paywall-copy strong {
+        font-size: 0.8rem !important;
+        margin-top: 4px !important;
+    }
+    .history-paywall-copy small {
+        font-size: 0.62rem !important;
+        line-height: 1.3 !important;
+        margin: 4px auto 8px !important;
+    }
+    .paywall-cta {
+        height: 30px !important;
+        font-size: 0.68rem !important;
+        padding: 0 8px !important;
     }
 }
 
@@ -5310,6 +5346,89 @@ body.theme-light .intel-variant-photo.active {
         min-width: 45px;
     }
 }
+
+/* ============================================================
+   DATA SOURCE TOGGLE (TURSO CLOUD DB VS LOCAL GITHUB PARQUET)
+   ============================================================ */
+.btn-variant-source {
+    background: linear-gradient(135deg, rgba(14, 165, 233, 0.16), rgba(99, 102, 241, 0.22));
+    border: 1px solid rgba(56, 189, 248, 0.45);
+    color: #7dd3fc;
+    font-weight: 800;
+    gap: 6px;
+    position: relative;
+    box-shadow: 0 0 12px rgba(14, 165, 233, 0.15);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-variant-source:hover {
+    background: linear-gradient(135deg, rgba(14, 165, 233, 0.28), rgba(99, 102, 241, 0.35));
+    border-color: #38bdf8;
+    color: #fff;
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+    transform: translateY(-1px);
+}
+.btn-variant-source.source-local {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.14), rgba(5, 150, 105, 0.18));
+    border-color: rgba(52, 211, 153, 0.45);
+    color: #6ee7b7;
+    box-shadow: 0 0 12px rgba(16, 185, 129, 0.15);
+}
+.btn-variant-source.source-local:hover {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.25), rgba(5, 150, 105, 0.3));
+    border-color: #34d399;
+    color: #fff;
+    box-shadow: 0 0 20px rgba(52, 211, 153, 0.35);
+}
+.source-live-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #38bdf8;
+    box-shadow: 0 0 8px #38bdf8;
+    animation: live-pulse-turso 1.8s infinite ease-in-out;
+    display: inline-block;
+}
+.btn-variant-source.source-local .source-live-dot {
+    background: #34d399;
+    box-shadow: 0 0 8px #34d399;
+    animation: live-pulse-local 2.4s infinite ease-in-out;
+}
+@keyframes live-pulse-turso {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.35; transform: scale(0.8); }
+}
+@keyframes live-pulse-local {
+    0%, 100% { opacity: 0.9; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.85); }
+}
+.source-switch-toast {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 10000;
+    padding: 12px 20px;
+    border-radius: 12px;
+    background: rgba(10, 16, 26, 0.92);
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(56, 189, 248, 0.2);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: #f1f5f9;
+    font-size: 0.88rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    opacity: 0;
+    transform: translateY(15px);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+}
+.source-switch-toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 
 
 
