@@ -24,7 +24,7 @@ let metadata = {};
 let _godDbResolver;
 window.__godDbPromise = new Promise(resolve => { _godDbResolver = resolve; });
 let godDB = null; // persistent DuckDB connection for on-demand queries
-const ASSET_VERSION = window.GOD_ASSET_VERSION || '20260908_v5';
+const ASSET_VERSION = window.GOD_ASSET_VERSION || '20260908_v6';
 let favorites = JSON.parse(safeStorage.getItem('god_favorites') || '[]');
 let selectedForComparison = JSON.parse(safeStorage.getItem('god_comparison') || '[]');
 let customGroups = JSON.parse(safeStorage.getItem('god_custom_groups') || '{}');
@@ -2635,7 +2635,9 @@ async function openDetailedChart(product, knownIndex) {
     const historyView = buildHistoryView(product);
     const history = historyView.rows;
     const rawDates = history.map(h => h.date);
-    const labels = formatChartDates(rawDates);
+    const labels = (historyView && !historyView.premium)
+        ? history.map(h => h._locked ? '' : formatChartDateItem(h.date, false))
+        : formatChartDates(rawDates);
     renderHistoryAccessState(historyView);
 
     const unitData = history.map(h => (Number(h.normalized_price) <= 0 || Number(h.price) <= 0) ? null : Number(h.normalized_price));
@@ -2655,6 +2657,12 @@ async function openDetailedChart(product, knownIndex) {
         if (detailChart.options.scales.y) {
             detailChart.options.scales.y.title.color = store.color;
             detailChart.options.scales.y.ticks.color = store.color;
+        }
+        if (detailChart.options.scales.x) {
+            detailChart.options.scales.x.ticks.autoSkip = false;
+        }
+        if (detailChart.options.plugins && detailChart.options.plugins.legend) {
+            detailChart.options.plugins.legend.align = (historyView && !historyView.premium) ? 'end' : 'center';
         }
         detailChart.options.animation = false;
         detailChart.update('none');
@@ -2700,15 +2708,29 @@ async function openDetailedChart(product, knownIndex) {
             scales: {
                 y: { position: 'left', title: { display: true, text: 'Unit Price', color: store.color, font: { weight: 'bold' } }, grid: { color: '#222' }, ticks: { color: store.color, font: { size: 11, weight: 'bold' } } },
                 y1: { position: 'right', title: { display: true, text: 'Actual Price', color: getChartTheme().actual, font: { weight: 'bold' } }, grid: { display: false }, ticks: { color: getChartTheme().actual, font: { size: 11, weight: 'bold' } } },
-                x: { ticks: { color: getChartTheme().text, font: { size: 11, weight: 'bold' }, maxRotation: 45 }, grid: { color: '#1a1a1a' } }
+                x: { 
+                    ticks: { 
+                        color: getChartTheme().text, 
+                        font: { size: 11, weight: 'bold' }, 
+                        autoSkip: false,
+                        maxRotation: 45 
+                    }, 
+                    grid: { color: '#1a1a1a' } 
+                }
             },
             plugins: { 
-                legend: { labels: { color: getChartTheme().text, font: { size: 12, weight: 'bold' } } },
+                legend: { 
+                    align: (historyView && !historyView.premium) ? 'end' : 'center',
+                    labels: { color: getChartTheme().text, font: { size: 12, weight: 'bold' } } 
+                },
                 tooltip: {
                     callbacks: {
                         title: (tooltipItems) => {
                             if (!tooltipItems.length) return '';
                             const idx = tooltipItems[0].dataIndex;
+                            const curHist = (detailChart && detailChart._currentHistory) || history;
+                            const h = curHist && curHist[idx];
+                            if (h && h._locked) return 'Locked History';
                             const rDates = (detailChart && detailChart._rawDates) || rawDates;
                             const rawDate = rDates[idx];
                             if (rawDate) {
@@ -2723,6 +2745,9 @@ async function openDetailedChart(product, knownIndex) {
                         label: (context) => {
                             const curHist = (detailChart && detailChart._currentHistory) || history;
                             const h = curHist[context.dataIndex];
+                            if (h && h._locked) {
+                                return 'Unlock Premium to reveal price';
+                            }
                             if (h && (Number(h.price) <= 0 || Number(h.normalized_price) <= 0)) {
                                 return `${context.dataset.label}: Out of Stock (-1)`;
                             }
@@ -4682,9 +4707,51 @@ function buildHistoryView(product) {
         return { rows: source.length ? source : [{ date: todayStr, price: product.current_price, normalized_price: product.normalized_price }], premium: true, lockedCount: 0 };
     }
 
-    const actual = getFreeSevenDayWindow(source, product.current_price, product.normalized_price);
-    const lockedCount = Math.max(0, source.length - actual.length);
-    return { rows: actual, premium: false, lockedCount: lockedCount };
+    const freeDays = getFreeSevenDayWindow(source, product.current_price, product.normalized_price);
+    const lockedCount = Math.max(0, source.length - freeDays.length);
+
+    // Build 7 preceding points for the left 50% under the blurred paywall
+    const firstFreeDate = freeDays[0].date;
+    const olderRows = source.filter(r => r.date < firstFreeDate);
+    const dayMs = 86400000;
+    const firstFreeD = new Date(firstFreeDate + 'T12:00:00Z');
+    const lockedRows = [];
+
+    for (let i = 7; i >= 1; i--) {
+        const dStr = new Date(firstFreeD.getTime() - i * dayMs).toISOString().slice(0, 10);
+        const match = olderRows.find(r => r.date === dStr);
+        if (match && Number(match.price) > 0) {
+            lockedRows.push({
+                date: dStr,
+                price: Number(match.price),
+                normalized_price: Number(match.normalized_price || match.price),
+                _locked: true
+            });
+        } else if (olderRows.length > 0) {
+            let closest = olderRows[olderRows.length - 1];
+            for (let j = olderRows.length - 1; j >= 0; j--) {
+                if (olderRows[j].date <= dStr) {
+                    closest = olderRows[j];
+                    break;
+                }
+            }
+            lockedRows.push({
+                date: dStr,
+                price: Number(closest.price),
+                normalized_price: Number(closest.normalized_price || closest.price),
+                _locked: true
+            });
+        } else {
+            lockedRows.push({
+                date: dStr,
+                price: Number(freeDays[0].price),
+                normalized_price: Number(freeDays[0].normalized_price || freeDays[0].price),
+                _locked: true
+            });
+        }
+    }
+
+    return { rows: [...lockedRows, ...freeDays], premium: false, lockedCount: lockedCount, freeCount: freeDays.length };
 }
 
 function renderHistoryAccessState(historyView) {

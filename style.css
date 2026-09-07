@@ -4088,46 +4088,51 @@ body.pitch-black.theme-amoled {
 }
 
 /* ============================================================
-   PAYWALL ASIDE 7-DAY FREE GRAPH (SIDE-BY-SIDE ON DESKTOP, STACKED ON MOBILE)
+   PAYWALL OVER LEFT 50% WITH GRAPH BG BLURRED, 7-DAY GRAPH ON RIGHT
    ============================================================ */
 .history-chart-stage {
     position: relative !important;
     overflow: hidden !important;
-    display: flex !important;
-    flex-direction: row !important;
-    gap: 16px !important;
-    align-items: stretch !important;
+    width: 100% !important;
+    height: 100% !important;
+    display: block !important;
 }
 
 .history-chart-wrapper {
-    flex: 1 1 0% !important;
-    min-width: 0 !important;
+    width: 100% !important;
     height: 100% !important;
     position: relative !important;
 }
 
 .history-paywall-mask {
-    position: relative !important;
-    inset: auto !important;
-    flex: 0 0 320px !important;
-    width: 320px !important;
-    max-width: 340px !important;
-    height: 100% !important;
-    z-index: 10 !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    width: calc(50% - 14px) !important;
+    z-index: 20 !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
     padding: 24px 20px !important;
-    border-radius: 20px !important;
-    border: 1.5px solid rgba(251, 191, 36, 0.4) !important;
-    background: linear-gradient(165deg, rgba(15, 23, 42, 0.95), rgba(5, 8, 13, 0.98)) !important;
-    box-shadow: 0 16px 45px rgba(0, 0, 0, 0.65), 0 0 30px rgba(251, 191, 36, 0.1) !important;
+    background: linear-gradient(90deg, rgba(3, 6, 11, 0.88) 0%, rgba(5, 8, 13, 0.78) 75%, rgba(6, 10, 16, 0.5) 100%) !important;
+    backdrop-filter: blur(8px) saturate(85%) !important;
+    -webkit-backdrop-filter: blur(8px) saturate(85%) !important;
+    border-right: 1.5px solid rgba(251, 191, 36, 0.45) !important;
+    box-shadow: 12px 0 35px rgba(0, 0, 0, 0.6) !important;
     text-align: center !important;
 }
 
 .history-paywall-mask::after {
-    display: none !important;
+    content: '' !important;
+    position: absolute !important;
+    right: -1px !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    width: 2px !important;
+    background: linear-gradient(180deg, transparent, #fbbf24, #f59e0b, transparent) !important;
+    pointer-events: none !important;
 }
 
 .history-paywall-mask[hidden],
@@ -4137,11 +4142,12 @@ body.premium-unlocked .history-paywall-mask {
 }
 
 .history-paywall-copy {
-    width: 100% !important;
-    padding: 0 !important;
-    border: none !important;
-    background: transparent !important;
-    box-shadow: none !important;
+    width: min(340px, 92%) !important;
+    padding: 20px 18px !important;
+    border-radius: 18px !important;
+    border: 1px solid rgba(251, 191, 36, 0.35) !important;
+    background: rgba(5, 8, 13, 0.8) !important;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7), 0 0 25px rgba(251, 191, 36, 0.12) !important;
     text-align: center !important;
     display: flex !important;
     flex-direction: column !important;
@@ -4153,7 +4159,7 @@ body.premium-unlocked .history-paywall-mask {
     align-items: center !important;
     gap: 8px !important;
     color: #fbbf24 !important;
-    font-size: 0.8rem !important;
+    font-size: 0.78rem !important;
     font-weight: 900 !important;
     letter-spacing: 1.2px !important;
     text-transform: uppercase !important;
@@ -4165,25 +4171,25 @@ body.premium-unlocked .history-paywall-mask {
 
 .history-paywall-copy strong {
     display: block !important;
-    font-size: 1.22rem !important;
-    margin-top: 10px !important;
+    font-size: 1.15rem !important;
+    margin-top: 8px !important;
     line-height: 1.3 !important;
     color: #fff !important;
 }
 
 .history-paywall-copy small {
     display: block !important;
-    font-size: 0.82rem !important;
-    margin: 10px auto 18px !important;
-    line-height: 1.55 !important;
+    font-size: 0.78rem !important;
+    margin: 8px auto 16px !important;
+    line-height: 1.5 !important;
     color: #cbd5e1 !important;
 }
 
 .paywall-cta {
-    height: 46px !important;
-    padding: 0 20px !important;
-    border-radius: 12px !important;
-    font-size: 0.86rem !important;
+    height: 42px !important;
+    padding: 0 18px !important;
+    border-radius: 11px !important;
+    font-size: 0.84rem !important;
     letter-spacing: 0.3px !important;
     display: inline-flex !important;
     align-items: center !important;
@@ -4196,26 +4202,27 @@ body.premium-unlocked .history-paywall-mask {
     border: none !important;
     box-shadow: 0 8px 24px rgba(251, 191, 36, 0.35) !important;
     width: 100% !important;
-    max-width: 240px !important;
+    max-width: 220px !important;
 }
 
 @media (max-width: 768px) {
-    .history-chart-stage {
-        flex-direction: column !important;
-        height: auto !important;
-        min-height: 0 !important;
-    }
-    .history-chart-wrapper {
-        width: 100% !important;
-        height: 260px !important;
-        min-height: 240px !important;
-    }
     .history-paywall-mask {
-        width: 100% !important;
-        max-width: 100% !important;
-        flex: 0 0 auto !important;
-        padding: 16px !important;
-        margin-top: 10px !important;
+        width: 50% !important;
+        padding: 12px !important;
+    }
+    .history-paywall-copy {
+        padding: 12px 10px !important;
+    }
+    .history-paywall-copy strong {
+        font-size: 0.95rem !important;
+    }
+    .history-paywall-copy small {
+        font-size: 0.7rem !important;
+        margin: 6px auto 10px !important;
+    }
+    .paywall-cta {
+        height: 36px !important;
+        font-size: 0.76rem !important;
     }
 }
 
