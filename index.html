@@ -15,16 +15,16 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
-<link rel="preload" href="atl_preview.json?v=20260908_v2" as="fetch" crossorigin>
-<link rel="preload" href="atl.parquet?v=20260908_v2" as="fetch" crossorigin>
-<link rel="preload" href="products_free.parquet?v=20260908_v2" as="fetch" crossorigin>
+<link rel="preload" href="atl_preview.json?v=20260908_v3" as="fetch" crossorigin>
+<link rel="preload" href="atl.parquet?v=20260908_v3" as="fetch" crossorigin>
+<link rel="preload" href="products_free.parquet?v=20260908_v3" as="fetch" crossorigin>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
-<link href="style.css?v=20260908_v2" rel="stylesheet"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+<link href="style.css?v=20260908_v3" rel="stylesheet"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
 </head>
 <body class="pitch-black theme-amoled">
 <script>
-window.GOD_ASSET_VERSION = '20260908_v2';
+window.GOD_ASSET_VERSION = '20260908_v3';
 window.GOD_ALLOW_LEGACY_DATA = false;
 if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')) {
     window.addEventListener('load', () => {
@@ -390,22 +390,14 @@ if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || wi
 <!-- Detailed Chart Modal -->
 <div class="modal" id="chart-modal">
 <div class="modal-content full-screen-modal sci-fi-modal" style="max-height: 95vh; max-width: 95vw; position: relative;">
-<button class="modal-nav-arrow modal-nav-prev" id="chart-modal-prev" aria-label="Previous product" title="Previous product (Left Arrow)">
-    <i class="fas fa-chevron-left"></i>
-</button>
-<button class="modal-nav-arrow modal-nav-next" id="chart-modal-next" aria-label="Next product" title="Next product (Right Arrow)">
-    <i class="fas fa-chevron-right"></i>
-</button>
 <div class="modal-header" style="background: linear-gradient(135deg, var(--bg-dark), #2a2a3a); padding: 20px;">
 <h2 id="chart-product-name" style="font-size: 1.8rem; color: var(--gold); margin-bottom: 6px;"></h2>
 <div style="display:flex; gap:15px; align-items:center; flex-wrap:wrap; margin-bottom: 6px;">
 <span class="store-tag" id="chart-store-tag" style="font-size: 1rem; padding: 8px 15px;"></span>
 <span id="chart-product-unit" style="color:#888; font-size:1.1rem;"></span>
 <span class="history-access-badge" id="history-access-badge"><i class="fas fa-clock"></i> Complete history</span>
-<div class="chart-nav-pills" id="chart-nav-pills" title="Navigate items (or use Left/Right arrow keys)">
-    <button class="chart-nav-btn" id="chart-nav-btn-prev" title="Previous product (Left Arrow)"><i class="fas fa-arrow-left"></i></button>
+<div class="chart-nav-pills" id="chart-nav-pills" title="Item position in catalog">
     <span class="chart-nav-counter" id="chart-nav-counter">— / —</span>
-    <button class="chart-nav-btn" id="chart-nav-btn-next" title="Next product (Right Arrow)"><i class="fas fa-arrow-right"></i></button>
 </div>
 <button class="btn-icon btn-variant-soft" id="chart-landscape-toggle" title="Toggle Landscape Graph Orientation" style="padding: 6px 14px; font-weight: 700; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 6px; border-radius: 20px; border: 1px solid var(--gold); color: var(--gold); background: rgba(245, 158, 11, 0.1); cursor: pointer;"><i class="fas fa-arrows-rotate"></i> <span>Landscape View</span></button>
 <button onclick="closeModal()" style="background: var(--danger); color: white; border: none; border-radius: 50%; width: 40px; height: 40px; font-size: 1.5rem; cursor: pointer; display: flex; align-items: center; justify-content: center; margin-left: auto;"><i class="fas fa-times"></i></button>
@@ -706,9 +698,9 @@ if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || wi
 
 <script type="importmap">{"imports":{"@duckdb/duckdb-wasm":"https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm@1.29.0/+esm"}}</script>
 <script type="module">import * as duckdb from '@duckdb/duckdb-wasm'; window.duckdb=duckdb; window.__duckdb_ready?.();</script>
-<script src="shwapno_manifest.js?v=20260908_v2"></script><script src="chaldal_manifest.js?v=20260908_v2"></script><script src="meenabazar_manifest.js?v=20260908_v2"></script><script src="othoba_manifest.js?v=20260908_v2"></script><script src="metromart_manifest.js?v=20260908_v2"></script><script src="unimart_manifest.js?v=20260908_v2"></script><script src="shotejbazar_manifest.js?v=20260908_v2"></script><script src="foodi_manifest.js?v=20260908_v2"></script>
+<script src="shwapno_manifest.js?v=20260908_v3"></script><script src="chaldal_manifest.js?v=20260908_v3"></script><script src="meenabazar_manifest.js?v=20260908_v3"></script><script src="othoba_manifest.js?v=20260908_v3"></script><script src="metromart_manifest.js?v=20260908_v3"></script><script src="unimart_manifest.js?v=20260908_v3"></script><script src="shotejbazar_manifest.js?v=20260908_v3"></script><script src="foodi_manifest.js?v=20260908_v3"></script>
 
-<script src="script.js?v=20260908_v2"></script>
+<script src="script.js?v=20260908_v3"></script>
 <div id="god-chat-widget">
   <button id="god-chat-toggle" class="god-chat-fab" aria-label="Open GroceryGOD assistant">💬</button>
   <div id="god-chat-panel" class="god-chat-panel hidden">

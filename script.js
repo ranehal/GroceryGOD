@@ -24,7 +24,7 @@ let metadata = {};
 let _godDbResolver;
 window.__godDbPromise = new Promise(resolve => { _godDbResolver = resolve; });
 let godDB = null; // persistent DuckDB connection for on-demand queries
-const ASSET_VERSION = window.GOD_ASSET_VERSION || '20260908_v2';
+const ASSET_VERSION = window.GOD_ASSET_VERSION || '20260908_v3';
 let favorites = JSON.parse(safeStorage.getItem('god_favorites') || '[]');
 let selectedForComparison = JSON.parse(safeStorage.getItem('god_comparison') || '[]');
 let customGroups = JSON.parse(safeStorage.getItem('god_custom_groups') || '{}');
@@ -2164,10 +2164,6 @@ function setupEventListeners() {
     const chartModal = document.getElementById('chart-modal');
     if (!chartModal) return;
 
-    document.getElementById('chart-modal-prev')?.addEventListener('click', (e) => { e.stopPropagation(); cycleProduct(-1); });
-    document.getElementById('chart-modal-next')?.addEventListener('click', (e) => { e.stopPropagation(); cycleProduct(1); });
-    document.getElementById('chart-nav-btn-prev')?.addEventListener('click', (e) => { e.stopPropagation(); cycleProduct(-1); });
-    document.getElementById('chart-nav-btn-next')?.addEventListener('click', (e) => { e.stopPropagation(); cycleProduct(1); });
 
     let touchStartX = 0;
     let touchStartY = 0;
