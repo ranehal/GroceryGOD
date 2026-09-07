@@ -9,9 +9,22 @@ const safeSession = {
     setItem(key, value) { try { window.sessionStorage.setItem(key, value); } catch (_) {} }
 };
 let allProducts = [];
+const allProductsById = new Map();
+
+function getProductById(id) {
+    if (!id) return null;
+    let p = allProductsById.get(id);
+    if (p) return p;
+    p = allProducts.find(x => x.id === id);
+    if (p) allProductsById.set(id, p);
+    return p;
+}
+
 let metadata = {};
+let _godDbResolver;
+window.__godDbPromise = new Promise(resolve => { _godDbResolver = resolve; });
 let godDB = null; // persistent DuckDB connection for on-demand queries
-const ASSET_VERSION = window.GOD_ASSET_VERSION || '20260907_v3';
+const ASSET_VERSION = window.GOD_ASSET_VERSION || '20260908_v2';
 let favorites = JSON.parse(safeStorage.getItem('god_favorites') || '[]');
 let selectedForComparison = JSON.parse(safeStorage.getItem('god_comparison') || '[]');
 let customGroups = JSON.parse(safeStorage.getItem('god_custom_groups') || '{}');
@@ -542,7 +555,7 @@ async function loadAllFromParquet() {
         const minP = r.min_price != null ? Number(r.min_price) : normPrice;
         const maxP = r.max_price != null ? Number(r.max_price) : normPrice;
         const avgP = r.avg_price != null ? Number(r.avg_price) : normPrice;
-        return {
+        const p = {
             id: r.id,
             name: r.name,
             store: r.store,
@@ -564,8 +577,11 @@ async function loadAllFromParquet() {
             avgPrice: avgP,
             oldest_date: r.first_seen || null,
             newest_date: r.last_seen || null,
-            _historyLoaded: false
+            _historyLoaded: false,
+            _historyLoading: false
         };
+        allProductsById.set(p.id, p);
+        return p;
     }
 
     // ⚡ Phase 0: SUB-25MS ZERO-WAIT FIRST PAINT (Mount top ATL deals before DuckDB WASM compiles!)
@@ -652,6 +668,7 @@ async function loadAllFromParquet() {
     });
 
     godDB = { db, conn };
+    if (typeof _godDbResolver === 'function') _godDbResolver(godDB);
     window.loadedStores = new Set(storesList);
     activeShopFilters = new Set(['shwapno']);
 
@@ -959,8 +976,16 @@ function forwardFillHistoryGaps(rawRows, currentPrice, currentNormPrice) {
 }
 
 async function loadProductHistory(productId) {
-    const p = allProducts.find(x => x.id === productId);
+    const p = getProductById(productId);
     const rawId = productId.replace(/^(sh_|ch_|mb_|ot_|mt_|uni_|sj_|fd_)/, '');
+    if (!godDB && window.__godDbPromise) {
+        try {
+            await Promise.race([
+                window.__godDbPromise,
+                new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), 6000))
+            ]);
+        } catch (_) {}
+    }
 
     // ⚡ Demand-driven DB chunk download: Download store parquet only when needed!
     const store = p ? p.store : null;
@@ -968,14 +993,27 @@ async function loadProductHistory(productId) {
         try { await ensureStoreHistoryLoaded(store); } catch(e) {}
     }
 
-    if (godDB) {
+    if (godDB && godDB.conn) {
         try {
             const cleanId = productId.replace(/'/g, "''");
             const cleanRawId = rawId.replace(/'/g, "''");
+            const idFilter = cleanId === cleanRawId 
+                ? `product_id = '${cleanId}'` 
+                : `product_id IN ('${cleanId}', '${cleanRawId}')`;
+
+            const storeChunk = store ? `history_${store}.parquet` : null;
+            const useStoreChunk = storeChunk && window.__registeredHistoryChunks && window.__registeredHistoryChunks.has(storeChunk);
+            let fromSource = 'history_access';
+            if (useStoreChunk) {
+                fromSource = (window.__hasPremiumArchive || (typeof premiumUnlocked !== 'undefined' && premiumUnlocked))
+                    ? `(SELECT * FROM read_parquet('${storeChunk}') UNION ALL SELECT * FROM read_parquet('history_archive.parquet'))`
+                    : `read_parquet('${storeChunk}')`;
+            }
+
             const result = await godDB.conn.query(`
                 SELECT date, price, normalized_price 
-                FROM history_access 
-                WHERE product_id = '${cleanId}' OR product_id = '${cleanRawId}'
+                FROM ${fromSource} 
+                WHERE ${idFilter}
                 ORDER BY date ASC
             `);
             const rows = result.toArray().map(r => {
@@ -1151,6 +1189,7 @@ function processData() {
     const defaultLatestMs = Date.parse(activeThresholdDate.slice(0, 10) + 'T12:00:00Z');
 
     allProducts.forEach(p => {
+        allProductsById.set(p.id, p);
         if (customOverrides[p.id]) {
             Object.assign(p, customOverrides[p.id]);
         }
@@ -1504,7 +1543,7 @@ function renderProducts() {
             } else if (compareModeActive) {
                 toggleComparisonItem(id);
             } else {
-                const product = currentFilteredProducts.find(p => p.id === id) || allProducts.find(p => p.id === id);
+                const product = getProductById(id);
                 if (product) openDetailedChart(product);
             }
         });
@@ -1943,8 +1982,8 @@ function setupEventListeners() {
         }
         const chartModal = document.getElementById('chart-modal');
         if (chartModal && !chartModal.classList.contains('hidden') && chartModal.style.display !== 'none') {
-            if (e.key === 'ArrowRight') cycleProduct(1);
-            if (e.key === 'ArrowLeft') cycleProduct(-1);
+            if (e.key === 'ArrowRight') { e.preventDefault(); e.stopPropagation(); cycleProduct(1); }
+            if (e.key === 'ArrowLeft') { e.preventDefault(); e.stopPropagation(); cycleProduct(-1); }
         }
     }, true);
 
@@ -2124,6 +2163,12 @@ function setupEventListeners() {
 
     const chartModal = document.getElementById('chart-modal');
     if (!chartModal) return;
+
+    document.getElementById('chart-modal-prev')?.addEventListener('click', (e) => { e.stopPropagation(); cycleProduct(-1); });
+    document.getElementById('chart-modal-next')?.addEventListener('click', (e) => { e.stopPropagation(); cycleProduct(1); });
+    document.getElementById('chart-nav-btn-prev')?.addEventListener('click', (e) => { e.stopPropagation(); cycleProduct(-1); });
+    document.getElementById('chart-nav-btn-next')?.addEventListener('click', (e) => { e.stopPropagation(); cycleProduct(1); });
+
     let touchStartX = 0;
     let touchStartY = 0;
     chartModal.addEventListener('click', (e) => {
@@ -2165,23 +2210,26 @@ function cycleProduct(dir) {
         updateDetailModalHeader(nextProduct);
     }
 
-    // 2. Prefetch adjacent items in idle time
-    if (typeof prefetchAdjacentProducts === 'function') {
-        prefetchAdjacentProducts(currentDetailProductIndex);
-    }
-
-    // 3. If history already in RAM, render chart immediately!
+    // 2. If history already in RAM, render chart immediately! (0-2ms latency)
     if (nextProduct._historyLoaded) {
         clearTimeout(_cycleDebounceTimer);
-        openDetailedChart(nextProduct);
+        const chartCanvas = document.getElementById('price-history-chart');
+        if (chartCanvas) chartCanvas.style.opacity = '1';
+        openDetailedChart(nextProduct, currentDetailProductIndex);
+        scheduleBatchPrefetch(currentDetailProductIndex, dir);
         return;
     }
 
-    // 4. Debounce DuckDB WASM query by 25ms during rapid arrow taps
+    // 3. Immediate visual response while awaiting query: dim chart slightly
+    const chartCanvas = document.getElementById('price-history-chart');
+    if (chartCanvas) chartCanvas.style.opacity = '0.55';
+
+    // 4. Debounce DuckDB WASM query by 45ms during rapid arrow taps
     clearTimeout(_cycleDebounceTimer);
     _cycleDebounceTimer = setTimeout(() => {
-        openDetailedChart(nextProduct);
-    }, 25);
+        openDetailedChart(nextProduct, currentDetailProductIndex);
+        scheduleBatchPrefetch(currentDetailProductIndex, dir);
+    }, 45);
 }
 
 function renderShoppingLists() {
@@ -2315,11 +2363,14 @@ function openCartModal() {
 
 function closeModal() {
     clearTimeout(_cycleDebounceTimer);
+    if (_batchPrefetchTimer) clearTimeout(_batchPrefetchTimer);
     const modal = document.getElementById('chart-modal');
     if (modal) {
         modal.classList.add('hidden');
         modal.style.display = 'none';
     }
+    const chartCanvas = document.getElementById('price-history-chart');
+    if (chartCanvas) chartCanvas.style.opacity = '1';
     document.body.style.overflow = '';
 }
 
@@ -2335,6 +2386,12 @@ function updateDetailModalHeader(product) {
     const store = STORE_CONFIG[product.store] || { name: product.store, color: '#f59e0b' };
     document.getElementById('chart-store-tag').innerText = store.name;
     document.getElementById('chart-store-tag').style.background = store.color;
+
+    // Update navigation position counter if present
+    const counterEl = document.getElementById('chart-nav-counter');
+    if (counterEl && currentFilteredProducts && currentFilteredProducts.length > 0 && currentDetailProductIndex >= 0) {
+        counterEl.innerText = `${currentDetailProductIndex + 1} / ${currentFilteredProducts.length}`;
+    }
 
     const inStock = product.in_stock !== false && !product.is_out_of_stock && product.hasPriceToday && Number(product.current_price) > 0;
     const fsEl = document.getElementById('chart-first-seen');
@@ -2394,41 +2451,152 @@ function updateDetailModalHeader(product) {
     `;
 }
 
-function prefetchAdjacentProducts(idx) {
-    if (!currentFilteredProducts || currentFilteredProducts.length === 0 || !godDB) return;
-    const len = currentFilteredProducts.length;
-    const candidates = [
-        currentFilteredProducts[(idx + 1) % len],
-        currentFilteredProducts[(idx + 2) % len],
-        currentFilteredProducts[(idx - 1 + len) % len]
-    ];
-    candidates.forEach(p => {
-        if (p && !p._historyLoaded) {
-            loadProductHistory(p.id).then(h => {
-                p.history = h;
-                p._historyLoaded = true;
-            }).catch(() => {});
+let _batchPrefetchTimer = null;
+let _batchPrefetchInProgress = false;
+
+async function batchPrefetchAdjacentProducts(idx, dir = 1) {
+    if (!godDB || !godDB.conn || !currentFilteredProducts || currentFilteredProducts.length === 0) return;
+    if (_batchPrefetchInProgress) return;
+
+    const total = currentFilteredProducts.length;
+    // Look ahead 14 items in direction of travel, and 3 items behind
+    const candidateIndices = [];
+    const stepAhead = dir >= 0 ? 1 : -1;
+    for (let i = 1; i <= 14; i++) {
+        candidateIndices.push((idx + i * stepAhead + total * 2) % total);
+    }
+    for (let i = 1; i <= 3; i++) {
+        candidateIndices.push((idx - i * stepAhead + total * 2) % total);
+    }
+
+    const toFetch = [];
+    const seenPids = new Set();
+    for (const cIdx of candidateIndices) {
+        const p = currentFilteredProducts[cIdx];
+        if (p && !p._historyLoaded && !p._historyLoading && !seenPids.has(p.id)) {
+            seenPids.add(p.id);
+            toFetch.push(p);
+            if (toFetch.length >= 16) break;
         }
-    });
+    }
+
+    if (toFetch.length === 0) return;
+
+    _batchPrefetchInProgress = true;
+    try {
+        toFetch.forEach(p => { p._historyLoading = true; });
+
+        // Group by store for single-query vectorized Parquet scans
+        const byStore = new Map();
+        for (const p of toFetch) {
+            const s = p.store || 'shwapno';
+            if (!byStore.has(s)) byStore.set(s, []);
+            byStore.get(s).push(p);
+        }
+
+        for (const [store, products] of byStore.entries()) {
+            if (typeof ensureStoreHistoryLoaded === 'function') {
+                try { await ensureStoreHistoryLoaded(store); } catch (_) {}
+            }
+            const storeChunk = `history_${store}.parquet`;
+            const useStoreChunk = window.__registeredHistoryChunks && window.__registeredHistoryChunks.has(storeChunk);
+            let fromSource = 'history_access';
+            if (useStoreChunk) {
+                fromSource = (window.__hasPremiumArchive || (typeof premiumUnlocked !== 'undefined' && premiumUnlocked))
+                    ? `(SELECT * FROM read_parquet('${storeChunk}') UNION ALL SELECT * FROM read_parquet('history_archive.parquet'))`
+                    : `read_parquet('${storeChunk}')`;
+            }
+
+            const idList = [];
+            products.forEach(p => {
+                const cleanId = p.id.replace(/'/g, "''");
+                const rawId = p.id.replace(/^(sh_|ch_|mb_|ot_|mt_|uni_|sj_|fd_)/, '').replace(/'/g, "''");
+                idList.push(`'${cleanId}'`);
+                if (cleanId !== rawId) idList.push(`'${rawId}'`);
+            });
+
+            const query = `
+                SELECT product_id, date, price, normalized_price
+                FROM ${fromSource}
+                WHERE product_id IN (${idList.join(',')})
+                ORDER BY product_id, date ASC
+            `;
+            const result = await godDB.conn.query(query);
+            const rowsByPid = new Map();
+            for (const row of result.toArray()) {
+                const h = row.toJSON();
+                const pid = String(h.product_id);
+                let arr = rowsByPid.get(pid);
+                if (!arr) { arr = []; rowsByPid.set(pid, arr); }
+                arr.push({ date: String(h.date), price: Number(h.price), normalized_price: Number(h.normalized_price) });
+            }
+
+            for (const p of products) {
+                const rawId = p.id.replace(/^(sh_|ch_|mb_|ot_|mt_|uni_|sj_|fd_)/, '');
+                const cRows = rowsByPid.get(p.id) || rowsByPid.get(rawId) || [];
+                if (cRows.length > 0) {
+                    p.history = forwardFillHistoryGaps(cRows, p.current_price, p.normalized_price);
+                    p.first_seen = p.first_seen || cRows[0].date;
+                    p.last_seen = cRows[cRows.length - 1].date;
+                    if (cRows.length >= 2) {
+                        const curr = cRows[cRows.length - 1].normalized_price || cRows[cRows.length - 1].price;
+                        const prev = cRows[cRows.length - 2].normalized_price || cRows[cRows.length - 2].price;
+                        p.priceChangePercent = prev > 0 ? ((curr - prev) / prev * 100) : 0;
+                    }
+                } else if (!p.history || p.history.length === 0) {
+                    p.history = forwardFillHistoryGaps([{ date: p.first_seen || todayStr, price: Number(p.current_price || 0), normalized_price: Number(p.normalized_price || p.current_price || 0) }], p.current_price, p.normalized_price);
+                }
+                p._historyLoaded = true;
+                p._historyLoading = false;
+            }
+        }
+    } catch (e) {
+        console.warn('[GOD_PREFETCH] Batch prefetch error:', e);
+        toFetch.forEach(p => { p._historyLoading = false; });
+    } finally {
+        _batchPrefetchInProgress = false;
+    }
 }
 
-async function openDetailedChart(product) {
+function scheduleBatchPrefetch(idx, dir = 1) {
+    if (_batchPrefetchTimer) clearTimeout(_batchPrefetchTimer);
+    _batchPrefetchTimer = setTimeout(() => {
+        if (window.requestIdleCallback) {
+            window.requestIdleCallback(() => batchPrefetchAdjacentProducts(idx, dir), { timeout: 250 });
+        } else {
+            batchPrefetchAdjacentProducts(idx, dir);
+        }
+    }, 40);
+}
+
+function prefetchAdjacentProducts(idx) {
+    scheduleBatchPrefetch(idx, 1);
+}
+
+async function openDetailedChart(product, knownIndex) {
     if (!product) return;
     const reqId = ++_detailChartReqId;
-    currentDetailProductIndex = currentFilteredProducts.findIndex(p => p.id === product.id);
+    if (typeof knownIndex === 'number' && knownIndex >= 0) {
+        currentDetailProductIndex = knownIndex;
+    } else {
+        currentDetailProductIndex = currentFilteredProducts.findIndex(p => p.id === product.id);
+    }
     const modal = document.getElementById('chart-modal');
     if (!modal) return;
     
+    const wasVisible = modal.style.display === 'flex';
     modal.classList.remove('hidden');
     modal.style.display = 'flex';
     document.body.style.overflow = 'hidden';
-    modal.setAttribute('tabindex', '-1');
-    requestAnimationFrame(() => {
-        if (document.activeElement && typeof document.activeElement.blur === 'function') {
-            document.activeElement.blur();
-        }
-        modal.focus({ preventScroll: true });
-    });
+    if (!wasVisible) {
+        modal.setAttribute('tabindex', '-1');
+        requestAnimationFrame(() => {
+            if (document.activeElement && typeof document.activeElement.blur === 'function') {
+                document.activeElement.blur();
+            }
+            modal.focus({ preventScroll: true });
+        });
+    }
 
     // Synchronous DOM header update (0ms perceived latency)
     updateDetailModalHeader(product);
@@ -2437,7 +2605,15 @@ async function openDetailedChart(product) {
     const fsEl = document.getElementById('chart-first-seen');
     const lsEl = document.getElementById('chart-last-seen');
 
-    if (!product._historyLoaded && godDB) {
+    if (!product._historyLoaded) {
+        if (!godDB && window.__godDbPromise) {
+            try {
+                await Promise.race([
+                    window.__godDbPromise,
+                    new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), 5000))
+                ]);
+            } catch (_) {}
+        }
         const h = await loadProductHistory(product.id);
         if (reqId !== _detailChartReqId) return; // Stale request dropped immediately!
         product.history = h;
@@ -2458,6 +2634,7 @@ async function openDetailedChart(product) {
 
     const chartCanvas = document.getElementById('price-history-chart');
     if (!chartCanvas) return;
+    chartCanvas.style.opacity = '1';
     const ctx = chartCanvas.getContext('2d');
     const historyView = buildHistoryView(product);
     const history = historyView.rows;
@@ -2485,6 +2662,7 @@ async function openDetailedChart(product) {
         }
         detailChart.options.animation = false;
         detailChart.update('none');
+        scheduleBatchPrefetch(currentDetailProductIndex, 1);
         return;
     }
 
@@ -2561,6 +2739,7 @@ async function openDetailedChart(product) {
     });
     detailChart._currentHistory = history;
     detailChart._rawDates = rawDates;
+    scheduleBatchPrefetch(currentDetailProductIndex, 1);
 }
 
 function updateStoreStats() {
@@ -4446,6 +4625,59 @@ function setPremiumUnlocked(unlocked, persist = true) {
     }
 }
 
+function getFreeSevenDayWindow(source, currentPrice, currentNormPrice) {
+    const today = (typeof todayStr !== 'undefined' && todayStr) ? todayStr : dhakaTodayStr();
+    const endD = new Date(today + 'T12:00:00Z');
+    const dayMs = 86400000;
+    const targetDates = [];
+    for (let i = FREE_HISTORY_DAYS - 1; i >= 0; i--) {
+        const d = new Date(endD.getTime() - i * dayMs);
+        targetDates.push(d.toISOString().slice(0, 10));
+    }
+
+    const dateMap = new Map();
+    if (Array.isArray(source)) {
+        source.forEach(r => {
+            if (r && r.date) dateMap.set(r.date, r);
+        });
+    }
+
+    let defaultPrice = Number(currentPrice || 0);
+    let defaultNormPrice = Number(currentNormPrice || currentPrice || 0);
+
+    if (source && source.length > 0) {
+        const first = source[0];
+        if (Number(first.price) > 0) {
+            defaultPrice = Number(first.price);
+            defaultNormPrice = Number(first.normalized_price || first.price);
+        }
+    }
+
+    let runningPrice = defaultPrice;
+    let runningNormPrice = defaultNormPrice;
+
+    return targetDates.map(dStr => {
+        if (dateMap.has(dStr)) {
+            const r = dateMap.get(dStr);
+            if (Number(r.price) > 0) {
+                runningPrice = Number(r.price);
+                runningNormPrice = Number(r.normalized_price || r.price);
+            }
+            return {
+                date: dStr,
+                price: Number(r.price),
+                normalized_price: Number(r.normalized_price || r.price)
+            };
+        }
+        return {
+            date: dStr,
+            price: runningPrice,
+            normalized_price: runningNormPrice,
+            _filled: true
+        };
+    });
+}
+
 function buildHistoryView(product) {
     const source = Array.isArray(product.history) ? product.history.filter(row => row && row.date) : [];
     source.sort((a, b) => a.date.localeCompare(b.date));
@@ -4454,7 +4686,7 @@ function buildHistoryView(product) {
         return { rows: source.length ? source : [{ date: todayStr, price: product.current_price, normalized_price: product.normalized_price }], premium: true, lockedCount: 0 };
     }
 
-    const actual = source.length ? source.slice(-FREE_HISTORY_DAYS) : [{ date: todayStr, price: product.current_price, normalized_price: product.normalized_price }];
+    const actual = getFreeSevenDayWindow(source, product.current_price, product.normalized_price);
     const lockedCount = Math.max(0, source.length - actual.length);
     return { rows: actual, premium: false, lockedCount: lockedCount };
 }
