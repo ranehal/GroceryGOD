@@ -25,6 +25,8 @@ unimartTRACKER/data.json
 ShotejTRACKER/data.json
 chaldalTRACKER/data.js
 full_history_recovery.py
+products.parquet
+premium/history_archive.parquet
 
 # Obsolete binary blobs & backup files
 autoglm-browser-service

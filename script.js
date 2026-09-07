@@ -11,7 +11,7 @@ const safeSession = {
 let allProducts = [];
 let metadata = {};
 let godDB = null; // persistent DuckDB connection for on-demand queries
-const ASSET_VERSION = window.GOD_ASSET_VERSION || '20260907_v2';
+const ASSET_VERSION = window.GOD_ASSET_VERSION || '20260907_v3';
 let favorites = JSON.parse(safeStorage.getItem('god_favorites') || '[]');
 let selectedForComparison = JSON.parse(safeStorage.getItem('god_comparison') || '[]');
 let customGroups = JSON.parse(safeStorage.getItem('god_custom_groups') || '{}');
@@ -569,7 +569,7 @@ async function loadAllFromParquet() {
     }
 
     // ⚡ Phase 0: SUB-25MS ZERO-WAIT FIRST PAINT (Mount top ATL deals before DuckDB WASM compiles!)
-    fetch('atl_preview.json')
+    fetch(`atl_preview.json?v=${ASSET_VERSION}`)
         .then(r => r.ok ? r.json() : null)
         .then(previewRows => {
             if (previewRows && previewRows.length && allProducts.length === 0) {
@@ -2152,10 +2152,36 @@ function setupEventListeners() {
     });
 }
 
+let _cycleDebounceTimer = null;
+
 function cycleProduct(dir) {
-    if (currentFilteredProducts.length === 0) return;
+    if (!currentFilteredProducts || currentFilteredProducts.length === 0) return;
     currentDetailProductIndex = (currentDetailProductIndex + dir + currentFilteredProducts.length) % currentFilteredProducts.length;
-    openDetailedChart(currentFilteredProducts[currentDetailProductIndex]);
+    const nextProduct = currentFilteredProducts[currentDetailProductIndex];
+    if (!nextProduct) return;
+
+    // 1. Immediate synchronous UI header feedback (0ms perceived latency)
+    if (typeof updateDetailModalHeader === 'function') {
+        updateDetailModalHeader(nextProduct);
+    }
+
+    // 2. Prefetch adjacent items in idle time
+    if (typeof prefetchAdjacentProducts === 'function') {
+        prefetchAdjacentProducts(currentDetailProductIndex);
+    }
+
+    // 3. If history already in RAM, render chart immediately!
+    if (nextProduct._historyLoaded) {
+        clearTimeout(_cycleDebounceTimer);
+        openDetailedChart(nextProduct);
+        return;
+    }
+
+    // 4. Debounce DuckDB WASM query by 25ms during rapid arrow taps
+    clearTimeout(_cycleDebounceTimer);
+    _cycleDebounceTimer = setTimeout(() => {
+        openDetailedChart(nextProduct);
+    }, 25);
 }
 
 function renderShoppingLists() {
@@ -2288,6 +2314,7 @@ function openCartModal() {
 }
 
 function closeModal() {
+    clearTimeout(_cycleDebounceTimer);
     const modal = document.getElementById('chart-modal');
     if (modal) {
         modal.classList.add('hidden');
@@ -2296,21 +2323,12 @@ function closeModal() {
     document.body.style.overflow = '';
 }
 
-async function openDetailedChart(product) {
+let _detailChartReqId = 0;
+
+function updateDetailModalHeader(product) {
     if (!product) return;
-    currentDetailProductIndex = currentFilteredProducts.findIndex(p => p.id === product.id);
     const modal = document.getElementById('chart-modal');
     if (!modal) return;
-    modal.classList.remove('hidden');
-    modal.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-    modal.setAttribute('tabindex', '-1');
-    requestAnimationFrame(() => {
-        if (document.activeElement && typeof document.activeElement.blur === 'function') {
-            document.activeElement.blur();
-        }
-        modal.focus({ preventScroll: true });
-    });
     modal.querySelector('.modal-content').style.setProperty('--modal-bg-img', "url('" + product.image + "')");
     
     document.getElementById('chart-product-name').innerText = product.name;
@@ -2374,9 +2392,54 @@ async function openDetailedChart(product) {
             <button class="btn-icon btn-variant-minimal" onclick="customizeItem('${product.id}')"><i class="fas fa-edit"></i> Customize</button>
         </div>
     `;
+}
+
+function prefetchAdjacentProducts(idx) {
+    if (!currentFilteredProducts || currentFilteredProducts.length === 0 || !godDB) return;
+    const len = currentFilteredProducts.length;
+    const candidates = [
+        currentFilteredProducts[(idx + 1) % len],
+        currentFilteredProducts[(idx + 2) % len],
+        currentFilteredProducts[(idx - 1 + len) % len]
+    ];
+    candidates.forEach(p => {
+        if (p && !p._historyLoaded) {
+            loadProductHistory(p.id).then(h => {
+                p.history = h;
+                p._historyLoaded = true;
+            }).catch(() => {});
+        }
+    });
+}
+
+async function openDetailedChart(product) {
+    if (!product) return;
+    const reqId = ++_detailChartReqId;
+    currentDetailProductIndex = currentFilteredProducts.findIndex(p => p.id === product.id);
+    const modal = document.getElementById('chart-modal');
+    if (!modal) return;
+    
+    modal.classList.remove('hidden');
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    modal.setAttribute('tabindex', '-1');
+    requestAnimationFrame(() => {
+        if (document.activeElement && typeof document.activeElement.blur === 'function') {
+            document.activeElement.blur();
+        }
+        modal.focus({ preventScroll: true });
+    });
+
+    // Synchronous DOM header update (0ms perceived latency)
+    updateDetailModalHeader(product);
+
+    const store = STORE_CONFIG[product.store] || { name: product.store, color: '#f59e0b' };
+    const fsEl = document.getElementById('chart-first-seen');
+    const lsEl = document.getElementById('chart-last-seen');
 
     if (!product._historyLoaded && godDB) {
         const h = await loadProductHistory(product.id);
+        if (reqId !== _detailChartReqId) return; // Stale request dropped immediately!
         product.history = h;
         product._historyLoaded = true;
         if (h && h.length > 0) {
@@ -2391,13 +2454,40 @@ async function openDetailedChart(product) {
             product.priceChangePercent = prev > 0 ? ((curr - prev) / prev * 100) : 0;
         }
     }
-    
-    const ctx = document.getElementById('price-history-chart').getContext('2d');
+    if (reqId !== _detailChartReqId) return;
+
+    const chartCanvas = document.getElementById('price-history-chart');
+    if (!chartCanvas) return;
+    const ctx = chartCanvas.getContext('2d');
     const historyView = buildHistoryView(product);
     const history = historyView.rows;
     const rawDates = history.map(h => h.date);
     const labels = formatChartDates(rawDates);
     renderHistoryAccessState(historyView);
+
+    const unitData = history.map(h => (Number(h.normalized_price) <= 0 || Number(h.price) <= 0) ? null : Number(h.normalized_price));
+    const actualData = history.map(h => Number(h.price) <= 0 ? null : Number(h.price));
+
+    // IN-PLACE CHART UPDATE FOR ZERO-LATENCY (<2ms) NAVIGATION
+    if (detailChart && detailChart.ctx && detailChart.canvas === chartCanvas) {
+        detailChart._currentHistory = history;
+        detailChart._rawDates = rawDates;
+        detailChart.data.labels = labels;
+        detailChart.data.datasets[0].label = 'Unit Price';
+        detailChart.data.datasets[0].data = unitData;
+        detailChart.data.datasets[0].borderColor = store.color;
+        detailChart.data.datasets[0].backgroundColor = store.color + '22';
+        detailChart.data.datasets[1].label = 'Actual Price';
+        detailChart.data.datasets[1].data = actualData;
+        if (detailChart.options.scales.y) {
+            detailChart.options.scales.y.title.color = store.color;
+            detailChart.options.scales.y.ticks.color = store.color;
+        }
+        detailChart.options.animation = false;
+        detailChart.update('none');
+        return;
+    }
+
     if (detailChart) detailChart.destroy();
     detailChart = new Chart(ctx, {
         type: 'line',
@@ -2406,11 +2496,11 @@ async function openDetailedChart(product) {
             datasets: [
                 { 
                     label: 'Unit Price', 
-                    data: history.map(h => (Number(h.normalized_price) <= 0 || Number(h.price) <= 0) ? null : Number(h.normalized_price)), 
+                    data: unitData, 
                     borderColor: store.color, 
                     backgroundColor: store.color + '22', 
                     fill: true, 
-                    spanGaps: true,
+                    spanGaps: true, 
                     tension: 0.3, 
                     yAxisID: 'y', 
                     pointRadius: 2, 
@@ -2418,11 +2508,11 @@ async function openDetailedChart(product) {
                 },
                 { 
                     label: 'Actual Price', 
-                    data: history.map(h => Number(h.price) <= 0 ? null : Number(h.price)), 
+                    data: actualData, 
                     borderColor: getChartTheme().actual, 
                     borderDash: [5, 5], 
                     fill: false, 
-                    spanGaps: true,
+                    spanGaps: true, 
                     tension: 0, 
                     yAxisID: 'y1', 
                     pointRadius: 1, 
@@ -2432,6 +2522,7 @@ async function openDetailedChart(product) {
         },
         options: { 
             responsive: true, maintainAspectRatio: false,
+            animation: false,
             scales: {
                 y: { position: 'left', title: { display: true, text: 'Unit Price', color: store.color, font: { weight: 'bold' } }, grid: { color: '#222' }, ticks: { color: store.color, font: { size: 11, weight: 'bold' } } },
                 y1: { position: 'right', title: { display: true, text: 'Actual Price', color: getChartTheme().actual, font: { weight: 'bold' } }, grid: { display: false }, ticks: { color: getChartTheme().actual, font: { size: 11, weight: 'bold' } } },
@@ -2444,7 +2535,8 @@ async function openDetailedChart(product) {
                         title: (tooltipItems) => {
                             if (!tooltipItems.length) return '';
                             const idx = tooltipItems[0].dataIndex;
-                            const rawDate = rawDates[idx];
+                            const rDates = (detailChart && detailChart._rawDates) || rawDates;
+                            const rawDate = rDates[idx];
                             if (rawDate) {
                                 const d = new Date(rawDate + 'T00:00:00');
                                 if (!isNaN(d.getTime())) {
@@ -2455,7 +2547,8 @@ async function openDetailedChart(product) {
                             return tooltipItems[0].label;
                         },
                         label: (context) => {
-                            const h = history[context.dataIndex];
+                            const curHist = (detailChart && detailChart._currentHistory) || history;
+                            const h = curHist[context.dataIndex];
                             if (h && (Number(h.price) <= 0 || Number(h.normalized_price) <= 0)) {
                                 return `${context.dataset.label}: Out of Stock (-1)`;
                             }
@@ -2466,6 +2559,8 @@ async function openDetailedChart(product) {
             }
         }
     });
+    detailChart._currentHistory = history;
+    detailChart._rawDates = rawDates;
 }
 
 function updateStoreStats() {
@@ -4023,7 +4118,7 @@ function countDuplicateProducts(products) {
 
 async function fetchFirstAvailable(paths, label = 'asset') {
     let lastError = null;
-    const cacheName = 'god-parquet-cache-20260907';
+    const cacheName = `god-parquet-cache-${ASSET_VERSION}`;
     for (const rawPath of paths) {
         const path = rawPath.includes('?') ? rawPath : `${rawPath}?v=${ASSET_VERSION}`;
         try {
