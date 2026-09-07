@@ -32,6 +32,13 @@ These fixes were extracted from live Kaggle failures. Preserve the patterns:
 
 ## Pipeline change log (2026-08-14 — do not regress or redo)
 
+- **Automated DB Backup to Telegram & Once-a-Day Scraper Guard (`scratch.py` & `FoodPANDA`, 2026-09-07, do not regress)**:
+  - Enforced strict once-a-day execution limit across all scheduled sub-repos (p3–p14) and GroceryGOD scrapers via dual `_PERSISTED_STATE` and remote commit log verification (`if this works ill get some sleep frfr {today_dhaka}`), eliminating redundant duplicate runs on same-day container restarts.
+  - Added daily rest period guard to the master orchestrator loop: if all scheduled scrapers have verified completed today, the container sleeps peacefully until next Dhaka calendar day (00:05 DHAKA) or container timeout instead of burning compute through rapid 2-minute restart loops.
+  - Added automated offsite database/parquet dataset backup dispatch to Telegram: after every successful push in `run_scheduled_repo` and `run_grocery_god`, the commit hash link and primary database/parquet dataset (`.parquet`, `.db`, `.json`, auto-compressed into compact `.zip` as needed) are sent via `tg_send_file` to Telegram.
+  - Fixed git push progress error masking bug: stripped `(Enumerating|Counting|Compressing|Writing) objects` from `last_sub_push_stderr` so actual GitHub rejection errors (file size limits, quota, RPC) are never truncated by progress lines.
+  - Eliminated Git LFS dependency and 192MB raw blob from FoodPANDA: removed `.gitattributes` LFS filter, updated `scrape_menus.py` to dump compact non-recursive daily JSONs (<4MB) while maintaining full 34-day history in `data.parquet` (2MB), and updated `load_all_existing_history` to load history directly from parquet in 0.1s.
+  - Added pre-push Large File Guard (files >= 95 MB) across all sub-repos to detect, untrack, and purge oversized blobs before staging, preventing GitHub 100MB push rejections.
 - **Push Bandwidth Quota Slasher & Deterministic AES-GCM Cipher Optimization (`scratch.py` & `convert_to_parquet.py`, 2026-09-07, do not regress)**:
   - Switched AES-GCM encryption in `_enc` and `convert_to_parquet.py` to deterministic key, salt, and IV derivation from content SHA-256 hash (`b"GGE1_SALT:" + key + hash`, `b"GGE1_IV:" + key + hash`), guaranteeing identical ciphertext and 0-byte git delta for unchanged data.
   - Eliminated premature unencrypted intermediate git commit and push at Step 4 (which was committing `.orig` duplicates and leaking plaintext data).

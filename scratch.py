@@ -542,6 +542,138 @@ KAGGLE_KERNEL_SLUG = get_secret_safe("KAGGLE_KERNEL_SLUG", "ranehalx/gitgod")
 os.environ['GOD_PREMIUM_KEY'] = get_secret_safe('GOD_PREMIUM_KEY', 'assalamualaikum')
 
 # ============================================================
+# TELEGRAM NOTIFICATIONS & AUTOMATED DATABASE BACKUPS
+# ============================================================
+def tg_send(text, silent=False):
+    """Dispatch rich HTML message to Telegram."""
+    if not TELEGRAM_BOT_TOKEN or not TELEGRAM_CHAT_ID:
+        return False
+    TG_API = f'https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}'
+    try:
+        r = requests.post(f'{TG_API}/sendMessage', json={'chat_id': TELEGRAM_CHAT_ID, 'text': text, 'parse_mode': 'HTML', 'disable_notification': silent}, timeout=20)
+        return r.status_code == 200
+    except Exception:
+        return False
+
+def tg_send_file(file_path, caption="", silent=False):
+    """
+    Dispatch document/database to Telegram. Automatically compresses files > 45MB
+    into a compact ZIP archive to satisfy Telegram's 50MB file size limit.
+    """
+    if not TELEGRAM_BOT_TOKEN or not TELEGRAM_CHAT_ID:
+        return False
+    if not os.path.exists(file_path):
+        return False
+    actual_path = file_path
+    temp_zip = None
+    try:
+        file_size = os.path.getsize(file_path)
+        if file_size == 0:
+            return False
+        if file_size > 45 * 1024 * 1024:
+            import zipfile
+            temp_zip = f"/tmp/{os.path.basename(file_path)}.zip"
+            with zipfile.ZipFile(temp_zip, 'w', zipfile.ZIP_DEFLATED) as zf:
+                zf.write(file_path, os.path.basename(file_path))
+            actual_path = temp_zip
+            file_size = os.path.getsize(actual_path)
+            if file_size > 49 * 1024 * 1024:
+                print(f"⚠️ [TG] File {actual_path} ({file_size / (1024*1024):.1f}MB) exceeds 50MB Telegram limit even after compression.")
+                return False
+
+        with open(actual_path, "rb") as f:
+            resp = requests.post(
+                f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendDocument",
+                files={"document": (os.path.basename(actual_path), f)},
+                data={"chat_id": TELEGRAM_CHAT_ID, "caption": caption[:1024], "parse_mode": "HTML", "disable_notification": silent},
+                timeout=180
+            )
+            return resp.status_code == 200
+    except Exception as exc:
+        print(f"⚠️ [TG] tg_send_file failed for {file_path}: {exc}")
+        return False
+    finally:
+        if temp_zip and os.path.exists(temp_zip):
+            try: os.remove(temp_zip)
+            except Exception: pass
+
+def send_repo_db_backup(repo_dir, repo_name, label, repo_page_url):
+    """
+    Locates the primary database / parquet dataset modified and pushed in repo_dir,
+    and sends it to Telegram as an offsite backup with commit info and dashboard link.
+    """
+    try:
+        c_res = subprocess.run(['git', 'rev-parse', 'HEAD'], cwd=repo_dir, capture_output=True, text=True)
+        commit_sha = (c_res.stdout or '').strip()
+        commit_short = commit_sha[:7] if commit_sha else "HEAD"
+        commit_url = f"https://github.com/ranehal/{repo_name}/commit/{commit_sha}" if commit_sha else repo_page_url
+        now_dhaka = datetime.now(DHAKA_TZ).strftime('%Y-%m-%d %H:%M:%S')
+
+        candidates = []
+        for root, dirs, files in os.walk(repo_dir):
+            if '.git' in root or '__pycache__' in root:
+                continue
+            for f in files:
+                f_low = f.lower()
+                fp = os.path.join(root, f)
+                try: sz = os.path.getsize(fp)
+                except Exception: continue
+                if sz == 0: continue
+                if f_low.endswith('.parquet'):
+                    candidates.append((1, sz, fp))
+                elif f_low.endswith(('.db', '.sqlite', '.sqlite3')) and not any(f_low.endswith(x) for x in ['-wal', '-shm', '.enc']):
+                    candidates.append((2, sz, fp))
+                elif f_low.endswith('.json') and any(k in f_low for k in ['product', 'price', 'restaurant', 'data', 'catalog']) and sz < 90 * 1024 * 1024:
+                    candidates.append((3, sz, fp))
+
+        if not candidates:
+            caption = (
+                f"✅ <b>Pushed: {label}</b>\n"
+                f"🔗 Commit: <a href=\"{commit_url}\">{commit_short}</a> | 📅 {now_dhaka} DHAKA\n"
+                f"🌐 <a href=\"{repo_page_url}\">Live Dashboard</a>"
+            )
+            tg_send(caption)
+            return
+
+        candidates.sort(key=lambda x: (x[0], -x[1]))
+        best_file = candidates[0][2]
+        file_sz_mb = os.path.getsize(best_file) / (1024 * 1024)
+        fname = os.path.basename(best_file)
+
+        target_to_send = best_file
+        temp_zip = None
+        if (fname.endswith('.db') or fname.endswith('.json') or fname.endswith('.sqlite')) and file_sz_mb > 3.0:
+            import zipfile
+            temp_zip = f"/tmp/{repo_name}_backup_{commit_short}.zip"
+            with zipfile.ZipFile(temp_zip, 'w', zipfile.ZIP_DEFLATED) as zf:
+                zf.write(best_file, fname)
+            target_to_send = temp_zip
+            zip_sz_mb = os.path.getsize(target_to_send) / (1024 * 1024)
+            caption = (
+                f"📦 <b>Backup: {label}</b>\n"
+                f"🔗 Commit: <a href=\"{commit_url}\">{commit_short}</a> | 📅 {now_dhaka} DHAKA\n"
+                f"📁 <code>{fname}</code> (zipped: {zip_sz_mb:.2f} MB, raw: {file_sz_mb:.2f} MB)\n"
+                f"🌐 <a href=\"{repo_page_url}\">Live Dashboard</a>"
+            )
+        else:
+            caption = (
+                f"📦 <b>Backup: {label}</b>\n"
+                f"🔗 Commit: <a href=\"{commit_url}\">{commit_short}</a> | 📅 {now_dhaka} DHAKA\n"
+                f"📁 <code>{fname}</code> ({file_sz_mb:.2f} MB)\n"
+                f"🌐 <a href=\"{repo_page_url}\">Live Dashboard</a>"
+            )
+
+        print(f"📤 [BACKUP] Sending {fname} ({file_sz_mb:.2f} MB) to Telegram for {label}...")
+        ok = tg_send_file(target_to_send, caption=caption)
+        if ok:
+            print(f"✅ [BACKUP] Telegram backup successfully dispatched for {label}!")
+        if temp_zip and os.path.exists(temp_zip):
+            try: os.remove(temp_zip)
+            except Exception: pass
+    except Exception as exc:
+        print(f"⚠️ [BACKUP] Failed to send backup for {label}: {exc}")
+
+# ============================================================
 # GITHUB PUSH BANDWIDTH & QUOTA TRACKER (10GB MONTHLY CAP)
 # ============================================================
 GITHUB_MONTHLY_CAP_BYTES = 10 * 1024 * 1024 * 1024  # 10.0 GB (10,737,418,240 bytes)
@@ -1352,6 +1484,23 @@ def run_grocery_god(github_pat):
             subprocess.run('git fetch --all', shell=True)
             subprocess.run('git reset --hard origin/master', shell=True)
 
+            # Daily Guard: Skip scraper execution if already ran and pushed today
+            today_dhaka = datetime.now(DHAKA_TZ).strftime('%Y-%m-%d')
+            gg_already_done = False
+            if _PERSISTED_STATE.get('grocerygod_completed_date') == today_dhaka:
+                gg_already_done = True
+            else:
+                c_log = subprocess.run(['git', 'log', '-1', '--format=%s%x00%ci', 'origin/master'], capture_output=True, text=True).stdout.strip()
+                if c_log:
+                    c_subj, _, c_date = c_log.partition('\x00')
+                    if 'if this works ill get some sleep frfr' in c_subj and (today_dhaka in c_subj or c_date.startswith(today_dhaka)):
+                        gg_already_done = True
+
+            if gg_already_done:
+                log.info(f"⏸️ [DAILY GUARD] GroceryGOD already completed and pushed for today ({today_dhaka}). Skipping scraper execution to enforce once-a-day limit.")
+                _PERSISTED_STATE['grocerygod_completed_date'] = today_dhaka
+                return
+
             log.info("🗑️ Purging LFS pointers to prevent SQLite corruption...")
             subprocess.run('find . -name "*.db" -type f -delete', shell=True)
 
@@ -1898,7 +2047,9 @@ if __name__ == '__main__':
                 
                 if not push_success:
                     git_status = subprocess.run('git status', shell=True, capture_output=True, text=True).stdout
-                    error_msg = f"Git push failed after multiple attempts!\nGit Status:\n{git_status[:300]}\nStderr: {last_push_stderr[:300]}"
+                    clean_err = "\n".join([line for line in last_push_stderr.splitlines() if not re.search(r'(Enumerating|Counting|Compressing|Writing)\s+objects', line)]).strip()
+                    err_detail = (clean_err[-1200:] if clean_err else last_push_stderr[-600:]).strip()
+                    error_msg = f"Git push failed after multiple attempts!\nGit Status:\n{git_status[:300]}\nStderr:\n{err_detail}"
                     log.error(error_msg)
                     if '_pq_backup_info' in locals() and _pq_backup_info:
                         try:
@@ -1909,6 +2060,16 @@ if __name__ == '__main__':
                             log.error(f"Backup status update error: {_bk_err}")
                     raise RuntimeError(error_msg)
 
+                # Mark completion for today
+                _PERSISTED_STATE['grocerygod_completed_date'] = today_dhaka
+                _PERSISTED_STATE['grocerygod_last_completed_dhaka'] = datetime.now(DHAKA_TZ).strftime("%Y-%m-%d %H:%M:%S DHAKA")
+                for _vp in ['/kaggle/working/orchestrator_state.json', '/kaggle/working/output/orchestrator_state.json', '/tmp/orchestrator_state.json']:
+                    try:
+                        os.makedirs(os.path.dirname(_vp), exist_ok=True)
+                        with open(_vp, 'w', encoding='utf-8') as _vf:
+                            json.dump(_PERSISTED_STATE, _vf, indent=2)
+                    except Exception: pass
+
                 # Update backup status to reflect successful push
                 if '_pq_backup_info' in locals() and _pq_backup_info:
                     try:
@@ -1916,6 +2077,32 @@ if __name__ == '__main__':
                         log.info(f"💾 Parquet backup status marked as PUSHED_TO_GITHUB at: {_pq_backup_info.get('version_dir')}")
                     except Exception:
                         pass
+
+                # Send commit pushed and Parquet dataset backup to Telegram
+                try:
+                    c_res = subprocess.run(['git', 'rev-parse', 'HEAD'], capture_output=True, text=True)
+                    commit_sha = (c_res.stdout or '').strip()
+                    commit_short = commit_sha[:7] if commit_sha else "HEAD"
+                    commit_url = f"https://github.com/ranehal/GroceryGOD/commit/{commit_sha}"
+                    now_dhaka = datetime.now(DHAKA_TZ).strftime('%Y-%m-%d %H:%M:%S')
+
+                    backup_file = None
+                    if os.path.exists('products.parquet') and os.path.getsize('products.parquet') > 0:
+                        backup_file = 'products.parquet'
+                    elif '_pq_backup_info' in locals() and _pq_backup_info and os.path.exists(_pq_backup_info.get('zip_path', '')):
+                        backup_file = _pq_backup_info['zip_path']
+
+                    if backup_file and os.path.exists(backup_file):
+                        file_sz_mb = os.path.getsize(backup_file) / (1024 * 1024)
+                        caption = (
+                            f"📦 <b>Backup: GroceryGOD</b>\n"
+                            f"🔗 Commit: <a href=\"{commit_url}\">{commit_short}</a> | 📅 {now_dhaka} DHAKA\n"
+                            f"📁 <code>{os.path.basename(backup_file)}</code> ({file_sz_mb:.2f} MB)\n"
+                            f"🌐 <a href=\"https://ranehal.github.io/GroceryGOD/\">Live Dashboard</a>"
+                        )
+                        tg_send_file(backup_file, caption=caption)
+                except Exception as _bk_tg_err:
+                    log.warning(f"GroceryGOD Telegram backup error: {_bk_tg_err}")
 
                 # Record push bandwidth consumed against 10GB monthly cap
                 _p_bytes, _bw_info = record_git_push_bandwidth(repo_dir=os.getcwd(), repo_name="GroceryGOD", stderr_text=last_push_stderr)
@@ -2823,6 +3010,28 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
         subprocess.run('git clean -fdx', shell=True, cwd=repo_dir)
         _verify_repo_integrity(repo_dir, repo_name)
 
+        # Daily Guard: Skip scraper execution if already ran and pushed today
+        today_dhaka = datetime.now(DHAKA_TZ).strftime('%Y-%m-%d')
+        already_done_today = False
+
+        if _PERSISTED_STATE.get('p14_completed_repos', {}).get(clean_label) == today_dhaka:
+            already_done_today = True
+        else:
+            c_log = subprocess.run(['git', 'log', '-1', '--format=%s%x00%ci', f'origin/{default_branch}'], cwd=repo_dir, capture_output=True, text=True).stdout.strip()
+            if c_log:
+                c_subject, _, c_date = c_log.partition('\x00')
+                if 'if this works ill get some sleep frfr' in c_subject:
+                    if today_dhaka in c_subject or c_date.startswith(today_dhaka):
+                        already_done_today = True
+
+        if already_done_today:
+            _log(f"⏸️ [DAILY GUARD] {clean_label} already ran & pushed successfully today ({today_dhaka}). Skipping scraper execution to enforce once-a-day limit.")
+            _PERSISTED_STATE.setdefault('p14_completed_repos', {})[clean_label] = today_dhaka
+            _p14_record.update(status='ok', elapsed=int(time.time() - _t0), error='', url=repo_page_url, bandwidth_bytes=0, bandwidth_mb=0.0)
+            _p14_record['price_stats'] = _extract_repo_price_stats(repo_dir, "")
+            _store_result()
+            return
+
         if os.path.exists(os.path.join(repo_dir, 'requirements.txt')):
             subprocess.run([sys.executable, "-m", "pip", "install", "-q", "-r", "requirements.txt"], cwd=repo_dir, check=False)
 
@@ -3090,6 +3299,26 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
         for _bloat in ['*.part*', '*.apk', '*.jar', '*.dex', '*.orig', '*.hash']:
             subprocess.run(f'find . -name "{_bloat}" -delete', shell=True, cwd=repo_dir)
         subprocess.run('git rm -f --ignore-unmatch *.apk *.part* *.orig *.hash 2>/dev/null', shell=True, cwd=repo_dir)
+
+        # Pre-push Large File Guard: Scan for any files >= 95 MB and untrack/purge to prevent GitHub 100MB rejection
+        try:
+            for root, dirs, files in os.walk(repo_dir):
+                if '.git' in root: continue
+                for f in files:
+                    fp = os.path.join(root, f)
+                    try:
+                        sz = os.path.getsize(fp)
+                        if sz >= 95 * 1024 * 1024:
+                            rel_p = os.path.relpath(fp, repo_dir)
+                            _log(f"⚠️ [LARGE FILE GUARD] Found oversized file '{rel_p}' ({sz / (1024*1024):.1f} MB) >= 95MB. Untracking to prevent GitHub 100MB push rejection!")
+                            subprocess.run(['git', 'rm', '-f', '--cached', '--ignore-unmatch', rel_p], cwd=repo_dir, capture_output=True)
+                            if any(rel_p.lower().endswith(x) for x in ['.log', '.tmp', '.har', '.part', '.bak']):
+                                try: os.remove(fp)
+                                except Exception: pass
+                    except Exception: pass
+        except Exception as _lfg_err:
+            _log(f"Large file guard warning: {_lfg_err}")
+
         _verify_repo_integrity(repo_dir, repo_name)
         subprocess.run('git add .', shell=True, cwd=repo_dir)
 
@@ -3153,7 +3382,9 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
                 break
 
         if not push_success:
-            raise RuntimeError(f"Git push failed: {last_sub_push_stderr[:300]}")
+            clean_err = "\n".join([line for line in last_sub_push_stderr.splitlines() if not re.search(r'(Enumerating|Counting|Compressing|Writing)\s+objects', line)]).strip()
+            err_detail = (clean_err[-1200:] if clean_err else last_sub_push_stderr[-600:]).strip()
+            raise RuntimeError(f"Git push failed: {err_detail}")
 
         # Record push bandwidth consumed against 10GB monthly cap
         _sub_bytes, _sub_bw = record_git_push_bandwidth(repo_dir=repo_dir, repo_name=repo_name, stderr_text=last_sub_push_stderr)
@@ -3164,6 +3395,19 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
         if res is not None:
             _p14_record['counts'] = _extract_scraper_counts((res.stdout or "") + (res.stderr or ""))
         _store_result()
+
+        # Mark completion for today
+        _PERSISTED_STATE.setdefault('p14_completed_repos', {})[clean_label] = today_dhaka
+        _PERSISTED_STATE['p14_last_completed_dhaka'] = datetime.now(DHAKA_TZ).strftime("%Y-%m-%d %H:%M:%S DHAKA")
+        for _vp in ['/kaggle/working/orchestrator_state.json', '/kaggle/working/output/orchestrator_state.json', '/tmp/orchestrator_state.json']:
+            try:
+                os.makedirs(os.path.dirname(_vp), exist_ok=True)
+                with open(_vp, 'w', encoding='utf-8') as _vf:
+                    json.dump(_PERSISTED_STATE, _vf, indent=2)
+            except Exception: pass
+
+        # Send commit pushed and DB backup to Telegram
+        send_repo_db_backup(repo_dir, repo_name, clean_label, repo_page_url)
         _log(f"✅ Successfully completed and pushed in {int(time.time() - _t0)}s!")
     except Exception as e:
         safe_tb = html.escape(traceback.format_exc()[-500:])
@@ -3174,7 +3418,28 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
 
 def run_all_scheduled_repos(repos, github_pat, results_store=None):
     """Execute scheduled sub-repos sequentially with full per-repo isolation and error resilience."""
-    print(f"🚀 [Scheduled Repos] Launching sequential sub-repos executor across {len(repos)} repos...")
+    today_dhaka = datetime.now(DHAKA_TZ).strftime('%Y-%m-%d')
+    print(f"🚀 [Scheduled Repos] Launching sequential sub-repos executor across {len(repos)} repos (Dhaka Date: {today_dhaka})...")
+
+    # Fast Daily Guard: Check if ALL repos are already verified completed today
+    completed_map = _PERSISTED_STATE.get('p14_completed_repos', {})
+    if all(completed_map.get(label.strip()) == today_dhaka for _, _, label in repos):
+        print(f"🎉 [DAILY GUARD] All {len(repos)} scheduled sub-repos have already completed and pushed for today ({today_dhaka}). Skipping all scrapers to enforce once-a-day limit.")
+        for repo_url, script_name, label in repos:
+            lbl = label.strip()
+            repo_name = repo_url.split('/')[-1].replace('.git', '')
+            repo_page_url = f"https://ranehal.github.io/{repo_name}/"
+            slug = re.sub(r'[^a-z0-9]+', '_', lbl.lower()).strip('_')
+            _p14_file = f"/tmp/p14_results/p14_result_{slug}.json"
+            if not os.path.exists(_p14_file):
+                _rec = {'label': lbl, 'status': 'ok', 'elapsed': 0, 'error': '', 'url': repo_page_url, 'bandwidth_bytes': 0, 'bandwidth_mb': 0.0, 'skipped': True}
+                try:
+                    os.makedirs('/tmp/p14_results', exist_ok=True)
+                    with open(_p14_file, 'w', encoding='utf-8') as f:
+                        json.dump(_rec, f)
+                except Exception: pass
+        return
+
     for repo_url, script_name, label in repos:
         lbl = label.strip()
         try:
@@ -3260,6 +3525,32 @@ if __name__ == '__main__':
         _p14_done = True
         print("🟢 Ensuring consolidated scheduled repos summary is dispatched to Telegram before restart...")
         _send_p14_summary(_p14_results, list(zip([lbl for _, _, lbl in _scheduled_repos], _repo_pages)))
+
+    # Daily Rest Period Guard: If all scrapers have successfully run today, do not thrash with immediate container restarts!
+    # Rest peacefully until next Dhaka calendar day or until container safety timeout (11h) arrives.
+    today_dhaka = datetime.now(DHAKA_TZ).strftime('%Y-%m-%d')
+    p14_completed_map = _PERSISTED_STATE.get('p14_completed_repos', {})
+    all_p14_done_today = all(p14_completed_map.get(lbl.strip()) == today_dhaka for _, _, lbl in _scheduled_repos)
+
+    if all_p14_done_today and (time.time() - loop_t0 < timeout_seconds):
+        print(f"\n🎉 [DAILY GUARD] All {len(_scheduled_repos)} scheduled repos are verified completed for today ({today_dhaka}).")
+        print("💤 Scrapers will not run again today (> once a day limit enforced).")
+        now_d = datetime.now(DHAKA_TZ)
+        tomorrow_d = (now_d + timedelta(days=1)).replace(hour=0, minute=5, second=0, microsecond=0)
+        secs_to_tomorrow = int((tomorrow_d - now_d).total_seconds())
+        remaining_cell_time = int(timeout_seconds - (time.time() - loop_t0))
+        rest_duration = max(60, min(secs_to_tomorrow, remaining_cell_time))
+
+        if rest_duration > 120:
+            print(f"💤 Entering restful sleep for {int(rest_duration/60)} minutes (until next day cycle / reboot)...")
+            sleep_start = time.time()
+            while (time.time() - sleep_start) < rest_duration:
+                elapsed_rest = time.time() - sleep_start
+                rem_rest = rest_duration - elapsed_rest
+                if rem_rest <= 0: break
+                time.sleep(min(300, rem_rest))
+                now_curr = datetime.now(DHAKA_TZ).strftime('%H:%M:%S')
+                print(f"💤 [{now_curr}] Resting... {int(rem_rest/60)}m remaining until next day cycle.")
 
     print("☢️ Executing Nuclear Teardown of orphaned child processes...")
     os.system("pkill -9 -f chromium")
