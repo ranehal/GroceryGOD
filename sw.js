@@ -1,5 +1,5 @@
 // GroceryGOD Service Worker — Cache Accelerator for Instant Loading
-const CACHE_NAME = 'god-cache-v20260823a';
+const CACHE_NAME = 'god-cache-v20260907_v3';
 const TARGET_ASSET_PATTERNS = [
     /\.parquet(\?|$)/i,
     /_data_part\d+\.js(\?|$)/i,
