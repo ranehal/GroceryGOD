@@ -1143,7 +1143,39 @@ def save_store_data(name, data_tuple):
     total_chunks = len(temp_chunks)
     current_chunk_size = MAX_CHUNK_ITEMS
     
-    # 2. Save Manifest
+    # 2. Save Manifest (Preserve full historical date range and catalog size from parquet)
+    try:
+        chunk_file = f"history_{name}.parquet"
+        if os.path.exists(chunk_file):
+            import pyarrow.parquet as _pq
+            _meta = _pq.read_metadata(chunk_file)
+            if _meta.num_rows > 0:
+                _t = _pq.read_table(chunk_file, columns=['date'])
+                _d_list = [d for d in _t['date'].to_pylist() if d]
+                if _d_list:
+                    p_min = min(_d_list)
+                    p_max = max(_d_list)
+                    if date_range and date_range != 'N/A' and ' to ' in date_range:
+                        d_parts = date_range.split(' to ')
+                        true_min = min(p_min, d_parts[0])
+                        true_max = max(p_max, d_parts[1])
+                        date_range = f"{true_min} to {true_max}"
+                    else:
+                        date_range = f"{p_min} to {p_max}"
+    except Exception:
+        pass
+
+    try:
+        p_free_file = "products_free.parquet"
+        if os.path.exists(p_free_file):
+            import pyarrow.parquet as _pq
+            _tp = _pq.read_table(p_free_file, columns=['store'])
+            _s_cnt = sum(1 for s in _tp['store'].to_pylist() if s == name)
+            if _s_cnt > total_items:
+                total_items = _s_cnt
+    except Exception:
+        pass
+
     manifest_meta = {
         "last_update": last_update, "total": total_items,
         "date_range": date_range, "total_chunks": total_chunks, "chunk_size": current_chunk_size,

@@ -11,7 +11,7 @@ const safeSession = {
 let allProducts = [];
 let metadata = {};
 let godDB = null; // persistent DuckDB connection for on-demand queries
-const ASSET_VERSION = window.GOD_ASSET_VERSION || '20260723b';
+const ASSET_VERSION = window.GOD_ASSET_VERSION || '20260907_v2';
 let favorites = JSON.parse(safeStorage.getItem('god_favorites') || '[]');
 let selectedForComparison = JSON.parse(safeStorage.getItem('god_comparison') || '[]');
 let customGroups = JSON.parse(safeStorage.getItem('god_custom_groups') || '{}');
@@ -4023,7 +4023,7 @@ function countDuplicateProducts(products) {
 
 async function fetchFirstAvailable(paths, label = 'asset') {
     let lastError = null;
-    const cacheName = 'god-parquet-cache-v1';
+    const cacheName = 'god-parquet-cache-20260907';
     for (const rawPath of paths) {
         const path = rawPath.includes('?') ? rawPath : `${rawPath}?v=${ASSET_VERSION}`;
         try {

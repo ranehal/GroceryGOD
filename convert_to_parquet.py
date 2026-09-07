@@ -163,6 +163,40 @@ prod_schema = pa.schema([
 new_prod_table = pa.Table.from_pylist(product_rows, schema=prod_schema)
 con.register('new_prods', new_prod_table)
 
+existing_prod_file = os.path.join(BASE, 'products_free.parquet').replace(chr(92), '/')
+if os.path.exists(existing_prod_file) and os.path.getsize(existing_prod_file) > 1000:
+    try:
+        con.execute(f"CREATE VIEW existing_prods AS SELECT id, name, store, category, unit, unit_type, current_price, normalized_price, image, url, first_seen, last_seen, in_stock, is_out_of_stock FROM read_parquet('{existing_prod_file}');")
+        con.execute("""
+            CREATE TABLE combined_prods AS
+            SELECT 
+                id,
+                arg_max(name, priority) as name,
+                arg_max(store, priority) as store,
+                arg_max(category, priority) as category,
+                arg_max(unit, priority) as unit,
+                arg_max(unit_type, priority) as unit_type,
+                arg_max(current_price, priority) as current_price,
+                arg_max(normalized_price, priority) as normalized_price,
+                arg_max(image, priority) as image,
+                arg_max(url, priority) as url,
+                arg_min(first_seen, priority) as first_seen,
+                arg_max(last_seen, priority) as last_seen,
+                arg_max(in_stock, priority) as in_stock,
+                arg_max(is_out_of_stock, priority) as is_out_of_stock
+            FROM (
+                SELECT *, 0 as priority FROM existing_prods
+                UNION ALL
+                SELECT *, 1 as priority FROM new_prods
+            )
+            GROUP BY id;
+        """)
+    except Exception as e:
+        print(f"Notice merging existing products: {e}")
+        con.execute("CREATE TABLE combined_prods AS SELECT * FROM new_prods;")
+else:
+    con.execute("CREATE TABLE combined_prods AS SELECT * FROM new_prods;")
+
 prod_sql = """
     CREATE TABLE merged_products AS 
     SELECT 
@@ -171,7 +205,7 @@ prod_sql = """
         COALESCE(h.min_price, p.normalized_price)::DOUBLE as min_price,
         COALESCE(h.max_price, p.normalized_price)::DOUBLE as max_price,
         COALESCE(h.avg_price, p.normalized_price)::DOUBLE as avg_price
-    FROM new_prods p
+    FROM combined_prods p
     LEFT JOIN (
         SELECT 
             product_id,
@@ -185,7 +219,7 @@ prod_sql = """
 """
 con.execute(prod_sql)
 prod_count = con.execute("SELECT COUNT(*) FROM merged_products;").fetchone()[0]
-print(f"Merged products total: {prod_count:,} products (enriched with 6-month min/max/avg stats)")
+print(f"Merged products total: {prod_count:,} products (enriched with full-history min/max/avg stats)")
 
 con.execute(f"COPY merged_products TO '{os.path.join(BASE, 'products.parquet').replace(chr(92), '/')}' (FORMAT PARQUET, COMPRESSION 'ZSTD');")
 con.execute(f"COPY merged_products TO '{os.path.join(BASE, 'products_free.parquet').replace(chr(92), '/')}' (FORMAT PARQUET, COMPRESSION 'ZSTD');")
