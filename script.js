@@ -24,7 +24,7 @@ let metadata = {};
 let _godDbResolver;
 window.__godDbPromise = new Promise(resolve => { _godDbResolver = resolve; });
 let godDB = null; // persistent DuckDB connection for on-demand queries
-const ASSET_VERSION = window.GOD_ASSET_VERSION || '20260908_v7';
+const ASSET_VERSION = window.GOD_ASSET_VERSION || '20260909_v1';
 let currentDataSource = safeStorage.getItem('god_data_source') || 'turso';
 let favorites = JSON.parse(safeStorage.getItem('god_favorites') || '[]');
 let selectedForComparison = JSON.parse(safeStorage.getItem('god_comparison') || '[]');
@@ -59,6 +59,7 @@ let showFavoritesOnly = false;
 let showNewOnly = false;
 let activeShopFilters = new Set(['shwapno']);
 let activeCategories = new Set();
+let userCustomizedCategories = new Set();
 let expandedStoreGroups = new Set(['shwapno']);
 window.loadedStores = new Set(['shwapno']);
 
@@ -555,6 +556,8 @@ function mapProductRow(r) {
         minPrice: minP,
         maxPrice: maxP,
         avgPrice: avgP,
+        is_first_low: (r.is_first_low === 1 || r.is_first_low === '1' || r.is_first_low === true),
+        isFirstTimeLow: (r.is_first_low === 1 || r.is_first_low === '1' || r.is_first_low === true),
         oldest_date: r.first_seen || null,
         newest_date: r.last_seen || null,
         _historyLoaded: false,
@@ -708,7 +711,25 @@ async function loadAllFromTurso() {
             window.__tursoHasMore = atlRows.length >= 50;
             log(`⚡ Fast First Paint: ${allProducts.length} default Shwapno ATL deals loaded in ${(performance.now() - t0).toFixed(0)}ms!`);
         } else {
-            window.__tursoHasMore = false;
+            // If ATL deals empty for Shwapno, load general products as immediate fallback
+            const fallbackRows = await queryTurso('SELECT * FROM products WHERE store = ? ORDER BY in_stock DESC, last_seen DESC LIMIT 50;', ['shwapno']).catch(() => []);
+            if (fallbackRows && fallbackRows.length > 0) {
+                fallbackRows.forEach(r => {
+                    if (!seenTursoProductIds.has(r.id)) {
+                        seenTursoProductIds.add(r.id);
+                        allProducts.push(mapProductRow(r));
+                    }
+                });
+                window.__tursoOffsets.set('shwapno_low_', fallbackRows.length);
+                window.__tursoHasMore = fallbackRows.length >= 50;
+                log(`⚡ Fast First Paint: ${allProducts.length} general Shwapno products loaded in ${(performance.now() - t0).toFixed(0)}ms!`);
+            } else {
+                window.__tursoHasMore = false;
+            }
+        }
+
+        if (!allProducts || allProducts.length === 0) {
+            throw new Error('Turso returned empty initial product set');
         }
 
         try { processData(); } catch(e) {}
@@ -717,35 +738,48 @@ async function loadAllFromTurso() {
         try { updateStatsBar(); } catch(e) {}
     } catch (e) {
         console.warn('[GOD_TURSO] Initial load error:', e);
+        throw e;
     }
 
     // Dynamic on-demand page fetcher for Turso
     window.fetchNextTursoPage = async function(reason = 'pagination') {
-        if (window.__tursoFetching || !window.__tursoHasMore) return;
+        if (window.__tursoFetching || (!window.__tursoHasMore && reason === 'pagination')) return;
         window.__tursoFetching = true;
 
         const stores = Array.from(activeShopFilters);
         const storeList = stores.length > 0 ? stores : ['shwapno'];
         const cleanQ = searchQuery ? searchQuery.trim().toLowerCase().replace(/'/g, "''") : '';
         const filterKey = `${storeList.slice().sort().join(',')}_${activeIntelFilter}_${cleanQ}`;
+
+        // Reset offset on explicit filter or search changes
+        if (reason === 'shop_toggle' || reason === 'store_chip' || reason === 'filter_change' || reason === 'search') {
+            window.__tursoOffsets.set(filterKey, 0);
+            window.__tursoHasMore = true;
+        }
         const offset = window.__tursoOffsets.get(filterKey) || 0;
 
         const storeInClause = storeList.map(s => `'${s.replace(/'/g, "''")}'`).join(',');
         let sql;
-        if (activeIntelFilter === 'low' && !cleanQ) {
+        if (activeIntelFilter === 'first_low' && !cleanQ) {
+            sql = `SELECT * FROM products WHERE store IN (${storeInClause}) AND in_stock = 1 AND is_first_low = 1 ORDER BY (max_price - normalized_price) DESC LIMIT 50 OFFSET ${offset};`;
+        } else if (activeIntelFilter === 'low' && !cleanQ) {
             sql = `SELECT * FROM atl_deals WHERE store IN (${storeInClause}) ORDER BY (max_price - normalized_price) DESC LIMIT 50 OFFSET ${offset};`;
         } else if (cleanQ) {
-            sql = `SELECT * FROM products WHERE store IN (${storeInClause}) AND (LOWER(name) LIKE '%${cleanQ}%' OR LOWER(category) LIKE '%${cleanQ}%') LIMIT 50 OFFSET ${offset};`;
+            sql = `SELECT * FROM products WHERE store IN (${storeInClause}) AND (LOWER(name) LIKE '%${cleanQ}%' OR LOWER(category) LIKE '%${cleanQ}%') ORDER BY in_stock DESC, last_seen DESC LIMIT 50 OFFSET ${offset};`;
         } else if (activeIntelFilter === 'great') {
             sql = `SELECT * FROM products WHERE store IN (${storeInClause}) AND in_stock = 1 AND normalized_price > 0 AND avg_price > 0 AND normalized_price < (avg_price * 0.85) ORDER BY (avg_price - normalized_price) DESC LIMIT 50 OFFSET ${offset};`;
         } else if (activeIntelFilter === 'good') {
             sql = `SELECT * FROM products WHERE store IN (${storeInClause}) AND in_stock = 1 AND normalized_price > 0 AND avg_price > 0 AND normalized_price < (avg_price * 0.92) ORDER BY (avg_price - normalized_price) DESC LIMIT 50 OFFSET ${offset};`;
         } else {
-            sql = `SELECT * FROM products WHERE store IN (${storeInClause}) LIMIT 50 OFFSET ${offset};`;
+            sql = `SELECT * FROM products WHERE store IN (${storeInClause}) ORDER BY in_stock DESC, last_seen DESC LIMIT 50 OFFSET ${offset};`;
         }
 
         try {
-            const rows = await queryTurso(sql);
+            let rows = await queryTurso(sql);
+            if ((!rows || rows.length === 0) && activeIntelFilter === 'low' && offset === 0 && !cleanQ) {
+                // If ATL deals empty for this store, query products directly so store never shows 0
+                rows = await queryTurso(`SELECT * FROM products WHERE store IN (${storeInClause}) ORDER BY in_stock DESC, last_seen DESC LIMIT 50;`).catch(() => []);
+            }
             if (!rows || rows.length === 0) {
                 window.__tursoHasMore = false;
                 document.getElementById('grid-sentinel')?.remove();
@@ -780,7 +814,7 @@ async function loadAllFromTurso() {
     // Hydration dispatcher hook
     window.triggerCatalogHydration = async function(triggerReason = 'delayed') {
         if (currentDataSource !== 'turso') return;
-        if (triggerReason === 'pagination' || triggerReason === 'shop_toggle' || triggerReason === 'search' || triggerReason === 'filter_change') {
+        if (triggerReason === 'pagination' || triggerReason === 'shop_toggle' || triggerReason === 'store_chip' || triggerReason === 'search' || triggerReason === 'filter_change') {
             await window.fetchNextTursoPage(triggerReason);
         }
     };
@@ -864,11 +898,15 @@ document.addEventListener('DOMContentLoaded', async () => {
             showLoading(true, 'Connecting to Turso Cloud DB (Live)...');
             try {
                 await loadAllFromTurso();
+                if (!allProducts || allProducts.length === 0) {
+                    throw new Error('Turso returned empty product list');
+                }
             } catch (tErr) {
                 console.warn('[GOD_TURSO] Turso connection issue, seamlessly falling back to Local Parquet:', tErr);
                 showLoading(true, 'Initializing Local Parquet Matrix...');
                 await loadAllFromParquet();
                 currentDataSource = 'local';
+                safeStorage.setItem('god_data_source', 'local');
                 updateDataSourceUI();
             }
         } else {
@@ -932,6 +970,8 @@ async function loadAllFromParquet() {
             minPrice: minP,
             maxPrice: maxP,
             avgPrice: avgP,
+            is_first_low: (r.is_first_low === 1 || r.is_first_low === '1' || r.is_first_low === true),
+            isFirstTimeLow: (r.is_first_low === 1 || r.is_first_low === '1' || r.is_first_low === true),
             oldest_date: r.first_seen || null,
             newest_date: r.last_seen || null,
             _historyLoaded: false,
@@ -1279,7 +1319,7 @@ function generatePriorHistory(firstDateStr, firstPrice, firstNormPrice, seedId, 
     return [];
 }
 
-function forwardFillHistoryGaps(rawRows, currentPrice, currentNormPrice) {
+function forwardFillHistoryGaps(rawRows, currentPrice, currentNormPrice, isCurrentlyInStock = true) {
     if (!rawRows || !rawRows.length) return [];
     
     // Sort ascending by date
@@ -1294,7 +1334,16 @@ function forwardFillHistoryGaps(rawRows, currentPrice, currentNormPrice) {
     });
 
     const startDate = new Date(sorted[0].date + 'T12:00:00Z');
-    const endDate = new Date(todayStr + 'T12:00:00Z');
+    const lastRecordDate = sorted[sorted.length - 1].date;
+    
+    // For products actively in stock, extend to todayStr.
+    // For stale/discontinued/out-of-stock items, strictly stop at their last recorded date!
+    let endDate;
+    if (isCurrentlyInStock && todayStr && todayStr > lastRecordDate) {
+        endDate = new Date(todayStr + 'T12:00:00Z');
+    } else {
+        endDate = new Date(lastRecordDate + 'T12:00:00Z');
+    }
     
     if (isNaN(startDate.getTime()) || isNaN(endDate.getTime()) || startDate > endDate) {
         return sorted;
@@ -1321,12 +1370,13 @@ function forwardFillHistoryGaps(rawRows, currentPrice, currentNormPrice) {
         curr.setUTCDate(curr.getUTCDate() + 1);
     }
 
-    // Connect today's live active price if available
-    if (Number(currentPrice) > 0 && filled.length > 0) {
+    // Connect today's live active price if available and in stock today
+    if (isCurrentlyInStock && Number(currentPrice) > 0 && filled.length > 0) {
         const last = filled[filled.length - 1];
         if (last.date === todayStr) {
             last.price = Number(currentPrice);
             last.normalized_price = Number(currentNormPrice || currentPrice);
+            last._filled = false;
         }
     }
 
@@ -1336,6 +1386,7 @@ function forwardFillHistoryGaps(rawRows, currentPrice, currentNormPrice) {
 async function loadProductHistory(productId) {
     const p = getProductById(productId);
     const rawId = productId.replace(/^(sh_|ch_|mb_|ot_|mt_|uni_|sj_|fd_)/, '');
+    const isCurrentlyInStock = p ? (!p.is_out_of_stock && p.in_stock && p.hasPriceToday && Number(p.current_price) > 0) : true;
 
     const isPremium = Boolean(typeof premiumUnlocked !== 'undefined' && premiumUnlocked);
     const cacheKey = `${productId}_${isPremium ? 'all' : '7d'}`;
@@ -1383,7 +1434,7 @@ async function loadProductHistory(productId) {
 
             let finalHistory = [];
             if (rows.length > 0) {
-                finalHistory = forwardFillHistoryGaps(rows, p?.current_price, p?.normalized_price);
+                finalHistory = forwardFillHistoryGaps(rows, p?.current_price, p?.normalized_price, isCurrentlyInStock);
             } else if (p) {
                 finalHistory = [{
                     date: p.first_seen || todayStr,
@@ -1447,7 +1498,7 @@ async function loadProductHistory(productId) {
                 return { date: String(h.date), price: Number(h.price), normalized_price: Number(h.normalized_price) };
             });
             if (rows.length > 0) {
-                const filled = forwardFillHistoryGaps(rows, p?.current_price, p?.normalized_price);
+                const filled = forwardFillHistoryGaps(rows, p?.current_price, p?.normalized_price, isCurrentlyInStock);
                 if (p) {
                     p.history = filled;
                     p._historyLoaded = true;
@@ -1462,7 +1513,7 @@ async function loadProductHistory(productId) {
     }
     if (p && Array.isArray(p.history) && p.history.length > 0) {
         const mapped = p.history.map(h => ({ date: String(h.date), price: Number(h.price), normalized_price: Number(h.normalized_price || h.price) }));
-        const filled = forwardFillHistoryGaps(mapped, p?.current_price, p?.normalized_price);
+        const filled = forwardFillHistoryGaps(mapped, p?.current_price, p?.normalized_price, isCurrentlyInStock);
         window.__tursoHistoryCache.set(cacheKey, filled);
         return filled;
     }
@@ -1720,17 +1771,14 @@ function renderSidebar() {
             return a.localeCompare(b);
         });
 
-        // Initialize activeCategories if store is active but has no subcategories in activeCategories
-        if (activeShopFilters.has(sid)) {
-            const hasAny = categories.some(c => activeCategories.has(sid + '_' + c));
-            if (!hasAny && categories.length > 0) {
-                categories.forEach(c => activeCategories.add(sid + '_' + c));
-            }
+        // Initialize activeCategories if store is active and user has not customized categories for this store
+        if (activeShopFilters.has(sid) && !userCustomizedCategories.has(sid) && categories.length > 0) {
+            categories.forEach(c => activeCategories.add(sid + '_' + c));
         }
 
         const activeCount = categories.filter(c => activeCategories.has(sid + '_' + c)).length;
         const isAllChecked = categories.length > 0 && activeCount === categories.length;
-        const isSomeChecked = activeCount > 0 && activeCount < categories.length;
+        const isSomeChecked = userCustomizedCategories.has(sid) && activeCount > 0 && activeCount < categories.length;
         const isStoreActive = activeShopFilters.has(sid) || isAllChecked || isSomeChecked;
         const isExpanded = expandedStoreGroups.has(sid) || (q.length > 0);
 
@@ -1777,6 +1825,7 @@ function renderSidebar() {
             }
 
             const willCheck = !(cb.checked || cb.indeterminate);
+            userCustomizedCategories.delete(sid);
             if (willCheck) {
                 activeShopFilters.add(sid);
                 categories.forEach(cat => activeCategories.add(sid + '_' + cat));
@@ -1831,6 +1880,7 @@ function renderSidebar() {
             const catCb = li.querySelector('.cat-checkbox');
             li.onclick = (e) => {
                 if (e.target !== catCb) catCb.checked = !catCb.checked;
+                userCustomizedCategories.add(sid);
                 if (catCb.checked) {
                     activeCategories.add(catId);
                     activeShopFilters.add(sid);
@@ -1869,7 +1919,7 @@ function renderSidebar() {
 
 function filterByGroup(name) {
     const ids = customGroups[name] || [];
-    searchQuery = ''; activeIntelFilter = 'all'; activeCategories.clear();
+    searchQuery = ''; activeIntelFilter = 'all'; activeCategories.clear(); userCustomizedCategories.clear();
     const grid = document.getElementById('sh-grid'); grid.innerHTML = '';
     document.getElementById('current-view-title').innerText = 'Group: ' + name;
     currentFilteredProducts = allProducts.filter(p => ids.includes(p.id));
@@ -1879,14 +1929,26 @@ function filterByGroup(name) {
 function saveGroups() { safeStorage.setItem('god_custom_groups', JSON.stringify(customGroups)); }
 
 function updateStatsBar() {
-    const filtered = allProducts.filter(p => activeShopFilters.has(p.store));
-    document.getElementById('total-items').innerText = filtered.length;
-    document.getElementById('good-buys-count').innerText = filtered.filter(p => p.normalized_price < (p.avgPrice * goodBuyThreshold)).length;
+    const storeProducts = allProducts.filter(p => activeShopFilters.has(p.store));
+    const storeTotal = storeProducts.length;
+    const isFiltered = currentFilteredProducts && (currentFilteredProducts.length < storeTotal || activeIntelFilter !== 'all' || searchQuery || userCustomizedCategories.size > 0 || showFavoritesOnly);
+    const totalElem = document.getElementById('total-items');
+    if (totalElem) {
+        if (isFiltered) {
+            totalElem.innerHTML = `${currentFilteredProducts.length.toLocaleString()} <span style="font-size:0.7em; opacity:0.8;">/ ${storeTotal.toLocaleString()}</span>`;
+        } else {
+            totalElem.innerText = storeTotal.toLocaleString();
+        }
+    }
+    const goodBuysEl = document.getElementById('good-buys-count');
+    if (goodBuysEl) {
+        goodBuysEl.innerText = storeProducts.filter(p => p.normalized_price < (p.avgPrice * goodBuyThreshold) && p.in_stock && !p.is_out_of_stock).length.toLocaleString();
+    }
     const hudTotal = document.getElementById('hud-total-val');
     if (hudTotal && allProducts.length > 0) hudTotal.innerText = allProducts.length.toLocaleString();
     const hudDeal = document.getElementById('hud-deal-val');
     if (hudDeal) {
-        const dealCount = allProducts.filter(p => p.in_stock && p.hist_count >= 1 && p.maxPrice - p.minPrice > 0.01 && p.normalized_price <= (p.minPrice + 0.01) && hasValidProductImage(p)).length;
+        const dealCount = allProducts.filter(p => p.in_stock && !p.is_out_of_stock && p.hist_count >= 1 && p.maxPrice - p.minPrice > 0.01 && p.normalized_price <= (p.minPrice + 0.01) && hasValidProductImage(p)).length;
         if (dealCount > 0) hudDeal.innerText = dealCount.toLocaleString();
     }
 }
@@ -1908,7 +1970,7 @@ function renderProducts() {
     currentFilteredProducts = allProducts.filter(p => {
         if (hideNoImage && !hasValidProductImage(p)) return false;
         if (!activeShopFilters.has(p.store)) return false;
-        if (activeCategories.size > 0 && !activeCategories.has(p.store + '_' + p.category)) return false;
+        if (userCustomizedCategories.has(p.store) && activeCategories.size > 0 && !activeCategories.has(p.store + '_' + p.category)) return false;
         if (showFavoritesOnly && !p.isFavorite) return false;
         if (searchQuery && !p.name.toLowerCase().includes(searchQuery) && !p.category.toLowerCase().includes(searchQuery)) return false;
         if (!activeUnitFilters.has(p.unit_type)) return false;
@@ -1920,6 +1982,7 @@ function renderProducts() {
         if (activeIntelFilter === 'good') return !isOos && p.normalized_price < (p.avgPrice * goodBuyThreshold);
         if (activeIntelFilter === 'customdrop') return !isOos && p.avgPrice > 0 && p.normalized_price <= (p.avgPrice * (1 - customDropThreshold / 100));
         if (activeIntelFilter === 'wait') return p.normalized_price > (p.avgPrice * 1.05);
+        if (activeIntelFilter === 'first_low') return !isOos && Number(p.normalized_price) > 0 && (p.isFirstTimeLow || p.is_first_low || checkIsFirstTimeLow(p));
         if (activeIntelFilter === 'low') return !isOos && Number(p.normalized_price) > 0 && p.hist_count >= 2 && (p.maxPrice >= p.minPrice * 1.03) && (p.maxPrice - p.minPrice >= 1.0) && p.normalized_price <= (p.minPrice * 1.005);
         if (activeIntelFilter === 'new') return p.isNew;
         if (activeIntelFilter === 'pricechange') {
@@ -1946,21 +2009,26 @@ function renderProducts() {
     });
     updateImmersiveCount();
 
+    const storeProducts = allProducts.filter(p => activeShopFilters.has(p.store));
+    const storeTotal = storeProducts.length;
+    const filteredCount = currentFilteredProducts.length;
+    const isFiltered = filteredCount < storeTotal || activeIntelFilter !== 'all' || searchQuery || userCustomizedCategories.size > 0 || showFavoritesOnly;
+
     const totalElem = document.getElementById('total-items');
     if (totalElem) {
-        if (allProducts && currentFilteredProducts.length < allProducts.length) {
-            totalElem.innerHTML = `${currentFilteredProducts.length.toLocaleString()} <span style="font-size:0.7em; opacity:0.8;">/ ${allProducts.length.toLocaleString()}</span>`;
+        if (isFiltered) {
+            totalElem.innerHTML = `${filteredCount.toLocaleString()} <span style="font-size:0.7em; opacity:0.8;">/ ${storeTotal.toLocaleString()}</span>`;
         } else {
-            totalElem.innerText = currentFilteredProducts.length.toLocaleString();
+            totalElem.innerText = storeTotal.toLocaleString();
         }
     }
 
     const filterBadge = document.getElementById('filtered-items-badge');
     const filterText = document.getElementById('filter-count-text');
     if (filterBadge && filterText) {
-        const totalStr = allProducts ? allProducts.length.toLocaleString() : '0';
-        const filteredStr = currentFilteredProducts.length.toLocaleString();
-        if (allProducts && currentFilteredProducts.length < allProducts.length) {
+        const totalStr = storeTotal.toLocaleString();
+        const filteredStr = filteredCount.toLocaleString();
+        if (isFiltered) {
             filterText.innerHTML = `Showing <strong>${filteredStr}</strong> of ${totalStr} items`;
             filterBadge.classList.add('active-filter');
         } else {
@@ -2089,6 +2157,7 @@ function resetProductViewFilters() {
     }
     activeShopFilters = new Set(Object.keys(STORE_CONFIG));
     activeCategories.clear();
+    userCustomizedCategories.clear();
     allProducts.forEach(p => { if (p.category) activeCategories.add(p.store + '_' + p.category); });
     const catFilterInput = document.getElementById('category-filter');
     if (catFilterInput) catFilterInput.value = '';
@@ -2133,6 +2202,29 @@ function getStoreDirectUrl(p) {
     }
 }
 
+function checkIsFirstTimeLow(p) {
+    if (p.is_first_low !== undefined && p.is_first_low !== null) {
+        return p.is_first_low === true || p.is_first_low === 1 || p.is_first_low === '1';
+    }
+    if (p.isFirstTimeLow !== undefined && p.isFirstTimeLow !== null) {
+        return p.isFirstTimeLow === true || p.isFirstTimeLow === 1 || p.isFirstTimeLow === '1';
+    }
+    if (!p || p.hist_count < 2) return false;
+    const curr = Number(p.normalized_price || p.current_price || 0);
+    if (curr <= 0) return false;
+    if (Array.isArray(p.history) && p.history.length >= 2) {
+        const realHist = p.history.filter(h => !h._filled && Number(h.normalized_price || h.price) > 0);
+        if (realHist.length >= 2) {
+            const priorPrices = realHist.slice(0, -1).map(h => Number(h.normalized_price || h.price)).filter(x => x > 0);
+            if (priorPrices.length > 0) {
+                const priorMin = Math.min(...priorPrices);
+                return curr < (priorMin - 0.5);
+            }
+        }
+    }
+    return false;
+}
+
 function createProductCard(p) {
     const card = document.createElement('div');
     const storeColor = STORE_CONFIG[p.store]?.color || '#38E1B0';
@@ -2151,9 +2243,14 @@ function createProductCard(p) {
     if (p.isNew) {
         badges.push(`<span class="card-badge-item badge-new">NEW</span>`);
     }
-    const isLow = !isOos && p.hist_count >= 1 && p.maxPrice - p.minPrice > 0.01 && p.normalized_price <= (p.minPrice + 0.01) && Number(p.normalized_price) > 0;
-    if (isLow) {
-        badges.push(`<span class="card-badge-item badge-low">LOW</span>`);
+    const isFirstLow = !isOos && (p.is_first_low || p.isFirstTimeLow || checkIsFirstTimeLow(p));
+    if (isFirstLow) {
+        badges.push(`<span class="card-badge-item badge-first-low" title="1st Time Lowest Price Record">1ST LOW</span>`);
+    } else {
+        const isLow = !isOos && p.hist_count >= 1 && p.maxPrice - p.minPrice > 0.01 && p.normalized_price <= (p.minPrice + 0.01) && Number(p.normalized_price) > 0;
+        if (isLow) {
+            badges.push(`<span class="card-badge-item badge-low">LOW</span>`);
+        }
     }
     if (activeIntelFilter === 'pricechange' && p._pcDiff !== undefined) {
         const diff = p._pcDiff;
@@ -2383,12 +2480,16 @@ function setupEventListeners() {
             
             const isAllSelected = allStores.every(s => activeShopFilters.has(s)) && (allCats.size === 0 || allCats.size === activeCategories.size);
             
+            userCustomizedCategories.clear();
             if (isAllSelected) {
                 activeShopFilters.clear();
                 activeCategories.clear();
             } else {
                 allStores.forEach(s => activeShopFilters.add(s));
                 allCats.forEach(c => activeCategories.add(c));
+                if (typeof window.triggerCatalogHydration === 'function') {
+                    window.triggerCatalogHydration('shop_toggle');
+                }
             }
             renderSidebar();
             renderProducts();
@@ -3032,9 +3133,9 @@ async function batchPrefetchAdjacentProducts(idx, dir = 1) {
 
             for (const p of products) {
                 const rawId = p.id.replace(/^(sh_|ch_|mb_|ot_|mt_|uni_|sj_|fd_)/, '');
-                const cRows = rowsByPid.get(p.id) || rowsByPid.get(rawId) || [];
+                const isCurrentlyInStock = !p.is_out_of_stock && p.in_stock && p.hasPriceToday && Number(p.current_price) > 0;
                 if (cRows.length > 0) {
-                    p.history = forwardFillHistoryGaps(cRows, p.current_price, p.normalized_price);
+                    p.history = forwardFillHistoryGaps(cRows, p.current_price, p.normalized_price, isCurrentlyInStock);
                     p.first_seen = p.first_seen || cRows[0].date;
                     p.last_seen = cRows[cRows.length - 1].date;
                     if (cRows.length >= 2) {
@@ -3043,7 +3144,7 @@ async function batchPrefetchAdjacentProducts(idx, dir = 1) {
                         p.priceChangePercent = prev > 0 ? ((curr - prev) / prev * 100) : 0;
                     }
                 } else if (!p.history || p.history.length === 0) {
-                    p.history = forwardFillHistoryGaps([{ date: p.first_seen || todayStr, price: Number(p.current_price || 0), normalized_price: Number(p.normalized_price || p.current_price || 0) }], p.current_price, p.normalized_price);
+                    p.history = forwardFillHistoryGaps([{ date: p.first_seen || todayStr, price: Number(p.current_price || 0), normalized_price: Number(p.normalized_price || p.current_price || 0) }], p.current_price, p.normalized_price, isCurrentlyInStock);
                 }
                 p._historyLoaded = true;
                 p._historyLoading = false;
@@ -3119,18 +3220,32 @@ async function openDetailedChart(product, knownIndex) {
         product.history = h;
         product._historyLoaded = true;
         if (h && h.length > 0) {
-            product.first_seen = product.first_seen || h[0].date;
-            product.last_seen = h[h.length - 1].date;
-            if (fsEl) fsEl.innerText = product.first_seen || 'N/A';
-            if (lsEl) lsEl.innerText = product.last_seen || 'N/A';
+            const realRecords = h.filter(r => !r._filled);
+            if (realRecords.length > 0) {
+                product.first_seen = product.first_seen || realRecords[0].date;
+                product.last_seen = realRecords[realRecords.length - 1].date;
+            } else {
+                product.first_seen = product.first_seen || h[0].date;
+                product.last_seen = h[h.length - 1].date;
+            }
         }
-        if (h.length >= 2) {
+        if (h && h.length >= 2) {
             const curr = h[h.length - 1].normalized_price || h[h.length - 1].price;
             const prev = h[h.length - 2].normalized_price || h[h.length - 2].price;
             product.priceChangePercent = prev > 0 ? ((curr - prev) / prev * 100) : 0;
         }
     }
     if (reqId !== _detailChartReqId) return;
+
+    if (fsEl) fsEl.innerText = product.first_seen || 'N/A';
+    if (lsEl) lsEl.innerText = product.last_seen || 'N/A';
+    const ssEl = document.getElementById('chart-stock-status');
+    if (ssEl) {
+        const isOos = !product.in_stock || product.is_out_of_stock || !product.hasPriceToday || !(Number(product.current_price) > 0);
+        ssEl.innerHTML = isOos 
+            ? '<span style="color:var(--danger); font-weight:800;"><i class="fas fa-ban"></i> Out of Stock</span>'
+            : '<span style="color:var(--accent-secondary); font-weight:800;"><i class="fas fa-check-circle"></i> In Stock</span>';
+    }
 
     const chartCanvas = document.getElementById('price-history-chart');
     if (!chartCanvas) return;
@@ -3139,13 +3254,21 @@ async function openDetailedChart(product, knownIndex) {
     const historyView = buildHistoryView(product);
     const history = historyView.rows;
     const rawDates = history.map(h => h.date);
-    const labels = (historyView && !historyView.premium)
-        ? history.map(h => h._locked ? '' : formatChartDateItem(h.date, false))
-        : formatChartDates(rawDates);
+    const labels = formatChartDates(rawDates);
     renderHistoryAccessState(historyView);
 
     const unitData = history.map(h => (Number(h.normalized_price) <= 0 || Number(h.price) <= 0) ? null : Number(h.normalized_price));
     const actualData = history.map(h => Number(h.price) <= 0 ? null : Number(h.price));
+    const hasDistinctActual = actualData.some((p, i) => p !== null && unitData[i] !== null && Math.abs(p - unitData[i]) > 0.01);
+
+    // Dynamic modal stats calculation from valid history points
+    const validHist = history.filter(h => Number(h.normalized_price) > 0 && Number(h.price) > 0);
+    if (validHist.length > 0) {
+        const prices = validHist.map(h => Number(h.normalized_price));
+        const winAvg = prices.reduce((a, b) => a + b, 0) / prices.length;
+        const avgEl = document.getElementById('chart-avg');
+        if (avgEl) avgEl.innerText = fmt(winAvg);
+    }
 
     // IN-PLACE CHART UPDATE FOR ZERO-LATENCY (<2ms) NAVIGATION
     if (detailChart && detailChart.ctx && detailChart.canvas === chartCanvas) {
@@ -3158,15 +3281,20 @@ async function openDetailedChart(product, knownIndex) {
         detailChart.data.datasets[0].backgroundColor = store.color + '22';
         detailChart.data.datasets[1].label = 'Actual Price';
         detailChart.data.datasets[1].data = actualData;
+        detailChart.data.datasets[1].yAxisID = hasDistinctActual ? 'y1' : 'y';
         if (detailChart.options.scales.y) {
             detailChart.options.scales.y.title.color = store.color;
             detailChart.options.scales.y.ticks.color = store.color;
         }
+        if (detailChart.options.scales.y1) {
+            detailChart.options.scales.y1.display = hasDistinctActual;
+        }
         if (detailChart.options.scales.x) {
-            detailChart.options.scales.x.ticks.autoSkip = false;
+            detailChart.options.scales.x.ticks.autoSkip = true;
+            detailChart.options.scales.x.ticks.maxTicksLimit = (historyView && historyView.premium) ? 10 : 7;
         }
         if (detailChart.options.plugins && detailChart.options.plugins.legend) {
-            detailChart.options.plugins.legend.align = (historyView && !historyView.premium) ? 'start' : 'center';
+            detailChart.options.plugins.legend.align = 'center';
         }
         detailChart.options.animation = false;
         detailChart.update('none');
@@ -3200,7 +3328,7 @@ async function openDetailedChart(product, knownIndex) {
                     fill: false, 
                     spanGaps: true, 
                     tension: 0, 
-                    yAxisID: 'y1', 
+                    yAxisID: hasDistinctActual ? 'y1' : 'y', 
                     pointRadius: 1, 
                     pointHoverRadius: 4 
                 }
@@ -3211,12 +3339,13 @@ async function openDetailedChart(product, knownIndex) {
             animation: false,
             scales: {
                 y: { position: 'left', title: { display: true, text: 'Unit Price', color: store.color, font: { weight: 'bold' } }, grid: { color: '#222' }, ticks: { color: store.color, font: { size: 11, weight: 'bold' } } },
-                y1: { position: 'right', title: { display: true, text: 'Actual Price', color: getChartTheme().actual, font: { weight: 'bold' } }, grid: { display: false }, ticks: { color: getChartTheme().actual, font: { size: 11, weight: 'bold' } } },
+                y1: { display: hasDistinctActual, position: 'right', title: { display: true, text: 'Actual Price', color: getChartTheme().actual, font: { weight: 'bold' } }, grid: { display: false }, ticks: { color: getChartTheme().actual, font: { size: 11, weight: 'bold' } } },
                 x: { 
                     ticks: { 
                         color: getChartTheme().text, 
                         font: { size: 11, weight: 'bold' }, 
-                        autoSkip: false,
+                        autoSkip: true,
+                        maxTicksLimit: (historyView && historyView.premium) ? 10 : 7,
                         maxRotation: 45 
                     }, 
                     grid: { color: '#1a1a1a' } 
@@ -3224,7 +3353,7 @@ async function openDetailedChart(product, knownIndex) {
             },
             plugins: { 
                 legend: { 
-                    align: (historyView && !historyView.premium) ? 'start' : 'center',
+                    align: 'center',
                     labels: { color: getChartTheme().text, font: { size: 12, weight: 'bold' } } 
                 },
                 tooltip: {
@@ -3232,9 +3361,6 @@ async function openDetailedChart(product, knownIndex) {
                         title: (tooltipItems) => {
                             if (!tooltipItems.length) return '';
                             const idx = tooltipItems[0].dataIndex;
-                            const curHist = (detailChart && detailChart._currentHistory) || history;
-                            const h = curHist && curHist[idx];
-                            if (h && h._locked) return 'Locked History';
                             const rDates = (detailChart && detailChart._rawDates) || rawDates;
                             const rawDate = rDates[idx];
                             if (rawDate) {
@@ -3248,10 +3374,7 @@ async function openDetailedChart(product, knownIndex) {
                         },
                         label: (context) => {
                             const curHist = (detailChart && detailChart._currentHistory) || history;
-                            const h = curHist[context.dataIndex];
-                            if (h && h._locked) {
-                                return 'Unlock Premium to reveal price';
-                            }
+                            const h = curHist && curHist[context.dataIndex];
                             if (h && (Number(h.price) <= 0 || Number(h.normalized_price) <= 0)) {
                                 return `${context.dataset.label}: Out of Stock (-1)`;
                             }
@@ -5153,9 +5276,20 @@ function setPremiumUnlocked(unlocked, persist = true) {
     }
 }
 
-function getFreeSevenDayWindow(source, currentPrice, currentNormPrice) {
+function getFreeSevenDayWindow(source, currentPrice, currentNormPrice, isCurrentlyInStock = true) {
     const today = (typeof todayStr !== 'undefined' && todayStr) ? todayStr : dhakaTodayStr();
-    const endD = new Date(today + 'T12:00:00Z');
+    
+    // Determine anchor date: if product is in stock today, anchor to today.
+    // If product is out of stock / stale and has past records, anchor to its last recorded date!
+    let anchorDateStr = today;
+    if (!isCurrentlyInStock && Array.isArray(source) && source.length > 0) {
+        const sortedDates = source.filter(r => r && r.date).map(r => r.date).sort();
+        if (sortedDates.length > 0) {
+            anchorDateStr = sortedDates[sortedDates.length - 1];
+        }
+    }
+
+    const endD = new Date(anchorDateStr + 'T12:00:00Z');
     const dayMs = 86400000;
     const targetDates = [];
     for (let i = FREE_HISTORY_DAYS - 1; i >= 0; i--) {
@@ -5207,87 +5341,26 @@ function getFreeSevenDayWindow(source, currentPrice, currentNormPrice) {
 }
 
 function buildHistoryView(product) {
-    const source = Array.isArray(product.history) ? product.history.filter(row => row && row.date) : [];
+    const isCurrentlyInStock = Boolean(product && product.in_stock && !product.is_out_of_stock && product.hasPriceToday && Number(product.current_price) > 0);
+    const source = Array.isArray(product?.history) ? product.history.filter(row => row && row.date) : [];
     source.sort((a, b) => a.date.localeCompare(b.date));
     
     if (premiumUnlocked) {
-        return { rows: source.length ? source : [{ date: todayStr, price: product.current_price, normalized_price: product.normalized_price }], premium: true, lockedCount: 0 };
+        const fallbackDate = (typeof todayStr !== 'undefined' && todayStr) ? todayStr : dhakaTodayStr();
+        return { 
+            rows: source.length ? source : [{ date: fallbackDate, price: product.current_price, normalized_price: product.normalized_price }], 
+            premium: true, 
+            lockedCount: 0 
+        };
     }
 
-    const freeDays = getFreeSevenDayWindow(source, product.current_price, product.normalized_price);
+    const freeDays = getFreeSevenDayWindow(source, product.current_price, product.normalized_price, isCurrentlyInStock);
     const lockedCount = Math.max(0, source.length - freeDays.length);
 
-    // Build 7 mock/locked points on past data for the right 50% under the blurred paywall
-    const firstFreeDate = freeDays[0].date;
-    const olderRows = source.filter(r => r.date < firstFreeDate);
-    const lastFreeItem = freeDays[freeDays.length - 1];
-    const basePrice = Number((lastFreeItem && lastFreeItem.price) || product.current_price || 100);
-    const baseNorm = Number((lastFreeItem && (lastFreeItem.normalized_price || lastFreeItem.price)) || product.normalized_price || product.current_price || basePrice);
-    
-    const sampleCount = 7;
-    const lockedRows = [];
-
-    if (olderRows.length >= sampleCount) {
-        const step = (olderRows.length - 1) / (sampleCount - 1);
-        for (let i = 0; i < sampleCount; i++) {
-            const row = olderRows[Math.round(i * step)];
-            const p = Number(row.price) > 0 ? Number(row.price) : basePrice;
-            let np = Number(row.normalized_price);
-            if (!(np > 0) || np > baseNorm * 3 || np < baseNorm / 3) {
-                np = p * (baseNorm / (basePrice || 1));
-            }
-            lockedRows.push({
-                date: row.date || `past-${i}`,
-                price: p,
-                normalized_price: np,
-                _locked: true
-            });
-        }
-    } else if (olderRows.length > 0) {
-        for (let i = 0; i < sampleCount; i++) {
-            const row = olderRows[i % olderRows.length];
-            const p = Number(row.price) > 0 ? Number(row.price) : basePrice;
-            let np = Number(row.normalized_price);
-            if (!(np > 0) || np > baseNorm * 3 || np < baseNorm / 3) {
-                np = p * (baseNorm / (basePrice || 1));
-            }
-            lockedRows.push({
-                date: row.date || `past-${i}`,
-                price: p,
-                normalized_price: np,
-                _locked: true
-            });
-        }
-    } else {
-        const mockDeltas = [-0.015, -0.035, -0.02, 0.025, 0.01, -0.025, -0.01];
-        for (let i = 0; i < sampleCount; i++) {
-            const factor = 1 + mockDeltas[i];
-            const p = Math.round(basePrice * factor * 10) / 10;
-            const np = Math.round(baseNorm * factor * 10) / 10;
-            lockedRows.push({
-                date: `locked-${i}`,
-                price: p,
-                normalized_price: np,
-                _locked: true
-            });
-        }
-    }
-
-    // Ensure mock curve has visible realistic variation if sampled prices are flat
-    const allPricesSame = lockedRows.every(r => r.price === lockedRows[0].price);
-    if (allPricesSame) {
-        const subtleWave = [0, -0.025, 0.015, -0.01, 0.03, -0.02, 0.01];
-        lockedRows.forEach((r, idx) => {
-            const factor = 1 + subtleWave[idx % subtleWave.length];
-            r.price = Math.round(r.price * factor * 10) / 10;
-            r.normalized_price = Math.round(r.normalized_price * factor * 10) / 10;
-        });
-    }
-
     return { 
-        rows: [...freeDays, ...lockedRows], 
+        rows: freeDays, 
         premium: false, 
-        lockedCount: Math.max(lockedCount, olderRows.length, sampleCount), 
+        lockedCount: lockedCount, 
         freeCount: freeDays.length 
     };
 }

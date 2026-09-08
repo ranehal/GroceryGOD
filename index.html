@@ -15,16 +15,16 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
-<link rel="preload" href="atl_preview.json?v=20260908_v7" as="fetch" crossorigin>
-<link rel="preload" href="atl.parquet?v=20260908_v7" as="fetch" crossorigin>
-<link rel="preload" href="products_free.parquet?v=20260908_v7" as="fetch" crossorigin>
+<link rel="preload" href="atl_preview.json?v=20260909_v2" as="fetch" crossorigin>
+<link rel="preload" href="atl.parquet?v=20260909_v2" as="fetch" crossorigin>
+<link rel="preload" href="products_free.parquet?v=20260909_v2" as="fetch" crossorigin>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
-<link href="style.css?v=20260908_v7" rel="stylesheet"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+<link href="style.css?v=20260909_v2" rel="stylesheet"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
 </head>
 <body class="pitch-black theme-amoled">
 <script>
-window.GOD_ASSET_VERSION = '20260908_v7';
+window.GOD_ASSET_VERSION = '20260909_v2';
 window.GOD_ALLOW_LEGACY_DATA = false;
 if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')) {
     window.addEventListener('load', () => {
@@ -277,6 +277,7 @@ if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || wi
 <label class="custom-drop-input-wrap"><input aria-label="Custom percentage drop" id="custom-drop-input" inputmode="numeric" max="95" min="1" step="1" type="number" value="12"/><span>%</span></label>
 </div>
 <button class="intel-btn intel-variant-wait" data-filter="wait" title="Price is above average"><i class="fas fa-hourglass-half"></i> Wait</button>
+<button class="intel-btn intel-variant-first-low" data-filter="first_low" title="Price has dropped to an all-time record low for the first time in history"><i class="fas fa-bolt"></i> 1st Time Lowest</button>
 <button class="intel-btn intel-variant-low active" data-filter="low" title="Current price is the lowest recorded">All Time Low</button>
 <button class="intel-btn intel-variant-new" data-filter="new" title="Items first seen recently">New Items</button>
 <label class="check-pill" style="border-left:1px solid rgba(255,255,255,0.12); padding-left:6px; display:inline-flex; align-items:center; gap:3px; flex-shrink:0;" title="Filter items seen in last N days"><i class="fas fa-clock" style="font-size:0.68rem; color:#f59e0b;"></i><input id="new-days-header" type="number" min="1" max="90" value="7" style="width:30px; background:transparent; color:#f59e0b; border:none; font-weight:700; font-size:0.72rem; text-align:center;"/> <span style="font-size:0.66rem; color:#94a3b8;">d</span></label>
@@ -701,9 +702,9 @@ if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || wi
 
 <script type="importmap">{"imports":{"@duckdb/duckdb-wasm":"https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm@1.29.0/+esm"}}</script>
 <script type="module">import * as duckdb from '@duckdb/duckdb-wasm'; window.duckdb=duckdb; window.__duckdb_ready?.();</script>
-<script src="shwapno_manifest.js?v=20260908_v7"></script><script src="chaldal_manifest.js?v=20260908_v7"></script><script src="meenabazar_manifest.js?v=20260908_v7"></script><script src="othoba_manifest.js?v=20260908_v7"></script><script src="metromart_manifest.js?v=20260908_v7"></script><script src="unimart_manifest.js?v=20260908_v7"></script><script src="shotejbazar_manifest.js?v=20260908_v7"></script><script src="foodi_manifest.js?v=20260908_v7"></script><script src="turso_manifest.js?v=20260908_v7"></script>
+<script src="shwapno_manifest.js?v=20260909_v2"></script><script src="chaldal_manifest.js?v=20260909_v2"></script><script src="meenabazar_manifest.js?v=20260909_v2"></script><script src="othoba_manifest.js?v=20260909_v2"></script><script src="metromart_manifest.js?v=20260909_v2"></script><script src="unimart_manifest.js?v=20260909_v2"></script><script src="shotejbazar_manifest.js?v=20260909_v2"></script><script src="foodi_manifest.js?v=20260909_v2"></script><script src="turso_manifest.js?v=20260909_v2"></script>
 
-<script src="script.js?v=20260908_v7"></script>
+<script src="script.js?v=20260909_v2"></script>
 <div id="god-chat-widget">
   <button id="god-chat-toggle" class="god-chat-fab" aria-label="Open GroceryGOD assistant">💬</button>
   <div id="god-chat-panel" class="god-chat-panel hidden">

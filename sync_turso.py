@@ -14,8 +14,8 @@ DEFAULT_PLATFORM_TOKEN = 'eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJxaGktT
 DEFAULT_HOSTNAME = 'grocerygod-ranehal.aws-ap-south-1.turso.io'
 DEFAULT_ORG = 'ranehal'
 DEFAULT_DB_NAME = 'grocerygod'
-DEFAULT_RW_TOKEN = 'eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhIjoicnciLCJpYXQiOjE3ODg4MjA4MjgsImlkIjoiMDFhMDdlMDctOWUwMS03YzcyLTkxYjMtNTk4NWY0N2MxMDU0Iiwia2lkIjoib1I3UEVTS3NWX2l1TlNOTzhSQXJPMFA3b3dROTFHUHllbXVMYVVmZ3p2TSIsInJpZCI6IjEyM2I0NDdhLTgxZDItNDM2OC04YjllLTk0MjBkNDViMTY4YSJ9.g0mom8Va2i_D3IeyMbrvvoEsy12cJ2x5D1kmAFNga0YokOg2JzDIuyvBmZ7iIGZ3WPME5snBClS8mcDZSl9YCw'
-DEFAULT_RO_TOKEN = 'eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhIjoicm8iLCJpYXQiOjE3ODg4MjA4MzIsImlkIjoiMDFhMDdlMDctOWUwMS03YzcyLTkxYjMtNTk4NWY0N2MxMDU0Iiwia2lkIjoib1I3UEVTS3NWX2l1TlNOTzhSQXJPMFA3b3dROTFHUHllbXVMYVVmZ3p2TSIsInJpZCI6IjEyM2I0NDdhLTgxZDItNDM2OC04YjllLTk0MjBkNDViMTY4YSJ9.gvbV00Mppp9YSM23-2isFSWsgGDhZnuMRL6xow0pUsSRiH_LWJMFpqdwAC4rPjcbPVG0u3S62V-BRjV8352FCA'
+DEFAULT_RW_TOKEN = 'eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhIjoicnciLCJpYXQiOjE3ODg5MDcyNjAsImlkIjoiMDFhMDgzMmUtN2EwMS03MTNiLWIzNTQtMmRmMDU1Y2ExOGVkIiwia2lkIjoib1I3UEVTS3NWX2l1TlNOTzhSQXJPMFA3b3dROTFHUHllbXVMYVVmZ3p2TSIsInJpZCI6IjVhYmZlNmFhLTA4ZjMtNGY2MC04MmU5LWUzZmU2ZjlhMDljNCJ9.8rwWXgFkT57Mhn8rc-UJ94tElRkbmjYm9CpF0OQJDii6mpLv6h8LaSMRahy0Ab_gbvKzpvclx4oT12TolDDPBg'
+DEFAULT_RO_TOKEN = 'eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhIjoicm8iLCJpYXQiOjE3ODg5MDcyNjEsImlkIjoiMDFhMDgzMmUtN2EwMS03MTNiLWIzNTQtMmRmMDU1Y2ExOGVkIiwia2lkIjoib1I3UEVTS3NWX2l1TlNOTzhSQXJPMFA3b3dROTFHUHllbXVMYVVmZ3p2TSIsInJpZCI6IjVhYmZlNmFhLTA4ZjMtNGY2MC04MmU5LWUzZmU2ZjlhMDljNCJ9.ni-qxZzGB1f7KhqaoV8-dH6wR1CbC1fPAE3vGL_5cvjMrFTnWpOUVxipV685di0pV-P3v2ZhPXnpdVGYqOf7CQ'
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -121,7 +121,8 @@ def build_local_optimized_db(db_path='grocerygod_optimized.db'):
         hist_count INTEGER,
         min_price REAL,
         max_price REAL,
-        avg_price REAL
+        avg_price REAL,
+        is_first_low INTEGER
     );
     ''')
 
@@ -129,10 +130,11 @@ def build_local_optimized_db(db_path='grocerygod_optimized.db'):
         SELECT id, name, store, category, unit, unit_type, current_price, normalized_price, 
                image, url, first_seen, last_seen, 
                CAST(in_stock AS INTEGER), CAST(is_out_of_stock AS INTEGER),
-               hist_count, min_price, max_price, avg_price
+               hist_count, min_price, max_price, avg_price,
+               CAST(is_first_low AS INTEGER)
         FROM read_parquet('products_free.parquet')
     ''').fetchall()
-    con_sqlite.executemany('INSERT INTO products VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)', prods)
+    con_sqlite.executemany('INSERT INTO products VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)', prods)
     con_sqlite.commit()
 
     con_sqlite.execute('''
@@ -206,6 +208,7 @@ def build_local_optimized_db(db_path='grocerygod_optimized.db'):
     con_sqlite.execute('CREATE INDEX idx_products_cat ON products(category);')
     con_sqlite.execute('CREATE INDEX idx_products_instock ON products(in_stock);')
     con_sqlite.execute('CREATE INDEX idx_products_price ON products(normalized_price);')
+    con_sqlite.execute('CREATE INDEX idx_products_first_low ON products(is_first_low, in_stock);')
     con_sqlite.execute('CREATE INDEX idx_atl_store ON atl_deals(store);')
     con_sqlite.commit()
 

@@ -228,44 +228,6 @@ con.execute("""
 merged_cnt = con.execute("SELECT COUNT(*) FROM id_mapping WHERE old_id != canonical_id;").fetchone()[0]
 print(f"Identified {merged_cnt:,} secondary duplicate products to merge into canonical items.")
 
-# Unify history for canonical IDs
-con.execute("""
-    CREATE TABLE unified_history AS
-    SELECT 
-        m.canonical_id as product_id,
-        h.date,
-        arg_max(h.price, CASE WHEN h.price > 0 THEN 1 ELSE 0 END) as price,
-        arg_max(h.normalized_price, CASE WHEN h.normalized_price > 0 THEN 1 ELSE 0 END) as normalized_price
-    FROM raw_full_history h
-    JOIN id_mapping m ON h.product_id = m.old_id
-    GROUP BY m.canonical_id, h.date;
-""")
-
-# Complete full history with backwards-compatible old_id aliases
-con.execute("""
-    CREATE TABLE full_history AS
-    SELECT product_id, date, price, normalized_price FROM unified_history
-    UNION ALL
-    SELECT m.old_id as product_id, u.date, u.price, u.normalized_price
-    FROM unified_history u
-    JOIN id_mapping m ON u.product_id = m.canonical_id
-    WHERE m.old_id != m.canonical_id;
-""")
-total_hist_count = con.execute("SELECT COUNT(*) FROM full_history;").fetchone()[0]
-print(f"Merged unified full history total: {total_hist_count:,} rows (with alias support)")
-
-# Write history.parquet
-con.execute(f"COPY full_history TO '{os.path.join(BASE, 'history.parquet').replace(chr(92), "/")}' (FORMAT PARQUET, COMPRESSION 'ZSTD');")
-
-# Free tier cutoff (full 365 days / all 2026 data back to Feb 15)
-cutoff = (datetime.now(DHAKA_TZ) - timedelta(days=FREE_HISTORY_DAYS)).strftime('%Y-%m-%d')
-con.execute(f"""
-    COPY (SELECT * FROM full_history WHERE date >= '{cutoff}') 
-    TO '{os.path.join(BASE, 'history_free.parquet').replace(chr(92), "/")}' (FORMAT PARQUET, COMPRESSION 'ZSTD');
-""")
-free_count = con.execute(f"SELECT COUNT(*) FROM full_history WHERE date >= '{cutoff}';").fetchone()[0]
-print(f"Free tier written: {free_count:,} rows (cutoff={cutoff})")
-
 # Build canonical products table
 con.execute("""
     CREATE TABLE canonical_prods AS
@@ -296,14 +258,98 @@ con.execute("""
     GROUP BY m.canonical_id;
 """)
 
-prod_sql = """
-    CREATE TABLE merged_products AS 
+# Unify history for canonical IDs with unit-normalization outlier sanitization
+con.execute("""
+    CREATE TABLE unified_history AS
     SELECT 
-        p.*,
+        m.canonical_id as product_id,
+        h.date,
+        arg_max(h.price, CASE WHEN h.price > 0 THEN 1 ELSE 0 END) as price,
+        CASE 
+            WHEN arg_max(h.price, CASE WHEN h.price > 0 THEN 1 ELSE 0 END) > 0 
+                 AND arg_max(h.normalized_price, CASE WHEN h.normalized_price > 0 THEN 1 ELSE 0 END) > 0 
+                 AND cp.current_price > 0 AND cp.normalized_price > 0
+                 AND ( (arg_max(h.normalized_price, CASE WHEN h.normalized_price > 0 THEN 1 ELSE 0 END) / arg_max(h.price, CASE WHEN h.price > 0 THEN 1 ELSE 0 END)) > ((cp.normalized_price / cp.current_price) * 2.5)
+                    OR (arg_max(h.normalized_price, CASE WHEN h.normalized_price > 0 THEN 1 ELSE 0 END) / arg_max(h.price, CASE WHEN h.price > 0 THEN 1 ELSE 0 END)) < ((cp.normalized_price / cp.current_price) / 2.5) )
+            THEN ROUND(arg_max(h.price, CASE WHEN h.price > 0 THEN 1 ELSE 0 END) * (cp.normalized_price / cp.current_price), 2)
+            ELSE arg_max(h.normalized_price, CASE WHEN h.normalized_price > 0 THEN 1 ELSE 0 END)
+        END as normalized_price
+    FROM raw_full_history h
+    JOIN id_mapping m ON h.product_id = m.old_id
+    LEFT JOIN canonical_prods cp ON m.canonical_id = cp.id
+    GROUP BY m.canonical_id, h.date, cp.current_price, cp.normalized_price;
+""")
+
+# Complete full history with backwards-compatible old_id aliases
+con.execute("""
+    CREATE TABLE full_history AS
+    SELECT product_id, date, price, normalized_price FROM unified_history
+    UNION ALL
+    SELECT m.old_id as product_id, u.date, u.price, u.normalized_price
+    FROM unified_history u
+    JOIN id_mapping m ON u.product_id = m.canonical_id
+    WHERE m.old_id != m.canonical_id;
+""")
+total_hist_count = con.execute("SELECT COUNT(*) FROM full_history;").fetchone()[0]
+print(f"Merged unified full history total: {total_hist_count:,} rows (with alias support)")
+
+# Write history.parquet
+con.execute(f"COPY full_history TO '{os.path.join(BASE, 'history.parquet').replace(chr(92), "/")}' (FORMAT PARQUET, COMPRESSION 'ZSTD');")
+
+# Free tier cutoff (full 365 days / all 2026 data back to Feb 15)
+cutoff = (datetime.now(DHAKA_TZ) - timedelta(days=FREE_HISTORY_DAYS)).strftime('%Y-%m-%d')
+con.execute(f"""
+    COPY (SELECT * FROM full_history WHERE date >= '{cutoff}') 
+    TO '{os.path.join(BASE, 'history_free.parquet').replace(chr(92), "/")}' (FORMAT PARQUET, COMPRESSION 'ZSTD');
+""")
+free_count = con.execute(f"SELECT COUNT(*) FROM full_history WHERE date >= '{cutoff}';").fetchone()[0]
+print(f"Free tier written: {free_count:,} rows (cutoff={cutoff})")
+
+cutoff_14d = (datetime.now(DHAKA_TZ) - timedelta(days=14)).strftime('%Y-%m-%d')
+prod_sql = f"""
+    CREATE TABLE merged_products AS 
+    WITH ranked_hist AS (
+        SELECT 
+            product_id,
+            normalized_price,
+            ROW_NUMBER() OVER (PARTITION BY product_id ORDER BY date DESC) as rn
+        FROM unified_history
+        WHERE price > 0 AND normalized_price > 0
+    ),
+    latest_pts AS (
+        SELECT product_id, normalized_price as latest_p
+        FROM ranked_hist
+        WHERE rn = 1
+    ),
+    prior_pts AS (
+        SELECT product_id, MIN(normalized_price) as prior_min, COUNT(*) as prior_cnt
+        FROM ranked_hist
+        WHERE rn > 1
+        GROUP BY product_id
+    )
+    SELECT 
+        p.id, p.name, p.store, p.category, p.unit, p.unit_type, p.current_price, p.normalized_price,
+        p.image, p.url, p.first_seen, p.last_seen,
+        CASE 
+            WHEN p.last_seen < '{cutoff_14d}' OR p.current_price <= 0 THEN false 
+            ELSE p.in_stock 
+        END::BOOLEAN as in_stock,
+        CASE 
+            WHEN p.last_seen < '{cutoff_14d}' OR p.current_price <= 0 THEN true 
+            ELSE p.is_out_of_stock 
+        END::BOOLEAN as is_out_of_stock,
         COALESCE(h.hist_count, 0)::INTEGER as hist_count,
         COALESCE(h.min_price, p.normalized_price)::DOUBLE as min_price,
         COALESCE(h.max_price, p.normalized_price)::DOUBLE as max_price,
-        COALESCE(h.avg_price, p.normalized_price)::DOUBLE as avg_price
+        COALESCE(h.avg_price, p.normalized_price)::DOUBLE as avg_price,
+        CASE 
+            WHEN p.last_seen >= '{cutoff_14d}' 
+             AND p.current_price > 0 
+             AND p.in_stock = true 
+             AND (p.is_out_of_stock = false OR p.is_out_of_stock IS NULL)
+            THEN COALESCE(fl.is_first_low, false)
+            ELSE false 
+        END::BOOLEAN as is_first_low
     FROM canonical_prods p
     LEFT JOIN (
         SELECT 
@@ -314,11 +360,18 @@ prod_sql = """
             AVG(CASE WHEN price > 0 AND normalized_price > 0 THEN normalized_price END) as avg_price
         FROM unified_history
         GROUP BY product_id
-    ) h ON p.id = h.product_id;
+    ) h ON p.id = h.product_id
+    LEFT JOIN (
+        SELECT l.product_id,
+               (l.latest_p < (pr.prior_min - 0.5) AND pr.prior_cnt >= 2)::BOOLEAN as is_first_low
+        FROM latest_pts l
+        JOIN prior_pts pr ON l.product_id = pr.product_id
+    ) fl ON p.id = fl.product_id;
 """
 con.execute(prod_sql)
 prod_count = con.execute("SELECT COUNT(*) FROM merged_products;").fetchone()[0]
-print(f"Merged canonical products total: {prod_count:,} products (enriched with full-history min/max/avg stats)")
+first_low_cnt = con.execute("SELECT COUNT(*) FROM merged_products WHERE is_first_low = true AND in_stock = true;").fetchone()[0]
+print(f"Merged canonical products total: {prod_count:,} products (enriched with full-history min/max/avg stats, {first_low_cnt:,} 1st time lowest deals)")
 
 con.execute(f"COPY merged_products TO '{os.path.join(BASE, 'products.parquet').replace(chr(92), '/')}' (FORMAT PARQUET, COMPRESSION 'ZSTD');")
 con.execute(f"COPY merged_products TO '{os.path.join(BASE, 'products_free.parquet').replace(chr(92), '/')}' (FORMAT PARQUET, COMPRESSION 'ZSTD');")
