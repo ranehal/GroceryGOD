@@ -1,17 +1,17 @@
-Last Run: 2026-09-08 06:25:53
+Last Run: 2026-09-09 05:07:58
 ------------------------------
-Total Scraped: 1876
+Total Scraped: 4935
 New Items: 0
 ------------------------------
 Categories:
-- House Hold: 540
-- Dairy: 376
+- Grocery: 1020
+- Personal Care: 1020
+- House Hold: 978
+- Dairy: 396
+- Frozen: 394
+- Kitchen Ware: 305
 - Vegetables: 200
 - Fish: 194
 - Fruits: 178
-- Apparel & Linen: 100
-- Stationery: 99
-- Kitchen Ware: 80
-- Meat: 49
-- Personal Care: 40
+- Apparel & Linen: 102
 ... and 3 more.
