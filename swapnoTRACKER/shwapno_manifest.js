@@ -740,6 +740,6 @@ window.shwapno_manifest = {
     }
   ],
   "total_categories": 36,
-  "total_products": 4044,
-  "captured_at": "2026-09-07T09:43:29.572738"
+  "total_products": 4049,
+  "captured_at": "2026-09-08T00:07:29.656758"
 };
