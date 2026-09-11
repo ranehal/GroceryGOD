@@ -1,4 +1,4 @@
-Last Run: 2026-09-09 04:45:15
+Last Run: 2026-09-12 00:02:40
 ------------------------------
 Total Scraped: 8168
 Web Scraped: 8168
@@ -8,12 +8,12 @@ Combined Unique: 8168
 Categories:
 - General: 3483
 - Personal Care: 204
+- Kitchen Accessories: 122
 - Snacks: 122
-- Drinks: 120
+- Drinks: 121
 - Home Care: 97
 - Air Fresheners: 96
 - Spices: 88
-- Kitchen Accessories: 81
-- Tea & Coffee: 78
+- Fresh Vegetables: 79
 - Hair Care: 78
-... and 169 more.
+... and 170 more.
