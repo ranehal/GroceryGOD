@@ -271,23 +271,72 @@ function initHeroInteractions() {
     const catalogAnchor = document.getElementById('catalog-anchor');
     if (!hero || !catalogAnchor) return;
 
-    let isCatalogActive = false;
-    let isScrollingToHero = false;
-    let isSnappingToCatalog = false;
+    let isCatalogActive = document.body.classList.contains('catalog-active');
+    let isTransitioning = false;
+    let isSnapping = false;
+
+    function getAnchorTop() {
+        return catalogAnchor ? catalogAnchor.offsetTop : 0;
+    }
 
     function scrollToCatalog() {
-        if (isScrollingToHero) return;
-        isCatalogActive = true;
-        document.body.classList.add('catalog-active');
-        catalogAnchor.scrollIntoView({ behavior: 'smooth' });
+        if (isTransitioning || isCatalogActive || isSnapping) return;
+        isTransitioning = true;
+        isSnapping = true;
+        
+        if (window.getComputedStyle(hero).display === 'none') {
+            document.body.classList.add('catalog-active');
+            isCatalogActive = true;
+            isTransitioning = false;
+            isSnapping = false;
+            return;
+        }
+
+        const anchorTop = getAnchorTop();
+        if (anchorTop > 0 && Math.abs(window.scrollY - anchorTop) > 10) {
+            catalogAnchor.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        const completeSnap = () => {
+            document.body.classList.add('catalog-active');
+            isCatalogActive = true;
+            window.scrollTo({ top: 0, behavior: 'instant' });
+            setTimeout(() => {
+                isTransitioning = false;
+                isSnapping = false;
+            }, 80);
+        };
+
+        const checkArrival = () => {
+            const currentAnchor = getAnchorTop();
+            if (window.scrollY >= currentAnchor - 25) {
+                window.removeEventListener('scroll', checkArrival);
+                completeSnap();
+            }
+        };
+
+        window.addEventListener('scroll', checkArrival, { passive: true });
+        setTimeout(() => {
+            window.removeEventListener('scroll', checkArrival);
+            completeSnap();
+        }, 320);
     }
 
     function scrollToHero() {
-        isScrollingToHero = true;
+        if (isTransitioning || !isCatalogActive) return;
+        isTransitioning = true;
         isCatalogActive = false;
+
         document.body.classList.remove('catalog-active');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        setTimeout(() => { isScrollingToHero = false; }, 900);
+        const anchorTop = getAnchorTop();
+        window.scrollTo({ top: anchorTop, behavior: 'instant' });
+
+        requestAnimationFrame(() => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            setTimeout(() => {
+                isTransitioning = false;
+            }, 600);
+        });
     }
 
     // Hero buttons
@@ -297,7 +346,7 @@ function initHeroInteractions() {
     document.getElementById('hero-nav-analytics-btn')?.addEventListener('click', () => {
         scrollToCatalog();
         setTimeout(() => {
-            const analyticsBtn = document.getElementById('analytics-tab-btn') || document.querySelector('.analytics-header-btn');
+            const analyticsBtn = document.getElementById('analytics-tab-btn') || document.querySelector('.analytics-header-btn') || document.getElementById('analytics-btn');
             if (analyticsBtn) analyticsBtn.click();
         }, 400);
     });
@@ -364,126 +413,49 @@ function initHeroInteractions() {
     // Floating Food Particles Background Canvas (Awwwards Style)
     try { initHeroFoodBackground(); } catch (e) { console.warn('Hero food bg init error:', e); }
 
-    // Section magnetization and scroll containment:
-    // When 80% of the viewport is viewing the dashboard -> magnetically snap full view to dashboard.
-    // When inside the dashboard -> don't let upscroll reach hero/landing page UNLESS upscroll happens on dashboard header.
-
-    let cachedAnchorTop = 0;
-    function updateCachedAnchorTop() {
-        if (catalogAnchor) requestAnimationFrame(() => { cachedAnchorTop = catalogAnchor.offsetTop; });
-    }
-    updateCachedAnchorTop();
-    window.addEventListener('resize', updateCachedAnchorTop, { passive: true });
-
-    function checkCatalogState() {
-        if (!cachedAnchorTop) updateCachedAnchorTop();
-        const anchorTop = cachedAnchorTop;
-
-        if (isScrollingToHero) {
-            if (window.scrollY <= 15) {
-                isScrollingToHero = false;
-                isCatalogActive = false;
-                document.body.classList.remove('catalog-active');
-            }
-            return;
-        }
-
-        if (window.scrollY >= anchorTop - 15) {
-            if (!isCatalogActive) {
-                isCatalogActive = true;
-                document.body.classList.add('catalog-active');
-            }
-        } else {
-            if (isCatalogActive) {
-                // Prevent falling out of catalog into hero when not explicitly returning
-                window.scrollTo({ top: anchorTop, behavior: 'instant' });
-            } else {
-                // When on hero, check if 80% of view is on the dashboard
-                const dashboardVisible = window.scrollY + window.innerHeight - anchorTop;
-                if ((dashboardVisible / window.innerHeight) >= 0.80 && !isSnappingToCatalog) {
-                    isSnappingToCatalog = true;
-                    scrollToCatalog();
-                    setTimeout(() => { isSnappingToCatalog = false; }, 600);
-                }
-            }
-        }
-    }
-
-    window.addEventListener('scroll', checkCatalogState, { passive: true });
-
-    // Non-blocking smooth wheel containment:
+    // Strongly and magnetically snap to catalog when scrolling down on hero
     window.addEventListener('wheel', (e) => {
-        const anchorTop = cachedAnchorTop || catalogAnchor.offsetTop;
-
-        // While on Hero: check if scrolling down reaches 80% view of dashboard
-        if (!isCatalogActive) {
-            if (e.deltaY > 0 && !isSnappingToCatalog) {
-                const dashboardVisible = window.scrollY + window.innerHeight - anchorTop;
-                if ((dashboardVisible / window.innerHeight) >= 0.80 && window.scrollY < anchorTop - 10) {
-                    isSnappingToCatalog = true;
-                    scrollToCatalog();
-                    setTimeout(() => { isSnappingToCatalog = false; }, 600);
-                }
-            }
-            return;
-        }
-
-        // Inside Catalog (isCatalogActive === true):
-        if (e.deltaY < 0) { // Scrolling UP
-            const isOnHeader = e.target.closest('#dashboard-header, .dashboard-header, .intelligence-bar, #header-hero-tab, .hero-return-pill');
-            if (isOnHeader) {
-                // Upward scroll specifically ON dashboard header -> return to hero!
-                scrollToHero();
-            } else {
-                // Upward scroll inside catalog: clamp at top of catalog without halting threaded scrolling
-                if (window.scrollY <= anchorTop + 4) {
-                    window.scrollTo({ top: anchorTop, behavior: 'instant' });
-                }
-            }
+        if (isCatalogActive || isTransitioning || isSnapping) return;
+        if (e.deltaY > 10) {
+            scrollToCatalog();
         }
     }, { passive: true });
 
-    // Touch containment for mobile & trackpads:
-    let touchStartY = 0;
-    let touchTarget = null;
-
+    let heroTouchStartY = 0;
     window.addEventListener('touchstart', (e) => {
         if (e.touches && e.touches.length > 0) {
-            touchStartY = e.touches[0].clientY;
-            touchTarget = e.target;
+            heroTouchStartY = e.touches[0].clientY;
         }
     }, { passive: true });
 
     window.addEventListener('touchmove', (e) => {
-        if (!e.touches || !e.touches.length) return;
-        const touchY = e.touches[0].clientY;
-        const deltaY = touchStartY - touchY; // > 0 scrolling down, < 0 scrolling up
-        const anchorTop = cachedAnchorTop || catalogAnchor.offsetTop;
-
-        if (!isCatalogActive) {
-            if (deltaY > 0 && !isSnappingToCatalog) {
-                const dashboardVisible = window.scrollY + window.innerHeight - anchorTop;
-                if ((dashboardVisible / window.innerHeight) >= 0.80 && window.scrollY < anchorTop - 10) {
-                    isSnappingToCatalog = true;
-                    scrollToCatalog();
-                    setTimeout(() => { isSnappingToCatalog = false; }, 600);
-                }
-            }
-            return;
-        }
-
-        // Inside Catalog:
-        if (deltaY < 0) { // Finger moving down -> page scrolling UP
-            const isOnHeader = touchTarget && touchTarget.closest('#dashboard-header, .dashboard-header, .intelligence-bar, #header-hero-tab, .hero-return-pill');
-            if (isOnHeader) {
-                scrollToHero();
-            } else {
-                if (window.scrollY <= anchorTop + 4) {
-                    window.scrollTo({ top: anchorTop, behavior: 'instant' });
-                }
+        if (isCatalogActive || isTransitioning || isSnapping) return;
+        if (e.touches && e.touches.length > 0) {
+            const deltaY = heroTouchStartY - e.touches[0].clientY;
+            if (deltaY > 15) {
+                scrollToCatalog();
             }
         }
     }, { passive: true });
+
+    window.addEventListener('scroll', () => {
+        if (isCatalogActive || isTransitioning || isSnapping) return;
+        const anchorTop = getAnchorTop();
+        if (window.scrollY > 40 || (anchorTop > 0 && (window.scrollY + window.innerHeight - anchorTop) >= window.innerHeight * 0.15)) {
+            scrollToCatalog();
+        }
+    }, { passive: true });
+
+    // Enable horizontal mouse wheel scrolling on the intelligence filter bar
+    const intelBar = document.querySelector('.intelligence-bar');
+    if (intelBar) {
+        intelBar.addEventListener('wheel', (e) => {
+            if (e.deltaY !== 0 && intelBar.scrollWidth > intelBar.clientWidth) {
+                e.preventDefault();
+                intelBar.scrollLeft += e.deltaY;
+            }
+        }, { passive: false });
+    }
 }
 
 // Generates falling & swaying food emojis behind the hero text
@@ -1055,17 +1027,27 @@ async function loadAllFromParquet() {
         log(`⚡ Pre-calculated ATL Deals mounted: ${allProducts.length} items (Zero main-thread lag)`);
     }
 
-    // Initialize store metadata structures immediately
+    // Initialize store metadata structures immediately with verified historical ranges up to live today
     metadata.stores = {};
     const storesList = ['shwapno','chaldal','meenabazar','othoba','metromart','unimart','shotejbazar','foodi'];
     const dToday = dhakaTodayStr();
+    const HISTORICAL_STARTS = {
+        'chaldal': '2026-02-15',
+        'shwapno': '2026-02-16',
+        'meenabazar': '2026-03-25',
+        'othoba': '2026-04-17',
+        'shotejbazar': '2026-05-17',
+        'unimart': '2026-05-18',
+        'metromart': '2026-07-23',
+        'foodi': '2026-07-23'
+    };
     storesList.forEach(s => {
         const manifest = window[s + 'Manifest'];
-        if (manifest && manifest.metadata && manifest.metadata.date_range && manifest.metadata.date_range !== 'N/A') {
-            metadata.stores[s] = manifest.metadata;
-        } else {
-            metadata.stores[s] = { total: 0, date_range: `2026-02-15 to ${dToday}` };
-        }
+        const mData = (manifest && manifest.metadata) ? { ...manifest.metadata } : { total: 0 };
+        const rawRange = mData.date_range;
+        const start = (rawRange && rawRange.includes(' to ')) ? rawRange.split(' to ')[0] : (HISTORICAL_STARTS[s] || '2026-02-15');
+        mData.date_range = `${start} to ${dToday}`;
+        metadata.stores[s] = mData;
     });
 
     godDB = { db, conn };
@@ -3422,29 +3404,29 @@ function updateStoreStats() {
     if (!sidebarStats) return;
     
     const stores = ['shwapno', 'chaldal', 'meenabazar', 'othoba', 'metromart', 'unimart', 'shotejbazar', 'foodi'];
+    const dToday = dhakaTodayStr();
+    const HISTORICAL_STARTS = {
+        'chaldal': '2026-02-15',
+        'shwapno': '2026-02-16',
+        'meenabazar': '2026-03-25',
+        'othoba': '2026-04-17',
+        'shotejbazar': '2026-05-17',
+        'unimart': '2026-05-18',
+        'metromart': '2026-07-23',
+        'foodi': '2026-07-23'
+    };
 
     stores.forEach(s => {
         if (!metadata.stores) metadata.stores = {};
-        if (!metadata.stores[s] || !metadata.stores[s].date_range || metadata.stores[s].date_range === 'N/A') {
-            const manifest = window[s + 'Manifest'];
-            if (manifest && manifest.metadata && manifest.metadata.date_range && manifest.metadata.date_range !== 'N/A') {
-                metadata.stores[s] = manifest.metadata;
-            } else {
-                const storeProducts = allProducts.filter(p => p.store === s);
-                const dToday = dhakaTodayStr();
-                const d7Ago = (() => {
-                    const d = toDhaka();
-                    d.setDate(d.getDate() - 7);
-                    return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
-                })();
-                const oldest = storeProducts.length > 0 ? (storeProducts.map(p => p.oldest_date).filter(Boolean).sort()[0] || d7Ago) : d7Ago;
-                const newest = storeProducts.length > 0 ? (storeProducts.map(p => p.newest_date).filter(Boolean).sort().at(-1) || dToday) : dToday;
-                metadata.stores[s] = {
-                    total: storeProducts.length,
-                    date_range: `${oldest} to ${newest}`
-                };
-            }
+        const manifest = window[s + 'Manifest'];
+        if (manifest && manifest.metadata) {
+            metadata.stores[s] = { ...manifest.metadata };
+        } else if (!metadata.stores[s]) {
+            metadata.stores[s] = { total: 0 };
         }
+        const rawRange = metadata.stores[s].date_range;
+        const start = (rawRange && rawRange.includes(' to ')) ? rawRange.split(' to ')[0] : (HISTORICAL_STARTS[s] || '2026-02-15');
+        metadata.stores[s].date_range = `${start} to ${dToday}`;
     });
 
     let html = '<div class="store-legend-header"><span>GODDATA UPLINK STATUS</span></div>';
@@ -3460,14 +3442,15 @@ function updateStoreStats() {
 
     const formatCompactRange = (rangeStr) => {
         if (!rangeStr || rangeStr === 'N/A') return 'N/A';
+        const dTodayNow = dhakaTodayStr();
+        const d2 = dTodayNow.slice(5).replace('-', '/');
         const parts = rangeStr.split(' to ');
         if (parts.length === 2) {
             const d1 = parts[0].slice(5).replace('-', '/');
-            const d2 = parts[1].slice(5).replace('-', '/');
             if (d1 === d2) return d1;
             return `${d1}-${d2}`;
         }
-        return rangeStr.slice(5).replace('-', '/');
+        return `${rangeStr.slice(5).replace('-', '/')}-${d2}`;
     };
 
     sortedStores.forEach(([store, data]) => {

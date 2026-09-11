@@ -3304,6 +3304,10 @@ body.pitch-black.theme-amoled {
     box-shadow: 0 16px 36px rgba(0, 0, 0, 0.7);
 }
 
+body.catalog-active .landing-hero {
+    display: none !important;
+}
+
 .hero-aurora-bg {
     position: absolute;
     inset: 0;
@@ -4437,15 +4441,80 @@ body.premium-unlocked .history-paywall-mask {
     flex-shrink: 0 !important;
 }
 
-@media (max-width: 1200px) {
-    .header-right .btn-icon span:not(.button-count):not(.alerts-count) {
+/* Responsive compact header buttons: when sidebar is expanded or viewport is constrained (<1650px) */
+body:not(.sidebar-collapsed) .header-right .btn-icon span:not(.button-count):not(.alerts-count):not(#alerts-header-count):not(#compare-header-count),
+body:not(.sidebar-collapsed) #header-hero-tab span {
+    display: none !important;
+}
+
+@media (max-width: 1650px) {
+    .header-right .btn-icon span:not(.button-count):not(.alerts-count):not(#alerts-header-count):not(#compare-header-count) {
         display: none !important;
     }
-    .header-right .btn-icon {
-        padding: 5px 8px !important;
-        min-width: 32px !important;
-        justify-content: center !important;
+    #header-hero-tab span {
+        display: none !important;
     }
+}
+
+body:not(.sidebar-collapsed) .header-right .btn-icon,
+.header-right .btn-icon {
+    min-width: 30px !important;
+    height: 30px !important;
+    padding: 3px 6px !important;
+    justify-content: center !important;
+    position: relative !important;
+    font-size: 0.74rem !important;
+    flex-shrink: 0 !important;
+}
+
+body:not(.sidebar-collapsed) .multi-filter-group .filter-label,
+.multi-filter-group .filter-label {
+    display: none !important;
+}
+
+.multi-filter-group {
+    gap: 2px !important;
+    flex-shrink: 0 !important;
+}
+
+.multi-filter-group .check-pill {
+    padding: 2px 5px !important;
+    font-size: 0.66rem !important;
+}
+
+body:not(.sidebar-collapsed) #sort-options,
+#sort-options {
+    max-width: 105px !important;
+    min-width: 80px !important;
+    padding: 2px 4px !important;
+    font-size: 0.70rem !important;
+    flex-shrink: 0 !important;
+}
+
+body:not(.sidebar-collapsed) .search-wrapper,
+.search-wrapper {
+    flex: 1 1 110px !important;
+    min-width: 90px !important;
+    max-width: 240px !important;
+}
+
+.dashboard-header {
+    padding: 5px 8px !important;
+    gap: 5px !important;
+}
+
+.header-right {
+    gap: 3px !important;
+    flex-shrink: 0 !important;
+}
+
+@media (max-width: 1350px) {
+    body:not(.sidebar-collapsed) #header-brand-lockup h2 {
+        display: none !important;
+    }
+}
+
+@media (max-width: 1024px) {
     .hero-return-pill span {
         display: none !important;
     }
@@ -4453,7 +4522,7 @@ body.premium-unlocked .history-paywall-mask {
         padding: 3px 6px !important;
     }
     .search-wrapper {
-        min-width: 140px !important;
+        min-width: 100px !important;
         flex: 1 1 auto !important;
     }
 }
@@ -4468,12 +4537,19 @@ body.premium-unlocked .history-paywall-mask {
     box-sizing: border-box !important;
     overflow-x: auto !important;
     flex-wrap: nowrap !important;
-    scrollbar-width: none !important;
+    scrollbar-width: thin !important;
+    scrollbar-color: rgba(255, 255, 255, 0.2) transparent !important;
     min-height: 38px !important;
 }
 
 .intelligence-bar::-webkit-scrollbar {
-    display: none !important;
+    display: block !important;
+    height: 3px !important;
+}
+
+.intelligence-bar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-radius: 4px !important;
 }
 
 .intelligence-bar .intel-btn {

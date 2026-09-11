@@ -16,11 +16,48 @@ DHAKA_TZ = timezone(timedelta(hours=6))
 logging.basicConfig(
     level=logging.INFO,
     format='[%(asctime)s] %(levelname)s: %(message)s',
-    datefmt='%Y-%m-%d %H:%M:%S'
-)
+    datefmt='%Y-%m-%d %H:%M:%S')
 logger = logging.getLogger(__name__)
 
-# Add file handler for history
+# Banasree Block C Location Specifications
+BANASREE_LOCATION = {
+    "stateProvinceId": "65eb61bd452e887cd78e240d",
+    "cityId": "65ed4befe30f25b233e5f48d",
+    "areaId": "686f4fdee45b27590891fd90",
+    "district": "Dhaka",
+    "area": "Banasree Block C",
+    "darkStoreId": "65f008e64119aecf652223f1",
+    "darkStoreName": "Banasree "
+}
+DARKSTORE_COOKIE = f"_ds_={BANASREE_LOCATION['darkStoreId']}; _nc_=false; _mo_=false;"
+
+def init_banasree_slot():
+    import urllib.request, ssl
+    ctx = ssl.create_default_context()
+    ctx.check_hostname = False
+    ctx.verify_mode = ssl.CERT_NONE
+    try:
+        payload = json.dumps({
+            "stateProvinceId": BANASREE_LOCATION["stateProvinceId"],
+            "cityId": BANASREE_LOCATION["cityId"],
+            "areaId": BANASREE_LOCATION["areaId"]
+        }).encode("utf-8")
+        req = urllib.request.Request(
+            "https://www.shwapno.com/api/delivery-slot/set?set",
+            data=payload,
+            headers={
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+                "Content-Type": "application/json",
+                "Referer": "https://www.shwapno.com/",
+                "Origin": "https://www.shwapno.com"
+            },
+            method="POST"
+        )
+        with urllib.request.urlopen(req, timeout=10, context=ctx) as r:
+            logger.info("Locked delivery slot to Banasree Block C (Darkstore: %s)", BANASREE_LOCATION['darkStoreId'])
+    except Exception as e:
+        logger.warning("Could not pre-init delivery slot: %s (will enforce via _ds_ cookie)", e)
+
 fh = logging.FileHandler('scraper.log', encoding='utf-8')
 fh.setLevel(logging.INFO)
 fh.setFormatter(logging.Formatter('[%(asctime)s] %(levelname)s: %(message)s'))
@@ -110,6 +147,8 @@ async def scrape_category_api(session, category, current_data, summary, pinned_n
             'Accept': 'application/json, text/plain, */*',
             'Accept-Language': 'en-US,en;q=0.9',
             'Referer': 'https://www.shwapno.com/',
+            'Cookie': DARKSTORE_COOKIE,
+            'DarkstoreId': BANASREE_LOCATION['darkStoreId'],
             'Sec-Fetch-Dest': 'empty',
             'Sec-Fetch-Mode': 'cors',
             'Sec-Fetch-Site': 'same-origin'
@@ -195,6 +234,7 @@ async def main():
     
     logger.info(f"Started Scraper API: {len(enabled_categories)} categories, {len(pinned_names)} pinned.")
     today_str = datetime.now(DHAKA_TZ).date().isoformat()
+    init_banasree_slot()
     
     async with aiohttp.ClientSession() as session:
         pinned_cats = [c for c in enabled_categories if c['name'] in pinned_names]

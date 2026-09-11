@@ -31,6 +31,7 @@ HEADERS = {
     "device-type": "Mobile",
     "content-type": "application/json",
     "appdevicetoken": "5bf1686f-6b02-45f8-95ef-3c4ed88a0dfa",
+    "darkStoreId": "65f008e64119aecf652223f1",
 }
 
 SSL_CTX = ssl.create_default_context()
@@ -286,7 +287,7 @@ def scrape_category(cat_id, cat_name, parent_name):
     local_products = []
     today = datetime.now().strftime('%Y-%m-%d')
     while page <= MAX_PAGES_PER_CAT:
-        path = f'/catalog/getcategoryproducts/{cat_id}?PageNumber={page}'
+        path = f'/catalog/getcategoryproducts/{cat_id}?PageNumber={page}&DarkstoreId=65f008e64119aecf652223f1'
         resp = req(path)
         if resp is None:
             break

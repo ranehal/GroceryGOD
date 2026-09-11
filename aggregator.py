@@ -1179,6 +1179,13 @@ def save_store_data(name, data_tuple):
     except Exception:
         pass
 
+    today_dhaka = datetime.now(DHAKA_TZ).strftime("%Y-%m-%d")
+    if date_range and date_range != 'N/A' and ' to ' in date_range:
+        d_parts = date_range.split(' to ')
+        date_range = f"{d_parts[0]} to {today_dhaka}"
+    elif date_range and date_range != 'N/A':
+        date_range = f"{date_range} to {today_dhaka}"
+
     try:
         p_free_file = "products_free.parquet"
         if os.path.exists(p_free_file):
