@@ -404,30 +404,39 @@ def load_shwapno():
                         unique_hist[d_str] = {"date": d_str, "price": price_val, "normalized_price": h_norm}
 
                     # Check for collision with existing web data
+                    url = p.get('url', '')
+                    if url and not url.startswith('http'):
+                        url = f"https://www.shwapno.com/{url}"
+
                     if name_key in products_by_name:
                         existing = products_by_name[name_key]
-                        e_curr = existing.get('current_price', 0) or 0
                         # Merge history from existing item
                         for eh in existing.get('history', []):
                             if eh.get('date') and eh['date'] not in unique_hist:
                                 unique_hist[eh['date']] = eh
 
-                        # If existing web item has a valid lower price, keep web item but update history
-                        if e_curr > 0 and (curr_p <= 0 or e_curr <= curr_p):
-                            existing_hist = sorted(unique_hist.values(), key=lambda x: x['date'])
-                            existing['history'] = existing_hist
-                            if existing_hist:
-                                existing['first_seen'] = existing_hist[0]['date']
-                            stats["dropped"] += 1
-                            continue
+                        existing_hist = sorted(unique_hist.values(), key=lambda x: x['date'])
+                        existing['history'] = existing_hist
+                        if existing_hist:
+                            existing['first_seen'] = existing_hist[0]['date']
+                            latest_obs = existing_hist[-1]
+                            existing['current_price'] = latest_obs['price']
+                            existing['normalized_price'] = latest_obs['normalized_price']
+                            existing['last_seen'] = latest_obs['date']
+
+                        # Fill missing metadata from app if web lacked it
+                        if (not existing.get('url') or not existing['url'].startswith('http')) and url:
+                            existing['url'] = url
+                        if (not existing.get('image') or 'default-product' in existing.get('image', '')) and p.get('image'):
+                            existing['image'] = p.get('image')
+                        if existing.get('category') in ['General', 'N/A', ''] and p.get('category'):
+                            existing['category'] = get_display_cat(p.get('category'))
+                        stats["dropped"] += 1
+                        continue
                             
                     new_history = sorted(unique_hist.values(), key=lambda x: x['date'])
                     for h in new_history: all_dates.append(h['date'])
                     first_seen = new_history[0]['date'] if new_history else datetime.now(DHAKA_TZ).strftime("%Y-%m-%d")
-                    
-                    url = p.get('url', '')
-                    if url and not url.startswith('http'):
-                        url = f"https://www.shwapno.com/{url}"
 
                     products_by_name[name_key] = {
                         "id": final_pid, "name": p.get('name'), "store": "shwapno",
@@ -471,9 +480,6 @@ def load_chaldal():
             if not name_key: return
             if name_key in products_by_name:
                 existing = products_by_name[name_key]
-                e_curr = existing.get('current_price', 0) or 0
-                p_curr = product.get('current_price', 0) or 0
-                
                 # Merge histories across web & app
                 unique_h = {h['date']: h for h in existing.get('history', []) if h.get('date')}
                 for h in product.get('history', []):
@@ -481,11 +487,19 @@ def load_chaldal():
                         unique_h[h['date']] = h
                 merged_h = sorted(unique_h.values(), key=lambda x: x['date'])
                 
-                if e_curr > 0 and (p_curr <= 0 or e_curr <= p_curr):
+                if merged_h:
+                    latest_obs = merged_h[-1]
                     existing['history'] = merged_h
-                    stats["dropped"] += 1
-                    return
-                product['history'] = merged_h
+                    existing['current_price'] = latest_obs['price']
+                    existing['normalized_price'] = latest_obs['normalized_price']
+                    existing['last_seen'] = latest_obs['date']
+                    existing['first_seen'] = merged_h[0]['date']
+                    if (not existing.get('url') or not str(existing['url']).startswith('http')) and product.get('url'):
+                        existing['url'] = product['url']
+                    if (not existing.get('image') or 'default-product' in str(existing.get('image', ''))) and product.get('image'):
+                        existing['image'] = product['image']
+                stats["dropped"] += 1
+                return
             products_by_name[name_key] = product
 
         stats = {"web_scraped": 0, "app_scraped": 0, "web_selected": 0, "app_selected": 0,

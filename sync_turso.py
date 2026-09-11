@@ -9,13 +9,14 @@ Used by Kaggle orchestrator cron and local workflows.
 """
 import os, json, time, glob, urllib.request, urllib.error
 
-# Default credentials and configuration
-DEFAULT_PLATFORM_TOKEN = 'eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJxaGktTzZzR0VmR1dJZDRqWU9wd3BnIiwib3JnX2lkIjoxMDAwMjM4OTgwfQ.OgoJbza8T0_rKwkeJv6-1n9xIA1s-2CSTLV49GzZU9SnxYWrWRcZN5-bhgC51c4EXVC872j98c9G1jiG6YmyAg'
+# Default credentials and configuration (Platform & RW tokens must be provided via env or turso_tokens.json)
+DEFAULT_PLATFORM_TOKEN = ''
 DEFAULT_HOSTNAME = 'grocerygod-ranehal.aws-ap-south-1.turso.io'
 DEFAULT_ORG = 'ranehal'
 DEFAULT_DB_NAME = 'grocerygod'
-DEFAULT_RW_TOKEN = 'eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhIjoicnciLCJpYXQiOjE3ODg5MDcyNjAsImlkIjoiMDFhMDgzMmUtN2EwMS03MTNiLWIzNTQtMmRmMDU1Y2ExOGVkIiwia2lkIjoib1I3UEVTS3NWX2l1TlNOTzhSQXJPMFA3b3dROTFHUHllbXVMYVVmZ3p2TSIsInJpZCI6IjVhYmZlNmFhLTA4ZjMtNGY2MC04MmU5LWUzZmU2ZjlhMDljNCJ9.8rwWXgFkT57Mhn8rc-UJ94tElRkbmjYm9CpF0OQJDii6mpLv6h8LaSMRahy0Ab_gbvKzpvclx4oT12TolDDPBg'
-DEFAULT_RO_TOKEN = 'eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhIjoicm8iLCJpYXQiOjE3ODg5MDcyNjEsImlkIjoiMDFhMDgzMmUtN2EwMS03MTNiLWIzNTQtMmRmMDU1Y2ExOGVkIiwia2lkIjoib1I3UEVTS3NWX2l1TlNOTzhSQXJPMFA3b3dROTFHUHllbXVMYVVmZ3p2TSIsInJpZCI6IjVhYmZlNmFhLTA4ZjMtNGY2MC04MmU5LWUzZmU2ZjlhMDljNCJ9.ni-qxZzGB1f7KhqaoV8-dH6wR1CbC1fPAE3vGL_5cvjMrFTnWpOUVxipV685di0pV-P3v2ZhPXnpdVGYqOf7CQ'
+DEFAULT_RW_TOKEN = ''
+DEFAULT_RO_TOKEN = 'eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhIjoicm8iLCJpYXQiOjE3ODg5ODk2MTgsImlkIjoiMDFhMDg1YzctYmUwMS03Zjg2LThmMTMtMTU4Yzc1NjRkYTcxIiwia2lkIjoib1I3UEVTS3NWX2l1TlNOTzhSQXJPMFA3b3dROTFHUHllbXVMYVVmZ3p2TSIsInJpZCI6ImI5MWVhNDcwLTIzY2UtNDA1Zi05YmEyLTQ0OTIxM2I2MTRkNCJ9.66mkD_hld4IXaTBkmcu-mIozQP31mFNPMUt88d_UnIC81C4j11kTaoztP2dExFPXFWMjZ9JCkci0nQ3sMXjFAg'
+
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -315,6 +316,13 @@ window.TURSO_CONFIG = {{
         )
         with urllib.request.urlopen(up_req) as resp:
             print(f"[TURSO] Database upload completed via urllib in {time.time()-t0:.1f}s!")
+    finally:
+        if os.path.exists(db_file):
+            try:
+                os.remove(db_file)
+                print(f"[TURSO] Cleaned up temporary local database: {os.path.basename(db_file)}")
+            except Exception:
+                pass
     return True
 
 def incremental_sync_turso(cfg):
@@ -400,7 +408,8 @@ def incremental_sync_turso(cfg):
         SELECT id, name, store, category, unit, unit_type, current_price, normalized_price, 
                image, url, first_seen, last_seen, 
                CAST(in_stock AS INTEGER), CAST(is_out_of_stock AS INTEGER),
-               hist_count, min_price, max_price, avg_price
+               hist_count, min_price, max_price, avg_price,
+               CAST(is_first_low AS INTEGER)
         FROM read_parquet('products_free.parquet')
         WHERE last_seen >= '{today_dhaka}' OR in_stock = true
     ''').fetchall()
@@ -408,7 +417,7 @@ def incremental_sync_turso(cfg):
     prod_stmts = []
     for r in prods:
         prod_stmts.append({
-            'sql': 'INSERT OR REPLACE INTO products VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);',
+            'sql': 'INSERT OR REPLACE INTO products VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);',
             'args': [to_turso_arg(c) for c in r]
         })
     execute_batch_sql(cfg, prod_stmts, batch_size=400)

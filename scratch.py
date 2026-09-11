@@ -340,8 +340,9 @@ _BUILTIN_SECRETS = {
     'KAGGLE_KERNEL_SLUG': _sec_unmask('2e3d3239343d3024733b35283b3338'),
     'GOD_PREMIUM_KEY': _sec_unmask('3d2f2f3d303d31293d303d35372931'),
     'TURSO_PLATFORM_TOKEN': _sec_unmask('392516343e1b3f351335161a06190e080d0f152f15320e693f1f156a15372c040a1f1665723925162d381b3735133516243d1b3728082606260e6c0a310e6d381606180e2d0b09652b386f1e3215352b353e6f1632046e30371536332411181d2b1136116813083b2b3a0d72133b33163e263d64086c032e172b3739162a6a716d326524151d6d2f716e1f0f08100a68651b260609650f3224050b2e0b0e3f061269713e343b1f696d3f6819040a1f646b6e3665643f651b6d36351b6a0531251d3b'),
-    'TURSO_RW_TOKEN': _sec_unmask('392516343e1b3f351335161a06190e080d0f152f15320e693f1f156a15372c040a1f16657239251634153633353f323f35101f162c05040d351336196f13183b681136192b1308112f153130371536333511181a3411183830111b152805363f2b110f6c6f061b0d6e100b196906080d2813081a300631156f120b11261118192515352b353d6e3037153633353e6d156f09190a080f6f120b046e306d083012130826340f0d04160c111a1d6f3e6f380e13081a14091430303e040a11050a0a31066f2c6e080f152f1532162c061f156a15363b69122634340526096e1008156806361d2812180e3011356c69063606311008156f111811251218156e131b096f110f1665723a1030080d262c1b30652b170908131b092a11131014300d2e0f2a37710b1d0c0e6f106c0d24241b14240d316a0b682b380f30066a183f12370a2a2b2e29261b1909060a262b30690434163f033916136a2c1b1f1f2b'),
-    'TURSO_RO_TOKEN': _sec_unmask('392516343e1b3f351335161a06190e080d0f152f15320e693f1f156a15372c040a1f16657239251634153633353f316435101f162c05040d351336196f13183b681136192b1308112f153130371536333511181a3411183830111b152805363f2b110f6c6f061b0d6e100b196906080d2813081a300631156f120b11261118192515352b353d6e3037153633353e6d156f09190a080f6f120b046e306d083012130826340f0d04160c111a1d6f3e6f380e13081a14091430303e040a11050a0a31066f2c6e080f152f1532162c061f156a15363b69122634340526096e1008156806361d2812180e3011356c69063606311008156f111811251218156e131b096f110f1665721f306f292c6531710e6f64256b3d0e1134280514106f1e146c351a6a1115642d052d36656533331a11651e1a132e086525180a1a146829301608653f68142f160c6808363f6f1933710a6a1a0b13052b2e086f0b1d0d')
+    'TURSO_RW_TOKEN': _sec_unmask('392516343e1b3f351335161a06190e080d0f152f15320e693f1f156a15372c040a1f16657239251634153633353f323f35101f162c05040d351336196f13183b691318376e11083b2f153130371536333511181a3411183b6d05263f280531092b110f6c6f06363b6e10083431110811281108096805263f6d12360e3705083f2415352b353d6e3037153633353e6d156f09190a080f6f120b046e306d083012130826340f0d04160c111a1d6f3e6f380e13081a14091430303e040a11050a0a31066f2c6e080f152f1532162c061f156a15311569110b0a3412183f2b10081526056e092812181d6d06356c690531192510080d6c13081524116e156e11080e37121f1665726d1b0c053210360d176c3a176f341028041f046c3d1e0a0f3e2c6a353812162f1438146d3232263617262f2c303a1e39311837121831150629380f290b6f0d082b0c043e696d0316353e240c696d051e690834691d0d'),
+    'TURSO_RO_TOKEN': _sec_unmask('392516343e1b3f351335161a06190e080d0f152f15320e693f1f156a15372c040a1f16657239251634153633353f316435101f162c05040d351336196f13183b691318376e11083b2f153130371536333511181a3411183b6d05263f280531092b110f6c6f06363b6e10083431110811281108096805263f6d12360e3705083f2415352b353d6e3037153633353e6d156f09190a080f6f120b046e306d083012130826340f0d04160c111a1d6f3e6f380e13081a14091430303e040a11050a0a31066f2c6e080f152f1532162c061f156a15311569110b0a3412183f2b10081526056e092812181d6d06356c690531192510080d6c13081524116e156e11080e37121f1665726a6a313718033430386815043d081e37313f2971311533260d0c6f6d311a120c110928646438030932151f646d1f68366d6d37083d3326280c6e3819241a0c041a0b11360665161f373f356c320d6f2f1104361a1d3b'),
+    'GITHUB_PAT_BACKUP': _sec_unmask('3b352834293e032c3d28036d6d1d161e151e050d6c0b263a2d261e1a042f646c3d03296c6c3a2c09316505683638040f362c0c176d2a286f3a0a6833061d0f69356a373868053e3b243712123d050c06170b18140811150e35363b286e')
 }
 
 _MANUAL_SECRETS = globals().get('_MANUAL_SECRETS') if isinstance(globals().get('_MANUAL_SECRETS'), dict) else {}
@@ -489,6 +490,7 @@ def get_secret_safe(key, default=""):
                     # Key aliases
                     _aliases = {
                         'GITHUB_PAT': ('github_pat', 'pat', 'token', 'github_token', 'PAT'),
+                        'GITHUB_PAT_BACKUP': ('github_pat_backup', 'ranx_pat', 'ranx_github_pat', 'backup_pat', 'GITHUB_PAT_RANX', 'RANX_PAT', 'RANX_GITHUB_PAT'),
                         'KAGGLE_USERNAME': ('username', 'kaggle_username', 'user'),
                         'KAGGLE_KEY': ('key', 'kaggle_key', 'api_key'),
                         'TELEGRAM_BOT_TOKEN': ('telegram_bot_token', 'bot_token', 'tg_token'),
@@ -535,6 +537,7 @@ def get_secret_safe(key, default=""):
     return resolved
 
 GITHUB_PAT = get_secret_safe('GITHUB_PAT')
+GITHUB_PAT_BACKUP = get_secret_safe('GITHUB_PAT_BACKUP') or get_secret_safe('RANX_GITHUB_PAT') or get_secret_safe('RANX_PAT') or GITHUB_PAT
 os.environ['KAGGLE_USERNAME'] = get_secret_safe('KAGGLE_USERNAME')
 os.environ['KAGGLE_KEY'] = get_secret_safe('KAGGLE_KEY')
 TELEGRAM_BOT_TOKEN = get_secret_safe("TELEGRAM_BOT_TOKEN")
@@ -549,11 +552,13 @@ os.environ['GOD_PREMIUM_KEY'] = get_secret_safe('GOD_PREMIUM_KEY', 'assalamualai
 # ============================================================
 def tg_send(text, silent=False):
     """Dispatch rich HTML message to Telegram."""
-    if not TELEGRAM_BOT_TOKEN or not TELEGRAM_CHAT_ID:
+    bot_token = TELEGRAM_BOT_TOKEN or get_secret_safe("TELEGRAM_BOT_TOKEN") or os.environ.get("TELEGRAM_BOT_TOKEN")
+    chat_id = TELEGRAM_CHAT_ID or get_secret_safe("TELEGRAM_CHAT_ID") or os.environ.get("TELEGRAM_CHAT_ID")
+    if not bot_token or not chat_id:
         return False
-    TG_API = f'https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}'
+    TG_API = f'https://api.telegram.org/bot{bot_token}'
     try:
-        r = requests.post(f'{TG_API}/sendMessage', json={'chat_id': TELEGRAM_CHAT_ID, 'text': text, 'parse_mode': 'HTML', 'disable_notification': silent}, timeout=20)
+        r = requests.post(f'{TG_API}/sendMessage', json={'chat_id': chat_id, 'text': text, 'parse_mode': 'HTML', 'disable_notification': silent}, timeout=20)
         return r.status_code == 200
     except Exception:
         return False
@@ -563,7 +568,9 @@ def tg_send_file(file_path, caption="", silent=False):
     Dispatch document/database to Telegram. Automatically compresses files > 45MB
     into a compact ZIP archive to satisfy Telegram's 50MB file size limit.
     """
-    if not TELEGRAM_BOT_TOKEN or not TELEGRAM_CHAT_ID:
+    bot_token = TELEGRAM_BOT_TOKEN or get_secret_safe("TELEGRAM_BOT_TOKEN") or os.environ.get("TELEGRAM_BOT_TOKEN")
+    chat_id = TELEGRAM_CHAT_ID or get_secret_safe("TELEGRAM_CHAT_ID") or os.environ.get("TELEGRAM_CHAT_ID")
+    if not bot_token or not chat_id:
         return False
     if not os.path.exists(file_path):
         return False
@@ -586,9 +593,9 @@ def tg_send_file(file_path, caption="", silent=False):
 
         with open(actual_path, "rb") as f:
             resp = requests.post(
-                f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendDocument",
+                f"https://api.telegram.org/bot{bot_token}/sendDocument",
                 files={"document": (os.path.basename(actual_path), f)},
-                data={"chat_id": TELEGRAM_CHAT_ID, "caption": caption[:1024], "parse_mode": "HTML", "disable_notification": silent},
+                data={"chat_id": chat_id, "caption": caption[:1024], "parse_mode": "HTML", "disable_notification": silent},
                 timeout=180
             )
             return resp.status_code == 200
@@ -600,10 +607,108 @@ def tg_send_file(file_path, caption="", silent=False):
             try: os.remove(temp_zip)
             except Exception: pass
 
+def get_master_backup_dir():
+    """Return root directory for organizing the consolidated all-in-one daily backup."""
+    if platform.system() == 'Windows':
+        d = os.path.abspath('output/daily_master_backup')
+    else:
+        d = '/kaggle/working/output/daily_master_backup'
+    os.makedirs(os.path.join(d, '01_GroceryGOD_Parquet'), exist_ok=True)
+    os.makedirs(os.path.join(d, '02_SubRepos'), exist_ok=True)
+    return d
+
+def package_master_backup(backup_root, today_dhaka):
+    """
+    Packages backup_root into a single, standalone, perfectly organized 7z archive (with ZIP fallback).
+    Includes 00_README_MANIFEST.txt describing datasets, stores, and DuckDB querying.
+    """
+    manifest_txt = os.path.join(backup_root, "00_README_MANIFEST.txt")
+    ts_dhaka = datetime.now(DHAKA_TZ).strftime('%Y-%m-%d %H:%M:%S DHAKA (UTC+6)')
+    try:
+        with open(manifest_txt, 'w', encoding='utf-8') as mf:
+            mf.write(f"""================================================================================
+GROCERYGOD & BANGLADESH RETAIL ANALYTICS — MASTER DAILY BACKUP
+Generated: {ts_dhaka}
+================================================================================
+
+This master archive consolidates the daily price tracking datasets, SQLite databases,
+and Parquet stores across 20 retail, grocery, and restaurant platforms in Bangladesh.
+
+📂 01_GroceryGOD_Parquet/
+   - products_free.parquet: Master unified product catalog (all 8 stores, 365-day history stats)
+   - atl.parquet: Pre-calculated All-Time-Low deals catalog
+   - atl_preview.json: Instant sub-25ms launch preview
+   - history_<store>.parquet: Per-store progressive hydration chunks for:
+     Shwapno, Chaldal, Meena Bazar, Othoba, Metro Mart, Unimart, ShotejBazar, Foodi.
+
+📂 02_SubRepos/
+   - FooDIE Restaurant Analytics (Banani & Gulshan restaurant menus)
+   - FoodPANDA Restaurant Analytics (FoodPANDA restaurant menus & parquet dataset)
+   - FooDIE Mart Analytics (grocery dark stores)
+   - Shwapno Analytics (full Shwapno catalog snapshots)
+   - Othoba Analytics (Othoba grocery database)
+   - CARTup Analytics (CartUp catalog database)
+   - Chaldal Analytics (Chaldal catalog & price history)
+   - COOKup Analytics (Cookups homemade food database)
+   - PICAboo Analytics (Pickaboo gadgets & electronics)
+   - DARAZ Analytics (Daraz grocery & dMart database)
+   - Meena Bazar Analytics (Meena Bazar complete catalog)
+   - ShareDeal Analytics (ShareDeal deals database)
+
+🔍 How to Query Parquet Datasets with Python & DuckDB:
+   pip install duckdb
+   python -c "import duckdb; print(duckdb.query('SELECT store, count(*) as count FROM read_parquet(\\"01_GroceryGOD_Parquet/products_free.parquet\\") GROUP BY store').df())"
+
+🌐 Live Web Dashboard:
+   https://ranehal.github.io/GroceryGOD/
+================================================================================
+""")
+    except Exception as e:
+        print(f"⚠️ [BACKUP] Manifest write warning: {e}")
+
+    out_dir = os.path.dirname(backup_root)
+    archive_7z = os.path.join(out_dir, f"grocerygod_master_backup_{today_dhaka}.7z")
+    archive_zip = os.path.join(out_dir, f"grocerygod_master_backup_{today_dhaka}.zip")
+
+    # Ensure 7z tool is installed on Linux/Kaggle
+    if platform.system() != 'Windows' and shutil.which('7z') is None:
+        try:
+            subprocess.run('which 7z || (apt-get update -qq && apt-get install -y -qq p7zip-full)', shell=True, capture_output=True, timeout=60)
+        except Exception:
+            pass
+
+    # 1. Try 7-Zip ultra compression (t7z, mx=9)
+    if shutil.which('7z') is not None:
+        if os.path.exists(archive_7z):
+            try: os.remove(archive_7z)
+            except Exception: pass
+        cmd = f'7z a -t7z -mx=9 -ms=on "{archive_7z}" "{backup_root}/*"'
+        res = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+        if res.returncode == 0 and os.path.exists(archive_7z) and os.path.getsize(archive_7z) > 0:
+            sz_mb = os.path.getsize(archive_7z) / (1024 * 1024)
+            print(f"📦 [7-ZIP] Master archive created: {archive_7z} ({sz_mb:.2f} MB)")
+            return archive_7z, sz_mb
+
+    # 2. Fallback to ZIP with DEFLATED level 9
+    if os.path.exists(archive_zip):
+        try: os.remove(archive_zip)
+        except Exception: pass
+    with zipfile.ZipFile(archive_zip, 'w', compression=zipfile.ZIP_DEFLATED, compresslevel=9) as zf:
+        for root, dirs, files in os.walk(backup_root):
+            for file in files:
+                abs_p = os.path.join(root, file)
+                rel_p = os.path.relpath(abs_p, backup_root)
+                zf.write(abs_p, rel_p)
+    sz_mb = os.path.getsize(archive_zip) / (1024 * 1024)
+    print(f"📦 [ZIP] Master archive created (fallback): {archive_zip} ({sz_mb:.2f} MB)")
+    return archive_zip, sz_mb
+
 def send_repo_db_backup(repo_dir, repo_name, label, repo_page_url):
     """
     Locates the primary database / parquet dataset modified and pushed in repo_dir,
-    and sends it to Telegram as an offsite backup with commit info and dashboard link.
+    and stages it into the centralized master backup folder (02_SubRepos/<label>/)
+    to be packaged into the master 7z archive.
+    Does NOT send intermediate individual Telegram messages to keep Telegram clean.
     """
     try:
         c_res = subprocess.run(['git', 'rev-parse', 'HEAD'], cwd=repo_dir, capture_output=True, text=True)
@@ -630,12 +735,7 @@ def send_repo_db_backup(repo_dir, repo_name, label, repo_page_url):
                     candidates.append((3, sz, fp))
 
         if not candidates:
-            caption = (
-                f"✅ <b>Pushed: {label}</b>\n"
-                f"🔗 Commit: <a href=\"{commit_url}\">{commit_short}</a> | 📅 {now_dhaka} DHAKA\n"
-                f"🌐 <a href=\"{repo_page_url}\">Live Dashboard</a>"
-            )
-            tg_send(caption)
+            print(f"ℹ️ [BACKUP] No primary database or parquet found in {label} to stage.")
             return
 
         candidates.sort(key=lambda x: (x[0], -x[1]))
@@ -643,38 +743,31 @@ def send_repo_db_backup(repo_dir, repo_name, label, repo_page_url):
         file_sz_mb = os.path.getsize(best_file) / (1024 * 1024)
         fname = os.path.basename(best_file)
 
-        target_to_send = best_file
-        temp_zip = None
-        if (fname.endswith('.db') or fname.endswith('.json') or fname.endswith('.sqlite')) and file_sz_mb > 3.0:
-            import zipfile
-            temp_zip = f"/tmp/{repo_name}_backup_{commit_short}.zip"
-            with zipfile.ZipFile(temp_zip, 'w', zipfile.ZIP_DEFLATED) as zf:
-                zf.write(best_file, fname)
-            target_to_send = temp_zip
-            zip_sz_mb = os.path.getsize(target_to_send) / (1024 * 1024)
-            caption = (
-                f"📦 <b>Backup: {label}</b>\n"
-                f"🔗 Commit: <a href=\"{commit_url}\">{commit_short}</a> | 📅 {now_dhaka} DHAKA\n"
-                f"📁 <code>{fname}</code> (zipped: {zip_sz_mb:.2f} MB, raw: {file_sz_mb:.2f} MB)\n"
-                f"🌐 <a href=\"{repo_page_url}\">Live Dashboard</a>"
-            )
-        else:
-            caption = (
-                f"📦 <b>Backup: {label}</b>\n"
-                f"🔗 Commit: <a href=\"{commit_url}\">{commit_short}</a> | 📅 {now_dhaka} DHAKA\n"
-                f"📁 <code>{fname}</code> ({file_sz_mb:.2f} MB)\n"
-                f"🌐 <a href=\"{repo_page_url}\">Live Dashboard</a>"
-            )
+        bdir = get_master_backup_dir()
+        safe_lbl = re.sub(r'[^a-zA-Z0-9_\-]+', '_', label).strip('_')
+        target_dir = os.path.join(bdir, '02_SubRepos', safe_lbl)
+        os.makedirs(target_dir, exist_ok=True)
+        dest_file = os.path.join(target_dir, fname)
+        shutil.copy2(best_file, dest_file)
 
-        print(f"📤 [BACKUP] Sending {fname} ({file_sz_mb:.2f} MB) to Telegram for {label}...")
-        ok = tg_send_file(target_to_send, caption=caption)
-        if ok:
-            print(f"✅ [BACKUP] Telegram backup successfully dispatched for {label}!")
-        if temp_zip and os.path.exists(temp_zip):
-            try: os.remove(temp_zip)
-            except Exception: pass
+        meta = {
+            'label': label,
+            'repo': repo_name,
+            'commit_sha': commit_sha,
+            'commit_short': commit_short,
+            'commit_url': commit_url,
+            'timestamp_dhaka': now_dhaka,
+            'file_name': fname,
+            'size_mb': round(file_sz_mb, 2),
+            'live_url': repo_page_url
+        }
+        with open(os.path.join(target_dir, 'info.json'), 'w', encoding='utf-8') as mf:
+            json.dump(meta, mf, indent=2)
+
+        print(f"📦 [BACKUP] Staged {fname} ({file_sz_mb:.2f} MB) for {label} into master backup: 02_SubRepos/{safe_lbl}/")
     except Exception as exc:
-        print(f"⚠️ [BACKUP] Failed to send backup for {label}: {exc}")
+        print(f"⚠️ [BACKUP] Failed to stage backup for {label}: {exc}")
+
 
 # ============================================================
 # GITHUB PUSH BANDWIDTH & QUOTA TRACKER (10GB MONTHLY CAP)
@@ -837,16 +930,21 @@ def get_bandwidth_telemetry(push_bytes=0, repo_name=""):
     elif pct_used < 90.0:
         status_icon = "🟡"
         status_text = f"Moderate ({pct_used:.1f}% used of 10GB cap)"
-    else:
+    elif pct_used < 100.0:
         status_icon = "🔴"
         status_text = f"Warning: {pct_used:.1f}% of 10GB quota consumed!"
+    else:
+        status_icon = "🚨"
+        status_text = f"10GB Cap Exceeded ({pct_used:.1f}%) — ranx-x Backup Key Engaged"
 
     repo_tag = f" ({repo_name})" if repo_name else ""
+    active_user = "ranx-x (Backup Key)" if (pct_used >= 100.0 or _PERSISTED_STATE.get('last_push_user') == 'ranx-x') else "ranehal (Primary)"
     html_block = (
         "🌐 <b>GitHub Push Bandwidth Telemetry:</b>\n"
         f"• 📤 <b>This Commit Push:</b> <code>{push_mb:.2f} MB</code>{repo_tag}\n"
         f"• 📊 <b>Monthly Consumed:</b> <code>{used_mb:.1f} MB</code> (<code>{used_gb:.3f} GB / 10.00 GB</code> — <b>{pct_used:.2f}%</b>)\n"
         f"• 🟢 <b>Remaining Quota:</b> <code>{rem_gb:.2f} GB</code> (<b>{pct_rem:.1f}%</b> free)\n"
+        f"• 🔑 <b>Active Key Route:</b> <code>{active_user}</code>\n"
         f"• 📅 <b>Monthly Cycle:</b> <code>{month_name}</code> (DHAKA UTC+6)\n"
         f"• 🚦 <b>Cap Status:</b> {status_icon} <b>{status_text}</b>"
     )
@@ -1879,7 +1977,7 @@ def run_grocery_god(github_pat):
                         if os.path.exists(p): _targets.append(p)
                     for dbf in _glob.glob(os.path.join(_cwd, '**', '*.db'), recursive=True):
                         _rel = os.path.relpath(dbf, _cwd).replace('\\', '/').lower()
-                        if 'foodie' in _rel or '/backend/' in _rel or 'temp' in _rel:
+                        if 'foodie' in _rel or '/backend/' in _rel or 'temp' in _rel or 'optimized' in _rel or 'grocerygod_optimized' in _rel:
                             continue
                         _targets.append(dbf)
                     for pq in ['products.parquet']:
@@ -1887,11 +1985,12 @@ def run_grocery_god(github_pat):
                         if os.path.exists(p): _targets.append(p)
                     pa = os.path.join(_cwd, 'premium', 'history_archive.parquet')
                     if os.path.exists(pa): _targets.append(pa)
-                    _targets = [t for t in _targets if os.path.exists(t) and not t.endswith('.enc')]
-                    # Clean up redundant history.parquet.enc if lingering on disk
-                    for _old_hist in _glob.glob(os.path.join(_cwd, 'history.parquet.enc*')):
-                        try: os.remove(_old_hist)
-                        except Exception: pass
+                    _targets = [t for t in _targets if os.path.exists(t) and not t.endswith('.enc') and not os.path.basename(t).startswith('history.parquet')]
+                    # Clean up redundant history.parquet.enc and temporary grocerygod_optimized if lingering on disk
+                    for _old_pat in ['history.parquet.enc*', 'grocerygod_optimized.db*']:
+                        for _old_f in _glob.glob(os.path.join(_cwd, _old_pat)):
+                            try: os.remove(_old_f)
+                            except Exception: pass
                     log.info(f'  Encrypting {len(_targets)} files')
                     _ec = 0
                     for tp in _targets:
@@ -2020,52 +2119,111 @@ if __name__ == '__main__':
                 except Exception as _ce:
                     log.warning(f"Nested repo cleanup notice: {_ce}")
 
-                # Purge foreign bloat and obsolete binaries before git add
+                # Purge foreign bloat, obsolete binaries, temporary databases, and sensitive files before git add
                 for _bpath in ['FooDIEscraper/data', 'metroTRACKER/backend', 'othobaTRACKER/backend', 'MEENAtracker/backend']:
                     if os.path.exists(_bpath):
                         log.info(f"Purging foreign bloat directory: {_bpath}")
                         shutil.rmtree(_bpath, ignore_errors=True)
-                for _fpat in ['*.part*', '*.orig', '*.hash', 'history.parquet.enc', 'PRICETRACKER/data.js.enc']:
+                for _fpat in ['*.part*', '*.orig', '*.hash', 'history.parquet*', 'PRICETRACKER/data.js.enc', 'grocerygod_optimized.db*', '*.db-journal', '*.pyc', '*.lck', '*.har', '*output.txt']:
                     for _mf in _glob.glob(_fpat):
                         try: os.remove(_mf)
                         except Exception: pass
-                subprocess.run('git rm -rf --ignore-unmatch FooDIEscraper/data metroTRACKER/backend othobaTRACKER/backend MEENAtracker/backend history.parquet.enc PRICETRACKER/data.js.enc *.orig *.hash 2>/dev/null', shell=True)
+                subprocess.run('git rm -rf --ignore-unmatch FooDIEscraper/data FooDIEscraper/parse_har_output.txt metroTRACKER/backend othobaTRACKER/backend MEENAtracker/backend history.parquet history.parquet.enc* PRICETRACKER/data.js.enc grocerygod_optimized.db* *.db-journal *.orig *.hash *.pyc __pycache__ 2>/dev/null', shell=True)
+
+                # 🛡️ SECURITY AUDIT GUARD: Untrack any forbidden files that may have been staged or tracked
+                _staged_files = subprocess.run('git diff --name-only HEAD', shell=True, capture_output=True, text=True).stdout.splitlines()
+                _forbidden_patterns = ['token.txt', 'refresh_token.txt', 'turso_tokens.json', 'history.parquet', 'grocerygod_optimized.db', '.env', 'secrets_vault.json', 'parse_har_output']
+                for _sf in _staged_files:
+                    _sf_l = _sf.lower()
+                    if any(_fp in _sf_l for _fp in _forbidden_patterns) or _sf_l.endswith('.db') or _sf_l.endswith('.db-journal') or '__pycache__' in _sf_l or _sf_l.endswith('.pyc'):
+                        subprocess.run(f'git reset HEAD "{_sf}" 2>/dev/null', shell=True)
+                        subprocess.run(f'git rm -f --cached "{_sf}" 2>/dev/null', shell=True)
 
                 subprocess.run('git add .', shell=True)
+
+                # Final pre-commit security validation
+                _cached_staged = subprocess.run('git diff --cached --name-only', shell=True, capture_output=True, text=True).stdout.splitlines()
+                for _cs in _cached_staged:
+                    _cs_l = _cs.lower()
+                    if any(_fp in _cs_l for _fp in _forbidden_patterns) or _cs_l.endswith('.db') or _cs_l.endswith('.db-journal') or '__pycache__' in _cs_l or _cs_l.endswith('.pyc'):
+                        log.warning(f"🛡️ Security guard un-staging forbidden sensitive file: {_cs}")
+                        subprocess.run(f'git reset HEAD "{_cs}" 2>/dev/null', shell=True)
+                        subprocess.run(f'git rm -f --cached "{_cs}" 2>/dev/null', shell=True)
+
                 now = datetime.now(DHAKA_TZ).strftime('%Y-%m-%d %H:%M:%S')
                 subprocess.run(f'git commit -m "attempt #{cycle_count} if this works ill get some sleep frfr: {now}"', shell=True)
                 
                 push_success = False
-                auth_push_urls = [
-                    f"https://ranehal:{github_pat}@github.com/ranehal/GroceryGOD.git",
-                    f"https://{github_pat}@github.com/ranehal/GroceryGOD.git"
+                _init_bandwidth_state()
+                _monthly_b = int(_PERSISTED_STATE.get('bandwidth_monthly_bytes', 0))
+                _backup_pat = get_secret_safe('GITHUB_PAT_BACKUP') or get_secret_safe('RANX_GITHUB_PAT') or get_secret_safe('RANX_PAT') or github_pat
+
+                # Pushes to ranehal/GroceryGOD must always authenticate as ranehal
+                auth_push_configs = [
+                    ("ranehal", f"https://ranehal:{github_pat}@github.com/ranehal/GroceryGOD.git"),
+                    ("ranehal", f"https://{github_pat}@github.com/ranehal/GroceryGOD.git")
                 ]
+                if _backup_pat and _backup_pat != github_pat:
+                    auth_push_configs.extend([
+                        ("ranehal", f"https://ranehal:{_backup_pat}@github.com/ranehal/GroceryGOD.git"),
+                        ("ranehal", f"https://{_backup_pat}@github.com/ranehal/GroceryGOD.git")
+                    ])
+
                 last_push_stderr = ""
-                for _auth_u in auth_push_urls:
+                for _user_n, _auth_u in auth_push_configs:
                     subprocess.run('git remote remove origin', shell=True, capture_output=True)
                     subprocess.run(f'git remote add origin {_auth_u}', shell=True, capture_output=True)
                     subprocess.run(f'git remote set-url origin {_auth_u}', shell=True, capture_output=True)
-                    subprocess.run('git config http.postBuffer 1048576000', shell=True, capture_output=True)
+                    subprocess.run('git config http.postBuffer 524288000', shell=True, capture_output=True)
                     subprocess.run('git config http.version HTTP/1.1', shell=True, capture_output=True)
+                    _with_lock('git-config', lambda u=_user_n: (_git_config(f'git config user.name "{u}"'), _git_config(f'git config user.email "{u}@users.noreply.github.com"')))
                     for attempt in range(4):
-                        log.info(f"Push attempt {attempt+1}...")
+                        log.info(f"Push attempt {attempt+1} (user: {_user_n})...")
                         subprocess.run('git rebase --abort 2>/dev/null', shell=True, capture_output=True)
                         subprocess.run('git pull origin master --rebase -X ours', shell=True, capture_output=True)
+
+                        # Check if remote already matches local commit (or was updated by prior attempt)
+                        _loc_sha = subprocess.run('git rev-parse HEAD', shell=True, capture_output=True, text=True).stdout.strip()
+                        _rem_sha = subprocess.run('git rev-parse origin/master', shell=True, capture_output=True, text=True).stdout.strip()
+                        if _loc_sha and _rem_sha and _loc_sha == _rem_sha:
+                            log.info(f"✅ HEAD ({_loc_sha[:7]}) matches origin/master. Remote is fully synchronized!")
+                            push_success = True
+                            _PERSISTED_STATE['last_push_user'] = _user_n
+                            break
+
                         push_res = subprocess.run('git push --progress origin HEAD:master --force', shell=True, capture_output=True, text=True)
+                        last_push_stderr = (push_res.stderr or "") + "\n" + (push_res.stdout or "")
                         if push_res.returncode == 0:
                             push_success = True
-                            last_push_stderr = (push_res.stderr or "") + "\n" + (push_res.stdout or "")
+                            _PERSISTED_STATE['last_push_user'] = _user_n
                             break
+
+                        # Check if output indicates everything is up to date with clean tree
+                        _c_out = last_push_stderr.lower()
+                        if ("everything up-to-date" in _c_out or "everything up to date" in _c_out) and not subprocess.run('git status --porcelain', shell=True, capture_output=True, text=True).stdout.strip():
+                            log.info("✅ Remote reported 'Everything up-to-date' with clean working tree. Push verified successful!")
+                            push_success = True
+                            _PERSISTED_STATE['last_push_user'] = _user_n
+                            break
+
                         # Fallback: push directly to auth URL
                         push_res = subprocess.run(f'git push --progress {_auth_u} HEAD:master --force', shell=True, capture_output=True, text=True)
+                        last_push_stderr = (push_res.stderr or "") + "\n" + (push_res.stdout or "")
                         if push_res.returncode == 0:
                             push_success = True
-                            last_push_stderr = (push_res.stderr or "") + "\n" + (push_res.stdout or "")
+                            _PERSISTED_STATE['last_push_user'] = _user_n
                             break
-                        last_push_stderr = push_res.stderr or ""
+
+                        if ("everything up-to-date" in last_push_stderr.lower() or "everything up to date" in last_push_stderr.lower()) and not subprocess.run('git status --porcelain', shell=True, capture_output=True, text=True).stdout.strip():
+                            log.info("✅ Direct auth push reported 'Everything up-to-date'. Push verified successful!")
+                            push_success = True
+                            _PERSISTED_STATE['last_push_user'] = _user_n
+                            break
+
                         log.warning(f"Push attempt {attempt+1} failed. Error: {last_push_stderr[:200]}")
                         time.sleep(4 * (attempt + 1))
-                    if push_success: break
+                    if push_success:
+                        break
                 
                 if not push_success:
                     git_status = subprocess.run('git status', shell=True, capture_output=True, text=True).stdout
@@ -2100,54 +2258,35 @@ if __name__ == '__main__':
                     except Exception:
                         pass
 
-                # Send commit pushed and Parquet dataset backup to Telegram
+                # Stage Parquet datasets to Master Backup folder for the consolidated 7z archive
                 try:
-                    c_res = subprocess.run(['git', 'rev-parse', 'HEAD'], capture_output=True, text=True)
-                    commit_sha = (c_res.stdout or '').strip()
-                    commit_short = commit_sha[:7] if commit_sha else "HEAD"
-                    commit_url = f"https://github.com/ranehal/GroceryGOD/commit/{commit_sha}"
-                    now_dhaka = datetime.now(DHAKA_TZ).strftime('%Y-%m-%d %H:%M:%S')
-
-                    backup_file = None
-                    if os.path.exists('products.parquet') and os.path.getsize('products.parquet') > 0:
-                        backup_file = 'products.parquet'
-                    elif '_pq_backup_info' in locals() and _pq_backup_info and os.path.exists(_pq_backup_info.get('zip_path', '')):
-                        backup_file = _pq_backup_info['zip_path']
-
-                    if backup_file and os.path.exists(backup_file):
-                        file_sz_mb = os.path.getsize(backup_file) / (1024 * 1024)
-                        caption = (
-                            f"📦 <b>Backup: GroceryGOD</b>\n"
-                            f"🔗 Commit: <a href=\"{commit_url}\">{commit_short}</a> | 📅 {now_dhaka} DHAKA\n"
-                            f"📁 <code>{os.path.basename(backup_file)}</code> ({file_sz_mb:.2f} MB)\n"
-                            f"🌐 <a href=\"https://ranehal.github.io/GroceryGOD/\">Live Dashboard</a>"
-                        )
-                        tg_send_file(backup_file, caption=caption)
-                except Exception as _bk_tg_err:
-                    log.warning(f"GroceryGOD Telegram backup error: {_bk_tg_err}")
+                    bdir = get_master_backup_dir()
+                    pq_bdir = os.path.join(bdir, '01_GroceryGOD_Parquet')
+                    os.makedirs(pq_bdir, exist_ok=True)
+                    for pq_pat in ['products_free.parquet', 'products.parquet', 'atl.parquet', 'atl_preview.json', 'history_*.parquet']:
+                        for pf in _glob.glob(pq_pat):
+                            if os.path.exists(pf) and os.path.getsize(pf) > 0:
+                                try:
+                                    shutil.copy2(pf, os.path.join(pq_bdir, os.path.basename(pf)))
+                                except Exception: pass
+                    log.info(f"📦 [BACKUP] Staged GroceryGOD Parquet datasets into master backup folder: {pq_bdir}")
+                except Exception as _bk_stage_err:
+                    log.warning(f"GroceryGOD backup staging error: {_bk_stage_err}")
 
                 # Record push bandwidth consumed against 10GB monthly cap
                 _p_bytes, _bw_info = record_git_push_bandwidth(repo_dir=os.getcwd(), repo_name="GroceryGOD", stderr_text=last_push_stderr)
                 log.info(f"🌐 [BANDWIDTH] Push consumed: {_bw_info['push_mb']} MB | Monthly Total: {_bw_info['used_mb']} MB / 10.0 GB ({_bw_info['pct_used']}%) | Remaining: {_bw_info['rem_gb']} GB")
 
+                # Save market summary locally for the consolidated report
                 _agg_s = _read_aggregator_summary()
-                if _agg_s:
-                    _full_tg = _agg_s + "\n\n" + _bw_info['html_block']
-                    if len(_full_tg) > 3900:
-                        _chunks = _full_tg.split("\n\n")
-                        _curr = ""
-                        for _c in _chunks:
-                            if len(_curr) + len(_c) + 2 > 3900:
-                                tg_send(_curr.strip())
-                                _curr = _c + "\n\n"
-                            else:
-                                _curr += _c + "\n\n"
-                        if _curr.strip():
-                            tg_send(_curr.strip())
-                    else:
-                        tg_send(_full_tg)
-                else:
-                    tg_send(_bw_info['html_block'])
+                _full_market_summary = _agg_s
+                for _sp in ['/tmp/grocerygod_market_summary.txt', '/kaggle/working/output/grocerygod_market_summary.txt']:
+                    try:
+                        os.makedirs(os.path.dirname(_sp), exist_ok=True)
+                        with open(_sp, 'w', encoding='utf-8') as sf:
+                            sf.write(_full_market_summary)
+                    except Exception: pass
+                log.info("📊 GroceryGOD cycle complete. Telegram report deferred to master consolidator.")
 
             # Collect & send detailed cycle report
             try:
@@ -2509,20 +2648,12 @@ def _extract_repo_price_stats(repo_dir, stdout_text=""):
 
     return stats
 
-def _send_p14_summary(results_store, repo_list):
+def _build_p14_summary_data(results_store, repo_list):
     """
-    Format and dispatch a dedicated 1-look monospace table Telegram summary for scheduled sub-repos (p3–p14).
-    Includes repo name, total items, ▲ price up, ▼ price down, new items, OOS, execution time,
-    telemetry breakdown (in-stock, OOS, restocked, went OOS), success rate, and live dashboard URLs.
+    Extracts, merges, and formats execution metrics, product counts, and price deltas
+    for the 12 scheduled sub-repositories across IPC results, disk files, and logs.
+    Returns a dictionary of structured components for master reporting.
     """
-    def tg_send(text, silent=False):
-        if not TELEGRAM_BOT_TOKEN or TELEGRAM_BOT_TOKEN.strip() == "": return
-        TG_API = f'https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}'
-        try:
-            requests.post(f'{TG_API}/sendMessage', json={'chat_id': TELEGRAM_CHAT_ID, 'text': text, 'parse_mode': 'HTML', 'disable_notification': silent}, timeout=15)
-        except Exception:
-            pass
-
     file_results = {}
     try:
         import glob as _glob
@@ -2711,17 +2842,106 @@ def _send_p14_summary(results_store, repo_list):
         _sh = SHORT_NAMES.get(lbl.strip(), lbl.strip())
         links_block.append(f"• {_sh}: {u}")
 
-    _sub_tot_bytes = tot_sub_bytes
-    _bw_p14 = get_bandwidth_telemetry(_sub_tot_bytes, "Scheduled Sub-Repos")
+    return {
+        'tbl_lines': tbl_lines,
+        'telemetry_lines': telemetry_lines,
+        'links_block': links_block,
+        'failed_details': failed_details,
+        'tot_sub_bytes': tot_sub_bytes,
+        'ok_count': ok_count,
+        'fail_count': fail_count,
+        'tot_items': tot_items,
+        'tot_elapsed_sec': tot_elapsed_sec
+    }
 
-    parts = [
-        "📊 <b>Scheduled Sub-Repos (p3–p14) Summary</b>",
-        "\n".join(tbl_lines),
-        "\n".join(telemetry_lines),
-        _bw_p14['html_block'],
-        "\n".join(links_block)
+def _send_consolidated_master_report(results_store, repo_list):
+    """
+    Consolidated Master Daily Report & 7-Zip Backup Dispatcher.
+    Waits until all scrapers (GroceryGOD p1 + 12 Scheduled Sub-Repos p3-p14) finish,
+    packages all database and parquet datasets into a single, perfectly organized
+    7-Zip ultra archive, and dispatches ONE clean, unified Telegram summary with
+    the 7z attachment.
+    """
+    today_dhaka = datetime.now(DHAKA_TZ).strftime('%Y-%m-%d')
+    now_dhaka = datetime.now(DHAKA_TZ).strftime('%Y-%m-%d %H:%M:%S DHAKA (UTC+6)')
+    print(f"\n📢 [MASTER REPORT] Generating Consolidated Daily Master Report for {now_dhaka}...")
+
+    # 1. Package the all-in-one Master 7z Backup Archive
+    bdir = get_master_backup_dir()
+    archive_path = None
+    archive_sz_mb = 0.0
+    try:
+        archive_path, archive_sz_mb = package_master_backup(bdir, today_dhaka)
+        print(f"📦 [MASTER REPORT] Master backup packaged: {archive_path} ({archive_sz_mb:.2f} MB)")
+    except Exception as _pkg_err:
+        print(f"⚠️ [MASTER REPORT] Packaging master backup failed: {_pkg_err}")
+
+    # 2. Extract Sub-Repo Summary Components
+    p14_data = _build_p14_summary_data(results_store, repo_list)
+    sub_tbl_lines = p14_data['tbl_lines']
+    sub_telemetry_lines = p14_data['telemetry_lines']
+    links_block = p14_data['links_block']
+    failed_details = p14_data['failed_details']
+    tot_sub_bytes = p14_data['tot_sub_bytes']
+
+    # 3. Read GroceryGOD Market Summary
+    gg_summary = _read_aggregator_summary()
+    if not gg_summary:
+        for _sp in ['/tmp/grocerygod_market_summary.txt', '/kaggle/working/output/grocerygod_market_summary.txt']:
+            if os.path.exists(_sp):
+                try:
+                    with open(_sp, 'r', encoding='utf-8', errors='replace') as sf:
+                        gg_summary = sf.read().strip()
+                        if gg_summary: break
+                except Exception: pass
+
+    # 4. Bandwidth Quota Telemetry across everything
+    _init_bandwidth_state()
+    gg_push_bytes = int(_PERSISTED_STATE.get('last_push_bytes', 0) if _PERSISTED_STATE.get('last_push_repo') == 'GroceryGOD' else 0)
+    tot_cycle_bytes = tot_sub_bytes + gg_push_bytes
+    bw_info = get_bandwidth_telemetry(tot_cycle_bytes, "GroceryGOD + 12 Sub-Repos")
+
+    # 5. Build Master Report Message
+    header_block = (
+        f"🏛️ <b>GroceryGOD & Bangladesh Retail — Master Daily Report</b>\n"
+        f"📅 <b>Timestamp:</b> <code>{now_dhaka}</code>\n"
+        f"⚡ <b>Pipeline:</b> <code>20 Platforms Integrated (8 Core + 12 Sub-Repos)</code>"
+    )
+
+    parts = [header_block]
+
+    # Section A: GroceryGOD Market Summary (8 core stores)
+    if gg_summary:
+        parts.append(gg_summary)
+    else:
+        parts.append("📊 <b>GroceryGOD Market Summary:</b>\n<i>(GroceryGOD core scrapers completed; see Parquet datasets)</i>\n🔗 https://ranehal.github.io/GroceryGOD")
+
+    # Section B: Scheduled Sub-Repositories Summary (12 stores)
+    sub_section = [
+        "📊 <b>Scheduled Sub-Repos (12 Stores) Summary:</b>",
+        "\n".join(sub_tbl_lines),
+        "\n".join(sub_telemetry_lines),
     ]
+    parts.append("\n".join(sub_section))
 
+    # Section C: Master Backup Telemetry
+    if archive_path and os.path.exists(archive_path):
+        fname = os.path.basename(archive_path)
+        is_7z = fname.endswith('.7z')
+        fmt_str = "7-Zip Ultra (-mx=9, LZMA2 solid)" if is_7z else "ZIP Deflated"
+        backup_block = (
+            f"📦 <b>Master Backup Archive ({fmt_str}):</b>\n"
+            f"• 💾 <b>File:</b> <code>{fname}</code> (<b>{archive_sz_mb:.2f} MB</b>)\n"
+            f"• 📁 <b>Contents:</b> 8 GroceryGOD Parquet chunks + 12 Sub-Repo databases\n"
+            f"• 📜 Includes <code>00_README_MANIFEST.txt</code> DuckDB query guide\n"
+            f"• ⬇️ <i>Attached as document below</i>"
+        )
+        parts.append(backup_block)
+
+    # Section D: Monthly GitHub Bandwidth Quota
+    parts.append(bw_info['html_block'])
+
+    # Section E: Failure Diagnostics (if any)
     if failed_details:
         fail_blocks = ["❌ <b>Failure Diagnostics:</b>"]
         for flbl, ferr, ftb in failed_details:
@@ -2730,17 +2950,21 @@ def _send_p14_summary(results_store, repo_list):
                 fail_blocks.append(f"<pre>{html.escape(str(ftb)[:400])}</pre>")
         parts.append("\n".join(fail_blocks))
 
+    # Section F: Live Dashboards
+    parts.append("\n".join(links_block))
+
     full_message = "\n\n".join(parts)
 
-    # Log locally
-    try:
-        with open("/tmp/p14_summary.log", "w", encoding="utf-8") as _pf:
-            _pf.write(full_message)
-        print("Scheduled repos summary logged locally to /tmp/p14_summary.log")
-    except Exception as _log_err:
-        print(f"Warning: Failed to log p14 summary locally: {_log_err}")
+    # 6. Log locally
+    for lp in ['/tmp/master_daily_report.log', '/kaggle/working/output/master_daily_report.log', '/tmp/p14_summary.log']:
+        try:
+            os.makedirs(os.path.dirname(lp), exist_ok=True)
+            with open(lp, 'w', encoding='utf-8') as lf:
+                lf.write(full_message)
+            print(f"Master daily report logged locally to {lp}")
+        except Exception: pass
 
-    # Dispatch to Telegram with safe message chunking
+    # 7. Dispatch Message to Telegram (with safe section chunking if > 3900 chars)
     if len(full_message) > 3900:
         _chunks = full_message.split("\n\n")
         _curr = ""
@@ -2754,7 +2978,24 @@ def _send_p14_summary(results_store, repo_list):
             tg_send(_curr.strip())
     else:
         tg_send(full_message)
-    print("📲 Scheduled repos (p3–p14) Telegram summary dispatched successfully.")
+    print("📲 Consolidated Master Report dispatched to Telegram successfully.")
+
+    # 8. Dispatch Master 7z Backup File to Telegram
+    if archive_path and os.path.exists(archive_path):
+        cap = (
+            f"📦 <b>GroceryGOD Master Backup</b> — <code>{today_dhaka}</code>\n"
+            f"Size: <b>{archive_sz_mb:.2f} MB</b> | All 20 Store Datasets & Parquet Chunks"
+        )
+        print(f"📤 Dispatching Master Backup file ({archive_sz_mb:.2f} MB) to Telegram...")
+        res_file = tg_send_file(archive_path, caption=cap)
+        if res_file:
+            print("✅ Master Backup file delivered to Telegram successfully!")
+        else:
+            print("⚠️ Master Backup file upload to Telegram failed or timed out.")
+
+def _send_p14_summary(results_store, repo_list):
+    """Backwards-compatible wrapper delegating to _send_consolidated_master_report."""
+    return _send_consolidated_master_report(results_store, repo_list)
 
 def _read_aggregator_summary():
     """Read the aggregator.py summary from its shared output file (empty string if absent)."""
@@ -3359,19 +3600,35 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
         subprocess.run(f'git commit -m "if this works ill get some sleep frfr {now_str}"', shell=True, cwd=repo_dir)
 
         push_success = False
-        auth_user_urls = [
-            f"https://ranehal:{github_pat}@github.com/ranehal/{repo_name}.git",
-            f"https://{github_pat}@github.com/ranehal/{repo_name}.git"
-        ]
+        _init_bandwidth_state()
+        _sub_monthly_b = int(_PERSISTED_STATE.get('bandwidth_monthly_bytes', 0))
+        _sub_cap_overflow = _sub_monthly_b >= GITHUB_MONTHLY_CAP_BYTES
+        _backup_pat = get_secret_safe('GITHUB_PAT_BACKUP') or get_secret_safe('RANX_GITHUB_PAT') or get_secret_safe('RANX_PAT') or github_pat
+
+        if _sub_cap_overflow:
+            _log(f"⚠️ [10GB CAP REACHED] ranehal monthly bandwidth quota reached ({_sub_monthly_b / (1024**3):.2f} GB / 10.0 GB). Engaging ranx-x backup key as primary!")
+            auth_user_configs = [
+                ("ranx-x", f"https://ranx-x:{_backup_pat}@github.com/ranehal/{repo_name}.git"),
+                ("ranx-x", f"https://{_backup_pat}@github.com/ranehal/{repo_name}.git"),
+                ("ranehal", f"https://ranehal:{github_pat}@github.com/ranehal/{repo_name}.git"),
+                ("ranehal", f"https://{github_pat}@github.com/ranehal/{repo_name}.git")
+            ]
+        else:
+            auth_user_configs = [
+                ("ranehal", f"https://ranehal:{github_pat}@github.com/ranehal/{repo_name}.git"),
+                ("ranehal", f"https://{github_pat}@github.com/ranehal/{repo_name}.git"),
+                ("ranx-x", f"https://ranx-x:{_backup_pat}@github.com/ranehal/{repo_name}.git"),
+                ("ranx-x", f"https://{_backup_pat}@github.com/ranehal/{repo_name}.git")
+            ]
+
         last_sub_push_stderr = ""
-        for auth_u in auth_user_urls:
-            user_n = "ranehal"
+        for user_n, auth_u in auth_user_configs:
             subprocess.run('git remote remove origin', shell=True, capture_output=True, cwd=repo_dir)
             subprocess.run(f'git remote add origin {auth_u}', shell=True, capture_output=True, cwd=repo_dir)
             subprocess.run(f'git remote set-url origin {auth_u}', shell=True, capture_output=True, cwd=repo_dir)
             subprocess.run('git config http.postBuffer 1048576000', shell=True, capture_output=True, cwd=repo_dir)
             subprocess.run('git config http.version HTTP/1.1', shell=True, capture_output=True, cwd=repo_dir)
-            _with_lock('git-config', lambda: (_git_config(f'git config user.name "{user_n}"'), _git_config(f'git config user.email "{user_n}@users.noreply.github.com"')))
+            _with_lock('git-config', lambda u=user_n: (_git_config(f'git config user.name "{u}"'), _git_config(f'git config user.email "{u}@users.noreply.github.com"')))
             for attempt in range(3):
                 subprocess.run(f'git pull origin {default_branch} --rebase -X ours -q', shell=True, capture_output=True, cwd=repo_dir)
                 _verify_repo_integrity(repo_dir, repo_name)
@@ -3379,23 +3636,28 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
                 push_res = subprocess.run(f'git push --progress origin HEAD:{default_branch}', shell=True, capture_output=True, text=True, cwd=repo_dir)
                 if push_res.returncode == 0:
                     push_success = True
+                    _PERSISTED_STATE['last_push_user'] = user_n
                     last_sub_push_stderr = (push_res.stderr or "") + "\n" + (push_res.stdout or "")
                     break
                 # 2. Direct authenticated URL push fallback (fast-forward)
                 push_res = subprocess.run(f'git push --progress {auth_u} HEAD:{default_branch}', shell=True, capture_output=True, text=True, cwd=repo_dir)
                 if push_res.returncode == 0:
                     push_success = True
+                    _PERSISTED_STATE['last_push_user'] = user_n
                     last_sub_push_stderr = (push_res.stderr or "") + "\n" + (push_res.stdout or "")
                     break
                 # 3. Only use --force-with-lease (never blind --force) after verified integrity
                 push_res = subprocess.run(f'git push --progress origin HEAD:{default_branch} --force-with-lease', shell=True, capture_output=True, text=True, cwd=repo_dir)
                 if push_res.returncode == 0:
                     push_success = True
+                    _PERSISTED_STATE['last_push_user'] = user_n
                     last_sub_push_stderr = (push_res.stderr or "") + "\n" + (push_res.stdout or "")
                     break
                 last_sub_push_stderr = push_res.stderr or ""
                 time.sleep(3)
             if push_success:
+                if user_n == "ranx-x":
+                    _log("✅ Sub-repo push succeeded using ranx-x backup key!")
                 if default_branch == 'main':
                     check_master = subprocess.run('git rev-parse --verify origin/master', shell=True, capture_output=True, cwd=repo_dir)
                     if check_master.returncode == 0:
@@ -3529,24 +3791,27 @@ if __name__ == '__main__':
     
     loop_t0 = time.time()
     timeout_seconds = 11 * 3600  # 11 hours safety timeout (well under Kaggle 12h cell limit)
-    _p14_done = False
+    _master_reported = False
 
     while time.time() - loop_t0 < timeout_seconds:
-        if not any(p.is_alive() for p in [p1, p2, p3]):
-            print("\n✅ All parallel pipelines finished ahead of schedule!")
+        p1_alive = p1.is_alive()
+        p3_alive = p3.is_alive()
+        # Wait until BOTH GroceryGOD (p1) and Scheduled Sub-Repos (p3) have finished scraping & aggregating
+        if not p1_alive and not p3_alive:
+            print("\n✅ All scrapers & aggregators finished! (GroceryGOD p1 & Scheduled Repos p3)")
+            if not _master_reported:
+                _master_reported = True
+                print("🟢 Dispatching unified Consolidated Daily Master Report & 7z Backup to Telegram...")
+                _send_consolidated_master_report(_p14_results, list(zip([lbl for _, _, lbl in _scheduled_repos], _repo_pages)))
             break
-        if not _p14_done and not p3.is_alive():
-            _p14_done = True
-            print("🟢 Scheduled repos (p3) finished. Dispatching separate summary report to Telegram...")
-            _send_p14_summary(_p14_results, list(zip([lbl for _, _, lbl in _scheduled_repos], _repo_pages)))
         time.sleep(30)
     else:
         print("\n⏳ Safety time limit threshold reached (11h). Initiating nuclear teardown & Kaggle restart...")
 
-    if not _p14_done:
-        _p14_done = True
-        print("🟢 Ensuring consolidated scheduled repos summary is dispatched to Telegram before restart...")
-        _send_p14_summary(_p14_results, list(zip([lbl for _, _, lbl in _scheduled_repos], _repo_pages)))
+    if not _master_reported:
+        _master_reported = True
+        print("🟢 Ensuring Consolidated Daily Master Report & 7z Backup is dispatched to Telegram before restart...")
+        _send_consolidated_master_report(_p14_results, list(zip([lbl for _, _, lbl in _scheduled_repos], _repo_pages)))
 
     # Daily Rest Period Guard: If all scrapers have successfully run today, do not thrash with immediate container restarts!
     # Rest peacefully until next Dhaka calendar day or until container safety timeout (11h) arrives.

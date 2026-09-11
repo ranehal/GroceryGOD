@@ -27,17 +27,35 @@ ShotejTRACKER/data.json
 chaldalTRACKER/data.js
 full_history_recovery.py
 products.parquet
+history.parquet
 premium/history_archive.parquet
 
-# Obsolete binary blobs & backup files
+# Temporary / Bloat DBs & Encryptions
+grocerygod_optimized.db*
+grocerygod_optimized.db.enc*
 autoglm-browser-service
 PRICETRACKER/data.js.enc
-metroTRACKER/backend/metro_tracker.db.enc
 metroTRACKER/backend/
 othobaTRACKER/backend/
 MEENAtracker/backend/
 FooDIEscraper/data/
-history.parquet.enc
+history.parquet.enc*
 *.orig
 *.hash
+*.part*
+*.db-journal
+*.lck
+*.har
+*output.txt
+*_vault.json
+secrets*.json
+output/
+
+# Bytecode & Python caches
+__pycache__/
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
 

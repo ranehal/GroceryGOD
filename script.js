@@ -678,11 +678,11 @@ async function loadAllFromTurso() {
         return Promise.resolve();
     };
 
-    // Load initial 50 default ATL deals for Shwapno + Metadata in parallel
+    // Load all default ATL deals for Shwapno + Metadata in parallel
     showLoading(true, 'Fetching Shwapno ATL deals from Turso Cloud...', 25);
     try {
         const [atlRows, metaRows] = await Promise.all([
-            queryTurso('SELECT * FROM atl_deals WHERE store = ? ORDER BY (max_price - normalized_price) DESC LIMIT 50;', ['shwapno']),
+            queryTurso('SELECT * FROM atl_deals WHERE store = ? ORDER BY (max_price - normalized_price) DESC;', ['shwapno']),
             queryTurso('SELECT key, value FROM metadata;').catch(() => [])
         ]);
 
@@ -708,7 +708,7 @@ async function loadAllFromTurso() {
                 }
             });
             window.__tursoOffsets.set('shwapno_low_', atlRows.length);
-            window.__tursoHasMore = atlRows.length >= 50;
+            window.__tursoHasMore = false;
             log(`⚡ Fast First Paint: ${allProducts.length} default Shwapno ATL deals loaded in ${(performance.now() - t0).toFixed(0)}ms!`);
         } else {
             // If ATL deals empty for Shwapno, load general products as immediate fallback
@@ -763,7 +763,7 @@ async function loadAllFromTurso() {
         if (activeIntelFilter === 'first_low' && !cleanQ) {
             sql = `SELECT * FROM products WHERE store IN (${storeInClause}) AND in_stock = 1 AND is_first_low = 1 ORDER BY (max_price - normalized_price) DESC LIMIT 50 OFFSET ${offset};`;
         } else if (activeIntelFilter === 'low' && !cleanQ) {
-            sql = `SELECT * FROM atl_deals WHERE store IN (${storeInClause}) ORDER BY (max_price - normalized_price) DESC LIMIT 50 OFFSET ${offset};`;
+            sql = `SELECT * FROM atl_deals WHERE store IN (${storeInClause}) ORDER BY (max_price - normalized_price) DESC;`;
         } else if (cleanQ) {
             sql = `SELECT * FROM products WHERE store IN (${storeInClause}) AND (LOWER(name) LIKE '%${cleanQ}%' OR LOWER(category) LIKE '%${cleanQ}%') ORDER BY in_stock DESC, last_seen DESC LIMIT 50 OFFSET ${offset};`;
         } else if (activeIntelFilter === 'great') {
@@ -786,7 +786,11 @@ async function loadAllFromTurso() {
                 document.getElementById('load-more-container')?.remove();
             } else {
                 window.__tursoOffsets.set(filterKey, offset + rows.length);
-                if (rows.length < 50) window.__tursoHasMore = false;
+                if (activeIntelFilter === 'low' && !cleanQ) {
+                    window.__tursoHasMore = false;
+                } else if (rows.length < 50) {
+                    window.__tursoHasMore = false;
+                }
 
                 let addedNew = false;
                 rows.forEach(r => {
@@ -1930,7 +1934,16 @@ function saveGroups() { safeStorage.setItem('god_custom_groups', JSON.stringify(
 
 function updateStatsBar() {
     const storeProducts = allProducts.filter(p => activeShopFilters.has(p.store));
-    const storeTotal = storeProducts.length;
+    let totalStoreCatalogCount = 0;
+    if (metadata && metadata.stores) {
+        activeShopFilters.forEach(s => {
+            const st = metadata.stores[s];
+            if (st && Number(st.total) > 0) {
+                totalStoreCatalogCount += Number(st.total);
+            }
+        });
+    }
+    const storeTotal = totalStoreCatalogCount > 0 ? totalStoreCatalogCount : storeProducts.length;
     const isFiltered = currentFilteredProducts && (currentFilteredProducts.length < storeTotal || activeIntelFilter !== 'all' || searchQuery || userCustomizedCategories.size > 0 || showFavoritesOnly);
     const totalElem = document.getElementById('total-items');
     if (totalElem) {
@@ -2175,11 +2188,25 @@ function resetProductViewFilters() {
 
 function getStoreDirectUrl(p) {
     if (!p) return '#';
-    if (p.url && (p.url.startsWith('http://') || p.url.startsWith('https://'))) {
-        return p.url;
+    const store = String(p.store || '').toLowerCase();
+    if (p.url && typeof p.url === 'string') {
+        const u = p.url.trim();
+        if (u.startsWith('http://') || u.startsWith('https://')) {
+            return u;
+        }
+        if (u && !u.startsWith('#')) {
+            const cleanPath = u.startsWith('/') ? u.slice(1) : u;
+            if (store === 'shwapno') return `https://www.shwapno.com/${cleanPath}`;
+            if (store === 'chaldal') return `https://chaldal.com/${cleanPath}`;
+            if (store === 'meenabazar') return `https://meenabazaronline.com/${cleanPath}`;
+            if (store === 'othoba') return `https://www.othoba.com/${cleanPath}`;
+            if (store === 'unimart') return `https://unimart.online/${cleanPath}`;
+            if (store === 'metromart') return `https://metromart.com.bd/${cleanPath}`;
+            if (store === 'shotejbazar') return `https://shotejbazar.com/${cleanPath}`;
+            if (store === 'foodi') return `https://foodi.com.bd/${cleanPath}`;
+        }
     }
     const query = encodeURIComponent(p.name || '');
-    const store = String(p.store || '').toLowerCase();
     switch (store) {
         case 'shwapno':
             return `https://www.shwapno.com/search?q=${query}`;
