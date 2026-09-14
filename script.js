@@ -24,7 +24,7 @@ let metadata = {};
 let _godDbResolver;
 window.__godDbPromise = new Promise(resolve => { _godDbResolver = resolve; });
 let godDB = null; // persistent DuckDB connection for on-demand queries
-const ASSET_VERSION = window.GOD_ASSET_VERSION || '20260914_v4';
+const ASSET_VERSION = window.GOD_ASSET_VERSION || '20260914_v5';
 let currentDataSource = safeStorage.getItem('god_data_source') || 'local';
 let favorites = JSON.parse(safeStorage.getItem('god_favorites') || '[]');
 let selectedForComparison = JSON.parse(safeStorage.getItem('god_comparison') || '[]');
@@ -2334,7 +2334,7 @@ function renderCardSparklineSvg(p) {
     const minP = Number(p.minPrice != null ? p.minPrice : (p.normalized_price || 0));
     const maxP = Number(p.maxPrice != null ? p.maxPrice : (p.normalized_price || 0));
     const normP = Number(p.normalized_price || p.current_price || 0);
-    const hasRealDrop = (maxP >= minP * 1.03) && ((maxP - minP) >= 1.0) && (normP <= minP * 1.005) && normP > 0;
+    const hasRealDrop = (maxP >= minP * 1.02) && ((maxP - minP) >= 0.8) && (normP <= minP * 1.02) && normP > 0;
 
     let points = [];
     const pts7d = parseSparklinePoints(p.sparkline);

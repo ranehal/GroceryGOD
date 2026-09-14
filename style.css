@@ -292,7 +292,7 @@ body.pitch-black {
     text-transform: uppercase; background: var(--store-color); color: #000; z-index: 10;
 }
 
-.p-img-box { width: 100%; aspect-ratio: 1/1; background: #fff; padding: 0; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.p-img-box { position: relative !important; width: 100%; aspect-ratio: 1/1; background: #fff; padding: 0; display: flex; align-items: center; justify-content: center; overflow: hidden; }
 .product-image { max-width: 100%; max-height: 100%; object-fit: contain; }
 
 .price-tag {
@@ -4640,10 +4640,12 @@ body:not(.sidebar-collapsed) .search-wrapper,
    PRODUCT CARD LAYOUT ROBUSTNESS & OVERLAP FIXES
    ============================================================ */
 .p-item-sh {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
+    position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
+    contain: none !important;
+    height: 100% !important;
 }
 
 .p-item-sh .store-badge {
@@ -4727,22 +4729,57 @@ body:not(.sidebar-collapsed) .search-wrapper,
     border-radius: 50%;
 }
 
+.p-img-box {
+    position: relative !important;
+    width: 100% !important;
+    aspect-ratio: 1 / 1 !important;
+    background: #fff !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+    flex-shrink: 0 !important;
+}
+
+.price-tag {
+    position: absolute !important;
+    bottom: 6px !important;
+    right: 6px !important;
+    background: rgba(0, 0, 0, 0.82) !important;
+    color: #ffffff !important;
+    padding: 2px 6px !important;
+    border-radius: 4px !important;
+    font-weight: 800 !important;
+    font-size: 0.84rem !important;
+    font-family: var(--font-mono) !important;
+    font-variant-numeric: tabular-nums !important;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    z-index: 5 !important;
+    pointer-events: none !important;
+    line-height: 1.15 !important;
+}
+
 .p-detail-sh {
-    padding: 8px 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    flex-grow: 1;
-    justify-content: space-between;
-    overflow: hidden;
+    padding: 8px 10px 10px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 6px !important;
+    flex-grow: 1 !important;
+    justify-content: space-between !important;
+    height: auto !important;
+    min-height: 140px !important;
+    overflow: visible !important;
+    box-sizing: border-box !important;
 }
 
 .product-name {
     font-size: 0.78rem !important;
     font-weight: 600 !important;
     line-height: 1.32 !important;
-    min-height: 2.64em !important;
-    max-height: 4.0em !important;
+    height: 3.96em !important;
+    min-height: 3.96em !important;
+    max-height: 3.96em !important;
     display: -webkit-box !important;
     -webkit-line-clamp: 3 !important;
     -webkit-box-orient: vertical !important;
@@ -4753,13 +4790,15 @@ body:not(.sidebar-collapsed) .search-wrapper,
 }
 
 .product-meta {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-    border-top: 1px solid var(--line-soft);
-    padding-top: 5px;
-    margin-top: auto;
-    overflow: hidden;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+    border-top: 1px solid var(--line-soft) !important;
+    padding-top: 6px !important;
+    margin-top: 6px !important;
+    flex-grow: 1 !important;
+    overflow: visible !important;
+    width: 100% !important;
 }
 
 .meta-row {
@@ -4768,17 +4807,78 @@ body:not(.sidebar-collapsed) .search-wrapper,
     align-items: baseline !important;
     gap: 6px !important;
     width: 100% !important;
-    overflow: hidden !important;
+    flex-shrink: 0 !important;
+    overflow: visible !important;
+}
+
+.meta-row:last-child {
+    margin-top: auto !important;
+}
+
+.price-main {
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+    font-size: 1.12rem !important;
+    line-height: 1.2 !important;
+    font-family: var(--font-mono) !important;
+    font-weight: 700 !important;
+    font-variant-numeric: tabular-nums !important;
+}
+
+.unit-label {
+    font-family: var(--font-stack) !important;
+    font-size: 0.65rem !important;
+    font-weight: 500 !important;
+    opacity: 0.8 !important;
 }
 
 .cat-tag {
-    font-size: 0.62rem !important;
+    font-size: 0.60rem !important;
     color: var(--text-secondary) !important;
     white-space: nowrap !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
     max-width: 52% !important;
     text-align: right !important;
+    line-height: 1.2 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.02em !important;
+}
+
+.card-sparkline-wrap {
+    position: relative !important;
+    width: 100% !important;
+    height: 22px !important;
+    min-height: 22px !important;
+    flex-shrink: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    margin: 2px 0 !important;
+    padding: 0 4px !important;
+    background: rgba(255, 255, 255, 0.025) !important;
+    border: 1px solid rgba(255, 255, 255, 0.06) !important;
+    border-radius: 4px !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+}
+
+.card-sparkline {
+    width: calc(100% - 46px) !important;
+    height: 18px !important;
+    overflow: visible !important;
+}
+
+.sparkline-pill {
+    font-size: 0.58rem !important;
+    font-weight: 800 !important;
+    font-family: 'JetBrains Mono', monospace !important;
+    white-space: nowrap !important;
+    padding: 1px 4px !important;
+    border-radius: 3px !important;
+    background: rgba(0, 0, 0, 0.65) !important;
+    flex-shrink: 0 !important;
+    line-height: 1.1 !important;
 }
 
 .pack-info {
@@ -4787,13 +4887,9 @@ body:not(.sidebar-collapsed) .search-wrapper,
     white-space: nowrap !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
-    max-width: 65% !important;
-}
-
-.price-main {
-    white-space: nowrap !important;
+    max-width: 100% !important;
+    line-height: 1.2 !important;
     flex-shrink: 0 !important;
-    font-size: 1.15rem !important;
 }
 
 /* ============================================================
@@ -5418,24 +5514,90 @@ body.theme-light .intel-variant-photo.active {
 
     .p-detail-sh {
         height: auto !important;
-        min-height: 104px !important;
-        padding: 7px 8px !important;
+        min-height: 136px !important;
+        padding: 7px 8px 9px !important;
+        gap: 5px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        overflow: visible !important;
+        box-sizing: border-box !important;
     }
 
     .product-name {
-        font-size: 0.74rem !important;
+        font-size: 0.72rem !important;
         line-height: 1.25 !important;
-        min-height: 2.5em !important;
+        height: 3.75em !important;
+        min-height: 3.75em !important;
         max-height: 3.75em !important;
         display: -webkit-box !important;
         -webkit-line-clamp: 3 !important;
         -webkit-box-orient: vertical !important;
         overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        word-break: break-word !important;
+        margin: 0 !important;
+    }
+
+    .product-meta {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 3px !important;
+        border-top: 1px solid var(--line-soft) !important;
+        padding-top: 5px !important;
+        margin-top: 5px !important;
+        flex-grow: 1 !important;
+        overflow: visible !important;
+        width: 100% !important;
+    }
+
+    .meta-row {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: baseline !important;
+        gap: 4px !important;
+        width: 100% !important;
+        flex-shrink: 0 !important;
+    }
+
+    .meta-row:last-child {
+        margin-top: auto !important;
     }
 
     .price-main {
-        font-size: 0.88rem !important;
+        font-size: 0.98rem !important;
         font-weight: 800 !important;
+        line-height: 1.15 !important;
+    }
+
+    .price-tag {
+        font-size: 0.76rem !important;
+        padding: 1px 5px !important;
+        bottom: 4px !important;
+        right: 4px !important;
+    }
+
+    .card-sparkline-wrap {
+        height: 20px !important;
+        min-height: 20px !important;
+        flex-shrink: 0 !important;
+        margin: 1px 0 !important;
+        padding: 0 3px !important;
+    }
+
+    .card-sparkline {
+        width: calc(100% - 38px) !important;
+        height: 16px !important;
+    }
+
+    .sparkline-pill {
+        font-size: 0.54rem !important;
+        padding: 1px 3px !important;
+    }
+
+    .pack-info {
+        font-size: 0.58rem !important;
+        line-height: 1.15 !important;
     }
 
     /* 6. Mobile Floating Dock & Quick Toggles */
