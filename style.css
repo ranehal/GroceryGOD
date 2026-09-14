@@ -4741,10 +4741,10 @@ body:not(.sidebar-collapsed) .search-wrapper,
     font-size: 0.78rem !important;
     font-weight: 600 !important;
     line-height: 1.32 !important;
-    height: 2.65em !important;
-    max-height: 2.65em !important;
+    min-height: 2.64em !important;
+    max-height: 4.0em !important;
     display: -webkit-box !important;
-    -webkit-line-clamp: 2 !important;
+    -webkit-line-clamp: 3 !important;
     -webkit-box-orient: vertical !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
@@ -5418,16 +5418,17 @@ body.theme-light .intel-variant-photo.active {
 
     .p-detail-sh {
         height: auto !important;
-        min-height: 96px !important;
+        min-height: 104px !important;
         padding: 7px 8px !important;
     }
 
     .product-name {
         font-size: 0.74rem !important;
         line-height: 1.25 !important;
-        height: 2.5em !important;
+        min-height: 2.5em !important;
+        max-height: 3.75em !important;
         display: -webkit-box !important;
-        -webkit-line-clamp: 2 !important;
+        -webkit-line-clamp: 3 !important;
         -webkit-box-orient: vertical !important;
         overflow: hidden !important;
     }

@@ -24,8 +24,8 @@ let metadata = {};
 let _godDbResolver;
 window.__godDbPromise = new Promise(resolve => { _godDbResolver = resolve; });
 let godDB = null; // persistent DuckDB connection for on-demand queries
-const ASSET_VERSION = window.GOD_ASSET_VERSION || '20260909_v1';
-let currentDataSource = safeStorage.getItem('god_data_source') || 'turso';
+const ASSET_VERSION = window.GOD_ASSET_VERSION || '20260914_v4';
+let currentDataSource = safeStorage.getItem('god_data_source') || 'local';
 let favorites = JSON.parse(safeStorage.getItem('god_favorites') || '[]');
 let selectedForComparison = JSON.parse(safeStorage.getItem('god_comparison') || '[]');
 let customGroups = JSON.parse(safeStorage.getItem('god_custom_groups') || '{}');
@@ -685,8 +685,8 @@ async function loadAllFromTurso() {
             window.__tursoHasMore = false;
             log(`⚡ Fast First Paint: ${allProducts.length} default Shwapno ATL deals loaded in ${(performance.now() - t0).toFixed(0)}ms!`);
         } else {
-            // If ATL deals empty for Shwapno, load general products as immediate fallback
-            const fallbackRows = await queryTurso('SELECT * FROM products WHERE store = ? ORDER BY in_stock DESC, last_seen DESC LIMIT 50;', ['shwapno']).catch(() => []);
+            // If ATL deals empty for Shwapno, query products with strict price drop criteria (never flat)
+            const fallbackRows = await queryTurso('SELECT * FROM products WHERE store = ? AND in_stock = 1 AND hist_count >= 2 AND max_price >= min_price * 1.03 AND (max_price - min_price) >= 1.0 AND normalized_price <= min_price * 1.005 ORDER BY (max_price - normalized_price) DESC LIMIT 50;', ['shwapno']).catch(() => []);
             if (fallbackRows && fallbackRows.length > 0) {
                 fallbackRows.forEach(r => {
                     if (!seenTursoProductIds.has(r.id)) {
@@ -1978,7 +1978,7 @@ function renderProducts() {
         if (activeIntelFilter === 'good') return !isOos && p.normalized_price < (p.avgPrice * goodBuyThreshold);
         if (activeIntelFilter === 'customdrop') return !isOos && p.avgPrice > 0 && p.normalized_price <= (p.avgPrice * (1 - customDropThreshold / 100));
         if (activeIntelFilter === 'wait') return p.normalized_price > (p.avgPrice * 1.05);
-        if (activeIntelFilter === 'first_low') return !isOos && Number(p.normalized_price) > 0 && (p.isFirstTimeLow || p.is_first_low || checkIsFirstTimeLow(p));
+        if (activeIntelFilter === 'first_low') return !isOos && Number(p.normalized_price) > 0 && p.hist_count >= 2 && (p.maxPrice >= p.minPrice * 1.03) && (p.maxPrice - p.minPrice >= 1.0) && (p.isFirstTimeLow || p.is_first_low || checkIsFirstTimeLow(p));
         if (activeIntelFilter === 'low') return !isOos && Number(p.normalized_price) > 0 && p.hist_count >= 2 && (p.maxPrice >= p.minPrice * 1.03) && (p.maxPrice - p.minPrice >= 1.0) && p.normalized_price <= (p.minPrice * 1.005);
         if (activeIntelFilter === 'new') return p.isNew;
         if (activeIntelFilter === 'pricechange') {
@@ -2309,24 +2309,92 @@ function createProductCard(p) {
     return card;
 }
 
+function parseSparklinePoints(val) {
+    if (!val) return [];
+    if (Array.isArray(val)) return val.map(Number).filter(v => !isNaN(v) && v > 0);
+    if (typeof val === 'string') {
+        const str = val.trim();
+        if (!str || str === '[]') return [];
+        try {
+            const parsed = JSON.parse(str);
+            if (Array.isArray(parsed)) return parsed.map(Number).filter(v => !isNaN(v) && v > 0);
+        } catch (_) {}
+        const cleaned = str.replace(/[\[\]]/g, '').trim();
+        if (!cleaned) return [];
+        return cleaned.split(',').map(s => Number(s.trim())).filter(v => !isNaN(v) && v > 0);
+    }
+    return [];
+}
+
 function renderCardSparklineSvg(p) {
     if (!p) return '';
-    let points = [];
     const isPremium = Boolean(typeof premiumUnlocked !== 'undefined' && premiumUnlocked);
-    const rawSparkline = (isPremium && p.sparkline_all) ? p.sparkline_all : (p.sparkline || p.sparkline_all);
-    if (typeof rawSparkline === 'string' && rawSparkline.length > 0) {
-        points = rawSparkline.split(',').map(Number).filter(v => !isNaN(v) && v > 0);
-    } else if (Array.isArray(p.history) && p.history.length >= 2) {
+    
+    // Check if item is an authentic ATL deal with a verified price drop
+    const minP = Number(p.minPrice != null ? p.minPrice : (p.normalized_price || 0));
+    const maxP = Number(p.maxPrice != null ? p.maxPrice : (p.normalized_price || 0));
+    const normP = Number(p.normalized_price || p.current_price || 0);
+    const hasRealDrop = (maxP >= minP * 1.03) && ((maxP - minP) >= 1.0) && (normP <= minP * 1.005) && normP > 0;
+
+    let points = [];
+    const pts7d = parseSparklinePoints(p.sparkline);
+    const ptsAll = parseSparklinePoints(p.sparkline_all);
+
+    if (isPremium) {
+        // Premium mode: prioritize full all-time history sparkline
+        if (ptsAll.length >= 2 && (Math.max(...ptsAll) - Math.min(...ptsAll) >= 0.01)) {
+            points = ptsAll;
+        } else if (pts7d.length >= 2 && (Math.max(...pts7d) - Math.min(...pts7d) >= 0.01)) {
+            points = pts7d;
+        } else if (ptsAll.length >= 2) {
+            points = ptsAll;
+        } else if (pts7d.length >= 2) {
+            points = pts7d;
+        }
+    } else {
+        // Free mode: check 7-day sparkline first.
+        // If 7-day is flat (drop happened >7 days ago), fallback to all-time sparkline so user sees the drop!
+        const is7dFlat = pts7d.length >= 2 && (Math.max(...pts7d) - Math.min(...pts7d) < 0.01);
+        if (pts7d.length >= 2 && !is7dFlat) {
+            points = pts7d;
+        } else if (ptsAll.length >= 2 && (Math.max(...ptsAll) - Math.min(...ptsAll) >= 0.01)) {
+            points = ptsAll;
+        } else if (pts7d.length >= 2) {
+            points = pts7d;
+        }
+    }
+
+    // If still empty and p.history is loaded
+    if (points.length < 2 && Array.isArray(p.history) && p.history.length >= 2) {
         const hist = isPremium ? p.history : p.history.slice(-7);
-        points = hist.map(h => Number(h.price || h.normalized_price || 0)).filter(v => v > 0);
+        points = hist.map(h => Number(h.normalized_price || h.price || 0)).filter(v => v > 0);
+    }
+
+    // Ensure the latest point matches current normalized price if current price is at min
+    if (points.length >= 2 && normP > 0) {
+        const lastPt = points[points.length - 1];
+        if (Math.abs(lastPt - normP) > 0.05 && normP <= minP * 1.005) {
+            points = [...points, normP];
+        }
+    }
+
+    // If points are flat or missing, but this product is a verified ATL drop deal:
+    // Synthesize the drop curve from maxPrice down to normalized_price!
+    let min = points.length >= 2 ? Math.min(...points) : 0;
+    let max = points.length >= 2 ? Math.max(...points) : 0;
+    if ((points.length < 2 || Math.abs(max - min) < 0.01) && hasRealDrop) {
+        const avgP = Number(p.avgPrice || (maxP + normP) / 2);
+        points = [maxP, maxP, avgP, avgP, normP, normP, normP];
+        min = normP;
+        max = maxP;
     }
 
     if (points.length < 2) return '';
 
-    const min = Math.min(...points);
-    const max = Math.max(...points);
+    min = Math.min(...points);
+    max = Math.max(...points);
 
-    // If completely flat, never show in ATL / sparkline
+    // CRITICAL MANDATE: Never show flat / all-time same price graphs in ATL (free or premium)
     if (Math.abs(max - min) < 0.01) return '';
 
     const first = points[0];
@@ -2364,7 +2432,7 @@ function renderCardSparklineSvg(p) {
     const pctChange = first > 0 ? Math.abs(((last - first) / first) * 100).toFixed(0) : '0';
 
     return `
-        <div class="card-sparkline-wrap" title="${isPremium ? 'Full Price History' : '7-Day Trend'}: ${fmt(first)} → ${fmt(last)} Tk">
+        <div class="card-sparkline-wrap" title="${isPremium ? 'Full Price History' : 'Price Trend'}: ${fmt(first)} → ${fmt(last)} Tk">
             <svg class="card-sparkline" viewBox="0 0 ${width} ${height}" preserveAspectRatio="none" aria-hidden="true">
                 <path d="${areaData}" fill="${fillColor}" />
                 <path d="${pathData}" fill="none" stroke="${strokeColor}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
@@ -5024,6 +5092,18 @@ function countDuplicateProducts(products) {
 async function fetchFirstAvailable(paths, label = 'asset') {
     let lastError = null;
     const cacheName = `god-parquet-cache-${ASSET_VERSION}`;
+    if (typeof window !== 'undefined' && 'caches' in window && !window.__godParquetCacheCleaned) {
+        window.__godParquetCacheCleaned = true;
+        try {
+            window.caches.keys().then(keys => {
+                keys.forEach(k => {
+                    if (k.startsWith('god-parquet-cache-') && k !== cacheName) {
+                        window.caches.delete(k);
+                    }
+                });
+            }).catch(() => {});
+        } catch (_) {}
+    }
     for (const rawPath of paths) {
         const path = rawPath.includes('?') ? rawPath : `${rawPath}?v=${ASSET_VERSION}`;
         try {
