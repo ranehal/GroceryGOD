@@ -532,6 +532,8 @@ function mapProductRow(r) {
         isFirstTimeLow: (r.is_first_low === 1 || r.is_first_low === '1' || r.is_first_low === true),
         oldest_date: r.first_seen || null,
         newest_date: r.last_seen || null,
+        sparkline: r.sparkline || null,
+        sparkline_all: r.sparkline_all || null,
         _historyLoaded: false,
         _historyLoading: false,
         _historyType: null
@@ -749,8 +751,8 @@ async function loadAllFromTurso() {
         try {
             let rows = await queryTurso(sql);
             if ((!rows || rows.length === 0) && activeIntelFilter === 'low' && offset === 0 && !cleanQ) {
-                // If ATL deals empty for this store, query products directly so store never shows 0
-                rows = await queryTurso(`SELECT * FROM products WHERE store IN (${storeInClause}) ORDER BY in_stock DESC, last_seen DESC LIMIT 50;`).catch(() => []);
+                // If ATL deals table empty for this store, query products with strict price drop criteria (never flat)
+                rows = await queryTurso(`SELECT * FROM products WHERE store IN (${storeInClause}) AND in_stock = 1 AND hist_count >= 2 AND max_price >= min_price * 1.03 AND (max_price - min_price) >= 1.0 AND normalized_price <= min_price * 1.005 ORDER BY (max_price - normalized_price) DESC LIMIT 50;`).catch(() => []);
             }
             if (!rows || rows.length === 0) {
                 window.__tursoHasMore = false;
@@ -950,6 +952,8 @@ async function loadAllFromParquet() {
             isFirstTimeLow: (r.is_first_low === 1 || r.is_first_low === '1' || r.is_first_low === true),
             oldest_date: r.first_seen || null,
             newest_date: r.last_seen || null,
+            sparkline: r.sparkline || null,
+            sparkline_all: r.sparkline_all || null,
             _historyLoaded: false,
             _historyLoading: false
         };
@@ -1008,7 +1012,6 @@ async function loadAllFromParquet() {
         const priorityResult = await conn.query(`
             SELECT * FROM read_parquet('atl.parquet')
             ORDER BY (max_price - normalized_price) DESC
-            LIMIT 400
         `);
         let addedNew = false;
         for (const row of priorityResult.toArray()) {
@@ -1160,9 +1163,7 @@ async function loadAllFromParquet() {
                     try { renderSidebar(); } catch(e) {}
                     try { updateStoreStats(); } catch(e) {}
                     try { updateStatsBar(); } catch(e) {}
-                    if (activeIntelFilter !== 'low' || searchQuery) {
-                        try { renderProducts(); } catch(e) {}
-                    }
+                    try { renderProducts(); } catch(e) {}
                 }
             }
 
@@ -2256,7 +2257,7 @@ function createProductCard(p) {
     if (isFirstLow) {
         badges.push(`<span class="card-badge-item badge-first-low" title="1st Time Lowest Price Record">1ST LOW</span>`);
     } else {
-        const isLow = !isOos && p.hist_count >= 1 && p.maxPrice - p.minPrice > 0.01 && p.normalized_price <= (p.minPrice + 0.01) && Number(p.normalized_price) > 0;
+        const isLow = !isOos && p.hist_count >= 2 && (p.maxPrice >= p.minPrice * 1.03) && (p.maxPrice - p.minPrice >= 1.0) && p.normalized_price <= (p.minPrice * 1.005) && Number(p.normalized_price) > 0;
         if (isLow) {
             badges.push(`<span class="card-badge-item badge-low">LOW</span>`);
         }
@@ -2273,6 +2274,7 @@ function createProductCard(p) {
     }
 
     const badgeStackHtml = badges.length ? `<div class="card-badge-stack">${badges.join('')}</div>` : '';
+    const sparklineHtml = renderCardSparklineSvg(p);
 
     card.innerHTML = `
         <div class="store-badge" style="background:${storeColor}">${escapeHTML(p.store)}</div>
@@ -2295,6 +2297,7 @@ function createProductCard(p) {
                     <span class="price-main" style="color:${storeColor}">${isOos ? 'Out of stock' : `${fmt(p.normalized_price)} <span class="unit-label">/${escapeHTML(unitTypeLabel(p.unit_type))}</span>`}</span>
                     <span class="cat-tag" title="${escapeAttribute(p.category)}">${escapeHTML(p.category)}</span>
                 </div>
+                ${sparklineHtml}
                 <div class="meta-row">
                     <span class="pack-info">Pack: ${escapeHTML(formatPackUnit(p.unit))}</span>
                 </div>
@@ -2304,6 +2307,71 @@ function createProductCard(p) {
     
     // Click handling is done via a single delegated listener on #sh-grid (see renderProducts).
     return card;
+}
+
+function renderCardSparklineSvg(p) {
+    if (!p) return '';
+    let points = [];
+    const isPremium = Boolean(typeof premiumUnlocked !== 'undefined' && premiumUnlocked);
+    const rawSparkline = (isPremium && p.sparkline_all) ? p.sparkline_all : (p.sparkline || p.sparkline_all);
+    if (typeof rawSparkline === 'string' && rawSparkline.length > 0) {
+        points = rawSparkline.split(',').map(Number).filter(v => !isNaN(v) && v > 0);
+    } else if (Array.isArray(p.history) && p.history.length >= 2) {
+        const hist = isPremium ? p.history : p.history.slice(-7);
+        points = hist.map(h => Number(h.price || h.normalized_price || 0)).filter(v => v > 0);
+    }
+
+    if (points.length < 2) return '';
+
+    const min = Math.min(...points);
+    const max = Math.max(...points);
+
+    // If completely flat, never show in ATL / sparkline
+    if (Math.abs(max - min) < 0.01) return '';
+
+    const first = points[0];
+    const last = points[points.length - 1];
+
+    // Color logic: upward is RED (#ef4444), downward is GREEN (#10b981)
+    let strokeColor = '#06b6d4';
+    let fillColor = 'rgba(6, 182, 212, 0.12)';
+    let trendSymbol = '■';
+
+    if (last > first + 0.01) {
+        strokeColor = '#ef4444'; // Red for price increase
+        fillColor = 'rgba(239, 68, 68, 0.15)';
+        trendSymbol = '▲';
+    } else if (last < first - 0.01) {
+        strokeColor = '#10b981'; // Green for price drop
+        fillColor = 'rgba(16, 185, 129, 0.15)';
+        trendSymbol = '▼';
+    }
+
+    const width = 100;
+    const height = 20;
+    const paddingY = 2;
+    const range = (max - min) || 1;
+
+    const coords = points.map((val, idx) => {
+        const x = (idx / (points.length - 1)) * width;
+        const normY = (val - min) / range;
+        const y = (height - paddingY) - normY * (height - paddingY * 2);
+        return [Number(x.toFixed(1)), Number(y.toFixed(1))];
+    });
+
+    const pathData = 'M ' + coords.map(pt => `${pt[0]},${pt[1]}`).join(' L ');
+    const areaData = `${pathData} L ${width},${height} L 0,${height} Z`;
+    const pctChange = first > 0 ? Math.abs(((last - first) / first) * 100).toFixed(0) : '0';
+
+    return `
+        <div class="card-sparkline-wrap" title="${isPremium ? 'Full Price History' : '7-Day Trend'}: ${fmt(first)} → ${fmt(last)} Tk">
+            <svg class="card-sparkline" viewBox="0 0 ${width} ${height}" preserveAspectRatio="none" aria-hidden="true">
+                <path d="${areaData}" fill="${fillColor}" />
+                <path d="${pathData}" fill="none" stroke="${strokeColor}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <span class="sparkline-pill" style="color:${strokeColor}">${trendSymbol} ${pctChange}%</span>
+        </div>
+    `;
 }
 
 
@@ -5172,34 +5240,87 @@ async function attemptPremiumUnlock() {
     }
 }
 
+async function fetchPremiumArchiveBuffer() {
+    const versionQS = `v=${ASSET_VERSION}`;
+    
+    // 1. Try single full unencrypted or single encrypted file if available
+    const singleSources = [
+        `premium/history_archive.parquet?${versionQS}`,
+        `history_archive.parquet?${versionQS}`,
+        `history.parquet?${versionQS}`,
+        `premium/history_archive.parquet.enc?${versionQS}`,
+        `history_archive.parquet.enc?${versionQS}`
+    ];
+    for (const url of singleSources) {
+        try {
+            const head = await fetch(url, { method: 'HEAD' });
+            if (head.ok) {
+                const res = await fetch(url);
+                if (res.ok) {
+                    const buf = await res.arrayBuffer();
+                    if (buf && buf.byteLength > 0) {
+                        return { buffer: buf, path: url };
+                    }
+                }
+            }
+        } catch (_) {}
+    }
+
+    // 2. Fetch chunked encrypted archive files: .enc.000, .enc.001, ...
+    const chunkPrefixes = [
+        'premium/history_archive.parquet.enc',
+        'history_archive.parquet.enc'
+    ];
+
+    for (const prefix of chunkPrefixes) {
+        const chunks = [];
+        let chunkIdx = 0;
+        while (true) {
+            const chunkNum = String(chunkIdx).padStart(3, '0');
+            const chunkUrl = `${prefix}.${chunkNum}?${versionQS}`;
+            try {
+                const res = await fetch(chunkUrl);
+                if (!res.ok) break;
+                const chunkBuf = await res.arrayBuffer();
+                chunks.push(new Uint8Array(chunkBuf));
+                chunkIdx++;
+            } catch (_) {
+                break;
+            }
+        }
+
+        if (chunks.length > 0) {
+            const totalBytes = chunks.reduce((acc, c) => acc + c.byteLength, 0);
+            const combined = new Uint8Array(totalBytes);
+            let offset = 0;
+            for (const chunk of chunks) {
+                combined.set(chunk, offset);
+                offset += chunk.byteLength;
+            }
+            return { buffer: combined.buffer, path: `${prefix} [${chunks.length} chunks]` };
+        }
+    }
+
+    throw new Error('Encrypted premium archive could not be located on server.');
+}
+
 async function unlockPremiumArchive(passphrase) {
-    if (!godDB) throw new Error('DuckDB is not ready.');
     const normalizedKey = (passphrase || '').trim();
     if (!normalizedKey) throw new Error('Please enter a passphrase.');
 
     const isDemoKey = normalizedKey.toUpperCase() === 'GODDEMO';
     const isMasterKey = normalizedKey === 'assalamualaikum';
 
-    const versionQS = `v=${ASSET_VERSION}`;
-    let fetched = null;
-    try {
-        fetched = await fetchFirstAvailable([
-            `premium/history_archive.parquet?${versionQS}`,
-            `history_archive.parquet?${versionQS}`,
-            `history.parquet?${versionQS}`,
-            `premium/history_archive.parquet.enc?${versionQS}`,
-            `history_archive.parquet.enc?${versionQS}`
-        ], 'premium history');
-    } catch (e) {
-        if (isDemoKey) {
-            console.log('[GOD_PREMIUM] Demo mode activated.');
-            window.__hasPremiumArchive = true;
-            setPremiumUnlocked(true, true);
-            return;
-        }
-        throw e;
+    if (isDemoKey) {
+        console.log('[GOD_PREMIUM] Demo mode activated.');
+        window.__hasPremiumArchive = true;
+        setPremiumUnlocked(true, true);
+        return;
     }
 
+    if (!godDB) throw new Error('DuckDB is not ready.');
+
+    const fetched = await fetchPremiumArchiveBuffer();
     const raw = new Uint8Array(fetched.buffer);
     const isEncrypted = raw.byteLength >= 4 && new TextDecoder().decode(raw.slice(0, 4)) === 'GGE1';
     let decrypted = null;
@@ -5207,7 +5328,7 @@ async function unlockPremiumArchive(passphrase) {
     if (isEncrypted) {
         decrypted = await decryptGGE1(fetched.buffer, normalizedKey);
     } else {
-        if (!isDemoKey && !isMasterKey) {
+        if (!isMasterKey) {
             throw new Error('Invalid premium key.');
         }
         decrypted = new Uint8Array(fetched.buffer);
@@ -5364,14 +5485,36 @@ function buildHistoryView(product) {
         };
     }
 
-    const freeDays = getFreeSevenDayWindow(source, product.current_price, product.normalized_price, isCurrentlyInStock);
-    const lockedCount = Math.max(0, source.length - freeDays.length);
+    // Free tier:
+    // Supply full lookback timeline so Chart.js renders the full multi-week curve across the canvas.
+    // The paywall mask overlays the left ~82% of the canvas with frosted glass and gold border,
+    // while the latest 7-day window remains unblurred and crisp on the right ~18% (matches history_paywall_preview.webp).
+    let displayRows = source;
+    if (!source || source.length < 24) {
+        const free7 = getFreeSevenDayWindow(source, product.current_price, product.normalized_price, isCurrentlyInStock);
+        const baselinePrice = Number(product.avgPrice || product.minPrice || product.current_price || 0);
+        const baselineNorm = Number(product.avgPrice || product.normalized_price || product.current_price || 0);
+        const earliest7Date = new Date(free7[0].date + 'T12:00:00Z');
+        const dayMs = 86400000;
+        const pastRows = [];
+        for (let i = 24; i >= 1; i--) {
+            const d = new Date(earliest7Date.getTime() - i * dayMs);
+            const dStr = d.toISOString().slice(0, 10);
+            pastRows.push({
+                date: dStr,
+                price: baselinePrice,
+                normalized_price: baselineNorm,
+                _filled: true
+            });
+        }
+        displayRows = [...pastRows, ...free7];
+    }
 
     return { 
-        rows: freeDays, 
+        rows: displayRows, 
         premium: false, 
-        lockedCount: lockedCount, 
-        freeCount: freeDays.length 
+        lockedCount: Math.max(0, displayRows.length - 7), 
+        freeCount: 7 
     };
 }
 
@@ -5758,17 +5901,34 @@ document.addEventListener('DOMContentLoaded',()=>{
 // Tier 1: free-tier Gemini (user-supplied API key, stored ONLY in localStorage) with
 //         function calling — the model emits tool calls, we run them on local data,
 //         and only aggregates ever leave the browser. The key is never committed to GitHub.
-const CHAT_GEMINI_MODEL = 'gemini-2.5-flash';
+const CHAT_GEMINI_MODELS = ['gemini-2.0-flash', 'gemini-1.5-flash'];
+let CHAT_GEMINI_MODEL = CHAT_GEMINI_MODELS[0];
 const CHAT_KEY_STORAGE = 'god_gemini_key';
+const BANGLA_GROCERY_DICT = {
+    'চাল': 'rice', 'চাউল': 'rice', 'মিনিকেট': 'miniket', 'নাজিরশাইল': 'najirshail',
+    'তেল': 'oil', 'সয়াবিন': 'soybean', 'সয়াবিন তেল': 'soybean oil', 'সরিষার তেল': 'mustard oil',
+    'দুধ': 'milk', 'ডানো': 'dano', 'মিল্ক': 'milk', 'গুঁড়া দুধ': 'milk powder',
+    'ডিম': 'egg', 'ফার্মের ডিম': 'egg', 'হাঁসের ডিম': 'duck egg',
+    'চিনি': 'sugar', 'দেশি চিনি': 'sugar',
+    'ডাল': 'dal', 'মসুর ডাল': 'lentil', 'মুগ ডাল': 'moong dal',
+    'আলু': 'potato', 'পেঁয়াজ': 'onion', 'পিয়াজ': 'onion', 'রসুন': 'garlic', 'আদা': 'ginger',
+    'মুরগি': 'chicken', 'চিকেন': 'chicken', 'ব্রয়লার': 'broiler',
+    'গরুর মাংস': 'beef', 'গরু': 'beef', 'বিফ': 'beef', 'খাসির মাংস': 'mutton',
+    'মাছ': 'fish', 'রুই মাছ': 'rui', 'ইলিশ': 'hilsa',
+    'আটা': 'flour', 'ময়দা': 'flour', 'সুজি': 'semolina',
+    'লবণ': 'salt', 'লবন': 'salt',
+    'চা': 'tea', 'চা পাতা': 'tea',
+    'সাবান': 'soap', 'শ্যাম্পু': 'shampoo'
+};
 const CHAT_STORE_ALIASES = {
-    'shwapno': 'shwapno', 'swapno': 'shwapno', 'shwapno super shop': 'shwapno',
-    'chaldal': 'chaldal', 'chaldal.com': 'chaldal',
-    'meena': 'meenabazar', 'meenabazar': 'meenabazar', 'meena bazar': 'meenabazar',
-    'othoba': 'othoba', 'othoba.com': 'othoba',
-    'metro': 'metromart', 'metromart': 'metromart', 'metro mart': 'metromart',
-    'unimart': 'unimart', 'uni mart': 'unimart',
-    'shotej': 'shotejbazar', 'shotejbazar': 'shotejbazar', 'shotej bazar': 'shotejbazar',
-    'foodi': 'foodi', 'foodie': 'foodi'
+    'shwapno': 'shwapno', 'swapno': 'shwapno', 'shwapno super shop': 'shwapno', 'স্বপ্ন': 'shwapno',
+    'chaldal': 'chaldal', 'chaldal.com': 'chaldal', 'চালডাল': 'chaldal',
+    'meena': 'meenabazar', 'meenabazar': 'meenabazar', 'meena bazar': 'meenabazar', 'মীনা বাজার': 'meenabazar',
+    'othoba': 'othoba', 'othoba.com': 'othoba', 'অথবা': 'othoba',
+    'metro': 'metromart', 'metromart': 'metromart', 'metro mart': 'metromart', 'মেট্রো': 'metromart',
+    'unimart': 'unimart', 'uni mart': 'unimart', 'ইউনিমার্ট': 'unimart',
+    'shotej': 'shotejbazar', 'shotejbazar': 'shotejbazar', 'shotej bazar': 'shotejbazar', 'সতেজ': 'shotejbazar',
+    'foodi': 'foodi', 'foodie': 'foodi', 'ফুডি': 'foodi'
 };
 let chatOpen = false;
 let chatBusy = false;
@@ -5797,7 +5957,7 @@ function chatStoreName(sid) {
 }
 
 function chatFindProducts(query, storeId) {
-    const terms = String(query || '').toLowerCase().split(/\s+/).filter(w => w.length > 1);
+    const terms = String(query || '').toLowerCase().split(/\s+/).filter(w => w.length > 0);
     let list = allProducts;
     if (storeId) list = list.filter(p => p.store === storeId);
     if (terms.length) {
@@ -5806,6 +5966,15 @@ function chatFindProducts(query, storeId) {
             return terms.every(w => hay.includes(w));
         });
     }
+    // Prioritize in-stock items with valid price, sorted by normalized_price ascending
+    list = list.slice().sort((a, b) => {
+        const aStock = (a.in_stock && !a.is_out_of_stock && Number(a.current_price) > 0) ? 1 : 0;
+        const bStock = (b.in_stock && !b.is_out_of_stock && Number(b.current_price) > 0) ? 1 : 0;
+        if (aStock !== bStock) return bStock - aStock;
+        const aP = Number(a.normalized_price || a.current_price || Infinity);
+        const bP = Number(b.normalized_price || b.current_price || Infinity);
+        return aP - bP;
+    });
     return list.slice(0, 60);
 }
 
@@ -5848,8 +6017,16 @@ async function chatHistorySummary(productId, label) {
 }
 
 function chatLocalAnswer(text) {
-    const t = text.toLowerCase().trim();
+    let t = text.toLowerCase().trim();
     if (!t) return null;
+
+    // Normalize Bangla grocery keywords to English for matching against product catalog
+    for (const [bnWord, enWord] of Object.entries(BANGLA_GROCERY_DICT)) {
+        if (t.includes(bnWord)) {
+            t = t.replaceAll(bnWord, enWord);
+        }
+    }
+
     if (t === 'help' || t === 'hi' || t === 'hello' || t === 'সালাম' || t === 'help me') {
         return `I can answer price questions about ${Object.values(STORE_CONFIG).map(s => s.name).join(', ')} from live parquet data. Try:\n` +
             `• "cheapest rice" — cheapest across all stores\n` +
@@ -5928,6 +6105,15 @@ function chatLocalAnswer(text) {
         chatTrack(winners);
         return winners.map(p => chatPriceLine(p, true)).join('\n');
     }
+    // Top deals & all time lows
+    if (/(?:deal|discount|offer|all time low|atl|best buy|সেরা অফার|অফার)/.test(t)) {
+        const deals = allProducts.filter(p => !p.is_out_of_stock && p.in_stock && Number(p.normalized_price) > 0 && p.hist_count >= 2 && (p.maxPrice >= p.minPrice * 1.03) && (p.maxPrice - p.minPrice >= 1.0) && p.normalized_price <= (p.minPrice * 1.005)).slice(0, 5);
+        if (deals.length) {
+            chatTrack(deals);
+            return `🔥 Top Verified All-Time Low Deals Today:\n` + deals.map(p => chatPriceLine(p, true)).join('\n');
+        }
+    }
+
     const cheapestMatch = t.match(/(?:cheapest|lowest price|best price|cheaper|most affordable|সস্তা|কম দাম)\s+(?:is\s+|for\s+|of\s+)?(.+)/) ||
                           t.match(/(?:cheap|lowest|best)\s+(.+)/);
     if (cheapestMatch) {
@@ -5949,6 +6135,18 @@ function chatLocalAnswer(text) {
             }
         }
     }
+
+    // Direct product keyword search for bare terms
+    const cleanQ = t.replace(/(?:what is the|what is|show me|find me|tell me|search for|about|dam koto|er dam|দাম কত|এর দাম|koto)\s*/g, '').trim();
+    if (cleanQ.length >= 2) {
+        const found = chatRanked(cleanQ, sid, 5);
+        if (found && found.length > 0) {
+            chatTrack(found);
+            const storeLabel = sid ? ` in ${chatStoreName(sid)}` : ' across stores';
+            return `🔍 Top items for "${cleanQ}"${storeLabel}:\n` + found.map(p => chatPriceLine(p, !sid)).join('\n');
+        }
+    }
+
     return null;
 }
 
@@ -6114,28 +6312,39 @@ const CHAT_TOOL_EXECUTORS = {
 };
 
 async function chatGeminiRound(contents) {
-    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${CHAT_GEMINI_MODEL}:generateContent?key=${encodeURIComponent(chatKey)}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            contents,
-            systemInstruction: { parts: [{ text: CHAT_SYSTEM_PROMPT }] },
-            tools: [{ functionDeclarations: CHAT_TOOLS }],
-            toolConfig: { functionCallingConfig: { mode: 'AUTO' } },
-            generationConfig: { temperature: 0.3, maxOutputTokens: 900 }
-        })
-    });
-    if (!res.ok) {
-        const body = await res.text().catch(() => '');
-        if (res.status === 400 && /API key not valid|API_KEY_INVALID/.test(body)) {
-            throw new Error('AI_KEY_INVALID');
+    let lastError = null;
+    for (const model of CHAT_GEMINI_MODELS) {
+        try {
+            const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${encodeURIComponent(chatKey)}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    contents,
+                    systemInstruction: { parts: [{ text: CHAT_SYSTEM_PROMPT }] },
+                    tools: [{ functionDeclarations: CHAT_TOOLS }],
+                    toolConfig: { functionCallingConfig: { mode: 'AUTO' } },
+                    generationConfig: { temperature: 0.3, maxOutputTokens: 900 }
+                })
+            });
+            if (!res.ok) {
+                const body = await res.text().catch(() => '');
+                if (res.status === 400 && /API key not valid|API_KEY_INVALID/.test(body)) {
+                    throw new Error('AI_KEY_INVALID');
+                }
+                lastError = new Error(`Gemini ${model} HTTP ${res.status}: ${body.slice(0, 160)}`);
+                continue; // Try next model fallback
+            }
+            const data = await res.json();
+            const cand = data.candidates && data.candidates[0];
+            if (!cand || !cand.content) throw new Error('Gemini returned an empty response.');
+            CHAT_GEMINI_MODEL = model;
+            return cand.content.parts || [];
+        } catch (err) {
+            if (err.message === 'AI_KEY_INVALID') throw err;
+            lastError = err;
         }
-        throw new Error(`Gemini HTTP ${res.status}: ${body.slice(0, 160)}`);
     }
-    const data = await res.json();
-    const cand = data.candidates && data.candidates[0];
-    if (!cand || !cand.content) throw new Error('Gemini returned an empty response.');
-    return cand.content.parts || [];
+    throw lastError || new Error('Gemini request failed.');
 }
 
 async function chatGeminiAsk(text) {

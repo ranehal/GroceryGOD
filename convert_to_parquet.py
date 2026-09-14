@@ -379,47 +379,86 @@ con.execute(f"COPY merged_products TO '{os.path.join(BASE, 'products_free.parque
 # Export pre-calculated All-Time-Low (ATL) deals parquet for instantaneous hero launch (photos only for pristine visual speed)
 atl_path = os.path.join(BASE, 'atl.parquet').replace(chr(92), '/')
 con.execute(f"""
-    COPY (
-        WITH store_max AS (
-            SELECT store, MAX(last_seen) as max_seen
-            FROM merged_products
-            GROUP BY store
-        )
-        SELECT p.* 
-        FROM merged_products p
-        JOIN store_max sm ON p.store = sm.store
-        WHERE p.in_stock = true 
-          AND p.is_out_of_stock = false
-          AND p.current_price > 0
-          AND p.hist_count >= 2 
-          AND p.max_price >= (p.min_price * 1.03)
-          AND (p.max_price - p.min_price) >= 1.0
-          AND p.normalized_price <= (p.min_price * 1.005)
-          AND p.normalized_price > 0
-          AND TRY_CAST(p.last_seen AS DATE) >= (TRY_CAST(sm.max_seen AS DATE) - INTERVAL 14 DAY)
-          AND p.image IS NOT NULL 
-          AND p.image != '' 
-          AND p.image NOT LIKE '%default-product.webp%'
-          AND p.image NOT LIKE '%placeholder%'
-        ORDER BY (p.max_price - p.normalized_price) DESC
-    ) TO '{atl_path}' (FORMAT PARQUET, COMPRESSION 'ZSTD');
+    CREATE OR REPLACE TABLE atl_raw AS
+    WITH store_max AS (
+        SELECT store, MAX(last_seen) as max_seen
+        FROM merged_products
+        GROUP BY store
+    )
+    SELECT p.* 
+    FROM merged_products p
+    JOIN store_max sm ON p.store = sm.store
+    WHERE p.in_stock = true 
+      AND p.is_out_of_stock = false
+      AND p.current_price > 0
+      AND p.hist_count >= 2 
+      AND p.max_price >= (p.min_price * 1.03)
+      AND (p.max_price - p.min_price) >= 1.0
+      AND p.normalized_price <= (p.min_price * 1.005)
+      AND p.normalized_price > 0
+      AND TRY_CAST(p.last_seen AS DATE) >= (TRY_CAST(sm.max_seen AS DATE) - INTERVAL 14 DAY)
+      AND p.image IS NOT NULL 
+      AND p.image != '' 
+      AND p.image NOT LIKE '%default-product.webp%'
+      AND p.image NOT LIKE '%placeholder%'
+    ORDER BY (p.max_price - p.normalized_price) DESC;
 """)
+
+atl_df = con.execute("SELECT * FROM atl_raw").fetchdf()
+try:
+    hist_df = con.execute("""
+        SELECT h.product_id, h.date, h.price, h.normalized_price
+        FROM unified_history h
+        JOIN atl_raw a ON h.product_id = a.id
+        WHERE h.price > 0
+        ORDER BY h.product_id, h.date ASC
+    """).fetchdf()
+    from collections import defaultdict
+    hist_by_prod = defaultdict(list)
+    for _, row in hist_df.iterrows():
+        p_norm = float(row['normalized_price'] if row['normalized_price'] > 0 else row['price'])
+        hist_by_prod[row['product_id']].append((row['date'], p_norm))
+
+    sparklines_7d = []
+    sparklines_all = []
+    for pid in atl_df['id']:
+        pts = hist_by_prod.get(pid, [])
+        if len(pts) >= 2:
+            p_7d = [round(p, 1) for d, p in pts[-7:]]
+            if len(pts) <= 12:
+                p_all = [round(p, 1) for d, p in pts]
+            else:
+                step = (len(pts) - 1) / 11.0
+                p_all = [round(pts[int(round(i * step))][1], 1) for i in range(12)]
+        elif len(pts) == 1:
+            p_7d = [round(pts[0][1], 1)]
+            p_all = [round(pts[0][1], 1)]
+        else:
+            p_7d, p_all = [], []
+        sparklines_7d.append(json.dumps(p_7d))
+        sparklines_all.append(json.dumps(p_all))
+
+    atl_df['sparkline'] = sparklines_7d
+    atl_df['sparkline_all'] = sparklines_all
+except Exception as e_spark:
+    print(f"Notice: sparkline generation fallback: {e_spark}")
+    atl_df['sparkline'] = '[]'
+    atl_df['sparkline_all'] = '[]'
+
+con.register('atl_enriched', atl_df)
+con.execute(f"COPY atl_enriched TO '{atl_path}' (FORMAT PARQUET, COMPRESSION 'ZSTD');")
+
 atl_cnt = con.execute(f"SELECT COUNT(*) FROM read_parquet('{atl_path}');").fetchone()[0]
 atl_kb = os.path.getsize(atl_path) / 1024
-print(f"Pre-calculated ATL deals (photos only) written: {atl_cnt:,} products ({atl_kb:.1f} KB -> atl.parquet)")
+print(f"Pre-calculated ATL deals with sparklines written: {atl_cnt:,} products ({atl_kb:.1f} KB -> atl.parquet)")
 
 # Export ultra-fast instant preview JSON for sub-25ms zero-latency launch
-preview_df = con.execute(f"""
-    SELECT id, name, store, category, unit, unit_type, current_price, normalized_price, image, url, first_seen, last_seen, in_stock, is_out_of_stock, hist_count, min_price, max_price, avg_price
-    FROM read_parquet('{atl_path}')
-    ORDER BY (max_price - normalized_price) DESC
-    LIMIT 60
-""").fetchdf()
+preview_records = atl_df.head(60).to_dict(orient='records')
 import json
 preview_path = os.path.join(BASE, 'atl_preview.json')
 with open(preview_path, 'w', encoding='utf-8') as pf:
-    json.dump(preview_df.to_dict(orient='records'), pf)
-print(f"Instant ATL preview written: {len(preview_df)} items ({os.path.getsize(preview_path)/1024:.1f} KB -> atl_preview.json)")
+    json.dump(preview_records, pf)
+print(f"Instant ATL preview with sparklines written: {len(preview_records)} items ({os.path.getsize(preview_path)/1024:.1f} KB -> atl_preview.json)")
 
 # Export per-store history chunks for progressive background hydration
 STORE_SLUGS = ['shwapno', 'chaldal', 'meenabazar', 'othoba', 'metromart', 'unimart', 'shotejbazar', 'foodi']

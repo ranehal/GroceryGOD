@@ -4119,29 +4119,34 @@ body.catalog-active .landing-hero {
 
 .history-paywall-mask {
     position: absolute !important;
-    top: 12px !important;
-    right: 18px !important;
-    left: auto !important;
-    bottom: auto !important;
-    width: auto !important;
-    max-width: 320px !important;
-    z-index: 15 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    padding: 0 !important;
-    background: transparent !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    border: none !important;
-    box-shadow: none !important;
-    text-align: center !important;
+    inset: 0 18% 0 0 !important;
+    z-index: 21 !important;
+    display: grid !important;
+    place-items: center !important;
+    padding: 24px !important;
+    background: linear-gradient(90deg, rgba(3, 6, 11, 0.72), rgba(6, 10, 16, 0.55)) !important;
+    backdrop-filter: blur(12px) saturate(85%) !important;
+    -webkit-backdrop-filter: blur(12px) saturate(85%) !important;
+    border-right: 1.5px solid rgba(251, 191, 36, 0.45) !important;
+    box-shadow: 6px 0 24px rgba(0, 0, 0, 0.4) !important;
     pointer-events: auto !important;
 }
 
 .history-paywall-mask::after {
-    display: none !important;
+    content: '' !important;
+    position: absolute !important;
+    right: -1px !important;
+    top: 0 !important;
+    width: 2px !important;
+    height: 100% !important;
+    background: linear-gradient(transparent, #fbbf24, transparent) !important;
+    animation: paywall-scan 3.2s ease-in-out infinite !important;
+}
+
+@keyframes paywall-scan {
+    0%, 100% { transform: translateY(-65%); opacity: 0; }
+    42%, 58% { opacity: 1; }
+    100% { transform: translateY(65%); }
 }
 
 .history-paywall-mask[hidden],
@@ -4151,18 +4156,19 @@ body.premium-unlocked .history-paywall-mask {
 }
 
 .history-paywall-copy {
-    width: 100% !important;
-    padding: 14px 16px !important;
-    border-radius: 14px !important;
-    border: 1px solid rgba(251, 191, 36, 0.4) !important;
-    background: rgba(7, 11, 18, 0.88) !important;
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.7), 0 0 20px rgba(251, 191, 36, 0.12) !important;
-    backdrop-filter: blur(12px) saturate(120%) !important;
-    -webkit-backdrop-filter: blur(12px) saturate(120%) !important;
+    width: min(340px, 92%) !important;
+    padding: 22px 20px !important;
     text-align: center !important;
+    border: 1.5px solid rgba(251, 191, 36, 0.4) !important;
+    border-radius: 18px !important;
+    background: rgba(10, 15, 24, 0.92) !important;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85), 0 0 35px rgba(251, 191, 36, 0.18) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
+    gap: 8px !important;
 }
 
 .paywall-kicker {
@@ -4170,102 +4176,99 @@ body.premium-unlocked .history-paywall-mask {
     align-items: center !important;
     gap: 6px !important;
     color: #fbbf24 !important;
-    font-size: 0.72rem !important;
+    font-size: 0.68rem !important;
     font-weight: 900 !important;
-    letter-spacing: 1.1px !important;
+    letter-spacing: 1px !important;
     text-transform: uppercase !important;
 }
 
 .paywall-kicker i {
-    font-size: 0.82rem !important;
+    font-size: 0.78rem !important;
 }
 
 .history-paywall-copy strong {
     display: block !important;
-    font-size: 0.95rem !important;
-    margin-top: 6px !important;
+    font-size: 1.05rem !important;
+    font-weight: 800 !important;
+    color: #f8fafc !important;
     line-height: 1.3 !important;
-    color: #fff !important;
+    margin: 2px 0 0 0 !important;
 }
 
 .history-paywall-copy small {
     display: block !important;
     font-size: 0.72rem !important;
-    margin: 6px auto 12px !important;
-    line-height: 1.4 !important;
-    color: #cbd5e1 !important;
+    color: #94a3b8 !important;
+    line-height: 1.45 !important;
+    margin: 0 !important;
 }
 
 .paywall-cta {
-    height: 34px !important;
-    padding: 0 16px !important;
-    border-radius: 9px !important;
-    font-size: 0.78rem !important;
-    letter-spacing: 0.2px !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
     gap: 6px !important;
+    margin-top: 6px !important;
+    height: 38px !important;
+    padding: 0 20px !important;
+    border: 0 !important;
+    border-radius: 10px !important;
     color: #241704 !important;
     background: linear-gradient(135deg, #fbbf24, #fde68a) !important;
-    font-weight: 950 !important;
+    font-size: 0.82rem !important;
+    font-weight: 900 !important;
     cursor: pointer !important;
-    border: none !important;
-    box-shadow: 0 6px 18px rgba(251, 191, 36, 0.35) !important;
-    width: 100% !important;
-    max-width: 200px !important;
+    box-shadow: 0 8px 24px rgba(251, 191, 36, 0.35) !important;
+    transition: all 0.2s ease !important;
+}
+
+.paywall-cta:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 10px 28px rgba(251, 191, 36, 0.45) !important;
 }
 
 @media (max-width: 768px) {
     .history-paywall-mask {
-        top: 8px !important;
-        right: 8px !important;
-        max-width: 220px !important;
+        inset: 0 15% 0 0 !important;
+        padding: 14px !important;
     }
     .history-paywall-copy {
-        padding: 10px 10px !important;
+        padding: 14px 12px !important;
+        gap: 6px !important;
     }
     .history-paywall-copy strong {
-        font-size: 0.82rem !important;
+        font-size: 0.88rem !important;
     }
     .history-paywall-copy small {
-        display: none !important;
+        font-size: 0.65rem !important;
+        line-height: 1.3 !important;
     }
     .paywall-cta {
-        height: 30px !important;
-        font-size: 0.72rem !important;
-        padding: 0 10px !important;
-        max-width: 160px !important;
+        height: 32px !important;
+        font-size: 0.74rem !important;
+        padding: 0 14px !important;
     }
 }
 
 @media (max-width: 480px) {
     .history-paywall-mask {
-        top: 6px !important;
-        right: 6px !important;
-        max-width: 180px !important;
-    }
-    .history-paywall-copy {
+        inset: 0 10% 0 0 !important;
         padding: 8px !important;
     }
-    .paywall-kicker {
-        font-size: 0.62rem !important;
-        letter-spacing: 0.4px !important;
+    .history-paywall-copy {
+        padding: 10px 8px !important;
+        border-radius: 12px !important;
     }
     .history-paywall-copy strong {
-        font-size: 0.76rem !important;
-    }
-        margin-top: 4px !important;
+        font-size: 0.8rem !important;
     }
     .history-paywall-copy small {
-        font-size: 0.62rem !important;
-        line-height: 1.3 !important;
-        margin: 4px auto 8px !important;
+        display: none !important;
     }
     .paywall-cta {
-        height: 30px !important;
+        height: 28px !important;
         font-size: 0.68rem !important;
-        padding: 0 8px !important;
+        padding: 0 10px !important;
     }
 }
 
@@ -4531,15 +4534,15 @@ body:not(.sidebar-collapsed) .search-wrapper,
 .intelligence-bar {
     display: flex !important;
     align-items: center !important;
-    gap: 5px !important;
-    padding: 4px 14px !important;
+    gap: 4px !important;
+    padding: 3px 10px !important;
     width: 100% !important;
     box-sizing: border-box !important;
     overflow-x: auto !important;
     flex-wrap: nowrap !important;
     scrollbar-width: thin !important;
-    scrollbar-color: rgba(255, 255, 255, 0.2) transparent !important;
-    min-height: 38px !important;
+    scrollbar-color: rgba(255, 255, 255, 0.15) transparent !important;
+    min-height: 32px !important;
 }
 
 .intelligence-bar::-webkit-scrollbar {
@@ -4553,19 +4556,40 @@ body:not(.sidebar-collapsed) .search-wrapper,
 }
 
 .intelligence-bar .intel-btn {
-    padding: 4px 8px !important;
-    font-size: 0.71rem !important;
+    padding: 3px 7px !important;
+    font-size: 0.67rem !important;
+    letter-spacing: -0.01em !important;
+    height: 25px !important;
+    line-height: 1 !important;
     white-space: nowrap !important;
     flex-shrink: 0 !important;
-    border-radius: 6px !important;
+    border-radius: 5px !important;
+    gap: 3px !important;
+}
+
+.intelligence-bar .intel-btn i {
+    font-size: 0.66rem !important;
+}
+
+.intelligence-bar .custom-drop-filter {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 2px !important;
+}
+
+.intelligence-bar .custom-drop-input-wrap input {
+    height: 22px !important;
+    font-size: 0.68rem !important;
+    padding: 1px 4px !important;
 }
 
 .intelligence-bar #filtered-items-badge {
     margin-left: auto !important;
     flex-shrink: 0 !important;
     white-space: nowrap !important;
-    padding: 3px 9px !important;
-    font-size: 0.72rem !important;
+    padding: 2px 7px !important;
+    font-size: 0.68rem !important;
+    height: 23px !important;
 }
 
 .intelligence-bar .date-range-intel {
@@ -4573,8 +4597,43 @@ body:not(.sidebar-collapsed) .search-wrapper,
     align-items: center !important;
     gap: 3px !important;
     flex-shrink: 0 !important;
-    font-size: 0.7rem !important;
+    font-size: 0.68rem !important;
     white-space: nowrap !important;
+}
+
+/* Card Price Graph Sparkline Preview */
+.card-sparkline-wrap {
+    position: relative;
+    width: 100%;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 2px 0 1px 0;
+    padding: 0 4px;
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.card-sparkline {
+    width: calc(100% - 42px);
+    height: 18px;
+    overflow: visible;
+}
+
+.sparkline-pill {
+    font-size: 0.58rem;
+    font-weight: 800;
+    font-family: 'JetBrains Mono', monospace;
+    white-space: nowrap;
+    padding: 1px 3px;
+    border-radius: 3px;
+    background: rgba(0, 0, 0, 0.55);
+    flex-shrink: 0;
+    line-height: 1;
 }
 
 /* ============================================================

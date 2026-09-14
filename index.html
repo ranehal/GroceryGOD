@@ -18,7 +18,9 @@
 <link rel="preload" href="atl_preview.json?v=20260912_v2" as="fetch" crossorigin>
 <link rel="preload" href="atl.parquet?v=20260912_v2" as="fetch" crossorigin>
 <link rel="preload" href="products_free.parquet?v=20260912_v2" as="fetch" crossorigin>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<link rel="icon" type="image/png" sizes="64x64" href="favicon.png?v=20260914">
+<link rel="shortcut icon" href="favicon.ico?v=20260914">
+<link rel="apple-touch-icon" href="favicon.jpg?v=20260914">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
 <link href="style.css?v=20260912_v2" rel="stylesheet"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
 </head>
@@ -270,19 +272,19 @@ if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || wi
 </header>
 <!-- Intelligence Bar -->
 <div class="intelligence-bar">
-<button class="intel-btn intel-variant-great" data-filter="great" title="Price dropped more than 15% from average"><i class="fas fa-fire"></i> Great Deal 15%+</button>
-<button class="intel-btn intel-variant-good" data-filter="good" title="Price dropped more than 5% from average"><i class="fas fa-thumbs-up"></i> Good Buy 5%+</button>
+<button class="intel-btn intel-variant-great" data-filter="great" title="Price dropped more than 15% from average"><i class="fas fa-fire"></i> 15%+ Drop</button>
+<button class="intel-btn intel-variant-good" data-filter="good" title="Price dropped more than 5% from average"><i class="fas fa-thumbs-up"></i> 5%+ Drop</button>
 <div class="custom-drop-filter" title="Set your own drop from historical average">
-<button class="intel-btn intel-variant-cut" data-filter="customdrop" id="custom-drop-btn"><i class="fas fa-arrow-trend-down"></i> Drop ≥ <strong id="custom-drop-label">12%</strong></button>
+<button class="intel-btn intel-variant-cut" data-filter="customdrop" id="custom-drop-btn"><i class="fas fa-arrow-trend-down"></i> ≥ <strong id="custom-drop-label">12%</strong></button>
 <label class="custom-drop-input-wrap"><input aria-label="Custom percentage drop" id="custom-drop-input" inputmode="numeric" max="95" min="1" step="1" type="number" value="12"/><span>%</span></label>
 </div>
 <button class="intel-btn intel-variant-wait" data-filter="wait" title="Price is above average"><i class="fas fa-hourglass-half"></i> Wait</button>
-<button class="intel-btn intel-variant-first-low" data-filter="first_low" title="Price has dropped to an all-time record low for the first time in history"><i class="fas fa-bolt"></i> 1st Time Lowest</button>
+<button class="intel-btn intel-variant-first-low" data-filter="first_low" title="Price has dropped to an all-time record low for the first time in history"><i class="fas fa-bolt"></i> 1st Low</button>
 <button class="intel-btn intel-variant-low active" data-filter="low" title="Current price is the lowest recorded">All Time Low</button>
-<button class="intel-btn intel-variant-new" data-filter="new" title="Items first seen recently">New Items</button>
+<button class="intel-btn intel-variant-new" data-filter="new" title="Items first seen recently">New</button>
 <label class="check-pill" style="border-left:1px solid rgba(255,255,255,0.12); padding-left:6px; display:inline-flex; align-items:center; gap:3px; flex-shrink:0;" title="Filter items seen in last N days"><i class="fas fa-clock" style="font-size:0.68rem; color:#f59e0b;"></i><input id="new-days-header" type="number" min="1" max="90" value="7" style="width:30px; background:transparent; color:#f59e0b; border:none; font-weight:700; font-size:0.72rem; text-align:center;"/> <span style="font-size:0.66rem; color:#94a3b8;">d</span></label>
-<button class="intel-btn intel-variant-change" data-filter="pricechange" title="Show price change from custom days ago">Price Change</button>
-<button class="intel-btn intel-variant-photo active" id="toggle-has-image-btn" title="Toggle hiding products with missing or placeholder photos"><i class="fas fa-camera"></i> Photos Only</button>
+<button class="intel-btn intel-variant-change" data-filter="pricechange" title="Show price change from custom days ago">Price Δ</button>
+<button class="intel-btn intel-variant-photo active" id="toggle-has-image-btn" title="Toggle hiding products with missing or placeholder photos"><i class="fas fa-camera"></i> Photos</button>
 <div class="date-range-intel" id="price-change-controls" style="display:none;">
 <span>From:</span>
 <input id="pc-days-input" max="365" min="1" style="width:45px; background:var(--bg-card); color:white; border:1px solid #444; border-radius:4px; padding:2px 5px;" type="number" value="7"/>
