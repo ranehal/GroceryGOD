@@ -29,6 +29,7 @@ full_history_recovery.py
 products.parquet
 history.parquet
 premium/history_archive.parquet
+premium/history_archive.parquet.enc
 
 # Temporary / Bloat DBs & Encryptions
 grocerygod_optimized.db*

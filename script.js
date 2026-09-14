@@ -24,7 +24,7 @@ let metadata = {};
 let _godDbResolver;
 window.__godDbPromise = new Promise(resolve => { _godDbResolver = resolve; });
 let godDB = null; // persistent DuckDB connection for on-demand queries
-const ASSET_VERSION = window.GOD_ASSET_VERSION || '20260914_v5';
+const ASSET_VERSION = window.GOD_ASSET_VERSION || '20260915_v1';
 let currentDataSource = safeStorage.getItem('god_data_source') || 'local';
 let favorites = JSON.parse(safeStorage.getItem('god_favorites') || '[]');
 let selectedForComparison = JSON.parse(safeStorage.getItem('god_comparison') || '[]');
@@ -528,6 +528,10 @@ function mapProductRow(r) {
         minPrice: minP,
         maxPrice: maxP,
         avgPrice: avgP,
+        min_actual: r.min_actual != null ? Number(r.min_actual) : null,
+        max_actual: r.max_actual != null ? Number(r.max_actual) : null,
+        minActual: r.min_actual != null ? Number(r.min_actual) : null,
+        maxActual: r.max_actual != null ? Number(r.max_actual) : null,
         is_first_low: (r.is_first_low === 1 || r.is_first_low === '1' || r.is_first_low === true),
         isFirstTimeLow: (r.is_first_low === 1 || r.is_first_low === '1' || r.is_first_low === true),
         oldest_date: r.first_seen || null,
@@ -948,6 +952,10 @@ async function loadAllFromParquet() {
             minPrice: minP,
             maxPrice: maxP,
             avgPrice: avgP,
+            min_actual: r.min_actual != null ? Number(r.min_actual) : null,
+            max_actual: r.max_actual != null ? Number(r.max_actual) : null,
+            minActual: r.min_actual != null ? Number(r.min_actual) : null,
+            maxActual: r.max_actual != null ? Number(r.max_actual) : null,
             is_first_low: (r.is_first_low === 1 || r.is_first_low === '1' || r.is_first_low === true),
             isFirstTimeLow: (r.is_first_low === 1 || r.is_first_low === '1' || r.is_first_low === true),
             oldest_date: r.first_seen || null,
@@ -1979,7 +1987,10 @@ function renderProducts() {
         if (activeIntelFilter === 'customdrop') return !isOos && p.avgPrice > 0 && p.normalized_price <= (p.avgPrice * (1 - customDropThreshold / 100));
         if (activeIntelFilter === 'wait') return p.normalized_price > (p.avgPrice * 1.05);
         if (activeIntelFilter === 'first_low') return !isOos && Number(p.normalized_price) > 0 && p.hist_count >= 2 && (p.maxPrice >= p.minPrice * 1.03) && (p.maxPrice - p.minPrice >= 1.0) && (p.isFirstTimeLow || p.is_first_low || checkIsFirstTimeLow(p));
-        if (activeIntelFilter === 'low') return !isOos && Number(p.normalized_price) > 0 && p.hist_count >= 2 && (p.maxPrice >= p.minPrice * 1.03) && (p.maxPrice - p.minPrice >= 1.0) && p.normalized_price <= (p.minPrice * 1.005);
+        if (activeIntelFilter === 'low') {
+            const isFakeLow = Boolean(p.maxActual && p.minActual && (p.maxActual > p.minActual + 0.5) && (p.current_price >= p.maxActual));
+            return !isOos && !isFakeLow && Number(p.normalized_price) > 0 && p.hist_count >= 2 && (p.maxPrice >= p.minPrice * 1.03) && (p.maxPrice - p.minPrice >= 1.0) && p.normalized_price <= (p.minPrice * 1.005);
+        }
         if (activeIntelFilter === 'new') return p.isNew;
         if (activeIntelFilter === 'pricechange') {
             if (p._pcDiff === undefined) return false;
@@ -2257,7 +2268,8 @@ function createProductCard(p) {
     if (isFirstLow) {
         badges.push(`<span class="card-badge-item badge-first-low" title="1st Time Lowest Price Record">1ST LOW</span>`);
     } else {
-        const isLow = !isOos && p.hist_count >= 2 && (p.maxPrice >= p.minPrice * 1.03) && (p.maxPrice - p.minPrice >= 1.0) && p.normalized_price <= (p.minPrice * 1.005) && Number(p.normalized_price) > 0;
+        const isFakeLow = Boolean(p.maxActual && p.minActual && (p.maxActual > p.minActual + 0.5) && (p.current_price >= p.maxActual));
+        const isLow = !isOos && !isFakeLow && p.hist_count >= 2 && (p.maxPrice >= p.minPrice * 1.03) && (p.maxPrice - p.minPrice >= 1.0) && p.normalized_price <= (p.minPrice * 1.005) && Number(p.normalized_price) > 0;
         if (isLow) {
             badges.push(`<span class="card-badge-item badge-low">LOW</span>`);
         }
@@ -2336,15 +2348,23 @@ function renderCardSparklineSvg(p) {
     const normP = Number(p.normalized_price || p.current_price || 0);
     const hasRealDrop = (maxP >= minP * 1.02) && ((maxP - minP) >= 0.8) && (normP <= minP * 1.02) && normP > 0;
 
+    function isArrFlat(arr) {
+        if (!arr || arr.length < 2) return true;
+        const mn = Math.min(...arr);
+        const mx = Math.max(...arr);
+        const diff = mx - mn;
+        return diff < 1.0 || (diff / Math.max(mx, 1.0)) < 0.015;
+    }
+
     let points = [];
     const pts7d = parseSparklinePoints(p.sparkline);
     const ptsAll = parseSparklinePoints(p.sparkline_all);
 
     if (isPremium) {
         // Premium mode: prioritize full all-time history sparkline
-        if (ptsAll.length >= 2 && (Math.max(...ptsAll) - Math.min(...ptsAll) >= 0.01)) {
+        if (ptsAll.length >= 2 && !isArrFlat(ptsAll)) {
             points = ptsAll;
-        } else if (pts7d.length >= 2 && (Math.max(...pts7d) - Math.min(...pts7d) >= 0.01)) {
+        } else if (pts7d.length >= 2 && !isArrFlat(pts7d)) {
             points = pts7d;
         } else if (ptsAll.length >= 2) {
             points = ptsAll;
@@ -2354,10 +2374,9 @@ function renderCardSparklineSvg(p) {
     } else {
         // Free mode: check 7-day sparkline first.
         // If 7-day is flat (drop happened >7 days ago), fallback to all-time sparkline so user sees the drop!
-        const is7dFlat = pts7d.length >= 2 && (Math.max(...pts7d) - Math.min(...pts7d) < 0.01);
-        if (pts7d.length >= 2 && !is7dFlat) {
+        if (pts7d.length >= 2 && !isArrFlat(pts7d)) {
             points = pts7d;
-        } else if (ptsAll.length >= 2 && (Math.max(...ptsAll) - Math.min(...ptsAll) >= 0.01)) {
+        } else if (ptsAll.length >= 2 && !isArrFlat(ptsAll)) {
             points = ptsAll;
         } else if (pts7d.length >= 2) {
             points = pts7d;
@@ -2370,46 +2389,67 @@ function renderCardSparklineSvg(p) {
         points = hist.map(h => Number(h.normalized_price || h.price || 0)).filter(v => v > 0);
     }
 
-    // Ensure the latest point matches current normalized price if current price is at min
+    // Ensure the latest point matches current normalized price if on the same scale
     if (points.length >= 2 && normP > 0) {
         const lastPt = points[points.length - 1];
         if (Math.abs(lastPt - normP) > 0.05 && normP <= minP * 1.005) {
-            points = [...points, normP];
+            const ratio = normP / Math.max(lastPt, 0.01);
+            if (ratio >= 0.65 && ratio <= 1.5) {
+                points[points.length - 1] = normP;
+            }
         }
     }
 
     // If points are flat or missing, but this product is a verified ATL drop deal:
     // Synthesize the drop curve from maxPrice down to normalized_price!
-    let min = points.length >= 2 ? Math.min(...points) : 0;
-    let max = points.length >= 2 ? Math.max(...points) : 0;
-    if ((points.length < 2 || Math.abs(max - min) < 0.01) && hasRealDrop) {
+    if (isArrFlat(points) && hasRealDrop) {
         const avgP = Number(p.avgPrice || (maxP + normP) / 2);
-        points = [maxP, maxP, avgP, avgP, normP, normP, normP];
-        min = normP;
-        max = maxP;
+        points = [maxP, maxP, avgP, normP, normP];
     }
 
-    if (points.length < 2) return '';
+    if (points.length < 2 || isArrFlat(points)) return '';
 
-    min = Math.min(...points);
-    max = Math.max(...points);
+    // Slicing from peak if there's a verified drop from peak:
+    // This ensures the sparkline accurately visualizes the price drop to all-time low in green!
+    const mxVal = Math.max(...points);
+    const lastVal = points[points.length - 1];
+    const hasDropFromPeak = (mxVal >= lastVal * 1.015) && ((mxVal - lastVal) >= 1.0);
 
-    // CRITICAL MANDATE: Never show flat / all-time same price graphs in ATL (free or premium)
-    if (Math.abs(max - min) < 0.01) return '';
+    if (hasDropFromPeak) {
+        const peakIdx = points.lastIndexOf(mxVal);
+        if (peakIdx < points.length - 1) {
+            const dropPts = points.slice(peakIdx);
+            if (dropPts.length >= 2) {
+                points = dropPts;
+            }
+        }
+    }
 
     const first = points[0];
     const last = points[points.length - 1];
+    const diff = last - first;
+
+    // Suppress if difference is trivial (rounding jitter)
+    if (Math.abs(diff) < 1.0 || (Math.abs(diff) / Math.max(first, 1.0)) < 0.015) return '';
+
+    const pctNum = Math.round(Math.abs(diff / first) * 100);
+    // Never show 0% on sparklines (neither ▲ 0% nor ▼ 0%)
+    if (pctNum === 0) return '';
+
+    const isAtlContext = (activeIntelFilter === 'low' || activeIntelFilter === 'first_low');
+    // In ATL filter, a red/upward curve contradicts the "LOW" badge!
+    if (isAtlContext && last > first) return '';
 
     // Color logic: upward is RED (#ef4444), downward is GREEN (#10b981)
     let strokeColor = '#06b6d4';
     let fillColor = 'rgba(6, 182, 212, 0.12)';
     let trendSymbol = '■';
 
-    if (last > first + 0.01) {
+    if (last > first) {
         strokeColor = '#ef4444'; // Red for price increase
         fillColor = 'rgba(239, 68, 68, 0.15)';
         trendSymbol = '▲';
-    } else if (last < first - 0.01) {
+    } else if (last < first) {
         strokeColor = '#10b981'; // Green for price drop
         fillColor = 'rgba(16, 185, 129, 0.15)';
         trendSymbol = '▼';
@@ -2418,6 +2458,8 @@ function renderCardSparklineSvg(p) {
     const width = 100;
     const height = 20;
     const paddingY = 2;
+    const min = Math.min(...points);
+    const max = Math.max(...points);
     const range = (max - min) || 1;
 
     const coords = points.map((val, idx) => {
@@ -2429,7 +2471,6 @@ function renderCardSparklineSvg(p) {
 
     const pathData = 'M ' + coords.map(pt => `${pt[0]},${pt[1]}`).join(' L ');
     const areaData = `${pathData} L ${width},${height} L 0,${height} Z`;
-    const pctChange = first > 0 ? Math.abs(((last - first) / first) * 100).toFixed(0) : '0';
 
     return `
         <div class="card-sparkline-wrap" title="${isPremium ? 'Full Price History' : 'Price Trend'}: ${fmt(first)} → ${fmt(last)} Tk">
@@ -2437,7 +2478,7 @@ function renderCardSparklineSvg(p) {
                 <path d="${areaData}" fill="${fillColor}" />
                 <path d="${pathData}" fill="none" stroke="${strokeColor}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
-            <span class="sparkline-pill" style="color:${strokeColor}">${trendSymbol} ${pctChange}%</span>
+            <span class="sparkline-pill" style="color:${strokeColor}">${trendSymbol} ${pctNum}%</span>
         </div>
     `;
 }

@@ -342,6 +342,8 @@ prod_sql = f"""
         COALESCE(h.min_price, p.normalized_price)::DOUBLE as min_price,
         COALESCE(h.max_price, p.normalized_price)::DOUBLE as max_price,
         COALESCE(h.avg_price, p.normalized_price)::DOUBLE as avg_price,
+        COALESCE(h.min_actual, p.current_price)::DOUBLE as min_actual,
+        COALESCE(h.max_actual, p.current_price)::DOUBLE as max_actual,
         CASE 
             WHEN p.last_seen >= '{cutoff_14d}' 
              AND p.current_price > 0 
@@ -357,7 +359,9 @@ prod_sql = f"""
             COUNT(*)::INTEGER as hist_count,
             MIN(CASE WHEN price > 0 AND normalized_price > 0 THEN normalized_price END) as min_price,
             MAX(CASE WHEN price > 0 AND normalized_price > 0 THEN normalized_price END) as max_price,
-            AVG(CASE WHEN price > 0 AND normalized_price > 0 THEN normalized_price END) as avg_price
+            AVG(CASE WHEN price > 0 AND normalized_price > 0 THEN normalized_price END) as avg_price,
+            MIN(CASE WHEN price > 0 THEN price END) as min_actual,
+            MAX(CASE WHEN price > 0 THEN price END) as max_actual
         FROM unified_history
         GROUP BY product_id
     ) h ON p.id = h.product_id
@@ -396,6 +400,7 @@ con.execute(f"""
       AND (p.max_price - p.min_price) >= 1.0
       AND p.normalized_price <= (p.min_price * 1.005)
       AND p.normalized_price > 0
+      AND (p.max_actual IS NULL OR p.max_actual <= p.min_actual + 0.5 OR p.current_price < p.max_actual)
       AND TRY_CAST(p.last_seen AS DATE) >= (TRY_CAST(sm.max_seen AS DATE) - INTERVAL 14 DAY)
       AND p.image IS NOT NULL 
       AND p.image != '' 
@@ -425,11 +430,15 @@ try:
         pts = hist_by_prod.get(pid, [])
         if len(pts) >= 2:
             p_7d = [round(p, 1) for d, p in pts[-7:]]
+            if len(p_7d) >= 2 and (max(p_7d) - min(p_7d) < 0.5 or (max(p_7d) - min(p_7d)) / max(max(p_7d), 1) < 0.005):
+                p_7d = [p_7d[-1]] * len(p_7d)
             if len(pts) <= 12:
                 p_all = [round(p, 1) for d, p in pts]
             else:
                 step = (len(pts) - 1) / 11.0
                 p_all = [round(pts[int(round(i * step))][1], 1) for i in range(12)]
+            if len(p_all) >= 2 and abs(p_all[0] - p_all[-1]) < 0.5:
+                p_all[-1] = p_all[0]
         elif len(pts) == 1:
             p_7d = [round(pts[0][1], 1)]
             p_all = [round(pts[0][1], 1)]
