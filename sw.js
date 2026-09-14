@@ -1,5 +1,5 @@
 // GroceryGOD Service Worker — Cache Accelerator for Instant Loading
-const CACHE_NAME = 'god-cache-v20260908_v7';
+const CACHE_NAME = 'god-cache-v20260914_v4';
 const TARGET_ASSET_PATTERNS = [
     /\.parquet(\?|$)/i,
     /_data_part\d+\.js(\?|$)/i,
@@ -19,7 +19,7 @@ self.addEventListener('activate', (event) => {
         caches.keys().then((keys) => {
             return Promise.all(
                 keys.map((key) => {
-                    if (key !== CACHE_NAME && key.startsWith('god-cache-')) {
+                    if (key !== CACHE_NAME && (key.startsWith('god-cache-') || key.startsWith('god-parquet-cache-'))) {
                         console.log('[SW] Purging old cache version:', key);
                         return caches.delete(key);
                     }
