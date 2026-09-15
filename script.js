@@ -1205,7 +1205,7 @@ function getHistoryAccessUnionSql(includeArchive = false) {
     const chunks = Array.from(window.__registeredHistoryChunks || []);
     if (!chunks.length) chunks.push('history.parquet');
     const parts = chunks.map(c => `SELECT * FROM read_parquet('${c}')`);
-    if (includeArchive || window.__hasPremiumArchive) {
+    if ((includeArchive || window.__hasPremiumArchive) && window.__registeredHistoryChunks && window.__registeredHistoryChunks.has('history_archive.parquet')) {
         parts.push(`SELECT * FROM read_parquet('history_archive.parquet')`);
     }
     return parts.join(' UNION ALL ');
@@ -1477,17 +1477,34 @@ async function loadProductHistory(productId) {
             const useStoreChunk = storeChunk && window.__registeredHistoryChunks && window.__registeredHistoryChunks.has(storeChunk);
             let fromSource = 'history_access';
             if (useStoreChunk) {
-                fromSource = (window.__hasPremiumArchive || isPremium)
+                const hasArchiveChunk = Boolean(window.__hasPremiumArchive && window.__registeredHistoryChunks && window.__registeredHistoryChunks.has('history_archive.parquet'));
+                fromSource = hasArchiveChunk
                     ? `(SELECT * FROM read_parquet('${storeChunk}') UNION ALL SELECT * FROM read_parquet('history_archive.parquet'))`
                     : `read_parquet('${storeChunk}')`;
             }
 
-            const result = await godDB.conn.query(`
-                SELECT date, price, normalized_price 
-                FROM ${fromSource} 
-                WHERE ${idFilter}
-                ORDER BY date ASC
-            `);
+            let result = null;
+            try {
+                result = await godDB.conn.query(`
+                    SELECT date, price, normalized_price 
+                    FROM ${fromSource} 
+                    WHERE ${idFilter}
+                    ORDER BY date ASC
+                `);
+            } catch (queryErr) {
+                if (useStoreChunk && fromSource.includes('UNION ALL')) {
+                    try {
+                        result = await godDB.conn.query(`
+                            SELECT date, price, normalized_price 
+                            FROM read_parquet('${storeChunk}') 
+                            WHERE ${idFilter}
+                            ORDER BY date ASC
+                        `);
+                    } catch (_) {}
+                }
+                if (!result) throw queryErr;
+            }
+
             const rows = result.toArray().map(r => {
                 const h = r.toJSON();
                 return { date: String(h.date), price: Number(h.price), normalized_price: Number(h.normalized_price) };
@@ -2338,129 +2355,124 @@ function parseSparklinePoints(val) {
     return [];
 }
 
-function renderCardSparklineSvg(p) {
-    if (!p) return '';
+function extractSparklinePoints(p) {
+    if (!p) return [];
+    const isAtlContext = (activeIntelFilter === 'low' || activeIntelFilter === 'first_low');
     const isPremium = Boolean(typeof premiumUnlocked !== 'undefined' && premiumUnlocked);
-    
-    // Check if item is an authentic ATL deal with a verified price drop
-    const minP = Number(p.minPrice != null ? p.minPrice : (p.normalized_price || 0));
-    const maxP = Number(p.maxPrice != null ? p.maxPrice : (p.normalized_price || 0));
     const normP = Number(p.normalized_price || p.current_price || 0);
-    const hasRealDrop = (maxP >= minP * 1.02) && ((maxP - minP) >= 0.8) && (normP <= minP * 1.02) && normP > 0;
+
+    // 1. If high-fidelity product.history is already loaded, downsample directly from it!
+    if (Array.isArray(p.history) && p.history.length >= 2) {
+        const validRows = p.history.filter(h => (Number(h.normalized_price) > 0 || Number(h.price) > 0));
+        if (validRows.length >= 2) {
+            const rawPts = validRows.map(h => Number(h.normalized_price > 0 ? h.normalized_price : h.price));
+            if (rawPts.length <= 16) return rawPts;
+            const step = (rawPts.length - 1) / 15.0;
+            return Array.from({ length: 16 }, (_, i) => Number(rawPts[Math.round(i * step)].toFixed(1)));
+        }
+    }
+
+    // 2. Pre-computed sparklines from database
+    const ptsAll = parseSparklinePoints(p.sparkline_all);
+    const pts7d = parseSparklinePoints(p.sparkline);
 
     function isArrFlat(arr) {
         if (!arr || arr.length < 2) return true;
         const mn = Math.min(...arr);
         const mx = Math.max(...arr);
         const diff = mx - mn;
-        return diff < 1.0 || (diff / Math.max(mx, 1.0)) < 0.015;
+        return diff < 0.5 || (diff / Math.max(mx, 1.0)) < 0.005;
     }
 
     let points = [];
-    const pts7d = parseSparklinePoints(p.sparkline);
-    const ptsAll = parseSparklinePoints(p.sparkline_all);
-
-    if (isPremium) {
-        // Premium mode: prioritize full all-time history sparkline
+    // In ATL filter or premium mode, prioritize all-time historical sparkline (matches the full modal chart)
+    if (isAtlContext || isPremium) {
         if (ptsAll.length >= 2 && !isArrFlat(ptsAll)) {
-            points = ptsAll;
+            points = [...ptsAll];
         } else if (pts7d.length >= 2 && !isArrFlat(pts7d)) {
-            points = pts7d;
+            points = [...pts7d];
         } else if (ptsAll.length >= 2) {
-            points = ptsAll;
+            points = [...ptsAll];
         } else if (pts7d.length >= 2) {
-            points = pts7d;
+            points = [...pts7d];
         }
     } else {
-        // Free mode: check 7-day sparkline first.
-        // If 7-day is flat (drop happened >7 days ago), fallback to all-time sparkline so user sees the drop!
-        if (pts7d.length >= 2 && !isArrFlat(pts7d)) {
-            points = pts7d;
-        } else if (ptsAll.length >= 2 && !isArrFlat(ptsAll)) {
-            points = ptsAll;
+        // General view: prefer ptsAll if it has trend movement, fallback to pts7d
+        if (ptsAll.length >= 2 && !isArrFlat(ptsAll)) {
+            points = [...ptsAll];
+        } else if (pts7d.length >= 2 && !isArrFlat(pts7d)) {
+            points = [...pts7d];
+        } else if (ptsAll.length >= 2) {
+            points = [...ptsAll];
         } else if (pts7d.length >= 2) {
-            points = pts7d;
+            points = [...pts7d];
         }
     }
 
-    // If still empty and p.history is loaded
-    if (points.length < 2 && Array.isArray(p.history) && p.history.length >= 2) {
-        const hist = isPremium ? p.history : p.history.slice(-7);
-        points = hist.map(h => Number(h.normalized_price || h.price || 0)).filter(v => v > 0);
-    }
-
-    // Ensure the latest point matches current normalized price if on the same scale
+    // Ensure the latest point reflects current normalized price if valid
     if (points.length >= 2 && normP > 0) {
-        const lastPt = points[points.length - 1];
-        if (Math.abs(lastPt - normP) > 0.05 && normP <= minP * 1.005) {
-            const ratio = normP / Math.max(lastPt, 0.01);
-            if (ratio >= 0.65 && ratio <= 1.5) {
-                points[points.length - 1] = normP;
-            }
-        }
+        points[points.length - 1] = Number(normP.toFixed(1));
     }
 
-    // If points are flat or missing, but this product is a verified ATL drop deal:
-    // Synthesize the drop curve from maxPrice down to normalized_price!
-    if (isArrFlat(points) && hasRealDrop) {
-        const avgP = Number(p.avgPrice || (maxP + normP) / 2);
-        points = [maxP, maxP, avgP, normP, normP];
-    }
+    return points;
+}
 
-    if (points.length < 2 || isArrFlat(points)) return '';
+function renderCardSparklineSvg(p) {
+    if (!p) return '';
+    const isPremium = Boolean(typeof premiumUnlocked !== 'undefined' && premiumUnlocked);
+    const isAtlContext = (activeIntelFilter === 'low' || activeIntelFilter === 'first_low');
 
-    // Slicing from peak if there's a verified drop from peak:
-    // This ensures the sparkline accurately visualizes the price drop to all-time low in green!
-    const mxVal = Math.max(...points);
-    const lastVal = points[points.length - 1];
-    const hasDropFromPeak = (mxVal >= lastVal * 1.015) && ((mxVal - lastVal) >= 1.0);
+    const points = extractSparklinePoints(p);
+    if (points.length < 2) return '';
 
-    if (hasDropFromPeak) {
-        const peakIdx = points.lastIndexOf(mxVal);
-        if (peakIdx < points.length - 1) {
-            const dropPts = points.slice(peakIdx);
-            if (dropPts.length >= 2) {
-                points = dropPts;
-            }
-        }
-    }
+    const min = Math.min(...points);
+    const max = Math.max(...points);
+    const diffRange = max - min;
+    // Suppress if difference is trivial (jitter / completely flat)
+    if (diffRange < 0.5 || (diffRange / Math.max(max, 1.0)) < 0.005) return '';
 
     const first = points[0];
     const last = points[points.length - 1];
     const diff = last - first;
 
-    // Suppress if difference is trivial (rounding jitter)
-    if (Math.abs(diff) < 1.0 || (Math.abs(diff) / Math.max(first, 1.0)) < 0.015) return '';
-
-    const pctNum = Math.round(Math.abs(diff / first) * 100);
-    // Never show 0% on sparklines (neither ▲ 0% nor ▼ 0%)
-    if (pctNum === 0) return '';
-
-    const isAtlContext = (activeIntelFilter === 'low' || activeIntelFilter === 'first_low');
-    // In ATL filter, a red/upward curve contradicts the "LOW" badge!
-    if (isAtlContext && last > first) return '';
-
-    // Color logic: upward is RED (#ef4444), downward is GREEN (#10b981)
+    // Color & trend symbol logic:
     let strokeColor = '#06b6d4';
     let fillColor = 'rgba(6, 182, 212, 0.12)';
     let trendSymbol = '■';
+    let pctNum = 0;
 
-    if (last > first) {
-        strokeColor = '#ef4444'; // Red for price increase
-        fillColor = 'rgba(239, 68, 68, 0.15)';
-        trendSymbol = '▲';
+    if (isAtlContext) {
+        // In ATL context, every item is at or near its all-time low.
+        const dropFromMax = max > last ? Math.round(((max - last) / max) * 100) : 0;
+        const netDrop = first > last ? Math.round(((first - last) / first) * 100) : 0;
+        pctNum = dropFromMax > 0 ? dropFromMax : (netDrop > 0 ? netDrop : Math.round((diffRange / max) * 100));
+        strokeColor = '#10b981'; // Green for ATL deals
+        fillColor = 'rgba(16, 185, 129, 0.15)';
+        trendSymbol = '▼';
     } else if (last < first) {
         strokeColor = '#10b981'; // Green for price drop
         fillColor = 'rgba(16, 185, 129, 0.15)';
         trendSymbol = '▼';
+        pctNum = Math.round(Math.abs(diff / first) * 100);
+    } else if (last > first) {
+        strokeColor = '#ef4444'; // Red for price increase
+        fillColor = 'rgba(239, 68, 68, 0.15)';
+        trendSymbol = '▲';
+        pctNum = Math.round(Math.abs(diff / first) * 100);
+    } else {
+        const dropFromMax = max > last ? Math.round(((max - last) / max) * 100) : 0;
+        pctNum = dropFromMax > 0 ? dropFromMax : Math.round((diffRange / max) * 100);
+        strokeColor = '#10b981';
+        fillColor = 'rgba(16, 185, 129, 0.15)';
+        trendSymbol = '▼';
     }
+
+    if (pctNum === 0) return '';
 
     const width = 100;
     const height = 20;
     const paddingY = 2;
-    const min = Math.min(...points);
-    const max = Math.max(...points);
-    const range = (max - min) || 1;
+    const range = diffRange || 1;
 
     const coords = points.map((val, idx) => {
         const x = (idx / (points.length - 1)) * width;
@@ -2472,8 +2484,12 @@ function renderCardSparklineSvg(p) {
     const pathData = 'M ' + coords.map(pt => `${pt[0]},${pt[1]}`).join(' L ');
     const areaData = `${pathData} L ${width},${height} L 0,${height} Z`;
 
+    const tooltipTitle = isAtlContext && max > last
+        ? `All-Time Low: Peak ${fmt(max)} → Now ${fmt(last)} Tk`
+        : `Price Trend: ${fmt(first)} → ${fmt(last)} Tk`;
+
     return `
-        <div class="card-sparkline-wrap" title="${isPremium ? 'Full Price History' : 'Price Trend'}: ${fmt(first)} → ${fmt(last)} Tk">
+        <div class="card-sparkline-wrap" title="${tooltipTitle}">
             <svg class="card-sparkline" viewBox="0 0 ${width} ${height}" preserveAspectRatio="none" aria-hidden="true">
                 <path d="${areaData}" fill="${fillColor}" />
                 <path d="${pathData}" fill="none" stroke="${strokeColor}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
@@ -2481,6 +2497,31 @@ function renderCardSparklineSvg(p) {
             <span class="sparkline-pill" style="color:${strokeColor}">${trendSymbol} ${pctNum}%</span>
         </div>
     `;
+}
+
+function updateCardSparklineDom(productId) {
+    if (!productId) return;
+    const p = getProductById(productId);
+    if (!p) return;
+    const card = document.querySelector(`.p-item-sh[data-product-id="${productId}"]`);
+    if (!card) return;
+    const existingWrap = card.querySelector('.card-sparkline-wrap');
+    const newHtml = renderCardSparklineSvg(p);
+    if (existingWrap) {
+        if (newHtml) {
+            existingWrap.outerHTML = newHtml;
+        } else {
+            existingWrap.remove();
+        }
+    } else if (newHtml) {
+        const meta = card.querySelector('.product-meta');
+        const packRow = meta ? meta.querySelector('.meta-row:last-child') : null;
+        if (packRow) {
+            packRow.insertAdjacentHTML('beforebegin', newHtml);
+        } else if (meta) {
+            meta.insertAdjacentHTML('beforeend', newHtml);
+        }
+    }
 }
 
 
@@ -3288,7 +3329,8 @@ async function batchPrefetchAdjacentProducts(idx, dir = 1) {
             const useStoreChunk = window.__registeredHistoryChunks && window.__registeredHistoryChunks.has(storeChunk);
             let fromSource = 'history_access';
             if (useStoreChunk) {
-                fromSource = (window.__hasPremiumArchive || (typeof premiumUnlocked !== 'undefined' && premiumUnlocked))
+                const hasArchiveChunk = Boolean(window.__hasPremiumArchive && window.__registeredHistoryChunks && window.__registeredHistoryChunks.has('history_archive.parquet'));
+                fromSource = hasArchiveChunk
                     ? `(SELECT * FROM read_parquet('${storeChunk}') UNION ALL SELECT * FROM read_parquet('history_archive.parquet'))`
                     : `read_parquet('${storeChunk}')`;
             }
@@ -3307,7 +3349,23 @@ async function batchPrefetchAdjacentProducts(idx, dir = 1) {
                 WHERE product_id IN (${idList.join(',')})
                 ORDER BY product_id, date ASC
             `;
-            const result = await godDB.conn.query(query);
+            let result = null;
+            try {
+                result = await godDB.conn.query(query);
+            } catch (qErr) {
+                if (useStoreChunk && fromSource.includes('UNION ALL')) {
+                    try {
+                        result = await godDB.conn.query(`
+                            SELECT product_id, date, price, normalized_price
+                            FROM read_parquet('${storeChunk}')
+                            WHERE product_id IN (${idList.join(',')})
+                            ORDER BY product_id, date ASC
+                        `);
+                    } catch (_) {}
+                }
+                if (!result) throw qErr;
+            }
+
             const rowsByPid = new Map();
             for (const row of result.toArray()) {
                 const h = row.toJSON();
@@ -3320,6 +3378,7 @@ async function batchPrefetchAdjacentProducts(idx, dir = 1) {
             for (const p of products) {
                 const rawId = p.id.replace(/^(sh_|ch_|mb_|ot_|mt_|uni_|sj_|fd_)/, '');
                 const isCurrentlyInStock = !p.is_out_of_stock && p.in_stock && p.hasPriceToday && Number(p.current_price) > 0;
+                const cRows = rowsByPid.get(p.id) || rowsByPid.get(rawId) || [];
                 if (cRows.length > 0) {
                     p.history = forwardFillHistoryGaps(cRows, p.current_price, p.normalized_price, isCurrentlyInStock);
                     p.first_seen = p.first_seen || cRows[0].date;
@@ -3334,6 +3393,9 @@ async function batchPrefetchAdjacentProducts(idx, dir = 1) {
                 }
                 p._historyLoaded = true;
                 p._historyLoading = false;
+                if (typeof updateCardSparklineDom === 'function') {
+                    updateCardSparklineDom(p.id);
+                }
             }
         }
     } catch (e) {
@@ -3419,6 +3481,9 @@ async function openDetailedChart(product, knownIndex) {
             const curr = h[h.length - 1].normalized_price || h[h.length - 1].price;
             const prev = h[h.length - 2].normalized_price || h[h.length - 2].price;
             product.priceChangePercent = prev > 0 ? ((curr - prev) / prev * 100) : 0;
+        }
+        if (typeof updateCardSparklineDom === 'function') {
+            updateCardSparklineDom(product.id);
         }
     }
     if (reqId !== _detailChartReqId) return;
@@ -5607,28 +5672,11 @@ function buildHistoryView(product) {
     }
 
     // Free tier:
-    // Supply full lookback timeline so Chart.js renders the full multi-week curve across the canvas.
-    // The paywall mask overlays the left ~82% of the canvas with frosted glass and gold border,
-    // while the latest 7-day window remains unblurred and crisp on the right ~18% (matches history_paywall_preview.webp).
+    // Use authentic source history records directly so the curve shape matches the preview sparkline 100%.
+    // The paywall frosted glass mask gracefully covers older days (> 7 days) without distorting the data.
     let displayRows = source;
-    if (!source || source.length < 24) {
-        const free7 = getFreeSevenDayWindow(source, product.current_price, product.normalized_price, isCurrentlyInStock);
-        const baselinePrice = Number(product.avgPrice || product.minPrice || product.current_price || 0);
-        const baselineNorm = Number(product.avgPrice || product.normalized_price || product.current_price || 0);
-        const earliest7Date = new Date(free7[0].date + 'T12:00:00Z');
-        const dayMs = 86400000;
-        const pastRows = [];
-        for (let i = 24; i >= 1; i--) {
-            const d = new Date(earliest7Date.getTime() - i * dayMs);
-            const dStr = d.toISOString().slice(0, 10);
-            pastRows.push({
-                date: dStr,
-                price: baselinePrice,
-                normalized_price: baselineNorm,
-                _filled: true
-            });
-        }
-        displayRows = [...pastRows, ...free7];
+    if (!source || !source.length) {
+        displayRows = getFreeSevenDayWindow(source, product.current_price, product.normalized_price, isCurrentlyInStock);
     }
 
     return { 

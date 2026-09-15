@@ -1,6 +1,7 @@
 *.ipynb
 *.ps1
 *.png
+!favicon.png
 *.bat
 node_modules/
 .env

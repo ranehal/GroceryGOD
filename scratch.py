@@ -1228,23 +1228,78 @@ def trigger_self_restart(exec_stats=None):
             except Exception:
                 nb_data = None
 
-        if not nb_data and os.path.exists('/kaggle/notebook_source.ipynb'):
-            try:
-                with open('/kaggle/notebook_source.ipynb', 'r', encoding='utf-8') as nbf:
-                    nb_data = json.load(nbf)
-            except Exception:
-                nb_data = None
-
-        if not nb_data and os.path.exists('/kaggle/working/GroceryGOD/kaggle gitGOD.ipynb'):
-            try:
-                with open('/kaggle/working/GroceryGOD/kaggle gitGOD.ipynb', 'r', encoding='utf-8') as nbf:
-                    nb_data = json.load(nbf)
-            except Exception:
-                nb_data = None
+        if not nb_data:
+            for cand_ipynb in glob.glob('*.ipynb'):
+                try:
+                    with open(cand_ipynb, 'r', encoding='utf-8') as nbf:
+                        cand_data = json.load(nbf)
+                    if cand_data and cand_data.get('cells'):
+                        nb_data = cand_data
+                        code_filename = cand_ipynb
+                        meta['code_file'] = code_filename
+                        break
+                except Exception:
+                    pass
 
         if not nb_data:
-            with open(__file__, 'r', encoding='utf-8') as sf:
-                code_src = sf.read()
+            for ipynb_path in [
+                '/kaggle/working/__notebook__.ipynb',
+                '/kaggle/working/__notebook_source__.ipynb',
+                '/kaggle/notebook_source.ipynb',
+                '/kaggle/working/GroceryGOD/kaggle gitGOD.ipynb',
+                '/kaggle/working/gitgod.ipynb',
+            ]:
+                if os.path.exists(ipynb_path):
+                    try:
+                        with open(ipynb_path, 'r', encoding='utf-8') as nbf:
+                            cand_data = json.load(nbf)
+                        if cand_data and cand_data.get('cells'):
+                            nb_data = cand_data
+                            break
+                    except Exception:
+                        pass
+
+        if not nb_data:
+            code_src = None
+            for candidate_path in [
+                '/kaggle/working/GroceryGOD/scratch.py',
+                '/kaggle/working/scratch.py',
+                'scratch.py',
+                os.path.join(os.getcwd(), 'scratch.py')
+            ]:
+                if os.path.exists(candidate_path):
+                    try:
+                        with open(candidate_path, 'r', encoding='utf-8') as csf:
+                            cand_code = csf.read()
+                        if len(cand_code) > 10000:
+                            code_src = cand_code
+                            break
+                    except Exception:
+                        pass
+
+            if not code_src:
+                try:
+                    import IPython
+                    ip = IPython.get_ipython()
+                    if ip and hasattr(ip, 'user_ns') and 'In' in ip.user_ns:
+                        for cell_text in reversed(ip.user_ns['In']):
+                            if cell_text and 'def trigger_self_restart' in cell_text and len(cell_text) > 10000:
+                                code_src = cell_text
+                                break
+                except Exception:
+                    pass
+
+            if not code_src and globals().get('__file__') and os.path.exists(globals()['__file__']):
+                try:
+                    with open(globals()['__file__'], 'r', encoding='utf-8') as sf:
+                        code_src = sf.read()
+                except Exception:
+                    pass
+
+            if not code_src:
+                print("[SYSTEM] ERROR: Could not locate Python source code for payload notebook generation!")
+                code_src = "# Orchestrator reboot placeholder\nprint('Reboot placeholder')\n"
+
             nb_data = {
                 "cells": [
                     {

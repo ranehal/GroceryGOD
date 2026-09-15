@@ -437,8 +437,6 @@ try:
             else:
                 step = (len(pts) - 1) / 11.0
                 p_all = [round(pts[int(round(i * step))][1], 1) for i in range(12)]
-            if len(p_all) >= 2 and abs(p_all[0] - p_all[-1]) < 0.5:
-                p_all[-1] = p_all[0]
         elif len(pts) == 1:
             p_7d = [round(pts[0][1], 1)]
             p_all = [round(pts[0][1], 1)]
