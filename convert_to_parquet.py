@@ -261,23 +261,39 @@ con.execute("""
 # Unify history for canonical IDs with unit-normalization outlier sanitization
 con.execute("""
     CREATE TABLE unified_history AS
+    WITH latest_positive AS (
+        SELECT 
+            m.canonical_id,
+            arg_max(h.price, h.date) as last_pos_price,
+            arg_max(h.normalized_price, h.date) as last_pos_norm
+        FROM raw_full_history h
+        JOIN id_mapping m ON h.product_id = m.old_id
+        WHERE h.price > 0 AND h.normalized_price > 0
+        GROUP BY m.canonical_id
+    ),
+    ref_ratios AS (
+        SELECT 
+            cp.id as canonical_id,
+            CASE WHEN cp.current_price > 0 AND cp.normalized_price > 0 THEN cp.current_price ELSE lp.last_pos_price END as ref_price,
+            CASE WHEN cp.current_price > 0 AND cp.normalized_price > 0 THEN cp.normalized_price ELSE lp.last_pos_norm END as ref_norm
+        FROM canonical_prods cp
+        LEFT JOIN latest_positive lp ON cp.id = lp.canonical_id
+    )
     SELECT 
         m.canonical_id as product_id,
         h.date,
         arg_max(h.price, CASE WHEN h.price > 0 THEN 1 ELSE 0 END) as price,
         CASE 
             WHEN arg_max(h.price, CASE WHEN h.price > 0 THEN 1 ELSE 0 END) > 0 
-                 AND arg_max(h.normalized_price, CASE WHEN h.normalized_price > 0 THEN 1 ELSE 0 END) > 0 
-                 AND cp.current_price > 0 AND cp.normalized_price > 0
-                 AND ( (arg_max(h.normalized_price, CASE WHEN h.normalized_price > 0 THEN 1 ELSE 0 END) / arg_max(h.price, CASE WHEN h.price > 0 THEN 1 ELSE 0 END)) > ((cp.normalized_price / cp.current_price) * 2.5)
-                    OR (arg_max(h.normalized_price, CASE WHEN h.normalized_price > 0 THEN 1 ELSE 0 END) / arg_max(h.price, CASE WHEN h.price > 0 THEN 1 ELSE 0 END)) < ((cp.normalized_price / cp.current_price) / 2.5) )
-            THEN ROUND(arg_max(h.price, CASE WHEN h.price > 0 THEN 1 ELSE 0 END) * (cp.normalized_price / cp.current_price), 2)
+                 AND r.ref_price > 0 AND r.ref_norm > 0
+                 AND ABS((arg_max(h.normalized_price, CASE WHEN h.normalized_price > 0 THEN 1 ELSE 0 END) / arg_max(h.price, CASE WHEN h.price > 0 THEN 1 ELSE 0 END)) - (r.ref_norm / r.ref_price)) > 0.001
+            THEN ROUND(arg_max(h.price, CASE WHEN h.price > 0 THEN 1 ELSE 0 END) * (r.ref_norm / r.ref_price), 2)
             ELSE arg_max(h.normalized_price, CASE WHEN h.normalized_price > 0 THEN 1 ELSE 0 END)
         END as normalized_price
     FROM raw_full_history h
     JOIN id_mapping m ON h.product_id = m.old_id
-    LEFT JOIN canonical_prods cp ON m.canonical_id = cp.id
-    GROUP BY m.canonical_id, h.date, cp.current_price, cp.normalized_price;
+    LEFT JOIN ref_ratios r ON m.canonical_id = r.canonical_id
+    GROUP BY m.canonical_id, h.date, r.ref_price, r.ref_norm;
 """)
 
 # Complete full history with backwards-compatible old_id aliases
@@ -400,7 +416,7 @@ con.execute(f"""
       AND (p.max_price - p.min_price) >= 1.0
       AND p.normalized_price <= (p.min_price * 1.005)
       AND p.normalized_price > 0
-      AND (p.max_actual IS NULL OR p.max_actual <= p.min_actual + 0.5 OR p.current_price < p.max_actual)
+      AND (p.max_actual IS NULL OR (p.max_actual > p.min_actual + 0.5 AND p.current_price < p.max_actual))
       AND TRY_CAST(p.last_seen AS DATE) >= (TRY_CAST(sm.max_seen AS DATE) - INTERVAL 14 DAY)
       AND p.image IS NOT NULL 
       AND p.image != '' 

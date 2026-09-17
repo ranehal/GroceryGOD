@@ -1321,10 +1321,23 @@ function forwardFillHistoryGaps(rawRows, currentPrice, currentNormPrice, isCurre
     const sorted = [...rawRows].filter(r => r && r.date).sort((a, b) => a.date.localeCompare(b.date));
     if (!sorted.length) return [];
 
+    // Target unit-to-actual price ratio for this product
+    const cPrice = Number(currentPrice);
+    const cNorm = Number(currentNormPrice);
+    const hasValidCurrRatio = (cPrice > 0 && cNorm > 0);
+    const targetRatio = hasValidCurrRatio ? (cNorm / cPrice) : null;
+
     const existingMap = new Map();
     sorted.forEach(r => {
-        const p = Number(r.price);
-        const np = Number(r.normalized_price || r.price);
+        let p = Number(r.price);
+        let np = Number(r.normalized_price != null ? r.normalized_price : r.price);
+        // If actual price is valid (> 0) and targetRatio is known, ensure unit ratio consistency
+        if (p > 0 && targetRatio != null && np > 0) {
+            const rowRatio = np / p;
+            if (Math.abs(rowRatio - targetRatio) > 0.001) {
+                np = Math.round(p * targetRatio * 100) / 100;
+            }
+        }
         existingMap.set(r.date, { price: p, normalized_price: np });
     });
 
@@ -2005,7 +2018,8 @@ function renderProducts() {
         if (activeIntelFilter === 'wait') return p.normalized_price > (p.avgPrice * 1.05);
         if (activeIntelFilter === 'first_low') return !isOos && Number(p.normalized_price) > 0 && p.hist_count >= 2 && (p.maxPrice >= p.minPrice * 1.03) && (p.maxPrice - p.minPrice >= 1.0) && (p.isFirstTimeLow || p.is_first_low || checkIsFirstTimeLow(p));
         if (activeIntelFilter === 'low') {
-            const isFakeLow = Boolean(p.maxActual && p.minActual && (p.maxActual > p.minActual + 0.5) && (p.current_price >= p.maxActual));
+            const hasActualRange = Boolean(p.maxActual && p.minActual);
+            const isFakeLow = hasActualRange && (p.maxActual <= p.minActual + 0.5 || p.current_price >= p.maxActual);
             return !isOos && !isFakeLow && Number(p.normalized_price) > 0 && p.hist_count >= 2 && (p.maxPrice >= p.minPrice * 1.03) && (p.maxPrice - p.minPrice >= 1.0) && p.normalized_price <= (p.minPrice * 1.005);
         }
         if (activeIntelFilter === 'new') return p.isNew;
@@ -3246,7 +3260,8 @@ function updateDetailModalHeader(product) {
     }
     
     if (document.getElementById('chart-product-unit')) {
-        document.getElementById('chart-product-unit').innerText = unitDisplay;
+        const fullUnitText = product.unit ? `${product.unit} (${unitDisplay})` : unitDisplay;
+        document.getElementById('chart-product-unit').innerText = fullUnitText;
     }
     
     const isAllTimeLow = inStock && product.maxPrice - product.minPrice > 0.01 && product.normalized_price <= (product.minPrice + 0.01);
@@ -3521,24 +3536,32 @@ async function openDetailedChart(product, knownIndex) {
         if (avgEl) avgEl.innerText = fmt(winAvg);
     }
 
+    let uDesc = '/pc';
+    if (product.unit_type === 'liter' || product.unit_type === 'ltr') uDesc = '/L';
+    else if (product.unit_type === 'kg' || product.unit_type === 'g') uDesc = '/kg';
+    const unitLabel = `Unit Price (${uDesc})`;
+    const actualLabel = 'Actual Price (BDT)';
+
     // IN-PLACE CHART UPDATE FOR ZERO-LATENCY (<2ms) NAVIGATION
     if (detailChart && detailChart.ctx && detailChart.canvas === chartCanvas) {
         detailChart._currentHistory = history;
         detailChart._rawDates = rawDates;
         detailChart.data.labels = labels;
-        detailChart.data.datasets[0].label = 'Unit Price';
+        detailChart.data.datasets[0].label = unitLabel;
         detailChart.data.datasets[0].data = unitData;
         detailChart.data.datasets[0].borderColor = store.color;
         detailChart.data.datasets[0].backgroundColor = store.color + '22';
-        detailChart.data.datasets[1].label = 'Actual Price';
+        detailChart.data.datasets[1].label = actualLabel;
         detailChart.data.datasets[1].data = actualData;
         detailChart.data.datasets[1].yAxisID = hasDistinctActual ? 'y1' : 'y';
         if (detailChart.options.scales.y) {
+            detailChart.options.scales.y.title.text = unitLabel;
             detailChart.options.scales.y.title.color = store.color;
             detailChart.options.scales.y.ticks.color = store.color;
         }
         if (detailChart.options.scales.y1) {
             detailChart.options.scales.y1.display = hasDistinctActual;
+            detailChart.options.scales.y1.title.text = actualLabel;
         }
         if (detailChart.options.scales.x) {
             detailChart.options.scales.x.ticks.autoSkip = true;
@@ -3560,7 +3583,7 @@ async function openDetailedChart(product, knownIndex) {
             labels: labels,
             datasets: [
                 { 
-                    label: 'Unit Price', 
+                    label: unitLabel, 
                     data: unitData, 
                     borderColor: store.color, 
                     backgroundColor: store.color + '22', 
@@ -3572,7 +3595,7 @@ async function openDetailedChart(product, knownIndex) {
                     pointHoverRadius: 5 
                 },
                 { 
-                    label: 'Actual Price', 
+                    label: actualLabel, 
                     data: actualData, 
                     borderColor: getChartTheme().actual, 
                     borderDash: [5, 5], 
@@ -3589,8 +3612,8 @@ async function openDetailedChart(product, knownIndex) {
             responsive: true, maintainAspectRatio: false,
             animation: false,
             scales: {
-                y: { position: 'left', title: { display: true, text: 'Unit Price', color: store.color, font: { weight: 'bold' } }, grid: { color: '#222' }, ticks: { color: store.color, font: { size: 11, weight: 'bold' } } },
-                y1: { display: hasDistinctActual, position: 'right', title: { display: true, text: 'Actual Price', color: getChartTheme().actual, font: { weight: 'bold' } }, grid: { display: false }, ticks: { color: getChartTheme().actual, font: { size: 11, weight: 'bold' } } },
+                y: { position: 'left', title: { display: true, text: unitLabel, color: store.color, font: { weight: 'bold' } }, grid: { color: '#222' }, ticks: { color: store.color, font: { size: 11, weight: 'bold' } } },
+                y1: { display: hasDistinctActual, position: 'right', title: { display: true, text: actualLabel, color: getChartTheme().actual, font: { weight: 'bold' } }, grid: { display: false }, ticks: { color: getChartTheme().actual, font: { size: 11, weight: 'bold' } } },
                 x: { 
                     ticks: { 
                         color: getChartTheme().text, 
