@@ -1632,7 +1632,8 @@ def trigger_self_restart(exec_stats=None):
         es = exec_stats or {}
         dur_sec = es.get('elapsed_seconds', 0)
         _dm, _ds = divmod(dur_sec, 60)
-        dur_str = f"{_dm}m {_ds:02d}s" if dur_sec > 0 else "N/A"
+        _dh, _dm = divmod(_dm, 60)
+        dur_str = f"{_dh}h {_dm:02d}m {_ds:02d}s" if _dh > 0 else (f"{_dm}m {_ds:02d}s" if dur_sec > 0 else "N/A")
 
         p1_st = es.get('p1_status', 'OK')
         p2_st = es.get('p2_status', 'OK')
@@ -4070,6 +4071,7 @@ if __name__ == '__main__':
     p2 = multiprocessing.Process(target=run_gitw)
     p3 = multiprocessing.Process(target=run_all_scheduled_repos, args=(_scheduled_repos, GITHUB_PAT, _p14_results))
     
+    session_start_t0 = time.time()
     p2.start()
     print("⏳ Sleeping 10 minutes (600s) before starting p1 & p3 to sync Kaggle Netherlands/UTC time with Dhaka date...")
     for _i in range(10, 0, -1):
@@ -4079,25 +4081,29 @@ if __name__ == '__main__':
     p3.start()
     
     loop_t0 = time.time()
-    timeout_seconds = 11 * 3600  # 11 hours safety timeout (well under Kaggle 12h cell limit)
+    timeout_seconds = 11 * 3600 + 15 * 60  # 11h 15m (+10m init = ~11h 25m total session duration, safely under Kaggle 12h limit)
     _master_reported = False
+    _last_heartbeat_time = 0
+    heartbeat_interval = 600  # 10 minutes
 
-    while time.time() - loop_t0 < timeout_seconds:
+    while (time.time() - loop_t0) < timeout_seconds:
         p1_alive = p1.is_alive()
         p3_alive = p3.is_alive()
+        p2_alive = p2.is_alive()
+
         # Wait until BOTH GroceryGOD (p1) and Scheduled Sub-Repos (p3) have finished scraping & aggregating
         if not p1_alive and not p3_alive:
-            print("\n✅ All scrapers & aggregators finished! (GroceryGOD p1 & Scheduled Repos p3)", flush=True)
-            # Immediate pre-report memory cleanup
-            try:
-                import gc as _gc
-                _gc.collect()
-                os.system("pkill -9 -f chromium 2>/dev/null")
-                os.system("pkill -9 -f scraper.py 2>/dev/null")
-            except Exception:
-                pass
-
             if not _master_reported:
+                print("\n✅ All scrapers & aggregators finished! (GroceryGOD p1 & Scheduled Repos p3)", flush=True)
+                # Immediate pre-report memory cleanup
+                try:
+                    import gc as _gc
+                    _gc.collect()
+                    os.system("pkill -9 -f chromium 2>/dev/null")
+                    os.system("pkill -9 -f scraper.py 2>/dev/null")
+                except Exception:
+                    pass
+
                 _master_reported = True
                 print("🟢 Dispatching unified Consolidated Daily Master Report & 7z Backup to Telegram...", flush=True)
                 try:
@@ -4105,10 +4111,23 @@ if __name__ == '__main__':
                 except Exception as _mr_exc:
                     print(f"⚠️ [ORCHESTRATOR] Master report dispatch error: {_mr_exc}", flush=True)
                     traceback.print_exc()
-            break
+
+                print("💤 Scraper pipeline complete. Entering active standby heartbeat loop until scheduled container restart...", flush=True)
+                _last_heartbeat_time = time.time()
+
+            # Standby heartbeat logging every 10 minutes to maintain active notebook connection
+            now_t = time.time()
+            if now_t - _last_heartbeat_time >= heartbeat_interval:
+                elapsed_min = int((now_t - session_start_t0) / 60)
+                rem_min = max(0, int((timeout_seconds - (now_t - loop_t0)) / 60))
+                now_str = datetime.now(DHAKA_TZ).strftime('%H:%M:%S')
+                p2_desc = "running" if p2_alive else ("completed" if p2.exitcode == 0 else f"exited(rc={p2.exitcode})")
+                print(f"💤 [{now_str} DHAKA] Standby Heartbeat: Active {elapsed_min}m | Remaining: {rem_min}m until container reboot | gitw (p2): {p2_desc}", flush=True)
+                _last_heartbeat_time = now_t
+
         time.sleep(30)
-    else:
-        print("\n⏳ Safety time limit threshold reached (11h). Initiating nuclear teardown & Kaggle restart...", flush=True)
+
+    print("\n⏳ Scheduled execution window completed (~11.5h). Initiating graceful teardown & Kaggle restart...", flush=True)
 
     if not _master_reported:
         _master_reported = True
@@ -4118,32 +4137,6 @@ if __name__ == '__main__':
         except Exception as _mr_exc2:
             print(f"⚠️ [ORCHESTRATOR] Fallback master report dispatch error: {_mr_exc2}", flush=True)
             traceback.print_exc()
-
-    # Daily Rest Period Guard: If all scrapers have successfully run today, do not thrash with immediate container restarts!
-    # Rest peacefully until next Dhaka calendar day or until container safety timeout (11h) arrives.
-    today_dhaka = datetime.now(DHAKA_TZ).strftime('%Y-%m-%d')
-    p14_completed_map = _PERSISTED_STATE.get('p14_completed_repos', {})
-    all_p14_done_today = all(p14_completed_map.get(lbl.strip()) == today_dhaka for _, _, lbl in _scheduled_repos)
-
-    if all_p14_done_today and (time.time() - loop_t0 < timeout_seconds):
-        print(f"\n🎉 [DAILY GUARD] All {len(_scheduled_repos)} scheduled repos are verified completed for today ({today_dhaka}).")
-        print("💤 Scrapers will not run again today (> once a day limit enforced).")
-        now_d = datetime.now(DHAKA_TZ)
-        tomorrow_d = (now_d + timedelta(days=1)).replace(hour=0, minute=5, second=0, microsecond=0)
-        secs_to_tomorrow = int((tomorrow_d - now_d).total_seconds())
-        remaining_cell_time = int(timeout_seconds - (time.time() - loop_t0))
-        rest_duration = max(60, min(secs_to_tomorrow, remaining_cell_time))
-
-        if rest_duration > 120:
-            print(f"💤 Entering restful sleep for {int(rest_duration/60)} minutes (until next day cycle / reboot)...")
-            sleep_start = time.time()
-            while (time.time() - sleep_start) < rest_duration:
-                elapsed_rest = time.time() - sleep_start
-                rem_rest = rest_duration - elapsed_rest
-                if rem_rest <= 0: break
-                time.sleep(min(300, rem_rest))
-                now_curr = datetime.now(DHAKA_TZ).strftime('%H:%M:%S')
-                print(f"💤 [{now_curr}] Resting... {int(rem_rest/60)}m remaining until next day cycle.")
 
     print("☢️ Executing Nuclear Teardown of orphaned child processes...")
     os.system("pkill -9 -f chromium")
@@ -4159,7 +4152,7 @@ if __name__ == '__main__':
     time.sleep(5)
     print("\n🔄 Triggering next cycle...")
     exec_stats = {
-        'elapsed_seconds': int(time.time() - loop_t0),
+        'elapsed_seconds': int(time.time() - session_start_t0),
         'p1_status': "OK" if p1.exitcode == 0 else f"rc={p1.exitcode}" if p1.exitcode is not None else "terminated",
         'p2_status': "OK" if p2.exitcode == 0 else f"rc={p2.exitcode}" if p2.exitcode is not None else "terminated",
         'p3_status': "OK" if p3.exitcode == 0 else f"rc={p3.exitcode}" if p3.exitcode is not None else "terminated",

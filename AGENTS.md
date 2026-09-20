@@ -36,6 +36,12 @@ These fixes were extracted from live Kaggle failures. Preserve the patterns:
 6. Delete `_scraper_error_*.log` before `git add .` in sub-repo pushes so retry artifacts don't get committed.
 7. **The GroceryGOD repo is `ranehal/GroceryGOD` — always clone and push as `ranehal`** via the embedded auth URL `https://ranehal:{pat}@github.com/ranehal/GroceryGOD.git` (`auth_grocery_url`); never via a bare URL (the credential store returning `ranehal` on a bare URL is fine, but a bare URL that yields the wrong user caused `403 denied`; embedded auth is the reliable pattern). Push iterates `auth_push_urls` (ranehal → bare).
 
+- **Full 11.5-Hour Session Lifecycle & Standby Heartbeat Loop (`scratch.py`, 2026-09-21, do not regress)**:
+  - Eliminated premature container teardown and restart thrashing (which was exiting after ~93m due to an unconditional `break` in the orchestrator loop and unshared child process state in `_PERSISTED_STATE`).
+  - Enforced a full 11h 15m (+10m init = ~11h 25m total session duration) execution window (`timeout_seconds = 11 * 3600 + 15 * 60`), safely under Kaggle's 12-hour container hard cutoff.
+  - After scrapers and aggregators (p1 & p3) finish, the consolidated master report and multi-part 7z backup are smoothly dispatched once to Telegram, followed by an active 10-minute standby heartbeat loop (`💤 [HH:MM:SS DHAKA] Standby Heartbeat: Active Xm | Remaining: Ym until container reboot | gitw (p2): ...`).
+  - Standby heartbeat loop keeps the Kaggle notebook connection alive, prevents frontend/backend idle timeouts, and allows `gitw` (`p2`) to complete all 34 worker tasks naturally without premature SIGTERM.
+  - Generates exactly ~2 clean, stable container self-restarts per 24 hours with rich Telegram telemetry (`11h 25m XXs` session duration).
 - **Zero-RAM Document Streaming & Out-of-Memory DeadKernel Elimination (`scratch.py`, 2026-09-20, do not regress)**:
   - Fixed `nbclient.exceptions.DeadKernelError: Kernel died` caused by cgroup OOM termination when dispatching large multi-store master backups (75+ MB) to Telegram.
   - Replaced in-memory Python `requests` document upload buffering with direct `curl` subprocess streaming (0 MB Python heap usage) with streaming fallback, streaming split chunks directly from persistent disk to socket.
