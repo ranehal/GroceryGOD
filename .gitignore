@@ -60,4 +60,9 @@ __pycache__/
 *.pyo
 *.pyd
 
+# Session prompt/result markdown exports
+read later/
+read_later/
+
+
 

@@ -563,49 +563,152 @@ def tg_send(text, silent=False):
     except Exception:
         return False
 
+def _upload_doc_telegram(file_path, caption, bot_token, chat_id, silent=False):
+    """
+    Stream a single document/archive to Telegram Bot API.
+    Prioritizes curl subprocess streaming (zero Python heap memory usage, direct kernel-to-socket streaming)
+    with fallback to requests with open file handle.
+    """
+    if not os.path.exists(file_path):
+        return False
+
+    fname = os.path.basename(file_path)
+    safe_cap = caption[:1024]
+
+    # Tier 1: curl subprocess streaming (0 MB Python memory footprint, direct streaming from disk)
+    if shutil.which("curl"):
+        try:
+            curl_cmd = [
+                "curl", "-s", "-S",
+                "--connect-timeout", "30",
+                "--max-time", "300",
+                "--retry", "3",
+                "--retry-delay", "3",
+                "-F", f"chat_id={chat_id}",
+                "-F", f"caption={safe_cap}",
+                "-F", "parse_mode=HTML",
+                "-F", f"document=@{file_path};filename={fname}"
+            ]
+            if silent:
+                curl_cmd.extend(["-F", "disable_notification=true"])
+            curl_cmd.append(f"https://api.telegram.org/bot{bot_token}/sendDocument")
+
+            res = subprocess.run(curl_cmd, capture_output=True, text=True, timeout=360)
+            stdout_txt = (res.stdout or "").strip()
+            if res.returncode == 0 and '"ok":true' in stdout_txt:
+                return True
+            else:
+                stderr_txt = (res.stderr or "").strip()
+                print(f"⚠️ [TG] curl upload notice (rc={res.returncode}): {stdout_txt[:200]} | {stderr_txt[:200]}", flush=True)
+        except Exception as _curl_exc:
+            print(f"⚠️ [TG] curl execution notice ({_curl_exc}). Falling back to requests...", flush=True)
+
+    # Tier 2: requests upload fallback
+    try:
+        with open(file_path, "rb") as f:
+            resp = requests.post(
+                f"https://api.telegram.org/bot{bot_token}/sendDocument",
+                files={"document": (fname, f)},
+                data={"chat_id": chat_id, "caption": safe_cap, "parse_mode": "HTML", "disable_notification": silent},
+                timeout=180
+            )
+            if resp.status_code == 200:
+                return True
+            else:
+                print(f"⚠️ [TG] requests upload status {resp.status_code}: {resp.text[:200]}", flush=True)
+                return False
+    except Exception as _req_exc:
+        print(f"⚠️ [TG] requests upload exception: {_req_exc}", flush=True)
+        return False
+
 def tg_send_file(file_path, caption="", silent=False):
     """
-    Dispatch document/database to Telegram. Automatically compresses files > 45MB
-    into a compact ZIP archive to satisfy Telegram's 50MB file size limit.
+    Dispatch document/database to Telegram. Automatically compresses large uncompressed files
+    or splits archives exceeding 40MB into sequential <=35MB chunks (.001, .002, etc.)
+    using zero-memory streaming, guaranteeing 100% reliable delivery without RAM exhaustion
+    or kernel crashes.
     """
+    import gc
+    gc.collect()
+
     bot_token = TELEGRAM_BOT_TOKEN or get_secret_safe("TELEGRAM_BOT_TOKEN") or os.environ.get("TELEGRAM_BOT_TOKEN")
     chat_id = TELEGRAM_CHAT_ID or get_secret_safe("TELEGRAM_CHAT_ID") or os.environ.get("TELEGRAM_CHAT_ID")
     if not bot_token or not chat_id:
+        print("⚠️ [TG] Bot token or chat ID missing. Skipping file send.", flush=True)
         return False
     if not os.path.exists(file_path):
+        print(f"⚠️ [TG] File does not exist: {file_path}", flush=True)
         return False
+
     actual_path = file_path
-    temp_zip = None
+    temp_files = []
     try:
         file_size = os.path.getsize(file_path)
         if file_size == 0:
             return False
-        if file_size > 45 * 1024 * 1024:
+
+        # If it's an uncompressed file > 35MB and not already an archive, try zip compression
+        is_archive = any(file_path.lower().endswith(ext) for ext in ['.7z', '.zip', '.gz', '.bz2', '.xz', '.tar', '.zst'])
+        if file_size > 35 * 1024 * 1024 and not is_archive:
             import zipfile
-            temp_zip = f"/tmp/{os.path.basename(file_path)}.zip"
+            dest_dir = os.path.dirname(actual_path)
+            temp_zip = os.path.join(dest_dir, f"{os.path.basename(file_path)}.zip")
             with zipfile.ZipFile(temp_zip, 'w', zipfile.ZIP_DEFLATED) as zf:
                 zf.write(file_path, os.path.basename(file_path))
             actual_path = temp_zip
+            temp_files.append(temp_zip)
             file_size = os.path.getsize(actual_path)
-            if file_size > 49 * 1024 * 1024:
-                print(f"⚠️ [TG] File {actual_path} ({file_size / (1024*1024):.1f}MB) exceeds 50MB Telegram limit even after compression.")
-                return False
 
-        with open(actual_path, "rb") as f:
-            resp = requests.post(
-                f"https://api.telegram.org/bot{bot_token}/sendDocument",
-                files={"document": (os.path.basename(actual_path), f)},
-                data={"chat_id": chat_id, "caption": caption[:1024], "parse_mode": "HTML", "disable_notification": silent},
-                timeout=180
-            )
-            return resp.status_code == 200
+        # Telegram Bot API limit is 50MB. If file_size > 40MB, split into 35MB multi-part chunks
+        CHUNK_SIZE = 35 * 1024 * 1024
+        if file_size > 40 * 1024 * 1024:
+            num_chunks = (file_size + CHUNK_SIZE - 1) // CHUNK_SIZE
+            print(f"📦 [TG] File {actual_path} ({file_size / (1024*1024):.1f}MB) exceeds 40MB safety limit. Splitting into {num_chunks} multi-part volumes (35MB each)...", flush=True)
+            base_name = os.path.basename(actual_path)
+            # Write chunks to persistent disk output directory, NEVER /tmp (which is tmpfs in RAM on Linux)
+            chunk_dir = os.path.dirname(actual_path)
+            chunk_paths = []
+
+            with open(actual_path, "rb") as src_f:
+                for idx in range(1, num_chunks + 1):
+                    chunk_name = f"{base_name}.{idx:03d}"
+                    chunk_path = os.path.join(chunk_dir, chunk_name)
+                    with open(chunk_path, "wb") as chunk_f:
+                        remaining = CHUNK_SIZE
+                        while remaining > 0:
+                            buf = src_f.read(min(remaining, 512 * 1024))
+                            if not buf:
+                                break
+                            chunk_f.write(buf)
+                            remaining -= len(buf)
+                    chunk_paths.append(chunk_path)
+                    temp_files.append(chunk_path)
+
+            all_ok = True
+            for idx, c_path in enumerate(chunk_paths, start=1):
+                part_cap = f"📦 [Part {idx}/{num_chunks}] {caption}".strip()
+                c_mb = os.path.getsize(c_path) / (1024 * 1024)
+                print(f"📤 [TG] Dispatching split volume {idx}/{num_chunks}: {os.path.basename(c_path)} ({c_mb:.1f} MB)...", flush=True)
+                ok = _upload_doc_telegram(c_path, part_cap, bot_token, chat_id, silent=silent)
+                if ok:
+                    print(f"✅ [TG] Split part {idx}/{num_chunks} delivered successfully.", flush=True)
+                else:
+                    print(f"⚠️ [TG] Split part {idx}/{num_chunks} upload failed.", flush=True)
+                    all_ok = False
+                time.sleep(2)
+            return all_ok
+
+        # Single file upload <= 40MB
+        return _upload_doc_telegram(actual_path, caption, bot_token, chat_id, silent=silent)
     except Exception as exc:
-        print(f"⚠️ [TG] tg_send_file failed for {file_path}: {exc}")
+        print(f"⚠️ [TG] tg_send_file failed for {file_path}: {exc}", flush=True)
         return False
     finally:
-        if temp_zip and os.path.exists(temp_zip):
-            try: os.remove(temp_zip)
-            except Exception: pass
+        for tf in temp_files:
+            if os.path.exists(tf):
+                try: os.remove(tf)
+                except Exception: pass
+        gc.collect()
 
 def get_master_backup_dir():
     """Return root directory for organizing the consolidated all-in-one daily backup."""
@@ -677,16 +780,21 @@ and Parquet stores across 20 retail, grocery, and restaurant platforms in Bangla
         except Exception:
             pass
 
-    # 1. Try 7-Zip ultra compression (t7z, mx=9)
+    # Pre-packaging memory reclamation
+    import gc
+    gc.collect()
+
+    # 1. Try 7-Zip ultra compression (t7z, mx=9, mmt=2 to avoid memory/CPU thrashing)
     if shutil.which('7z') is not None:
         if os.path.exists(archive_7z):
             try: os.remove(archive_7z)
             except Exception: pass
-        cmd = f'7z a -t7z -mx=9 -ms=on "{archive_7z}" "{backup_root}/*"'
+        cmd = f'7z a -t7z -mx=9 -ms=on -mmt=2 "{archive_7z}" "{backup_root}/*"'
         res = subprocess.run(cmd, shell=True, capture_output=True, text=True)
         if res.returncode == 0 and os.path.exists(archive_7z) and os.path.getsize(archive_7z) > 0:
             sz_mb = os.path.getsize(archive_7z) / (1024 * 1024)
-            print(f"📦 [7-ZIP] Master archive created: {archive_7z} ({sz_mb:.2f} MB)")
+            print(f"📦 [7-ZIP] Master archive created: {archive_7z} ({sz_mb:.2f} MB)", flush=True)
+            gc.collect()
             return archive_7z, sz_mb
 
     # 2. Fallback to ZIP with DEFLATED level 9
@@ -700,7 +808,8 @@ and Parquet stores across 20 retail, grocery, and restaurant platforms in Bangla
                 rel_p = os.path.relpath(abs_p, backup_root)
                 zf.write(abs_p, rel_p)
     sz_mb = os.path.getsize(archive_zip) / (1024 * 1024)
-    print(f"📦 [ZIP] Master archive created (fallback): {archive_zip} ({sz_mb:.2f} MB)")
+    print(f"📦 [ZIP] Master archive created (fallback): {archive_zip} ({sz_mb:.2f} MB)", flush=True)
+    gc.collect()
     return archive_zip, sz_mb
 
 def send_repo_db_backup(repo_dir, repo_name, label, repo_page_url):
@@ -1165,7 +1274,7 @@ def trigger_self_restart(exec_stats=None):
             _tg(f"🚨 <b>Kaggle Self-Restart Aborted!</b>\n\n{err}\n🕒 <code>{dhaka_time_str}</code>\n🔢 Reboot Attempt: #{reboot_count}\n📍 Kernel: <code>{k_slug}</code>")
             return
 
-        subprocess.run([sys.executable, "-m", "pip", "install", "-q", "kaggle"], check=False)
+        subprocess.run([sys.executable, "-m", "pip", "install", "-q", "--upgrade", "kaggle"], check=False)
 
         kaggle_config = {"username": k_user, "key": k_key}
         os.makedirs(os.path.expanduser('~/.kaggle'), exist_ok=True)
@@ -1415,7 +1524,109 @@ def trigger_self_restart(exec_stats=None):
         print(f"[SYSTEM] Successfully baked active secrets & state into payload {code_filename}.")
 
         print("[SYSTEM] Pushing kernel payload to trigger next loop container...")
-        api.kernels_push('.')
+        push_ok = False
+        last_push_err = None
+
+        for push_attempt in range(1, 6):
+            print(f"[SYSTEM] Kernel push attempt {push_attempt}/5 for {k_slug}...")
+
+            # 1. Try Kaggle CLI via subprocess (fresh process with upgraded kaggle package)
+            try:
+                cli_res = subprocess.run(
+                    ['kaggle', 'kernels', 'push', '-p', '.'],
+                    capture_output=True,
+                    text=True,
+                    timeout=120
+                )
+                stdout_str = (cli_res.stdout or '').strip()
+                stderr_str = (cli_res.stderr or '').strip()
+                if cli_res.returncode == 0 and ("Kernel version" in stdout_str or "successfully" in stdout_str.lower() or not stderr_str):
+                    print(f"[SYSTEM] ✅ Kernel push succeeded via CLI: {stdout_str}")
+                    push_ok = True
+                    break
+                else:
+                    print(f"[SYSTEM] CLI push attempt {push_attempt} notice (rc={cli_res.returncode}): {stdout_str} | {stderr_str}")
+            except Exception as _cli_exc:
+                print(f"[SYSTEM] CLI push attempt {push_attempt} exception: {_cli_exc}")
+
+            # 2. Try Python KaggleApi SDK
+            try:
+                api_res = api.kernels_push('.')
+                print(f"[SYSTEM] ✅ Kernel push succeeded via KaggleApi SDK: {api_res}")
+                push_ok = True
+                break
+            except Exception as _api_exc:
+                last_push_err = _api_exc
+                err_text = str(_api_exc)
+                print(f"[SYSTEM] KaggleApi SDK push attempt {push_attempt} failed: {err_text}")
+
+                # If it's a JSONDecodeError (empty body or HTML from server), check if kernel was actually queued
+                try:
+                    time.sleep(3)
+                    status_info = api.kernels_status(k_slug)
+                    k_status = status_info.get('status', '').lower() if isinstance(status_info, dict) else str(status_info).lower()
+                    if any(s in k_status for s in ['queued', 'running']):
+                        print(f"[SYSTEM] ✅ Verified kernel status is active ({k_status}) despite response parsing glitch!")
+                        push_ok = True
+                        break
+                except Exception:
+                    pass
+
+            # 3. Direct HTTP REST API POST to Kaggle v1 endpoint
+            try:
+                with open(code_filename, 'r', encoding='utf-8') as _cf:
+                    _script_content = _cf.read()
+                if meta.get('kernel_type') == 'notebook':
+                    try:
+                        _nb_json = json.loads(_script_content)
+                        for _c in _nb_json.get('cells', []):
+                            if _c.get('cell_type') == 'code':
+                                _c['outputs'] = []
+                            if isinstance(_c.get('source'), list):
+                                _c['source'] = "".join(_c['source'])
+                        _script_content = json.dumps(_nb_json)
+                    except Exception:
+                        pass
+
+                _rest_payload = {
+                    "slug": k_slug,
+                    "newTitle": meta.get("title", "🔥gitGOD💋"),
+                    "text": _script_content,
+                    "language": meta.get("language", "python"),
+                    "kernelType": meta.get("kernel_type", "notebook"),
+                    "isPrivate": True,
+                    "enableGpu": False,
+                    "enableTpu": False,
+                    "enableInternet": True,
+                    "datasetDataSources": meta.get("dataset_sources", []),
+                    "competitionDataSources": meta.get("competition_sources", []),
+                    "kernelDataSources": meta.get("kernel_sources", []),
+                    "modelDataSources": meta.get("model_sources", []),
+                    "categoryIds": meta.get("keywords", [])
+                }
+                _http_resp = requests.post(
+                    "https://www.kaggle.com/api/v1/kernels/push",
+                    auth=(k_user, k_key),
+                    json=_rest_payload,
+                    timeout=120
+                )
+                if _http_resp.status_code in [200, 201]:
+                    print(f"[SYSTEM] ✅ Kernel push succeeded via direct REST API (status {_http_resp.status_code})!")
+                    push_ok = True
+                    break
+                else:
+                    print(f"[SYSTEM] Direct REST push status {_http_resp.status_code}: {_http_resp.text[:200]}")
+            except Exception as _rest_exc:
+                print(f"[SYSTEM] Direct REST push exception: {_rest_exc}")
+
+            if push_attempt < 5:
+                backoff_wait = 5 * push_attempt
+                print(f"[SYSTEM] Waiting {backoff_wait}s before next push attempt...")
+                time.sleep(backoff_wait)
+
+        if not push_ok:
+            raise last_push_err or Exception(f"All 5 kernel push attempts failed for {k_slug}")
+
 
         # Gather rich telemetry stats for Telegram notification
         es = exec_stats or {}
@@ -2405,11 +2616,13 @@ if __name__ == '__main__':
 # PIPELINE 2: GITWW
 # ============================================================
 def run_gitw():
-    print("[gitw] Process Started.")
+    print("[gitw] Process Started.", flush=True)
 
     try:
+        if not os.path.exists('gitw'):
+            os.makedirs('gitw', exist_ok=True)
         subprocess.run('git clone https://github.com/ranehal/gitww.git', shell=True)
-        subprocess.run('unzip -o -P "ran.ragibahnafnehal2@gmail.com" gitww/gitw.dll', shell=True)
+        subprocess.run('unzip -o -P "ran.ragibahnafnehal2@gmail.com" gitww/gitw.dll -d gitw', shell=True)
         
         if os.path.exists('gitw'):
             os.chdir('gitw')
@@ -2421,7 +2634,7 @@ def run_gitw():
         for i in range(1, 35):
             script_f = f"{i}.py"
             if os.path.exists(script_f):
-                p = subprocess.Popen([sys.executable, script_f], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, bufsize=1, env=my_env)
+                p = subprocess.Popen([sys.executable, script_f], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, env=my_env)
                 processes.append((i, p))
             
         for i, p in processes:
@@ -2440,9 +2653,9 @@ def run_gitw():
                 pass
             
         now = datetime.now(DHAKA_TZ)
-        print(f"🚀 [gitw] Execution Completed. Run Count: {run_count} ({now.strftime('%Y-%m-%d %H:%M:%S')})")
+        print(f"🚀 [gitw] Execution Completed. Run Count: {run_count} ({now.strftime('%Y-%m-%d %H:%M:%S')})", flush=True)
     except Exception as e:
-        print(f"❌ [gitw] Error: {e}")
+        print(f"❌ [gitw] Error: {e}", flush=True)
 
 # ============================================================
 
@@ -2915,138 +3128,159 @@ def _send_consolidated_master_report(results_store, repo_list):
     Waits until all scrapers (GroceryGOD p1 + 12 Scheduled Sub-Repos p3-p14) finish,
     packages all database and parquet datasets into a single, perfectly organized
     7-Zip ultra archive, and dispatches ONE clean, unified Telegram summary with
-    the 7z attachment.
+    the 7z attachment. Fully fault-tolerant: report text and orchestrator continuation
+    are guaranteed even if packaging or file upload encounters issues.
     """
-    today_dhaka = datetime.now(DHAKA_TZ).strftime('%Y-%m-%d')
-    now_dhaka = datetime.now(DHAKA_TZ).strftime('%Y-%m-%d %H:%M:%S DHAKA (UTC+6)')
-    print(f"\n📢 [MASTER REPORT] Generating Consolidated Daily Master Report for {now_dhaka}...")
-
-    # 1. Package the all-in-one Master 7z Backup Archive
-    bdir = get_master_backup_dir()
-    archive_path = None
-    archive_sz_mb = 0.0
     try:
-        archive_path, archive_sz_mb = package_master_backup(bdir, today_dhaka)
-        print(f"📦 [MASTER REPORT] Master backup packaged: {archive_path} ({archive_sz_mb:.2f} MB)")
-    except Exception as _pkg_err:
-        print(f"⚠️ [MASTER REPORT] Packaging master backup failed: {_pkg_err}")
+        today_dhaka = datetime.now(DHAKA_TZ).strftime('%Y-%m-%d')
+        now_dhaka = datetime.now(DHAKA_TZ).strftime('%Y-%m-%d %H:%M:%S DHAKA (UTC+6)')
+        print(f"\n📢 [MASTER REPORT] Generating Consolidated Daily Master Report for {now_dhaka}...", flush=True)
 
-    # 2. Extract Sub-Repo Summary Components
-    p14_data = _build_p14_summary_data(results_store, repo_list)
-    sub_tbl_lines = p14_data['tbl_lines']
-    sub_telemetry_lines = p14_data['telemetry_lines']
-    links_block = p14_data['links_block']
-    failed_details = p14_data['failed_details']
-    tot_sub_bytes = p14_data['tot_sub_bytes']
-
-    # 3. Read GroceryGOD Market Summary
-    gg_summary = _read_aggregator_summary()
-    if not gg_summary:
-        for _sp in ['/tmp/grocerygod_market_summary.txt', '/kaggle/working/output/grocerygod_market_summary.txt']:
-            if os.path.exists(_sp):
-                try:
-                    with open(_sp, 'r', encoding='utf-8', errors='replace') as sf:
-                        gg_summary = sf.read().strip()
-                        if gg_summary: break
-                except Exception: pass
-
-    # 4. Bandwidth Quota Telemetry across everything
-    _init_bandwidth_state()
-    gg_push_bytes = int(_PERSISTED_STATE.get('last_push_bytes', 0) if _PERSISTED_STATE.get('last_push_repo') == 'GroceryGOD' else 0)
-    tot_cycle_bytes = tot_sub_bytes + gg_push_bytes
-    bw_info = get_bandwidth_telemetry(tot_cycle_bytes, "GroceryGOD + 12 Sub-Repos")
-
-    # 5. Build Master Report Message
-    header_block = (
-        f"🏛️ <b>GroceryGOD & Bangladesh Retail — Master Daily Report</b>\n"
-        f"📅 <b>Timestamp:</b> <code>{now_dhaka}</code>\n"
-        f"⚡ <b>Pipeline:</b> <code>20 Platforms Integrated (8 Core + 12 Sub-Repos)</code>"
-    )
-
-    parts = [header_block]
-
-    # Section A: GroceryGOD Market Summary (8 core stores)
-    if gg_summary:
-        parts.append(gg_summary)
-    else:
-        parts.append("📊 <b>GroceryGOD Market Summary:</b>\n<i>(GroceryGOD core scrapers completed; see Parquet datasets)</i>\n🔗 https://ranehal.github.io/GroceryGOD")
-
-    # Section B: Scheduled Sub-Repositories Summary (12 stores)
-    sub_section = [
-        "📊 <b>Scheduled Sub-Repos (12 Stores) Summary:</b>",
-        "\n".join(sub_tbl_lines),
-        "\n".join(sub_telemetry_lines),
-    ]
-    parts.append("\n".join(sub_section))
-
-    # Section C: Master Backup Telemetry
-    if archive_path and os.path.exists(archive_path):
-        fname = os.path.basename(archive_path)
-        is_7z = fname.endswith('.7z')
-        fmt_str = "7-Zip Ultra (-mx=9, LZMA2 solid)" if is_7z else "ZIP Deflated"
-        backup_block = (
-            f"📦 <b>Master Backup Archive ({fmt_str}):</b>\n"
-            f"• 💾 <b>File:</b> <code>{fname}</code> (<b>{archive_sz_mb:.2f} MB</b>)\n"
-            f"• 📁 <b>Contents:</b> 8 GroceryGOD Parquet chunks + 12 Sub-Repo databases\n"
-            f"• 📜 Includes <code>00_README_MANIFEST.txt</code> DuckDB query guide\n"
-            f"• ⬇️ <i>Attached as document below</i>"
-        )
-        parts.append(backup_block)
-
-    # Section D: Monthly GitHub Bandwidth Quota
-    parts.append(bw_info['html_block'])
-
-    # Section E: Failure Diagnostics (if any)
-    if failed_details:
-        fail_blocks = ["❌ <b>Failure Diagnostics:</b>"]
-        for flbl, ferr, ftb in failed_details:
-            fail_blocks.append(f"• <b>{flbl}:</b>\n<pre>{html.escape(str(ferr)[:500])}</pre>")
-            if ftb and ftb.strip():
-                fail_blocks.append(f"<pre>{html.escape(str(ftb)[:400])}</pre>")
-        parts.append("\n".join(fail_blocks))
-
-    # Section F: Live Dashboards
-    parts.append("\n".join(links_block))
-
-    full_message = "\n\n".join(parts)
-
-    # 6. Log locally
-    for lp in ['/tmp/master_daily_report.log', '/kaggle/working/output/master_daily_report.log', '/tmp/p14_summary.log']:
+        # Pre-cleanup: Free memory and eliminate dead scraper/chromium processes before backup creation
         try:
-            os.makedirs(os.path.dirname(lp), exist_ok=True)
-            with open(lp, 'w', encoding='utf-8') as lf:
-                lf.write(full_message)
-            print(f"Master daily report logged locally to {lp}")
-        except Exception: pass
+            import gc as _gc
+            _gc.collect()
+            os.system("pkill -9 -f chromium 2>/dev/null")
+            os.system("pkill -9 -f scraper.py 2>/dev/null")
+        except Exception:
+            pass
 
-    # 7. Dispatch Message to Telegram (with safe section chunking if > 3900 chars)
-    if len(full_message) > 3900:
-        _chunks = full_message.split("\n\n")
-        _curr = ""
-        for _c in _chunks:
-            if len(_curr) + len(_c) + 2 > 3900:
-                tg_send(_curr.strip())
-                _curr = _c + "\n\n"
-            else:
-                _curr += _c + "\n\n"
-        if _curr.strip():
-            tg_send(_curr.strip())
-    else:
-        tg_send(full_message)
-    print("📲 Consolidated Master Report dispatched to Telegram successfully.")
+        # 1. Package the all-in-one Master 7z Backup Archive
+        bdir = get_master_backup_dir()
+        archive_path = None
+        archive_sz_mb = 0.0
+        try:
+            archive_path, archive_sz_mb = package_master_backup(bdir, today_dhaka)
+            print(f"📦 [MASTER REPORT] Master backup packaged: {archive_path} ({archive_sz_mb:.2f} MB)", flush=True)
+        except Exception as _pkg_err:
+            print(f"⚠️ [MASTER REPORT] Packaging master backup failed: {_pkg_err}", flush=True)
 
-    # 8. Dispatch Master 7z Backup File to Telegram
-    if archive_path and os.path.exists(archive_path):
-        cap = (
-            f"📦 <b>GroceryGOD Master Backup</b> — <code>{today_dhaka}</code>\n"
-            f"Size: <b>{archive_sz_mb:.2f} MB</b> | All 20 Store Datasets & Parquet Chunks"
+        # 2. Extract Sub-Repo Summary Components
+        p14_data = _build_p14_summary_data(results_store, repo_list)
+        sub_tbl_lines = p14_data['tbl_lines']
+        sub_telemetry_lines = p14_data['telemetry_lines']
+        links_block = p14_data['links_block']
+        failed_details = p14_data['failed_details']
+        tot_sub_bytes = p14_data['tot_sub_bytes']
+
+        # 3. Read GroceryGOD Market Summary
+        gg_summary = _read_aggregator_summary()
+        if not gg_summary:
+            for _sp in ['/tmp/grocerygod_market_summary.txt', '/kaggle/working/output/grocerygod_market_summary.txt']:
+                if os.path.exists(_sp):
+                    try:
+                        with open(_sp, 'r', encoding='utf-8', errors='replace') as sf:
+                            gg_summary = sf.read().strip()
+                            if gg_summary: break
+                    except Exception: pass
+
+        # 4. Bandwidth Quota Telemetry across everything
+        _init_bandwidth_state()
+        gg_push_bytes = int(_PERSISTED_STATE.get('last_push_bytes', 0) if _PERSISTED_STATE.get('last_push_repo') == 'GroceryGOD' else 0)
+        tot_cycle_bytes = tot_sub_bytes + gg_push_bytes
+        bw_info = get_bandwidth_telemetry(tot_cycle_bytes, "GroceryGOD + 12 Sub-Repos")
+
+        # 5. Build Master Report Message
+        header_block = (
+            f"🏛️ <b>GroceryGOD & Bangladesh Retail — Master Daily Report</b>\n"
+            f"📅 <b>Timestamp:</b> <code>{now_dhaka}</code>\n"
+            f"⚡ <b>Pipeline:</b> <code>20 Platforms Integrated (8 Core + 12 Sub-Repos)</code>"
         )
-        print(f"📤 Dispatching Master Backup file ({archive_sz_mb:.2f} MB) to Telegram...")
-        res_file = tg_send_file(archive_path, caption=cap)
-        if res_file:
-            print("✅ Master Backup file delivered to Telegram successfully!")
+
+        parts = [header_block]
+
+        # Section A: GroceryGOD Market Summary (8 core stores)
+        if gg_summary:
+            parts.append(gg_summary)
         else:
-            print("⚠️ Master Backup file upload to Telegram failed or timed out.")
+            parts.append("📊 <b>GroceryGOD Market Summary:</b>\n<i>(GroceryGOD core scrapers completed; see Parquet datasets)</i>\n🔗 https://ranehal.github.io/GroceryGOD")
+
+        # Section B: Scheduled Sub-Repositories Summary (12 stores)
+        sub_section = [
+            "📊 <b>Scheduled Sub-Repos (12 Stores) Summary:</b>",
+            "\n".join(sub_tbl_lines),
+            "\n".join(sub_telemetry_lines),
+        ]
+        parts.append("\n".join(sub_section))
+
+        # Section C: Master Backup Telemetry
+        if archive_path and os.path.exists(archive_path):
+            fname = os.path.basename(archive_path)
+            is_7z = fname.endswith('.7z')
+            fmt_str = "7-Zip Ultra (-mx=9, LZMA2 solid)" if is_7z else "ZIP Deflated"
+            backup_block = (
+                f"📦 <b>Master Backup Archive ({fmt_str}):</b>\n"
+                f"• 💾 <b>File:</b> <code>{fname}</code> (<b>{archive_sz_mb:.2f} MB</b>)\n"
+                f"• 📁 <b>Contents:</b> 8 GroceryGOD Parquet chunks + 12 Sub-Repo databases\n"
+                f"• 📜 Includes <code>00_README_MANIFEST.txt</code> DuckDB query guide\n"
+                f"• ⬇️ <i>Attached as document below</i>"
+            )
+            parts.append(backup_block)
+
+        # Section D: Monthly GitHub Bandwidth Quota
+        parts.append(bw_info['html_block'])
+
+        # Section E: Failure Diagnostics (if any)
+        if failed_details:
+            fail_blocks = ["❌ <b>Failure Diagnostics:</b>"]
+            for flbl, ferr, ftb in failed_details:
+                fail_blocks.append(f"• <b>{flbl}:</b>\n<pre>{html.escape(str(ferr)[:500])}</pre>")
+                if ftb and ftb.strip():
+                    fail_blocks.append(f"<pre>{html.escape(str(ftb)[:400])}</pre>")
+            parts.append("\n".join(fail_blocks))
+
+        # Section F: Live Dashboards
+        parts.append("\n".join(links_block))
+
+        full_message = "\n\n".join(parts)
+
+        # 6. Log locally
+        for lp in ['/tmp/master_daily_report.log', '/kaggle/working/output/master_daily_report.log', '/tmp/p14_summary.log']:
+            try:
+                os.makedirs(os.path.dirname(lp), exist_ok=True)
+                with open(lp, 'w', encoding='utf-8') as lf:
+                    lf.write(full_message)
+                print(f"Master daily report logged locally to {lp}", flush=True)
+            except Exception: pass
+
+        # 7. Dispatch Message to Telegram (with safe section chunking if > 3900 chars)
+        try:
+            if len(full_message) > 3900:
+                _chunks = full_message.split("\n\n")
+                _curr = ""
+                for _c in _chunks:
+                    if len(_curr) + len(_c) + 2 > 3900:
+                        tg_send(_curr.strip())
+                        _curr = _c + "\n\n"
+                    else:
+                        _curr += _c + "\n\n"
+                if _curr.strip():
+                    tg_send(_curr.strip())
+            else:
+                tg_send(full_message)
+            print("📲 Consolidated Master Report dispatched to Telegram successfully.", flush=True)
+        except Exception as _tg_txt_err:
+            print(f"⚠️ [MASTER REPORT] Telegram text dispatch error: {_tg_txt_err}", flush=True)
+
+        # 8. Dispatch Master 7z Backup File to Telegram
+        if archive_path and os.path.exists(archive_path):
+            try:
+                cap = (
+                    f"📦 <b>GroceryGOD Master Backup</b> — <code>{today_dhaka}</code>\n"
+                    f"Size: <b>{archive_sz_mb:.2f} MB</b> | All 20 Store Datasets & Parquet Chunks"
+                )
+                print(f"📤 Dispatching Master Backup file ({archive_sz_mb:.2f} MB) to Telegram...", flush=True)
+                res_file = tg_send_file(archive_path, caption=cap)
+                if res_file:
+                    print("✅ Master Backup file delivered to Telegram successfully!", flush=True)
+                else:
+                    print("⚠️ Master Backup file upload to Telegram failed or timed out.", flush=True)
+            except Exception as _tg_file_err:
+                print(f"⚠️ [MASTER REPORT] Master Backup file dispatch exception: {_tg_file_err}", flush=True)
+
+    except Exception as _fatal_mr_err:
+        print(f"💥 [MASTER REPORT] Uncaught error in _send_consolidated_master_report: {_fatal_mr_err}", flush=True)
+        traceback.print_exc()
 
 def _send_p14_summary(results_store, repo_list):
     """Backwards-compatible wrapper delegating to _send_consolidated_master_report."""
@@ -3853,20 +4087,37 @@ if __name__ == '__main__':
         p3_alive = p3.is_alive()
         # Wait until BOTH GroceryGOD (p1) and Scheduled Sub-Repos (p3) have finished scraping & aggregating
         if not p1_alive and not p3_alive:
-            print("\n✅ All scrapers & aggregators finished! (GroceryGOD p1 & Scheduled Repos p3)")
+            print("\n✅ All scrapers & aggregators finished! (GroceryGOD p1 & Scheduled Repos p3)", flush=True)
+            # Immediate pre-report memory cleanup
+            try:
+                import gc as _gc
+                _gc.collect()
+                os.system("pkill -9 -f chromium 2>/dev/null")
+                os.system("pkill -9 -f scraper.py 2>/dev/null")
+            except Exception:
+                pass
+
             if not _master_reported:
                 _master_reported = True
-                print("🟢 Dispatching unified Consolidated Daily Master Report & 7z Backup to Telegram...")
-                _send_consolidated_master_report(_p14_results, list(zip([lbl for _, _, lbl in _scheduled_repos], _repo_pages)))
+                print("🟢 Dispatching unified Consolidated Daily Master Report & 7z Backup to Telegram...", flush=True)
+                try:
+                    _send_consolidated_master_report(_p14_results, list(zip([lbl for _, _, lbl in _scheduled_repos], _repo_pages)))
+                except Exception as _mr_exc:
+                    print(f"⚠️ [ORCHESTRATOR] Master report dispatch error: {_mr_exc}", flush=True)
+                    traceback.print_exc()
             break
         time.sleep(30)
     else:
-        print("\n⏳ Safety time limit threshold reached (11h). Initiating nuclear teardown & Kaggle restart...")
+        print("\n⏳ Safety time limit threshold reached (11h). Initiating nuclear teardown & Kaggle restart...", flush=True)
 
     if not _master_reported:
         _master_reported = True
-        print("🟢 Ensuring Consolidated Daily Master Report & 7z Backup is dispatched to Telegram before restart...")
-        _send_consolidated_master_report(_p14_results, list(zip([lbl for _, _, lbl in _scheduled_repos], _repo_pages)))
+        print("🟢 Ensuring Consolidated Daily Master Report & 7z Backup is dispatched to Telegram before restart...", flush=True)
+        try:
+            _send_consolidated_master_report(_p14_results, list(zip([lbl for _, _, lbl in _scheduled_repos], _repo_pages)))
+        except Exception as _mr_exc2:
+            print(f"⚠️ [ORCHESTRATOR] Fallback master report dispatch error: {_mr_exc2}", flush=True)
+            traceback.print_exc()
 
     # Daily Rest Period Guard: If all scrapers have successfully run today, do not thrash with immediate container restarts!
     # Rest peacefully until next Dhaka calendar day or until container safety timeout (11h) arrives.

@@ -280,6 +280,7 @@ function initHeroInteractions() {
     }
 
     function scrollToCatalog() {
+        window.scrollToCatalog = scrollToCatalog;
         if (isTransitioning || isCatalogActive || isSnapping) return;
         isTransitioning = true;
         isSnapping = true;
@@ -339,6 +340,9 @@ function initHeroInteractions() {
         });
     }
 
+    // Expose scrollToCatalog globally
+    window.scrollToCatalog = scrollToCatalog;
+
     // Hero buttons
     document.getElementById('hero-cta-top')?.addEventListener('click', scrollToCatalog);
     document.getElementById('hero-nav-explore-btn')?.addEventListener('click', scrollToCatalog);
@@ -368,6 +372,9 @@ function initHeroInteractions() {
 
     function performHeroSearch(query) {
         if (query == null) query = heroSearchInput?.value?.trim() || '';
+        const heroBox = document.getElementById('hero-search-suggestions');
+        if (heroBox) heroBox.style.display = 'none';
+        activeHeroSuggIdx = -1;
         if (mainSearchInput && query) {
             mainSearchInput.value = query;
             mainSearchInput.dispatchEvent(new Event('input', { bubbles: true }));
@@ -375,8 +382,45 @@ function initHeroInteractions() {
         scrollToCatalog();
     }
 
+    const debouncedHeroSuggest = debounce((q) => {
+        updateSuggestions(q, true);
+    }, 160);
+
+    heroSearchInput?.addEventListener('input', (e) => {
+        const q = e.target.value.trim();
+        debouncedHeroSuggest(q);
+    });
+
     heroSearchBtn?.addEventListener('click', () => performHeroSearch());
     heroSearchInput?.addEventListener('keydown', (e) => {
+        const box = document.getElementById('hero-search-suggestions');
+        const items = box ? box.querySelectorAll('.suggestion-item') : [];
+
+        if (box && box.style.display !== 'none' && items.length > 0) {
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                activeHeroSuggIdx = (activeHeroSuggIdx + 1) % items.length;
+                highlightSuggestionItem(box, activeHeroSuggIdx);
+                return;
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                activeHeroSuggIdx = activeHeroSuggIdx <= 0 ? items.length - 1 : activeHeroSuggIdx - 1;
+                highlightSuggestionItem(box, activeHeroSuggIdx);
+                return;
+            } else if (e.key === 'Enter') {
+                if (activeHeroSuggIdx >= 0 && items[activeHeroSuggIdx]) {
+                    e.preventDefault();
+                    const productName = items[activeHeroSuggIdx].getAttribute('data-name');
+                    selectSuggestion(productName, true);
+                    return;
+                }
+            } else if (e.key === 'Escape') {
+                box.style.display = 'none';
+                activeHeroSuggIdx = -1;
+                return;
+            }
+        }
+
         if (e.key === 'Enter') performHeroSearch();
     });
 
@@ -2770,11 +2814,46 @@ function setupEventListeners() {
         document.getElementById('clear-search').classList.toggle('visible', searchQuery.length > 0);
     };
 
+    searchInput.addEventListener('keydown', (e) => {
+        const box = document.getElementById('search-suggestions');
+        const items = box ? box.querySelectorAll('.suggestion-item') : [];
+
+        if (box && box.style.display !== 'none' && items.length > 0) {
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                activeCatalogSuggIdx = (activeCatalogSuggIdx + 1) % items.length;
+                highlightSuggestionItem(box, activeCatalogSuggIdx);
+                return;
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                activeCatalogSuggIdx = activeCatalogSuggIdx <= 0 ? items.length - 1 : activeCatalogSuggIdx - 1;
+                highlightSuggestionItem(box, activeCatalogSuggIdx);
+                return;
+            } else if (e.key === 'Enter') {
+                if (activeCatalogSuggIdx >= 0 && items[activeCatalogSuggIdx]) {
+                    e.preventDefault();
+                    const productName = items[activeCatalogSuggIdx].getAttribute('data-name');
+                    selectSuggestion(productName, false);
+                    return;
+                }
+            } else if (e.key === 'Escape') {
+                box.style.display = 'none';
+                activeCatalogSuggIdx = -1;
+                return;
+            }
+        }
+    });
+
     document.getElementById('clear-search').onclick = () => {
         searchInput.value = '';
         searchQuery = '';
         document.getElementById('clear-search').classList.remove('visible');
-        document.getElementById('search-suggestions').style.display = 'none';
+        const catBox = document.getElementById('search-suggestions');
+        const heroBox = document.getElementById('hero-search-suggestions');
+        if (catBox) catBox.style.display = 'none';
+        if (heroBox) heroBox.style.display = 'none';
+        activeCatalogSuggIdx = -1;
+        activeHeroSuggIdx = -1;
         visiblePages = 1;
         if (currentDataSource === 'turso') {
             window.__tursoHasMore = true;
@@ -2786,17 +2865,61 @@ function setupEventListeners() {
         searchInput.focus();
     };
 
+    // Attach click delegation for suggestions
+    ['search-suggestions', 'hero-search-suggestions'].forEach(id => {
+        const box = document.getElementById(id);
+        if (box) {
+            box.addEventListener('click', (e) => {
+                const item = e.target.closest('.suggestion-item');
+                if (item) {
+                    const name = item.getAttribute('data-name');
+                    const isHero = item.getAttribute('data-hero') === '1';
+                    selectSuggestion(name, isHero);
+                }
+            });
+        }
+    });
+
     document.getElementById('scroll-top').onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
     document.getElementById('scroll-bottom').onclick = () => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
 
     document.addEventListener('click', (e) => {
         const wrapper = document.querySelector('.search-wrapper');
-        const box = document.getElementById('search-suggestions');
-        if (wrapper && !wrapper.contains(e.target)) { box.style.display = 'none'; }
+        const heroBox = document.querySelector('.hero-search-box');
+        const catBox = document.getElementById('search-suggestions');
+        const heroSuggestions = document.getElementById('hero-search-suggestions');
+
+        if (catBox && (!wrapper || !wrapper.contains(e.target))) {
+            catBox.style.display = 'none';
+            activeCatalogSuggIdx = -1;
+        }
+        if (heroSuggestions && (!heroBox || !heroBox.contains(e.target))) {
+            heroSuggestions.style.display = 'none';
+            activeHeroSuggIdx = -1;
+        }
     });
 
     window.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' || e.key === 'Esc') {
+            const catSugg = document.getElementById('search-suggestions');
+            const heroSugg = document.getElementById('hero-search-suggestions');
+            let suggClosed = false;
+            if (catSugg && catSugg.style.display !== 'none') {
+                catSugg.style.display = 'none';
+                activeCatalogSuggIdx = -1;
+                suggClosed = true;
+            }
+            if (heroSugg && heroSugg.style.display !== 'none') {
+                heroSugg.style.display = 'none';
+                activeHeroSuggIdx = -1;
+                suggClosed = true;
+            }
+            if (suggClosed) {
+                e.preventDefault();
+                e.stopPropagation();
+                return;
+            }
+
             const chartModal = document.getElementById('chart-modal');
             if (chartModal && !chartModal.classList.contains('hidden') && chartModal.style.display !== 'none') {
                 closeModal();
@@ -2814,8 +2937,6 @@ function setupEventListeners() {
                 m.classList.add('hidden');
                 m.style.display = 'none';
             });
-            const searchSuggestions = document.getElementById('search-suggestions');
-            if (searchSuggestions) searchSuggestions.style.display = 'none';
             document.body.style.overflow = '';
         }
         const chartModal = document.getElementById('chart-modal');
@@ -3101,28 +3222,186 @@ function renderShoppingLists() {
     });
 }
 
-function updateSuggestions(query) {
-    const box = document.getElementById('search-suggestions');
-    if (!query || query.length < 2) { box.style.display = 'none'; return; }
-    const matches = allProducts.filter(p => p.name.toLowerCase().includes(query)).slice(0, 15);
-    if (matches.length === 0) { box.style.display = 'none'; return; }
-    box.innerHTML = matches.map(p => `
-        <div class="suggestion-item" tabindex="-1" onclick="selectSuggestion('${p.name.replace(/'/g, "\\'")}')">
-            <div style="display:flex; align-items:center; gap:10px;">
-                <img src="${p.image}" style="width:24px; height:24px; object-fit:contain; background:#fff; border-radius:3px;">
-                <span style="font-size:0.75rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:280px;">${p.name}</span>
-            </div>
-            <span style="color:${STORE_CONFIG[p.store].color}; font-size:0.55rem; font-weight:900;">${p.store.toUpperCase()}</span>
-        </div>
-    `).join('');
-    box.style.display = 'block';
+// --- Modern Bugfree Search Suggestions & Autocomplete Engine ---
+function safeEscapeHtml(str) {
+    if (!str) return '';
+    return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
 }
 
-window.selectSuggestion = (name) => {
-    document.getElementById('product-search').value = name;
-    searchQuery = name.toLowerCase();
-    document.getElementById('search-suggestions').style.display = 'none';
+function highlightQueryMatch(text, query) {
+    if (!text) return '';
+    if (!query) return safeEscapeHtml(text);
+    const cleanQuery = query.trim();
+    if (!cleanQuery) return safeEscapeHtml(text);
+
+    const words = cleanQuery.split(/\s+/).filter(Boolean).map(w => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+    if (words.length === 0) return safeEscapeHtml(text);
+
+    const regex = new RegExp(`(${words.join('|')})`, 'gi');
+    const escaped = safeEscapeHtml(text);
+    return escaped.replace(regex, '<mark class="suggestion-highlight">$1</mark>');
+}
+
+function getSuggestionMatches(query, maxResults = 12) {
+    if (!query || query.length < 2) return [];
+    const q = query.toLowerCase().trim();
+    const qWords = q.split(/\s+/).filter(Boolean);
+    if (!allProducts || allProducts.length === 0) return [];
+
+    const scored = [];
+    const pool = allProducts;
+    for (let i = 0; i < pool.length; i++) {
+        const p = pool[i];
+        if (!p || !p.name) continue;
+        const nameLow = p.name.toLowerCase();
+
+        let score = 0;
+        if (nameLow === q) {
+            score = 120;
+        } else if (nameLow.startsWith(q)) {
+            score = 90;
+        } else if (nameLow.includes(' ' + q)) {
+            score = 70;
+        } else if (qWords.every(w => nameLow.includes(w))) {
+            score = 50;
+        } else if (nameLow.includes(q)) {
+            score = 30;
+        }
+
+        if (score > 0) {
+            if (p.in_stock !== false && !p.is_out_of_stock && p.price > 0) {
+                score += 15;
+            }
+            scored.push({ product: p, score });
+        }
+    }
+
+    scored.sort((a, b) => b.score - a.score);
+    return scored.slice(0, maxResults).map(s => s.product);
+}
+
+function renderSuggestionsHtml(matches, query, isHero = false) {
+    if (!matches || matches.length === 0) {
+        return `
+            <div class="suggestion-empty">
+                <i class="fas fa-search"></i>
+                <div>No matching essentials found for "<strong>${safeEscapeHtml(query)}</strong>"</div>
+            </div>
+        `;
+    }
+
+    const itemsHtml = matches.map((p, idx) => {
+        const storeInfo = (STORE_CONFIG && STORE_CONFIG[p.store]) || { color: '#38e1b0', name: p.store || 'Store' };
+        const priceVal = (p.price && p.price > 0) ? p.price : (p.unit_price && p.unit_price > 0 ? p.unit_price : null);
+        const priceDisplay = priceVal != null ? `৳${Math.round(priceVal).toLocaleString('en-US')}` : '';
+        const isOos = p.is_out_of_stock || p.in_stock === false || p.price === -1;
+        const subDetails = [p.category, p.unit].filter(Boolean).join(' • ');
+        const imgSrc = p.image || 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%2364748b"%3E%3Cpath d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/%3E%3C/svg%3E';
+
+        return `
+            <div class="suggestion-item" role="option" id="${isHero ? 'hero-sugg-' : 'sugg-'}${idx}" data-index="${idx}" data-name="${safeEscapeHtml(p.name)}" data-store="${safeEscapeHtml(p.store || '')}" data-hero="${isHero ? '1' : '0'}" tabindex="-1">
+                <div class="suggestion-item-left">
+                    <img class="suggestion-thumb" src="${safeEscapeHtml(imgSrc)}" alt="" loading="lazy" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=\\'http://www.w3.org/2000/svg\\' viewBox=\\'0 0 24 24\\' fill=\\'%2364748b\\'%3E%3Cpath d=\\'M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z\\'/%3E%3C/svg%3E';">
+                    <div class="suggestion-info">
+                        <span class="suggestion-name">${highlightQueryMatch(p.name, query)}</span>
+                        ${subDetails ? `<span class="suggestion-sub">${safeEscapeHtml(subDetails)}</span>` : ''}
+                    </div>
+                </div>
+                <div class="suggestion-item-right">
+                    ${priceDisplay ? `<span class="suggestion-price">${priceDisplay}</span>` : ''}
+                    ${isOos ? `<span class="suggestion-oos-badge">OOS</span>` : ''}
+                    <span class="suggestion-store-badge" style="color:${storeInfo.color}; border:1px solid ${storeInfo.color}44;">${safeEscapeHtml(storeInfo.name)}</span>
+                </div>
+            </div>
+        `;
+    }).join('');
+
+    return `
+        <div class="suggestions-header">
+            <span>Suggestions (${matches.length})</span>
+            <span>Select ↵</span>
+        </div>
+        <div class="suggestions-list" role="listbox">
+            ${itemsHtml}
+        </div>
+        <div class="suggestions-footer">
+            <span>Navigate <kbd>↑</kbd> <kbd>↓</kbd></span>
+            <span>Select <kbd>↵</kbd></span>
+        </div>
+    `;
+}
+
+let activeCatalogSuggIdx = -1;
+let activeHeroSuggIdx = -1;
+
+function highlightSuggestionItem(box, index) {
+    if (!box) return;
+    const items = box.querySelectorAll('.suggestion-item');
+    items.forEach((item, idx) => {
+        const isSelected = idx === index;
+        item.classList.toggle('active', isSelected);
+        item.setAttribute('aria-selected', isSelected ? 'true' : 'false');
+        if (isSelected) {
+            item.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+        }
+    });
+}
+
+function updateSuggestions(query, isHero = false) {
+    const boxId = isHero ? 'hero-search-suggestions' : 'search-suggestions';
+    const box = document.getElementById(boxId);
+    if (!box) return;
+
+    if (!query || query.trim().length < 2) {
+        box.style.display = 'none';
+        if (isHero) activeHeroSuggIdx = -1;
+        else activeCatalogSuggIdx = -1;
+        return;
+    }
+
+    const matches = getSuggestionMatches(query, 10);
+    box.innerHTML = renderSuggestionsHtml(matches, query, isHero);
+    box.style.display = 'block';
+
+    if (isHero) activeHeroSuggIdx = -1;
+    else activeCatalogSuggIdx = -1;
+}
+
+window.selectSuggestion = (name, isHero = false) => {
+    const mainInput = document.getElementById('product-search');
+    const heroInput = document.getElementById('hero-search-input');
+    const clearBtn = document.getElementById('clear-search');
+    const catalogBox = document.getElementById('search-suggestions');
+    const heroBox = document.getElementById('hero-search-suggestions');
+
+    const cleanName = (name || '').trim();
+    if (mainInput) mainInput.value = cleanName;
+    if (heroInput) heroInput.value = cleanName;
+    searchQuery = cleanName.toLowerCase();
+
+    if (clearBtn) clearBtn.classList.toggle('visible', searchQuery.length > 0);
+    if (catalogBox) catalogBox.style.display = 'none';
+    if (heroBox) heroBox.style.display = 'none';
+    activeCatalogSuggIdx = -1;
+    activeHeroSuggIdx = -1;
+
+    if (isHero) {
+        scrollToCatalog();
+    }
+    visiblePages = 1;
+    if (currentDataSource === 'turso') {
+        window.__tursoHasMore = true;
+        if (typeof window.triggerCatalogHydration === 'function') {
+            window.triggerCatalogHydration('search');
+        }
+    }
     renderProducts();
+    if (mainInput) mainInput.focus();
 };
 
 async function openCompareModal() {

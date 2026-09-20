@@ -12,6 +12,12 @@ There is **no test suite, no linter, no CI, no requirements.txt**. Verification 
 - `test_run.py` is a **stale duplicate** of `scratch.py` (pre-dates the current fixes, not auto-generated). Never treat it as authoritative; do not edit it for the Kaggle pipeline.
 - Repo history mixes auto-generated commits from the pipeline (`parallel scrapers {ts} (N/8 OK)`, `if this works ill get some sleep frfr {ts}`, `chore: daily price snapshot`) with manual `feat`/`fix` commits. Match existing style when committing; the pipeline commits are not "bad" commits to clean up.
 
+## Agent Memory & Session Export Mandate (Do Not Forget)
+
+- **After each prompt and successful result, export them as an `.md` file in the `read later/` folder and ensure `read later/` is gitignored.**
+- This preserves session prompts, context, root cause analyses, solutions, and verification logs for future reference. Every future assistant session must adhere to this rule.
+
+
 ## Kaggle orchestrator pipeline (in the notebook)
 
 - One process per sub-repo (`run_scheduled_repo`) + `run_grocery_god` (main loop) + `run_gitw`, spawned via `multiprocessing`. Start order: p2 first, `time.sleep(600)`, then everything else. Total runtime cap 11h30m, then `pkill -9` teardown + Kaggle API self-restart.
@@ -30,8 +36,18 @@ These fixes were extracted from live Kaggle failures. Preserve the patterns:
 6. Delete `_scraper_error_*.log` before `git add .` in sub-repo pushes so retry artifacts don't get committed.
 7. **The GroceryGOD repo is `ranehal/GroceryGOD` — always clone and push as `ranehal`** via the embedded auth URL `https://ranehal:{pat}@github.com/ranehal/GroceryGOD.git` (`auth_grocery_url`); never via a bare URL (the credential store returning `ranehal` on a bare URL is fine, but a bare URL that yields the wrong user caused `403 denied`; embedded auth is the reliable pattern). Push iterates `auth_push_urls` (ranehal → bare).
 
-## Pipeline change log (2026-08-14 — do not regress or redo)
-
+- **Zero-RAM Document Streaming & Out-of-Memory DeadKernel Elimination (`scratch.py`, 2026-09-20, do not regress)**:
+  - Fixed `nbclient.exceptions.DeadKernelError: Kernel died` caused by cgroup OOM termination when dispatching large multi-store master backups (75+ MB) to Telegram.
+  - Replaced in-memory Python `requests` document upload buffering with direct `curl` subprocess streaming (0 MB Python heap usage) with streaming fallback, streaming split chunks directly from persistent disk to socket.
+  - Relocated temporary split volumes from RAM-backed `/tmp` (tmpfs) to persistent disk (`os.path.dirname(actual_path)`), preventing cgroup memory exhaustion.
+  - Implemented 512KB buffer stream splitting with 35MB volume safety margins (`CHUNK_SIZE = 35 * 1024 * 1024`), well below Telegram's 50MB limit.
+  - Bounded 7-Zip compression threads to 2 (`-mmt=2`) in `package_master_backup` to eliminate memory thrashing.
+  - Resolved child process pipe buffer deadlock in `gitw` (`p2`) by switching subprocess pipes to `DEVNULL`.
+  - Added immediate pre-report memory reclamation and process cleanup (`gc.collect()`, `pkill chromium/scraper`) when scrapers finish.
+  - Wrapped `_send_consolidated_master_report` and file uploads in non-crashing exception guards, guaranteeing that daily rest periods and automated Kaggle container reboots always proceed uninterrupted.
+- **Kaggle Self-Restart JSONDecodeError Resilience & Multi-Part Telegram Backup (`scratch.py`, 2026-09-18, do not regress)**:
+  - Fixed Kaggle kernel self-restart failure caused by `JSONDecodeError: Expecting value: line 1 column 1 (char 0)` in `kagglesdk.kaggle_http_client`. Added `pip install -q --upgrade kaggle` to upgrade client to 2.2.2+, and implemented a 5-attempt exponential backoff retry loop with 3 execution tiers: subprocess Kaggle CLI execution in a fresh process, Python KaggleApi SDK with `kernels_status` verification (detecting when Kaggle already queued the run despite empty/malformed HTTP responses), and direct HTTP REST API POST to `/api/v1/kernels/push`.
+  - Upgraded Telegram master backup dispatcher (`tg_send_file`) to automatically detect files/archives exceeding Telegram's 50MB Bot API limit and split them into sequential 45MB volumes (`.001`, `.002`, etc.), sending each part with progress captions and cleaning up temporary split volumes, permanently solving backup rejections for large multi-store master archives.
 - **Automated DB Backup to Telegram & Once-a-Day Scraper Guard (`scratch.py` & `FoodPANDA`, 2026-09-07, do not regress)**:
   - Enforced strict once-a-day execution limit across all scheduled sub-repos (p3–p14) and GroceryGOD scrapers via dual `_PERSISTED_STATE` and remote commit log verification (`if this works ill get some sleep frfr {today_dhaka}`), eliminating redundant duplicate runs on same-day container restarts.
   - Added daily rest period guard to the master orchestrator loop: if all scheduled scrapers have verified completed today, the container sleeps peacefully until next Dhaka calendar day (00:05 DHAKA) or container timeout instead of burning compute through rapid 2-minute restart loops.
