@@ -27,17 +27,57 @@ from datetime import datetime, timedelta, timezone
 
 DHAKA_TZ = timezone(timedelta(hours=6))
 
-# Banasree Block C Location Specifications
-BANASREE_LOCATION = {
-    "stateProvinceId": "65eb61bd452e887cd78e240d",
-    "cityId": "65ed4befe30f25b233e5f48d",
-    "areaId": "686f4fdee45b27590891fd90",
-    "district": "Dhaka",
-    "area": "Banasree Block C",
-    "darkStoreId": "65f008e64119aecf652223f1",
-    "darkStoreName": "Banasree "
-}
+# Complete Location Sequence
+# Selector: #main-header > div.z-50.bg-main > div > div.relative.z-[99].ml-auto.hidden.min-w-[180px].max-w-[220px].cursor-pointer.md:block.xl:ml-10.\32 xl:ml-auto > span
+STORE_LOCATIONS = [
+    {
+        "area": "Banasree Block C",
+        "district": "Dhaka",
+        "stateProvinceId": "65eb61bd452e887cd78e240d",
+        "cityId": "65ed4befe30f25b233e5f48d",
+        "areaId": "686f4fdee45b27590891fd90",
+        "darkStoreId": "65f008e64119aecf652223f1",
+        "darkStoreName": "Banasree "
+    },
+    {
+        "area": "Khilgaon Nobabi More",
+        "district": "Dhaka",
+        "stateProvinceId": "65eb61bd452e887cd78e240d",
+        "cityId": "65ed4e91e30f25b233e60142",
+        "areaId": "65efdfc34119aecf6521af15",
+        "darkStoreId": "65f00cbe101d9be04a6c4d02",
+        "darkStoreName": "Sky View"
+    },
+    {
+        "area": "Khilgaon Chowdhury para",
+        "district": "Dhaka",
+        "stateProvinceId": "65eb61bd452e887cd78e240d",
+        "cityId": "65ed4e91e30f25b233e60142",
+        "areaId": "65efdfec4119aecf6521b08d",
+        "darkStoreId": "65f00cbe101d9be04a6c4d02",
+        "darkStoreName": "Sky View"
+    },
+    {
+        "area": "Khilgaon",
+        "district": "Dhaka",
+        "stateProvinceId": "65eb61bd452e887cd78e240d",
+        "cityId": "65ed4e91e30f25b233e60142",
+        "areaId": "65efe0004119aecf6521b1c2",
+        "darkStoreId": "65f00cbe101d9be04a6c4d02",
+        "darkStoreName": "Sky View"
+    },
+    {
+        "area": "Bashabo",
+        "district": "Dhaka",
+        "stateProvinceId": "65eb61bd452e887cd78e240d",
+        "cityId": "65ed4d0ee30f25b233e5f67b",
+        "areaId": "65ed55bf452e887cd78e601f",
+        "darkStoreId": "65f00a36101d9be04a6c429a",
+        "darkStoreName": "Central Basabo 2"
+    }
+]
 
+BANASREE_LOCATION = STORE_LOCATIONS[0]
 DARKSTORE_COOKIE = f"_ds_={BANASREE_LOCATION['darkStoreId']}; _nc_=false; _mo_=false;"
 
 BASE_URL = "https://www.shwapno.com"
@@ -52,12 +92,12 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
-def set_banasree_slot_api() -> dict | None:
-    """Configures Shwapno session directly via delivery-slot endpoint."""
+def set_delivery_slot_api(location: dict) -> dict | None:
+    """Configures Shwapno session directly via delivery-slot endpoint for any store location."""
     payload = json.dumps({
-        "stateProvinceId": BANASREE_LOCATION["stateProvinceId"],
-        "cityId": BANASREE_LOCATION["cityId"],
-        "areaId": BANASREE_LOCATION["areaId"]
+        "stateProvinceId": location["stateProvinceId"],
+        "cityId": location["cityId"],
+        "areaId": location["areaId"]
     }).encode("utf-8")
 
     req = urllib.request.Request(
@@ -82,32 +122,39 @@ def set_banasree_slot_api() -> dict | None:
             data = json.loads(resp.read().decode("utf-8"))
             ds_id = data.get("darkStoreId")
             ds_name = data.get("darkStoreName")
-            logger.info(f"Banasree Darkstore locked via API -> {ds_name} ({ds_id})")
+            logger.info(f"Store Darkstore locked via API -> {location['area']}: {ds_name} ({ds_id})")
             return data
     except Exception as e:
-        logger.warning(f"Failed setting Banasree slot via API: {e}")
+        logger.warning(f"Failed setting slot for {location['area']} via API: {e}")
         return None
 
 
-def scrapling_select_banasree_form(page):
+def set_banasree_slot_api() -> dict | None:
+    return set_delivery_slot_api(BANASREE_LOCATION)
+
+
+def scrapling_select_store_form(page, target_area: str = "Banasree Block C"):
     """
     Scrapling page_action callback:
     Interacts with Shwapno's location selection modal form:
-    <form>
-      <input placeholder="Select district" ...> -> Selects 'Dhaka'
-      <input placeholder="Select area" ...> -> Selects 'Banasree Block C'
-      <button type="submit">Done</button>
-    </form>
+      1. Clicks location selector: #main-header ... span or #deliverySlotButton
+      2. Chooses district: 'Dhaka'
+      3. Chooses target area: e.g. 'Banasree Block C', 'Khilgaon Nobabi More', 'Khilgaon Chowdhury para', 'Khilgaon', 'Bashabo'
+      4. Submits Done
     """
+    loc_meta = next((l for l in STORE_LOCATIONS if l['area'].lower() == target_area.lower()), BANASREE_LOCATION)
     try:
         # Check if delivery slot trigger is present
         slot_btn = page.query_selector('#deliverySlotButton')
+        if not slot_btn:
+            slot_btn = page.query_selector('#main-header > div.z-50.bg-main > div > div.relative.z-\\[99\\].ml-auto.hidden.min-w-\\[180px\\].max-w-\\[220px\\].cursor-pointer.md\\:block.xl\\:ml-10.\\32 xl\\:ml-auto > span')
+        
         if slot_btn:
             slot_btn.click()
             page.wait_for_timeout(500)
 
         # District Combobox
-        district_input = page.wait_for_selector('input[placeholder="Select district"]', timeout=8000)
+        district_input = page.wait_for_selector('input[placeholder*="district" i]', timeout=8000)
         if district_input:
             district_input.click()
             page.wait_for_timeout(300)
@@ -117,13 +164,13 @@ def scrapling_select_banasree_form(page):
                 page.wait_for_timeout(600)
 
         # Area Combobox
-        area_input = page.wait_for_selector('input[placeholder="Select area"]', timeout=8000)
+        area_input = page.wait_for_selector('input[placeholder*="area" i]', timeout=8000)
         if area_input:
             area_input.click()
             page.wait_for_timeout(300)
-            banasree_c_opt = page.wait_for_selector('xpath=//div[@role="option"][contains(., "Banasree Block C")]', timeout=6000)
-            if banasree_c_opt:
-                banasree_c_opt.click()
+            area_opt = page.wait_for_selector(f'xpath=//div[@role="option"][contains(., "{target_area}")]', timeout=6000)
+            if area_opt:
+                area_opt.click()
                 page.wait_for_timeout(400)
 
         # Done Button
@@ -135,22 +182,25 @@ def scrapling_select_banasree_form(page):
         # Ensure cookie is explicitly set in context
         page.context.add_cookies([{
             'name': '_ds_',
-            'value': BANASREE_LOCATION['darkStoreId'],
+            'value': loc_meta['darkStoreId'],
             'domain': '.shwapno.com',
             'path': '/'
         }])
-        logger.info("Scrapling form successfully selected Banasree Block C.")
+        logger.info(f"Scrapling form successfully selected {target_area} ({loc_meta['darkStoreId']}).")
     except Exception as e:
-        logger.warning(f"Scrapling form interaction notice: {e}")
-        # Ensure cookie is forced in browser context
+        logger.warning(f"Scrapling form interaction notice for {target_area}: {e}")
         try:
             page.context.add_cookies([{
                 'name': '_ds_',
-                'value': BANASREE_LOCATION['darkStoreId'],
+                'value': loc_meta['darkStoreId'],
                 'domain': '.shwapno.com',
                 'path': '/'
             }])
         except: pass
+
+
+def scrapling_select_banasree_form(page):
+    return scrapling_select_store_form(page, "Banasree Block C")
 
 
 def fetch_category_scrapling(category_slug: str, page_num: int = 1):

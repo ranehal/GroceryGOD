@@ -2321,6 +2321,48 @@ function checkIsFirstTimeLow(p) {
     return false;
 }
 
+function getLastKnownPrice(p) {
+    if (!p) return 0;
+    const cp = Number(p.current_price);
+    if (cp > 0) return cp;
+    const lp = Number(p.last_price);
+    if (lp > 0) return lp;
+    const minA = Number(p.min_actual || p.minActual);
+    if (minA > 0) return minA;
+    const maxA = Number(p.max_actual || p.maxActual);
+    if (maxA > 0) return maxA;
+    if (Array.isArray(p.history) && p.history.length > 0) {
+        for (let i = p.history.length - 1; i >= 0; i--) {
+            const h = p.history[i];
+            const hp = Number(h?.price || h?.normalized_price);
+            if (hp > 0) return hp;
+        }
+    }
+    const avg = Number(p.avgPrice);
+    if (avg > 0) return avg;
+    return 0;
+}
+
+function getLastKnownNormalizedPrice(p) {
+    if (!p) return 0;
+    const np = Number(p.normalized_price);
+    if (np > 0) return np;
+    const avg = Number(p.avgPrice);
+    if (avg > 0) return avg;
+    const minP = Number(p.minPrice);
+    if (minP > 0) return minP;
+    const maxP = Number(p.maxPrice);
+    if (maxP > 0) return maxP;
+    if (Array.isArray(p.history) && p.history.length > 0) {
+        for (let i = p.history.length - 1; i >= 0; i--) {
+            const h = p.history[i];
+            const hnp = Number(h?.normalized_price || h?.price);
+            if (hnp > 0) return hnp;
+        }
+    }
+    return getLastKnownPrice(p);
+}
+
 function createProductCard(p) {
     const card = document.createElement('div');
     const storeColor = STORE_CONFIG[p.store]?.color || '#38E1B0';
@@ -2329,6 +2371,8 @@ function createProductCard(p) {
     card.style.setProperty('--store-color', storeColor);
     
     const isOos = !p.in_stock || p.is_out_of_stock || !p.hasPriceToday || !(Number(p.current_price) > 0);
+    const displayPrice = isOos ? getLastKnownPrice(p) : Number(p.current_price);
+    const displayNormPrice = isOos ? getLastKnownNormalizedPrice(p) : Number(p.normalized_price);
 
     const badges = [];
     if (p.priceChangePercent !== 0) {
@@ -2375,16 +2419,22 @@ function createProductCard(p) {
         ${isOos ? '<div style="position:absolute; bottom:8px; left:8px; font-size:0.5rem; font-weight:900; background:var(--danger); padding:1px 5px; border-radius:3px; color:#fff; z-index:11;">OS</div>' : ''}
         <div class="p-img-box">
             <img src="${escapeAttribute(p.image)}" class="product-image" loading="lazy" onerror="this.src='https://placehold.co/200x200/000/fff?text=NO_SIGNAL'">
-            <div class="price-tag">${isOos ? '—' : Math.round(p.current_price)}</div>
+            <div class="price-tag ${isOos ? 'oos-tag' : ''}" title="${isOos ? 'Out of stock (Last known price)' : 'Current price'}">${displayPrice > 0 ? Math.round(displayPrice) : '—'}</div>
         </div>
         <div class="p-detail-sh">
-            <div class="product-name" title="${escapeAttribute(p.name)}" style="${isOos ? 'font-style:italic; opacity:0.6;' : ''}">${escapeHTML(p.name)}</div>
+            <div class="product-name" title="${escapeAttribute(p.name)}" style="${isOos ? 'font-style:italic; opacity:0.7;' : ''}">${escapeHTML(p.name)}</div>
             <div class="product-meta">
                 <div class="meta-row">
-                    <span class="price-main" style="color:${storeColor}">${isOos ? 'Out of stock' : `${fmt(p.normalized_price)} <span class="unit-label">/${escapeHTML(unitTypeLabel(p.unit_type))}</span>`}</span>
+                    <span class="price-main ${isOos ? 'oos' : ''}" style="color:${storeColor}" title="${isOos ? `Out of stock - Last known price: ${fmt(displayNormPrice)} Tk` : ''}">
+                        ${isOos 
+                            ? (displayNormPrice > 0 
+                                ? `${fmt(displayNormPrice)} <span class="unit-label">/${escapeHTML(unitTypeLabel(p.unit_type))}</span> <span class="oos-inline-badge">OOS</span>` 
+                                : '<span class="oos-label">Out of stock</span>')
+                            : `${fmt(p.normalized_price)} <span class="unit-label">/${escapeHTML(unitTypeLabel(p.unit_type))}</span>`}
+                    </span>
                     <span class="cat-tag" title="${escapeAttribute(p.category)}">${escapeHTML(p.category)}</span>
                 </div>
-                ${sparklineHtml}
+                <div class="card-sparkline-slot">${sparklineHtml}</div>
                 <div class="meta-row">
                     <span class="pack-info">Pack: ${escapeHTML(formatPackUnit(p.unit))}</span>
                 </div>
@@ -2467,6 +2517,28 @@ function extractSparklinePoints(p) {
         }
     }
 
+    // 3. Fallback: synthesize preview trend if history count >= 2 but detailed points not yet fetched
+    if (points.length < 2 && (p.hist_count >= 2 || (p.maxPrice != null && p.minPrice != null && p.maxPrice > p.minPrice))) {
+        const lastKnown = normP > 0 ? normP : Number(getLastKnownNormalizedPrice(p) || p.avgPrice || p.minPrice || 0);
+        const minP = Number(p.minPrice != null ? p.minPrice : lastKnown);
+        const maxP = Number(p.maxPrice != null ? p.maxPrice : lastKnown);
+        const avgP = Number(p.avgPrice != null ? p.avgPrice : (minP + maxP) / 2);
+        
+        if (maxP > minP && maxP > 0) {
+            if (p.is_first_low || p.isFirstTimeLow || (lastKnown <= minP * 1.005 && lastKnown > 0)) {
+                points = [Number(maxP.toFixed(1)), Number(((maxP + avgP) / 2).toFixed(1)), Number(avgP.toFixed(1)), Number(lastKnown.toFixed(1))];
+            } else if (lastKnown >= maxP * 0.99) {
+                points = [Number(minP.toFixed(1)), Number(((minP + avgP) / 2).toFixed(1)), Number(avgP.toFixed(1)), Number(lastKnown.toFixed(1))];
+            } else if (Math.abs(lastKnown - avgP) < Math.abs(maxP - minP) * 0.2) {
+                points = [Number(avgP.toFixed(1)), Number(maxP.toFixed(1)), Number(minP.toFixed(1)), Number(lastKnown.toFixed(1))];
+            } else {
+                points = [Number(maxP.toFixed(1)), Number(avgP.toFixed(1)), Number(minP.toFixed(1)), Number(lastKnown.toFixed(1))];
+            }
+        } else if (lastKnown > 0) {
+            points = [Number(lastKnown.toFixed(1)), Number(lastKnown.toFixed(1))];
+        }
+    }
+
     // Ensure the latest point reflects current normalized price if valid
     if (points.length >= 2 && normP > 0) {
         points[points.length - 1] = Number(normP.toFixed(1));
@@ -2486,8 +2558,7 @@ function renderCardSparklineSvg(p) {
     const min = Math.min(...points);
     const max = Math.max(...points);
     const diffRange = max - min;
-    // Suppress if difference is trivial (jitter / completely flat)
-    if (diffRange < 0.5 || (diffRange / Math.max(max, 1.0)) < 0.005) return '';
+    const isFlat = diffRange < 0.5 || (diffRange / Math.max(max, 1.0)) < 0.005;
 
     const first = points[0];
     const last = points[points.length - 1];
@@ -2503,10 +2574,15 @@ function renderCardSparklineSvg(p) {
         // In ATL context, every item is at or near its all-time low.
         const dropFromMax = max > last ? Math.round(((max - last) / max) * 100) : 0;
         const netDrop = first > last ? Math.round(((first - last) / first) * 100) : 0;
-        pctNum = dropFromMax > 0 ? dropFromMax : (netDrop > 0 ? netDrop : Math.round((diffRange / max) * 100));
+        pctNum = dropFromMax > 0 ? dropFromMax : (netDrop > 0 ? netDrop : Math.round((diffRange / Math.max(max, 1.0)) * 100));
         strokeColor = '#10b981'; // Green for ATL deals
         fillColor = 'rgba(16, 185, 129, 0.15)';
         trendSymbol = '▼';
+    } else if (isFlat) {
+        strokeColor = '#06b6d4';
+        fillColor = 'rgba(6, 182, 212, 0.08)';
+        trendSymbol = '■';
+        pctNum = 0;
     } else if (last < first) {
         strokeColor = '#10b981'; // Green for price drop
         fillColor = 'rgba(16, 185, 129, 0.15)';
@@ -2519,22 +2595,20 @@ function renderCardSparklineSvg(p) {
         pctNum = Math.round(Math.abs(diff / first) * 100);
     } else {
         const dropFromMax = max > last ? Math.round(((max - last) / max) * 100) : 0;
-        pctNum = dropFromMax > 0 ? dropFromMax : Math.round((diffRange / max) * 100);
+        pctNum = dropFromMax > 0 ? dropFromMax : Math.round((diffRange / Math.max(max, 1.0)) * 100);
         strokeColor = '#10b981';
         fillColor = 'rgba(16, 185, 129, 0.15)';
         trendSymbol = '▼';
     }
 
-    if (pctNum === 0) return '';
-
     const width = 100;
     const height = 20;
     const paddingY = 2;
-    const range = diffRange || 1;
+    const range = diffRange > 0.01 ? diffRange : 1;
 
     const coords = points.map((val, idx) => {
         const x = (idx / (points.length - 1)) * width;
-        const normY = (val - min) / range;
+        const normY = isFlat ? 0.5 : (val - min) / range;
         const y = (height - paddingY) - normY * (height - paddingY * 2);
         return [Number(x.toFixed(1)), Number(y.toFixed(1))];
     });
@@ -2542,9 +2616,13 @@ function renderCardSparklineSvg(p) {
     const pathData = 'M ' + coords.map(pt => `${pt[0]},${pt[1]}`).join(' L ');
     const areaData = `${pathData} L ${width},${height} L 0,${height} Z`;
 
-    const tooltipTitle = isAtlContext && max > last
-        ? `All-Time Low: Peak ${fmt(max)} → Now ${fmt(last)} Tk`
-        : `Price Trend: ${fmt(first)} → ${fmt(last)} Tk`;
+    const tooltipTitle = isFlat 
+        ? `Price Stable: ${fmt(last)} Tk`
+        : (isAtlContext && max > last
+            ? `All-Time Low: Peak ${fmt(max)} → Now ${fmt(last)} Tk`
+            : `Price Trend: ${fmt(first)} → ${fmt(last)} Tk`);
+
+    const pillText = pctNum > 0 ? `${trendSymbol} ${pctNum}%` : `■ 0%`;
 
     return `
         <div class="card-sparkline-wrap" title="${tooltipTitle}">
@@ -2552,7 +2630,7 @@ function renderCardSparklineSvg(p) {
                 <path d="${areaData}" fill="${fillColor}" />
                 <path d="${pathData}" fill="none" stroke="${strokeColor}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
-            <span class="sparkline-pill" style="color:${strokeColor}">${trendSymbol} ${pctNum}%</span>
+            <span class="sparkline-pill" style="color:${strokeColor}">${pillText}</span>
         </div>
     `;
 }
@@ -2563,21 +2641,26 @@ function updateCardSparklineDom(productId) {
     if (!p) return;
     const card = document.querySelector(`.p-item-sh[data-product-id="${productId}"]`);
     if (!card) return;
-    const existingWrap = card.querySelector('.card-sparkline-wrap');
     const newHtml = renderCardSparklineSvg(p);
-    if (existingWrap) {
-        if (newHtml) {
-            existingWrap.outerHTML = newHtml;
-        } else {
-            existingWrap.remove();
-        }
-    } else if (newHtml) {
-        const meta = card.querySelector('.product-meta');
-        const packRow = meta ? meta.querySelector('.meta-row:last-child') : null;
-        if (packRow) {
-            packRow.insertAdjacentHTML('beforebegin', newHtml);
-        } else if (meta) {
-            meta.insertAdjacentHTML('beforeend', newHtml);
+    const slot = card.querySelector('.card-sparkline-slot');
+    if (slot) {
+        slot.innerHTML = newHtml;
+    } else {
+        const existingWrap = card.querySelector('.card-sparkline-wrap');
+        if (existingWrap) {
+            if (newHtml) {
+                existingWrap.outerHTML = newHtml;
+            } else {
+                existingWrap.remove();
+            }
+        } else if (newHtml) {
+            const meta = card.querySelector('.product-meta');
+            const packRow = meta ? meta.querySelector('.meta-row:last-child') : null;
+            if (packRow) {
+                packRow.insertAdjacentHTML('beforebegin', `<div class="card-sparkline-slot">${newHtml}</div>`);
+            } else if (meta) {
+                meta.insertAdjacentHTML('beforeend', `<div class="card-sparkline-slot">${newHtml}</div>`);
+            }
         }
     }
 }
@@ -4909,7 +4992,11 @@ function renderAnalyticsItemCards() {
                     <div class="analytics-card-title" title="${escapeAttribute(p.name)}">${escapeHTML(p.name)}</div>
                     <div class="analytics-card-price-row">
                         <span class="analytics-card-price" style="color:${storeColor}">
-                            ${!inStock ? 'Out of Stock' : `${fmt(p.normalized_price)} <span class="analytics-card-unit">Tk / ${unitTypeLabel(p.unit_type)}</span>`}
+                            ${!inStock 
+                                ? (getLastKnownNormalizedPrice(p) > 0 
+                                    ? `${fmt(getLastKnownNormalizedPrice(p))} <span class="analytics-card-unit">Tk / ${unitTypeLabel(p.unit_type)}</span> <span class="oos-inline-badge">OOS</span>` 
+                                    : 'Out of Stock')
+                                : `${fmt(p.normalized_price)} <span class="analytics-card-unit">Tk / ${unitTypeLabel(p.unit_type)}</span>`}
                         </span>
                         <span style="font-size:0.6rem;color:#94a3b8;font-weight:700">${formatPackUnit(p.unit)}</span>
                     </div>

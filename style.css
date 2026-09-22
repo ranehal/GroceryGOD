@@ -4878,6 +4878,38 @@ body:not(.sidebar-collapsed) .search-wrapper,
     line-height: 1;
 }
 
+/* Card Sparkline Slot & OOS Card Price Styling */
+.card-sparkline-slot {
+    min-height: 24px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.price-tag.oos-tag {
+    background: rgba(239, 68, 68, 0.88) !important;
+    color: #fff !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.price-main.oos {
+    opacity: 0.88;
+}
+
+.oos-inline-badge {
+    display: inline-block;
+    background: rgba(239, 68, 68, 0.18);
+    color: #ef4444;
+    border: 1px solid rgba(239, 68, 68, 0.4);
+    font-size: 0.62rem;
+    font-weight: 800;
+    padding: 1px 4px;
+    border-radius: 3px;
+    margin-left: 4px;
+    vertical-align: middle;
+    letter-spacing: 0.02em;
+}
+
 /* ============================================================
    PRODUCT CARD LAYOUT ROBUSTNESS & OVERLAP FIXES
    ============================================================ */
