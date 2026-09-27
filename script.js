@@ -57,7 +57,7 @@ let immersiveModeActive = false;
 let customDropThreshold = Math.min(95, Math.max(1, parseInt(safeStorage.getItem('god_custom_drop') || '12', 10) || 12));
 let showFavoritesOnly = false;
 let showNewOnly = false;
-let activeShopFilters = new Set(['shwapno']);
+let activeShopFilters = new Set(['shwapno', 'chaldal', 'meenabazar', 'othoba', 'metromart', 'unimart', 'shotejbazar', 'foodi']);
 let activeCategories = new Set();
 let userCustomizedCategories = new Set();
 let expandedStoreGroups = new Set(['shwapno']);
@@ -1107,8 +1107,8 @@ async function loadAllFromParquet() {
 
     godDB = { db, conn };
     if (typeof _godDbResolver === 'function') _godDbResolver(godDB);
-    window.loadedStores = new Set(storesList);
-    activeShopFilters = new Set(['shwapno']);
+    window.loadedStores = new Set(['shwapno']);
+    activeShopFilters = new Set(storesList);
 
     window.__registeredHistoryChunks = new Set();
     window.__hasPremiumArchive = false;
@@ -1210,6 +1210,7 @@ async function loadAllFromParquet() {
                     }
                 } else {
                     window.__catalogHydrationDone = true;
+                    storesList.forEach(s => window.loadedStores.add(s));
                     log(`🌟 Full catalog hydration finished: ${allProducts.length} products in ${((performance.now()-tFull)/1000).toFixed(1)}s`);
                     try { processData(); } catch(e) {}
                     try { renderSidebar(); } catch(e) {}
@@ -1900,7 +1901,8 @@ function renderSidebar() {
                 categories.forEach(cat => activeCategories.add(sid + '_' + cat));
                 if (typeof window.ensureStoreHistoryLoaded === 'function') window.ensureStoreHistoryLoaded(sid);
                 if (typeof window.triggerCatalogHydration === 'function') window.triggerCatalogHydration('shop_toggle');
-                if (!window.loadedStores.has(sid)) {
+                const storeLoadedCount = allProducts.filter(p => p.store === sid).length;
+                if (!window.loadedStores.has(sid) || storeLoadedCount === 0) {
                     showShopLoadingAnimation(sid);
                     await loadStoreData(sid);
                     window.loadedStores.add(sid);
@@ -5793,7 +5795,7 @@ async function attemptPremiumUnlock() {
 
         // Auto return to Home
         activeCategoryFilter = 'all';
-        activeShopFilters = new Set(['shwapno']);
+        activeShopFilters = new Set(Object.keys(STORE_CONFIG));
         const searchInput = document.getElementById('product-search');
         if (searchInput) searchInput.value = '';
         const currentTitle = document.getElementById('current-view-title');
@@ -6943,6 +6945,187 @@ async function chatGeminiAsk(text) {
     throw new Error('Too many tool rounds.');
 }
 
+// --- GROQ PUBLIC AI INTEGRATION (WebCrypto Encrypted) ---
+const GROQ_CONFIG = {
+    iv: "Z29kX2dyb3FfaXYxMg==",
+    ciphertext: "Fp3t5VRE31wgo4eXutz66wNODIzHwa21TZlEyQFsOvV5XgaezFs6JZ1tAoPAGLoNEdUaMyfOZNc2UNSvR/6Bs0a2HBEo0ETv",
+    model: "qwen/qwen3.8-27b",
+    fallbackModel: "openai/gpt-oss-120b"
+};
+let _decryptedGroqKey = null;
+
+async function getDecryptedGroqKey() {
+    if (_decryptedGroqKey) return _decryptedGroqKey;
+    try {
+        const pass = new TextEncoder().encode("GroceryGOD_Public_AI_2026");
+        const keyHash = await crypto.subtle.digest("SHA-256", pass);
+        const key = await crypto.subtle.importKey("raw", keyHash, { name: "AES-GCM" }, false, ["decrypt"]);
+        const ivBytes = Uint8Array.from(atob(GROQ_CONFIG.iv), c => c.charCodeAt(0));
+        const ctBytes = Uint8Array.from(atob(GROQ_CONFIG.ciphertext), c => c.charCodeAt(0));
+        const decryptedBuf = await crypto.subtle.decrypt({ name: "AES-GCM", iv: ivBytes }, key, ctBytes);
+        _decryptedGroqKey = new TextDecoder().decode(decryptedBuf).trim();
+        return _decryptedGroqKey;
+    } catch (e) {
+        console.warn("[GROQ] WebCrypto key decryption error:", e);
+        return null;
+    }
+}
+
+const GROQ_TOOLS = [
+    {
+        type: "function",
+        function: {
+            name: "search_products",
+            description: "Search products by keyword and optionally filter by store. Returns normalized price (BDT/kg, BDT/L, BDT/pc).",
+            parameters: {
+                type: "object",
+                properties: {
+                    query: { type: "string", description: "Search keyword in English or Bangla (e.g. 'rice', 'soybean oil', 'ডিম', 'beef')" },
+                    store: { type: "string", description: "Store slug: shwapno, chaldal, meenabazar, othoba, metromart, unimart, shotejbazar, foodi" },
+                    limit: { type: "integer", description: "Max results to return (1-10, default 5)" },
+                    sort: { type: "string", enum: ["cheapest", "expensive", "name"], description: "Sort mode" }
+                },
+                required: ["query"]
+            }
+        }
+    },
+    {
+        type: "function",
+        function: {
+            name: "compare_across_stores",
+            description: "Compare prices of a product across all grocery stores to find the cheapest.",
+            parameters: {
+                type: "object",
+                properties: {
+                    query: { type: "string", description: "Product name to compare across stores (e.g. 'soybean oil 5L', 'rice miniket')" }
+                },
+                required: ["query"]
+            }
+        }
+    },
+    {
+        type: "function",
+        function: {
+            name: "get_price_history",
+            description: "Get historical price statistics (min, max, avg, price trend) for a specific product ID.",
+            parameters: {
+                type: "object",
+                properties: {
+                    product_id: { type: "string", description: "Unique product ID (from search_products)" }
+                },
+                required: ["product_id"]
+            }
+        }
+    },
+    {
+        type: "function",
+        function: {
+            name: "get_store_stats",
+            description: "Get summary product counts and historical date range for each grocery store.",
+            parameters: {
+                type: "object",
+                properties: {}
+            }
+        }
+    }
+];
+
+async function chatGroqRound(messages) {
+    const key = await getDecryptedGroqKey();
+    if (!key) throw new Error("Could not decrypt Groq AI key.");
+
+    const modelsToTry = [GROQ_CONFIG.model, GROQ_CONFIG.fallbackModel];
+    let lastError = null;
+
+    for (const model of modelsToTry) {
+        try {
+            const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${key}`
+                },
+                body: JSON.stringify({
+                    model: model,
+                    messages: messages,
+                    tools: GROQ_TOOLS,
+                    tool_choice: "auto",
+                    temperature: 0.3,
+                    max_tokens: 800
+                })
+            });
+
+            if (!res.ok) {
+                const body = await res.text().catch(() => "");
+                lastError = new Error(`Groq ${model} HTTP ${res.status}: ${body.slice(0, 160)}`);
+                continue;
+            }
+
+            const data = await res.json();
+            const choice = data.choices && data.choices[0];
+            if (!choice || !choice.message) throw new Error("Groq returned an empty response.");
+            return choice.message;
+        } catch (err) {
+            lastError = err;
+        }
+    }
+    throw lastError || new Error("Groq request failed.");
+}
+
+async function chatGroqAsk(text) {
+    const messages = [
+        { role: "system", content: CHAT_SYSTEM_PROMPT }
+    ];
+
+    const pastElements = document.querySelectorAll("#god-chat-messages .god-chat-msg[data-role]");
+    pastElements.forEach(m => {
+        const role = m.dataset.role === "user" ? "user" : "assistant";
+        const body = m.dataset.text || m.textContent || "";
+        if (!body.trim() || m.dataset.role === "system") return;
+        messages.push({ role, content: body.slice(0, 800) });
+    });
+
+    messages.push({ role: "user", content: text });
+    if (messages.length > 11) {
+        messages.splice(1, messages.length - 11);
+    }
+
+    for (let round = 0; round < 4; round++) {
+        const assistantMsg = await chatGroqRound(messages);
+        messages.push(assistantMsg);
+
+        const toolCalls = assistantMsg.tool_calls;
+        if (!toolCalls || !toolCalls.length) {
+            return assistantMsg.content || "I couldn't generate an answer.";
+        }
+
+        for (const tc of toolCalls) {
+            const fnName = tc.function.name;
+            const executor = CHAT_TOOL_EXECUTORS[fnName];
+            let callArgs = {};
+            try {
+                callArgs = JSON.parse(tc.function.arguments || "{}");
+            } catch (_) {}
+
+            let toolResult;
+            try {
+                if (!executor) throw new Error(`Unknown tool ${fnName}`);
+                toolResult = await executor(callArgs);
+            } catch (err) {
+                toolResult = { error: String(err.message || err) };
+            }
+
+            messages.push({
+                role: "tool",
+                tool_call_id: tc.id,
+                name: fnName,
+                content: JSON.stringify(toolResult)
+            });
+        }
+    }
+    throw new Error("Too many tool call rounds.");
+}
+
 const CHAT_SYSTEM_PROMPT =
     'You are GroceryGOD Assistant, a price-intelligence chatbot for Bangladeshi grocery stores ' +
     '(Shwapno, Chaldal, Meena Bazar, Othoba, Metro Mart, Unimart, ShotejBazar, Foodi). ' +
@@ -7112,7 +7295,11 @@ function chatTyping(on) {
 
 function chatUpdateMode() {
     const label = document.getElementById('god-chat-mode');
-    if (label) label.textContent = chatKey ? `AI mode · ${CHAT_GEMINI_MODEL}` : 'offline mode · add Gemini key for AI answers';
+    if (label) {
+        label.textContent = chatKey 
+            ? `custom Gemini key · ${CHAT_GEMINI_MODEL}` 
+            : `Groq Public AI · ${GROQ_CONFIG.model}`;
+    }
 }
 
 function chatSuggestChips() {
@@ -7162,19 +7349,24 @@ async function chatAnswer(q) {
                     const keyInput = document.getElementById('god-chat-key');
                     if (keyInput) keyInput.value = '';
                     chatUpdateMode();
-                    answer = '⚠️ That API key was rejected by Gemini (it may be invalid or out of quota). I removed it and fell back to offline mode: ' + (await chatLocalAnswer(q) || 'try rephrasing your question.');
                 } else {
-                    console.warn('[CHAT] Gemini failed, falling back to offline:', e);
-                    answer = await chatLocalAnswer(q);
-                    if (answer) answer = answer + '\n\n(Online AI answer failed — showing offline result.)';
+                    console.warn('[CHAT] Custom Gemini failed:', e);
                 }
+            }
+        }
+        if (!answer) {
+            try {
+                answer = await chatGroqAsk(q);
+                usedAI = true;
+            } catch (eGroq) {
+                console.warn('[CHAT] Groq Public AI failed, falling back to offline:', eGroq);
+                answer = await chatLocalAnswer(q);
+                if (answer) answer = answer + '\n\n(Online AI busy — showing offline result.)';
             }
         }
         if (!answer && !usedAI) answer = await chatLocalAnswer(q);
         if (!answer) {
-            answer = chatKey
-                ? 'I could not find a confident answer for that. Try asking about a specific product, store, or comparison.'
-                : 'I could not answer that in offline mode. Add a free Gemini API key above (it stays only in your browser) for natural-language questions, or try "cheapest rice", "history of milk", "how many products in othoba".';
+            answer = 'I could not find a confident answer for that. Try asking about a specific product (e.g. "cheapest rice", "history of soybean oil", "compare chaldal vs shwapno eggs").';
         }
         chatAppendMsg('bot', answer, undefined, chatTrackProducts);
     } catch (e) {
@@ -7219,18 +7411,19 @@ function initChatbot() {
         safeStorage.setItem(CHAT_KEY_STORAGE, v);
         if (keyInput) keyInput.value = '••••••••••••••••';
         chatUpdateMode();
-        chatAppendMsg('system', 'AI mode enabled — your key is stored only in this browser (localStorage), never on GitHub.');
+        chatAppendMsg('system', 'Custom Gemini AI mode enabled — your key is stored only in this browser (localStorage), never on GitHub.');
     });
     if (keyClear) keyClear.addEventListener('click', () => {
         chatKey = '';
         safeStorage.removeItem(CHAT_KEY_STORAGE);
         if (keyInput) keyInput.value = '';
         chatUpdateMode();
-        chatAppendMsg('system', 'API key removed. Back to offline mode.');
+        chatAppendMsg('system', 'Custom key removed. Reverted to Groq Public AI mode.');
     });
     chatSuggestChips();
-    chatAppendMsg('system', `🛒 GroceryGOD Assistant ready — live data for ${Object.values(STORE_CONFIG).map(s => s.name).join(', ')}.\n` +
-        (chatKey ? 'AI mode is ON.' : 'Tip: paste a free Gemini API key above (stored only in your browser) for full AI answers.'));
+    chatUpdateMode();
+    chatAppendMsg('system', `🛒 GroceryGOD AI Assistant ready — live data for ${Object.values(STORE_CONFIG).map(s => s.name).join(', ')}.\n` +
+        (chatKey ? 'Custom Gemini key active.' : 'Powered by Groq Public AI (free for all users). Ask in English or বাংলা!'));
 }
 
 document.addEventListener('DOMContentLoaded', () => { try { initChatbot(); } catch (e) { console.error('[CHAT] init failed:', e); } });

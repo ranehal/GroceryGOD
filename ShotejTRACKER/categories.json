@@ -1,16 +1,186 @@
 {
   "groups": [
     {
-      "id": "shotej_main",
-      "name": "ShotejBazar Main",
-      "icon": "candy-cane",
+      "id": "shotej_all",
+      "name": "ShotejBazar Categories",
+      "icon": "store",
       "expanded": true,
       "categories": [
-        { "name": "Chocolate", "url": "https://shotejbazar.com/product-category/chocolate/", "enabled": true },
-        { "name": "Food", "url": "https://shotejbazar.com/product-category/food/", "enabled": true },
-        { "name": "Snacks", "url": "https://shotejbazar.com/product-category/snacks/", "enabled": true },
-        { "name": "Cookies", "url": "https://shotejbazar.com/product-category/cookies/", "enabled": true },
-        { "name": "Coffee", "url": "https://shotejbazar.com/product-category/coffee/", "enabled": true }
+        {
+          "name": "Baby Care",
+          "url": "https://shotejbazar.com/product-category/baby-care/",
+          "enabled": true
+        },
+        {
+          "name": "Baby Cream",
+          "url": "https://shotejbazar.com/product-category/baby-cream/",
+          "enabled": true
+        },
+        {
+          "name": "Baby Food",
+          "url": "https://shotejbazar.com/product-category/baby-food/",
+          "enabled": true
+        },
+        {
+          "name": "Baby Lotion",
+          "url": "https://shotejbazar.com/product-category/baby-lotion/",
+          "enabled": true
+        },
+        {
+          "name": "Baby Oil",
+          "url": "https://shotejbazar.com/product-category/baby-oil/",
+          "enabled": true
+        },
+        {
+          "name": "Baby Shampoo",
+          "url": "https://shotejbazar.com/product-category/baby-shampoo/",
+          "enabled": true
+        },
+        {
+          "name": "Best Selling",
+          "url": "https://shotejbazar.com/product-category/best-selling/",
+          "enabled": true
+        },
+        {
+          "name": "Body Care",
+          "url": "https://shotejbazar.com/product-category/body-care/",
+          "enabled": true
+        },
+        {
+          "name": "Chocolate",
+          "url": "https://shotejbazar.com/product-category/chocolate/",
+          "enabled": true
+        },
+        {
+          "name": "Coffee",
+          "url": "https://shotejbazar.com/product-category/coffee/",
+          "enabled": true
+        },
+        {
+          "name": "Condom",
+          "url": "https://shotejbazar.com/product-category/condom/",
+          "enabled": true
+        },
+        {
+          "name": "Cookies",
+          "url": "https://shotejbazar.com/product-category/cookies/",
+          "enabled": true
+        },
+        {
+          "name": "Cosmetics",
+          "url": "https://shotejbazar.com/product-category/cosmetics/",
+          "enabled": true
+        },
+        {
+          "name": "Dark Chocolate",
+          "url": "https://shotejbazar.com/product-category/dark-chocolate/",
+          "enabled": true
+        },
+        {
+          "name": "Discount Product",
+          "url": "https://shotejbazar.com/product-category/discount-product/",
+          "enabled": true
+        },
+        {
+          "name": "Food",
+          "url": "https://shotejbazar.com/product-category/food/",
+          "enabled": true
+        },
+        {
+          "name": "General",
+          "url": "https://shotejbazar.com/product-category/general/",
+          "enabled": true
+        },
+        {
+          "name": "Hair Care",
+          "url": "https://shotejbazar.com/product-category/hair-care/",
+          "enabled": true
+        },
+        {
+          "name": "Intimate Care",
+          "url": "https://shotejbazar.com/product-category/intimate-care/",
+          "enabled": true
+        },
+        {
+          "name": "Kunafa Chocolate",
+          "url": "https://shotejbazar.com/product-category/kunafa-chocolate/",
+          "enabled": true
+        },
+        {
+          "name": "Milk Chocolate",
+          "url": "https://shotejbazar.com/product-category/milk-chocolate/",
+          "enabled": true
+        },
+        {
+          "name": "New Arrivals",
+          "url": "https://shotejbazar.com/product-category/new-arrivals/",
+          "enabled": true
+        },
+        {
+          "name": "Organic Food",
+          "url": "https://shotejbazar.com/product-category/organic-food/",
+          "enabled": true
+        },
+        {
+          "name": "Perfume",
+          "url": "https://shotejbazar.com/product-category/perfume/",
+          "enabled": true
+        },
+        {
+          "name": "Ramadan Collection",
+          "url": "https://shotejbazar.com/product-category/ramadan-collection/",
+          "enabled": true
+        },
+        {
+          "name": "Serum",
+          "url": "https://shotejbazar.com/product-category/serum/",
+          "enabled": true
+        },
+        {
+          "name": "Shampoo",
+          "url": "https://shotejbazar.com/product-category/shampoo/",
+          "enabled": true
+        },
+        {
+          "name": "Skin Care",
+          "url": "https://shotejbazar.com/product-category/skin-care/",
+          "enabled": true
+        },
+        {
+          "name": "Snacks",
+          "url": "https://shotejbazar.com/product-category/snacks/",
+          "enabled": true
+        },
+        {
+          "name": "Soap",
+          "url": "https://shotejbazar.com/product-category/soap/",
+          "enabled": true
+        },
+        {
+          "name": "Spread",
+          "url": "https://shotejbazar.com/product-category/spread/",
+          "enabled": true
+        },
+        {
+          "name": "Sunscreen",
+          "url": "https://shotejbazar.com/product-category/sunscreen/",
+          "enabled": true
+        },
+        {
+          "name": "Supplement",
+          "url": "https://shotejbazar.com/product-category/supplement/",
+          "enabled": true
+        },
+        {
+          "name": "Top Rated",
+          "url": "https://shotejbazar.com/product-category/top-rated/",
+          "enabled": true
+        },
+        {
+          "name": "Winter Collection",
+          "url": "https://shotejbazar.com/product-category/winter-collection/",
+          "enabled": true
+        }
       ]
     }
   ],

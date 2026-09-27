@@ -123440,8 +123440,8 @@
     "category_path": "Oil > Rice Bran Oil",
     "unit": "Piece",
     "unit_type": "liter",
-    "current_price": 999,
-    "normalized_price": 199.8,
+    "current_price": 1085.0,
+    "normalized_price": 217.0,
     "display_price": 999,
     "old_price": 1120,
     "discount_text": "11% OFF",
@@ -123454,14 +123454,17 @@
     "uom_type": 10,
     "stock": "InStock",
     "first_seen": "2026-07-31",
-    "last_seen": "2026-07-31",
+    "last_seen": "2026-09-28",
     "price_history": {
-      "2026-07-31": 999
+      "2026-07-31": 999,
+      "2026-09-28": 1085.0
     },
     "hist_count": 1,
     "min_price": 999,
     "max_price": 999,
-    "avg_price": 999.0
+    "avg_price": 999.0,
+    "in_stock": true,
+    "is_out_of_stock": false
   },
   {
     "id": "66570ba4a30da7ca620bf7c4",

@@ -342,16 +342,23 @@ prod_sql = f"""
         FROM ranked_hist
         WHERE rn > 1
         GROUP BY product_id
+    ),
+    store_max AS (
+        SELECT 
+            store, 
+            COALESCE(quantile_cont(TRY_CAST(last_seen AS DATE), 0.90), MAX(TRY_CAST(last_seen AS DATE))) as max_seen
+        FROM canonical_prods
+        GROUP BY store
     )
     SELECT 
         p.id, p.name, p.store, p.category, p.unit, p.unit_type, p.current_price, p.normalized_price,
         p.image, p.url, p.first_seen, p.last_seen,
         CASE 
-            WHEN p.last_seen < '{cutoff_14d}' OR p.current_price <= 0 THEN false 
+            WHEN TRY_CAST(p.last_seen AS DATE) < (TRY_CAST(sm.max_seen AS DATE) - INTERVAL 14 DAY) OR p.current_price <= 0 THEN false 
             ELSE p.in_stock 
         END::BOOLEAN as in_stock,
         CASE 
-            WHEN p.last_seen < '{cutoff_14d}' OR p.current_price <= 0 THEN true 
+            WHEN TRY_CAST(p.last_seen AS DATE) < (TRY_CAST(sm.max_seen AS DATE) - INTERVAL 14 DAY) OR p.current_price <= 0 THEN true 
             ELSE p.is_out_of_stock 
         END::BOOLEAN as is_out_of_stock,
         COALESCE(h.hist_count, 0)::INTEGER as hist_count,
@@ -361,7 +368,7 @@ prod_sql = f"""
         COALESCE(h.min_actual, p.current_price)::DOUBLE as min_actual,
         COALESCE(h.max_actual, p.current_price)::DOUBLE as max_actual,
         CASE 
-            WHEN p.last_seen >= '{cutoff_14d}' 
+            WHEN TRY_CAST(p.last_seen AS DATE) >= (TRY_CAST(sm.max_seen AS DATE) - INTERVAL 14 DAY) 
              AND p.current_price > 0 
              AND p.in_stock = true 
              AND (p.is_out_of_stock = false OR p.is_out_of_stock IS NULL)
@@ -369,6 +376,7 @@ prod_sql = f"""
             ELSE false 
         END::BOOLEAN as is_first_low
     FROM canonical_prods p
+    JOIN store_max sm ON p.store = sm.store
     LEFT JOIN (
         SELECT 
             product_id,
@@ -401,7 +409,9 @@ atl_path = os.path.join(BASE, 'atl.parquet').replace(chr(92), '/')
 con.execute(f"""
     CREATE OR REPLACE TABLE atl_raw AS
     WITH store_max AS (
-        SELECT store, MAX(last_seen) as max_seen
+        SELECT 
+            store, 
+            COALESCE(quantile_cont(TRY_CAST(last_seen AS DATE), 0.90), MAX(TRY_CAST(last_seen AS DATE))) as max_seen
         FROM merged_products
         GROUP BY store
     )

@@ -364,12 +364,16 @@ def load_shwapno():
                     new_history = sorted(unique_hist.values(), key=lambda x: x['date'])
                     for h in new_history: all_dates.append(h['date'])
                     first_seen = new_history[0]['date'] if new_history else datetime.now(DHAKA_TZ).strftime("%Y-%m-%d")
-                        
+                    in_s = bool(curr_p > 0 and p.get('in_stock', True) is not False)
+                    last_seen_val = new_history[-1]['date'] if new_history else p.get('last_seen', first_seen)
                     products_by_name[name_key] = {
                         "id": final_pid, "name": p.get('name'), "store": "shwapno",
                         "category": get_display_cat(p.get('category', 'General')), "unit": get_clean_display_unit(p.get('name', ''), p.get('unit', 'N/A')), "unit_type": u_type,
                         "current_price": curr_p, "normalized_price": norm_p,
                         "image": p.get('image'), "url": p.get('url'), "history": new_history, "first_seen": first_seen,
+                        "last_seen": last_seen_val,
+                        "in_stock": in_s,
+                        "is_out_of_stock": not in_s,
                         "_src": "web"
                     }
                     stats["web_scraped"] += 1
@@ -437,12 +441,17 @@ def load_shwapno():
                     new_history = sorted(unique_hist.values(), key=lambda x: x['date'])
                     for h in new_history: all_dates.append(h['date'])
                     first_seen = new_history[0]['date'] if new_history else datetime.now(DHAKA_TZ).strftime("%Y-%m-%d")
+                    in_s = bool(curr_p > 0 and p.get('in_stock', True) is not False)
+                    last_seen_val = new_history[-1]['date'] if new_history else p.get('last_seen', first_seen)
 
                     products_by_name[name_key] = {
                         "id": final_pid, "name": p.get('name'), "store": "shwapno",
                         "category": get_display_cat(p.get('category', 'General')), "unit": get_clean_display_unit(p.get('name', ''), p.get('unit', 'N/A')), "unit_type": u_type,
                         "current_price": curr_p, "normalized_price": norm_p,
                         "image": p.get('image'), "url": url, "history": new_history, "first_seen": first_seen,
+                        "last_seen": last_seen_val,
+                        "in_stock": in_s,
+                        "is_out_of_stock": not in_s,
                         "_src": "app"
                     }
                 stats["app_selected"] = sum(1 for v in products_by_name.values() if v.get("_src") == "app")
@@ -597,7 +606,7 @@ def load_meenabazar():
         cats = {row['id']: row['name'] for row in cursor.fetchall()}
         cursor.execute("SELECT id, external_id, name, unit, unit_type, image_url, category_id FROM products")
         db_p = cursor.fetchall()
-        cursor.execute("SELECT product_id, actual_price, scraped_at FROM price_history ORDER BY scraped_at ASC")
+        cursor.execute("SELECT product_id, actual_price, SUBSTR(scraped_at, 1, 10) as scraped_at FROM price_history GROUP BY product_id, SUBSTR(scraped_at, 1, 10) ORDER BY scraped_at ASC")
         all_history = {}
         for row in cursor.fetchall():
             pid = row['product_id']
@@ -883,7 +892,7 @@ def load_metromart():
         cursor.execute("SELECT id, name FROM categories"); cats = {row['id']: row['name'] for row in cursor.fetchall()}
         cursor.execute("SELECT id, external_id, name, unit, unit_type, image_url, category_id FROM products")
         db_p = cursor.fetchall()
-        cursor.execute("SELECT product_id, actual_price, scraped_at FROM price_history ORDER BY scraped_at ASC")
+        cursor.execute("SELECT product_id, actual_price, SUBSTR(scraped_at, 1, 10) as scraped_at FROM price_history GROUP BY product_id, SUBSTR(scraped_at, 1, 10) ORDER BY scraped_at ASC")
         all_history = {}
         for row in cursor.fetchall():
             pid = row['product_id']
@@ -980,10 +989,14 @@ def load_shotejbazar():
 
             new_history = sorted(unique_hist.values(), key=lambda x: x['date'])
             first_seen = new_history[0]['date'] if new_history else datetime.now(DHAKA_TZ).strftime("%Y-%m-%d")
+            last_seen = new_history[-1]['date'] if new_history else datetime.now(DHAKA_TZ).strftime("%Y-%m-%d")
+            in_stock = bool(p.get('in_stock', True) and curr_p > 0)
             products[p_id] = {
                 "id": p_id, "name": p.get('name'), "store": "shotejbazar",
                 "category": p.get('category', 'General'), "unit": get_clean_display_unit(p.get('name', ''), p.get('unit')), "unit_type": u_type,
-                "current_price": curr_p, "normalized_price": norm_p, "image": p.get('image'), "history": new_history, "first_seen": first_seen
+                "current_price": curr_p, "normalized_price": norm_p, "image": p.get('image'), "url": p.get('url', ''),
+                "in_stock": in_stock, "is_out_of_stock": not in_stock,
+                "history": new_history, "first_seen": first_seen, "last_seen": last_seen
             }
         stats = {"web_scraped": len(products), "app_scraped": 0, "web_selected": len(products),
                  "app_selected": 0, "dropped": 0, "web": len(products), "app": 0, "combined": len(products)}

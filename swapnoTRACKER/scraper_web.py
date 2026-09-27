@@ -167,18 +167,23 @@ def normalize_unit(name, current_price_str):
     
     return qty_disp, round(norm_price, 2), unit_type
 
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+
 def load_data():
-    if os.path.exists('data.json'):
-        with open('data.json', 'r', encoding='utf-8') as f:
+    path = os.path.join(CURRENT_DIR, 'data.json')
+    if os.path.exists(path):
+        with open(path, 'r', encoding='utf-8') as f:
             return json.load(f)
     return {}
 
 def save_data(data):
-    with open('data.json', 'w', encoding='utf-8') as f:
+    path = os.path.join(CURRENT_DIR, 'data.json')
+    with open(path, 'w', encoding='utf-8') as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
 
 def load_categories():
-    with open('categories.json', 'r', encoding='utf-8') as f:
+    path = os.path.join(CURRENT_DIR, 'categories.json')
+    with open(path, 'r', encoding='utf-8') as f:
         return json.load(f)
 
 def flatten_categories(data):
@@ -298,22 +303,27 @@ async def scrape_category_api(session, category, current_data, summary, pinned_n
 async def rescrape_oos_across_stores(session, oos_prod_ids, current_data, today_str):
     """
     Groups OOS products from Banasree Block C and re-scrapes them across fallback locations:
-      1. Khilgaon Nobabi More
-      2. Khilgaon Chowdhury para
-      3. Khilgaon
-      4. Bashabo
-    Tries each location until a live price is found; otherwise confirms as Out of Stock.
+      1. Khilgaon Nobabi More / Sky View
+      2. Central Basabo 2
+    Tries each unique location until a live price is found; otherwise confirms as Out of Stock.
     """
     if not oos_prod_ids:
         return
         
     remaining_oos = set(oos_prod_ids)
-    fallback_locations = STORE_LOCATIONS[1:]
-    logger.info(f"Grouped {len(remaining_oos)} OOS items from Banasree Block C. Initiating cross-store fallback search...")
+    
+    # De-duplicate fallback stores by darkStoreId to eliminate 3x redundant queries
+    seen_ds = {BANASREE_LOCATION['darkStoreId']}
+    unique_fallback_locations = []
+    for loc in STORE_LOCATIONS[1:]:
+        if loc['darkStoreId'] not in seen_ds:
+            seen_ds.add(loc['darkStoreId'])
+            unique_fallback_locations.append(loc)
 
+    logger.info(f"Grouped {len(remaining_oos)} OOS items from Banasree. Initiating cross-store fallback across {len(unique_fallback_locations)} stores...")
     recovered_total = 0
 
-    for loc in fallback_locations:
+    for loc in unique_fallback_locations:
         if not remaining_oos:
             break
             
@@ -332,69 +342,86 @@ async def rescrape_oos_across_stores(session, oos_prod_ids, current_data, today_
             if p_cat_id:
                 cat_to_pids.setdefault(p_cat_id, []).append(pid)
                 
-        for cat_id, pids in cat_to_pids.items():
+        cat_sem = asyncio.Semaphore(10)
+        async def check_cat(cat_id, pids):
+            nonlocal recovered_total
             if not any(pid in remaining_oos for pid in pids):
-                continue
+                return
             cat_name = current_data[pids[0]].get('category', 'Category')
             page_idx = 1
-            while True:
-                api_url = f"https://www.shwapno.com/api/category/products?lang=en&id={cat_id}&pageNumber={page_idx}"
-                try:
-                    async with session.get(api_url, headers=headers, timeout=aiohttp.ClientTimeout(total=12)) as r:
-                        if r.status != 200:
-                            break
-                        data = await r.json()
-                        products = data.get('products', [])
-                        if not products:
-                            break
-                        for prod in products:
-                            res_id = update_product_entry(current_data, prod, cat_name, cat_id, today_str, area_name)
-                            if res_id and res_id in remaining_oos:
-                                remaining_oos.remove(res_id)
-                                recovered_total += 1
-                                logger.info(f"  [+] Recovered live price in {area_name}: {current_data[res_id]['name']} -> {current_data[res_id]['current_price']} Tk")
-                        if not data.get('hasNextPage'):
-                            break
-                        page_idx += 1
-                except Exception as e:
-                    logger.debug(f"Category check error ({cat_id} in {area_name}): {e}")
-                    break
-
-        # Phase 2: For items without category_id or not found in category pagination, search by SKU or name
-        for pid in list(remaining_oos):
-            p = current_data[pid]
-            sku = p.get('sku')
-            query = sku if sku else p.get('name')
-            if not query:
-                continue
-            search_url = f"https://www.shwapno.com/api/search?q={urllib.parse.quote(str(query))}"
-            try:
-                async with session.get(search_url, headers=headers, timeout=aiohttp.ClientTimeout(total=10)) as r:
-                    if r.status == 200:
-                        data = await r.json()
-                        search_prods = data.get('products', [])
-                        for item in search_prods:
-                            prod = item.get('product')
-                            if not prod:
-                                continue
-                            p_name = prod.get('name', '').strip()
-                            item_pid = re.sub(r'\W+', '', p_name).lower()
-                            item_sku = str(prod.get('sku', ''))
-                            if (sku and item_sku == str(sku)) or item_pid == pid:
-                                res_id = update_product_entry(current_data, prod, p.get('category', ''), p.get('category_id'), today_str, area_name)
+            async with cat_sem:
+                while True:
+                    api_url = f"https://www.shwapno.com/api/category/products?lang=en&id={cat_id}&pageNumber={page_idx}"
+                    try:
+                        async with session.get(api_url, headers=headers, timeout=aiohttp.ClientTimeout(total=8)) as r:
+                            if r.status != 200:
+                                break
+                            data = await r.json()
+                            products = data.get('products', [])
+                            if not products:
+                                break
+                            for prod in products:
+                                res_id = update_product_entry(current_data, prod, cat_name, cat_id, today_str, area_name)
                                 if res_id and res_id in remaining_oos:
                                     remaining_oos.remove(res_id)
                                     recovered_total += 1
-                                    logger.info(f"  [+] Recovered live price via search in {area_name}: {p_name} -> {current_data[res_id]['current_price']} Tk")
-                                    break
-            except Exception as e:
-                logger.debug(f"Search check error ({query} in {area_name}): {e}")
+                                    logger.info(f"  [+] Recovered live price in {area_name}: {current_data[res_id]['name']} -> {current_data[res_id]['current_price']} Tk")
+                            if not data.get('hasNextPage'):
+                                break
+                            page_idx += 1
+                    except Exception:
+                        break
 
-    # Mark all items that STILL could not be found with a live price across ANY location as definitively Out Of Stock
+        cat_tasks = [check_cat(cid, pids) for cid, pids in cat_to_pids.items()]
+        if cat_tasks:
+            await asyncio.gather(*cat_tasks)
+
+        # Phase 2: Concurrent search by SKU or Name for remaining OOS items
+        search_sem = asyncio.Semaphore(12)
+        async def check_item_search(pid):
+            nonlocal recovered_total
+            if pid not in remaining_oos:
+                return
+            p = current_data.get(pid, {})
+            sku = p.get('sku')
+            query = sku if sku else p.get('name')
+            if not query:
+                return
+            search_url = f"https://www.shwapno.com/api/search?q={urllib.parse.quote(str(query))}"
+            async with search_sem:
+                try:
+                    async with session.get(search_url, headers=headers, timeout=aiohttp.ClientTimeout(total=6)) as r:
+                        if r.status == 200:
+                            data = await r.json()
+                            search_prods = data.get('products', [])
+                            for item in search_prods:
+                                prod = item.get('product')
+                                if not prod:
+                                    continue
+                                p_name = prod.get('name', '').strip()
+                                item_pid = re.sub(r'\W+', '', p_name).lower()
+                                item_sku = str(prod.get('sku', ''))
+                                if (sku and item_sku == str(sku)) or item_pid == pid:
+                                    res_id = update_product_entry(current_data, prod, p.get('category', ''), p.get('category_id'), today_str, area_name)
+                                    if res_id and res_id in remaining_oos:
+                                        remaining_oos.remove(res_id)
+                                        recovered_total += 1
+                                        logger.info(f"  [+] Recovered via search in {area_name}: {p_name} -> {current_data[res_id]['current_price']} Tk")
+                                        break
+                except Exception:
+                    pass
+
+        search_tasks = [check_item_search(pid) for pid in list(remaining_oos)]
+        if search_tasks:
+            await asyncio.gather(*search_tasks)
+
+        # Save progress after each store
+        save_data(current_data)
+
+    # Mark remaining products as OOS while preserving price
     for pid in remaining_oos:
         current_data[pid]["in_stock"] = False
         current_data[pid]["is_out_of_stock"] = True
-        # NOTE: Do NOT erase current_price or normalized_price so frontend cards still show last known price!
 
     logger.info(f"Cross-store OOS rescraping complete: {recovered_total} items recovered live across fallback stores. {len(remaining_oos)} items confirmed Out of Stock.")
 
@@ -425,10 +452,17 @@ async def main():
         tasks = [scrape_with_sem(cat) for cat in queue]
         await asyncio.gather(*tasks)
         
-        # Group OOS products and rescrape them across other store locations
+        # Save primary Banasree scrape immediately to disk
+        save_data(data)
+        logger.info(f"Primary Banasree Block C scrape persisted: {len(seen_today)} active items.")
+
+        # Group OOS products and rescrape them across fallback stores
         oos_prod_ids = [pid for pid in data if pid not in seen_today]
         if oos_prod_ids:
-            await rescrape_oos_across_stores(session, oos_prod_ids, data, today_str)
+            try:
+                await rescrape_oos_across_stores(session, oos_prod_ids, data, today_str)
+            except Exception as e_fallback:
+                logger.error(f"Fallback rescrape exception (primary data preserved): {e_fallback}")
         
     save_data(data)
     save_last_run_log(summary)
