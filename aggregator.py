@@ -366,6 +366,30 @@ def load_shwapno():
                     first_seen = new_history[0]['date'] if new_history else datetime.now(DHAKA_TZ).strftime("%Y-%m-%d")
                     in_s = bool(curr_p > 0 and p.get('in_stock', True) is not False)
                     last_seen_val = new_history[-1]['date'] if new_history else p.get('last_seen', first_seen)
+
+                    if name_key in products_by_name:
+                        existing = products_by_name[name_key]
+                        for eh in existing.get('history', []):
+                            if eh.get('date') and eh['date'] not in unique_hist:
+                                unique_hist[eh['date']] = eh
+                        merged_hist = sorted(unique_hist.values(), key=lambda x: x['date'])
+                        existing['history'] = merged_hist
+                        if merged_hist:
+                            existing['first_seen'] = merged_hist[0]['date']
+                            ex_last_date = existing.get('last_seen', '')
+                            p_last_date = new_history[-1]['date'] if new_history else ''
+                            if p_last_date >= ex_last_date:
+                                existing['current_price'] = curr_p
+                                existing['normalized_price'] = norm_p
+                                existing['last_seen'] = last_seen_val
+                                existing['in_stock'] = in_s
+                                existing['is_out_of_stock'] = not in_s
+                                if p.get('url'): existing['url'] = p.get('url')
+                                if p.get('image'): existing['image'] = p.get('image')
+                                if p.get('category'): existing['category'] = get_display_cat(p.get('category'))
+                        stats["dropped"] += 1
+                        continue
+
                     products_by_name[name_key] = {
                         "id": final_pid, "name": p.get('name'), "store": "shwapno",
                         "category": get_display_cat(p.get('category', 'General')), "unit": get_clean_display_unit(p.get('name', ''), p.get('unit', 'N/A')), "unit_type": u_type,
@@ -424,9 +448,16 @@ def load_shwapno():
                         if existing_hist:
                             existing['first_seen'] = existing_hist[0]['date']
                             latest_obs = existing_hist[-1]
-                            existing['current_price'] = latest_obs['price']
-                            existing['normalized_price'] = latest_obs['normalized_price']
-                            existing['last_seen'] = latest_obs['date']
+                            app_last_date = max(unique_hist.keys()) if unique_hist else ''
+                            ex_last_date = existing.get('last_seen', '')
+                            # Only overwrite current_price / stock if app data is newer or equal
+                            if app_last_date >= ex_last_date:
+                                existing['current_price'] = latest_obs['price']
+                                existing['normalized_price'] = latest_obs['normalized_price']
+                                existing['last_seen'] = latest_obs['date']
+                                app_in_stock = bool(curr_p > 0 and (p.get('stock') == 'InStock' if 'stock' in p else p.get('in_stock', True) is not False))
+                                existing['in_stock'] = app_in_stock
+                                existing['is_out_of_stock'] = not app_in_stock
 
                         # Fill missing metadata from app if web lacked it
                         if (not existing.get('url') or not existing['url'].startswith('http')) and url:
@@ -441,7 +472,7 @@ def load_shwapno():
                     new_history = sorted(unique_hist.values(), key=lambda x: x['date'])
                     for h in new_history: all_dates.append(h['date'])
                     first_seen = new_history[0]['date'] if new_history else datetime.now(DHAKA_TZ).strftime("%Y-%m-%d")
-                    in_s = bool(curr_p > 0 and p.get('in_stock', True) is not False)
+                    in_s = bool(curr_p > 0 and (p.get('stock') == 'InStock' if 'stock' in p else p.get('in_stock', True) is not False))
                     last_seen_val = new_history[-1]['date'] if new_history else p.get('last_seen', first_seen)
 
                     products_by_name[name_key] = {

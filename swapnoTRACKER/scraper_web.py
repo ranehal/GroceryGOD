@@ -174,6 +174,24 @@ def load_data():
     if os.path.exists(path):
         with open(path, 'r', encoding='utf-8') as f:
             return json.load(f)
+    enc_path = os.path.join(CURRENT_DIR, 'data.json.enc')
+    if os.path.exists(enc_path):
+        try:
+            import hashlib
+            from cryptography.hazmat.primitives.ciphers.aead import AESGCM
+            key = os.environ.get('GOD_PREMIUM_KEY', 'assalamualaikum').strip()
+            with open(enc_path, 'rb') as f: enc_data = f.read()
+            if enc_data[:4] == b'GGE1':
+                salt, iv, ct = enc_data[4:20], enc_data[20:32], enc_data[32:]
+                k = hashlib.pbkdf2_hmac('sha256', key.encode('utf-8'), salt, 250000, dklen=32)
+                plain = AESGCM(k).decrypt(iv, ct, None)
+                d = json.loads(plain.decode('utf-8'))
+                with open(path, 'w', encoding='utf-8') as f:
+                    json.dump(d, f, indent=2, ensure_ascii=False)
+                logger.info(f"Auto-decrypted {len(d)} products from data.json.enc")
+                return d
+        except Exception as e:
+            logger.warning(f"Could not auto-decrypt data.json.enc: {e}")
     return {}
 
 def save_data(data):
@@ -411,7 +429,11 @@ async def rescrape_oos_across_stores(session, oos_prod_ids, current_data, today_
                 except Exception:
                     pass
 
-        search_tasks = [check_item_search(pid) for pid in list(remaining_oos)]
+        # Cap Phase 2 searches to prevent 5000-request WAF throttling and timeouts
+        search_targets = [pid for pid in list(remaining_oos) if not current_data[pid].get('category_id')][:50]
+        if not search_targets and len(remaining_oos) <= 50:
+            search_targets = list(remaining_oos)
+        search_tasks = [check_item_search(pid) for pid in search_targets]
         if search_tasks:
             await asyncio.gather(*search_tasks)
 

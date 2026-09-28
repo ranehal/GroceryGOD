@@ -1744,16 +1744,22 @@ function processData() {
     const recentThresholdMs = recentDaysFilter * 86400000;
 
     let maxDatasetDate = '';
-    const storeMaxDates = {};
+    const storeDates = {};
     allProducts.forEach(p => {
         if (p.newest_date && p.newest_date > maxDatasetDate) {
             maxDatasetDate = p.newest_date;
         }
         if (p.store && p.newest_date) {
-            if (!storeMaxDates[p.store] || p.newest_date > storeMaxDates[p.store]) {
-                storeMaxDates[p.store] = p.newest_date;
-            }
+            if (!storeDates[p.store]) storeDates[p.store] = [];
+            storeDates[p.store].push(p.newest_date.slice(0, 10));
         }
+    });
+    const storeMaxDates = {};
+    Object.keys(storeDates).forEach(s => {
+        const arr = storeDates[s].sort();
+        // 90th percentile matches convert_to_parquet.py to prevent isolated product updates from causing massive false OOS cascade
+        const p90Idx = Math.floor(arr.length * 0.90);
+        storeMaxDates[s] = arr[p90Idx] || arr[arr.length - 1];
     });
     const activeThresholdDate = maxDatasetDate || todayStr;
     const storeLatestMsMap = {};
@@ -5808,7 +5814,14 @@ async function attemptPremiumUnlock() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch (error) {
         console.error('[GOD_PREMIUM] Unlock failed:', error);
-        if (status) status.textContent = window.GOD_DEMO_MODE ? 'Incorrect demo key. Use GODDEMO.' : 'The key is invalid or the encrypted archive is unavailable.';
+        if (status) {
+            const errStr = String(error?.message || error || '');
+            if (errStr.includes('could not be located')) {
+                status.textContent = 'Encrypted archive is unavailable on server. Please ensure premium/history_archive.parquet.enc is present.';
+            } else {
+                status.textContent = window.GOD_DEMO_MODE ? 'Incorrect demo key. Use GODDEMO.' : 'The key is invalid or could not decrypt the archive.';
+            }
+        }
     } finally {
         if (button) {
             button.disabled = false;
