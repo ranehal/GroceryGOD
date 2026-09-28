@@ -1,13 +1,16 @@
 // GroceryGOD Service Worker — Cache Accelerator for Instant Loading
-const CACHE_NAME = 'god-cache-v20260915_v1';
-const TARGET_ASSET_PATTERNS = [
-    /\.parquet(\?|$)/i,
-    /_data_part\d+\.js(\?|$)/i,
-    /_manifest\.js(\?|$)/i,
+const CACHE_NAME = 'god-cache-v20260928_v1';
+const STATIC_ASSET_PATTERNS = [
     /@duckdb\/duckdb-wasm/i,
     /duckdb.*\.wasm(\?|$)/i,
     /fonts\.(googleapis|gstatic)\.com/i,
     /cdnjs\.cloudflare\.com\/ajax\/libs\/font-awesome/i
+];
+const DATA_ASSET_PATTERNS = [
+    /\.parquet(\?|$)/i,
+    /_data_part\d+\.js(\?|$)/i,
+    /_manifest\.js(\?|$)/i,
+    /atl_preview\.json(\?|$)/i
 ];
 
 self.addEventListener('install', (event) => {
@@ -34,15 +37,29 @@ self.addEventListener('fetch', (event) => {
     if (req.method !== 'GET') return;
 
     const url = req.url;
-    const isTargetAsset = TARGET_ASSET_PATTERNS.some((pattern) => pattern.test(url));
 
-    if (isTargetAsset) {
+    // 1. Dynamic Market Data: Network-First with Cache Fallback (guarantees fresh prices online, offline fallback)
+    if (DATA_ASSET_PATTERNS.some((pattern) => pattern.test(url))) {
+        event.respondWith(
+            fetch(req).then((networkResponse) => {
+                if (networkResponse && networkResponse.status === 200) {
+                    const clone = networkResponse.clone();
+                    caches.open(CACHE_NAME).then((cache) => cache.put(req, clone)).catch(() => {});
+                }
+                return networkResponse;
+            }).catch(() => {
+                return caches.open(CACHE_NAME).then((cache) => cache.match(req));
+            })
+        );
+        return;
+    }
+
+    // 2. Static CDN Libraries / Fonts: Cache-First
+    if (STATIC_ASSET_PATTERNS.some((pattern) => pattern.test(url))) {
         event.respondWith(
             caches.open(CACHE_NAME).then((cache) => {
                 return cache.match(req).then((cachedResponse) => {
-                    if (cachedResponse) {
-                        return cachedResponse;
-                    }
+                    if (cachedResponse) return cachedResponse;
                     return fetch(req).then((networkResponse) => {
                         if (networkResponse && networkResponse.status === 200) {
                             cache.put(req, networkResponse.clone()).catch(() => {});
