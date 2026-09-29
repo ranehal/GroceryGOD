@@ -578,5 +578,36 @@ if premium_key:
                     ef.write(enc_data[i:i+_SPLIT])
             print(f"Re-encrypted and split premium/history_archive.parquet.enc into {(len(enc_data) + _SPLIT - 1) // _SPLIT} chunks")
 
+# Synchronize frontend cache-busting asset version to guarantee clients load fresh datasets
+def sync_asset_version():
+    tag = datetime.now(DHAKA_TZ).strftime('%Y%m%d_v1')
+    html_file = os.path.join(BASE, 'index.html')
+    if os.path.exists(html_file):
+        with open(html_file, 'r', encoding='utf-8') as f:
+            c = f.read()
+        c = re.sub(r"window\.GOD_ASSET_VERSION = '[^']+';", f"window.GOD_ASSET_VERSION = '{tag}';", c)
+        c = re.sub(r"\?v=[a-zA-Z0-9_]+", f"?v={tag}", c)
+        with open(html_file, 'w', encoding='utf-8') as f:
+            f.write(c)
+    
+    script_file = os.path.join(BASE, 'script.js')
+    if os.path.exists(script_file):
+        with open(script_file, 'r', encoding='utf-8') as f:
+            c = f.read()
+        c = re.sub(r"const ASSET_VERSION = window\.GOD_ASSET_VERSION \|\| '[^']+';", f"const ASSET_VERSION = window.GOD_ASSET_VERSION || '{tag}';", c)
+        with open(script_file, 'w', encoding='utf-8') as f:
+            f.write(c)
+
+    sw_file = os.path.join(BASE, 'sw.js')
+    if os.path.exists(sw_file):
+        with open(sw_file, 'r', encoding='utf-8') as f:
+            c = f.read()
+        c = re.sub(r"const CACHE_NAME = 'god-cache-[^']+';", f"const CACHE_NAME = 'god-cache-v{tag}';", c)
+        with open(sw_file, 'w', encoding='utf-8') as f:
+            f.write(c)
+
+    print(f"Frontend asset cache version synchronized to: {tag}")
+
+sync_asset_version()
 
 print(f"\nAll Parquet datasets and encryptions generated successfully in {time.time()-t0:.2f}s!")

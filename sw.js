@@ -1,5 +1,5 @@
 // GroceryGOD Service Worker — Cache Accelerator for Instant Loading
-const CACHE_NAME = 'god-cache-v20260928_v1';
+const CACHE_NAME = 'god-cache-v20260929_v1';
 const STATIC_ASSET_PATTERNS = [
     /@duckdb\/duckdb-wasm/i,
     /duckdb.*\.wasm(\?|$)/i,
@@ -38,10 +38,10 @@ self.addEventListener('fetch', (event) => {
 
     const url = req.url;
 
-    // 1. Dynamic Market Data: Network-First with Cache Fallback (guarantees fresh prices online, offline fallback)
+    // 1. Dynamic Market Data: Network-First with Cache Fallback (forces network revalidation online to guarantee fresh prices, fallback to cache offline)
     if (DATA_ASSET_PATTERNS.some((pattern) => pattern.test(url))) {
         event.respondWith(
-            fetch(req).then((networkResponse) => {
+            fetch(new Request(req.url, { method: 'GET', cache: 'no-cache' })).then((networkResponse) => {
                 if (networkResponse && networkResponse.status === 200) {
                     const clone = networkResponse.clone();
                     caches.open(CACHE_NAME).then((cache) => cache.put(req, clone)).catch(() => {});
