@@ -2068,8 +2068,8 @@ function renderProducts() {
         if (activeIntelFilter === 'good') return !isOos && p.normalized_price < (p.avgPrice * goodBuyThreshold);
         if (activeIntelFilter === 'customdrop') return !isOos && p.avgPrice > 0 && p.normalized_price <= (p.avgPrice * (1 - customDropThreshold / 100));
         if (activeIntelFilter === 'wait') return p.normalized_price > (p.avgPrice * 1.05);
-        if (activeIntelFilter === 'first_low') return !isOos && Number(p.normalized_price) > 0 && p.hist_count >= 2 && (p.maxPrice >= p.minPrice * 1.03) && (p.maxPrice - p.minPrice >= 1.0) && (p.isFirstTimeLow || p.is_first_low || checkIsFirstTimeLow(p));
-        if (activeIntelFilter === 'low') {
+        if (activeIntelFilter === 'first_low' && !searchQuery) return !isOos && Number(p.normalized_price) > 0 && p.hist_count >= 2 && (p.maxPrice >= p.minPrice * 1.03) && (p.maxPrice - p.minPrice >= 1.0) && (p.isFirstTimeLow || p.is_first_low || checkIsFirstTimeLow(p));
+        if (activeIntelFilter === 'low' && !searchQuery) {
             const hasActualRange = Boolean(p.maxActual && p.minActual);
             const isFakeLow = hasActualRange && (p.maxActual <= p.minActual + 0.5 || p.current_price >= p.maxActual);
             return !isOos && !isFakeLow && Number(p.normalized_price) > 0 && p.hist_count >= 2 && (p.maxPrice >= p.minPrice * 1.03) && (p.maxPrice - p.minPrice >= 1.0) && p.normalized_price <= (p.minPrice * 1.005);
@@ -2889,6 +2889,17 @@ function setupEventListeners() {
     searchInput.oninput = (e) => {
         searchQuery = e.target.value.toLowerCase();
         visiblePages = 1;
+        if (searchQuery) {
+            if (activeIntelFilter === 'low' || activeIntelFilter === 'first_low') {
+                activeIntelFilter = 'all';
+                document.querySelectorAll('.intel-btn[data-filter]').forEach(b => b.classList.toggle('active', b.dataset.filter === activeIntelFilter));
+            }
+        } else {
+            if (activeIntelFilter === 'all') {
+                activeIntelFilter = 'low';
+                document.querySelectorAll('.intel-btn[data-filter]').forEach(b => b.classList.toggle('active', b.dataset.filter === activeIntelFilter));
+            }
+        }
         if (currentDataSource === 'turso') {
             window.__tursoHasMore = true;
             if (searchQuery.length >= 2) {
@@ -2938,6 +2949,10 @@ function setupEventListeners() {
     document.getElementById('clear-search').onclick = () => {
         searchInput.value = '';
         searchQuery = '';
+        if (activeIntelFilter === 'all') {
+            activeIntelFilter = 'low';
+            document.querySelectorAll('.intel-btn[data-filter]').forEach(b => b.classList.toggle('active', b.dataset.filter === activeIntelFilter));
+        }
         document.getElementById('clear-search').classList.remove('visible');
         const catBox = document.getElementById('search-suggestions');
         const heroBox = document.getElementById('hero-search-suggestions');
@@ -3474,6 +3489,10 @@ window.selectSuggestion = (name, isHero = false) => {
     if (mainInput) mainInput.value = cleanName;
     if (heroInput) heroInput.value = cleanName;
     searchQuery = cleanName.toLowerCase();
+    if (searchQuery && (activeIntelFilter === 'low' || activeIntelFilter === 'first_low')) {
+        activeIntelFilter = 'all';
+        document.querySelectorAll('.intel-btn[data-filter]').forEach(b => b.classList.toggle('active', b.dataset.filter === activeIntelFilter));
+    }
 
     if (clearBtn) clearBtn.classList.toggle('visible', searchQuery.length > 0);
     if (catalogBox) catalogBox.style.display = 'none';
