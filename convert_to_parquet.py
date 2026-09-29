@@ -171,7 +171,8 @@ if os.path.exists(existing_prod_file) and os.path.getsize(existing_prod_file) > 
                 arg_min(first_seen, priority) as first_seen,
                 arg_max(last_seen, priority) as last_seen,
                 arg_max(in_stock, priority) as in_stock,
-                arg_max(is_out_of_stock, priority) as is_out_of_stock
+                arg_max(is_out_of_stock, priority) as is_out_of_stock,
+                max(priority) as is_fresh
             FROM (
                 SELECT *, 0 as priority FROM existing_prods
                 UNION ALL
@@ -181,9 +182,9 @@ if os.path.exists(existing_prod_file) and os.path.getsize(existing_prod_file) > 
         """)
     except Exception as e:
         print(f"Notice merging existing products: {e}")
-        con.execute("CREATE TABLE combined_prods AS SELECT * FROM new_prods;")
+        con.execute("CREATE TABLE combined_prods AS SELECT *, 1 as is_fresh FROM new_prods;")
 else:
-    con.execute("CREATE TABLE combined_prods AS SELECT * FROM new_prods;")
+    con.execute("CREATE TABLE combined_prods AS SELECT *, 1 as is_fresh FROM new_prods;")
 
 # Deduplicate products by store and normalized name to eliminate web/app duplicate fragments
 print("Deduplicating products across web/app scrapers...")
@@ -196,6 +197,7 @@ con.execute("""
             PARTITION BY store, LOWER(TRIM(REGEXP_REPLACE(name, '\\s+', ' ', 'g')))
             ORDER BY 
                 CASE WHEN in_stock = true AND current_price > 0 THEN 1 ELSE 0 END DESC,
+                COALESCE(cp.is_fresh, 1) DESC,
                 CASE WHEN id NOT LIKE 'sh_6%' AND id NOT LIKE 'mb_a_%' THEN 1 ELSE 0 END DESC,
                 COALESCE(h_cnt.cnt, 0) DESC,
                 last_seen DESC,
@@ -249,8 +251,8 @@ con.execute("""
     FROM (
         SELECT 
             p.*,
-            (CASE WHEN p.in_stock = true AND p.current_price > 0 THEN 1000 ELSE 0 END + 
-             CASE WHEN p.id NOT LIKE 'sh_6%' AND p.id NOT LIKE 'mb_a_%' THEN 100 ELSE 0 END +
+            (COALESCE(p.is_fresh, 1) * 10000 +
+             CASE WHEN p.in_stock = true AND p.current_price > 0 THEN 1000 ELSE 0 END + 
              COALESCE(datediff('day', DATE '2026-01-01', TRY_CAST(p.last_seen AS DATE)), 0)) as priority
         FROM combined_prods p
     ) p
@@ -327,13 +329,15 @@ prod_sql = f"""
     WITH ranked_hist AS (
         SELECT 
             product_id,
+            price,
             normalized_price,
+            date,
             ROW_NUMBER() OVER (PARTITION BY product_id ORDER BY date DESC) as rn
         FROM unified_history
         WHERE price > 0 AND normalized_price > 0
     ),
     latest_pts AS (
-        SELECT product_id, normalized_price as latest_p
+        SELECT product_id, price as latest_actual, normalized_price as latest_p, date as latest_date
         FROM ranked_hist
         WHERE rn = 1
     ),
@@ -351,25 +355,28 @@ prod_sql = f"""
         GROUP BY store
     )
     SELECT 
-        p.id, p.name, p.store, p.category, p.unit, p.unit_type, p.current_price, p.normalized_price,
-        p.image, p.url, p.first_seen, p.last_seen,
+        p.id, p.name, p.store, p.category, p.unit, p.unit_type,
+        COALESCE(l.latest_actual, p.current_price)::DOUBLE as current_price,
+        COALESCE(l.latest_p, p.normalized_price)::DOUBLE as normalized_price,
+        p.image, p.url, p.first_seen,
+        COALESCE(GREATEST(p.last_seen, l.latest_date), p.last_seen, l.latest_date) as last_seen,
         CASE 
-            WHEN TRY_CAST(p.last_seen AS DATE) < (TRY_CAST(sm.max_seen AS DATE) - INTERVAL 14 DAY) OR p.current_price <= 0 THEN false 
+            WHEN TRY_CAST(COALESCE(GREATEST(p.last_seen, l.latest_date), p.last_seen, l.latest_date) AS DATE) < (TRY_CAST(sm.max_seen AS DATE) - INTERVAL 14 DAY) OR COALESCE(l.latest_actual, p.current_price) <= 0 THEN false 
             ELSE p.in_stock 
         END::BOOLEAN as in_stock,
         CASE 
-            WHEN TRY_CAST(p.last_seen AS DATE) < (TRY_CAST(sm.max_seen AS DATE) - INTERVAL 14 DAY) OR p.current_price <= 0 THEN true 
+            WHEN TRY_CAST(COALESCE(GREATEST(p.last_seen, l.latest_date), p.last_seen, l.latest_date) AS DATE) < (TRY_CAST(sm.max_seen AS DATE) - INTERVAL 14 DAY) OR COALESCE(l.latest_actual, p.current_price) <= 0 THEN true 
             ELSE p.is_out_of_stock 
         END::BOOLEAN as is_out_of_stock,
         COALESCE(h.hist_count, 0)::INTEGER as hist_count,
-        COALESCE(h.min_price, p.normalized_price)::DOUBLE as min_price,
-        COALESCE(h.max_price, p.normalized_price)::DOUBLE as max_price,
-        COALESCE(h.avg_price, p.normalized_price)::DOUBLE as avg_price,
-        COALESCE(h.min_actual, p.current_price)::DOUBLE as min_actual,
-        COALESCE(h.max_actual, p.current_price)::DOUBLE as max_actual,
+        COALESCE(h.min_price, COALESCE(l.latest_p, p.normalized_price))::DOUBLE as min_price,
+        COALESCE(h.max_price, COALESCE(l.latest_p, p.normalized_price))::DOUBLE as max_price,
+        COALESCE(h.avg_price, COALESCE(l.latest_p, p.normalized_price))::DOUBLE as avg_price,
+        COALESCE(h.min_actual, COALESCE(l.latest_actual, p.current_price))::DOUBLE as min_actual,
+        COALESCE(h.max_actual, COALESCE(l.latest_actual, p.current_price))::DOUBLE as max_actual,
         CASE 
-            WHEN TRY_CAST(p.last_seen AS DATE) >= (TRY_CAST(sm.max_seen AS DATE) - INTERVAL 14 DAY) 
-             AND p.current_price > 0 
+            WHEN TRY_CAST(COALESCE(GREATEST(p.last_seen, l.latest_date), p.last_seen, l.latest_date) AS DATE) >= (TRY_CAST(sm.max_seen AS DATE) - INTERVAL 14 DAY) 
+             AND COALESCE(l.latest_actual, p.current_price) > 0 
              AND p.in_stock = true 
              AND (p.is_out_of_stock = false OR p.is_out_of_stock IS NULL)
             THEN COALESCE(fl.is_first_low, false)
@@ -377,6 +384,7 @@ prod_sql = f"""
         END::BOOLEAN as is_first_low
     FROM canonical_prods p
     JOIN store_max sm ON p.store = sm.store
+    LEFT JOIN latest_pts l ON p.id = l.product_id
     LEFT JOIN (
         SELECT 
             product_id,
@@ -546,13 +554,29 @@ if premium_key:
         except Exception:
             pass
 
-    # 3. premium/history_archive.parquet.enc
+    # 3. premium/history_archive.parquet.enc (supports single file or 40MB chunk split)
     if os.path.exists(arch_target):
         with open(arch_target, 'rb') as f:
             pt = f.read()
-        with open(arch_target + '.enc', 'wb') as ef:
-            ef.write(_enc_det(pt, premium_key))
-        print("Re-encrypted premium/history_archive.parquet.enc (deterministic AES-GCM)")
+        enc_data = _enc_det(pt, premium_key)
+        _SPLIT = 40 * 1024 * 1024
+        enc_path = arch_target + '.enc'
+        if len(enc_data) <= _SPLIT:
+            with open(enc_path, 'wb') as ef:
+                ef.write(enc_data)
+            for cf in glob.glob(enc_path + '.[0-9][0-9][0-9]'):
+                try: os.remove(cf)
+                except Exception: pass
+            print(f"Re-encrypted premium/history_archive.parquet.enc (deterministic AES-GCM, {len(enc_data)/(1024*1024):.1f} MB)")
+        else:
+            if os.path.exists(enc_path):
+                try: os.remove(enc_path)
+                except Exception: pass
+            for i in range(0, len(enc_data), _SPLIT):
+                idx = i // _SPLIT
+                with open(f'{enc_path}.{idx:03d}', 'wb') as ef:
+                    ef.write(enc_data[i:i+_SPLIT])
+            print(f"Re-encrypted and split premium/history_archive.parquet.enc into {(len(enc_data) + _SPLIT - 1) // _SPLIT} chunks")
 
 
 print(f"\nAll Parquet datasets and encryptions generated successfully in {time.time()-t0:.2f}s!")

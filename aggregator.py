@@ -448,16 +448,20 @@ def load_shwapno():
                         if existing_hist:
                             existing['first_seen'] = existing_hist[0]['date']
                             latest_obs = existing_hist[-1]
-                            app_last_date = max(unique_hist.keys()) if unique_hist else ''
+                            app_incoming_date = max(hist_dict.keys()) if hist_dict else p.get('last_seen', '')
                             ex_last_date = existing.get('last_seen', '')
                             # Only overwrite current_price / stock if app data is newer or equal
-                            if app_last_date >= ex_last_date:
+                            if app_incoming_date and app_incoming_date >= ex_last_date:
                                 existing['current_price'] = latest_obs['price']
                                 existing['normalized_price'] = latest_obs['normalized_price']
                                 existing['last_seen'] = latest_obs['date']
                                 app_in_stock = bool(curr_p > 0 and (p.get('stock') == 'InStock' if 'stock' in p else p.get('in_stock', True) is not False))
                                 existing['in_stock'] = app_in_stock
                                 existing['is_out_of_stock'] = not app_in_stock
+                            else:
+                                existing['current_price'] = latest_obs['price']
+                                existing['normalized_price'] = latest_obs['normalized_price']
+                                existing['last_seen'] = latest_obs['date']
 
                         # Fill missing metadata from app if web lacked it
                         if (not existing.get('url') or not existing['url'].startswith('http')) and url:

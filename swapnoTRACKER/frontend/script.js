@@ -2936,7 +2936,14 @@ async function attemptPremiumUnlock() {
         }
     } catch (error) {
         console.error('[GOD_PREMIUM] Unlock failed:', error);
-        if (status) status.textContent = window.GOD_DEMO_MODE ? 'Incorrect demo key. Use GODDEMO.' : 'The key is invalid or the encrypted archive is unavailable.';
+        if (status) {
+            const errStr = String(error?.message || error || '');
+            if (errStr.includes('could not be located')) {
+                status.textContent = 'Encrypted archive is unavailable on server. Please ensure premium/history_archive.parquet.enc is present.';
+            } else {
+                status.textContent = window.GOD_DEMO_MODE ? 'Incorrect demo key. Use GODDEMO.' : 'The key is invalid or could not decrypt the archive.';
+            }
+        }
     } finally {
         if (button) {
             button.disabled = false;
@@ -2955,11 +2962,72 @@ async function unlockPremiumArchive(passphrase) {
     if (!godDB) throw new Error('DuckDB is not ready.');
 
     const versionQS = `v=${ASSET_VERSION}`;
-    const fetched = await fetchFirstAvailable([
+    let fetched = null;
+
+    // 1. Try single full unencrypted or single encrypted file
+    const singleSources = [
         `premium/history_archive.parquet.enc?${versionQS}`,
         `history_archive.parquet.enc?${versionQS}`,
-        `premium/history_archive.parquet?${versionQS}`
-    ], 'premium history');
+        `premium/history_archive.parquet?${versionQS}`,
+        `history_archive.parquet?${versionQS}`,
+        `history.parquet?${versionQS}`
+    ];
+    for (const url of singleSources) {
+        try {
+            const head = await fetch(url, { method: 'HEAD' });
+            if (head.ok) {
+                const res = await fetch(url);
+                if (res.ok) {
+                    const buf = await res.arrayBuffer();
+                    if (buf && buf.byteLength > 0) {
+                        fetched = { buffer: buf, path: url };
+                        break;
+                    }
+                }
+            }
+        } catch (_) {}
+    }
+
+    // 2. Fetch chunked encrypted archive files: .enc.000, .enc.001, ...
+    if (!fetched) {
+        const chunkPrefixes = [
+            'premium/history_archive.parquet.enc',
+            'history_archive.parquet.enc'
+        ];
+        for (const prefix of chunkPrefixes) {
+            const chunks = [];
+            let chunkIdx = 0;
+            while (true) {
+                const chunkNum = String(chunkIdx).padStart(3, '0');
+                const chunkUrl = `${prefix}.${chunkNum}?${versionQS}`;
+                try {
+                    const res = await fetch(chunkUrl);
+                    if (!res.ok) break;
+                    const chunkBuf = await res.arrayBuffer();
+                    chunks.push(new Uint8Array(chunkBuf));
+                    chunkIdx++;
+                } catch (_) {
+                    break;
+                }
+            }
+            if (chunks.length > 0) {
+                const totalBytes = chunks.reduce((acc, c) => acc + c.byteLength, 0);
+                const combined = new Uint8Array(totalBytes);
+                let offset = 0;
+                for (const chunk of chunks) {
+                    combined.set(chunk, offset);
+                    offset += chunk.byteLength;
+                }
+                fetched = { buffer: combined.buffer, path: `${prefix} [${chunks.length} chunks]` };
+                break;
+            }
+        }
+    }
+
+    if (!fetched) {
+        throw new Error('Encrypted premium archive could not be located on server.');
+    }
+
     const raw = new Uint8Array(fetched.buffer);
     const isEncrypted = raw.byteLength >= 4 && new TextDecoder().decode(raw.slice(0, 4)) === 'GGE1';
     const decrypted = isEncrypted ? await decryptGGE1(fetched.buffer, passphrase) : new Uint8Array(fetched.buffer.slice(0));

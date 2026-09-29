@@ -2224,6 +2224,9 @@ def run_grocery_god(github_pat):
                     def _write_enc(path, data):
                         if len(data) <= _SPLIT:
                             with open(path, 'wb') as f: f.write(data)
+                            for cf in _glob.glob(f'{path}.[0-9][0-9][0-9]'):
+                                try: os.remove(cf)
+                                except Exception: pass
                             return [path]
                         if os.path.exists(path): os.remove(path)
                         cp = []
