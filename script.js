@@ -57,7 +57,7 @@ let immersiveModeActive = false;
 let customDropThreshold = Math.min(95, Math.max(1, parseInt(safeStorage.getItem('god_custom_drop') || '12', 10) || 12));
 let showFavoritesOnly = false;
 let showNewOnly = false;
-let activeShopFilters = new Set(['shwapno', 'chaldal', 'meenabazar', 'othoba', 'metromart', 'unimart', 'shotejbazar', 'foodi']);
+let activeShopFilters = new Set(['shwapno']);
 let activeCategories = new Set();
 let userCustomizedCategories = new Set();
 let expandedStoreGroups = new Set(['shwapno']);
@@ -1108,7 +1108,9 @@ async function loadAllFromParquet() {
     godDB = { db, conn };
     if (typeof _godDbResolver === 'function') _godDbResolver(godDB);
     window.loadedStores = new Set(['shwapno']);
-    activeShopFilters = new Set(storesList);
+    if (!activeShopFilters || activeShopFilters.size === 0) {
+        activeShopFilters = new Set(['shwapno']);
+    }
 
     window.__registeredHistoryChunks = new Set();
     window.__hasPremiumArchive = false;
