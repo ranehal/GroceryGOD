@@ -211,7 +211,8 @@ if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || wi
                 </div>
             </div> -->
 <div class="sidebar-controls">
-<button class="btn-icon btn-variant-minimal" id="select-all-cat" title="Toggle All"><i class="fas fa-check-double"></i></button>
+<button class="btn-icon btn-variant-minimal" id="toggle-all-shops-ctrl-btn" title="Select / Unselect All Shops"><i class="fas fa-store"></i></button>
+<button class="btn-icon btn-variant-minimal" id="select-all-cat" title="Toggle All Categories & Shops"><i class="fas fa-check-double"></i></button>
 <button class="btn-icon btn-variant-soft" id="bookmark-cat-btn" title="Show Favorites Only"><i class="fas fa-star"></i></button>
 <button aria-label="Collapse filters" class="btn-icon btn-variant-ghost sidebar-close-btn" id="sidebar-close" title="Collapse filters"><i class="fas fa-chevron-left"></i></button>
 </div>
@@ -286,6 +287,7 @@ if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || wi
 <label class="check-pill" style="border-left:1px solid rgba(255,255,255,0.12); padding-left:6px; display:inline-flex; align-items:center; gap:3px; flex-shrink:0;" title="Filter items seen in last N days"><i class="fas fa-clock" style="font-size:0.68rem; color:#f59e0b;"></i><input id="new-days-header" type="number" min="1" max="90" value="7" style="width:30px; background:transparent; color:#f59e0b; border:none; font-weight:700; font-size:0.72rem; text-align:center;"/> <span style="font-size:0.66rem; color:#94a3b8;">d</span></label>
 <button class="intel-btn intel-variant-change" data-filter="pricechange" title="Show price change from custom days ago">Price Δ</button>
 <button class="intel-btn intel-variant-photo active" id="toggle-has-image-btn" title="Toggle hiding products with missing or placeholder photos"><i class="fas fa-camera"></i> Photos</button>
+<button class="intel-btn intel-variant-reset" id="reset-filters-header-btn" title="Reset all filters (reenables last shop)"><i class="fas fa-rotate-left"></i> Reset Filter</button>
 <div class="date-range-intel" id="price-change-controls" style="display:none;">
 <span>From:</span>
 <input id="pc-days-input" max="365" min="1" style="width:45px; background:var(--bg-card); color:white; border:1px solid #444; border-radius:4px; padding:2px 5px;" type="number" value="7"/>

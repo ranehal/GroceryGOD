@@ -61,7 +61,12 @@ let activeShopFilters = new Set(['shwapno']);
 let activeCategories = new Set();
 let userCustomizedCategories = new Set();
 let expandedStoreGroups = new Set(['shwapno']);
+let lastSelectedShop = 'shwapno';
 window.loadedStores = new Set(['shwapno']);
+window.activeShopFilters = activeShopFilters;
+window.activeCategories = activeCategories;
+window.userCustomizedCategories = userCustomizedCategories;
+window.expandedStoreGroups = expandedStoreGroups;
 
 let greatDealThreshold = 0.85;
 let goodBuyThreshold = 0.95;
@@ -1808,6 +1813,31 @@ function processData() {
     if (typeof evaluatePriceAlerts === 'function' && priceAlerts.length) evaluatePriceAlerts(false);
 }
 
+async function toggleAllShops(forceState) {
+    const allStores = Object.keys(STORE_CONFIG);
+    const areAllSelected = allStores.length > 0 && allStores.every(s => activeShopFilters.has(s));
+    const shouldSelect = (typeof forceState === 'boolean') ? forceState : !areAllSelected;
+
+    userCustomizedCategories.clear();
+    activeCategories.clear();
+
+    if (shouldSelect) {
+        allStores.forEach(s => activeShopFilters.add(s));
+        allProducts.forEach(p => { if (p.category) activeCategories.add(p.store + '_' + p.category); });
+        lastSelectedShop = allStores[0] || 'shwapno';
+        if (typeof window.triggerCatalogHydration === 'function') {
+            window.triggerCatalogHydration('shop_toggle');
+        }
+    } else {
+        activeShopFilters.clear();
+    }
+
+    renderSidebar();
+    renderProducts();
+    updateStatsBar();
+}
+window.toggleAllShops = toggleAllShops;
+
 function renderSidebar() {
     const list = document.getElementById('category-list');
     if (!list) return;
@@ -1834,8 +1864,35 @@ function renderSidebar() {
 
     const shopHeading = document.createElement('div');
     shopHeading.className = 'category-group-header';
-    shopHeading.innerHTML = '<span><i class="fas fa-microchip"></i> Market Uplinks</span>';
+    shopHeading.style.display = 'flex';
+    shopHeading.style.justifyContent = 'space-between';
+    shopHeading.style.alignItems = 'center';
+    
+    const allStores = Object.keys(STORE_CONFIG);
+    const allShopsActive = allStores.length > 0 && allStores.every(s => activeShopFilters.has(s));
+    
+    shopHeading.innerHTML = `
+        <span><i class="fas fa-microchip"></i> Market Uplinks</span>
+        <div class="shop-bulk-actions" style="display:flex; gap:4px; align-items:center;">
+            <button id="select-all-shops-btn" class="bulk-shop-btn ${allShopsActive ? 'active' : ''}" type="button" title="Select All Shops">All</button>
+            <button id="unselect-all-shops-btn" class="bulk-shop-btn ${activeShopFilters.size === 0 ? 'active' : ''}" type="button" title="Unselect All Shops">None</button>
+            <button id="toggle-all-shops-btn" class="bulk-shop-btn" type="button" title="Toggle All Shops"><i class="fas fa-store"></i></button>
+        </div>
+    `;
     list.appendChild(shopHeading);
+
+    shopHeading.querySelector('#select-all-shops-btn')?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleAllShops(true);
+    });
+    shopHeading.querySelector('#unselect-all-shops-btn')?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleAllShops(false);
+    });
+    shopHeading.querySelector('#toggle-all-shops-btn')?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleAllShops();
+    });
 
     const q = (document.getElementById('category-filter')?.value || '').toLowerCase().trim();
 
@@ -1888,8 +1945,9 @@ function renderSidebar() {
         header.onclick = async (e) => {
             const toggleIcon = e.target.closest('.toggle-icon');
             const toggleContainer = e.target.closest('.shop-toggle-container');
+            const isCheckbox = Boolean(e.target.closest('.shop-checkbox'));
 
-            if (toggleIcon || (!toggleContainer && !e.target.closest('.shop-checkbox'))) {
+            if (toggleIcon || (!toggleContainer && !isCheckbox)) {
                 if (expandedStoreGroups.has(sid)) {
                     expandedStoreGroups.delete(sid);
                     catList.classList.remove('active');
@@ -1902,7 +1960,8 @@ function renderSidebar() {
                 return;
             }
 
-            const willCheck = !(cb.checked || cb.indeterminate);
+            const willCheck = isCheckbox ? cb.checked : !(cb.checked || cb.indeterminate);
+            lastSelectedShop = sid;
             userCustomizedCategories.delete(sid);
             if (willCheck) {
                 activeShopFilters.add(sid);
@@ -1911,7 +1970,7 @@ function renderSidebar() {
                 if (typeof window.triggerCatalogHydration === 'function') window.triggerCatalogHydration('shop_toggle');
                 const storeLoadedCount = allProducts.filter(p => p.store === sid).length;
                 if (!window.loadedStores.has(sid) || storeLoadedCount === 0) {
-                    showShopLoadingAnimation(sid);
+                    if (typeof showShopLoadingAnimation === 'function') showShopLoadingAnimation(sid);
                     await loadStoreData(sid);
                     window.loadedStores.add(sid);
                     processData();
@@ -1938,6 +1997,9 @@ function renderSidebar() {
             const catId = sid + '_' + cat;
             const isCatActive = activeCategories.has(catId);
             li.className = `shop-cat-item ${isCatActive ? 'active' : ''} ${isPinned ? 'pinned' : ''}`;
+            li.dataset.catId = catId;
+            li.dataset.sid = sid;
+            li.dataset.catName = cat;
 
             const catMatches = q === '' || storeMatches || cat.toLowerCase().includes(q);
             if (!catMatches) {
@@ -1947,33 +2009,111 @@ function renderSidebar() {
             }
 
             li.innerHTML = `
-                <div class="cat-row-content" style="display:flex; align-items:center; gap:12px; flex:1;">
-                    <input type="checkbox" class="cat-checkbox" ${isCatActive ? 'checked' : ''}>
-                    <span class="cat-name">${cat}</span> 
+                <div class="cat-row-content" style="display:flex; align-items:center; gap:8px; flex:1; min-width:0;">
+                    <input type="checkbox" class="cat-checkbox" ${isCatActive ? 'checked' : ''} title="Toggle ${escapeAttribute(cat)}">
+                    <span class="cat-name" title="${escapeAttribute(cat)}">${escapeHTML(cat)}</span> 
                 </div>
-                <div style="display:flex; align-items:center; gap:6px;">
+                <div class="cat-actions" style="display:flex; align-items:center; gap:6px;">
+                    <button class="cat-only-btn" type="button" title="View only ${escapeAttribute(cat)}">only</button>
                     ${newCount > 0 ? '<span class="new-tag-tiny" title="New items in last 7 days">+' + newCount + '</span>' : ''}
                     <span class="cat-count">${count}</span>
                 </div>
             `;
+            
             const catCb = li.querySelector('.cat-checkbox');
-            li.onclick = (e) => {
-                if (e.target !== catCb) catCb.checked = !catCb.checked;
-                userCustomizedCategories.add(sid);
-                if (catCb.checked) {
-                    activeCategories.add(catId);
+            const onlyBtn = li.querySelector('.cat-only-btn');
+
+            if (onlyBtn) {
+                onlyBtn.onclick = async (e) => {
+                    e.stopPropagation();
+                    lastSelectedShop = sid;
+                    activeShopFilters.clear();
                     activeShopFilters.add(sid);
-                } else {
-                    activeCategories.delete(catId);
-                    const anyLeft = categories.some(c => activeCategories.has(sid + '_' + c));
-                    if (!anyLeft) {
-                        activeShopFilters.delete(sid);
+                    activeCategories.clear();
+                    activeCategories.add(catId);
+                    userCustomizedCategories.clear();
+                    userCustomizedCategories.add(sid);
+                    expandedStoreGroups.add(sid);
+
+                    if (typeof window.ensureStoreHistoryLoaded === 'function') window.ensureStoreHistoryLoaded(sid);
+                    if (typeof window.triggerCatalogHydration === 'function') window.triggerCatalogHydration('shop_toggle');
+                    const storeLoadedCount = allProducts.filter(p => p.store === sid).length;
+                    if (!window.loadedStores.has(sid) || storeLoadedCount === 0) {
+                        if (typeof showShopLoadingAnimation === 'function') showShopLoadingAnimation(sid);
+                        await loadStoreData(sid);
+                        window.loadedStores.add(sid);
+                        processData();
                     }
+                    renderSidebar();
+                    renderProducts();
+                    updateStatsBar();
+                };
+            }
+
+            if (catCb) {
+                catCb.onclick = async (e) => {
+                    e.stopPropagation();
+                    lastSelectedShop = sid;
+                    userCustomizedCategories.add(sid);
+                    const willCheck = catCb.checked;
+                    if (willCheck) {
+                        activeCategories.add(catId);
+                        activeShopFilters.add(sid);
+                        if (typeof window.ensureStoreHistoryLoaded === 'function') window.ensureStoreHistoryLoaded(sid);
+                        if (typeof window.triggerCatalogHydration === 'function') window.triggerCatalogHydration('shop_toggle');
+                        const storeLoadedCount = allProducts.filter(p => p.store === sid).length;
+                        if (!window.loadedStores.has(sid) || storeLoadedCount === 0) {
+                            if (typeof showShopLoadingAnimation === 'function') showShopLoadingAnimation(sid);
+                            await loadStoreData(sid);
+                            window.loadedStores.add(sid);
+                            processData();
+                        }
+                    } else {
+                        activeCategories.delete(catId);
+                        const anyLeft = categories.some(c => activeCategories.has(sid + '_' + c));
+                        if (!anyLeft) {
+                            activeShopFilters.delete(sid);
+                        }
+                    }
+                    renderSidebar();
+                    renderProducts();
+                    updateStatsBar();
+                };
+            }
+
+            li.onclick = async (e) => {
+                if (e.target.closest('.cat-only-btn') || e.target.closest('.cat-checkbox')) return;
+                lastSelectedShop = sid;
+
+                const allChecked = !userCustomizedCategories.has(sid) || (activeCount === categories.length);
+                if (allChecked || !isCatActive || activeCategories.size > 1) {
+                    activeShopFilters.clear();
+                    activeShopFilters.add(sid);
+                    activeCategories.clear();
+                    activeCategories.add(catId);
+                    userCustomizedCategories.clear();
+                    userCustomizedCategories.add(sid);
+                    expandedStoreGroups.add(sid);
+                } else {
+                    userCustomizedCategories.delete(sid);
+                    activeShopFilters.add(sid);
+                    categories.forEach(c => activeCategories.add(sid + '_' + c));
+                }
+
+                if (typeof window.ensureStoreHistoryLoaded === 'function') window.ensureStoreHistoryLoaded(sid);
+                if (typeof window.triggerCatalogHydration === 'function') window.triggerCatalogHydration('shop_toggle');
+                const storeLoadedCount = allProducts.filter(p => p.store === sid).length;
+                if (!window.loadedStores.has(sid) || storeLoadedCount === 0) {
+                    if (typeof showShopLoadingAnimation === 'function') showShopLoadingAnimation(sid);
+                    await loadStoreData(sid);
+                    window.loadedStores.add(sid);
+                    processData();
                 }
                 renderSidebar();
                 renderProducts();
                 updateStatsBar();
             };
+
             catList.appendChild(li);
         });
 
@@ -2058,7 +2198,10 @@ function renderProducts() {
     currentFilteredProducts = allProducts.filter(p => {
         if (hideNoImage && !hasValidProductImage(p)) return false;
         if (!activeShopFilters.has(p.store)) return false;
-        if (userCustomizedCategories.has(p.store) && activeCategories.size > 0 && !activeCategories.has(p.store + '_' + p.category)) return false;
+        if (userCustomizedCategories.has(p.store)) {
+            const catKey = p.store + '_' + (p.category || '');
+            if (!activeCategories.has(catKey)) return false;
+        }
         if (showFavoritesOnly && !p.isFavorite) return false;
         if (searchQuery && !p.name.toLowerCase().includes(searchQuery) && !p.category.toLowerCase().includes(searchQuery)) return false;
         if (!activeUnitFilters.has(p.unit_type)) return false;
@@ -2247,10 +2390,31 @@ function resetProductViewFilters() {
         showAllBtn.querySelector('span').textContent = 'Show OOS';
         showAllBtn.querySelector('i').className = 'fas fa-eye-slash';
     }
-    activeShopFilters = new Set(Object.keys(STORE_CONFIG));
+
+    // CRITICAL FIX: Reset filter should NOT enable all shops, re-enable last shop only!
+    let targetShop = lastSelectedShop;
+    if (!targetShop || !STORE_CONFIG[targetShop]) {
+        targetShop = (activeShopFilters && activeShopFilters.size > 0)
+            ? Array.from(activeShopFilters)[activeShopFilters.size - 1]
+            : 'shwapno';
+    }
+    if (!STORE_CONFIG[targetShop]) targetShop = 'shwapno';
+
+    activeShopFilters.clear();
+    activeShopFilters.add(targetShop);
+    lastSelectedShop = targetShop;
+    window.lastSelectedShop = targetShop;
+    window.activeShopFilters = activeShopFilters;
+
     activeCategories.clear();
-    userCustomizedCategories.clear();
-    allProducts.forEach(p => { if (p.category) activeCategories.add(p.store + '_' + p.category); });
+    userCustomizedCategories.delete(targetShop);
+    expandedStoreGroups.add(targetShop);
+    allProducts.forEach(p => {
+        if (p.store === targetShop && p.category) {
+            activeCategories.add(targetShop + '_' + p.category);
+        }
+    });
+
     const catFilterInput = document.getElementById('category-filter');
     if (catFilterInput) catFilterInput.value = '';
     const searchInput = document.getElementById('product-search');
@@ -2264,6 +2428,7 @@ function resetProductViewFilters() {
     renderProducts();
     updateStatsBar();
 }
+window.resetProductViewFilters = resetProductViewFilters;
 
 function getStoreDirectUrl(p) {
     if (!p) return '#';
@@ -2873,6 +3038,21 @@ function setupEventListeners() {
             renderProducts();
             updateStatsBar();
         };
+    }
+
+    const toggleAllShopsCtrlBtn = document.getElementById('toggle-all-shops-ctrl-btn');
+    if (toggleAllShopsCtrlBtn) {
+        toggleAllShopsCtrlBtn.onclick = () => toggleAllShops();
+    }
+    const resetFiltersHeaderBtn = document.getElementById('reset-filters-header-btn');
+    if (resetFiltersHeaderBtn) {
+        resetFiltersHeaderBtn.onclick = () => resetProductViewFilters();
+    }
+    const filteredBadge = document.getElementById('filtered-items-badge');
+    if (filteredBadge) {
+        filteredBadge.style.cursor = 'pointer';
+        filteredBadge.title = 'Click to reset filters';
+        filteredBadge.onclick = () => resetProductViewFilters();
     }
 
     const catFilterInput = document.getElementById('category-filter');

@@ -696,6 +696,68 @@ body.theme-light .suggestion-price {
     cursor: pointer;
 }
 
+.bulk-shop-btn {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    color: var(--text-secondary, #cbd5e1);
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: all 0.15s ease;
+    user-select: none;
+}
+.bulk-shop-btn:hover {
+    background: rgba(255, 255, 255, 0.18);
+    color: #fff;
+    border-color: var(--accent-secondary, #38bdf8);
+}
+.bulk-shop-btn.active {
+    background: rgba(56, 189, 248, 0.18);
+    color: var(--accent-secondary, #38bdf8);
+    border-color: var(--accent-secondary, #38bdf8);
+}
+
+.cat-only-btn {
+    display: none;
+    font-size: 0.62rem;
+    padding: 1px 6px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--accent-color, #a855f7);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    cursor: pointer;
+    text-transform: lowercase;
+    font-weight: 700;
+    transition: all 0.15s ease;
+}
+.shop-cat-item:hover .cat-only-btn,
+.shop-cat-item:focus-within .cat-only-btn {
+    display: inline-block;
+}
+.cat-only-btn:hover {
+    background: var(--accent-color, #a855f7);
+    color: #fff;
+    border-color: var(--accent-color, #a855f7);
+}
+
+.intel-variant-reset {
+    color: var(--text-secondary, #cbd5e1);
+    border-color: rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.04);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.intel-variant-reset:hover {
+    color: #fff;
+    border-color: var(--accent-secondary, #38bdf8);
+    background: rgba(56, 189, 248, 0.12);
+}
+
 /* Pinned Category Highlighting */
 .shop-cat-item.pinned .cat-name {
     color: var(--gold) !important;
