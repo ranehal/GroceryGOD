@@ -24,7 +24,7 @@ let metadata = {};
 let _godDbResolver;
 window.__godDbPromise = new Promise(resolve => { _godDbResolver = resolve; });
 let godDB = null; // persistent DuckDB connection for on-demand queries
-const ASSET_VERSION = window.GOD_ASSET_VERSION || '20260930_v1';
+const ASSET_VERSION = window.GOD_ASSET_VERSION || '20260929_v1';
 let currentDataSource = safeStorage.getItem('god_data_source') || 'local';
 let favorites = JSON.parse(safeStorage.getItem('god_favorites') || '[]');
 let selectedForComparison = JSON.parse(safeStorage.getItem('god_comparison') || '[]');
@@ -63,10 +63,17 @@ let userCustomizedCategories = new Set();
 let expandedStoreGroups = new Set(['shwapno']);
 let lastSelectedShop = 'shwapno';
 window.loadedStores = new Set(['shwapno']);
-window.activeShopFilters = activeShopFilters;
-window.activeCategories = activeCategories;
-window.userCustomizedCategories = userCustomizedCategories;
-window.expandedStoreGroups = expandedStoreGroups;
+Object.defineProperty(window, 'allProducts', { get: () => allProducts, configurable: true });
+Object.defineProperty(window, 'currentFilteredProducts', { get: () => currentFilteredProducts, configurable: true });
+Object.defineProperty(window, 'activeShopFilters', { get: () => activeShopFilters, set: (v) => { activeShopFilters = v; }, configurable: true });
+Object.defineProperty(window, 'activeCategories', { get: () => activeCategories, set: (v) => { activeCategories = v; }, configurable: true });
+Object.defineProperty(window, 'userCustomizedCategories', { get: () => userCustomizedCategories, set: (v) => { userCustomizedCategories = v; }, configurable: true });
+Object.defineProperty(window, 'expandedStoreGroups', { get: () => expandedStoreGroups, set: (v) => { expandedStoreGroups = v; }, configurable: true });
+Object.defineProperty(window, 'lastSelectedShop', { get: () => lastSelectedShop, set: (v) => { lastSelectedShop = v; }, configurable: true });
+Object.defineProperty(window, 'activeIntelFilter', { get: () => activeIntelFilter, set: (v) => { activeIntelFilter = v; }, configurable: true });
+Object.defineProperty(window, 'hideOutOfStock', { get: () => hideOutOfStock, set: (v) => { hideOutOfStock = v; }, configurable: true });
+Object.defineProperty(window, 'hideNoImage', { get: () => hideNoImage, set: (v) => { hideNoImage = v; }, configurable: true });
+Object.defineProperty(window, 'searchQuery', { get: () => searchQuery, set: (v) => { searchQuery = v; }, configurable: true });
 
 let greatDealThreshold = 0.85;
 let goodBuyThreshold = 0.95;
@@ -2034,6 +2041,10 @@ function renderSidebar() {
                     userCustomizedCategories.clear();
                     userCustomizedCategories.add(sid);
                     expandedStoreGroups.add(sid);
+                    if (activeIntelFilter === 'low' || activeIntelFilter === 'first_low') {
+                        activeIntelFilter = 'all';
+                        document.querySelectorAll('.intel-btn[data-filter]').forEach(b => b.classList.toggle('active', b.dataset.filter === activeIntelFilter));
+                    }
 
                     if (typeof window.ensureStoreHistoryLoaded === 'function') window.ensureStoreHistoryLoaded(sid);
                     if (typeof window.triggerCatalogHydration === 'function') window.triggerCatalogHydration('shop_toggle');
@@ -2055,6 +2066,10 @@ function renderSidebar() {
                     e.stopPropagation();
                     lastSelectedShop = sid;
                     userCustomizedCategories.add(sid);
+                    if (activeIntelFilter === 'low' || activeIntelFilter === 'first_low') {
+                        activeIntelFilter = 'all';
+                        document.querySelectorAll('.intel-btn[data-filter]').forEach(b => b.classList.toggle('active', b.dataset.filter === activeIntelFilter));
+                    }
                     const willCheck = catCb.checked;
                     if (willCheck) {
                         activeCategories.add(catId);
@@ -2094,6 +2109,10 @@ function renderSidebar() {
                     userCustomizedCategories.clear();
                     userCustomizedCategories.add(sid);
                     expandedStoreGroups.add(sid);
+                    if (activeIntelFilter === 'low' || activeIntelFilter === 'first_low') {
+                        activeIntelFilter = 'all';
+                        document.querySelectorAll('.intel-btn[data-filter]').forEach(b => b.classList.toggle('active', b.dataset.filter === activeIntelFilter));
+                    }
                 } else {
                     userCustomizedCategories.delete(sid);
                     activeShopFilters.add(sid);
@@ -2196,9 +2215,10 @@ function renderProducts() {
     grid.innerHTML = '';
     
     currentFilteredProducts = allProducts.filter(p => {
-        if (hideNoImage && !hasValidProductImage(p)) return false;
+        const isCustomCat = userCustomizedCategories.has(p.store);
+        if (hideNoImage && !hasValidProductImage(p) && !searchQuery && !isCustomCat) return false;
         if (!activeShopFilters.has(p.store)) return false;
-        if (userCustomizedCategories.has(p.store)) {
+        if (isCustomCat) {
             const catKey = p.store + '_' + (p.category || '');
             if (!activeCategories.has(catKey)) return false;
         }
@@ -2207,14 +2227,14 @@ function renderProducts() {
         if (!activeUnitFilters.has(p.unit_type)) return false;
         if (enableRecentDaysFilter && recentDaysFilter > 0 && p.ageDays > recentDaysFilter) return false;
         const isOos = !p.in_stock || p.is_out_of_stock || !p.hasPriceToday || !(Number(p.current_price) > 0);
-        if (hideOutOfStock && isOos && !searchQuery) return false;
+        if (hideOutOfStock && isOos && !searchQuery && !isCustomCat) return false;
 
         if (activeIntelFilter === 'great') return !isOos && p.normalized_price < (p.avgPrice * greatDealThreshold);
         if (activeIntelFilter === 'good') return !isOos && p.normalized_price < (p.avgPrice * goodBuyThreshold);
         if (activeIntelFilter === 'customdrop') return !isOos && p.avgPrice > 0 && p.normalized_price <= (p.avgPrice * (1 - customDropThreshold / 100));
         if (activeIntelFilter === 'wait') return p.normalized_price > (p.avgPrice * 1.05);
-        if (activeIntelFilter === 'first_low' && !searchQuery) return !isOos && Number(p.normalized_price) > 0 && p.hist_count >= 2 && (p.maxPrice >= p.minPrice * 1.03) && (p.maxPrice - p.minPrice >= 1.0) && (p.isFirstTimeLow || p.is_first_low || checkIsFirstTimeLow(p));
-        if (activeIntelFilter === 'low' && !searchQuery) {
+        if (activeIntelFilter === 'first_low' && !searchQuery && !isCustomCat) return !isOos && Number(p.normalized_price) > 0 && p.hist_count >= 2 && (p.maxPrice >= p.minPrice * 1.03) && (p.maxPrice - p.minPrice >= 1.0) && (p.isFirstTimeLow || p.is_first_low || checkIsFirstTimeLow(p));
+        if (activeIntelFilter === 'low' && !searchQuery && !isCustomCat) {
             const hasActualRange = Boolean(p.maxActual && p.minActual);
             const isFakeLow = hasActualRange && (p.maxActual <= p.minActual + 0.5 || p.current_price >= p.maxActual);
             return !isOos && !isFakeLow && Number(p.normalized_price) > 0 && p.hist_count >= 2 && (p.maxPrice >= p.minPrice * 1.03) && (p.maxPrice - p.minPrice >= 1.0) && p.normalized_price <= (p.minPrice * 1.005);
