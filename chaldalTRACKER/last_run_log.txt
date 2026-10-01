@@ -1,4 +1,4 @@
-Last Run: 2026-09-30 00:40:56
+Last Run: 2026-10-01 10:59:06
 ------------------------------
 Total Scraped: 8168
 Web Scraped: 8168
@@ -10,10 +10,10 @@ Categories:
 - Personal Care: 204
 - Snacks: 122
 - Drinks: 121
+- Kitchen Accessories: 104
 - Home Care: 97
-- Air Fresheners: 96
-- Spices: 88
+- Air Fresheners: 95
 - Tea & Coffee: 88
-- Kitchen Accessories: 86
-- Rice: 76
+- Spices: 88
+- Flash Sales: 80
 ... and 170 more.
