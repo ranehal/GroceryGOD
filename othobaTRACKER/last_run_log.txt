@@ -1,12 +1,12 @@
-Last Run: 2026-10-01 10:43:13
+Last Run: 2026-10-02 09:34:23
 ------------------------------
 Total Scraped: 7324
-Web Scraped: 4532
+Web Scraped: 4533
 App API Scraped: 6477
 Combined Unique: 7324
 ------------------------------
 Categories:
-- Snacks: 850
+- Snacks: 851
 - Grocery Staples: 717
 - Household Essentials: 564
 - Groceries: 528
