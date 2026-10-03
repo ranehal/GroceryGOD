@@ -3801,6 +3801,30 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
                             _log(f"Foodpanda patch AST validation failed: {_fp_ast_err}")
                 except Exception as _fp_err:
                     _log(f"Foodpanda patch warning: {_fp_err}")
+
+            # 6. Patch FooDIE Restaurant Analytics scrape_menus.py JSON indentation & compaction
+            if 'foodie' in repo_name.lower() and 'restaurant' in repo_name.lower() and os.path.exists(resolved_script_path):
+                try:
+                    with open(resolved_script_path, "r", encoding="utf-8", errors="replace") as _frf:
+                        _fr_src = _frf.read()
+                    _orig_fr = _fr_src
+                    if 'indent=2' in _fr_src:
+                        _fr_src = _fr_src.replace('indent=2', "separators=(',', ':')")
+                    if 'PARQUET_FILE' not in _fr_src:
+                        _fr_src = _fr_src.replace(
+                            'DATA_FILE = os.path.join(DATA_DIR, "restaurant_dashboard", "data.json")',
+                            'DATA_FILE = os.path.join(DATA_DIR, "restaurant_dashboard", "data.json")\nPARQUET_FILE = os.path.join(DATA_DIR, "restaurant_dashboard", "data.parquet")'
+                        )
+                    if _fr_src != _orig_fr:
+                        try:
+                            _ast.parse(_fr_src)
+                            with open(resolved_script_path, "w", encoding="utf-8") as _frf:
+                                _frf.write(_fr_src)
+                            _log("Auto-patched FooDIE Restaurant scrape_menus with compact JSON separators...")
+                        except Exception as _fr_ast_err:
+                            _log(f"FooDIE Restaurant patch AST validation failed: {_fr_ast_err}")
+                except Exception as _fr_err:
+                    _log(f"FooDIE Restaurant patch warning: {_fr_err}")
         except Exception as patch_err:
             _log(f"Script patch warning: {patch_err}")
 
@@ -3856,7 +3880,7 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
             subprocess.run(f'find . -name "{_bloat}" -delete', shell=True, cwd=repo_dir)
         subprocess.run('git rm -f --ignore-unmatch *.apk *.part* *.orig *.hash 2>/dev/null', shell=True, cwd=repo_dir)
 
-        # Pre-push Large File Guard: Scan for any files >= 95 MB and untrack/purge to prevent GitHub 100MB rejection
+        # Pre-push Large File Guard: Scan for any files >= 85 MB and compact or untrack/gitignore to prevent GitHub 100MB rejection
         try:
             for root, dirs, files in os.walk(repo_dir):
                 if '.git' in root: continue
@@ -3864,19 +3888,64 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
                     fp = os.path.join(root, f)
                     try:
                         sz = os.path.getsize(fp)
-                        if sz >= 95 * 1024 * 1024:
+                        if sz >= 85 * 1024 * 1024:
                             rel_p = os.path.relpath(fp, repo_dir)
-                            _log(f"⚠️ [LARGE FILE GUARD] Found oversized file '{rel_p}' ({sz / (1024*1024):.1f} MB) >= 95MB. Untracking to prevent GitHub 100MB push rejection!")
-                            subprocess.run(['git', 'rm', '-f', '--cached', '--ignore-unmatch', rel_p], cwd=repo_dir, capture_output=True)
-                            if any(rel_p.lower().endswith(x) for x in ['.log', '.tmp', '.har', '.part', '.bak']):
-                                try: os.remove(fp)
+                            # 1. Attempt in-place compaction for oversized JSON files
+                            if rel_p.lower().endswith('.json'):
+                                try:
+                                    with open(fp, 'r', encoding='utf-8') as _jf:
+                                        _jdata = json.load(_jf)
+                                    if isinstance(_jdata, dict) and 'locations' in _jdata:
+                                        for _loc in _jdata.get('locations', []):
+                                            for _rest in _loc.get('restaurants', []):
+                                                for _mid, _m in _rest.get('menus', {}).items():
+                                                    _h = _m.get('price_history') or _m.get('priceHistory') or []
+                                                    if len(_h) > 1:
+                                                        _d_h = [_h[0]]
+                                                        for _pt in _h[1:]:
+                                                            if _pt.get('price') != _d_h[-1].get('price'):
+                                                                _d_h.append({'date': str(_pt.get('date'))[:10], 'price': _pt.get('price')})
+                                                        if _h[-1].get('date') != _d_h[-1].get('date'):
+                                                            _d_h.append({'date': str(_h[-1].get('date'))[:10], 'price': _h[-1].get('price')})
+                                                        _m['price_history'] = _d_h
+                                                        _m.pop('priceHistory', None)
+                                    with open(fp, 'w', encoding='utf-8') as _jf:
+                                        json.dump(_jdata, _jf, separators=(',', ':'), ensure_ascii=False)
+                                    sz = os.path.getsize(fp)
+                                    _log(f"🛡️ [LARGE FILE GUARD] Compacted '{rel_p}' in-place down to {sz / (1024*1024):.1f} MB.")
+                                except Exception as _comp_err:
+                                    _log(f"⚠️ [LARGE FILE GUARD] In-place compact failed for '{rel_p}': {_comp_err}")
+
+                            # 2. If still >= 90MB, untrack and append to .gitignore so git add . will NEVER re-stage it!
+                            if sz >= 90 * 1024 * 1024:
+                                _log(f"⚠️ [LARGE FILE GUARD] Found oversized file '{rel_p}' ({sz / (1024*1024):.1f} MB) >= 90MB. Untracking & gitignoring to prevent GitHub 100MB push rejection!")
+                                subprocess.run(['git', 'rm', '-f', '--cached', '--ignore-unmatch', rel_p], cwd=repo_dir, capture_output=True)
+                                _gi_path = os.path.join(repo_dir, '.gitignore')
+                                try:
+                                    with open(_gi_path, 'a', encoding='utf-8') as _gif:
+                                        _gif.write(f"\n{rel_p.replace(os.sep, '/')}\n")
                                 except Exception: pass
+                                if any(rel_p.lower().endswith(x) for x in ['.log', '.tmp', '.har', '.part', '.bak']):
+                                    try: os.remove(fp)
+                                    except Exception: pass
                     except Exception: pass
         except Exception as _lfg_err:
             _log(f"Large file guard warning: {_lfg_err}")
 
         _verify_repo_integrity(repo_dir, repo_name)
         subprocess.run('git add .', shell=True, cwd=repo_dir)
+
+        # Post-add Large File Verification: Unstage any files that were accidentally staged and exceed 90MB
+        try:
+            _staged = subprocess.run(['git', 'diff', '--cached', '--name-only'], cwd=repo_dir, capture_output=True, text=True).stdout.splitlines()
+            for _sf in _staged:
+                _sfp = os.path.join(repo_dir, _sf)
+                if os.path.isfile(_sfp) and os.path.getsize(_sfp) >= 90 * 1024 * 1024:
+                    _log(f"🛑 [LARGE FILE GUARD] Staged file '{_sf}' ({os.path.getsize(_sfp)/(1024*1024):.1f} MB) >= 90MB! Forcibly unstaging and ignoring!")
+                    subprocess.run(['git', 'rm', '-f', '--cached', _sf], cwd=repo_dir, capture_output=True)
+                    with open(os.path.join(repo_dir, '.gitignore'), 'a', encoding='utf-8') as _gif:
+                        _gif.write(f"\n{_sf.replace(os.sep, '/')}\n")
+        except Exception: pass
 
         # Zero-change push guard: skip push if no meaningful data files changed to conserve monthly bandwidth
         st_out = subprocess.run(['git', 'diff', '--cached', '--name-only'], cwd=repo_dir, capture_output=True, text=True).stdout or ''
