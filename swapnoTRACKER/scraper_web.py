@@ -211,11 +211,21 @@ def flatten_categories(data):
     return cats
 
 def load_pinned_names():
+    names = []
     try:
-        from dynamic_pins import PINNED_CATEGORIES
-        return [c['name'] for c in PINNED_CATEGORIES]
-    except:
-        return []
+        data = load_categories()
+        pg = next((g for g in data.get('groups', []) if g.get('id') == 'pinned_deals'), None)
+        if pg:
+            names = [c['name'] for c in pg.get('categories', []) if c.get('enabled', True)]
+    except Exception:
+        pass
+    if not names:
+        try:
+            from dynamic_pins import PINNED_CATEGORIES
+            names = [c['name'] for c in PINNED_CATEGORIES if c.get('enabled', True)]
+        except Exception:
+            pass
+    return names
 
 def update_product_entry(current_data, prod, cat_name, cat_id, today_str, store_loc_name, is_pinned=False):
     name = prod.get('name', '').strip()
@@ -258,6 +268,8 @@ def update_product_entry(current_data, prod, cat_name, cat_id, today_str, store_
         "store_location": store_loc_name,
         "sku": prod.get('sku') or current_data[prod_id].get('sku', '')
     })
+    if is_pinned:
+        current_data[prod_id]["is_deal"] = True
     if cat_id:
         current_data[prod_id]["category_id"] = cat_id
         
@@ -275,19 +287,24 @@ def update_product_entry(current_data, prod, cat_name, cat_id, today_str, store_
 async def scrape_category_api(session, category, current_data, summary, pinned_names, today_str, seen_today):
     cat_id = category.get('id')
     cat_name = category['name']
+    is_deal = category.get('type') == 'deal' or cat_name in pinned_names
     is_pinned = cat_name in pinned_names
     
     if not cat_id:
         logger.info(f"Scraping: {cat_name} - Skipped (No ID)")
         return True
         
-    logger.info(f"Scraping: {cat_name} (API ID: {cat_id})")
+    tag = "DEAL" if is_deal else "CATEGORY"
+    logger.info(f"Scraping [{tag}]: {cat_name} (API ID: {cat_id})")
     extracted = 0
     page_idx = 1
     
     headers = get_store_headers(BANASREE_LOCATION)
     while True:
-        api_url = f"https://www.shwapno.com/api/category/products?lang=en&id={cat_id}&pageNumber={page_idx}"
+        if is_deal:
+            api_url = f"https://www.shwapno.com/api/deals/products?id={cat_id}&pageNumber={page_idx}"
+        else:
+            api_url = f"https://www.shwapno.com/api/category/products?lang=en&id={cat_id}&pageNumber={page_idx}"
         try:
             async with session.get(api_url, headers=headers) as r:
                 if r.status != 200:
@@ -449,21 +466,31 @@ async def rescrape_oos_across_stores(session, oos_prod_ids, current_data, today_
 
 async def main():
     summary = {'total': 0, 'new': 0, 'categories': Counter()}
+    
+    # Dynamically pre-scrape and synchronize active promotional deals
+    try:
+        from dynamic_pins import sync_dynamic_deals
+        sync_dynamic_deals()
+    except Exception as e_sync:
+        logger.warning(f"Dynamic deal pre-scrape notice: {e_sync}")
+
     data = load_data()
     category_data = load_categories()
     pinned_names = load_pinned_names()
     enabled_categories = [c for c in flatten_categories(category_data) if c.get('enabled', True)]
     
-    logger.info(f"Started Scraper API: {len(enabled_categories)} categories, {len(pinned_names)} pinned.")
+    logger.info(f"Started Scraper API: {len(enabled_categories)} categories, {len(pinned_names)} pinned deals.")
     today_str = datetime.now(DHAKA_TZ).date().isoformat()
     init_banasree_slot()
     
     seen_today = set()
 
     async with aiohttp.ClientSession() as session:
-        pinned_cats = [c for c in enabled_categories if c['name'] in pinned_names]
-        other_cats = [c for c in enabled_categories if c['name'] not in pinned_names]
-        queue = pinned_cats + other_cats
+        # Standard categories scrape first, pinned deals scrape second to ensure
+        # items featured in active deals are categorized and tagged under the pinned deal
+        pinned_cats = [c for c in enabled_categories if c.get('type') == 'deal' or c['name'] in pinned_names]
+        other_cats = [c for c in enabled_categories if c not in pinned_cats]
+        queue = other_cats + pinned_cats
         
         # Scrape 10 categories concurrently for Banasree Block C
         sem = asyncio.Semaphore(10)

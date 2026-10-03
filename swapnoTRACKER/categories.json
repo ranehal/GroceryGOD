@@ -7,65 +7,84 @@
       "expanded": true,
       "categories": [
         {
-          "name": "Deals",
-          "url": "https://www.shwapno.com/deals",
-          "enabled": true,
-          "xpath": "/html/body/main/div"
-        },
-        {
-          "name": "Buy Save More 2",
-          "url": "https://www.shwapno.com/buy-save-more-2",
-          "enabled": true
-        },
-        {
-          "name": "Shwapno Summer Fest",
-          "url": "https://www.shwapno.com/Shwapno-Summer-Fest",
-          "enabled": true
-        },
-        {
-          "name": "Deals On Unilever",
-          "url": "https://www.shwapno.com/deals-on-unilever",
-          "enabled": true
-        },
-        {
-          "name": "Brands",
-          "url": "https://www.shwapno.com/brands",
-          "enabled": true
-        },
-        {
-          "name": "Womens Care Collection",
-          "url": "https://www.shwapno.com/womens-care-collection",
-          "enabled": true
-        },
-        {
-          "name": "Shop Now Think Later",
-          "url": "https://www.shwapno.com/shop-now-think-later",
-          "enabled": true
-        },
-        {
-          "name": "Weekend Fresh Deal",
-          "url": "https://www.shwapno.com/weekend-fresh-deal",
-          "enabled": true
-        },
-        {
           "name": "Hot Deals",
           "url": "https://www.shwapno.com/Hot-Deals",
-          "enabled": true
-        },
-        {
-          "name": "Great Savings 3",
-          "url": "https://www.shwapno.com/great-savings-3",
-          "enabled": true
-        },
-        {
-          "name": "Deals On Toys Household Items",
-          "url": "https://www.shwapno.com/deals-on-toys-household-items",
+          "id": "66d9913ce159d315bfa55ada",
+          "type": "deal",
           "enabled": true
         },
         {
           "name": "A Place For Your Grocery Needs 5",
           "url": "https://www.shwapno.com/A-Place-For-Your-Grocery-Needs-5",
+          "id": "662a35d5d965db51765fa97d",
+          "type": "deal",
           "enabled": true
+        },
+        {
+          "name": "Great Savings 3",
+          "url": "https://www.shwapno.com/great-savings-3",
+          "id": "6625f755c73e4d62ca771441",
+          "type": "deal",
+          "enabled": true
+        },
+        {
+          "name": "Deals On Unilever",
+          "url": "https://www.shwapno.com/deals-on-unilever",
+          "id": "661e41d6366a4503f1b54ee5",
+          "type": "deal",
+          "enabled": true
+        },
+        {
+          "name": "Himalaya 3",
+          "url": "https://www.shwapno.com/Himalaya-3",
+          "id": "6a61edb61b630f8cacf342e6",
+          "type": "deal",
+          "enabled": true
+        },
+        {
+          "name": "Deals On Toys Household Items",
+          "url": "https://www.shwapno.com/deals-on-toys-household-items",
+          "id": "661e3dfb366a4503f1b19391",
+          "type": "deal",
+          "enabled": true
+        },
+        {
+          "name": "Weekend Fresh Deal",
+          "url": "https://www.shwapno.com/weekend-fresh-deal",
+          "id": "662123ad6068f8347ebab3ad",
+          "type": "deal",
+          "enabled": true
+        },
+        {
+          "name": "Deals",
+          "url": "https://www.shwapno.com/deals",
+          "enabled": false,
+          "xpath": "/html/body/main/div"
+        },
+        {
+          "name": "Buy Save More 2",
+          "url": "https://www.shwapno.com/buy-save-more-2",
+          "enabled": false
+        },
+        {
+          "name": "Shwapno Summer Fest",
+          "url": "https://www.shwapno.com/Shwapno-Summer-Fest",
+          "enabled": false
+        },
+        {
+          "name": "Brands",
+          "url": "https://www.shwapno.com/brands",
+          "enabled": false
+        },
+        {
+          "name": "Womens Care Collection",
+          "url": "https://www.shwapno.com/womens-care-collection",
+          "enabled": false
+        },
+        {
+          "name": "Shop Now Think Later",
+          "url": "https://www.shwapno.com/shop-now-think-later",
+          "enabled": false
         }
       ]
     },
