@@ -1,9 +1,9 @@
-Last Run: 2026-10-08 15:27:36
+Last Run: 2026-10-09 02:45:42
 ------------------------------
-Total Scraped: 7049
-Web Scraped: 4595
+Total Scraped: 7077
+Web Scraped: 4624
 App API Scraped: 6156
-Combined Unique: 7049
+Combined Unique: 7077
 ------------------------------
 Categories:
 - Snacks: 873
@@ -11,9 +11,9 @@ Categories:
 - Groceries: 528
 - Coffee, Tea & Beverages: 457
 - Ice Cream & Sweet Delights: 451
-- Household Essentials: 395
+- Household Essentials: 394
+- daily-bazar: 356
 - Lubricants & Oils: 336
-- daily-bazar: 327
 - Dairy, Chilled & Eggs: 273
 - Fish & Meat: 259
 ... and 48 more.
