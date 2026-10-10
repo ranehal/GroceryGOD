@@ -24,7 +24,7 @@ let metadata = {};
 let _godDbResolver;
 window.__godDbPromise = new Promise(resolve => { _godDbResolver = resolve; });
 let godDB = null; // persistent DuckDB connection for on-demand queries
-const ASSET_VERSION = window.GOD_ASSET_VERSION || '20261010_v1';
+const ASSET_VERSION = window.GOD_ASSET_VERSION || '20261011_v1';
 let currentDataSource = safeStorage.getItem('god_data_source') || 'local';
 let favorites = JSON.parse(safeStorage.getItem('god_favorites') || '[]');
 let selectedForComparison = JSON.parse(safeStorage.getItem('god_comparison') || '[]');
