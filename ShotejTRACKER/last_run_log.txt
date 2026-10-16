@@ -1,8 +1,21 @@
-Last Run: 2026-10-16 17:48:05
+Last Run: 2026-10-17 02:58:08
 ------------------------------
-Total Scraped: 0
-In Stock: 0
-Out of Stock: 0
+Total Scraped: 2330
+In Stock: 2088
+Out of Stock: 242
 New Items: 0
+Catalog Sweep: applied
+Pages OK: 24
 ------------------------------
 Categories:
+- Cosmetics: 984
+- Chocolate: 315
+- Baby Care: 170
+- Food: 127
+- Perfume: 91
+- Coffee: 81
+- Body Care: 73
+- New Arrivals: 67
+- Baby Food: 61
+- Shampoo: 48
+... and 26 more.

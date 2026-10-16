@@ -1959,7 +1959,7 @@ def run_grocery_god(github_pat):
                     script_name = os.path.basename(script_target)
                     proc = subprocess.Popen([sys.executable, "-u", script_name], cwd=full_path, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, env=my_env, bufsize=1)
                     
-                    stderr_capture = []
+                    stream_tail = []
                     stdout_count = [0]
                     last_alive = [time.time()]
                     
@@ -1967,22 +1967,26 @@ def run_grocery_god(github_pat):
                         try:
                             for line in stream:
                                 alive[0] = time.time()
+                                # Keep a bounded tail of BOTH streams: scrapers mostly log
+                                # through logging.StreamHandler(sys.stdout), so a block marker
+                                # (Cloudflare / 403 / BLOCKED) often never reaches stderr.
+                                capture.append(line)
+                                del capture[:-40]
                                 if is_stderr:
-                                    capture.append(line)
                                     log.warning(f'[{label}:{s_name} err] {line.rstrip()}')
                                 else:
                                     count[0] += 1
                                     log.info(f'[{label}:{s_name}] {line.rstrip()}')
                         except: pass
 
-                    t_stdout = threading.Thread(target=_read_stream, args=(proc, script_name, proc.stdout, False, stderr_capture, stdout_count, last_alive), daemon=True)
-                    t_stderr = threading.Thread(target=_read_stream, args=(proc, script_name, proc.stderr, True, stderr_capture, stdout_count, last_alive), daemon=True)
+                    t_stdout = threading.Thread(target=_read_stream, args=(proc, script_name, proc.stdout, False, stream_tail, stdout_count, last_alive), daemon=True)
+                    t_stderr = threading.Thread(target=_read_stream, args=(proc, script_name, proc.stderr, True, stream_tail, stdout_count, last_alive), daemon=True)
                     t_stdout.start()
                     t_stderr.start()
                     
                     procs.append({
                         'proc': proc, 'name': script_name, 't_stdout': t_stdout, 't_stderr': t_stderr,
-                        'stderr_capture': stderr_capture, 'stdout_count': stdout_count, 'last_alive': last_alive, 'timed_out': False, 'crashed': False
+                        'stream_tail': stream_tail, 'stdout_count': stdout_count, 'last_alive': last_alive, 'timed_out': False, 'crashed': False
                     })
                 
                 # Monitor all procs
@@ -1999,8 +2003,9 @@ def run_grocery_god(github_pat):
                                 p['timed_out'] = True
                                 log.error(f"{label}:{p['name']} TIMED OUT (No output for 10m).")
                             
-                            # Check cloudflare block in stderr
-                            err_text = ''.join(p['stderr_capture'][-20:]).lower()
+                            # Check Cloudflare / IP-block markers in the latest output lines only,
+                            # so a transient 403 a scraper recovered from cannot kill a healthy run.
+                            err_text = ''.join(p['stream_tail'][-8:]).lower()
                             if 'cloudflare' in err_text or 'ip block' in err_text or '403 forbidden' in err_text:
                                 p['proc'].kill()
                                 p['crashed'] = True
