@@ -1,21 +1,11 @@
-Last Run: 2026-10-17 02:58:08
+Last Run: 2026-10-17 15:13:25
 ------------------------------
-Total Scraped: 2330
-In Stock: 2088
-Out of Stock: 242
+Total Scraped: 0
+In Stock: 0
+Out of Stock: 0
 New Items: 0
-Catalog Sweep: applied
-Pages OK: 24
+Catalog Sweep: SKIPPED (health guard)
+Pages OK: 0
+Last Error: rest_route HTTP 403 | browser tier JSONDecodeError: Expecting value: line 1 column 1 (char 0)
 ------------------------------
 Categories:
-- Cosmetics: 984
-- Chocolate: 315
-- Baby Care: 170
-- Food: 127
-- Perfume: 91
-- Coffee: 81
-- Body Care: 73
-- New Arrivals: 67
-- Baby Food: 61
-- Shampoo: 48
-... and 26 more.
