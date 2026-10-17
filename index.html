@@ -21,12 +21,12 @@
 <link rel="icon" type="image/png" sizes="64x64" href="favicon.png?v=20261016_v1">
 <link rel="shortcut icon" href="favicon.ico?v=20261016_v1">
 <link rel="apple-touch-icon" href="favicon.jpg?v=20261016_v1">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link href="style.css?v=20261016_v1" rel="stylesheet"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
 </head>
 <body class="pitch-black theme-amoled">
 <script>
-window.GOD_ASSET_VERSION = '20261016_v1';
+window.GOD_ASSET_VERSION = '20261017_v1';
 window.GOD_ALLOW_LEGACY_DATA = false;
 if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')) {
     window.addEventListener('load', () => {
@@ -55,64 +55,58 @@ if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || wi
 </div>
 </div>
 <!-- ============================================================ -->
-<!-- AWWWARDS-INSPIRED EDITORIAL HERO LANDING SECTION -->
+<!-- HERO — "Bazar Ledger": type-led masthead + live price board    -->
 <!-- ============================================================ -->
 <section class="landing-hero" id="landing-hero">
-    <!-- Ambient Aurora Mesh & Glowing Spheres -->
     <div class="hero-aurora-bg"></div>
     <div class="hero-grid-pattern"></div>
     <div class="hero-food-bg" id="hero-food-bg"></div>
-    <div class="hero-glow-sphere sphere-cyan"></div>
-    <div class="hero-glow-sphere sphere-purple"></div>
 
-    <!-- Hero Top Brand Navigation -->
+    <!-- Masthead -->
     <nav class="hero-nav">
         <div class="hero-brand" id="hero-brand-top">
             <span class="hero-brand-bolt"><i class="fas fa-bolt"></i></span>
             <span class="hero-brand-name">GroceryGOD</span>
-            <span class="hero-live-badge"><span class="pulse-dot"></span> LIVE INTELLIGENCE</span>
+            <span class="hero-live-badge"><span class="pulse-dot"></span> LIVE · DHAKA</span>
         </div>
         <div class="hero-nav-actions">
-            <button class="hero-nav-link" id="hero-nav-explore-btn"><i class="fas fa-layer-group"></i> 80,000+ Items</button>
-            <button class="hero-nav-link" id="hero-nav-analytics-btn"><i class="fas fa-chart-line"></i> Market Sensors</button>
-            <button class="hero-cta-btn" id="hero-cta-top">Launch Catalog <i class="fas fa-arrow-down"></i></button>
+            <button class="hero-nav-link" id="hero-nav-explore-btn"><i class="fas fa-layer-group"></i> 80k+ SKUs</button>
+            <button class="hero-nav-link" id="hero-nav-analytics-btn"><i class="fas fa-chart-line"></i> Market sensors</button>
+            <button class="hero-cta-btn" id="hero-cta-top">Open price board <i class="fas fa-arrow-down"></i></button>
         </div>
     </nav>
 
-    <!-- Main Hero Asymmetric Editorial Layout -->
     <div class="hero-editorial-grid">
-        <!-- Left Column: Striking Typographic & Command Center -->
+        <!-- Left: thesis + search -->
         <div class="hero-editorial-left">
-            <div class="hero-kicker-badge">
-                <span class="pill-sparkle">✦</span>
-                <span class="pill-text">BANGLADESH GROCERY PRICE INTELLIGENCE</span>
-                <span class="pill-time">LIVE DHAKA INDEX</span>
-            </div>
+            <p class="hero-kicker-badge">
+                <span class="pill-text">Dhaka grocery index</span>
+                <span class="pill-sep" aria-hidden="true"></span>
+                <span class="pill-time">8 stores · unit-normalised</span>
+            </p>
 
             <h1 class="hero-editorial-title">
-                <span class="title-line title-line-1">EVERY PRICE.</span>
-                <span class="title-line title-line-2 gradient-text">EVERY STORE.</span>
-                <span class="title-line title-line-3">ZERO BLINDSPOTS.</span>
+                <span class="title-line">Every bazaar.</span>
+                <span class="title-line title-line-accent">One price board.</span>
             </h1>
 
             <p class="hero-editorial-desc">
-                Autonomous multi-store intelligence across <strong>80,153+ daily essentials</strong> in Dhaka. 
-                Unit-normalized price arbitrage, real-time restock telemetry, and 6-month historical inflation curves.
+                The real price per kilo, litre and piece across <strong>Shwapno, Chaldal, Meena Bazar</strong>
+                and five more — restocks, out-of-stock items and six months of history included.
             </p>
 
-            <!-- Hero Command Search -->
             <div class="hero-search-container">
                 <div class="hero-search-box">
                     <i class="fas fa-search hero-search-icon"></i>
-                    <input type="text" id="hero-search-input" placeholder="Search milk, oil, rice, beef, eggs across 8 superstores..." autocomplete="off">
+                    <input type="text" id="hero-search-input" placeholder="Search milk, oil, rice, beef, eggs across 8 stores…" autocomplete="off" aria-label="Search groceries across stores">
                     <button class="hero-search-submit" id="hero-search-btn">
-                        <span>Search Catalog</span>
+                        <span>Search</span>
                         <i class="fas fa-arrow-right"></i>
                     </button>
                     <div class="suggestions-box hero-suggestions-box" id="hero-search-suggestions" role="listbox" aria-label="Hero search suggestions"></div>
                 </div>
                 <div class="hero-search-quicktags">
-                    <span class="quicktag-label">QUICK SEARCH:</span>
+                    <span class="quicktag-label">Try</span>
                     <button class="quicktag-chip" data-query="Milk">Aarong Milk</button>
                     <button class="quicktag-chip" data-query="Soybean Oil">Soybean Oil</button>
                     <button class="quicktag-chip" data-query="Miniket Rice">Miniket Rice</button>
@@ -122,9 +116,8 @@ if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || wi
                 </div>
             </div>
 
-            <!-- Direct Store Jump Strips -->
             <div class="hero-store-strip">
-                <span class="strip-label">DIRECT STORE JUMP:</span>
+                <span class="strip-label">Jump to</span>
                 <div class="strip-chips">
                     <button class="hero-store-chip active" data-store="shwapno">Shwapno</button>
                     <button class="hero-store-chip" data-store="chaldal">Chaldal</button>
@@ -138,64 +131,38 @@ if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || wi
             </div>
         </div>
 
-        <!-- Right Column: Live Telemetry Terminal HUD -->
-        <div class="hero-editorial-right">
-            <div class="hero-hud-card">
-                <div class="hud-top-bar">
-                    <div class="hud-live-tag">
+        <!-- Right: the price board (real data, populated by script.js) -->
+        <aside class="hero-editorial-right" aria-label="Today's cheapest staples">
+            <div class="hero-hud-card bazar-board">
+                <div class="board-head">
+                    <div class="board-title">
                         <span class="pulse-dot"></span>
-                        <span>DHAKA MARKET PULSE</span>
+                        Today&rsquo;s price board
                     </div>
-                    <span class="hud-tech-chip">SIMD VECTORIZED</span>
+                    <span class="board-stamp" id="board-updated">live</span>
                 </div>
 
-                <div class="hud-bento-grid">
-                    <div class="hud-bento-cell">
-                        <span class="hud-cell-val" id="hud-total-val">80,153</span>
-                        <span class="hud-cell-lbl">Products Monitored</span>
-                        <span class="hud-cell-sub">8 Superstore Chains</span>
-                    </div>
-                    <div class="hud-bento-cell highlight-deal">
-                        <span class="hud-cell-val highlight-glow" id="hud-deal-val">6,933</span>
-                        <span class="hud-cell-lbl">All-Time Low Deals</span>
-                        <span class="hud-cell-sub">Verified Product Photos</span>
-                    </div>
-                    <div class="hud-bento-cell">
-                        <span class="hud-cell-val">1.2<small>ms</small></span>
-                        <span class="hud-cell-lbl">DuckDB Query Latency</span>
-                        <span class="hud-cell-sub">Local WASM Engine</span>
-                    </div>
-                    <div class="hud-bento-cell">
-                        <span class="hud-cell-val">3.7<small>M+</small></span>
-                        <span class="hud-cell-lbl">Historical Snapshots</span>
-                        <span class="hud-cell-sub">Since Feb 2026</span>
-                    </div>
+                <div class="board-body" id="bazar-board-rows" role="table" aria-label="Cheapest staples by unit price">
+                    <!-- static skeleton replaced by script.js -->
+                    <div class="board-row board-skeleton" role="row"><span></span><span></span><span></span></div>
+                    <div class="board-row board-skeleton" role="row"><span></span><span></span><span></span></div>
+                    <div class="board-row board-skeleton" role="row"><span></span><span></span><span></span></div>
+                    <div class="board-row board-skeleton" role="row"><span></span><span></span><span></span></div>
+                    <div class="board-row board-skeleton" role="row"><span></span><span></span><span></span></div>
                 </div>
 
-                <div class="hud-deal-ticker">
-                    <div class="hud-ticker-header">
-                        <i class="fas fa-bolt"></i>
-                        <span>LIVE ARBITRAGE TELEMETRY</span>
-                    </div>
-                    <div class="hud-ticker-content">
-                        <div class="ticker-product-line">
-                            <span class="ticker-name">Soybean Oil 5 Litre</span>
-                            <span class="ticker-badge-save">SAVE ৳45</span>
-                        </div>
-                        <div class="ticker-stores-spread">
-                            <span class="store-price">Shwapno: <strong>৳895</strong></span>
-                            <span class="store-divider">vs</span>
-                            <span class="store-price">Chaldal: <strong>৳940</strong></span>
-                        </div>
-                    </div>
+                <div class="board-foot">
+                    <span><strong id="hud-total-val">80,153</strong> SKUs tracked</span>
+                    <span class="board-foot-sep" aria-hidden="true"></span>
+                    <span><strong id="hud-deal-val">6,933</strong> at all-time low</span>
                 </div>
 
-                <button class="hud-cta-action" id="hero-scroll-down-btn" aria-label="Explore live catalog">
-                    <span>Explore Verified Lows</span>
+                <button class="hud-cta-action" id="hero-scroll-down-btn" aria-label="Open the full price board">
+                    <span>See the full board</span>
                     <i class="fas fa-arrow-down"></i>
                 </button>
             </div>
-        </div>
+        </aside>
     </div>
 </section>
 <div id="catalog-anchor"></div>
@@ -308,15 +275,15 @@ if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || wi
 <!-- Stats Bar -->
 <div class="stats-bar">
 <div class="stat-item clickable" id="stat-total-btn">
-<span class="stat-label">Total Units</span>
+<span class="stat-label">Items in view</span>
 <span class="stat-value" id="total-items">0</span>
 </div>
 <div class="stat-item">
-<span class="stat-label">Market Status</span>
-<span class="stat-value" style="color:var(--accent-secondary)">STABLE</span>
+<span class="stat-label">Stores online</span>
+<span class="stat-value" style="color:var(--accent-secondary)">8</span>
 </div>
 <div class="stat-item clickable" id="stat-good-buys-btn">
-<span class="stat-label">Best Values</span>
+<span class="stat-label">Best values</span>
 <span class="stat-value highlight" id="good-buys-count">0</span>
 </div>
 </div>
@@ -397,7 +364,7 @@ if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || wi
 <!-- Detailed Chart Modal -->
 <div class="modal" id="chart-modal">
 <div class="modal-content full-screen-modal sci-fi-modal" style="max-height: 95vh; max-width: 95vw; position: relative;">
-<div class="modal-header" style="background: linear-gradient(135deg, var(--bg-dark), #2a2a3a); padding: 20px;">
+<div class="modal-header" style="padding: 20px;">
 <h2 id="chart-product-name" style="font-size: 1.8rem; color: var(--gold); margin-bottom: 6px;"></h2>
 <div style="display:flex; gap:15px; align-items:center; flex-wrap:wrap; margin-bottom: 6px;">
 <span class="store-tag" id="chart-store-tag" style="font-size: 1rem; padding: 8px 15px;"></span>

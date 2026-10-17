@@ -24,7 +24,7 @@ let metadata = {};
 let _godDbResolver;
 window.__godDbPromise = new Promise(resolve => { _godDbResolver = resolve; });
 let godDB = null; // persistent DuckDB connection for on-demand queries
-const ASSET_VERSION = window.GOD_ASSET_VERSION || '20261016_v1';
+const ASSET_VERSION = window.GOD_ASSET_VERSION || '20261017_v1';
 let currentDataSource = safeStorage.getItem('god_data_source') || 'local';
 let favorites = JSON.parse(safeStorage.getItem('god_favorites') || '[]');
 let selectedForComparison = JSON.parse(safeStorage.getItem('god_comparison') || '[]');
@@ -468,12 +468,20 @@ function initHeroInteractions() {
 
     // Floating Food Particles Background Canvas (Awwwards Style)
     try { initHeroFoodBackground(); } catch (e) { console.warn('Hero food bg init error:', e); }
+    try { initHeroBoard(); } catch (e) { console.warn('Hero price board init error:', e); }
 
-    // Strongly and magnetically snap to catalog when scrolling down on hero
+    // Enter the catalog on a deliberate downward gesture (trackpad deltas accumulate;
+    // a single accidental nudge no longer hijacks the hero).
+    let heroWheelAccum = 0;
+    let heroWheelLast = 0;
     window.addEventListener('wheel', (e) => {
         if (isCatalogActive || isTransitioning || isSnapping) return;
-        if (e.deltaY > 10) {
-            scrollToCatalog();
+        const now = Date.now();
+        if (now - heroWheelLast > 400 || e.deltaY < 0) heroWheelAccum = 0;
+        heroWheelLast = now;
+        if (e.deltaY > 0) {
+            heroWheelAccum += e.deltaY;
+            if (heroWheelAccum > 140) scrollToCatalog();
         }
     }, { passive: true });
 
@@ -488,7 +496,7 @@ function initHeroInteractions() {
         if (isCatalogActive || isTransitioning || isSnapping) return;
         if (e.touches && e.touches.length > 0) {
             const deltaY = heroTouchStartY - e.touches[0].clientY;
-            if (deltaY > 15) {
+            if (deltaY > 56) {
                 scrollToCatalog();
             }
         }
@@ -497,7 +505,7 @@ function initHeroInteractions() {
     window.addEventListener('scroll', () => {
         if (isCatalogActive || isTransitioning || isSnapping) return;
         const anchorTop = getAnchorTop();
-        if (window.scrollY > 40 || (anchorTop > 0 && (window.scrollY + window.innerHeight - anchorTop) >= window.innerHeight * 0.15)) {
+        if (window.scrollY > 120 || (anchorTop > 0 && (window.scrollY + window.innerHeight - anchorTop) >= window.innerHeight * 0.12)) {
             scrollToCatalog();
         }
     }, { passive: true });
@@ -514,28 +522,144 @@ function initHeroInteractions() {
     }
 }
 
-// Generates falling & swaying food emojis behind the hero text
+// Hero background: the falling-emoji layer was removed in the Bazar Ledger pass —
+// it competed with the price board and read as decoration, not information.
 function initHeroFoodBackground() {
     const container = document.getElementById('hero-food-bg');
-    if (!container) return;
-    container.innerHTML = '';
-
-    const FOOD_ITEMS = ['🍕', '🍔', '🍟', '🌭', '🍿', '🍩', '🍪', '🍰', '🍫', '🍬', '🍭', '🧃', '🥤', '🥮', '🍣', '🍤'];
-    const frag = document.createDocumentFragment();
-
-    for (let id = 0; id < 35; id++) {
-        const span = document.createElement('span');
-        span.className = 'hero-food-particle';
-        span.textContent = FOOD_ITEMS[Math.floor(Math.random() * FOOD_ITEMS.length)];
-        span.style.left = `${(Math.random() * 95).toFixed(1)}%`;
-        span.style.animationDelay = `${(Math.random() * 8).toFixed(1)}s`;
-        span.style.animationDuration = `${(6 + Math.random() * 6).toFixed(1)}s`;
-        span.style.fontSize = `${Math.round(20 + Math.random() * 24)}px`;
-        span.style.opacity = (0.15 + Math.random() * 0.25).toFixed(2);
-        frag.appendChild(span);
-    }
-    container.appendChild(frag);
+    if (container) container.innerHTML = '';
 }
+
+// Builds the hero price board from real stock: the cheapest unit price for each
+// household staple across the stores (Turso when live, atl_preview.json offline).
+async function initHeroBoard() {
+    const host = document.getElementById('bazar-board-rows');
+    if (!host) return;
+
+    const STAPLES = [
+        { label: 'Rice', re: /miniket|chinigura|basmati|pajam|\brice\b/i, unit: 'kg', lo: 40, hi: 400, avoid: /bran|puffed|chira|muri|cake|flour/i },
+        { label: 'Soybean oil', re: /soybean|soya/i, unit: 'liter', lo: 100, hi: 800 },
+        { label: 'Milk', re: /\bmilk\b/i, unit: 'liter', lo: 50, hi: 400, avoid: /powder|chocolate|shampoo/i },
+        { label: 'Eggs', re: /\begg/i, unit: 'kg', lo: 100, hi: 900, avoid: /chocolate|boiler.*feed/i },
+        { label: 'Sugar', re: /\bsugar\b|chini/i, unit: 'kg', lo: 60, hi: 260, avoid: /free|mint|candy|chocolate|substitute|syrup/i },
+        { label: 'Lentils', re: /moshur|masoor|musur|lentil|\bdal\b/i, unit: 'kg', lo: 70, hi: 500, avoid: /chips|snack|soup|noodle/i },
+        { label: 'Atta / flour', re: /\batta\b|flour|maida/i, unit: 'kg', lo: 40, hi: 300, avoid: /corn|besan/i },
+        { label: 'Chicken', re: /\bchicken\b/i, unit: 'kg', lo: 150, hi: 700, avoid: /soup|noodle|stock|powder|masala|sausage|roll/i },
+    ];
+
+    // 1) Live Turso catalogue, 2) local parquet via DuckDB, 3) atl_preview gaps.
+    const STAPLE_SQL = (from) => `
+        SELECT name, store, normalized_price, unit, unit_type, current_price, avg_price
+        FROM ${from}
+        WHERE in_stock = 1 AND normalized_price > 0 AND (
+            LOWER(name) LIKE '%miniket%' OR LOWER(name) LIKE '%chinigura%' OR LOWER(name) LIKE '%basmati%' OR
+            LOWER(name) LIKE '%soybean%' OR LOWER(name) LIKE '%soya%' OR LOWER(name) LIKE '%milk%' OR
+            LOWER(name) LIKE '%egg%' OR LOWER(name) LIKE '%sugar%' OR LOWER(name) LIKE '%chini%' OR
+            LOWER(name) LIKE '%moshur%' OR LOWER(name) LIKE '%masoor%' OR LOWER(name) LIKE '%lentil%' OR
+            LOWER(name) LIKE '%atta%' OR LOWER(name) LIKE '%flour%' OR
+            LOWER(name) LIKE '%chicken%'
+        )
+        LIMIT 800;`;
+
+    let rows = null;
+    if (typeof queryTurso === 'function' && typeof currentDataSource !== 'undefined' && currentDataSource === 'turso') {
+        try {
+            rows = await queryTurso(STAPLE_SQL('products'));
+        } catch (err) {
+            console.warn('[GOD_BOARD] Turso staples unavailable, trying local parquet:', err?.message || err);
+            rows = null;
+        }
+    }
+    if ((!Array.isArray(rows) || !rows.length) && window.__godDbPromise) {
+        try {
+            await Promise.race([
+                window.__godDbPromise,
+                new Promise((_, reject) => setTimeout(() => reject(new Error('db timeout')), 12000))
+            ]);
+            // products.parquet is registered later (delayed catalog hydration): wait for the flag.
+            const deadline = Date.now() + 15000;
+            while (!window.__productsParquetReady && Date.now() < deadline) {
+                await new Promise(r => setTimeout(r, 250));
+            }
+            if (window.__productsParquetReady && godDB && godDB.conn) {
+                const res = await godDB.conn.query(STAPLE_SQL(`read_parquet('products.parquet')`));
+                rows = res.toArray().map(r => (typeof r.toJSON === 'function' ? r.toJSON() : r));
+            }
+        } catch (err) {
+            console.warn('[GOD_BOARD] local parquet staples unavailable:', err?.message || err);
+            rows = null;
+        }
+    }
+    if (!Array.isArray(rows) || !rows.length) {
+        const preview = window.__godAtlPreview || [];
+        rows = preview;
+    }
+    if (!Array.isArray(rows) || !rows.length) return;
+
+    const picked = [];
+    for (const staple of STAPLES) {
+        let best = null;
+        for (const r of rows) {
+            if (!r || !r.name) continue;
+            if (r.in_stock === false || r.is_out_of_stock === true) continue;
+            if (!staple.re.test(r.name)) continue;
+            if (staple.avoid && staple.avoid.test(r.name)) continue;
+            if (r.unit_type && r.unit_type !== staple.unit && !(staple.unit === 'liter' && r.unit_type === 'ltr')) continue;
+            const p = Number(r.normalized_price);
+            if (!(p > 0) || p < staple.lo || p > staple.hi) continue;
+            if (!best || p < Number(best.normalized_price)) best = r;
+        }
+        if (best) picked.push({ label: staple.label, row: best });
+        if (picked.length >= 6) break;
+    }
+    if (!picked.length) {
+        // Last resort (degraded data): biggest gaps vs their own average, else the first rows.
+        const withGap = rows
+            .filter(r => Number(r.normalized_price) > 0 && Number(r.avg_price) > 0)
+            .map(r => ({ r, gap: (Number(r.normalized_price) - Number(r.avg_price)) / Number(r.avg_price) }))
+            .sort((a, b) => a.gap - b.gap)
+            .slice(0, 5);
+        if (withGap.length) withGap.forEach(({ r }) => picked.push({ label: String(r.name), row: r }));
+        else rows.filter(r => Number(r.normalized_price) > 0).slice(0, 5)
+            .forEach(r => picked.push({ label: String(r.name), row: r }));
+    }
+    if (!picked.length) return;
+
+    const unitLabel = (t) => t === 'liter' || t === 'ltr' || t === 'litre' ? '/L' : (t === 'kg' || t === 'g' ? '/kg' : '/pc');
+    const money = (n) => {
+        const v = Number(n) || 0;
+        return v >= 1000 ? Math.round(v).toLocaleString('en-US') : (Math.round(v * 100) / 100).toLocaleString('en-US', { maximumFractionDigits: 2 });
+    };
+
+    host.innerHTML = picked.map(({ label, row }) => {
+        const store = STORE_CONFIG[row.store] || { name: row.store, color: '#8A857A' };
+        const avg = Number(row.avg_price) || 0;
+        const now = Number(row.normalized_price) || 0;
+        const gap = avg > 0 ? Math.round(((now - avg) / avg) * 100) : 0;
+        const deltaCls = gap > 0 ? 'is-hold' : '';
+        const deltaTxt = gap === 0 ? 'at average' : (gap > 0 ? `+${gap}% vs avg` : `${gap}% vs avg`);
+        const rawUnit = String(row.unit || '').trim();
+        const pack = rawUnit && !/assumed|^1 unit$|n\/a|null/i.test(rawUnit) ? ` · ${rawUnit}` : '';
+        return `
+            <div class="board-row" role="row">
+                <span class="board-name" role="cell" title="${escapeAttribute(row.name)}">${escapeHTML(label)}<span class="board-pack">${escapeHTML(pack)}</span></span>
+                <span class="board-price" role="cell">৳${money(now)}<small>${unitLabel(row.unit_type)}</small></span>
+                <span class="board-store" role="cell"><i class="board-dot" style="background:${store.color}"></i>${escapeHTML(store.name)}</span>
+                <span class="board-delta ${deltaCls}" role="cell">${deltaTxt}</span>
+            </div>`;
+    }).join('');
+
+    // Footer stamp: newest store date we have, refreshed once metadata lands.
+    const updateStamp = () => {
+        const stamp = document.getElementById('board-updated');
+        if (!stamp) return;
+        const meta = (typeof metadata !== 'undefined' && metadata && metadata.stores) ? metadata.stores : {};
+        const dates = Object.values(meta).map(m => (m && m.date_range ? String(m.date_range).split(' to ')[1] : null)).filter(Boolean).sort();
+        stamp.textContent = dates.length ? `updated ${dates[dates.length - 1]}` : 'live';
+    };
+    updateStamp();
+    setTimeout(updateStamp, 6000);
+}
+
 
 // ============================================================
 // TURSO CLOUD DATABASE ENGINE & DATA SOURCE TOGGLE SYSTEM
@@ -1029,6 +1153,7 @@ async function loadAllFromParquet() {
     fetch(`atl_preview.json?v=${ASSET_VERSION}`)
         .then(r => r.ok ? r.json() : null)
         .then(previewRows => {
+            if (previewRows && previewRows.length) window.__godAtlPreview = previewRows;
             if (previewRows && previewRows.length && allProducts.length === 0) {
                 previewRows.forEach(r => {
                     if (!seenIds.has(r.id)) {
@@ -1171,6 +1296,7 @@ async function loadAllFromParquet() {
             const productAsset = await productsFetchPromise;
             const pBuf = productAsset.buffer;
             await db.registerFileBuffer('products.parquet', new Uint8Array(pBuf));
+            window.__productsParquetReady = true;
             log(`Full products registered (${productAsset.path}) in background (${(pBuf.byteLength/1024/1024).toFixed(1)}MB)`);
 
             const storeCountResult = await conn.query(`
@@ -1852,7 +1978,7 @@ function renderSidebar() {
     
     const groupHeader = document.createElement('div');
     groupHeader.className = 'group-header';
-    groupHeader.innerHTML = '<span><i class="fas fa-folder-plus"></i> Matrix Groups</span> <button id="add-group-btn" class="btn-icon"><i class="fas fa-plus"></i></button>';
+    groupHeader.innerHTML = '<span><i class="fas fa-folder-plus"></i> Categories</span> <button id="add-group-btn" class="btn-icon" aria-label="New category group"><i class="fas fa-plus"></i></button>';
     list.appendChild(groupHeader);
 
     const groupList = document.createElement('div');
@@ -1879,7 +2005,7 @@ function renderSidebar() {
     const allShopsActive = allStores.length > 0 && allStores.every(s => activeShopFilters.has(s));
     
     shopHeading.innerHTML = `
-        <span><i class="fas fa-microchip"></i> Market Uplinks</span>
+        <span><i class="fas fa-store"></i> Stores</span>
         <div class="shop-bulk-actions" style="display:flex; gap:4px; align-items:center;">
             <button id="select-all-shops-btn" class="bulk-shop-btn ${allShopsActive ? 'active' : ''}" type="button" title="Select All Shops">All</button>
             <button id="unselect-all-shops-btn" class="bulk-shop-btn ${activeShopFilters.size === 0 ? 'active' : ''}" type="button" title="Unselect All Shops">None</button>
@@ -2323,6 +2449,17 @@ function renderProducts() {
                 if (product) openDetailedChart(product);
             }
         });
+        // Keyboard access: cards behave like buttons (Enter / Space opens the detail chart).
+        grid.addEventListener('keydown', (e) => {
+            if (e.key !== 'Enter' && e.key !== ' ') return;
+            const card = e.target.closest('.p-item-sh');
+            if (!card || e.target.closest('a, button, input, select')) return;
+            e.preventDefault();
+            const product = getProductById(card.dataset.productId);
+            if (!product) return;
+            if (compareModeActive) toggleComparisonItem(product.id);
+            else openDetailedChart(product);
+        });
     }
 
     const frag = document.createDocumentFragment();
@@ -2564,6 +2701,9 @@ function createProductCard(p) {
     card.className = 'p-item-sh ' + (compareModeActive && selectedForComparison.includes(p.id) ? 'selected' : '');
     card.dataset.productId = p.id;
     card.style.setProperty('--store-color', storeColor);
+    card.setAttribute('role', 'button');
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('aria-label', `${p.name} — ${fmt(p.normalized_price)} taka per ${unitTypeLabel(p.unit_type)} at ${STORE_CONFIG[p.store]?.name || p.store}`);
     
     const isOos = !p.in_stock || p.is_out_of_stock || !p.hasPriceToday || !(Number(p.current_price) > 0);
     const displayPrice = isOos ? getLastKnownPrice(p) : Number(p.current_price);
@@ -2603,7 +2743,7 @@ function createProductCard(p) {
     const sparklineHtml = renderCardSparklineSvg(p);
 
     card.innerHTML = `
-        <div class="store-badge" style="background:${storeColor}">${escapeHTML(p.store)}</div>
+        <div class="store-badge" style="background:${storeColor}">${escapeHTML(STORE_CONFIG[p.store]?.name || p.store)}</div>
         <a href="${escapeAttribute(getStoreDirectUrl(p))}" target="_blank" rel="noopener noreferrer" class="shop-redirect-card-btn" title="Open on ${escapeAttribute(p.store.toUpperCase())}" onclick="event.stopPropagation()" aria-label="Open on ${escapeAttribute(p.store.toUpperCase())}"><i class="fas fa-external-link-alt"></i></a>
         <div class="fav-btn ${p.isFavorite ? 'active' : ''}">
             <i class="fas fa-star"></i>
@@ -2627,11 +2767,11 @@ function createProductCard(p) {
                                 : '<span class="oos-label">Out of stock</span>')
                             : `${fmt(p.normalized_price)} <span class="unit-label">/${escapeHTML(unitTypeLabel(p.unit_type))}</span>`}
                     </span>
-                    <span class="cat-tag" title="${escapeAttribute(p.category)}">${escapeHTML(p.category)}</span>
                 </div>
                 <div class="card-sparkline-slot">${sparklineHtml}</div>
-                <div class="meta-row">
+                <div class="meta-row meta-row-foot">
                     <span class="pack-info">Pack: ${escapeHTML(formatPackUnit(p.unit))}</span>
+                    <span class="cat-tag" title="${escapeAttribute(p.category)}">${escapeHTML(p.category)}</span>
                 </div>
             </div>
         </div>
@@ -2759,9 +2899,9 @@ function renderCardSparklineSvg(p) {
     const last = points[points.length - 1];
     const diff = last - first;
 
-    // Color & trend symbol logic:
-    let strokeColor = '#06b6d4';
-    let fillColor = 'rgba(6, 182, 212, 0.12)';
+    // Color & trend symbol logic (Bazar Ledger palette):
+    let strokeColor = '#8A857A';
+    let fillColor = 'rgba(138, 133, 122, 0.10)';
     let trendSymbol = '■';
     let pctNum = 0;
 
@@ -2770,29 +2910,29 @@ function renderCardSparklineSvg(p) {
         const dropFromMax = max > last ? Math.round(((max - last) / max) * 100) : 0;
         const netDrop = first > last ? Math.round(((first - last) / first) * 100) : 0;
         pctNum = dropFromMax > 0 ? dropFromMax : (netDrop > 0 ? netDrop : Math.round((diffRange / Math.max(max, 1.0)) * 100));
-        strokeColor = '#10b981'; // Green for ATL deals
-        fillColor = 'rgba(16, 185, 129, 0.15)';
+        strokeColor = '#3BE0B0'; // taka-green: verified cheap
+        fillColor = 'rgba(59, 224, 176, 0.10)';
         trendSymbol = '▼';
     } else if (isFlat) {
-        strokeColor = '#06b6d4';
-        fillColor = 'rgba(6, 182, 212, 0.08)';
+        strokeColor = '#8A857A';
+        fillColor = 'rgba(138, 133, 122, 0.08)';
         trendSymbol = '■';
         pctNum = 0;
     } else if (last < first) {
-        strokeColor = '#10b981'; // Green for price drop
-        fillColor = 'rgba(16, 185, 129, 0.15)';
+        strokeColor = '#3BE0B0'; // price drop
+        fillColor = 'rgba(59, 224, 176, 0.10)';
         trendSymbol = '▼';
         pctNum = Math.round(Math.abs(diff / first) * 100);
     } else if (last > first) {
-        strokeColor = '#ef4444'; // Red for price increase
-        fillColor = 'rgba(239, 68, 68, 0.15)';
+        strokeColor = '#FF6B5A'; // price spike
+        fillColor = 'rgba(255, 107, 90, 0.10)';
         trendSymbol = '▲';
         pctNum = Math.round(Math.abs(diff / first) * 100);
     } else {
         const dropFromMax = max > last ? Math.round(((max - last) / max) * 100) : 0;
         pctNum = dropFromMax > 0 ? dropFromMax : Math.round((diffRange / Math.max(max, 1.0)) * 100);
-        strokeColor = '#10b981';
-        fillColor = 'rgba(16, 185, 129, 0.15)';
+        strokeColor = '#3BE0B0';
+        fillColor = 'rgba(59, 224, 176, 0.10)';
         trendSymbol = '▼';
     }
 
@@ -4285,7 +4425,7 @@ function updateStoreStats() {
         metadata.stores[s].date_range = `${start} to ${dToday}`;
     });
 
-    let html = '<div class="store-legend-header"><span>GODDATA UPLINK STATUS</span></div>';
+    let html = '<div class="store-legend-header"><span>Store freshness</span></div>';
     html += '<div class="store-legend-grid">';
     
     const sortedStores = Object.entries(metadata.stores).sort((a, b) => a[0].localeCompare(b[0]));
