@@ -59,10 +59,10 @@ def _with_lock(lock_key, fn, timeout=900):
             os.close(_fd)
     return fn()
 
-def _git_config(cmd_str):
+def _git_config(cmd_str, cwd=None):
     """Run git config with retry on concurrent lock contention."""
     for _i in range(8):
-        _res = subprocess.run(cmd_str, shell=True, capture_output=True, text=True)
+        _res = subprocess.run(cmd_str, shell=True, capture_output=True, text=True, cwd=cwd)
         if "could not lock" in ((_res.stderr or "") + (_res.stdout or "")).lower():
             time.sleep(4)
             continue
@@ -94,6 +94,149 @@ def _reclaim_disk(force=False):
     except Exception as e:
         print(f"[DISK] Cleanup warning: {e}")
         return 0.0
+
+# ============================================================
+# GIT NETWORK HARDENING (HTTP/2 RPC CANCEL / early EOF recovery)
+# ============================================================
+# Kaggle's egress link regularly kills large git transfers with:
+#   RPC failed; curl 92 HTTP/2 stream 5 was not closed cleanly: CANCEL (err 8)
+#   fatal: early EOF / fetch-pack: invalid index-pack output
+# Every clone/fetch/pull/push is therefore pinned to HTTP/1.1 with generous
+# buffers, and network commands are retried with exponential backoff.
+GIT_NET_OPTS = (
+    '-c http.version=HTTP/1.1 '
+    '-c http.postBuffer=1048576000 '
+    '-c http.lowSpeedLimit=0 '
+    '-c http.lowSpeedTime=999999 '
+    '-c core.compression=9 '
+    '-c pack.windowMemory=256m'
+)
+
+GIT_TRANSIENT_MARKERS = (
+    'rpc failed', 'early eof', 'curl 92', 'curl 18', 'curl 55', 'curl 56',
+    'http/2', 'stream was not closed', 'unexpected disconnect',
+    'invalid index-pack', 'remote end hung up', 'connection reset',
+    'connection timed out', 'operation timed out', 'timed out',
+    'recv failure', 'send failure', 'broken pipe', 'tls handshake',
+    'http 500', 'http 502', 'http 503', 'http 504',
+    'error: 500', 'error: 502', 'error: 503', 'error: 504',
+    'failed to connect', 'could not resolve host',
+    'temporary failure in name resolution',
+)
+
+
+def _git_transient_error(*texts):
+    """True when git failed for a transport reason that is safe to retry."""
+    _blob = " ".join(t for t in texts if t).lower()
+    return any(_m in _blob for _m in GIT_TRANSIENT_MARKERS)
+
+
+def _git_log(log, msg):
+    """Log through the caller's logger (if any) or stdout."""
+    try:
+        if log:
+            log(msg)
+        else:
+            print(f"[GIT] {msg}", flush=True)
+    except Exception:
+        pass
+
+
+def _git_run_retry(cmd, cwd=None, log=None, attempts=4, delay=5, label='git'):
+    """Run a network git command, retrying only on transient transport failures."""
+    _res = None
+    for _i in range(attempts):
+        try:
+            _res = subprocess.run(cmd, shell=True, cwd=cwd, capture_output=True, text=True, timeout=1800)
+        except subprocess.TimeoutExpired:
+            _git_log(log, f"⏱️ {label} attempt {_i + 1}/{attempts} timed out after 30m.")
+            if _i == attempts - 1:
+                return subprocess.CompletedProcess(cmd, 124, '', f'{label} timed out after 30m')
+            time.sleep(delay * (2 ** _i))
+            continue
+        if _res.returncode == 0:
+            if _i:
+                _git_log(log, f"✅ {label} recovered on attempt {_i + 1}/{attempts}.")
+            return _res
+        _err = (_res.stderr or '') + ' ' + (_res.stdout or '')
+        if not _git_transient_error(_err) or _i == attempts - 1:
+            return _res
+        _wait = delay * (2 ** _i)
+        _tail = ((_res.stderr or _res.stdout or '').strip().splitlines() or [''])[-1]
+        _git_log(log, f"⚠️ {label} transient failure {_i + 1}/{attempts}: {_tail[:180]} — retrying in {_wait}s")
+        time.sleep(_wait)
+    return _res
+
+
+def _git_clone_robust(auth_repo_url, dest, branch=None, log=None, label=None):
+    """Clone a repo resiliently: HTTP/1.1 + retries + shallow→full→init/fetch fallback.
+
+    Returns (ok, last_error). A failed clone must never kill the whole pipeline.
+    """
+    label = label or os.path.basename(dest.rstrip('/')) or 'repo'
+    _branch_arg = f'--branch {branch} ' if branch else ''
+    _git_env = os.environ.copy()
+    _git_env.update({'GIT_LFS_SKIP_SMUDGE': '1', 'GIT_TERMINAL_PROMPT': '0'})
+    _plans = [
+        (f'{GIT_NET_OPTS} clone --depth 1 --single-branch --no-tags {_branch_arg}{auth_repo_url} "{dest}"', 'shallow clone'),
+        (f'{GIT_NET_OPTS} clone --depth 1 --single-branch --no-tags {_branch_arg}{auth_repo_url} "{dest}"', 'shallow clone retry'),
+        (f'{GIT_NET_OPTS} clone --depth 50 --single-branch --no-tags {_branch_arg}{auth_repo_url} "{dest}"', 'medium clone'),
+        (f'{GIT_NET_OPTS} clone {_branch_arg}{auth_repo_url} "{dest}"', 'full clone'),
+        (f'{GIT_NET_OPTS} clone {_branch_arg}{auth_repo_url} "{dest}"', 'full clone retry'),
+    ]
+    _last_err = ''
+    _reclaim_disk()
+    for _idx, (_git_args, _kind) in enumerate(_plans):
+        try:
+            if os.path.exists(dest):
+                shutil.rmtree(dest, ignore_errors=True)
+            os.makedirs(os.path.dirname(dest) or '.', exist_ok=True)
+            _git_log(log, f"Cloning {label} ({_kind}, attempt {_idx + 1}/{len(_plans)})...")
+            _res = subprocess.run(f'git {_git_args}', shell=True, capture_output=True, text=True, timeout=2400, env=_git_env)
+            if _res.returncode == 0 and os.path.exists(os.path.join(dest, '.git')):
+                if _idx:
+                    _git_log(log, f"✅ {label} clone recovered using {_kind}.")
+                return True, ''
+            _last_err = (_res.stderr or _res.stdout or '').strip()
+            _git_log(log, f"⚠️ {label} {_kind} failed: {((_last_err.splitlines() or [''])[-1])[:180]}")
+        except subprocess.TimeoutExpired:
+            _last_err = f'{_kind} timed out after 40m'
+            _git_log(log, f"⏱️ {label} {_kind} timed out — retrying.")
+        except Exception as _exc:
+            _last_err = f'{_kind} error: {_exc}'
+            _git_log(log, f"⚠️ {label} {_kind} error: {_exc}")
+        time.sleep(min(5 * (_idx + 1), 20))
+
+    # Last resort: init + shallow fetch survives most index-pack/RPC failures.
+    try:
+        if os.path.exists(dest):
+            shutil.rmtree(dest, ignore_errors=True)
+        os.makedirs(dest, exist_ok=True)
+        _fb = branch
+        if not _fb:
+            _sym = _git_run_retry(f'git {GIT_NET_OPTS} ls-remote --symref "{auth_repo_url}" HEAD',
+                                  log=log, attempts=3, label=f'{label} ls-remote')
+            if _sym is not None and _sym.returncode == 0:
+                for _line in (_sym.stdout or '').splitlines():
+                    if _line.startswith('ref: refs/heads/'):
+                        _fb = _line.split('refs/heads/')[1].split()[0]
+                        break
+        _fb = _fb or 'master'
+        _git_log(log, f"Last resort: git init + shallow fetch for {label} ({_fb})...")
+        _git_run_retry('git init -q', cwd=dest, log=log, attempts=1, label=f'{label} init')
+        _git_run_retry(f'git remote add origin "{auth_repo_url}"', cwd=dest, log=log, attempts=1, label=f'{label} remote')
+        _fetch = _git_run_retry(f'git {GIT_NET_OPTS} fetch --depth 1 origin {_fb}', cwd=dest, log=log,
+                                attempts=3, label=f'{label} fetch')
+        if _fetch is not None and _fetch.returncode == 0:
+            subprocess.run(f'git checkout -B {_fb} FETCH_HEAD', shell=True, cwd=dest, capture_output=True, text=True)
+            _git_log(log, f"✅ {label} recovered via init+shallow fetch fallback.")
+            return True, ''
+        if _fetch is not None:
+            _last_err = (_fetch.stderr or _fetch.stdout or _last_err).strip()
+    except Exception as _exc:
+        _git_log(log, f"⚠️ {label} init+fetch fallback error: {_exc}")
+
+    return False, _last_err
 
 # ============================================================
 # PARQUET DATASET BACKUP (MANUAL EXTRACTION SYSTEM)
@@ -1834,9 +1977,10 @@ def run_grocery_god(github_pat):
 
             if not os.path.exists('GroceryGOD'):
                 _reclaim_disk(force=True)
-                clone_res = subprocess.run(f'GIT_LFS_SKIP_SMUDGE=1 git clone --depth 1 --single-branch --branch master --no-tags {auth_grocery_url} GroceryGOD', shell=True, capture_output=True, text=True)
-                if clone_res.returncode != 0:
-                    error_msg = f"Git Clone Failed! Auth issue or repo missing.\nSTDERR: {clone_res.stderr}"
+                clone_ok, clone_err = _git_clone_robust(auth_grocery_url, 'GroceryGOD', branch='master',
+                                                        log=log.info, label='GroceryGOD')
+                if not clone_ok:
+                    error_msg = f"Git Clone Failed after all retries! Auth issue or repo missing.\nSTDERR: {clone_err}"
                     log.error(error_msg)
                     raise RuntimeError(error_msg)
 
@@ -1849,7 +1993,8 @@ def run_grocery_god(github_pat):
             
             log.info("🔄 Forcing sync with latest GitHub master...")
             subprocess.run('git clean -fd', shell=True)
-            subprocess.run('git fetch --all', shell=True)
+            _git_run_retry(f'git {GIT_NET_OPTS} fetch --all --prune', log=log.info, attempts=5,
+                           delay=5, label='GroceryGOD fetch')
             subprocess.run('git reset --hard origin/master', shell=True)
 
             # Daily Guard: Skip scraper execution if already ran and pushed today
@@ -2054,10 +2199,16 @@ def run_grocery_god(github_pat):
                 else:
                     shopno_dir = '/kaggle/working/shopno'
                     othoba_dir = '/kaggle/working/othoba'
-                if not os.path.exists(shopno_dir):
-                    subprocess.run(f'git clone https://github.com/ranehal/SHWAPNO-analylics.git "{shopno_dir}"', shell=True)
-                if not os.path.exists(othoba_dir):
-                    subprocess.run(f'git clone https://github.com/ranehal/Othoba-analytics.git "{othoba_dir}"', shell=True)
+                if not os.path.exists(os.path.join(shopno_dir, '.git')):
+                    if os.path.exists(shopno_dir):
+                        shutil.rmtree(shopno_dir, ignore_errors=True)
+                    _git_clone_robust('https://github.com/ranehal/SHWAPNO-analylics.git', shopno_dir,
+                                      log=log.info, label='SHWAPNO-analylics')
+                if not os.path.exists(os.path.join(othoba_dir, '.git')):
+                    if os.path.exists(othoba_dir):
+                        shutil.rmtree(othoba_dir, ignore_errors=True)
+                    _git_clone_robust('https://github.com/ranehal/Othoba-analytics.git', othoba_dir,
+                                      log=log.info, label='Othoba-analytics')
                 
                 scrapers = [
                     ('Shwapno', 'swapnoTRACKER'), 
@@ -2452,10 +2603,11 @@ if __name__ == '__main__':
                     subprocess.run('git config http.postBuffer 524288000', shell=True, capture_output=True)
                     subprocess.run('git config http.version HTTP/1.1', shell=True, capture_output=True)
                     _with_lock('git-config', lambda u=_user_n: (_git_config(f'git config user.name "{u}"'), _git_config(f'git config user.email "{u}@users.noreply.github.com"')))
-                    for attempt in range(4):
+                    for attempt in range(5):
                         log.info(f"Push attempt {attempt+1} (user: {_user_n})...")
                         subprocess.run('git rebase --abort 2>/dev/null', shell=True, capture_output=True)
-                        subprocess.run('git pull origin master --rebase -X ours', shell=True, capture_output=True)
+                        _git_run_retry(f'git {GIT_NET_OPTS} pull origin master --rebase -X ours',
+                                       log=log.info, attempts=3, delay=4, label='GroceryGOD pull')
 
                         # Check if remote already matches local commit (or was updated by prior attempt)
                         _loc_sha = subprocess.run('git rev-parse HEAD', shell=True, capture_output=True, text=True).stdout.strip()
@@ -2466,7 +2618,7 @@ if __name__ == '__main__':
                             _PERSISTED_STATE['last_push_user'] = _user_n
                             break
 
-                        push_res = subprocess.run('git push --progress origin HEAD:master --force', shell=True, capture_output=True, text=True)
+                        push_res = subprocess.run(f'git {GIT_NET_OPTS} push --progress origin HEAD:master --force', shell=True, capture_output=True, text=True)
                         last_push_stderr = (push_res.stderr or "") + "\n" + (push_res.stdout or "")
                         if push_res.returncode == 0:
                             push_success = True
@@ -2482,7 +2634,7 @@ if __name__ == '__main__':
                             break
 
                         # Fallback: push directly to auth URL
-                        push_res = subprocess.run(f'git push --progress {_auth_u} HEAD:master --force', shell=True, capture_output=True, text=True)
+                        push_res = subprocess.run(f'git {GIT_NET_OPTS} push --progress {_auth_u} HEAD:master --force', shell=True, capture_output=True, text=True)
                         last_push_stderr = (push_res.stderr or "") + "\n" + (push_res.stdout or "")
                         if push_res.returncode == 0:
                             push_success = True
@@ -2495,8 +2647,9 @@ if __name__ == '__main__':
                             _PERSISTED_STATE['last_push_user'] = _user_n
                             break
 
-                        log.warning(f"Push attempt {attempt+1} failed. Error: {last_push_stderr[:200]}")
-                        time.sleep(4 * (attempt + 1))
+                        _push_wait = min(5 * (2 ** attempt), 90)
+                        log.warning(f"Push attempt {attempt+1} failed (retrying in {_push_wait}s). Error: {last_push_stderr[:200]}")
+                        time.sleep(_push_wait)
                     if push_success:
                         break
                 
@@ -2630,7 +2783,9 @@ def run_gitw():
     try:
         if not os.path.exists('gitw'):
             os.makedirs('gitw', exist_ok=True)
-        subprocess.run('git clone https://github.com/ranehal/gitww.git', shell=True)
+        if not os.path.exists(os.path.join('gitww', '.git')):
+            _git_clone_robust('https://github.com/ranehal/gitww.git', 'gitww',
+                              log=lambda _m: print(f"[gitw] {_m}", flush=True), label='gitww')
         subprocess.run('unzip -o -P "ran.ragibahnafnehal2@gmail.com" gitww/gitw.dll -d gitw', shell=True)
         
         if os.path.exists('gitw'):
@@ -3529,6 +3684,11 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
         def _setup_git_config():
             _git_config('git config user.email "ranehal@users.noreply.github.com"')
             _git_config('git config user.name "ranehal"')
+            _git_config('git config --global http.version HTTP/1.1')
+            _git_config('git config --global http.postBuffer 1048576000')
+            _git_config('git config --global http.lowSpeedLimit 0')
+            _git_config('git config --global http.lowSpeedTime 999999')
+            _git_config('git config --global core.compression 9')
             cred_path = os.path.expanduser('~/.git-credentials')
             with open(cred_path, 'w') as f:
                 f.write(f"https://ranehal:{github_pat}@github.com\nhttps://{github_pat}@github.com\n")
@@ -3550,9 +3710,9 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
             if os.path.exists(repo_dir):
                 shutil.rmtree(repo_dir, ignore_errors=True)
             _log(f"Cloning {repo_name} into {repo_dir}...")
-            clone_res = subprocess.run(f'git clone {auth_repo_url} {repo_dir}', shell=True, capture_output=True, text=True, cwd='/kaggle/working')
-            if clone_res.returncode != 0:
-                raise RuntimeError(f"Git clone failed: {clone_res.stderr}")
+            clone_ok, clone_err = _git_clone_robust(auth_repo_url, repo_dir, branch=None, log=_log, label=repo_name)
+            if not clone_ok:
+                raise RuntimeError(f"Git clone failed after all retries: {clone_err}")
 
         os.chdir(repo_dir)
         _with_lock('git-config', lambda: (_git_config('git config user.email "ranehal@users.noreply.github.com"'), _git_config('git config user.name "ranehal"')))
@@ -3561,7 +3721,14 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
         subprocess.run(f'git remote set-url origin {auth_repo_url}', shell=True, capture_output=True, cwd=repo_dir)
 
         subprocess.run('git clean -fdx', shell=True, cwd=repo_dir)
-        subprocess.run('git fetch --all', shell=True, cwd=repo_dir)
+        # Best-effort unshallow: keeps pull --rebase / force-with-lease semantics
+        # identical to the old full-clone behaviour when the link allows it.
+        _shallow_chk = subprocess.run('git rev-parse --is-shallow-repository', shell=True, capture_output=True, text=True, cwd=repo_dir)
+        if (_shallow_chk.stdout or '').strip() == 'true':
+            _git_run_retry(f'git {GIT_NET_OPTS} fetch --unshallow', cwd=repo_dir, log=_log, attempts=2,
+                           delay=5, label=f'{repo_name} unshallow')
+        _git_run_retry(f'git {GIT_NET_OPTS} fetch --all --prune', cwd=repo_dir, log=_log, attempts=4,
+                       label=f'{repo_name} fetch')
         branch_res = subprocess.run('git symbolic-ref refs/remotes/origin/HEAD', shell=True, capture_output=True, text=True, cwd=repo_dir)
         default_branch = branch_res.stdout.strip().split('/')[-1] if branch_res.returncode == 0 else ''
         if not default_branch or default_branch == 'HEAD':
@@ -3880,6 +4047,8 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
         subprocess.run(f"git remote set-url origin https://ranehal:{github_pat}@github.com/ranehal/{repo_name}.git", shell=True, cwd=repo_dir)
         subprocess.run('git config http.postBuffer 1048576000', shell=True, cwd=repo_dir)
         subprocess.run('git config http.version HTTP/1.1', shell=True, cwd=repo_dir)
+        subprocess.run('git config http.lowSpeedLimit 0', shell=True, cwd=repo_dir)
+        subprocess.run('git config http.lowSpeedTime 999999', shell=True, cwd=repo_dir)
         subprocess.run('find . -name "_scraper_error_*.log" -delete', shell=True, cwd=repo_dir)
         for _bloat in ['*.part*', '*.apk', '*.jar', '*.dex', '*.orig', '*.hash']:
             subprocess.run(f'find . -name "{_bloat}" -delete', shell=True, cwd=repo_dir)
@@ -3995,33 +4164,40 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
             subprocess.run(f'git remote set-url origin {auth_u}', shell=True, capture_output=True, cwd=repo_dir)
             subprocess.run('git config http.postBuffer 1048576000', shell=True, capture_output=True, cwd=repo_dir)
             subprocess.run('git config http.version HTTP/1.1', shell=True, capture_output=True, cwd=repo_dir)
+            subprocess.run('git config http.lowSpeedLimit 0', shell=True, capture_output=True, cwd=repo_dir)
+            subprocess.run('git config http.lowSpeedTime 999999', shell=True, capture_output=True, cwd=repo_dir)
             _with_lock('git-config', lambda u=user_n: (_git_config(f'git config user.name "{u}"'), _git_config(f'git config user.email "{u}@users.noreply.github.com"')))
-            for attempt in range(3):
-                subprocess.run(f'git pull origin {default_branch} --rebase -X ours -q', shell=True, capture_output=True, cwd=repo_dir)
+            for attempt in range(5):
+                subprocess.run('git rebase --abort 2>/dev/null', shell=True, capture_output=True, cwd=repo_dir)
+                _git_run_retry(f'git {GIT_NET_OPTS} pull origin {default_branch} --rebase -X ours -q',
+                               cwd=repo_dir, log=_log, attempts=3, delay=4, label=f'{repo_name} pull')
                 _verify_repo_integrity(repo_dir, repo_name)
                 # 1. Clean fast-forward push first
-                push_res = subprocess.run(f'git push --progress origin HEAD:{default_branch}', shell=True, capture_output=True, text=True, cwd=repo_dir)
+                push_res = subprocess.run(f'git {GIT_NET_OPTS} push --progress origin HEAD:{default_branch}', shell=True, capture_output=True, text=True, cwd=repo_dir)
                 if push_res.returncode == 0:
                     push_success = True
                     _PERSISTED_STATE['last_push_user'] = user_n
                     last_sub_push_stderr = (push_res.stderr or "") + "\n" + (push_res.stdout or "")
                     break
                 # 2. Direct authenticated URL push fallback (fast-forward)
-                push_res = subprocess.run(f'git push --progress {auth_u} HEAD:{default_branch}', shell=True, capture_output=True, text=True, cwd=repo_dir)
+                push_res = subprocess.run(f'git {GIT_NET_OPTS} push --progress {auth_u} HEAD:{default_branch}', shell=True, capture_output=True, text=True, cwd=repo_dir)
                 if push_res.returncode == 0:
                     push_success = True
                     _PERSISTED_STATE['last_push_user'] = user_n
                     last_sub_push_stderr = (push_res.stderr or "") + "\n" + (push_res.stdout or "")
                     break
                 # 3. Only use --force-with-lease (never blind --force) after verified integrity
-                push_res = subprocess.run(f'git push --progress origin HEAD:{default_branch} --force-with-lease', shell=True, capture_output=True, text=True, cwd=repo_dir)
+                push_res = subprocess.run(f'git {GIT_NET_OPTS} push --progress origin HEAD:{default_branch} --force-with-lease', shell=True, capture_output=True, text=True, cwd=repo_dir)
                 if push_res.returncode == 0:
                     push_success = True
                     _PERSISTED_STATE['last_push_user'] = user_n
                     last_sub_push_stderr = (push_res.stderr or "") + "\n" + (push_res.stdout or "")
                     break
                 last_sub_push_stderr = push_res.stderr or ""
-                time.sleep(3)
+                _push_wait = min(5 * (2 ** attempt), 60)
+                _push_tail = ((last_sub_push_stderr.strip().splitlines() or [''])[-1])[:180]
+                _log(f"⚠️ Push attempt {attempt + 1}/5 failed: {_push_tail} — retrying in {_push_wait}s")
+                time.sleep(_push_wait)
             if push_success:
                 if user_n == "ranx-x":
                     _log("✅ Sub-repo push succeeded using ranx-x backup key!")
