@@ -1,4 +1,4 @@
-Last Run: 2026-10-17 15:29:18
+Last Run: 2026-10-18 15:54:38
 ------------------------------
 Total Scraped: 8169
 Web Scraped: 8169
@@ -15,5 +15,5 @@ Categories:
 - Air Fresheners: 95
 - Tea & Coffee: 88
 - Spices: 88
-- Flash Sales: 81
-... and 169 more.
+- Flash Sales: 83
+... and 168 more.
