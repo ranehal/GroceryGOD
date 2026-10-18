@@ -130,42 +130,81 @@ fh.setLevel(logging.INFO)
 fh.setFormatter(logging.Formatter('[%(asctime)s] %(levelname)s: %(message)s'))
 logger.addHandler(fh)
 
+# --- PACK SIZE PARSING: explicit multiplication vs printed total net weight ---
+# "Pran Mr. Noodles 16x62gm" is a per-piece size x count (= 992gm), but
+# "Golden Harvest Chicken Spring Roll 14Pcs 300gm" is a pack of 14 pieces whose
+# TOTAL net weight is 300gm (not 14 x 300gm). Only an explicit x/×/* multiplies.
+_SIZE_UNIT_RE = r'(kg|gm|gram|g|ml|ltr|liter|litre|l)'
+_MULT_SIGN_RE = r'[x×*]'
+_SIZE_X_COUNT_RE = re.compile(r'(\d+(?:\.\d+)?)\s*' + _SIZE_UNIT_RE + r'\s*' + _MULT_SIGN_RE + r'\s*(\d+(?:\.\d+)?)(?!\d)', re.IGNORECASE)
+_COUNT_X_SIZE_RE = re.compile(r'(\d+(?:\.\d+)?)\s*(?:pcs?|pieces?|packs?|pkts?|p)?\s*' + _MULT_SIGN_RE + r'\s*(\d+(?:\.\d+)?)\s*' + _SIZE_UNIT_RE, re.IGNORECASE)
+
+def _size_to_base(val, unit):
+    """Normalize a size token to base units: grams for weight, millilitres for volume."""
+    u = unit.lower()
+    if u == 'kg':
+        return 'kg', val * 1000.0
+    if u in ('gm', 'gram', 'g'):
+        return 'kg', val
+    if u == 'ml':
+        return 'liter', val
+    return 'liter', val * 1000.0
+
+def format_pack_size(dimension, base):
+    if dimension == 'kg':
+        return f"{base / 1000:g} kg" if base >= 1000 else f"{base:g} gm"
+    return f"{base / 1000:g} L" if base >= 1000 else f"{base:g} ml"
+
+def find_explicit_multiplied_size(text):
+    """Return (dimension, total_base) for an explicit "<size> x <count>" / "<count> x <size>"."""
+    m = _SIZE_X_COUNT_RE.search(text or '')
+    if m:
+        dim, base = _size_to_base(float(m.group(1)), m.group(2))
+        return dim, base * float(m.group(3))
+    m = _COUNT_X_SIZE_RE.search(text or '')
+    if m:
+        dim, base = _size_to_base(float(m.group(2)), m.group(3))
+        return dim, base * float(m.group(1))
+    return None
+
 def normalize_unit(name, current_price_str):
-    name_lower = name.lower()
-    qty_disp = "1 Piece"
-    unit_type = "pc"
-    norm_price = float(current_price_str)
-    
-    match = re.search(r'(\d+(?:\.\d+)?)\s*(kg|g|gm|liter|ltr|l|ml|piece|pc|pcs|pack|pk)', name_lower)
-    if match:
-        val = float(match.group(1))
-        u = match.group(2)
-        if u in ['kg']:
-            qty_disp = f"{val} kg"
-            unit_type = "kg"
-            norm_price = norm_price / val
-        elif u in ['g', 'gm']:
-            qty_disp = f"{val} gm"
-            unit_type = "kg"
-            norm_price = (norm_price / val) * 1000
-        elif u in ['liter', 'ltr', 'l']:
-            qty_disp = f"{val} L"
-            unit_type = "L"
-            norm_price = norm_price / val
-        elif u in ['ml']:
-            qty_disp = f"{val} ml"
-            unit_type = "L"
-            norm_price = (norm_price / val) * 1000
-        else:
-            qty_disp = f"{val} {u}"
-            unit_type = "pc"
-            norm_price = norm_price / val
-    else:
-        if 'rice' in name_lower and not any(x in name_lower for x in ['spice', 'cake', 'cracker']):
-            unit_type = "kg"
-            qty_disp = "1 kg (assumed)"
-    
-    return qty_disp, round(norm_price, 2), unit_type
+    name_lower = (name or '').lower()
+    price = float(current_price_str)
+
+    explicit = find_explicit_multiplied_size(name_lower)
+    if explicit:
+        dim, total = explicit
+        if total > 0:
+            return format_pack_size(dim, total), round((price / total) * 1000, 2), ('kg' if dim == 'kg' else 'L')
+
+    weight = re.search(r'(\d+(?:\.\d+)?)\s*(kg|gm|gram|g)\b', name_lower)
+    if weight:
+        val = float(weight.group(1))
+        unit = weight.group(2)
+        if val > 0:
+            if unit == 'kg':
+                return f"{val:g} kg", round(price / val, 2), 'kg'
+            return f"{val:g} gm", round((price / val) * 1000, 2), 'kg'
+
+    volume = re.search(r'(\d+(?:\.\d+)?)\s*(ml|ltr|liter|litre|l)\b', name_lower)
+    if volume:
+        val = float(volume.group(1))
+        unit = volume.group(2)
+        if val > 0:
+            if unit == 'ml':
+                return f"{val:g} ml", round((price / val) * 1000, 2), 'L'
+            return f"{val:g} L", round(price / val, 2), 'L'
+
+    pieces = re.search(r'(\d+)\s*(pcs|pc|piece|pieces|pads|pad|hali|dozen|can|bottle|box|pkt|pack|sachet)\b', name_lower)
+    if pieces:
+        val = float(pieces.group(1))
+        if val > 0:
+            return f"{val:g} pc", round(price / val, 2), 'pc'
+
+    if 'rice' in name_lower and not any(x in name_lower for x in ['spice', 'cake', 'cracker']):
+        return "1 kg (assumed)", round(price, 2), 'kg'
+
+    return "1 Piece", round(price, 2), 'pc'
 
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 

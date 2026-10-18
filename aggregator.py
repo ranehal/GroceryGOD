@@ -100,9 +100,87 @@ def clean_tolerance(text):
     t = re.sub(r'\(?(?:[±\u00b1]|\+/-\s*|\+-\s*)\)?', '', t)
     return t
 
+# --- PACK SIZE PARSING: explicit multiplication vs printed total net weight ---
+# A pack name can describe either "<size> x <count>" (per-piece size repeated, e.g.
+# "Pran Mr. Noodles 16x62gm" = 992gm) or "<count> pcs <size>" where the printed weight
+# is the TOTAL net weight of the pack ("Golden Harvest Chicken Spring Roll 14Pcs 300gm"
+# = 14 pieces weighing 300gm in total, NOT 14 x 300gm). Only an explicit
+# multiplication sign may multiply; a bare count never does.
+_SIZE_UNIT_RE = r'(kg|gm|gram|g|ml|ltr|liter|litre|l)'
+_MULT_SIGN_RE = r'[x×*]'
+_SIZE_X_COUNT_RE = re.compile(r'(\d+(?:\.\d+)?)\s*' + _SIZE_UNIT_RE + r'\s*' + _MULT_SIGN_RE + r'\s*(\d+(?:\.\d+)?)(?!\d)', re.IGNORECASE)
+_COUNT_X_SIZE_RE = re.compile(r'(\d+(?:\.\d+)?)\s*(?:pcs?|pieces?|packs?|pkts?|p)?\s*' + _MULT_SIGN_RE + r'\s*(\d+(?:\.\d+)?)\s*' + _SIZE_UNIT_RE, re.IGNORECASE)
+
+def _size_to_base(val, unit):
+    """Normalize a size token to base units: grams for weight, millilitres for volume."""
+    u = unit.lower()
+    if u == 'kg':
+        return 'kg', val * 1000.0
+    if u in ('gm', 'gram', 'g'):
+        return 'kg', val
+    if u == 'ml':
+        return 'liter', val
+    return 'liter', val * 1000.0
+
+def format_pack_size(dimension, base):
+    if dimension == 'kg':
+        return f"{base / 1000:g} kg" if base >= 1000 else f"{base:g} gm"
+    return f"{base / 1000:g} L" if base >= 1000 else f"{base:g} ml"
+
+def find_explicit_multiplied_size(text):
+    """Return (dimension, total_base) for an explicit "<size> x <count>" / "<count> x <size>".
+
+    Returns None when there is no explicit multiplication sign, so a bare pack count
+    ("14Pcs 300gm", "8 pack 640 gm") leaves the printed weight as the pack total.
+    """
+    m = _SIZE_X_COUNT_RE.search(text or '')
+    if m:
+        dim, base = _size_to_base(float(m.group(1)), m.group(2))
+        return dim, base * float(m.group(3))
+    m = _COUNT_X_SIZE_RE.search(text or '')
+    if m:
+        dim, base = _size_to_base(float(m.group(2)), m.group(3))
+        return dim, base * float(m.group(1))
+    return None
+
+# "<piece size> <count> pcs <pack size>": the second size is the printed pack total
+# ("Balconi Mix max 35 gm 10 pcs 350 gm" is a 350gm box, not 35gm or 3500gm).
+_PER_PIECE_THEN_TOTAL_RE = re.compile(
+    r'(\d+(?:\.\d+)?)\s*' + _SIZE_UNIT_RE + r'\s*[,/]?\s*\d+\s*(?:pcs?|pieces?|bars?|packs?|units?)\b[^0-9]{0,12}?(\d+(?:\.\d+)?)\s*' + _SIZE_UNIT_RE,
+    re.IGNORECASE
+)
+
+def find_per_piece_then_total(text):
+    """Return (dimension, total_base) when a per-piece size is followed by the pack total."""
+    m = _PER_PIECE_THEN_TOTAL_RE.search(text or '')
+    if not m:
+        return None
+    dim_one, _ = _size_to_base(float(m.group(1)), m.group(2))
+    dim, base = _size_to_base(float(m.group(3)), m.group(4))
+    return (dim, base) if dim == dim_one else None
+
+def _promo_buy_count(full_text):
+    """Buy count from a count-based promo ("Buy16 Pad Get8 Pad Free" -> 16), else 0."""
+    m = re.search(
+        r'\bbuy\s*(\d+|one|two|three|four|five|six)\s*(?:pcs?|packs?|pads?|bottles?|t\s*brush)?\s*(?:and|&)?\s*get\s*(\d+|one|two|three|four|five|six)',
+        full_text, re.IGNORECASE
+    )
+    if not m:
+        return 0.0
+    word_num = {'one': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5, 'six': 6}
+    s = m.group(1).lower()
+    try:
+        return float(word_num.get(s, s))
+    except (TypeError, ValueError):
+        return 0.0
+
 def get_clean_display_unit(name, raw_unit):
     raw_str = str(raw_unit or '').strip()
     name_clean = clean_tolerance(name or "").strip()
+    for _cand in (name_clean, raw_str):
+        _mult = find_explicit_multiplied_size(_cand)
+        if _mult:
+            return format_pack_size(*_mult)
     m_name = re.search(r'(\d+(\.\d+)?\s*(?:kg|gm|gram|g|ml|ltr|liter|l))\b', name_clean, re.IGNORECASE)
     if m_name:
         extracted = m_name.group(1).strip()
@@ -233,45 +311,23 @@ def parse_unit_and_calculate(name, unit_str, price):
     multiplier, extra_free_weight_gm, extra_free_volume_ml = parse_promotion(full_text)
 
     for t_src in [name_clean, unit_clean]:
-        mult_match1 = re.search(r'(\d+(\.\d+)?)\s*(kg|gm|gram|g|ml|ltr|l)\s*[xX*]\s*(\d+)', t_src)
-        if mult_match1:
-            val = float(mult_match1.group(1))
-            unit = mult_match1.group(3)
-            count = float(mult_match1.group(4))
-            total_val = (val * count * multiplier)
-            if unit in ['gm', 'gram', 'g']:
-                total_gm = total_val + extra_free_weight_gm
-                return 'kg', (price / total_gm) * 1000 if total_gm > 0 else price
-            elif unit == 'kg':
-                total_kg = total_val + (extra_free_weight_gm / 1000.0)
-                return 'kg', price / total_kg if total_kg > 0 else price
-            elif unit == 'ml':
-                total_ml = total_val + extra_free_volume_ml
-                return 'liter', (price / total_ml) * 1000 if total_ml > 0 else price
-            else:
-                total_l = total_val + (extra_free_volume_ml / 1000.0)
-                return 'liter', price / total_l if total_l > 0 else price
-
-        mult_match2 = re.search(r'(\d+)\s*(?:p|pcs?|packs?|x|\*)\s*[xX*]?\s*(\d+(\.\d+)?)\s*(kg|gm|gram|g|ml|ltr|l)\b', t_src)
-        if mult_match2:
-            count = float(mult_match2.group(1))
-            val = float(mult_match2.group(2))
-            unit = mult_match2.group(4)
-            total_val = (val * count * multiplier)
-            if unit in ['gm', 'gram', 'g']:
-                total_gm = total_val + extra_free_weight_gm
-                return 'kg', (price / total_gm) * 1000 if total_gm > 0 else price
-            elif unit == 'kg':
-                total_kg = total_val + (extra_free_weight_gm / 1000.0)
-                return 'kg', price / total_kg if total_kg > 0 else price
-            elif unit == 'ml':
-                total_ml = total_val + extra_free_volume_ml
-                return 'liter', (price / total_ml) * 1000 if total_ml > 0 else price
-            else:
-                total_l = total_val + (extra_free_volume_ml / 1000.0)
-                return 'liter', price / total_l if total_l > 0 else price
+        explicit = find_explicit_multiplied_size(t_src)
+        if explicit:
+            dim, total_base = explicit
+            # Count-based promos (Buy 2 Get 1 Free) scale the paid quantity too.
+            total_base = (total_base * multiplier) + (extra_free_weight_gm if dim == 'kg' else extra_free_volume_ml)
+            if total_base <= 0:
+                return ('kg' if dim == 'kg' else 'liter'), price
+            return ('kg' if dim == 'kg' else 'liter'), (price / total_base) * 1000
 
     for t_src in [name_clean, unit_clean]:
+        pp_total = find_per_piece_then_total(t_src)
+        if pp_total:
+            dim, base = pp_total
+            base = (base * multiplier) + (extra_free_weight_gm if dim == 'kg' else extra_free_volume_ml)
+            if base > 0:
+                return ('kg' if dim == 'kg' else 'liter'), (price / base) * 1000
+
         weight_match = re.search(r'(\d+(\.\d+)?)\s*(kg|gm|gram|g)\b', t_src)
         if weight_match:
             val = float(weight_match.group(1))
@@ -301,7 +357,11 @@ def parse_unit_and_calculate(name, unit_str, price):
         if piece_match:
             pcs = float(piece_match.group(1))
             if pcs > 0:
-                total_pcs = pcs * multiplier
+                # "16Pad (Buy16 Pad Get8 Pad Free)": the promo buy-count IS the listed pack
+                # count, so the promo multiplier already describes the whole pack (24) and
+                # multiplying pcs * multiplier would count the same pads twice.
+                buy_n = _promo_buy_count(full_text)
+                total_pcs = multiplier if (buy_n and abs(buy_n - pcs) < 0.001) else (pcs * multiplier)
                 return 'piece', price / total_pcs if total_pcs > 0 else price
 
     if multiplier > 1:
