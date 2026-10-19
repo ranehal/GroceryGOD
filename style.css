@@ -7240,3 +7240,265 @@ body.theme-light .category-item.active { color: var(--taka) !important; }
 @media (max-width: 720px) {
     #chart-modal .history-paywall-mask { inset: 0 0 0 0 !important; }
 }
+
+/* ============================================================================
+   INTERACTION PASS — 2026-10-19 (appended; wins by order)
+   ----------------------------------------------------------------------------
+   1. Card category tag is a jump button (category view, item kept + flagged).
+   2. Unit-price rank chip on every live card (№N inside its category).
+   3. Scroll top/down buttons reachable on phones.
+   4. Mobile header tools: every desktop header tool available from the sticky
+      header, and the filter toolbar stays reachable while scrolling.
+   ============================================================================ */
+
+/* ---- 0. Decorative pseudo-elements must not eat taps ---------------------- */
+/* `.btn-variant-gradient::after` is a shimmer parked at translateX(-140%) — it
+   covers the neighbouring button and swallowed real clicks (e.g. Show OOS /
+   Blend OOS sit right beside Analytics). Decorations are never interactive. */
+.btn-variant-gradient::after,
+.btn-variant-neon::before,
+.btn-variant-neon::after,
+.btn-variant-theme::before,
+.btn-variant-theme::after,
+.btn-variant-alerts::before,
+.btn-variant-alerts::after,
+.btn-variant-compare::before,
+.btn-variant-compare::after,
+.btn-variant-key::before,
+.btn-variant-key::after,
+.btn-variant-source::before,
+.btn-variant-source::after,
+.btn-variant-soft::before,
+.btn-variant-soft::after,
+.btn-variant-minimal::before,
+.btn-variant-minimal::after,
+#price-alerts-btn::before,
+#price-alerts-btn::after,
+#analytics-btn::before,
+#analytics-btn::after {
+    pointer-events: none !important;
+}
+
+/* ---- 1. Category jump tag ------------------------------------------------- */
+button.cat-tag.cat-jump-btn {
+    border: 0 !important;
+    background: transparent !important;
+    padding: 2px 4px !important;
+    margin: -2px -4px !important;
+    font-family: var(--font-mono) !important;
+    font-size: .56rem !important;
+    letter-spacing: .06em !important;
+    text-transform: uppercase !important;
+    color: var(--paper-3) !important;
+    cursor: pointer !important;
+    border-radius: 4px !important;
+    line-height: 1.5;
+    transition: color .14s var(--ease-out), background .14s var(--ease-out) !important;
+}
+button.cat-tag.cat-jump-btn:hover { color: var(--taka) !important; background: rgba(59, 224, 176, .10) !important; }
+button.cat-tag.cat-jump-btn:active { transform: scale(.97); }
+button.cat-tag.cat-jump-btn:focus-visible {
+    outline: 2px solid var(--taka) !important;
+    outline-offset: 2px !important;
+    color: var(--paper) !important;
+}
+body.theme-light button.cat-tag.cat-jump-btn:hover { background: rgba(14, 124, 92, .10) !important; }
+
+/* Landing card after a category jump */
+@keyframes cat-jump-pulse {
+    0%   { box-shadow: 0 0 0 0 rgba(59, 224, 176, .55); }
+    100% { box-shadow: 0 0 0 14px rgba(59, 224, 176, 0); }
+}
+.p-item-sh.cat-jump-highlight {
+    border-color: var(--taka) !important;
+    box-shadow: 0 0 0 2px rgba(59, 224, 176, .55) !important;
+    animation: cat-jump-pulse 1.3s var(--ease-out) 2;
+}
+@media (prefers-reduced-motion: reduce) {
+    .p-item-sh.cat-jump-highlight { animation: none !important; }
+}
+
+/* ---- 2. Unit-price rank chip ---------------------------------------------- */
+.rank-chip {
+    flex: 0 0 auto;
+    align-self: center;
+    font-family: var(--font-mono) !important;
+    font-size: .54rem !important;
+    font-weight: 600 !important;
+    letter-spacing: .04em !important;
+    color: var(--paper-3) !important;
+    background: transparent !important;
+    border: 1px solid var(--rule) !important;
+    border-radius: 4px !important;
+    padding: 1px 4px !important;
+    line-height: 1.5 !important;
+    white-space: nowrap !important;
+    font-variant-numeric: tabular-nums;
+}
+.rank-chip.rank-top {
+    color: var(--taka) !important;
+    border-color: rgba(59, 224, 176, .45) !important;
+    background: rgba(59, 224, 176, .08) !important;
+}
+body.theme-light .rank-chip.rank-top { border-color: rgba(14, 124, 92, .40) !important; background: rgba(14, 124, 92, .08) !important; }
+
+/* ---- 3. Scroll top/down: usable on phones too ------------------------------ */
+@media (max-width: 768px), (hover: none) and (pointer: coarse) {
+    .scroll-nav {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 8px !important;
+        right: 12px !important;
+        /* Clear the right-hand chat FAB (bottom offset + 42px + gap) so taps
+           always land on the scroll buttons, not on the assistant bubble. */
+        bottom: calc(max(8px, env(safe-area-inset-bottom, 0px)) + 118px) !important;
+        z-index: 95 !important;
+    }
+    .scroll-nav .scroll-btn {
+        width: 44px !important;
+        height: 44px !important;
+        font-size: 1rem !important;
+        opacity: .92 !important;
+    }
+}
+.scroll-nav .scroll-btn.scroll-btn-dim { opacity: .35 !important; }
+body.immersive-mode .scroll-nav { display: none !important; }
+
+/* ---- 4a. Mobile header tools button ---------------------------------------- */
+#mobile-header-tools-btn { display: none !important; }
+@media (max-width: 768px) {
+    #mobile-header-tools-btn {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 30px !important;
+        height: 30px !important;
+        min-width: 30px !important;
+        padding: 0 !important;
+        flex: 0 0 30px !important;
+        border-radius: 6px !important;
+        border: 1px solid var(--rule) !important;
+        background: transparent !important;
+        color: var(--paper-2) !important;
+        font-size: .8rem !important;
+    }
+}
+@media (hover: none) and (pointer: coarse) and (max-width: 1180px) {
+    #mobile-header-tools-btn {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 32px !important;
+        height: 32px !important;
+        padding: 0 !important;
+        border-radius: 6px !important;
+        border: 1px solid var(--rule) !important;
+        background: transparent !important;
+        color: var(--paper-2) !important;
+    }
+}
+body.mobile-tools-open #mobile-header-tools-btn {
+    color: var(--taka) !important;
+    border-color: rgba(59, 224, 176, .5) !important;
+    background: rgba(59, 224, 176, .12) !important;
+}
+
+/* ---- 4b. Tools panel: the whole header-right toolbar, reachable anywhere --- */
+body.mobile-tools-open .header-right {
+    /* Fixed, not absolute: as an abspos grid item the panel's containing block
+       would be its (narrow) "sort" grid area, collapsing it to a few px wide. */
+    position: fixed !important;
+    top: var(--ggd-header-h, 88px) !important;
+    left: 0 !important;
+    right: 0 !important;
+    grid-area: auto !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 6px !important;
+    width: auto !important;
+    max-height: min(62vh, 460px) !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    padding: 10px 12px 12px !important;
+    margin: 0 !important;
+    background: rgba(10, 12, 11, .98) !important;
+    border-bottom: 1px solid var(--rule-strong) !important;
+    box-shadow: 0 22px 44px rgba(0, 0, 0, .5) !important;
+    z-index: 60 !important;
+}
+body.mobile-tools-open .header-right > button,
+body.mobile-tools-open .header-right #sort-options { display: inline-flex !important; }
+/* The ≤768px block hides these with `.header-right #id` (an ID beats a class
+   chain), so the reveal must be ID-scoped too. */
+body.mobile-tools-open .header-right #price-alerts-btn,
+body.mobile-tools-open .header-right #compare-btn,
+body.mobile-tools-open .header-right #cart-comp-btn,
+body.mobile-tools-open .header-right #analytics-btn,
+body.mobile-tools-open .header-right #show-all-toggle,
+body.mobile-tools-open .header-right #immersive-btn,
+body.mobile-tools-open .header-right #density-btn,
+body.mobile-tools-open .header-right #premium-key-btn,
+body.mobile-tools-open .header-right #theme-toggle-btn { display: inline-flex !important; }
+/* Icon-only tools are ambiguous without hover tooltips on a phone: show the
+   label text again inside the panel (the ledger hides these spans globally
+   with a 2-ID `:not()` chain, so this selector carries 3 IDs to win). */
+body:not(.sidebar-collapsed).mobile-tools-open #dashboard-header .header-right .btn-icon span:not(.button-count):not(.alerts-count):not(.source-live-dot):not(.premium-mini-lock):not(#alerts-header-count):not(#compare-header-count) {
+    display: inline-block !important;
+    font-family: var(--font-mono) !important;
+    font-size: .58rem !important;
+    letter-spacing: .02em !important;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-left: 2px;
+}
+body.mobile-tools-open .header-right .btn-icon {
+    gap: 6px !important;
+    min-width: 34px !important;
+    height: 34px !important;
+    padding: 0 10px !important;
+    max-width: none !important;
+    overflow: visible !important;
+    white-space: nowrap !important;
+    border-color: var(--rule) !important;
+    background: rgba(255, 255, 255, .02) !important;
+}
+body.mobile-tools-open .header-right .btn-icon span {
+    max-width: none !important;
+    overflow: visible !important;
+    text-overflow: clip !important;
+    white-space: nowrap !important;
+}
+body.mobile-tools-open .header-right .btn-icon.active,
+body.mobile-tools-open .header-right .btn-icon[aria-pressed="true"] {
+    border-color: rgba(59, 224, 176, .5) !important;
+    background: rgba(59, 224, 176, .12) !important;
+    color: var(--taka) !important;
+}
+body.theme-light.mobile-tools-open .header-right .btn-icon { background: rgba(10, 12, 11, .03) !important; }
+body.mobile-tools-open .header-right #sort-options { width: auto !important; max-width: none !important; }
+body.mobile-tools-open .header-right .multi-filter-group {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 6px !important;
+    width: 100% !important;
+    order: -1;
+}
+body.mobile-tools-open .header-right::-webkit-scrollbar { width: 4px; }
+body.theme-light.mobile-tools-open .header-right {
+    background: rgba(246, 242, 232, .99) !important;
+    border-bottom-color: var(--rule-strong) !important;
+}
+
+/* ---- 4c. Filter toolbar stays reachable on phones --------------------------- */
+@media (max-width: 768px) {
+    body.catalog-active .intelligence-bar {
+        position: sticky !important;
+        top: var(--ggd-header-h, 88px) !important;
+        z-index: 30 !important;
+    }
+    body.mobile-tools-open .intelligence-bar { z-index: 25 !important; }
+}
+

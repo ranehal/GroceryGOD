@@ -65,3 +65,6 @@ read_later/
 
 
 
+
+# Playwright MCP artifacts (local browser test snapshots)
+.playwright-mcp/

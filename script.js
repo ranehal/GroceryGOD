@@ -45,7 +45,11 @@ const PAGE_SIZE = 50;
 let visiblePages = 1;
 let showAllProducts = false;
 let hideOutOfStock = true;
+let blendOos = safeStorage.getItem('god_blend_oos') === '1';
+let dataVersion = 0;
 let gridSentinelObserver = null;
+let catRankIndex = new Map();      // productId -> { rank, total } within (store, category) by unit price
+let catRankDirty = true;
 
 let searchQuery = '';
 let activeUnitFilters = new Set(['kg', 'liter', 'piece']);
@@ -72,6 +76,7 @@ Object.defineProperty(window, 'expandedStoreGroups', { get: () => expandedStoreG
 Object.defineProperty(window, 'lastSelectedShop', { get: () => lastSelectedShop, set: (v) => { lastSelectedShop = v; }, configurable: true });
 Object.defineProperty(window, 'activeIntelFilter', { get: () => activeIntelFilter, set: (v) => { activeIntelFilter = v; }, configurable: true });
 Object.defineProperty(window, 'hideOutOfStock', { get: () => hideOutOfStock, set: (v) => { hideOutOfStock = v; }, configurable: true });
+Object.defineProperty(window, 'blendOos', { get: () => blendOos, set: (v) => { blendOos = v; }, configurable: true });
 Object.defineProperty(window, 'hideNoImage', { get: () => hideNoImage, set: (v) => { hideNoImage = v; }, configurable: true });
 Object.defineProperty(window, 'searchQuery', { get: () => searchQuery, set: (v) => { searchQuery = v; }, configurable: true });
 
@@ -1880,6 +1885,8 @@ function showShopLoadingAnimation(storeId, customCallback = null) {
 
 function processData() {
     todayStr = dhakaTodayStr();
+    dataVersion++;
+    catRankDirty = true;
     const todayMs = Date.parse(todayStr + 'T12:00:00Z');
     const recentThresholdMs = recentDaysFilter * 86400000;
 
@@ -2285,6 +2292,7 @@ function filterByGroup(name) {
     const ids = customGroups[name] || [];
     searchQuery = ''; activeIntelFilter = 'all'; activeCategories.clear(); userCustomizedCategories.clear();
     const grid = document.getElementById('sh-grid'); grid.innerHTML = '';
+    grid.dataset.renderSig = ''; grid.dataset.renderedLimit = '0';
     document.getElementById('current-view-title').innerText = 'Group: ' + name;
     currentFilteredProducts = allProducts.filter(p => ids.includes(p.id));
     currentFilteredProducts.forEach(p => grid.appendChild(createProductCard(p)));
@@ -2335,10 +2343,242 @@ function hasValidProductImage(p) {
     return true;
 }
 
+// ---------------------------------------------------------------------------
+// Category rank (2026-10-19): rank each live item inside its own
+// (store, category) group by unit price — cheapest = №1. Built from the full
+// in-memory catalogue, rebuilt only when the data changes.
+// ---------------------------------------------------------------------------
+function rebuildCategoryRankIndex() {
+    const groups = new Map();
+    for (let i = 0; i < allProducts.length; i++) {
+        const p = allProducts[i];
+        const np = Number(p.normalized_price);
+        if (!(np > 0)) continue;
+        if (!p.in_stock || p.is_out_of_stock) continue;
+        const key = (p.store || '') + '\u0000' + (p.category || '');
+        let bucket = groups.get(key);
+        if (!bucket) { bucket = []; groups.set(key, bucket); }
+        bucket.push([np, p.id]);
+    }
+    const index = new Map();
+    groups.forEach(bucket => {
+        bucket.sort((a, b) => a[0] - b[0]);
+        let rank = 0;
+        let prev = null;
+        for (let i = 0; i < bucket.length; i++) {
+            const np = bucket[i][0];
+            if (prev === null || np !== prev) rank = i + 1; // competition ranking (1,2,2,4)
+            prev = np;
+            index.set(bucket[i][1], { rank: rank, total: bucket.length });
+        }
+    });
+    catRankIndex = index;
+    catRankDirty = false;
+}
+window.rebuildCategoryRankIndex = rebuildCategoryRankIndex;
+
+// Signature of everything that changes WHICH cards are in the grid and in what
+// order. When it is unchanged, a page reveal can append only the new slice
+// instead of wiping + rebuilding the whole grid (that wipe was the mobile
+// "scroll through the next page" glitch: full re-render, images reloading,
+// momentary height collapse / scroll clamp).
+function buildProductViewSignature() {
+    return [
+        currentDataSource,
+        dataVersion,
+        showAllProducts ? 1 : 0,
+        hideOutOfStock ? 1 : 0,
+        blendOos ? 1 : 0,
+        hideNoImage ? 1 : 0,
+        showFavoritesOnly ? 1 : 0,
+        searchQuery,
+        sortOption,
+        activeIntelFilter,
+        priceChangeDays,
+        priceChangeMode,
+        recentDaysFilter,
+        enableRecentDaysFilter ? 1 : 0,
+        activeUnitFilters ? Array.from(activeUnitFilters).sort().join('+') : '',
+        Array.from(activeShopFilters).sort().join('+'),
+        Array.from(activeCategories).sort().join('+'),
+        Array.from(userCustomizedCategories).sort().join('+')
+    ].join('~');
+}
+
+// Keep the standalone "Show OOS" button honest about the current state.
+function syncShowOosBtn() {
+    const btn = document.getElementById('show-all-toggle');
+    if (!btn) return;
+    btn.classList.toggle('active', !hideOutOfStock);
+    const label = btn.querySelector('span');
+    const icon = btn.querySelector('i');
+    if (label) label.textContent = hideOutOfStock ? 'Show OOS' : 'Hide OOS';
+    if (icon) icon.className = hideOutOfStock ? 'fas fa-eye-slash' : 'fas fa-eye';
+}
+
+function syncBlendOosBtn() {
+    const btn = document.getElementById('blend-oos-toggle');
+    if (!btn) return;
+    btn.classList.toggle('active', blendOos);
+    btn.setAttribute('aria-pressed', blendOos ? 'true' : 'false');
+}
+window.syncBlendOosBtn = syncBlendOosBtn;
+
+// Deal-oriented quick filters (All Time Low, 15%+ Drop, Wait…) require a live
+// price, so they exclude every OOS item by construction. Blending OOS into the
+// list therefore means dropping such a filter — otherwise the switch would
+// look broken (nothing changes).
+const OOS_EXCLUDING_INTEL_FILTERS = ['low', 'first_low', 'great', 'good', 'customdrop', 'wait'];
+function clearOosExcludingIntelFilter() {
+    if (!OOS_EXCLUDING_INTEL_FILTERS.includes(activeIntelFilter)) return false;
+    activeIntelFilter = 'all';
+    document.querySelectorAll('.intel-btn[data-filter]').forEach(b => b.classList.toggle('active', b.dataset.filter === activeIntelFilter));
+    return true;
+}
+
+function prefersReducedMotion() {
+    try { return window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (_) { return false; }
+}
+
+// Scroll a specific card into view and flag it for a moment.
+function highlightProductCard(productId) {
+    if (!productId) return;
+    const escapeForSelector = (v) => (window.CSS && CSS.escape) ? CSS.escape(v) : String(v).replace(/["\\]/g, '\\$&');
+    let tries = 0;
+    const attempt = () => {
+        const card = document.querySelector(`#sh-grid .p-item-sh[data-product-id="${escapeForSelector(productId)}"]`);
+        if (!card) {
+            if (tries++ < 24) setTimeout(attempt, 100);
+            return;
+        }
+        const header = document.getElementById('dashboard-header');
+        const offset = (header ? header.offsetHeight : 0) + 18;
+        const top = card.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top: Math.max(0, top), behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
+        card.classList.remove('cat-jump-highlight');
+        void card.offsetWidth; // restart the pulse
+        card.classList.add('cat-jump-highlight');
+        clearTimeout(card._catJumpTimer);
+        card._catJumpTimer = setTimeout(() => card.classList.remove('cat-jump-highlight'), 3400);
+        try { card.focus({ preventScroll: true }); } catch (_) {}
+    };
+    requestAnimationFrame(attempt);
+}
+window.highlightProductCard = highlightProductCard;
+
+// Card category tag -> open that category (store scoped), item kept + flagged.
+async function jumpToCategoryWithHighlight(sid, catName, productId) {
+    if (!sid || !catName) return;
+    const catId = sid + '_' + catName;
+    lastSelectedShop = sid;
+    activeShopFilters.clear();
+    activeShopFilters.add(sid);
+    activeCategories.clear();
+    activeCategories.add(catId);
+    userCustomizedCategories.clear();
+    userCustomizedCategories.add(sid);
+    expandedStoreGroups.add(sid);
+
+    // Drop filters that could hide the target item inside its own category.
+    if (showFavoritesOnly) {
+        showFavoritesOnly = false;
+        document.getElementById('bookmark-cat-btn')?.classList.remove('active');
+    }
+    if (searchQuery) {
+        searchQuery = '';
+        const si = document.getElementById('product-search');
+        if (si) si.value = '';
+        document.getElementById('clear-search')?.classList.remove('visible');
+    }
+    if (enableRecentDaysFilter) {
+        enableRecentDaysFilter = false;
+        safeStorage.setItem('god_enable_recent_days', '0');
+        const ndToggle = document.getElementById('new-days-toggle');
+        if (ndToggle) ndToggle.checked = false;
+    }
+    if (activeIntelFilter === 'low' || activeIntelFilter === 'first_low') {
+        activeIntelFilter = 'all';
+        document.querySelectorAll('.intel-btn[data-filter]').forEach(b => b.classList.toggle('active', b.dataset.filter === activeIntelFilter));
+    }
+    visiblePages = 1;
+
+    if (typeof window.ensureStoreHistoryLoaded === 'function') window.ensureStoreHistoryLoaded(sid);
+    if (typeof window.triggerCatalogHydration === 'function') window.triggerCatalogHydration('shop_toggle');
+    const storeLoadedCount = allProducts.filter(p => p.store === sid).length;
+    if (!window.loadedStores.has(sid) || storeLoadedCount === 0) {
+        if (typeof showShopLoadingAnimation === 'function') showShopLoadingAnimation(sid);
+        await loadStoreData(sid);
+        window.loadedStores.add(sid);
+        processData();
+    }
+    renderSidebar();
+    renderProducts();
+    updateStatsBar();
+    // If the item sits beyond the first page of its category, extend the page
+    // window so it is actually in the DOM — otherwise there is nothing to land on.
+    const targetIdx = currentFilteredProducts.findIndex(p => p.id === productId);
+    if (targetIdx >= 0 && targetIdx >= visiblePages * PAGE_SIZE) {
+        visiblePages = Math.ceil((targetIdx + 1) / PAGE_SIZE) + 1;
+        renderProducts();
+    }
+    highlightProductCard(productId);
+}
+window.jumpToCategoryWithHighlight = jumpToCategoryWithHighlight;
+
+// ---------------------------------------------------------------------------
+// Mobile header tools: the compact sticky header can reveal every desktop
+// header tool as an overlay panel, so its toolbar is reachable anywhere.
+// ---------------------------------------------------------------------------
+function refreshStickyHeaderOffset() {
+    const hdr = document.getElementById('dashboard-header');
+    if (!hdr) return;
+    document.documentElement.style.setProperty('--ggd-header-h', Math.round(hdr.offsetHeight) + 'px');
+}
+window.refreshStickyHeaderOffset = refreshStickyHeaderOffset;
+
+function initMobileHeaderTools() {
+    const btn = document.getElementById('mobile-header-tools-btn');
+    if (!btn) return;
+    const isOpen = () => document.body.classList.contains('mobile-tools-open');
+    const close = () => {
+        if (!isOpen()) return;
+        document.body.classList.remove('mobile-tools-open');
+        btn.setAttribute('aria-expanded', 'false');
+        refreshStickyHeaderOffset();
+    };
+    const open = () => {
+        document.body.classList.add('mobile-tools-open');
+        btn.setAttribute('aria-expanded', 'true');
+        refreshStickyHeaderOffset();
+    };
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        if (isOpen()) close(); else open();
+    });
+    // Tapping anywhere outside the header dismisses the panel.
+    document.addEventListener('click', (e) => {
+        if (!isOpen()) return;
+        if (e.target && e.target.closest && e.target.closest('#dashboard-header')) return;
+        close();
+    });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 1180) close();
+        refreshStickyHeaderOffset();
+    });
+    window.addEventListener('orientationchange', () => setTimeout(refreshStickyHeaderOffset, 250));
+    // Keep the sticky offset in sync with the real header height.
+    if (window.ResizeObserver) {
+        try { new ResizeObserver(() => refreshStickyHeaderOffset()).observe(document.getElementById('dashboard-header')); } catch (_) {}
+    }
+    refreshStickyHeaderOffset();
+}
+
 function renderProducts() {
     const grid = document.getElementById('sh-grid');
     if (!grid) return;
-    grid.innerHTML = '';
+    if (catRankDirty) rebuildCategoryRankIndex();
     
     currentFilteredProducts = allProducts.filter(p => {
         const isCustomCat = userCustomizedCategories.has(p.store);
@@ -2353,7 +2593,7 @@ function renderProducts() {
         if (!activeUnitFilters.has(p.unit_type)) return false;
         if (enableRecentDaysFilter && recentDaysFilter > 0 && p.ageDays > recentDaysFilter) return false;
         const isOos = !p.in_stock || p.is_out_of_stock || !p.hasPriceToday || !(Number(p.current_price) > 0);
-        if (hideOutOfStock && isOos && !searchQuery && !isCustomCat) return false;
+        if (hideOutOfStock && !blendOos && isOos && !searchQuery && !isCustomCat) return false;
 
         if (activeIntelFilter === 'great') return !isOos && p.normalized_price < (p.avgPrice * greatDealThreshold);
         if (activeIntelFilter === 'good') return !isOos && p.normalized_price < (p.avgPrice * goodBuyThreshold);
@@ -2378,9 +2618,12 @@ function renderProducts() {
 
     const noPrice = p => (!p.hasPriceToday || !(Number(p.current_price) > 0) || !p.in_stock || p.is_out_of_stock);
     currentFilteredProducts.sort((a, b) => {
-        // ALWAYS push out-of-stock items to the end in all sort modes
-        const npDiff = (noPrice(a) ? 1 : 0) - (noPrice(b) ? 1 : 0);
-        if (npDiff !== 0) return npDiff;
+        // Out-of-stock items go to the end — unless "Blend OOS" is on, which is
+        // exactly the point of that switch: OOS interleaved with live items.
+        if (!blendOos) {
+            const npDiff = (noPrice(a) ? 1 : 0) - (noPrice(b) ? 1 : 0);
+            if (npDiff !== 0) return npDiff;
+        }
         if (sortOption === 'name_asc') return a.name < b.name ? -1 : (a.name > b.name ? 1 : 0);
         if (sortOption === 'unit_price_asc') { const av=Number(a.normalized_price),bv=Number(b.normalized_price); const am=!(av>0)||Number.isNaN(av); const bm=!(bv>0)||Number.isNaN(bv); if(am&&bm)return 0; if(am)return 1; if(bm)return -1; return av-bv; }
         if (sortOption === 'unit_price_desc') { const av=Number(a.normalized_price),bv=Number(b.normalized_price); const am=!(av>0)||Number.isNaN(av); const bm=!(bv>0)||Number.isNaN(bv); if(am&&bm)return 0; if(am)return 1; if(bm)return -1; return bv-av; }
@@ -2426,6 +2669,8 @@ function renderProducts() {
                 <small>Try a lower custom drop, another shop, or reset the active quick filters.</small>
                 <button id="reset-product-view-btn" class="btn-icon btn-variant-neon" type="button"><i class="fas fa-rotate-left"></i> Reset view</button>
             </div>`;
+        grid.dataset.renderSig = '';
+        grid.dataset.renderedLimit = '0';
         document.getElementById('reset-product-view-btn')?.addEventListener('click', resetProductViewFilters);
         return;
     }
@@ -2438,7 +2683,12 @@ function renderProducts() {
             const card = e.target.closest('.p-item-sh');
             if (!card) return;
             const id = card.dataset.productId;
-            if (e.target.closest('.fav-btn')) {
+            if (e.target.closest('.cat-jump-btn')) {
+                // Category tag on the card: open that category, keep the item in view.
+                const jump = e.target.closest('.cat-jump-btn');
+                e.preventDefault();
+                jumpToCategoryWithHighlight(jump.dataset.sid, jump.dataset.cat, id);
+            } else if (e.target.closest('.fav-btn')) {
                 toggleFavorite(e, id);
             } else if (e.target.closest('.alert-quick-btn')) {
                 openAlertForProduct(e, id);
@@ -2462,47 +2712,74 @@ function renderProducts() {
         });
     }
 
-    const frag = document.createDocumentFragment();
     const limit = showAllProducts ? currentFilteredProducts.length : visiblePages * PAGE_SIZE;
-    currentFilteredProducts.slice(0, limit).forEach(p => frag.appendChild(createProductCard(p)));
-    grid.appendChild(frag);
+    const effectiveLimit = Math.min(limit, currentFilteredProducts.length);
+    const viewSig = buildProductViewSignature();
+    const prevLimit = parseInt(grid.dataset.renderedLimit || '0', 10) || 0;
+    // Same view + one (or more) extra page = append the new cards only.
+    const isAppend = !showAllProducts && grid.dataset.renderSig === viewSig && prevLimit > 0 && effectiveLimit > prevLimit;
 
-    // Clean up any prior infinite-scroll observer + leftover DOM to avoid duplicates/leaks.
-    if (gridSentinelObserver) { gridSentinelObserver.disconnect(); gridSentinelObserver = null; }
-    document.getElementById('load-more-container')?.remove();
-    document.getElementById('grid-sentinel')?.remove();
+    if (isAppend) {
+        const frag = document.createDocumentFragment();
+        for (let i = prevLimit; i < effectiveLimit; i++) frag.appendChild(createProductCard(currentFilteredProducts[i]));
+        const sentinel = document.getElementById('grid-sentinel');
+        if (sentinel && sentinel.parentNode === grid) grid.insertBefore(frag, sentinel);
+        else grid.appendChild(frag);
+    } else {
+        grid.innerHTML = '';
+        // Clean up any prior infinite-scroll observer + leftover DOM to avoid duplicates/leaks.
+        if (gridSentinelObserver) { gridSentinelObserver.disconnect(); gridSentinelObserver = null; }
+        document.getElementById('load-more-container')?.remove();
+        document.getElementById('grid-sentinel')?.remove();
+        const frag = document.createDocumentFragment();
+        for (let i = 0; i < effectiveLimit; i++) frag.appendChild(createProductCard(currentFilteredProducts[i]));
+        grid.appendChild(frag);
+    }
+    grid.dataset.renderSig = viewSig;
+    grid.dataset.renderedLimit = String(effectiveLimit);
 
-    const hasMore = (limit < currentFilteredProducts.length) || (currentDataSource === 'turso' && window.__tursoHasMore);
+    const hasMore = (effectiveLimit < currentFilteredProducts.length) || (currentDataSource === 'turso' && window.__tursoHasMore);
     if (hasMore && !showAllProducts) {
         if (window.IntersectionObserver) {
             // Infinite scroll: reveal the next page when the sentinel enters view.
-            const sentinel = document.createElement('div');
-            sentinel.id = 'grid-sentinel';
-            sentinel.style.cssText = 'grid-column:1/-1; height:1px;';
-            grid.appendChild(sentinel);
+            // The sentinel node is reused across appends so the observer does not
+            // re-fire on a freshly inserted (already visible) element.
+            let sentinel = document.getElementById('grid-sentinel');
+            if (!sentinel) {
+                sentinel = document.createElement('div');
+                sentinel.id = 'grid-sentinel';
+                sentinel.style.cssText = 'grid-column:1/-1; height:1px;';
+                grid.appendChild(sentinel);
+            }
+            if (gridSentinelObserver) gridSentinelObserver.disconnect();
             gridSentinelObserver = new IntersectionObserver((entries) => {
-                if (entries.some(entry => entry.isIntersecting)) {
-                    visiblePages++;
-                    if (currentDataSource === 'turso') {
-                        if (currentFilteredProducts.length < visiblePages * PAGE_SIZE && window.__tursoHasMore) {
-                            if (typeof window.triggerCatalogHydration === 'function') {
-                                window.triggerCatalogHydration('pagination');
-                            }
-                        } else {
-                            renderProducts();
-                        }
-                    } else {
+                if (!entries.some(entry => entry.isIntersecting)) return;
+                if (window.__gridPageLoading) return;
+                window.__gridPageLoading = true;
+                visiblePages++;
+                const done = () => { window.__gridPageLoading = false; };
+                if (currentDataSource === 'turso') {
+                    if (currentFilteredProducts.length < visiblePages * PAGE_SIZE && window.__tursoHasMore) {
                         if (typeof window.triggerCatalogHydration === 'function') {
-                            window.triggerCatalogHydration('pagination');
-                        }
+                            Promise.resolve(window.triggerCatalogHydration('pagination')).finally(done);
+                        } else { done(); }
+                    } else {
                         renderProducts();
+                        done();
                     }
+                } else {
+                    if (typeof window.triggerCatalogHydration === 'function') {
+                        window.triggerCatalogHydration('pagination');
+                    }
+                    renderProducts();
+                    done();
                 }
             }, { root: null, rootMargin: '400px 0px', threshold: 0 });
             gridSentinelObserver.observe(sentinel);
         } else {
+            document.getElementById('grid-sentinel')?.remove();
             // Graceful fallback: classic Load More button.
-            const remaining = Math.max(0, currentFilteredProducts.length - limit);
+            const remaining = Math.max(0, currentFilteredProducts.length - effectiveLimit);
             const container = document.createElement('div');
             container.id = 'load-more-container';
             container.style.cssText = 'text-align:center; padding:20px;';
@@ -2527,6 +2804,10 @@ function renderProducts() {
                 }
             });
         }
+    } else {
+        if (gridSentinelObserver) { gridSentinelObserver.disconnect(); gridSentinelObserver = null; }
+        document.getElementById('grid-sentinel')?.remove();
+        document.getElementById('load-more-container')?.remove();
     }
 }
 
@@ -2539,14 +2820,12 @@ function resetProductViewFilters() {
     visiblePages = 1;
     showAllProducts = false;
     hideOutOfStock = true;
+    blendOos = false;
+    safeStorage.setItem('god_blend_oos', '0');
     const hdrInput = document.getElementById('new-days-header');
     if (hdrInput) hdrInput.value = 7;
-    const showAllBtn = document.getElementById('show-all-toggle');
-    if (showAllBtn) {
-        showAllBtn.classList.remove('active');
-        showAllBtn.querySelector('span').textContent = 'Show OOS';
-        showAllBtn.querySelector('i').className = 'fas fa-eye-slash';
-    }
+    syncShowOosBtn();
+    syncBlendOosBtn();
 
     // CRITICAL FIX: Reset filter should NOT enable all shops, re-enable last shop only!
     let targetShop = lastSelectedShop;
@@ -2741,6 +3020,10 @@ function createProductCard(p) {
 
     const badgeStackHtml = badges.length ? `<div class="card-badge-stack">${badges.join('')}</div>` : '';
     const sparklineHtml = renderCardSparklineSvg(p);
+    const rankInfo = catRankIndex.get(p.id);
+    const rankHtml = rankInfo
+        ? `<span class="rank-chip${rankInfo.rank <= 3 ? ' rank-top' : ''}" title="${escapeAttribute(`№${rankInfo.rank} cheapest of ${rankInfo.total} live items in ${p.category} — ranked by unit price`)}">№${rankInfo.rank}</span>`
+        : '';
 
     card.innerHTML = `
         <div class="store-badge" style="background:${storeColor}">${escapeHTML(STORE_CONFIG[p.store]?.name || p.store)}</div>
@@ -2767,11 +3050,12 @@ function createProductCard(p) {
                                 : '<span class="oos-label">Out of stock</span>')
                             : `${fmt(p.normalized_price)} <span class="unit-label">/${escapeHTML(unitTypeLabel(p.unit_type))}</span>`}
                     </span>
+                    ${rankHtml}
                 </div>
                 <div class="card-sparkline-slot">${sparklineHtml}</div>
                 <div class="meta-row meta-row-foot">
                     <span class="pack-info">Pack: ${escapeHTML(formatPackUnit(p.unit))}</span>
-                    <span class="cat-tag" title="${escapeAttribute(p.category)}">${escapeHTML(p.category)}</span>
+                    <button type="button" class="cat-tag cat-jump-btn" data-sid="${escapeAttribute(p.store)}" data-cat="${escapeAttribute(p.category)}" title="Open ${escapeAttribute(p.category)} on ${escapeAttribute(STORE_CONFIG[p.store]?.name || p.store)} — this item stays highlighted">${escapeHTML(p.category)}</button>
                 </div>
             </div>
         </div>
@@ -3328,8 +3612,44 @@ function setupEventListeners() {
         }
     });
 
-    document.getElementById('scroll-top').onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
-    document.getElementById('scroll-bottom').onclick = () => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    const scrollTopBtn = document.getElementById('scroll-top');
+    const scrollBottomBtn = document.getElementById('scroll-bottom');
+    if (scrollTopBtn) scrollTopBtn.onclick = () => window.scrollTo({ top: 0, behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
+    if (scrollBottomBtn) scrollBottomBtn.onclick = () => {
+        const getScroller = () => document.scrollingElement || document.documentElement;
+        if (prefersReducedMotion()) {
+            window.scrollTo(0, getScroller().scrollHeight);
+            return;
+        }
+        // Infinite scroll appends pages as we reach the bottom, so follow the
+        // growing document for a few passes instead of stopping mid-list.
+        let passes = 0;
+        const step = () => {
+            const before = getScroller().scrollHeight;
+            window.scrollTo({ top: before, behavior: 'smooth' });
+            if (passes++ < 5) {
+                setTimeout(() => {
+                    if (getScroller().scrollHeight > before + 40) step();
+                }, 750);
+            }
+        };
+        step();
+    };
+    // Dim each button when it has nowhere left to go.
+    if (scrollTopBtn && scrollBottomBtn) {
+        let scrollRaf = null;
+        const syncScrollNav = () => {
+            scrollRaf = null;
+            const el = document.scrollingElement || document.documentElement;
+            const max = el.scrollHeight - el.clientHeight;
+            scrollTopBtn.classList.toggle('scroll-btn-dim', window.scrollY <= 8);
+            scrollBottomBtn.classList.toggle('scroll-btn-dim', window.scrollY >= max - 8);
+        };
+        window.addEventListener('scroll', () => { if (!scrollRaf) scrollRaf = requestAnimationFrame(syncScrollNav); }, { passive: true });
+        window.addEventListener('resize', syncScrollNav);
+        syncScrollNav();
+    }
+    initMobileHeaderTools();
 
     document.addEventListener('click', (e) => {
         const wrapper = document.querySelector('.search-wrapper');
@@ -3530,14 +3850,30 @@ function setupEventListeners() {
     document.getElementById('cart-comp-btn').onclick = openCartModal;
     document.getElementById('show-all-toggle')?.addEventListener('click', () => {
         hideOutOfStock = !hideOutOfStock;
-        const btn = document.getElementById('show-all-toggle');
-        if (btn) {
-            btn.classList.toggle('active', !hideOutOfStock);
-            btn.querySelector('span').textContent = hideOutOfStock ? 'Show OOS' : 'Hide OOS';
-            btn.querySelector('i').className = hideOutOfStock ? 'fas fa-eye-slash' : 'fas fa-eye';
+        if (hideOutOfStock) {
+            // Cannot blend hidden items — the two switches stay coherent.
+            blendOos = false;
+            safeStorage.setItem('god_blend_oos', '0');
+            syncBlendOosBtn();
         }
+        syncShowOosBtn();
+        visiblePages = 1;
         renderProducts();
     });
+    document.getElementById('blend-oos-toggle')?.addEventListener('click', () => {
+        blendOos = !blendOos;
+        safeStorage.setItem('god_blend_oos', blendOos ? '1' : '0');
+        if (blendOos) {
+            hideOutOfStock = false; // blending implies showing them
+            clearOosExcludingIntelFilter();
+        }
+        syncBlendOosBtn();
+        syncShowOosBtn();
+        visiblePages = 1;
+        renderProducts();
+    });
+    syncBlendOosBtn();
+    syncShowOosBtn();
     document.getElementById('reset-cart-btn').onclick = () => {
         if(confirm('Empty Cart?')) {
             favorites = []; safeStorage.setItem('god_favorites', '[]');

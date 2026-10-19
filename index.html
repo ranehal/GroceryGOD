@@ -205,6 +205,7 @@ if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || wi
 </div>
 <button class="hero-return-pill" id="header-hero-tab" title="Back to Hero Overview"><i class="fas fa-arrow-up"></i> <span>Hero</span></button>
 </div>
+<button aria-controls="dashboard-header" aria-expanded="false" aria-label="Header tools" class="btn-icon btn-variant-minimal" id="mobile-header-tools-btn" title="Header tools — units, theme, show all, OOS"><i class="fas fa-sliders"></i></button>
 </div>
 <div class="search-wrapper">
 <input class="search-input" id="product-search" placeholder="Search essentials…" type="text"/>
@@ -233,7 +234,8 @@ if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || wi
 <button aria-label="Toggle interface density" class="btn-icon btn-variant-minimal icon-only-desktop" id="density-btn" title="Toggle interface density"><i class="fas fa-compress-alt"></i></button>
 <button aria-pressed="false" class="btn-icon btn-variant-compare" id="compare-btn" title="Select products to compare"><i class="fas fa-code-compare"></i> <span class="compare-button-label">Compare</span><span class="button-count" hidden="" id="compare-header-count">0</span></button>
 <button class="btn-icon btn-variant-soft" id="cart-comp-btn" title="Cart Analysis"><i class="fas fa-cart-shopping"></i> <span>Cart</span></button>
-<button class="btn-icon btn-variant-soft" id="show-all-toggle" title="Toggle: show all products without pagination"><i class="fas fa-list"></i> <span>Show All</span></button>
+<button class="btn-icon btn-variant-soft" id="show-all-toggle" title="Show or hide out-of-stock items"><i class="fas fa-eye-slash"></i> <span>Show OOS</span></button>
+<button aria-pressed="false" class="btn-icon btn-variant-soft" id="blend-oos-toggle" title="Blend out-of-stock items with live ones (interleaved by price, not pushed to the end)"><i class="fas fa-layer-group"></i> <span>Blend OOS</span></button>
 <button class="btn-icon primary-action btn-variant-gradient premium-gated" id="analytics-btn" title="Premium analytics dashboard"><i class="fas fa-chart-line"></i> <span>Analytics</span><i class="fas fa-lock premium-mini-lock" id="analytics-lock-icon"></i></button>
 <button aria-label="Enter immersive best-items view" aria-pressed="false" class="btn-icon btn-variant-neon immersive-header-btn" id="immersive-btn" title="Immersive best-items view"><i class="fas fa-expand"></i><span>Focus</span></button>
 <button aria-label="Switch theme" class="btn-icon btn-variant-theme icon-only-desktop" id="theme-toggle-btn" title="Switch light / AMOLED theme"><i class="fas fa-moon"></i></button>
