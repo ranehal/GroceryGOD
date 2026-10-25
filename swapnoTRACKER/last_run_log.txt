@@ -1,17 +1,17 @@
-Last Run: 2026-10-24 20:12:01
+Last Run: 2026-10-25 07:42:48
 ------------------------------
-Total Scraped: 10381
+Total Scraped: 10717
 New Items: 0
 ------------------------------
 Categories:
-- Food: 2090
+- Food: 2085
 - Personal Care: 794
-- Hot Deals: 698
-- Great Savings 3: 625
-- Snacks: 533
-- Cooking: 300
-- Home Cleaning: 264
+- Hot Deals: 694
+- Great Savings 3: 622
+- Snacks: 532
+- Cooking: 364
+- Beverages: 268
+- Home Cleaning: 263
 - Candy & Chocolate: 213
 - Biscuits: 197
-- Dairy: 167
-... and 161 more.
+... and 163 more.
