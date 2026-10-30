@@ -1,9 +1,9 @@
-Last Run: 2026-10-29 03:03:35
+Last Run: 2026-10-30 13:19:31
 ------------------------------
-Total Scraped: 6099
-Web Scraped: 4903
+Total Scraped: 6102
+Web Scraped: 4906
 App API Scraped: 2640
-Combined Unique: 6099
+Combined Unique: 6102
 ------------------------------
 Categories:
 - Snacks: 892
