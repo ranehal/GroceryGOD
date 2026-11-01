@@ -1523,7 +1523,7 @@ def trigger_self_restart(exec_stats=None):
                     try:
                         with open(candidate_path, 'r', encoding='utf-8') as csf:
                             cand_code = csf.read()
-                        if len(cand_code) > 10000:
+                        if len(cand_code) > 10000 and 'def run_giveaway_agents' in cand_code:
                             code_src = cand_code
                             break
                     except Exception:
@@ -1635,7 +1635,7 @@ def trigger_self_restart(exec_stats=None):
                         except Exception:
                             pass
 
-                if fresh_scratch:
+                if fresh_scratch and 'def run_giveaway_agents' in fresh_scratch:
                     src_str = fresh_scratch
 
                 # Strip any prior auto-injected header blocks
@@ -1781,10 +1781,12 @@ def trigger_self_restart(exec_stats=None):
         p1_st = es.get('p1_status', 'OK')
         p2_st = es.get('p2_status', 'OK')
         p3_st = es.get('p3_status', 'OK')
+        p15_st = es.get('p15_status', 'N/A')
 
         p1_badge = "✅ Completed (8 Stores Aggregated)" if p1_st == "OK" else f"⚠️ {p1_st}"
-        p2_badge = "✅ Completed (34 Worker Tasks)" if p2_st == "OK" else f"⚠️ {p2_st}"
+        p2_badge = "✅ Completed (35 Worker Tasks)" if p2_st == "OK" else f"⚠️ {p2_st}"
         p3_badge = "✅ Completed (12/12 Repos Pushed)" if p3_st == "OK" else f"⚠️ {p3_st}"
+        p15_badge = "✅ Running" if p15_st == "OK" else f"⚠️ {p15_st}"
 
         # Parquet backup info
         pq_info = "Generated & Verified"
@@ -1812,7 +1814,8 @@ def trigger_self_restart(exec_stats=None):
             "📦 <b>Pipelines Status:</b>\n"
             f"• 🛒 <b>GroceryGOD (p1):</b> {p1_badge}\n"
             f"• ⚙️ <b>gitw (p2):</b> {p2_badge}\n"
-            f"• 🌐 <b>Scheduled Repos (p3):</b> {p3_badge}\n\n"
+            f"• 🌐 <b>Scheduled Repos (p3):</b> {p3_badge}\n"
+            f"• 🎁 <b>Giveaway (p15):</b> {p15_badge}\n\n"
             "📈 <b>Data, Backup & Quota Snapshot:</b>\n"
             f"• 💾 <b>Parquet Backup:</b> <code>{pq_info}</code>\n"
             f"• 🌐 <b>Monthly Push Bandwidth:</b> {bw_badge}\n"
@@ -1838,6 +1841,43 @@ def trigger_self_restart(exec_stats=None):
         )
         print(err_msg)
         _tg(err_msg)
+
+# Othoba web probe hotfix payload (zlib+base64 of the fixed
+# othobaTRACKER/scraper_web.py). Applied after the repo clone and
+# decryption steps so Kaggle never runs the old false geo-block probe
+# even when the remote repo copy is stale.
+_OTHOBA_WEB_FIX_B64 = "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"
+
+
+def _apply_othoba_web_hotfix(web_path, logger=None):
+    """Replace the old Othoba false-geo-block probe if it is still present."""
+    try:
+        if not os.path.exists(web_path):
+            return False
+        with open(web_path, 'r', encoding='utf-8') as f:
+            old_src = f.read()
+        if 'Othoba Geo-Block/Stuck Screenshot' not in old_src:
+            return False
+        import ast as _ast
+        import base64 as _b64
+        import zlib as _zlib
+        fixed = _zlib.decompress(
+            _b64.b64decode(_OTHOBA_WEB_FIX_B64)
+        ).decode('utf-8')
+        _ast.parse(fixed)
+        with open(web_path, 'w', encoding='utf-8', newline='\n') as f:
+            f.write(fixed)
+        if logger:
+            logger(
+                'Othoba web probe hotfix applied: text-first probe, '
+                'no false geo-block exit.'
+            )
+        return True
+    except Exception as exc:
+        if logger:
+            logger(f'Othoba web probe hotfix skipped: {exc}')
+        return False
+
 
 # ============================================================
 # PIPELINE 1: GROCERYGOD (CONTINUOUS LOOP)
@@ -2062,6 +2102,12 @@ def run_grocery_god(github_pat):
                     log.info(f'  Decrypted {_dc}/{len(_enc_files)} files')
                 except subprocess.CalledProcessError as e:
                     log.error(f'Decryption failed: {e.stderr[:500]}')
+
+            # In-repo Othoba tracker used by p1.
+            _apply_othoba_web_hotfix(
+                os.path.join(os.getcwd(), 'othobaTRACKER', 'scraper_web.py'),
+                log.info,
+            )
 
             SCRAPER_TIMEOUT = 45 * 60
             PARALLEL_MAX_WORKERS = 8
@@ -2795,7 +2841,7 @@ def run_gitw():
         
         processes = []
         my_env = os.environ.copy()
-        for i in range(1, 35):
+        for i in range(1, 36):
             script_f = f"{i}.py"
             if os.path.exists(script_f):
                 p = subprocess.Popen([sys.executable, script_f], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, env=my_env)
@@ -3738,6 +3784,13 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
         subprocess.run('git clean -fdx', shell=True, cwd=repo_dir)
         _verify_repo_integrity(repo_dir, repo_name)
 
+        # Also cover the separate Othoba-analytics clone (p3), including
+        # any nested copy of scraper_web.py.
+        for _ow_path in glob.glob(
+            os.path.join(repo_dir, '**', 'scraper_web.py'), recursive=True
+        ):
+            _apply_othoba_web_hotfix(_ow_path, _log)
+
         # Daily Guard: Skip scraper execution if already ran and pushed today
         today_dhaka = datetime.now(DHAKA_TZ).strftime('%Y-%m-%d')
         already_done_today = False
@@ -4277,6 +4330,428 @@ def run_all_scheduled_repos(repos, github_pat, results_store=None):
             print(f"❌ [Scheduled Repos] Exception in {lbl}: {exc}\n")
     print("🟢 [Scheduled Repos] All scheduled sub-repos completed.")
 
+import base64
+import signal
+import zlib
+
+# ============================================================
+# PIPELINE 15: TELEGRAM GIVEAWAY AGENTS (3 accounts, parallel)
+# ============================================================
+# Runs the three giveaway accounts as supervised subprocesses next to
+# p1 (GroceryGOD), p2 (gitw) and p3 (scheduled repos). Each account has
+# its own session, SQLite database and log, so they never share state.
+# The agents restart themselves internally; this outer supervisor also
+# restarts them if a process is hard-killed, and reports status in
+# /kaggle/working/giveaway_p15/status.json.
+_GIVEAWAY_P15_ROOT = "/kaggle/working/giveaway_p15"
+_GIVEAWAY_P15_STOP_FILE = os.path.join(_GIVEAWAY_P15_ROOT, "STOP")
+_GIVEAWAY_P15_SHARED = ("TG_API_ID", "TG_API_HASH", "SOURCE_CHAT", "TARGET_BOT")
+_GIVEAWAY_P15_AGENTS = [
+    {
+        "name": "main",
+        "script": "giveaway_agent.py",
+        "session_env": "TG_SESSION_STRING",
+        "secret_names": ("TG_SESSION_STRING", "MAIN_TG_SESSION_STRING"),
+        "log_file": "giveaway.log",
+    },
+    {
+        "name": "kazi",
+        "script": "kazi_giveaway_agent.py",
+        "session_env": "KAZI_TG_SESSION_STRING",
+        "secret_names": ("KAZI_TG_SESSION_STRING", "KAZI_SESSION_STRING"),
+        "log_file": "giveaway_kazi.log",
+    },
+    {
+        "name": "ragib",
+        "script": "ragib_giveaway_agent.py",
+        "session_env": "RAGIB_TG_SESSION_STRING",
+        "secret_names": ("RAGIB_TG_SESSION_STRING", "RAGIB_SESSION_STRING"),
+        "log_file": "giveaway_ragib.log",
+    },
+]
+_GIVEAWAY_P15_ENV = {
+    "ENABLE_REDEMPTION": "true",
+    "MAX_CODES_PER_POST": "22",
+    "REPLY_TIMEOUT_SECONDS": "10",
+    "MIN_SECONDS_BETWEEN_REDEMPTIONS": "1",
+    "RESTART_DELAY_SECONDS": "10",
+    "MAX_RESTART_DELAY_SECONDS": "300",
+    "FLOODWAIT_MARGIN_SECONDS": "5",
+    "PYTHONUNBUFFERED": "1",
+    "PYTHONIOENCODING": "utf-8",
+}
+# Verbatim agent sources, zlib-compressed and base64-encoded at build time.
+_GIVEAWAY_P15_SOURCES_B64 = {'giveaway_agent.py': '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', 'kazi_giveaway_agent.py': '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', 'ragib_giveaway_agent.py': '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'}
+
+
+# Resolve the shared config and the three session strings once in the
+# parent process. p15 and its children inherit them through os.environ.
+for _p15_key in _GIVEAWAY_P15_SHARED:
+    _p15_value = (get_secret_safe(_p15_key) or "").strip()
+    if _p15_value:
+        os.environ[_p15_key] = _p15_value
+if not os.environ.get("TARGET_BOT"):
+    os.environ["TARGET_BOT"] = "@trgiveaway_bot"
+for _p15_agent in _GIVEAWAY_P15_AGENTS:
+    for _p15_name in _p15_agent["secret_names"]:
+        _p15_value = (get_secret_safe(_p15_name) or "").strip()
+        if _p15_value:
+            os.environ[_p15_agent["session_env"]] = _p15_value
+            break
+
+
+def _p15_now():
+    return datetime.now(DHAKA_TZ).strftime("%Y-%m-%d %H:%M:%S DHAKA")
+
+
+def _p15_log(message):
+    line = _p15_now() + " [p15] " + message
+    print(line, flush=True)
+    try:
+        os.makedirs(_GIVEAWAY_P15_ROOT, exist_ok=True)
+        with open(
+            os.path.join(_GIVEAWAY_P15_ROOT, "supervisor.log"),
+            "a",
+            encoding="utf-8",
+        ) as handle:
+            handle.write(line + "\n")
+    except Exception:
+        pass
+
+
+def _p15_alert(message):
+    try:
+        sender = globals().get("tg_send")
+        if callable(sender):
+            sender(message)
+    except Exception:
+        pass
+
+
+def _p15_ensure_deps(log):
+    missing = []
+    try:
+        import telethon  # noqa: F401
+    except ImportError:
+        missing.append("telethon")
+    try:
+        import dotenv  # noqa: F401
+    except ImportError:
+        missing.append("python-dotenv")
+    if missing:
+        log("Installing missing packages: " + ", ".join(missing))
+        subprocess.check_call(
+            [sys.executable, "-m", "pip", "install", "-q", *missing],
+            timeout=300,
+        )
+    log("Dependencies ready.")
+
+
+def _p15_write_scripts(root):
+    paths = {}
+    for agent in _GIVEAWAY_P15_AGENTS:
+        path = os.path.join(root, agent["script"])
+        try:
+            source = zlib.decompress(
+                base64.b64decode(_GIVEAWAY_P15_SOURCES_B64[agent["script"]])
+            ).decode("utf-8")
+        except Exception as exc:
+            raise RuntimeError(
+                "Could not unpack embedded " + agent["script"] + ": " + repr(exc)
+            )
+        with open(path, "w", encoding="utf-8", newline="\n") as handle:
+            handle.write(source)
+        paths[agent["name"]] = path
+    return paths
+
+
+def _p15_read_new_log(path, offset):
+    try:
+        if not os.path.exists(path):
+            return ""
+        with open(path, "r", encoding="utf-8", errors="replace") as handle:
+            handle.seek(offset)
+            return handle.read()
+    except Exception:
+        return ""
+
+
+def _p15_terminate(proc, grace=10):
+    if proc is None or proc.poll() is not None:
+        return
+    try:
+        os.killpg(os.getpgid(proc.pid), signal.SIGTERM)
+    except Exception:
+        try:
+            proc.terminate()
+        except Exception:
+            pass
+    deadline = time.time() + grace
+    while proc.poll() is None and time.time() < deadline:
+        time.sleep(0.5)
+    if proc.poll() is None:
+        try:
+            os.killpg(os.getpgid(proc.pid), signal.SIGKILL)
+        except Exception:
+            try:
+                proc.kill()
+            except Exception:
+                pass
+
+
+def _p15_write_status(path, states, state="running", note=""):
+    payload = {
+        "updated": _p15_now(),
+        "pipeline": "p15",
+        "state": state,
+        "note": note,
+        "agents": states,
+    }
+    tmp = path + ".tmp"
+    try:
+        with open(tmp, "w", encoding="utf-8") as handle:
+            json.dump(payload, handle, indent=2)
+        os.replace(tmp, path)
+    except Exception:
+        pass
+
+
+def _p15_idle(stop, reason):
+    _p15_log("p15 idle: " + reason + " (will wait for a new session)")
+    _p15_write_status(
+        os.path.join(_GIVEAWAY_P15_ROOT, "status.json"),
+        {},
+        state="idle",
+        note=reason,
+    )
+    while not stop["flag"]:
+        if os.path.exists(_GIVEAWAY_P15_STOP_FILE):
+            _p15_log("STOP file found; leaving idle state.")
+            break
+        time.sleep(5)
+    return 0
+
+
+def run_giveaway_agents():
+    """p15 entrypoint: supervise the three Telegram giveaway accounts."""
+    stop = {"flag": False}
+
+    def _on_signal(signum, frame):
+        _p15_log("Signal " + str(signum) + " received; stopping agents.")
+        stop["flag"] = True
+
+    for sig in (signal.SIGTERM, signal.SIGINT):
+        try:
+            signal.signal(sig, _on_signal)
+        except Exception:
+            pass
+
+    try:
+        os.makedirs(_GIVEAWAY_P15_ROOT, exist_ok=True)
+        _p15_log("Starting p15 giveaway supervisor.")
+        _p15_ensure_deps(_p15_log)
+    except Exception as exc:
+        _p15_log("FATAL: dependency setup failed: " + repr(exc))
+        return 1
+
+    missing = [
+        key
+        for key in _GIVEAWAY_P15_SHARED
+        if not (os.environ.get(key) or "").strip()
+    ]
+    if missing:
+        reason = "missing shared secrets: " + ", ".join(missing)
+        _p15_log("Not starting: " + reason)
+        _p15_alert(
+            "⚠️ <b>p15 Giveaway Agents</b>\n"
+            "Not started: " + ", ".join(missing) + " missing.\n"
+            "Add them under Add-ons > Secrets and restart the kernel."
+        )
+        return _p15_idle(stop, reason)
+
+    try:
+        scripts = _p15_write_scripts(_GIVEAWAY_P15_ROOT)
+    except Exception as exc:
+        _p15_log("FATAL: could not write agent scripts: " + repr(exc))
+        return 1
+
+    enabled = []
+    state = {}
+    for agent in _GIVEAWAY_P15_AGENTS:
+        name = agent["name"]
+        work_dir = os.path.join(_GIVEAWAY_P15_ROOT, name)
+        state[name] = {
+            "pid": None,
+            "alive": False,
+            "restarts": 0,
+            "disabled": False,
+            "last_start": "",
+            "last_exit": "",
+            "log_offset": 0,
+            "script": scripts[name],
+            "log": os.path.join(work_dir, agent["log_file"]),
+            "work_dir": work_dir,
+        }
+        if not (os.environ.get(agent["session_env"]) or "").strip():
+            state[name]["disabled"] = True
+            state[name]["last_exit"] = "missing session secret"
+            _p15_log(
+                "[" + name + "] disabled: missing session secret "
+                "(" + " / ".join(agent["secret_names"]) + ")."
+            )
+            continue
+        os.makedirs(work_dir, exist_ok=True)
+        enabled.append(agent)
+
+    if not enabled:
+        reason = "no session strings found"
+        _p15_log("Not starting: " + reason + ".")
+        _p15_alert(
+            "⚠️ <b>p15 Giveaway Agents</b>\n"
+            "Not started: no session strings found.\n"
+            "Add TG_SESSION_STRING, KAZI_TG_SESSION_STRING and "
+            "RAGIB_TG_SESSION_STRING, then restart."
+        )
+        return _p15_idle(stop, reason)
+
+    procs = {}
+    handles = {}
+    status_path = os.path.join(_GIVEAWAY_P15_ROOT, "status.json")
+    next_start = {agent["name"]: 0.0 for agent in enabled}
+    started_at = {agent["name"]: 0.0 for agent in enabled}
+
+    def _start(agent):
+        name = agent["name"]
+        work_dir = os.path.join(_GIVEAWAY_P15_ROOT, name)
+        log_path = os.path.join(work_dir, agent["log_file"])
+        state[name]["log_offset"] = (
+            os.path.getsize(log_path) if os.path.exists(log_path) else 0
+        )
+        env = os.environ.copy()
+        env[agent["session_env"]] = os.environ[agent["session_env"]]
+        env["WORK_DIR"] = work_dir
+        env.update(_GIVEAWAY_P15_ENV)
+        out_path = os.path.join(work_dir, "stdout.log")
+        err_path = os.path.join(work_dir, "stderr.log")
+        out_handle = open(out_path, "ab", buffering=0)
+        err_handle = open(err_path, "ab", buffering=0)
+        proc = subprocess.Popen(
+            [sys.executable, "-u", scripts[name]],
+            cwd=_GIVEAWAY_P15_ROOT,
+            env=env,
+            stdin=subprocess.DEVNULL,
+            stdout=out_handle,
+            stderr=err_handle,
+            start_new_session=True,
+        )
+        procs[name] = proc
+        handles[name] = (out_handle, err_handle)
+        started_at[name] = time.time()
+        state[name].update(
+            pid=proc.pid,
+            alive=True,
+            last_start=_p15_now(),
+            last_exit="",
+        )
+        _p15_log(
+            "[" + name + "] started pid=" + str(proc.pid)
+            + " work_dir=" + work_dir
+        )
+
+    last_heartbeat = 0.0
+    try:
+        while not stop["flag"]:
+            if os.path.exists(_GIVEAWAY_P15_STOP_FILE):
+                _p15_log("STOP file found; shutting down p15.")
+                break
+
+            now = time.time()
+            for agent in enabled:
+                name = agent["name"]
+                proc = procs.get(name)
+                if proc is not None and proc.poll() is None:
+                    continue
+
+                if proc is not None:
+                    returncode = proc.returncode
+                    uptime = now - started_at.get(name, now)
+                    tail = _p15_read_new_log(
+                        state[name]["log"], state[name]["log_offset"]
+                    )
+                    for handle in handles.pop(name, ()):
+                        try:
+                            handle.close()
+                        except Exception:
+                            pass
+                    procs[name] = None
+                    state[name]["alive"] = False
+                    state[name]["pid"] = None
+                    state[name]["last_exit"] = (
+                        "rc=" + str(returncode) + " after "
+                        + str(int(uptime)) + "s at " + _p15_now()
+                    )
+                    config_error = (
+                        "Not restarting: this is a configuration problem"
+                        in tail
+                    )
+                    if config_error:
+                        state[name]["disabled"] = True
+                        _p15_log(
+                            "[" + name + "] permanent configuration error; "
+                            "not restarting this account."
+                        )
+                    else:
+                        if uptime >= 300:
+                            state[name]["restarts"] = 0
+                        state[name]["restarts"] += 1
+                        delay = min(5 * state[name]["restarts"], 300)
+                        next_start[name] = now + delay
+                        _p15_log(
+                            "[" + name + "] exited rc=" + str(returncode)
+                            + " after " + str(int(uptime)) + "s; restart #"
+                            + str(state[name]["restarts"]) + " in "
+                            + str(delay) + "s."
+                        )
+
+                if state[name]["disabled"] or now < next_start.get(name, 0):
+                    continue
+                try:
+                    _start(agent)
+                except Exception as exc:
+                    _p15_log("[" + name + "] could not start: " + repr(exc))
+                    state[name]["restarts"] += 1
+                    next_start[name] = now + min(
+                        5 * state[name]["restarts"], 300
+                    )
+
+            _p15_write_status(status_path, state)
+
+            if now - last_heartbeat >= 600:
+                last_heartbeat = now
+                summary = ", ".join(
+                    name + ("=up" if state[name]["alive"] else "=down")
+                    for name in state
+                )
+                _p15_log("heartbeat: " + summary + ".")
+            time.sleep(15)
+    finally:
+        _p15_log("Stopping all p15 agent processes.")
+        for name in list(procs):
+            _p15_terminate(procs.get(name))
+        for name in list(handles):
+            for handle in handles.pop(name, ()):
+                try:
+                    handle.close()
+                except Exception:
+                    pass
+        for name in state:
+            state[name]["alive"] = False
+            state[name]["pid"] = None
+        _p15_write_status(status_path, state)
+        _p15_log("p15 supervisor stopped.")
+    return 0
+
+
 # MASTER ORCHESTRATOR LOOP
 # ============================================================
 if __name__ == '__main__':
@@ -4320,15 +4795,37 @@ if __name__ == '__main__':
     ]
     _repo_pages = [f"https://ranehal.github.io/{u.split('/')[-1].replace('.git','')}/" for u, _, _ in _scheduled_repos]
 
+    # p15 needs telethon; install it before p2 starts its own pip work so
+    # concurrent pip installs cannot race in the shared Kaggle environment.
+    try:
+        import telethon  # noqa: F401
+        import dotenv  # noqa: F401
+    except ImportError:
+        try:
+            print("[p15] Installing telethon + python-dotenv ...", flush=True)
+            subprocess.check_call(
+                [sys.executable, "-m", "pip", "install", "-q", "telethon", "python-dotenv"],
+                timeout=300,
+            )
+        except Exception as _p15_dep_exc:
+            print(f"[p15] Dependency pre-install failed: {_p15_dep_exc}", flush=True)
+
     p1 = multiprocessing.Process(target=run_grocery_god, args=(GITHUB_PAT,))
     p2 = multiprocessing.Process(target=run_gitw)
     p3 = multiprocessing.Process(target=run_all_scheduled_repos, args=(_scheduled_repos, GITHUB_PAT, _p14_results))
+    p15 = multiprocessing.Process(target=run_giveaway_agents)
     
     session_start_t0 = time.time()
     p2.start()
+    try:
+        p15.start()
+        print("[p15] Giveaway agents started in parallel (3 accounts).")
+    except Exception as _p15_start_exc:
+        print(f"[p15] Could not start giveaway supervisor: {_p15_start_exc}", flush=True)
+        p15 = None
     print("⏳ Sleeping 10 minutes (600s) before starting p1 & p3 to sync Kaggle Netherlands/UTC time with Dhaka date...")
     for _i in range(10, 0, -1):
-        print(f"⏳ [{11 - _i}/10 min] Waiting {_i * 60}s for Dhaka time sync (p2 gitw running in background)...")
+        print(f"⏳ [{11 - _i}/10 min] Waiting {_i * 60}s for Dhaka time sync (p2 gitw + p15 giveaway running in background)...")
         time.sleep(60)
     p1.start()
     p3.start()
@@ -4337,12 +4834,29 @@ if __name__ == '__main__':
     timeout_seconds = 11 * 3600 + 15 * 60  # 11h 15m (+10m init = ~11h 25m total session duration, safely under Kaggle 12h limit)
     _master_reported = False
     _last_heartbeat_time = 0
+    _p15_restarts = 0
     heartbeat_interval = 600  # 10 minutes
 
     while (time.time() - loop_t0) < timeout_seconds:
         p1_alive = p1.is_alive()
         p3_alive = p3.is_alive()
         p2_alive = p2.is_alive()
+        p15_alive = p15 is not None and p15.is_alive()
+
+        if not p15_alive and _p15_restarts < 10 and not os.path.exists(_GIVEAWAY_P15_STOP_FILE):
+            _p15_restarts += 1
+            print(f"[p15] Giveaway supervisor died; restarting ({_p15_restarts}/10)...", flush=True)
+            try:
+                if p15 is not None:
+                    p15.join(timeout=1)
+            except Exception:
+                pass
+            try:
+                p15 = multiprocessing.Process(target=run_giveaway_agents)
+                p15.start()
+            except Exception as _p15_restart_exc:
+                print(f"[p15] Restart failed: {_p15_restart_exc}", flush=True)
+                p15 = None
 
         # Wait until BOTH GroceryGOD (p1) and Scheduled Sub-Repos (p3) have finished scraping & aggregating
         if not p1_alive and not p3_alive:
@@ -4375,7 +4889,8 @@ if __name__ == '__main__':
                 rem_min = max(0, int((timeout_seconds - (now_t - loop_t0)) / 60))
                 now_str = datetime.now(DHAKA_TZ).strftime('%H:%M:%S')
                 p2_desc = "running" if p2_alive else ("completed" if p2.exitcode == 0 else f"exited(rc={p2.exitcode})")
-                print(f"💤 [{now_str} DHAKA] Standby Heartbeat: Active {elapsed_min}m | Remaining: {rem_min}m until container reboot | gitw (p2): {p2_desc}", flush=True)
+                p15_desc = "running" if p15_alive else ("unavailable" if p15 is None and _p15_restarts >= 10 else "restarting")
+                print(f"💤 [{now_str} DHAKA] Standby Heartbeat: Active {elapsed_min}m | Remaining: {rem_min}m until container reboot | gitw (p2): {p2_desc} | p15 giveaway: {p15_desc}", flush=True)
                 _last_heartbeat_time = now_t
 
         time.sleep(30)
@@ -4394,8 +4909,19 @@ if __name__ == '__main__':
     print("☢️ Executing Nuclear Teardown of orphaned child processes...")
     os.system("pkill -9 -f chromium")
     os.system("pkill -9 -f scraper.py")
-    for i in range(1, 35):
+    for i in range(1, 36):
         os.system(f"pkill -9 -f {i}.py")
+
+    _p15_was_alive = p15 is not None and p15.is_alive()
+    if p15 is not None:
+        try:
+            p15.terminate()
+            p15.join(timeout=35)
+            if p15.is_alive():
+                p15.kill()
+        except Exception:
+            pass
+    os.system("pkill -9 -f giveaway_p15_")
 
     for p in [p1, p2, p3]:
         if p.is_alive():
@@ -4409,8 +4935,9 @@ if __name__ == '__main__':
         'p1_status': "OK" if p1.exitcode == 0 else f"rc={p1.exitcode}" if p1.exitcode is not None else "terminated",
         'p2_status': "OK" if p2.exitcode == 0 else f"rc={p2.exitcode}" if p2.exitcode is not None else "terminated",
         'p3_status': "OK" if p3.exitcode == 0 else f"rc={p3.exitcode}" if p3.exitcode is not None else "terminated",
+        'p15_status': "OK" if '_p15_was_alive' in dir() and _p15_was_alive else "STOPPED",
     }
-    for _n, _s in [("GroceryGOD (p1)", exec_stats['p1_status']), ("gitw (p2)", exec_stats['p2_status']), ("Scheduled Repos (p3)", exec_stats['p3_status'])]:
+    for _n, _s in [("GroceryGOD (p1)", exec_stats['p1_status']), ("gitw (p2)", exec_stats['p2_status']), ("Scheduled Repos (p3)", exec_stats['p3_status']), ("Giveaway (p15)", exec_stats['p15_status'])]:
         print(f"[{_n}]: {_s}")
     
     trigger_self_restart(exec_stats)
