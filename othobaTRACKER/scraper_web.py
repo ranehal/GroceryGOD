@@ -36,8 +36,9 @@ PRODUCT_SELECTOR = (
     '.product-item-container'
 )
 # Title markers are safe to search in the title only. Body markers are
-# challenge-specific; never treat a normal page that merely references a
-# Cloudflare CDN asset as blocked.
+# deliberately narrow: a normal Othoba page includes Cloudflare Rocket Loader
+# and /cdn-cgi/challenge-platform/ scripts, so "cloudflare" and
+# "challenge-platform" must never be treated as a block by themselves.
 TITLE_BLOCK_MARKERS = (
     'attention required',
     'cloudflare',
@@ -45,17 +46,9 @@ TITLE_BLOCK_MARKERS = (
     'access denied',
 )
 BODY_BLOCK_MARKERS = (
-    'you have been blocked',
-    'enable javascript and cookies',
     'cf-error',
     'cf-challenge',
-    'challenge-platform',
     'error 1020',
-    'not available in your country',
-    'not available in your region',
-    'geo-block',
-    'geoblock',
-    'request blocked',
     'sorry, you have been blocked',
 )
 
