@@ -1987,10 +1987,6 @@ body.immersive-mode .mobile-dock,
 body.immersive-mode .compare-selection-tray { display: none !important; }
 body.immersive-mode .immersive-exit-btn { display: inline-flex; }
 body.immersive-mode .main-content { width: 100vw; min-height: 100vh; }
-body.immersive-mode .p-view-sh { grid-template-columns: repeat(auto-fill, minmax(150px,1fr)); gap: 7px; padding: 7px; min-height: 100vh; }
-body.immersive-mode .p-item-sh { border-radius: 8px; }
-body.immersive-mode .p-detail-sh { height: 103px; padding: 8px; }
-body.immersive-mode .product-name { -webkit-line-clamp: 3; height: 3.6em; font-size: .69rem; }
 
 .ux-toast {
     position: fixed; left: 50%; bottom: 82px; z-index: 2100; max-width: calc(100vw - 30px);
@@ -2339,10 +2335,8 @@ body.premium-unlocked .premium-gated { box-shadow:0 0 18px rgba(45,212,191,.12);
 body.premium-unlocked .premium-gated::before { content:'PRO'; margin-right:4px; padding:2px 4px; border-radius:4px; color:#04251e; background:#5eead4; font-size:.45rem; font-weight:950; }
 
 /* Immersive best-items view: grid only on every viewport. */
-body.immersive-mode { overflow:auto; background:#000; }
 body.immersive-mode #main-content-area { min-height:100vh; }
-body.immersive-mode .p-view-sh { align-content:start; background:radial-gradient(circle at 50% -10%,rgba(3,218,198,.08),transparent 32%),#000; }
-body.immersive-mode .p-item-sh { box-shadow:0 0 0 1px rgba(255,255,255,.02),0 12px 28px rgba(0,0,0,.5); animation:immersive-card-arrive .44s both; }
+body.immersive-mode .p-item-sh { animation:immersive-card-arrive .44s both; }
 body.immersive-mode .p-item-sh:nth-child(3n+1) { animation-delay:.03s; }
 body.immersive-mode .p-item-sh:nth-child(3n+2) { animation-delay:.06s; }
 @keyframes immersive-card-arrive { from{opacity:0;transform:translateY(12px) scale(.97)} }
@@ -2361,9 +2355,6 @@ body.immersive-mode .p-item-sh:nth-child(3n+2) { animation-delay:.06s; }
     .premium-modal-shell { width:100vw; min-height:100dvh; max-height:100dvh; border-radius:0; padding:18px 14px 30px; }
     .history-paywall-mask { inset:0 0 0 auto; width:50%; background:rgba(3,6,11,.7); }
     .history-paywall-copy { padding:13px; }
-    body.immersive-mode .p-view-sh { grid-template-columns:repeat(2,minmax(0,1fr)); padding:max(5px,env(safe-area-inset-top)) 5px max(5px,env(safe-area-inset-bottom)); gap:5px; }
-    body.immersive-mode .p-img-box { padding:8px; }
-    body.immersive-mode .p-detail-sh { height:94px; }
     .immersive-exit-btn { top:max(7px,env(safe-area-inset-top)); right:7px; height:31px; }
 }
 
@@ -7502,3 +7493,67 @@ body.theme-light.mobile-tools-open .header-right {
     body.mobile-tools-open .intelligence-bar { z-index: 25 !important; }
 }
 
+/* ---- Immersive (Focus) view — 2026-11-02 ----------------------------------
+   Same cards as the catalog; only the chrome goes away. Tokens only, so the
+   light theme works, and the grid reserves a top band for the exit pill so it
+   never covers the top-right card's badge/buttons. */
+body.immersive-mode { overflow: auto; background: var(--ink-0) !important; }
+body.immersive-mode .p-view-sh {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)) !important;
+    gap: 10px !important;
+    align-content: start;
+    background: var(--ink-0) !important;
+    padding: calc(max(10px, env(safe-area-inset-top)) + 46px) 12px max(12px, env(safe-area-inset-bottom)) !important;
+}
+.immersive-exit-btn {
+    background: var(--ink-2) !important;
+    border: 1px solid var(--rule-strong) !important;
+    color: var(--paper) !important;
+    font-family: var(--font-mono) !important;
+    font-size: .62rem !important;
+    font-weight: 500 !important;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .35) !important;
+}
+.immersive-exit-btn i, .immersive-exit-btn b { color: var(--taka) !important; }
+.immersive-exit-btn b { border-left-color: var(--rule-strong) !important; font-weight: 500; }
+.immersive-exit-btn:focus-visible { outline: 2px solid var(--taka); outline-offset: 2px; }
+@media (max-width: 768px) {
+    body.immersive-mode .p-view-sh {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 8px !important;
+        padding: calc(max(7px, env(safe-area-inset-top)) + 42px) 8px max(8px, env(safe-area-inset-bottom)) !important;
+    }
+}
+
+/* ---- Motion layer hooks (motion.js, 2026-11-02) ----------------------------
+   motion.js is pure enhancement; these rules only exist for it. */
+html.motion-pending .hero-editorial-title .title-line,
+html.motion-pending .hero-kicker-badge,
+html.motion-pending .hero-editorial-desc,
+html.motion-pending .hero-search-container,
+html.motion-pending .hero-store-strip,
+html.motion-pending .bazar-board { opacity: 0; }
+
+/* Lenis */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+/* Magnet: separate `translate` so `:active { transform: scale(.97) }` still composes */
+.is-magnetic { translate: var(--mx, 0px) var(--my, 0px); }
+
+/* Ledger spotlight: the ruled grid is lit where the pointer is */
+.hero-grid-pattern {
+    mask-image: radial-gradient(ellipse 46% 52% at var(--gx, 30%) var(--gy, 40%), black 18%, transparent 78%) !important;
+    -webkit-mask-image: radial-gradient(ellipse 46% 52% at var(--gx, 30%) var(--gy, 40%), black 18%, transparent 78%) !important;
+}
+
+/* Scroll position through the catalogue: a 2px taka ledger rule */
+.catalog-progress {
+    position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 2100;
+    background: var(--taka); transform: scaleX(0); transform-origin: 0 50%;
+    pointer-events: none; opacity: 0; transition: opacity .18s var(--ease-out);
+}
+body.catalog-active .catalog-progress { opacity: .9; }

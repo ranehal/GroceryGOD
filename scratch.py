@@ -17,6 +17,8 @@ import platform
 import glob
 import zipfile
 import base64
+import signal
+import zlib
 import hashlib
 import secrets
 import ast
@@ -1842,43 +1844,6 @@ def trigger_self_restart(exec_stats=None):
         print(err_msg)
         _tg(err_msg)
 
-# Othoba web probe hotfix payload (zlib+base64 of the fixed
-# othobaTRACKER/scraper_web.py). Applied after the repo clone and
-# decryption steps so Kaggle never runs the old false geo-block probe
-# even when the remote repo copy is stale.
-_OTHOBA_WEB_FIX_B64 = "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"
-
-
-def _apply_othoba_web_hotfix(web_path, logger=None):
-    """Replace the old Othoba false-geo-block probe if it is still present."""
-    try:
-        if not os.path.exists(web_path):
-            return False
-        with open(web_path, 'r', encoding='utf-8') as f:
-            old_src = f.read()
-        if 'Othoba Geo-Block/Stuck Screenshot' not in old_src:
-            return False
-        import ast as _ast
-        import base64 as _b64
-        import zlib as _zlib
-        fixed = _zlib.decompress(
-            _b64.b64decode(_OTHOBA_WEB_FIX_B64)
-        ).decode('utf-8')
-        _ast.parse(fixed)
-        with open(web_path, 'w', encoding='utf-8', newline='\n') as f:
-            f.write(fixed)
-        if logger:
-            logger(
-                'Othoba web probe hotfix applied: text-first probe, '
-                'no false geo-block exit.'
-            )
-        return True
-    except Exception as exc:
-        if logger:
-            logger(f'Othoba web probe hotfix skipped: {exc}')
-        return False
-
-
 # ============================================================
 # PIPELINE 1: GROCERYGOD (CONTINUOUS LOOP)
 # ============================================================
@@ -2102,12 +2067,6 @@ def run_grocery_god(github_pat):
                     log.info(f'  Decrypted {_dc}/{len(_enc_files)} files')
                 except subprocess.CalledProcessError as e:
                     log.error(f'Decryption failed: {e.stderr[:500]}')
-
-            # In-repo Othoba tracker used by p1.
-            _apply_othoba_web_hotfix(
-                os.path.join(os.getcwd(), 'othobaTRACKER', 'scraper_web.py'),
-                log.info,
-            )
 
             SCRAPER_TIMEOUT = 45 * 60
             PARALLEL_MAX_WORKERS = 8
@@ -3784,13 +3743,6 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
         subprocess.run('git clean -fdx', shell=True, cwd=repo_dir)
         _verify_repo_integrity(repo_dir, repo_name)
 
-        # Also cover the separate Othoba-analytics clone (p3), including
-        # any nested copy of scraper_web.py.
-        for _ow_path in glob.glob(
-            os.path.join(repo_dir, '**', 'scraper_web.py'), recursive=True
-        ):
-            _apply_othoba_web_hotfix(_ow_path, _log)
-
         # Daily Guard: Skip scraper execution if already ran and pushed today
         today_dhaka = datetime.now(DHAKA_TZ).strftime('%Y-%m-%d')
         already_done_today = False
@@ -4330,9 +4282,6 @@ def run_all_scheduled_repos(repos, github_pat, results_store=None):
             print(f"❌ [Scheduled Repos] Exception in {lbl}: {exc}\n")
     print("🟢 [Scheduled Repos] All scheduled sub-repos completed.")
 
-import base64
-import signal
-import zlib
 
 # ============================================================
 # PIPELINE 15: TELEGRAM GIVEAWAY AGENTS (3 accounts, parallel)
@@ -4798,17 +4747,9 @@ if __name__ == '__main__':
     # p15 needs telethon; install it before p2 starts its own pip work so
     # concurrent pip installs cannot race in the shared Kaggle environment.
     try:
-        import telethon  # noqa: F401
-        import dotenv  # noqa: F401
-    except ImportError:
-        try:
-            print("[p15] Installing telethon + python-dotenv ...", flush=True)
-            subprocess.check_call(
-                [sys.executable, "-m", "pip", "install", "-q", "telethon", "python-dotenv"],
-                timeout=300,
-            )
-        except Exception as _p15_dep_exc:
-            print(f"[p15] Dependency pre-install failed: {_p15_dep_exc}", flush=True)
+        _p15_ensure_deps(print)
+    except Exception as _p15_dep_exc:
+        print(f"[p15] Dependency pre-install failed: {_p15_dep_exc}", flush=True)
 
     p1 = multiprocessing.Process(target=run_grocery_god, args=(GITHUB_PAT,))
     p2 = multiprocessing.Process(target=run_gitw)
@@ -4921,7 +4862,7 @@ if __name__ == '__main__':
                 p15.kill()
         except Exception:
             pass
-    os.system("pkill -9 -f giveaway_p15_")
+    os.system("pkill -9 -f giveaway_p15/")
 
     for p in [p1, p2, p3]:
         if p.is_alive():
@@ -4935,7 +4876,7 @@ if __name__ == '__main__':
         'p1_status': "OK" if p1.exitcode == 0 else f"rc={p1.exitcode}" if p1.exitcode is not None else "terminated",
         'p2_status': "OK" if p2.exitcode == 0 else f"rc={p2.exitcode}" if p2.exitcode is not None else "terminated",
         'p3_status': "OK" if p3.exitcode == 0 else f"rc={p3.exitcode}" if p3.exitcode is not None else "terminated",
-        'p15_status': "OK" if '_p15_was_alive' in dir() and _p15_was_alive else "STOPPED",
+        'p15_status': "OK" if _p15_was_alive else "STOPPED",
     }
     for _n, _s in [("GroceryGOD (p1)", exec_stats['p1_status']), ("gitw (p2)", exec_stats['p2_status']), ("Scheduled Repos (p3)", exec_stats['p3_status']), ("Giveaway (p15)", exec_stats['p15_status'])]:
         print(f"[{_n}]: {_s}")

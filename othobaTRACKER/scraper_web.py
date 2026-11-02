@@ -66,6 +66,25 @@ def _product_wraps(soup):
     )
 
 
+def _looks_blocked(title, content):
+    title, body = title.lower(), content[:200000].lower()
+    return any(m in title for m in TITLE_BLOCK_MARKERS) or any(m in body for m in BODY_BLOCK_MARKERS)
+
+
+def _skip_assets(route):
+    return route.abort() if route.request.resource_type in ('image', 'stylesheet', 'font', 'media') else route.continue_()
+
+
+async def _wait_rendered(page):
+    """Othoba renders cards with JS: wait for cards, then prices (both optional)."""
+    for selector, timeout in ((PRODUCT_SELECTOR, 12000), ('ins.new-price:not(:empty)', 5000)):
+        try:
+            await page.wait_for_selector(selector, timeout=timeout)
+        except Exception:
+            pass
+    await asyncio.sleep(0.4)
+
+
 def send_text_alert(message):
     """Send a plain-text diagnostic first; screenshots are optional extras."""
     print(f"[ALERT] {message.replace(chr(10), ' | ')[:600]}")
@@ -117,24 +136,11 @@ async def scrape_page(page, url, page_num):
     target = f"{url}{sep}pageSize=80&pageNumber={page_num}"
     try:
         await page.goto(target, wait_until="domcontentloaded", timeout=30000)
-        try:
-            await page.wait_for_selector(PRODUCT_SELECTOR, timeout=12000)
-        except Exception:
-            pass
-        try:
-            await page.wait_for_selector('ins.new-price:not(:empty)', timeout=5000)
-        except Exception:
-            pass
-        await asyncio.sleep(0.4)
+        await _wait_rendered(page)
 
         title = await page.title()
         content = await page.content()
-        title_lower = title.lower()
-        body_lower = content[:120000].lower()
-        if (
-            any(marker in title_lower for marker in TITLE_BLOCK_MARKERS)
-            or any(marker in body_lower for marker in BODY_BLOCK_MARKERS)
-        ):
+        if _looks_blocked(title, content):
             print(f"[ERROR] Blocked by Cloudflare/WAF on {url} (title={title[:80]})")
             return [], 0
 
@@ -190,7 +196,7 @@ async def scrape_page(page, url, page_num):
 async def sector_worker(context, url, idx, total, summary, existing_pids, existing_ph):
     async with semaphore:
         page = await context.new_page()
-        await page.route('**/*', lambda r: r.abort() if r.request.resource_type in ['image', 'stylesheet', 'font', 'media'] else r.continue_())
+        await page.route('**/*', _skip_assets)
         pn = 1
         total_indexed = 0
         retried_first = False
@@ -302,15 +308,7 @@ async def inspect_page(page, url, timeout_ms=20000):
         state["error"] = str(ex)[:200]
         return state
 
-    try:
-        await page.wait_for_selector(PRODUCT_SELECTOR, timeout=12000)
-    except Exception:
-        pass
-    try:
-        await page.wait_for_selector('ins.new-price:not(:empty)', timeout=5000)
-    except Exception:
-        pass
-    await asyncio.sleep(0.4)
+    await _wait_rendered(page)
 
     try:
         state["title"] = await page.title()
@@ -319,16 +317,9 @@ async def inspect_page(page, url, timeout_ms=20000):
     try:
         content = await page.content()
         state["content_len"] = len(content)
-        title_lower = state["title"].lower()
-        body_lower = content[:200000].lower()
         state["wraps"] = len(_product_wraps(BeautifulSoup(content, 'lxml')))
-        state["blocked"] = (
-            any(marker in title_lower for marker in TITLE_BLOCK_MARKERS)
-            or any(marker in body_lower for marker in BODY_BLOCK_MARKERS)
-        )
-        if state["status"] in (401, 403, 429, 451, 503):
-            state["blocked"] = True
-        state["loaded"] = ("othoba" in body_lower) or state["wraps"] > 0
+        state["blocked"] = _looks_blocked(state["title"], content) or state["status"] in (401, 403, 429, 451, 503)
+        state["loaded"] = "othoba" in content[:200000].lower() or state["wraps"] > 0
     except Exception as ex:
         state["error"] = str(ex)[:200]
     return state
@@ -342,18 +333,7 @@ async def probe_othoba(context, urls):
     to retry. 'blocked' is reserved for explicit WAF/geo markers or HTTP
     401/403/429/451/503. 'unreachable' means every probe failed to load.
     """
-    if isinstance(urls, str):
-        urls = [urls]
-    probes = []
-    seen = set()
-    for raw_url in urls[:6]:
-        probe_url = (raw_url or "").strip()
-        if not probe_url or probe_url in seen:
-            continue
-        seen.add(probe_url)
-        probes.append(probe_url)
-        if len(probes) >= 3:
-            break
+    probes = list(dict.fromkeys(u.strip() for u in urls[:6] if u and u.strip()))[:3]
 
     if not probes:
         return "empty"
@@ -363,10 +343,7 @@ async def probe_othoba(context, urls):
         page = None
         try:
             page = await context.new_page()
-            await page.route(
-                '**/*',
-                lambda r: r.abort() if r.request.resource_type in ['image', 'stylesheet', 'font', 'media'] else r.continue_(),
-            )
+            await page.route('**/*', _skip_assets)
             state = await inspect_page(page, probe_url)
             results.append(state)
             print(
@@ -435,15 +412,6 @@ async def probe_othoba(context, urls):
     return "unreachable"
 
 
-async def check_geo_block(context, test_url):
-    """Backward-compatible bool wrapper for older callers.
-
-    New code should use probe_othoba() for the tri-state result.
-    """
-    result = await probe_othoba(context, test_url)
-    return result in ("blocked", "unreachable")
-
-
 async def main():
     summary = {'total': 0, 'new': 0, 'categories': Counter()}
     init_db()
@@ -495,11 +463,6 @@ async def main():
                 save_last_run_log(summary)
                 await browser.close()
                 return
-            if probe_status == "empty":
-                print(
-                    "[WARN] Othoba probe found 0 products on loaded pages; "
-                    "continuing to sector workers."
-                )
 
         tasks = [sector_worker(context, url, i+1, len(urls), summary, existing_pids, existing_ph) for i, url in enumerate(urls)]
         await asyncio.gather(*tasks)
