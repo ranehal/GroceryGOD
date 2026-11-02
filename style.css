@@ -7557,3 +7557,26 @@ html.lenis, html.lenis body { height: auto; }
     pointer-events: none; opacity: 0; transition: opacity .18s var(--ease-out);
 }
 body.catalog-active .catalog-progress { opacity: .9; }
+
+/* ---- Price chart backdrop (2026-11-02) ------------------------------------
+   The item itself, faint, centred and fit to the chart's height. Uses the
+   --modal-bg-img the modal already sets per product (updateDetailModalHeader).
+   Store photos sit on white: dark theme inverts to a greyscale ghost and
+   screens it (white -> black drops out); light theme multiplies instead. */
+.history-chart-stage { isolation: isolate; }
+.history-chart-stage::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: var(--modal-bg-img, none) center / auto 100% no-repeat;
+    filter: grayscale(1) invert(1) contrast(1.1);
+    mix-blend-mode: screen;
+    opacity: .14;
+}
+body.theme-light .history-chart-stage::before { filter: grayscale(1); mix-blend-mode: multiply; opacity: .16; }
+.history-chart-stage > .history-chart-wrapper { z-index: 1; }
+/* The free-view paywall covers the left half at every width (measured):
+   centre the item on the readable half instead of half-hiding it. */
+body:not(.premium-unlocked) #chart-modal .history-chart-stage:has(> .history-paywall-mask:not([hidden]):not(.hidden))::before { left: 50%; }
