@@ -24,6 +24,14 @@ def _cat_name(cat):
         return cat.get('name') or cat.get('slug') or 'General'
     return cat or 'General'
 
+def _dedupe_history(conn):
+    """INSERT OR IGNORE needs a UNIQUE index: without one every cycle re-appended all history (Metro: 10.9M rows)."""
+    if conn.execute("SELECT 1 FROM sqlite_master WHERE name = 'ux_price_history'").fetchone(): return
+    conn.execute("DELETE FROM price_history WHERE id NOT IN (SELECT MAX(id) FROM price_history GROUP BY product_id, scraped_at)")
+    conn.execute("CREATE UNIQUE INDEX ux_price_history ON price_history(product_id, scraped_at)")
+    conn.commit()
+    conn.execute("VACUUM")
+
 def load_chunked_js(prefix):
     """Dynamically reconstructs full data by reading manifest and all parts (supports plain or .enc)."""
     manifest_path = f"{prefix}_manifest.js"
@@ -86,6 +94,7 @@ def reconstruct_meena():
         cur.execute("CREATE TABLE IF NOT EXISTS categories (id INTEGER PRIMARY KEY, name VARCHAR UNIQUE, url VARCHAR, is_custom BOOLEAN)")
         cur.execute("CREATE TABLE IF NOT EXISTS products (id INTEGER PRIMARY KEY, external_id VARCHAR UNIQUE, name VARCHAR, unit VARCHAR, unit_type VARCHAR, image_url VARCHAR, category_id INTEGER, is_favorite BOOLEAN)")
         cur.execute("CREATE TABLE IF NOT EXISTS price_history (id INTEGER PRIMARY KEY, product_id INTEGER, actual_price FLOAT, unit_price FLOAT, scraped_at DATETIME)")
+        _dedupe_history(conn)
         
         cur.execute("INSERT OR IGNORE INTO categories (name) VALUES (?)", ("General",))
         cur.execute("SELECT id FROM categories WHERE name = ?", ("General",))
@@ -169,6 +178,7 @@ def reconstruct_metromart():
         cur.execute("CREATE TABLE IF NOT EXISTS categories (id INTEGER PRIMARY KEY, name VARCHAR UNIQUE, url VARCHAR)")
         cur.execute("CREATE TABLE IF NOT EXISTS products (id INTEGER PRIMARY KEY, external_id VARCHAR UNIQUE, name VARCHAR, unit VARCHAR, unit_type VARCHAR, image_url VARCHAR, category_id INTEGER)")
         cur.execute("CREATE TABLE IF NOT EXISTS price_history (id INTEGER PRIMARY KEY, product_id INTEGER, actual_price FLOAT, unit_price FLOAT, scraped_at DATETIME)")
+        _dedupe_history(conn)
         
         cur.execute("INSERT OR IGNORE INTO categories (name) VALUES (?)", ("General",))
         cur.execute("SELECT id FROM categories WHERE name = ?", ("General",))
@@ -220,6 +230,7 @@ def reconstruct_foodi():
             image_path TEXT, branch_id INTEGER, scraped_at TEXT, delivery_time TEXT
         )
     """)
+    _dedupe_history(conn)
     for pid, p in data.items():
         base_id = int(pid[3:]) if pid.startswith('fd_') else int(pid)
         cat_name = _cat_name(p.get('category'))

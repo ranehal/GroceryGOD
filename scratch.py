@@ -18,6 +18,7 @@ import glob
 import zipfile
 import base64
 import signal
+import sqlite3
 import zlib
 import hashlib
 import secrets
@@ -142,6 +143,34 @@ def _git_log(log, msg):
             print(f"[GIT] {msg}", flush=True)
     except Exception:
         pass
+
+
+def _head_on_remote(url, ref='refs/heads/master'):
+    """True only if the remote branch points at local HEAD; git prints 'Everything up-to-date' even when the RPC died mid-pack."""
+    head = subprocess.run('git rev-parse HEAD', shell=True, capture_output=True, text=True).stdout.strip()
+    return bool(head) and subprocess.run(f'git ls-remote {url} {ref}', shell=True, capture_output=True, text=True).stdout.split()[:1] == [head]
+
+
+def _note_in_summary(msg):
+    """Surface a pipeline problem in the master report (it reads this file after aggregator.py writes it)."""
+    os.makedirs('/tmp', exist_ok=True)
+    with open('/tmp/aggregator_summary.txt', 'a', encoding='utf-8') as f:
+        f.write(f"\n\n{msg}")
+
+
+def _merge_foodi_db(src, dst='FooDIEscraper/data/scraper.db'):
+    """Merge the sub-repo's fresh DB into the reconstructed one: a plain copy wiped all FooDIE history (0 items)."""
+    if not os.path.exists(dst):
+        os.makedirs(os.path.dirname(dst), exist_ok=True)
+        shutil.copy2(src, dst)
+        return
+    cols = 'product_id, name, sku, category_id, category_name, uom, base_price, discount, is_discount_in_perc, discounted_price, has_stock, image_path, branch_id, scraped_at, delivery_time'
+    conn = sqlite3.connect(dst)
+    conn.execute('ATTACH ? AS s', (src,))
+    conn.execute('INSERT OR REPLACE INTO products SELECT * FROM s.products')
+    conn.execute(f'INSERT OR IGNORE INTO price_history ({cols}) SELECT {cols} FROM s.price_history')
+    conn.commit()
+    conn.close()
 
 
 def _git_run_retry(cmd, cwd=None, log=None, attempts=4, delay=5, label='git'):
@@ -2271,9 +2300,8 @@ def run_grocery_god(github_pat):
                 _foodi_sub = '/kaggle/working/FooDIE-mart-Analytics/data/scraper.db' if platform.system() != 'Windows' else r'C:\PROJECTS\ShopGOD\FooDIEscraper\data\scraper.db'
                 if os.path.exists(_foodi_sub):
                     try:
-                        os.makedirs('FooDIEscraper/data', exist_ok=True)
-                        shutil.copy2(_foodi_sub, 'FooDIEscraper/data/scraper.db')
-                        log.info('Synced FooDIE scraper.db from FooDIE-mart-Analytics')
+                        _merge_foodi_db(_foodi_sub)
+                        log.info('Merged FooDIE scraper.db from FooDIE-mart-Analytics')
                     except Exception as _fe:
                         log.warning(f'Failed to sync FooDIE db: {_fe}')
 
@@ -2286,6 +2314,9 @@ def run_grocery_god(github_pat):
                     log.error(f'Aggregator failed with code {_agg_proc.returncode}')
                 else:
                     log.info('Aggregator completed successfully')
+                _stale = [f'{r[0]} ({r[3]})' for r in results if not r[1]]
+                if _stale:
+                    _note_in_summary('⚠️ Scrapers failed, showing old data: ' + ', '.join(_stale))
                 
                 try:
                     count_file = 'run_count.txt'
@@ -2525,7 +2556,7 @@ if __name__ == '__main__':
                 # 🛡️ FIX: NUCLEAR LFS PROTECTION SYSTEM
                 # Tearing down Git LFS completely locally to bypass GitHub's budget blocks
                 log.info("🛡️ Deactivating local Git LFS configurations to bypass account budget lock...")
-                subprocess.run('git lfs uninstall --local', shell=True)
+                subprocess.run('git lfs uninstall --local', shell=True, capture_output=True)
                 if os.path.exists('.git/hooks/pre-push'):
                     try: os.remove('.git/hooks/pre-push')
                     except: pass
@@ -2623,32 +2654,13 @@ if __name__ == '__main__':
                             _PERSISTED_STATE['last_push_user'] = _user_n
                             break
 
-                        push_res = subprocess.run(f'git {GIT_NET_OPTS} push --progress origin HEAD:master --force', shell=True, capture_output=True, text=True)
-                        last_push_stderr = (push_res.stderr or "") + "\n" + (push_res.stdout or "")
-                        if push_res.returncode == 0:
-                            push_success = True
-                            _PERSISTED_STATE['last_push_user'] = _user_n
-                            break
-
-                        # Check if output indicates everything is up to date with clean tree
-                        _c_out = last_push_stderr.lower()
-                        if ("everything up-to-date" in _c_out or "everything up to date" in _c_out) and not subprocess.run('git status --porcelain', shell=True, capture_output=True, text=True).stdout.strip():
-                            log.info("✅ Remote reported 'Everything up-to-date' with clean working tree. Push verified successful!")
-                            push_success = True
-                            _PERSISTED_STATE['last_push_user'] = _user_n
-                            break
-
-                        # Fallback: push directly to auth URL
-                        push_res = subprocess.run(f'git {GIT_NET_OPTS} push --progress {_auth_u} HEAD:master --force', shell=True, capture_output=True, text=True)
-                        last_push_stderr = (push_res.stderr or "") + "\n" + (push_res.stdout or "")
-                        if push_res.returncode == 0:
-                            push_success = True
-                            _PERSISTED_STATE['last_push_user'] = _user_n
-                            break
-
-                        if ("everything up-to-date" in last_push_stderr.lower() or "everything up to date" in last_push_stderr.lower()) and not subprocess.run('git status --porcelain', shell=True, capture_output=True, text=True).stdout.strip():
-                            log.info("✅ Direct auth push reported 'Everything up-to-date'. Push verified successful!")
-                            push_success = True
+                        for _push_target in ('origin', _auth_u):
+                            push_res = subprocess.run(f'git {GIT_NET_OPTS} push --progress {_push_target} HEAD:master --force', shell=True, capture_output=True, text=True)
+                            last_push_stderr = (push_res.stderr or "") + "\n" + (push_res.stdout or "")
+                            push_success = _head_on_remote(_auth_u)
+                            if push_success:
+                                break
+                        if push_success:
                             _PERSISTED_STATE['last_push_user'] = _user_n
                             break
 
@@ -2664,6 +2676,7 @@ if __name__ == '__main__':
                     err_detail = (clean_err[-1200:] if clean_err else last_push_stderr[-600:]).strip()
                     error_msg = f"Git push failed after multiple attempts!\nGit Status:\n{git_status[:300]}\nStderr:\n{err_detail}"
                     log.error(error_msg)
+                    _note_in_summary('🚨 GitHub push FAILED: dashboard NOT updated this cycle.')
                     if '_pq_backup_info' in locals() and _pq_backup_info:
                         try:
                             update_parquet_backup_status(_pq_backup_info, git_status='GIT_PUSH_FAILED', git_error=error_msg[:300])
@@ -2791,7 +2804,7 @@ def run_gitw():
         if not os.path.exists(os.path.join('gitww', '.git')):
             _git_clone_robust('https://github.com/ranehal/gitww.git', 'gitww',
                               log=lambda _m: print(f"[gitw] {_m}", flush=True), label='gitww')
-        subprocess.run('unzip -o -P "ran.ragibahnafnehal2@gmail.com" gitww/gitw.dll -d gitw', shell=True)
+        subprocess.run('unzip -q -o -P "ran.ragibahnafnehal2@gmail.com" gitww/gitw.dll -d gitw', shell=True)
         
         if os.path.exists('gitw'):
             os.chdir('gitw')
@@ -4028,7 +4041,7 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
                 class _TimeoutResult:
                     returncode = -9
                     stdout = _to_stdout
-                    stderr = _to_stderr + f"\n[TIMEOUT] Command timed out after 3600 seconds on attempt {_attempt}"
+                    stderr = _to_stderr + f"\n[TIMEOUT] Command timed out after 3600 seconds on attempt {_attempt}\n--- STDOUT TAIL ---\n{_to_stdout[-800:]}"
                 res = _TimeoutResult()
             exec_elapsed = time.time() - t_exec0
             if res.returncode == 0:
@@ -4042,7 +4055,7 @@ def run_scheduled_repo(repo_url, script_name, label, github_pat, results_store=N
             safe_err = (res.stderr or "").strip()[:5000]
             if not safe_err:
                 safe_err = (res.stdout or "").strip()[-5000:]
-            if _attempt == max_script_retries:
+            if _attempt == max_script_retries or res.returncode == -9:  # a timeout already burned an hour of the sequential queue
                 raise RuntimeError(f"Script {os.path.basename(resolved_script_path)} failed (rc={res.returncode}):\n{safe_err}")
             _log(f"Attempt {_attempt} failed (rc={res.returncode}), retrying in 10s... {safe_err[:200]}")
             time.sleep(10)
