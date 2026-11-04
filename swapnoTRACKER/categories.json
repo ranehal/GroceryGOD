@@ -7,16 +7,16 @@
       "expanded": true,
       "categories": [
         {
-          "name": "Hot Deals",
-          "url": "https://www.shwapno.com/Hot-Deals",
-          "id": "66d9913ce159d315bfa55ada",
+          "name": "A Place For Your Grocery Needs 5",
+          "url": "https://www.shwapno.com/A-Place-For-Your-Grocery-Needs-5",
+          "id": "662a35d5d965db51765fa97d",
           "type": "deal",
           "enabled": true
         },
         {
-          "name": "A Place For Your Grocery Needs 5",
-          "url": "https://www.shwapno.com/A-Place-For-Your-Grocery-Needs-5",
-          "id": "662a35d5d965db51765fa97d",
+          "name": "Hot Deals",
+          "url": "https://www.shwapno.com/Hot-Deals",
+          "id": "66d9913ce159d315bfa55ada",
           "type": "deal",
           "enabled": true
         },

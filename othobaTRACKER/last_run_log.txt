@@ -1,9 +1,9 @@
-Last Run: 2026-11-02 13:43:37
+Last Run: 2026-11-05 00:49:51
 ------------------------------
-Total Scraped: 7182
-Web Scraped: 5890
+Total Scraped: 7183
+Web Scraped: 6005
 App API Scraped: 2879
-Combined Unique: 7182
+Combined Unique: 7183
 ------------------------------
 Categories:
 - Snacks: 906
@@ -12,8 +12,8 @@ Categories:
 - Coffee, Tea & Beverages: 452
 - Groceries: 416
 - Lubricants & Oils: 336
-- spice-herb: 281
-- baking-2: 267
+- spice-herb: 282
+- baking-2: 266
 - Dairy, Chilled & Eggs: 253
-- Breakfast Essentials: 251
+- Breakfast Essentials: 249
 ... and 42 more.
