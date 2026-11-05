@@ -4620,6 +4620,13 @@ def run_giveaway_agents():
             + " work_dir=" + work_dir
         )
 
+    _p15_alert(
+        "🎁 <b>p15 Giveaway</b>: " + str(len(enabled)) + "/"
+        + str(len(_GIVEAWAY_P15_AGENTS)) + " accounts starting ("
+        + ", ".join(a["name"] for a in enabled) + ")"
+        + ("; missing: " + ", ".join(n for n in state if state[n]["disabled"])
+           if len(enabled) < len(_GIVEAWAY_P15_AGENTS) else "") + "."
+    )
     last_heartbeat = 0.0
     try:
         while not stop["flag"]:
@@ -4661,6 +4668,16 @@ def run_giveaway_agents():
                         _p15_log(
                             "[" + name + "] permanent configuration error; "
                             "not restarting this account."
+                        )
+                        _reason = (tail or "").strip().splitlines()
+                        _reason = [l for l in _reason if " ERROR " in l]
+                        _p15_alert(
+                            "⚠️ <b>p15 Giveaway</b>: account <b>" + name
+                            + "</b> disabled (config error).\n"
+                            + "<pre>" + (_reason[0][-300:] if _reason else "see " + state[name]["log"])
+                            .replace("&", "&amp;").replace("<", "&lt;") + "</pre>\n"
+                            "Fix the " + [a for a in _GIVEAWAY_P15_AGENTS if a["name"] == name][0]["session_env"]
+                            + " secret and restart the kernel."
                         )
                     else:
                         if uptime >= 300:
