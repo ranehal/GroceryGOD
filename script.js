@@ -3855,6 +3855,10 @@ function setupEventListeners() {
             blendOos = false;
             safeStorage.setItem('god_blend_oos', '0');
             syncBlendOosBtn();
+        } else {
+            // Showing OOS under a live-price-only intel filter (e.g. "Low") would
+            // change nothing; drop that filter so the OOS items actually appear.
+            clearOosExcludingIntelFilter();
         }
         syncShowOosBtn();
         visiblePages = 1;
