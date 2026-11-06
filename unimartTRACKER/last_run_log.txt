@@ -1,17 +1,17 @@
-Last Run: 2026-11-06 01:21:29
+Last Run: 2026-11-07 00:07:29
 ------------------------------
 Total Scraped: 1800
-New Items: 0
+New Items: 199
 ------------------------------
 Categories:
-- Grinded Spice: 78
-- Whole Spice: 64
-- Shampoo: 59
-- Chips: 40
-- Chocolate Bar: 38
-- Pasteurized Full Cream Milk: 30
-- Socks: 28
-- Local Biscuit: 27
-- Feeding Accessories Kit: 27
-- Soft Drinks: 25
-... and 313 more.
+- Grinded Spice: 80
+- Whole Spice: 63
+- Chips: 61
+- Shampoo: 60
+- Chocolate Bar: 42
+- Pasteurized Full Cream Milk: 35
+- Socks: 33
+- Local Biscuit: 30
+- Imported Biscuit: 29
+- Feeding Accessories Kit: 26
+... and 298 more.
