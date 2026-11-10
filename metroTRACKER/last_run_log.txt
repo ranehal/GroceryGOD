@@ -1,7 +1,7 @@
-Last Run: 2026-11-09 09:25:14
+Last Run: 2026-11-10 08:20:20
 ------------------------------
 Total Scraped: 1948
-New Items: 8
+New Items: 0
 ------------------------------
 Categories:
 - Food & Grocery: 906

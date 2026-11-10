@@ -1,4 +1,4 @@
-Last Run: 2026-11-09 09:22:26
+Last Run: 2026-11-10 08:18:22
 ------------------------------
 Total Scraped: 0
 In Stock: 0
@@ -6,7 +6,6 @@ Out of Stock: 0
 New Items: 0
 Catalog Sweep: SKIPPED (health guard)
 Pages OK: 0
-Last Error: rest_route HTTP 403 | browser tier Error: It looks like you are using Playwright Sync API inside the asyncio loop.
-Please use the Async API instead.
+Last Error: rest_route HTTP 403 | browser tier RuntimeError: browser returned an empty body
 ------------------------------
 Categories:
