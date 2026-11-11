@@ -1,19 +1,19 @@
-Last Run: 2026-11-10 08:18:37
+Last Run: 2026-11-11 07:00:15
 ------------------------------
-Total Scraped: 7184
+Total Scraped: 10989
 Web Scraped: 6006
-App API Scraped: 2879
-Combined Unique: 7184
+App API Scraped: 6184
+Combined Unique: 10989
 ------------------------------
 Categories:
-- Snacks: 906
+- Snacks: 1420
+- Fishing: 887
+- Beverages: 676
 - Grocery Staples: 670
+- Fresh Produce: 610
+- Fish & Aquarium Supplies: 579
 - daily-bazar: 566
+- Baking & Cooking: 507
 - Coffee, Tea & Beverages: 452
-- Groceries: 416
-- Lubricants & Oils: 336
-- spice-herb: 280
-- baking-2: 266
-- Dairy, Chilled & Eggs: 253
-- Breakfast Essentials: 249
-... and 42 more.
+- Irons & Garment Steamers: 345
+... and 46 more.

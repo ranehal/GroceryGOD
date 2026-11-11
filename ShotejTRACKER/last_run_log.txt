@@ -1,4 +1,4 @@
-Last Run: 2026-11-10 08:18:22
+Last Run: 2026-11-11 06:59:02
 ------------------------------
 Total Scraped: 0
 In Stock: 0
@@ -6,6 +6,6 @@ Out of Stock: 0
 New Items: 0
 Catalog Sweep: SKIPPED (health guard)
 Pages OK: 0
-Last Error: rest_route HTTP 403 | browser tier RuntimeError: browser returned an empty body
+Last Error: rest_route HTTP 403 | browser tier JSONDecodeError: Expecting value: line 1 column 1 (char 0)
 ------------------------------
 Categories:
