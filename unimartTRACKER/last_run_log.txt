@@ -1,17 +1,17 @@
-Last Run: 2026-11-11 07:03:10
+Last Run: 2026-11-12 06:09:45
 ------------------------------
 Total Scraped: 1800
-New Items: 24
+New Items: 2
 ------------------------------
 Categories:
-- Whole Spice: 65
-- Shampoo: 62
-- Grinded Spice: 48
-- Chips: 45
+- Whole Spice: 64
+- Shampoo: 59
+- Chips: 44
 - Chocolate Bar: 44
+- Grinded Spice: 42
 - Pasteurized Full Cream Milk: 38
+- Toothpaste: 38
 - Socks: 38
-- Toothpaste: 35
 - Cookies: 29
-- Men’S Perfume: 26
-... and 299 more.
+- Feeding Accessories Kit: 26
+... and 291 more.
