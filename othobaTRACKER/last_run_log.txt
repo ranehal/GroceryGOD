@@ -1,15 +1,15 @@
-Last Run: 2026-11-14 03:49:45
+Last Run: 2026-11-15 08:13:09
 ------------------------------
-Total Scraped: 11260
+Total Scraped: 11269
 Web Scraped: 10363
-App API Scraped: 6281
-Combined Unique: 11260
+App API Scraped: 6286
+Combined Unique: 11269
 ------------------------------
 Categories:
 - Snacks: 1478
 - Fishing: 887
 - Baking & Cooking: 765
-- Beverages: 718
+- Beverages: 719
 - Grocery Staples: 666
 - Fresh Produce: 607
 - Fish & Aquarium Supplies: 584
