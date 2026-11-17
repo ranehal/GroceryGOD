@@ -1033,5 +1033,10 @@ window.CATEGORY_DATA = [
     "name": "Popular",
     "url": "https://chaldal.com/popular",
     "active": true
+  },
+  {
+    "name": "Additional troubleshooting information",
+    "url": "https://chaldal.comhttps://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-5xx-errors/error-521/",
+    "active": true
   }
 ];
