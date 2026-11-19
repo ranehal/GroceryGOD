@@ -227,6 +227,12 @@ These fixes were extracted from live Kaggle failures. Preserve the patterns:
     - The chart modal's close button is `.chart-close-btn`, pinned top-right at 40px, with a red `#D93A2B` fill (white icon, 4.6:1).
     - The price-chart backdrop is the **original** product photo, unfiltered (no invert, matte or blend), at 26% opacity. The old `invert()` made it a negative.
     - The card `№N` rank chip is a button that calls `openCategoryRanking()`: the (store, category) list sorted `unit_price_asc` with deal filters cleared, matching how `catRankIndex` ranks.
+  - **Header rhythm (2026-11-19c, do not regress)**: `.main-content` is a size container (`container: ggmain / inline-size`), so the header sizes from its own width, sidebar included.
+    - **Sizing**: every header control shares `--hc` (34px; 36px when the container is ≥1400px; 40px on coarse pointers), and gaps use `--hg`. The rhythm rules never set `display`, so phone-hidden controls stay hidden.
+    - **≥1240px container**: one row; the search box flexes between 220 and 520px.
+    - **769–1239px container**: two deliberate rows, brand plus full-width search, then the whole toolbar left-aligned. This replaces the old row, where the search was crushed to about 140px.
+    - **Phones**: menu and brand sit on the left with the tools toggle on the right, and the search fills its row. The tools panel (`body.mobile-tools-open`) is an `auto-fill minmax(108px, 1fr)` grid.
+    - **Specificity**: search-width rules must use `#dashboard-header`, because `body:not(.sidebar-collapsed) .search-wrapper` out-ranks class selectors.
   - **Shwapno product-page categories (`aggregator.py` `fix_shwapno_product_categories`, 2026-11-19)**: Shwapno serves some product landing pages as categories ("Aci Pure Chilli Morich Powder 200Gm", "Domex … 750Ml", "Low Fat Milk 2"). After loading, the aggregator:
     1. folds `<name> N` slug duplicates back into `<name>`;
     2. treats any category with a pack size, a "Buy N Get N" promo, or a name that equals a product as a product page;

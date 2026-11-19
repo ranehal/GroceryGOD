@@ -7763,3 +7763,92 @@ button.rank-chip {
 }
 button.rank-chip:focus-visible { outline: 2px solid var(--taka) !important; outline-offset: 2px; }
 @media (pointer: coarse) { button.rank-chip { min-height: 28px; padding-inline: 7px !important; } }
+
+/* ============================================================================
+   HEADER RHYTHM — 2026-11-19c (appended; wins by order)
+   One control height (--hc) and one gap (--hg) for every header control, sized
+   from the header's own width (container query on .main-content, so the sidebar
+   being open or collapsed is accounted for), 40px on touch.
+   ============================================================================ */
+.main-content { container: ggmain / inline-size; }
+.dashboard-header { --hc: 34px; --hg: 6px; }
+@container ggmain (min-width: 1400px) { .dashboard-header { --hc: 36px; --hg: 8px; } }
+@media (pointer: coarse) { .dashboard-header { --hc: 40px; --hg: 8px; } }
+
+.dashboard-header { column-gap: calc(var(--hg) * 2) !important; row-gap: var(--hg) !important; }
+.dashboard-header .header-left,
+#dashboard-header .header-right { gap: var(--hg) !important; align-items: center !important; }
+
+/* every control shares one box height */
+.dashboard-header :is(.sidebar-toggle-btn, #mobile-header-tools-btn, .header-right > .btn-icon, #sort-options, .search-input, .multi-filter-group) {
+    height: var(--hc) !important;
+    min-height: var(--hc) !important;
+    box-sizing: border-box !important;
+}
+.dashboard-header :is(.sidebar-toggle-btn, #mobile-header-tools-btn, .header-right > .btn-icon) {
+    min-width: var(--hc) !important;
+    padding: 0 calc((var(--hc) - 16px) / 2) !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 4px !important;
+    border-radius: 8px !important;
+    flex: 0 0 auto !important;
+}
+.dashboard-header .sidebar-toggle-btn { width: var(--hc) !important; padding: 0 !important; }
+.dashboard-header .brand-mark { width: var(--hc) !important; height: var(--hc) !important; border-radius: 8px !important; }
+.dashboard-header .hero-return-pill { height: calc(var(--hc) - 8px) !important; min-height: 0 !important; }
+.dashboard-header .multi-filter-group { align-items: center !important; gap: 4px !important; padding: 0 4px !important; }
+.dashboard-header .multi-filter-group .check-pill { height: calc(var(--hc) - 8px) !important; align-items: center !important; }
+@media (hover: hover) and (pointer: fine) {
+    .dashboard-header .header-right > .btn-icon:not(.primary-action):hover { background: var(--ink-2) !important; }
+}
+
+/* Wide header: one row; the search takes what is left (220–520px). */
+@container ggmain (min-width: 1240px) {
+    #dashboard-header .search-wrapper { flex: 1 1 260px !important; min-width: 220px !important; max-width: 520px !important; }
+    #dashboard-header .header-right { margin-left: auto !important; flex-wrap: nowrap !important; }
+}
+/* Mid header (tablets, laptops with the sidebar open): two deliberate rows —
+   brand + full-width search, then the whole toolbar — instead of a crushed search. */
+@container ggmain (min-width: 769px) and (max-width: 1239.98px) {
+    #dashboard-header .search-wrapper { flex: 1 1 0 !important; min-width: 220px !important; max-width: none !important; }
+    #dashboard-header .header-right { flex: 1 1 100% !important; justify-content: flex-start !important; flex-wrap: wrap !important; margin-left: 0 !important; }
+}
+/* Phones: menu and brand stay together on the left; the tools toggle sits on the right. */
+@media (max-width: 768px) {
+    .dashboard-header .header-left { justify-content: flex-start !important; }
+    .dashboard-header #mobile-header-tools-btn { margin-left: auto !important; }
+    #dashboard-header .search-wrapper { width: 100% !important; max-width: none !important; min-width: 0 !important; }
+}
+
+/* (the rhythm rules above never set display, so controls hidden on phones stay hidden) */
+@media (max-width: 480px) {
+    /* small phones: give the search the room; the sort label still fits ("Name A-Z") */
+    #dashboard-header #sort-options { max-width: 100px !important; padding-right: 22px !important; }
+}
+/* Phone header-tools panel: an even grid instead of ragged wrapping rows. */
+@media (max-width: 768px) {
+    body.mobile-tools-open #dashboard-header .header-right {
+        display: grid !important;
+        grid-template-columns: repeat(auto-fill, minmax(108px, 1fr)) !important;
+        gap: 8px !important;
+        width: 100% !important;
+    }
+    body.mobile-tools-open #dashboard-header .header-right > * {
+        width: auto !important; min-width: 0 !important; max-width: none !important; margin: 0 !important;
+    }
+    body.mobile-tools-open #dashboard-header .header-right > .multi-filter-group { grid-column: 1 / -1; justify-content: flex-start !important; }
+    body.mobile-tools-open #dashboard-header .header-right > .btn-icon { justify-content: flex-start !important; overflow: hidden; }
+    body.mobile-tools-open #dashboard-header .header-right > .btn-icon > span:not(.button-count) {
+        overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0;
+    }
+}
+@media (max-width: 768px) {
+    body.mobile-tools-open #dashboard-header #sort-options { max-width: none !important; }
+    /* the gradient "primary" treatment smeared its label at this size: a flat taka fill reads clearly */
+    body.mobile-tools-open #dashboard-header .header-right > .primary-action {
+        background: var(--taka) !important; background-image: none !important;
+        color: #06231A !important; border-color: transparent !important; box-shadow: none !important;
+    }
+    body.mobile-tools-open #dashboard-header .header-right > .primary-action * { color: #06231A !important; }
+}
