@@ -15,20 +15,20 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
-<link rel="preload" href="atl_preview.json?v=20261119_v1" as="fetch" crossorigin>
-<link rel="preload" href="atl.parquet?v=20261119_v1" as="fetch" crossorigin>
-<link rel="preload" href="products_free.parquet?v=20261119_v1" as="fetch" crossorigin>
-<link rel="icon" type="image/png" sizes="64x64" href="favicon.png?v=20261119_v1">
-<link rel="shortcut icon" href="favicon.ico?v=20261119_v1">
-<link rel="apple-touch-icon" href="favicon.jpg?v=20261119_v1">
+<link rel="preload" href="atl_preview.json?v=20261119_v2" as="fetch" crossorigin>
+<link rel="preload" href="atl.parquet?v=20261119_v2" as="fetch" crossorigin>
+<link rel="preload" href="products_free.parquet?v=20261119_v2" as="fetch" crossorigin>
+<link rel="icon" type="image/png" sizes="64x64" href="favicon.png?v=20261119_v2">
+<link rel="shortcut icon" href="favicon.ico?v=20261119_v2">
+<link rel="apple-touch-icon" href="favicon.jpg?v=20261119_v2">
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link href="style.css?v=20261119_v1" rel="stylesheet"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+<link href="style.css?v=20261119_v2" rel="stylesheet"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
 </head>
 <body class="pitch-black theme-amoled">
 <script>
 // Hold the masthead for motion.js; released by it, or after 1.2s if it never loads.
 if (!matchMedia('(prefers-reduced-motion: reduce)').matches) { document.documentElement.classList.add('motion-pending'); setTimeout(() => document.documentElement.classList.remove('motion-pending'), 1200); }
-window.GOD_ASSET_VERSION = '20261119_v1';
+window.GOD_ASSET_VERSION = '20261119_v2';
 window.GOD_ALLOW_LEGACY_DATA = false;
 if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')) {
     window.addEventListener('load', () => {
@@ -74,6 +74,7 @@ if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || wi
         <div class="hero-nav-actions">
             <button class="hero-nav-link" id="hero-nav-explore-btn"><i class="fas fa-layer-group"></i> Full catalogue</button>
             <button class="hero-nav-link" id="hero-nav-analytics-btn"><i class="fas fa-chart-line"></i> Market sensors</button>
+            <a class="hero-nav-link" href="analytics.html" id="hero-nav-stats-link"><i class="fas fa-chart-column" aria-hidden="true"></i> Market stats</a>
             <button class="hero-cta-btn" id="hero-cta-top">Open price board <i class="fas fa-arrow-down"></i></button>
         </div>
     </nav>
@@ -101,7 +102,7 @@ if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || wi
                 <div class="hero-search-box">
                     <i class="fas fa-search hero-search-icon"></i>
                     <input type="text" id="hero-search-input" placeholder="Search milk, oil, rice, beef, eggs across 8 stores…" autocomplete="off" aria-label="Search groceries across stores">
-                    <button class="hero-search-submit" id="hero-search-btn">
+                    <button class="hero-search-submit" id="hero-search-btn" type="button" aria-label="Search">
                         <span>Search</span>
                         <i class="fas fa-arrow-right"></i>
                     </button>
@@ -186,11 +187,11 @@ if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || wi
 <button aria-label="Collapse filters" class="btn-icon btn-variant-ghost sidebar-close-btn" id="sidebar-close" title="Collapse filters"><i class="fas fa-chevron-left"></i></button>
 </div>
 <div class="category-search-container">
-<input id="category-filter" placeholder="Filter categories/stores..." type="text"/>
+<input id="category-filter" placeholder="Filter categories/stores..." type="search" aria-label="Filter categories and stores"/>
 </div>
-<ul class="category-list" id="category-list">
+<div class="category-list" id="category-list" role="region" aria-label="Stores and categories">
 <!-- Stores and categories populated by JS -->
-</ul>
+</div>
 <div class="store-legend" id="store-stats-sidebar">
 <!-- Last update dates for each store -->
 </div>
@@ -210,7 +211,7 @@ if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || wi
 <button aria-controls="dashboard-header" aria-expanded="false" aria-label="Header tools" class="btn-icon btn-variant-minimal" id="mobile-header-tools-btn" title="Header tools — units, theme, show all, OOS"><i class="fas fa-sliders"></i></button>
 </div>
 <div class="search-wrapper">
-<input class="search-input" id="product-search" placeholder="Search essentials…" type="text"/>
+<input class="search-input" id="product-search" placeholder="Search essentials…" type="text" aria-label="Search products"/>
 <i class="fas fa-times-circle clear-search" id="clear-search"></i>
 <div class="suggestions-box" id="search-suggestions"></div>
 </div>
@@ -221,7 +222,7 @@ if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || wi
 <label class="check-pill"><input checked="" type="checkbox" value="liter"/> LTR</label>
 <label class="check-pill"><input checked="" type="checkbox" value="piece"/> PCS</label>
 </div>
-<select class="search-input" id="sort-options">
+<select class="search-input" id="sort-options" aria-label="Sort products">
 <option value="name_asc">Name A-Z</option>
 <option value="unit_price_asc">Unit Price Low-High</option>
 <option value="unit_price_desc">Unit Price High-Low</option>
@@ -261,18 +262,18 @@ if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || wi
 <button class="intel-btn intel-variant-reset" id="reset-filters-header-btn" title="Reset all filters (reenables last shop)"><i class="fas fa-rotate-left"></i> Reset Filter</button>
 <div class="date-range-intel" id="price-change-controls" style="display:none;">
 <span>From:</span>
-<input id="pc-days-input" max="365" min="1" style="width:45px; background:var(--bg-card); color:white; border:1px solid #444; border-radius:4px; padding:2px 5px;" type="number" value="7"/>
+<input id="pc-days-input" aria-label="Price change window in days" max="365" min="1" style="width:45px; background:var(--bg-card); color:white; border:1px solid #444; border-radius:4px; padding:2px 5px;" type="number" value="7"/>
 <span>days ago</span>
 <button class="intel-btn" id="pc-mode-toggle" style="padding:2px 8px; font-size:0.6rem; margin-left:4px;">%</button>
 </div>
 <div class="date-range-intel">
 <span>New in:</span>
-<input id="new-days-input" max="90" min="1" style="width:45px; background:var(--bg-card); color:white; border:1px solid #444; border-radius:4px; padding:2px 5px;" type="number" value="7"/>
+<input id="new-days-input" aria-label="New items window in days" max="90" min="1" style="width:45px; background:var(--bg-card); color:white; border:1px solid #444; border-radius:4px; padding:2px 5px;" type="number" value="7"/>
 <span>days</span>
 </div>
 <div class="date-range-intel">
 <span>Mean Analysis:</span>
-<input id="intel-date-start" type="date"/> to <input id="intel-date-end" type="date"/>
+<input id="intel-date-start" type="date" aria-label="Mean analysis start date"/> to <input id="intel-date-end" type="date" aria-label="Mean analysis end date"/>
 </div>
 <div class="filtered-items-badge" id="filtered-items-badge"><i class="fas fa-filter"></i> <span id="filter-count-text">Showing <strong>0</strong> items</span></div>
 </div>
@@ -312,8 +313,8 @@ if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || wi
 <div><strong><span id="compare-tray-count">0</span>/6 selected</strong><small>Tap cards to add or remove</small></div>
 </div>
 <div class="compare-tray-actions">
-<button class="tray-btn tray-btn-ghost" id="compare-tray-clear" type="button"><i class="fas fa-eraser"></i><span>Clear</span></button>
-<button class="tray-btn tray-btn-cancel" id="compare-tray-cancel" type="button"><i class="fas fa-xmark"></i><span>Exit</span></button>
+<button class="tray-btn tray-btn-ghost" id="compare-tray-clear" type="button" aria-label="Clear comparison"><i class="fas fa-eraser"></i><span>Clear</span></button>
+<button class="tray-btn tray-btn-cancel" id="compare-tray-cancel" type="button" aria-label="Exit compare mode"><i class="fas fa-xmark"></i><span>Exit</span></button>
 <button class="tray-btn tray-btn-go" disabled="" id="compare-tray-open" type="button"><i class="fas fa-chart-column"></i><span>Compare now</span></button>
 </div>
 </section>
@@ -678,13 +679,13 @@ if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || wi
 
 <script type="importmap">{"imports":{"@duckdb/duckdb-wasm":"https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm@1.29.0/+esm"}}</script>
 <script type="module">import * as duckdb from '@duckdb/duckdb-wasm'; window.duckdb=duckdb; window.__duckdb_ready?.();</script>
-<script src="shwapno_manifest.js?v=20261119_v1"></script><script src="chaldal_manifest.js?v=20261119_v1"></script><script src="meenabazar_manifest.js?v=20261119_v1"></script><script src="othoba_manifest.js?v=20261119_v1"></script><script src="metromart_manifest.js?v=20261119_v1"></script><script src="unimart_manifest.js?v=20261119_v1"></script><script src="shotejbazar_manifest.js?v=20261119_v1"></script><script src="foodi_manifest.js?v=20261119_v1"></script><script src="turso_manifest.js?v=20261119_v1"></script>
+<script src="shwapno_manifest.js?v=20261119_v2"></script><script src="chaldal_manifest.js?v=20261119_v2"></script><script src="meenabazar_manifest.js?v=20261119_v2"></script><script src="othoba_manifest.js?v=20261119_v2"></script><script src="metromart_manifest.js?v=20261119_v2"></script><script src="unimart_manifest.js?v=20261119_v2"></script><script src="shotejbazar_manifest.js?v=20261119_v2"></script><script src="foodi_manifest.js?v=20261119_v2"></script><script src="turso_manifest.js?v=20261119_v2"></script>
 
-<script src="script.js?v=20261119_v1"></script>
+<script src="script.js?v=20261119_v2"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
-<script src="motion.js?v=20261119_v1"></script>
+<script src="motion.js?v=20261119_v2"></script>
 <div id="god-chat-widget">
   <button id="god-chat-toggle" class="god-chat-fab" aria-label="Open GroceryGOD assistant">💬</button>
   <div id="god-chat-panel" class="god-chat-panel hidden">

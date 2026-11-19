@@ -1,5 +1,5 @@
 // GroceryGOD Service Worker — Cache Accelerator for Instant Loading
-const CACHE_NAME = 'god-cache-v20261119_v1';
+const CACHE_NAME = 'god-cache-v20261119_v2';
 const STATIC_ASSET_PATTERNS = [
     /@duckdb\/duckdb-wasm/i,
     /duckdb.*\.wasm(\?|$)/i,
@@ -35,6 +35,9 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
     const req = event.request;
     if (req.method !== 'GET') return;
+    // DuckDB reads parquet with HTTP Range requests (analytics.html). Rebuilding the request below
+    // would drop the Range header and return the whole file for every slice: let those through.
+    if (req.headers.has('range')) return;
 
     const url = req.url;
 

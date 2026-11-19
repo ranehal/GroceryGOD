@@ -7580,3 +7580,87 @@ body.theme-light .history-chart-stage::before { filter: grayscale(1); mix-blend-
 /* The free-view paywall covers the left half at every width (measured):
    centre the item on the readable half instead of half-hiding it. */
 body:not(.premium-unlocked) #chart-modal .history-chart-stage:has(> .history-paywall-mask:not([hidden]):not(.hidden))::before { left: 50%; }
+
+/* ============================================================================
+   A11Y / TOUCH / RENDER PASS — 2026-11-19 (appended; wins by order)
+   axe-core + impeccable detector findings: 11px text floor, 4.5:1 contrast on
+   micro-labels, 24px minimum targets, real <button> for favourite, and render
+   containment for the card grid. Tokens only; no selectors renamed.
+   ============================================================================ */
+
+/* Micro-labels: 11px floor (was 10px) and full-strength paper-3 instead of
+   #888 at 75% opacity, which measured 3.5:1 on --ink-1. */
+.board-stamp, .store-legend-header,
+.hero-kicker-badge, .quicktag-label, .strip-label, .board-store, .board-delta {
+    font-size: max(11px, .68rem) !important;
+}
+body:not(.theme-light) .legend-date,
+body:not(.theme-light) .legend-row-bottom { color: var(--paper-3) !important; opacity: 1 !important; }
+body:not(.theme-light) .legend-source { color: var(--paper-2) !important; opacity: 1 !important; }
+
+/* Category jump tag on cards: 24px target without moving the layout. */
+button.cat-tag.cat-jump-btn {
+    font-size: 11px !important;
+    min-height: 24px;
+    display: inline-flex !important;
+    align-items: center;
+    padding: 4px 6px !important;
+    margin: -5px -6px !important;
+}
+
+/* Favourite is a real button now: drop the UA chrome, keep the existing look. */
+button.fav-btn {
+    border: 0;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+}
+button.fav-btn:focus-visible { outline: 2px solid var(--taka); outline-offset: 2px; }
+
+/* Card focus: the grid is keyboard-reachable, so the ring must be visible on every card. */
+.p-item-sh:focus-visible { outline: 2px solid var(--taka) !important; outline-offset: 2px; }
+
+/* Hero nav link rendered as <a>. */
+a.hero-nav-link { text-decoration: none; }
+
+/* Mobile hero search: the label hides, so the arrow button keeps a 44px target. */
+@media (max-width: 768px) {
+    .hero-search-submit { min-width: 44px !important; min-height: 44px !important; justify-content: center; }
+}
+
+/* Coarse pointers: sidebar toggles and the small header icons reach 36px+. */
+@media (pointer: coarse) {
+    .cat-checkbox, .shop-checkbox { width: 20px; height: 20px; }
+    .cat-only-btn { min-height: 32px; padding-inline: 10px; }
+    button.cat-tag.cat-jump-btn { min-height: 32px; }
+}
+
+/* Render cost: skip layout/paint for off-screen cards (DOM measured ~26k nodes
+   on desktop after full hydration) and collapsed sidebar groups. */
+.p-item-sh { content-visibility: auto; contain-intrinsic-size: auto 340px; }
+#category-list .shop-group:not(:has(.shop-header.expanded)) { content-visibility: auto; contain-intrinsic-size: auto 48px; }
+
+/* Text selection & caret themed from the palette on both themes. */
+body.theme-light ::selection { background: rgba(28, 185, 138, .22); color: inherit; }
+input, textarea { caret-color: var(--taka); }
+
+/* ShotejBazar's brand purple (#9c27b0) is 2.96:1 as text on the dark ground; lift it for text only. */
+body:not(.theme-light) [style*="color:#9c27b0"] { color: #c062d6 !important; }
+
+/* 11px floor for functional micro-text (detector measured 8.6–10.9px on card badges, rank chips,
+   sparkline pills, unit labels, filter pills, stat labels and the sidebar legend). */
+.store-badge, .card-badge-item, .rank-chip, .sparkline-pill, .pack-info, .price-main .unit-label, .price-tag,
+.stat-label, .intel-btn, #custom-drop-label, #toggle-has-image-btn, #reset-filters-header-btn,
+.check-pill, #price-change-controls > span, .date-range-intel, .date-range-intel > span, #filter-count-text,
+.category-group-header > span, #select-all-shops-btn, #unselect-all-shops-btn {
+    font-size: 11px !important;
+}
+.store-badge, .card-badge-item, .rank-chip { letter-spacing: .02em !important; }
+
+/* Contrast: unit labels, sidebar counts and footer text reach 4.5:1 on the ink ground. */
+body:not(.theme-light) .price-main .unit-label { color: var(--paper-3) !important; opacity: 1 !important; }
+body:not(.theme-light) .shop-header > div:nth-of-type(2) > span { opacity: .8 !important; }
+body:not(.theme-light) footer, body:not(.theme-light) footer * { color: var(--paper-3); }

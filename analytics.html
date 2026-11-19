@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GroceryGOD Analytics</title>
+<meta name="description" content="Market analytics for Bangladeshi grocery stores: price index, price moves, stock and store health.">
+<link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="preload" href="products_free.parquet" as="fetch" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="analytics.css" rel="stylesheet">
+<script>
+try { if (localStorage.getItem('god_theme') === 'light') document.documentElement.dataset.theme = 'light'; } catch (_) {}
+</script>
+</head>
+<body>
+<header class="an-top">
+  <div class="an-top-inner">
+    <a class="an-brand" href="./" title="Back to the price dashboard">
+      <span class="an-mark" aria-hidden="true">৳</span>
+      <span>GroceryGOD</span>
+    </a>
+    <span class="an-slash" aria-hidden="true">/</span>
+    <h1 class="an-crumb">Market analytics</h1>
+    <span class="an-live" id="an-live"><span class="dot"></span><span id="an-live-text">Loading data…</span></span>
+    <div class="an-top-actions">
+      <a class="an-btn ghost" href="./">Dashboard</a>
+      <button class="an-btn ghost icon" id="an-theme" type="button" aria-label="Switch light / dark theme" title="Switch theme"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17a8.5 8.5 0 0 0 0-17z" fill="currentColor"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main class="an-main">
+  <div class="an-toolbar">
+    <label class="an-select">
+      <span class="sr-only">Store</span>
+      <select id="an-store" aria-label="Store filter"><option value="all">All stores</option></select>
+    </label>
+    <div class="an-seg" role="group" aria-label="Time range" id="an-range">
+      <button type="button" data-range="7">7d</button>
+      <button type="button" data-range="30">30d</button>
+      <button type="button" data-range="90" data-premium>90d</button>
+      <button type="button" data-range="all" data-premium>All</button>
+    </div>
+    <span class="an-progress" id="an-progress" aria-live="polite"></span>
+    <div class="an-toolbar-right">
+      <button class="an-btn" id="an-share" type="button">Copy link</button>
+      <button class="an-btn" id="an-csv" type="button">Export CSV</button>
+    </div>
+  </div>
+
+  <section class="an-card an-overview" aria-label="Overview">
+    <div class="an-kpis" role="tablist" id="an-kpis"></div>
+    <div class="an-chart-wrap" id="an-chart-wrap" role="tabpanel">
+      <div class="an-chart-head">
+        <span id="an-chart-title">Price index</span>
+        <span class="an-chart-note" id="an-chart-note"></span>
+      </div>
+      <div class="an-chart"><canvas id="an-chart" role="img" aria-label="Trend chart"></canvas></div>
+    </div>
+  </section>
+
+  <div class="an-grid">
+    <section class="an-card an-panel" data-panel="stores">
+      <header><h2>Stores</h2><div class="an-tabs" role="group" aria-label="View" data-tabs="stores"><button data-tab="items" class="on">Items</button><button data-tab="index">Price Δ</button><button data-tab="stock">In stock</button></div></header>
+      <div class="an-cols"><span id="an-stores-col-a">Store</span><span id="an-stores-col-b">Items</span></div>
+      <ol class="an-list" id="an-stores" tabindex="0" aria-label="Stores"></ol>
+    </section>
+
+    <section class="an-card an-panel" data-panel="categories">
+      <header><h2>Categories</h2><div class="an-tabs" role="group" aria-label="View" data-tabs="categories"><button data-tab="items" class="on">Largest</button><button data-tab="up">Rising</button><button data-tab="down">Falling</button></div></header>
+      <div class="an-cols"><span>Category</span><span id="an-cat-col-b">Items</span></div>
+      <ol class="an-list" id="an-categories" tabindex="0" aria-label="Categories"></ol>
+    </section>
+
+    <section class="an-card an-panel" data-panel="movers">
+      <header><h2>Top movers</h2><div class="an-tabs" role="group" aria-label="View" data-tabs="movers"><button data-tab="down" class="on">Drops</button><button data-tab="up">Hikes</button></div></header>
+      <div class="an-cols"><span>Product</span><span>Change</span></div>
+      <ol class="an-list" id="an-movers" tabindex="0" aria-label="Top movers"></ol>
+    </section>
+
+    <section class="an-card an-panel" data-panel="stock">
+      <header><h2>Stock changes</h2><div class="an-tabs" role="group" aria-label="View" data-tabs="stock"><button data-tab="oos" class="on">Went out</button><button data-tab="back">Restocked</button></div></header>
+      <div class="an-cols"><span>Product</span><span id="an-stock-col-b">Last seen</span></div>
+      <ol class="an-list" id="an-stock" tabindex="0" aria-label="Stock changes"></ol>
+    </section>
+
+    <section class="an-card an-panel" data-panel="deals">
+      <header><h2>All-time lows</h2><div class="an-tabs" role="group" aria-label="View" data-tabs="deals"><button data-tab="deep" class="on">Deepest</button><button data-tab="stores">By store</button></div></header>
+      <div class="an-cols"><span id="an-deals-col-a">Product</span><span id="an-deals-col-b">Below peak</span></div>
+      <ol class="an-list" id="an-deals" tabindex="0" aria-label="All-time lows"></ol>
+    </section>
+
+    <section class="an-card an-panel" data-panel="health">
+      <header><h2>Data health</h2><span class="an-sub">Scrape coverage in range</span></header>
+      <div class="an-cols"><span>Store</span><span>Last data · coverage</span></div>
+      <ol class="an-list" id="an-health" tabindex="0" aria-label="Data health"></ol>
+    </section>
+  </div>
+
+  <p class="an-foot">Computed in your browser with DuckDB from the public parquet snapshots. Price index = chained geometric mean of day-over-day shelf-price changes (base 100 at range start). Out-of-stock points are excluded from price math.</p>
+</main>
+
+<div class="an-toast" id="an-toast" role="status" aria-live="polite"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script type="module" src="analytics.js"></script>
+</body>
+</html>

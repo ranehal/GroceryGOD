@@ -24,7 +24,29 @@ let metadata = {};
 let _godDbResolver;
 window.__godDbPromise = new Promise(resolve => { _godDbResolver = resolve; });
 let godDB = null; // persistent DuckDB connection for on-demand queries
-const ASSET_VERSION = window.GOD_ASSET_VERSION || '20261119_v1';
+
+// Column-wise Arrow -> plain objects. Row proxies + toJSON() cost ~5x more on the main thread
+// (profiled 2026-11-19: ~1.4s of 4x-throttled mobile CPU on the 59k-row catalogue). Iterating a
+// column yields the same values row.toJSON() does, nulls included.
+function arrowColumns(table) {
+    const names = table.schema.fields.map(f => f.name);
+    const cols = names.map((_, i) => Array.from(table.getChildAt(i) || []));
+    return {
+        length: table.numRows,
+        row(r) {
+            const o = {};
+            for (let c = 0; c < names.length; c++) o[names[c]] = cols[c][r];
+            return o;
+        }
+    };
+}
+function arrowToObjects(table) {
+    const t = arrowColumns(table);
+    const out = new Array(t.length);
+    for (let r = 0; r < t.length; r++) out[r] = t.row(r);
+    return out;
+}
+const ASSET_VERSION = window.GOD_ASSET_VERSION || '20261119_v2';
 let currentDataSource = safeStorage.getItem('god_data_source') || 'local';
 let favorites = JSON.parse(safeStorage.getItem('god_favorites') || '[]');
 let selectedForComparison = JSON.parse(safeStorage.getItem('god_comparison') || '[]');
@@ -1208,8 +1230,7 @@ async function loadAllFromParquet() {
             ORDER BY (max_price - normalized_price) DESC
         `);
         let addedNew = false;
-        for (const row of priorityResult.toArray()) {
-            const r = row.toJSON();
+        for (const r of arrowToObjects(priorityResult)) {
             if (!seenIds.has(r.id)) {
                 seenIds.add(r.id);
                 allProducts.push(mapProductRow(r));
@@ -1330,24 +1351,26 @@ async function loadAllFromParquet() {
             }
 
             const fullResult = await conn.query(`SELECT * FROM read_parquet('products.parquet')`);
-            const allRows = fullResult.toArray();
-            log(`Background catalog rows ready (${allRows.length}), streaming in idle batches...`);
+            // One Arrow record batch (~2k rows) per idle tick, read column-wise: no single long task.
+            const recordBatches = fullResult.batches;
+            log(`Background catalog rows ready (${fullResult.numRows}), streaming in idle batches...`);
 
-            const batchSize = 1500;
-            let idx = 0;
+            let bIdx = 0;
 
             function processNextBatch() {
-                const end = Math.min(idx + batchSize, allRows.length);
-                for (let i = idx; i < end; i++) {
-                    const r = allRows[i].toJSON();
-                    if (!seenIds.has(r.id)) {
-                        seenIds.add(r.id);
-                        allProducts.push(mapProductRow(r));
+                const batch = recordBatches[bIdx++];
+                if (batch) {
+                    const rows = arrowColumns(batch);
+                    for (let i = 0; i < rows.length; i++) {
+                        const r = rows.row(i);
+                        if (!seenIds.has(r.id)) {
+                            seenIds.add(r.id);
+                            allProducts.push(mapProductRow(r));
+                        }
                     }
                 }
-                idx = end;
 
-                if (idx < allRows.length) {
+                if (bIdx < recordBatches.length) {
                     if (window.requestIdleCallback) {
                         window.requestIdleCallback(processNextBatch, { timeout: 60 });
                     } else {
@@ -1474,8 +1497,7 @@ async function loadStoreData(sid) {
         WHERE p.store = '${sid}'
     `;
     const result = await godDB.conn.query(query);
-    for (const row of result.toArray()) {
-        const r = row.toJSON();
+    for (const r of arrowToObjects(result)) {
         const inStock = (r.in_stock !== false) && (r.is_out_of_stock !== true) && Number(r.current_price) > 0;
         allProducts.push({
             id: r.id, name: r.name, store: r.store, category: r.category,
@@ -2064,7 +2086,7 @@ function renderSidebar() {
         header.className = 'shop-header ' + (isStoreActive ? 'active ' : '') + (isExpanded ? 'expanded' : '');
         header.innerHTML = `
             <div class="shop-toggle-container">
-                <input type="checkbox" class="shop-checkbox" ${isAllChecked || (isStoreActive && !isSomeChecked) ? 'checked' : ''}>
+                <input type="checkbox" class="shop-checkbox" aria-label="Show ${escapeAttribute(STORE_CONFIG[sid].name)}" ${isAllChecked || (isStoreActive && !isSomeChecked) ? 'checked' : ''}>
                 <span style="color:${STORE_CONFIG[sid].color}">${STORE_CONFIG[sid].name}</span>
             </div>
             <div style="display:flex; align-items:center; gap:12px;">
@@ -2150,7 +2172,7 @@ function renderSidebar() {
 
             li.innerHTML = `
                 <div class="cat-row-content" style="display:flex; align-items:center; gap:8px; flex:1; min-width:0;">
-                    <input type="checkbox" class="cat-checkbox" ${isCatActive ? 'checked' : ''} title="Toggle ${escapeAttribute(cat)}">
+                    <input type="checkbox" class="cat-checkbox" ${isCatActive ? 'checked' : ''} title="Toggle ${escapeAttribute(cat)}" aria-label="Show ${escapeAttribute(cat)}">
                     <span class="cat-name" title="${escapeAttribute(cat)}">${escapeHTML(cat)}</span> 
                 </div>
                 <div class="cat-actions" style="display:flex; align-items:center; gap:6px;">
@@ -2980,9 +3002,12 @@ function createProductCard(p) {
     card.className = 'p-item-sh ' + (compareModeActive && selectedForComparison.includes(p.id) ? 'selected' : '');
     card.dataset.productId = p.id;
     card.style.setProperty('--store-color', storeColor);
-    card.setAttribute('role', 'button');
+    // A focusable group, not role=button: the card holds real buttons/links (fav, alert, store, category),
+    // and a button may not contain interactive children. Enter/Space still opens the chart (see #sh-grid).
+    card.setAttribute('role', 'group');
     card.setAttribute('tabindex', '0');
-    card.setAttribute('aria-label', `${p.name} — ${fmt(p.normalized_price)} taka per ${unitTypeLabel(p.unit_type)} at ${STORE_CONFIG[p.store]?.name || p.store}`);
+    card.setAttribute('aria-roledescription', 'product');
+    card.setAttribute('aria-label', `${p.name} — ${fmt(p.normalized_price)} taka per ${unitTypeLabel(p.unit_type)} at ${STORE_CONFIG[p.store]?.name || p.store}. Press Enter for price history`);
     
     const isOos = !p.in_stock || p.is_out_of_stock || !p.hasPriceToday || !(Number(p.current_price) > 0);
     const displayPrice = isOos ? getLastKnownPrice(p) : Number(p.current_price);
@@ -3028,15 +3053,15 @@ function createProductCard(p) {
     card.innerHTML = `
         <div class="store-badge" style="background:${storeColor}">${escapeHTML(STORE_CONFIG[p.store]?.name || p.store)}</div>
         <a href="${escapeAttribute(getStoreDirectUrl(p))}" target="_blank" rel="noopener noreferrer" class="shop-redirect-card-btn" title="Open on ${escapeAttribute(p.store.toUpperCase())}" onclick="event.stopPropagation()" aria-label="Open on ${escapeAttribute(p.store.toUpperCase())}"><i class="fas fa-external-link-alt"></i></a>
-        <div class="fav-btn ${p.isFavorite ? 'active' : ''}">
-            <i class="fas fa-star"></i>
-        </div>
+        <button type="button" class="fav-btn ${p.isFavorite ? 'active' : ''}" aria-pressed="${p.isFavorite ? 'true' : 'false'}" aria-label="Favourite ${escapeAttribute(p.name)}" title="Favourite">
+            <i class="fas fa-star" aria-hidden="true"></i>
+        </button>
         <button class="alert-quick-btn ${hasActiveAlert(p.id) ? 'active' : ''}" type="button" title="Create price alert" aria-label="Create price alert for ${escapeAttribute(p.name)}"><i class="fas fa-bell"></i></button>
         <div class="compare-check" aria-hidden="true"><i class="fas ${selectedForComparison.includes(p.id) ? 'fa-check' : 'fa-plus'}"></i></div>
         ${badgeStackHtml}
         ${isOos ? '<div style="position:absolute; bottom:8px; left:8px; font-size:0.5rem; font-weight:900; background:var(--danger); padding:1px 5px; border-radius:3px; color:#fff; z-index:11;">OS</div>' : ''}
         <div class="p-img-box">
-            <img src="${escapeAttribute(p.image)}" class="product-image" loading="lazy" onerror="this.src='https://placehold.co/200x200/000/fff?text=NO_SIGNAL'">
+            <img src="${escapeAttribute(p.image)}" class="product-image" alt="" loading="lazy" decoding="async" onerror="this.src='https://placehold.co/200x200/000/fff?text=NO_SIGNAL'">
             <div class="price-tag ${isOos ? 'oos-tag' : ''}" title="${isOos ? 'Out of stock (Last known price)' : 'Current price'}">${displayPrice > 0 ? Math.round(displayPrice) : '—'}</div>
         </div>
         <div class="p-detail-sh">
