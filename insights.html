@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>GroceryGOD Insights</title>
+<meta name="description" content="Visitor analytics for GroceryGOD: visitors, page views, referrers, countries, devices, events and Web Vitals.">
+<link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://grocerygod-insights.vercel.app" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="analytics.css" rel="stylesheet">
+<script>
+try { if (localStorage.getItem('god_theme') === 'light') document.documentElement.dataset.theme = 'light'; } catch (_) {}
+</script>
+</head>
+<body>
+<header class="an-top">
+  <div class="an-top-inner">
+    <a class="an-brand" href="./" title="Back to the price dashboard">
+      <span class="an-mark" aria-hidden="true">৳</span>
+      <span>GroceryGOD</span>
+    </a>
+    <span class="an-slash" aria-hidden="true">/</span>
+    <h1 class="an-crumb">Insights</h1>
+    <span class="an-live" id="in-online" hidden><span class="dot"></span><span id="in-online-text">0 online</span></span>
+    <div class="an-top-actions">
+      <a class="an-btn ghost" href="analytics.html">Market stats</a>
+      <button class="an-btn ghost icon" id="an-theme" type="button" aria-label="Switch light / dark theme" title="Switch theme"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17a8.5 8.5 0 0 0 0-17z" fill="currentColor"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main class="an-main">
+  <section class="an-card an-gate" id="in-gate" hidden>
+    <h2>Enter your Insights key</h2>
+    <p>Visitor data is private. The key is stored only in this browser.</p>
+    <form id="in-gate-form" class="an-gate-form">
+      <label class="sr-only" for="in-key">Insights key</label>
+      <input id="in-key" type="password" autocomplete="current-password" spellcheck="false" placeholder="Insights key" required>
+      <button class="an-btn" type="submit">Open dashboard</button>
+    </form>
+    <p class="an-gate-error" id="in-gate-error" role="alert"></p>
+  </section>
+
+  <div id="in-app" hidden>
+    <div class="an-toolbar">
+      <div class="an-seg" role="group" aria-label="Time range" id="in-range">
+        <button type="button" data-range="24h">24h</button>
+        <button type="button" data-range="7d">7d</button>
+        <button type="button" data-range="30d">30d</button>
+        <button type="button" data-range="90d">90d</button>
+      </div>
+      <div class="an-chips" id="in-filters" aria-live="polite"></div>
+      <span class="an-progress" id="in-status" aria-live="polite"></span>
+      <div class="an-toolbar-right">
+        <button class="an-btn" id="in-refresh" type="button">Refresh</button>
+        <button class="an-btn ghost" id="in-signout" type="button">Sign out</button>
+      </div>
+    </div>
+
+    <section class="an-card an-overview" aria-label="Overview">
+      <div class="an-kpis an-kpis-4" role="tablist" id="in-kpis"></div>
+      <div class="an-chart-wrap" id="in-chart-wrap" role="tabpanel">
+        <div class="an-chart-head"><span id="in-chart-title">Visitors</span><span class="an-chart-note" id="in-chart-note"></span></div>
+        <div class="an-chart"><canvas id="in-chart" role="img" aria-label="Traffic chart"></canvas></div>
+      </div>
+    </section>
+
+    <div class="an-grid">
+      <section class="an-card an-panel">
+        <header><h2>Pages</h2></header>
+        <div class="an-cols"><span>Page</span><span>Visitors</span></div>
+        <ol class="an-list" id="in-pages" tabindex="0" aria-label="Pages"></ol>
+      </section>
+      <section class="an-card an-panel">
+        <header><h2>Referrers</h2><div class="an-tabs" role="group" aria-label="View" data-tabs="ref"><button data-tab="ref" class="on">Referrers</button><button data-tab="utm_source">UTM source</button><button data-tab="utm_medium">Medium</button><button data-tab="utm_campaign">Campaign</button></div></header>
+        <div class="an-cols"><span>Source</span><span>Visitors</span></div>
+        <ol class="an-list" id="in-ref" tabindex="0" aria-label="Referrers"></ol>
+      </section>
+      <section class="an-card an-panel">
+        <header><h2>Locations</h2><div class="an-tabs" role="group" aria-label="View" data-tabs="geo"><button data-tab="country" class="on">Countries</button><button data-tab="city">Cities</button></div></header>
+        <div class="an-cols"><span>Location</span><span>Visitors</span></div>
+        <ol class="an-list" id="in-geo" tabindex="0" aria-label="Locations"></ol>
+      </section>
+      <section class="an-card an-panel">
+        <header><h2>Technology</h2><div class="an-tabs" role="group" aria-label="View" data-tabs="tech"><button data-tab="device" class="on">Devices</button><button data-tab="browser">Browsers</button><button data-tab="os">OS</button></div></header>
+        <div class="an-cols"><span>Type</span><span>Visitors</span></div>
+        <ol class="an-list" id="in-tech" tabindex="0" aria-label="Technology"></ol>
+      </section>
+      <section class="an-card an-panel">
+        <header><h2>Events</h2><span class="an-sub" id="in-events-sub">Click an event to see its properties</span></header>
+        <div class="an-cols"><span id="in-events-col-a">Event</span><span id="in-events-col-b">Count · visitors</span></div>
+        <ol class="an-list" id="in-events" tabindex="0" aria-label="Events"></ol>
+      </section>
+      <section class="an-card an-panel">
+        <header><h2>Speed Insights</h2><span class="an-sub">p75 from real visitors</span></header>
+        <div class="an-cols"><span>Metric</span><span>p75 · good</span></div>
+        <ol class="an-list" id="in-vitals" tabindex="0" aria-label="Web Vitals"></ol>
+        <div class="an-cols an-cols-gap"><span>Live now</span><span>Views, last 5 min</span></div>
+        <ol class="an-list an-list-short" id="in-live" tabindex="0" aria-label="Live pages"></ol>
+      </section>
+    </div>
+    <p class="an-foot">Cookieless: visitors are counted with a daily-rotating hash computed on the server; IP addresses are never stored. Visitors who send Do Not Track or Global Privacy Control are not counted.</p>
+  </div>
+</main>
+
+<div class="an-toast" id="an-toast" role="status" aria-live="polite"></div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="insights-app.js" defer></script>
+</body>
+</html>

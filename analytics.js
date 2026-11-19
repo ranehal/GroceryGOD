@@ -392,7 +392,7 @@ function drawChart(series) {
     };
     const line = (label, data, color, fmt) => ({
         type: 'line', label, data, borderColor: color, backgroundColor: gradient(color), fill: true,
-        borderWidth: 2, pointRadius: 0, pointHoverRadius: 4, tension: .25, spanGaps: true, _fmt: fmt
+        borderWidth: 2, pointRadius: 0, pointHoverRadius: 4, tension: .25, cubicInterpolationMode: 'monotone', spanGaps: true, _fmt: fmt
     });
     let datasets, stacked = false, yFmt = v => fmtInt(v);
     switch (state.kpi) {

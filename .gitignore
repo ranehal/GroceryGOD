@@ -68,3 +68,6 @@ read_later/
 
 # Playwright MCP artifacts (local browser test snapshots)
 .playwright-mcp/
+
+# Insights collector secrets (Turso token, dashboard key) - local only
+insights_secrets.json

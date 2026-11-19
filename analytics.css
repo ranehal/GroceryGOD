@@ -216,3 +216,35 @@ button { font: inherit; color: inherit; }
 ::selection { background: var(--taka-fill); }
 input, select { caret-color: var(--taka); }
 .an-list { scrollbar-width: thin; scrollbar-color: var(--ink-3) transparent; overscroll-behavior: contain; }
+
+/* ---- Insights (visitor analytics) additions ---- */
+.an-kpis-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.an-gate { max-width: 440px; margin: 64px auto; padding: 28px; }
+.an-gate h2 { margin: 0 0 6px; font: 600 20px var(--font-display); letter-spacing: -.01em; }
+.an-gate p { margin: 0 0 18px; color: var(--paper-2); font-size: 14px; }
+.an-gate-form { display: flex; gap: 8px; }
+.an-gate-form input {
+    flex: 1; min-width: 0; height: 36px; padding: 0 12px; border-radius: 6px; border: 1px solid var(--rule-strong);
+    background: var(--ink-0); color: var(--paper); font: 14px var(--font-mono);
+}
+.an-gate-form input:focus-visible { outline: 2px solid var(--taka); outline-offset: 1px; }
+.an-gate-form .an-btn { height: 36px; }
+.an-gate-error { margin: 12px 0 0 !important; color: var(--chili) !important; min-height: 1.5em; font-size: 13px !important; }
+.an-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.an-chip {
+    display: inline-flex; align-items: center; gap: 6px; height: 30px; padding: 0 8px 0 10px; border-radius: 6px;
+    border: 1px solid var(--rule-strong); background: var(--ink-2); font-size: 12px; cursor: pointer;
+    transition: background-color 140ms var(--ease-out);
+}
+.an-chip-k { font: 500 11px var(--font-mono); color: var(--paper-2); text-transform: uppercase; letter-spacing: .04em; }
+.an-chip svg { color: var(--paper-2); }
+@media (hover: hover) and (pointer: fine) { .an-chip:hover { background: var(--ink-3); } }
+.an-cols-gap { margin-top: 10px; padding-top: 12px; border-top: 1px solid var(--rule); }
+.an-list-short { max-height: 200px; }
+@media (max-width: 760px) {
+    .an-kpis-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .an-kpis-4 .an-kpi:last-child { grid-column: auto; }
+    .an-gate { margin: 32px auto; padding: 20px; }
+    .an-gate-form { flex-direction: column; }
+}
+@media (max-width: 760px) { #in-online:not([hidden]) { display: inline-flex; } }
