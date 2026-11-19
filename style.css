@@ -7664,3 +7664,91 @@ body:not(.theme-light) [style*="color:#9c27b0"] { color: #c062d6 !important; }
 body:not(.theme-light) .price-main .unit-label { color: var(--paper-3) !important; opacity: 1 !important; }
 body:not(.theme-light) .shop-header > div:nth-of-type(2) > span { opacity: .8 !important; }
 body:not(.theme-light) footer, body:not(.theme-light) footer * { color: var(--paper-3); }
+
+/* ============================================================================
+   SEARCH, CHART MODAL & RANK PASS — 2026-11-19b (appended; wins by order)
+   ============================================================================ */
+
+/* Catalogue search dropdown. .intelligence-bar is a flex item with z-index 65 and
+   painted over the open dropdown (sticky header is z 40): lift the header while it is open. */
+.dashboard-header:has(#search-suggestions[style*="block"]) { z-index: 120 !important; }
+#search-suggestions { width: max(100%, 440px); max-width: min(560px, calc(100vw - 24px)); }
+@media (max-width: 768px) {
+    /* Phones: the input is ~180px wide and sits at the header's left gutter, so let the list
+       run the full row (viewport minus the 14px gutters) instead of the input's width. */
+    #search-suggestions {
+        left: 0 !important; right: auto !important; width: calc(100vw - 28px) !important; max-width: none !important;
+        top: calc(100% + 4px) !important; max-height: min(420px, 62vh) !important;
+    }
+}
+/* Hero search: keep its dropdown above the price board that follows it on phones. */
+.hero-search-container:has(#hero-search-suggestions[style*="block"]),
+.hero-editorial-left:has(#hero-search-suggestions[style*="block"]) { position: relative; z-index: 60; }
+#hero-search-suggestions { max-height: min(420px, 62vh) !important; }
+
+/* Match highlight: the matched letters read as emphasis in the name, not as a green block. */
+.suggestion-name { color: var(--paper-2); }
+.suggestion-highlight {
+    color: var(--paper) !important;
+    background: none !important;
+    font-weight: 700 !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    text-decoration: underline;
+    text-decoration-color: var(--taka);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+}
+body.theme-light .suggestion-highlight { color: var(--paper) !important; background: none !important; text-decoration-color: var(--taka-deep, #0e7c5c); }
+.suggestion-item:hover, .suggestion-item.active, .suggestion-item[aria-selected="true"] {
+    background: var(--ink-3) !important;
+    box-shadow: inset 0 0 0 1px rgba(59, 224, 176, .35);
+}
+.suggestion-item.active .suggestion-name, .suggestion-item[aria-selected="true"] .suggestion-name { color: var(--paper); }
+body.theme-light .suggestion-item:hover, body.theme-light .suggestion-item.active, body.theme-light .suggestion-item[aria-selected="true"] {
+    background: rgba(14, 124, 92, .08) !important;
+    box-shadow: inset 0 0 0 1px rgba(14, 124, 92, .3);
+}
+
+/* Chart modal close: pinned to the header's top-right corner (it floated mid-row after the
+   pills wrapped) and a 40px target. */
+#chart-modal .modal-header { position: relative; padding-right: 68px !important; }
+#chart-modal .modal-header button.chart-close-btn[onclick] {
+    position: absolute !important;
+    top: 16px; right: 16px;
+    width: 40px !important; height: 40px !important;
+    margin: 0 !important; padding: 0 !important;
+    display: grid !important; place-items: center;
+    border-radius: 8px !important;
+    font-size: 1.05rem !important;
+    line-height: 1;
+    z-index: 5;
+    cursor: pointer;
+}
+#chart-modal .modal-header button.chart-close-btn[onclick] i { display: block; line-height: 1; }
+#chart-modal .modal-header button.chart-close-btn[onclick]:focus-visible { outline: 2px solid var(--taka) !important; outline-offset: 2px; }
+@media (max-width: 768px) {
+    #chart-modal .modal-header { padding-right: 60px !important; }
+    #chart-modal .modal-header button.chart-close-btn[onclick] { top: 12px; right: 12px; }
+}
+
+/* Price-chart backdrop: was grayscale + invert (a photo negative). Now a luminance matte
+   (#god-photo-matte in index.html) drops the white studio background and keeps the item positive. */
+body:not(.theme-light) .history-chart-stage::before {
+    filter: url(#god-photo-matte) saturate(.9);
+    mix-blend-mode: normal;
+    opacity: .22;
+}
+
+/* Rank chip is a button now: opens the category ranked cheapest-first. */
+button.rank-chip {
+    -webkit-appearance: none; appearance: none;
+    cursor: pointer;
+    min-height: 22px;
+    transition: border-color .14s var(--ease-out), color .14s var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+    button.rank-chip:hover { color: var(--taka) !important; border-color: rgba(59, 224, 176, .6) !important; }
+}
+button.rank-chip:focus-visible { outline: 2px solid var(--taka) !important; outline-offset: 2px; }
+@media (pointer: coarse) { button.rank-chip { min-height: 28px; padding-inline: 7px !important; } }

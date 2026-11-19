@@ -46,7 +46,7 @@ function arrowToObjects(table) {
     for (let r = 0; r < t.length; r++) out[r] = t.row(r);
     return out;
 }
-const ASSET_VERSION = window.GOD_ASSET_VERSION || '20261119_v2';
+const ASSET_VERSION = window.GOD_ASSET_VERSION || '20261119_v3';
 let currentDataSource = safeStorage.getItem('god_data_source') || 'local';
 let favorites = JSON.parse(safeStorage.getItem('god_favorites') || '[]');
 let selectedForComparison = JSON.parse(safeStorage.getItem('god_comparison') || '[]');
@@ -2547,6 +2547,28 @@ async function jumpToCategoryWithHighlight(sid, catName, productId) {
 }
 window.jumpToCategoryWithHighlight = jumpToCategoryWithHighlight;
 
+// The №N chip ranks an item by unit price among the in-stock items of its (store, category).
+// Show exactly that list: the category, sorted unit-price ascending, with no deal filter narrowing it.
+async function openCategoryRanking(product) {
+    if (!product) return;
+    sortOption = 'unit_price_asc';
+    const sortSelect = document.getElementById('sort-options');
+    if (sortSelect) sortSelect.value = 'unit_price_asc';
+    if (activeIntelFilter !== 'all') {
+        activeIntelFilter = 'all';
+        document.querySelectorAll('.intel-btn[data-filter]').forEach(b => b.classList.toggle('active', b.dataset.filter === 'all'));
+    }
+    if (showNewOnly) showNewOnly = false;
+    await jumpToCategoryWithHighlight(product.store, product.category, product.id);
+    // Ranks are rebuilt once the full catalogue hydrates, so read the rank after the jump.
+    if (catRankDirty && typeof rebuildCategoryRankIndex === 'function') rebuildCategoryRankIndex();
+    if (typeof showUXToast === 'function') {
+        const info = catRankIndex.get(product.id);
+        if (info) showUXToast(`№${info.rank} of ${info.total} in ${product.category}, cheapest first`, 'info');
+    }
+}
+window.openCategoryRanking = openCategoryRanking;
+
 // ---------------------------------------------------------------------------
 // Mobile header tools: the compact sticky header can reveal every desktop
 // header tool as an overlay panel, so its toolbar is reachable anywhere.
@@ -2705,7 +2727,12 @@ function renderProducts() {
             const card = e.target.closest('.p-item-sh');
             if (!card) return;
             const id = card.dataset.productId;
-            if (e.target.closest('.cat-jump-btn')) {
+            if (e.target.closest('.rank-chip')) {
+                // Rank chip: open the item's category ranked cheapest-first (the order the №N is computed in).
+                e.preventDefault();
+                const product = getProductById(id);
+                if (product) openCategoryRanking(product);
+            } else if (e.target.closest('.cat-jump-btn')) {
                 // Category tag on the card: open that category, keep the item in view.
                 const jump = e.target.closest('.cat-jump-btn');
                 e.preventDefault();
@@ -3047,7 +3074,7 @@ function createProductCard(p) {
     const sparklineHtml = renderCardSparklineSvg(p);
     const rankInfo = catRankIndex.get(p.id);
     const rankHtml = rankInfo
-        ? `<span class="rank-chip${rankInfo.rank <= 3 ? ' rank-top' : ''}" title="${escapeAttribute(`№${rankInfo.rank} cheapest of ${rankInfo.total} live items in ${p.category} — ranked by unit price`)}">№${rankInfo.rank}</span>`
+        ? `<button type="button" class="rank-chip${rankInfo.rank <= 3 ? ' rank-top' : ''}" title="${escapeAttribute(`№${rankInfo.rank} cheapest of ${rankInfo.total} live items in ${p.category} — open the ranking`)}" aria-label="${escapeAttribute(`Ranked ${rankInfo.rank} of ${rankInfo.total} in ${p.category}. Open the ranking`)}">№${rankInfo.rank}</button>`
         : '';
 
     card.innerHTML = `

@@ -1,5 +1,5 @@
 // GroceryGOD Service Worker — Cache Accelerator for Instant Loading
-const CACHE_NAME = 'god-cache-v20261119_v2';
+const CACHE_NAME = 'god-cache-v20261119_v3';
 const STATIC_ASSET_PATTERNS = [
     /@duckdb\/duckdb-wasm/i,
     /duckdb.*\.wasm(\?|$)/i,

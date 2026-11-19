@@ -372,6 +372,95 @@ def parse_unit_and_calculate(name, unit_str, price):
 
     return 'kg', price
 
+# ---------------------------------------------------------------------------
+# Shwapno product-page categories (2026-11-19)
+# ---------------------------------------------------------------------------
+import math
+from collections import Counter
+
+_SH_PIN = '\U0001f4cc'
+_SH_SIZE_RE = re.compile(r'\b\d+(?:\.\d+)?\s*(?:gm|grams?|g|kg|mg|ml|ltr|litre|liter|l|pcs?|pieces?|pack)\b', re.I)
+_SH_PROMO_RE = re.compile(r'\bbuy\s*\d+\s*get\s*\d+\b', re.I)
+_SH_DUP_RE = re.compile(r'^(.*\S)\s+\d$')
+_SH_STOP = {'the', 'and', 'with', 'for', 'free', 'buy', 'get', 'new', 'pack', 'combo', 'poly', 'box', 'jar', 'pouch', 'pet', 'bottle', 'can', 'tin', 'loose', 'mini', 'big', 'small', 'large'}
+
+def _sh_tokens(name):
+    return {t for t in re.findall(r'[a-z]+', _SH_SIZE_RE.sub(' ', (name or '').lower())) if len(t) >= 3 and t not in _SH_STOP}
+
+def fix_shwapno_product_categories(items):
+    """Shwapno exposes some product landing pages as categories ('Aci Pure Chilli Powder 200Gm',
+    'Domex ... 750Ml', 'Low Fat Milk 2'). Fold slug duplicates back and re-home items whose category
+    is really a product page into the real category their closest-named products sit in."""
+    items = list(items)
+    cats = Counter(p.get('category') or '' for p in items)
+    names = {re.sub(r'\W+', '', (p.get('name') or '').lower()) for p in items}
+
+    def product_like(c):
+        if not c or c.startswith(_SH_PIN):
+            return False
+        if _SH_SIZE_RE.search(c) or _SH_PROMO_RE.search(c):
+            return True
+        return re.sub(r'\W+', '', c.lower()) in names
+
+    # 1. "<Category> 2" slug duplicates -> "<Category>" when the base is a real category name.
+    remap = {}
+    for c in cats:
+        m = _SH_DUP_RE.match(c or '')
+        if m and not c.startswith(_SH_PIN):
+            base = m.group(1)
+            if not product_like(base):
+                remap[c] = base
+    for p in items:
+        if p.get('category') in remap:
+            p['category'] = remap[p['category']]
+
+    bad = {c for c in Counter(p.get('category') or '' for p in items) if product_like(c)}
+    if not bad:
+        return {}
+
+    # 2. token -> category votes from items in real, non-pinned categories
+    votes = defaultdict(Counter)
+    df = Counter()
+    for p in items:
+        c = p.get('category') or ''
+        if c in bad or c.startswith(_SH_PIN) or c in ('', 'General', 'N/A'):
+            continue
+        toks = _sh_tokens(p.get('name'))
+        for t in toks:
+            votes[t][c] += 1
+            df[t] += 1
+
+    def score_of(name, cat):
+        score = Counter()
+        for t in _sh_tokens(name) | _sh_tokens(cat):
+            if t in votes:
+                w = 1.0 / math.log(2 + df[t])           # rarer words (brand, product type) weigh more
+                total = sum(votes[t].values())
+                for c2, n in votes[t].items():
+                    score[c2] += w * n / total
+        return score
+
+    # 3. One destination per product-page category: pool its items' votes, so siblings from the
+    #    same page land together instead of scattering over near-duplicate categories.
+    pooled = defaultdict(Counter)
+    for p in items:
+        c = p.get('category') or ''
+        if c in bad:
+            s = score_of(p.get('name'), c)
+            tot = sum(s.values()) or 1.0
+            for k, v in s.items():
+                pooled[c][k] += v / tot
+    dest = {c: (pooled[c].most_common(1)[0][0] if pooled[c] else 'General') for c in bad}
+
+    moved = {}
+    for p in items:
+        c = p.get('category') or ''
+        if c in bad:
+            p['category'] = dest[c]
+            moved[p.get('name')] = (c, dest[c])
+    return moved
+
+
 def load_shwapno():
     print("Processing Shwapno...")
     try:
@@ -553,6 +642,12 @@ def load_shwapno():
             except Exception as e:
                 print(f"Error loading Shwapno App data: {e}")
 
+        try:
+            moved = fix_shwapno_product_categories(products_by_name.values())
+            if moved:
+                print(f"  Re-homed {len(moved)} Shwapno items out of product-page categories")
+        except Exception as e:
+            print(f"  Shwapno category clean-up skipped: {e}")
         products = {v["id"]: v for v in products_by_name.values()}
         stats["web_selected"] = len([v for v in products_by_name.values() if v.get("_src") == "web"])
         stats["app_selected"] = sum(1 for v in products_by_name.values() if v.get("_src") == "app")
