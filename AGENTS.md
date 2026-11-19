@@ -224,8 +224,8 @@ These fixes were extracted from live Kaggle failures. Preserve the patterns:
     - `.intelligence-bar` is a flex item with z-index 65, which paints over the sticky header (z 40). `.dashboard-header:has(#search-suggestions[style*="block"])` lifts the header while the dropdown is open.
     - On phones `#search-suggestions` is `calc(100vw - 28px)` wide. Do not make `.search-wrapper` static: that moves the clear ✕ to the header corner.
     - The match highlight is an underline plus weight, not a green block.
-    - The chart modal's close button is `.chart-close-btn`, pinned top-right at 40px.
-    - The price-chart backdrop uses the `#god-photo-matte` SVG luminance matte (defined inline in `index.html`) instead of `invert()`, which made the photo a negative.
+    - The chart modal's close button is `.chart-close-btn`, pinned top-right at 40px, with a red `#D93A2B` fill (white icon, 4.6:1).
+    - The price-chart backdrop is the **original** product photo, unfiltered (no invert, matte or blend), at 26% opacity. The old `invert()` made it a negative.
     - The card `№N` rank chip is a button that calls `openCategoryRanking()`: the (store, category) list sorted `unit_price_asc` with deal filters cleared, matching how `catRankIndex` ranks.
   - **Shwapno product-page categories (`aggregator.py` `fix_shwapno_product_categories`, 2026-11-19)**: Shwapno serves some product landing pages as categories ("Aci Pure Chilli Morich Powder 200Gm", "Domex … 750Ml", "Low Fat Milk 2"). After loading, the aggregator:
     1. folds `<name> N` slug duplicates back into `<name>`;

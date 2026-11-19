@@ -7726,18 +7726,29 @@ body.theme-light .suggestion-item:hover, body.theme-light .suggestion-item.activ
     cursor: pointer;
 }
 #chart-modal .modal-header button.chart-close-btn[onclick] i { display: block; line-height: 1; }
+#chart-modal .modal-header button.chart-close-btn[onclick] {
+    background: #D93A2B !important;   /* white glyph on this red: 4.6:1 */
+    color: #fff !important;
+    border: 0 !important;
+}
+@media (hover: hover) and (pointer: fine) {
+    #chart-modal .modal-header button.chart-close-btn[onclick]:hover { background: #E8493A !important; color: #fff !important; }
+}
+#chart-modal .modal-header button.chart-close-btn[onclick]:active { transform: scale(.96); }
 #chart-modal .modal-header button.chart-close-btn[onclick]:focus-visible { outline: 2px solid var(--taka) !important; outline-offset: 2px; }
 @media (max-width: 768px) {
     #chart-modal .modal-header { padding-right: 60px !important; }
     #chart-modal .modal-header button.chart-close-btn[onclick] { top: 12px; right: 12px; }
 }
 
-/* Price-chart backdrop: was grayscale + invert (a photo negative). Now a luminance matte
-   (#god-photo-matte in index.html) drops the white studio background and keeps the item positive. */
-body:not(.theme-light) .history-chart-stage::before {
-    filter: url(#god-photo-matte) saturate(.9);
-    mix-blend-mode: normal;
-    opacity: .22;
+/* Price-chart backdrop: the original product photo, unfiltered (no invert / matte / blend),
+   kept faint enough that the price line stays the loudest thing on the stage. */
+.history-chart-stage::before,
+body:not(.theme-light) .history-chart-stage::before,
+body.theme-light .history-chart-stage::before {
+    filter: none !important;
+    mix-blend-mode: normal !important;
+    opacity: .26 !important;
 }
 
 /* Rank chip is a button now: opens the category ranked cheapest-first. */
