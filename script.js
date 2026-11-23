@@ -46,7 +46,7 @@ function arrowToObjects(table) {
     for (let r = 0; r < t.length; r++) out[r] = t.row(r);
     return out;
 }
-const ASSET_VERSION = window.GOD_ASSET_VERSION || '20261122_v1';
+const ASSET_VERSION = window.GOD_ASSET_VERSION || '20261123_v1';
 let currentDataSource = safeStorage.getItem('god_data_source') || 'local';
 let favorites = JSON.parse(safeStorage.getItem('god_favorites') || '[]');
 let selectedForComparison = JSON.parse(safeStorage.getItem('god_comparison') || '[]');
