@@ -1038,5 +1038,20 @@ window.CATEGORY_DATA = [
     "name": "Additional troubleshooting information",
     "url": "https://chaldal.comhttps://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-5xx-errors/error-521/",
     "active": true
+  },
+  {
+    "name": "Error 526",
+    "url": "https://chaldal.comhttps://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-5xx-errors/error-526/",
+    "active": true
+  },
+  {
+    "name": "Origin Analytics",
+    "url": "https://chaldal.comhttps://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-5xx-errors/error-526/#diagnose-with-origin-analytics",
+    "active": true
+  },
+  {
+    "name": "Cloudflare Origin CA certificate",
+    "url": "https://chaldal.comhttps://developers.cloudflare.com/ssl/origin-configuration/origin-ca/",
+    "active": true
   }
 ];
