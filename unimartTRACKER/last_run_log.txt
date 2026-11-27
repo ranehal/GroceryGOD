@@ -1,17 +1,17 @@
-Last Run: 2026-11-26 07:01:00
+Last Run: 2026-11-27 06:05:37
 ------------------------------
 Total Scraped: 1800
-New Items: 3
+New Items: 27
 ------------------------------
 Categories:
 - Socks: 80
-- Shampoo: 68
-- Whole Spice: 56
-- Toothpaste: 48
-- Imported Wafers: 37
-- Grinded Spice: 36
+- Shampoo: 71
+- Whole Spice: 58
+- Toothpaste: 35
+- Men’S Perfume: 35
+- Grinded Spice: 34
+- Imported Wafers: 33
 - Pasteurized Full Cream Milk: 30
-- Men’S Perfume: 29
-- Cookies: 28
-- Chips: 27
-... and 305 more.
+- Soft Drinks: 30
+- Chips: 28
+... and 303 more.
